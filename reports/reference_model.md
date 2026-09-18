@@ -1,5 +1,7 @@
 # Current reference model
 
+[Direction, sizing, and leg-level P&L breakdown](reference_positions.md).
+
 Reference cost: **1.0 vol point per full-size pair round trip**, chosen by the user. The cost scales with absolute size; flat costs zero. This is a modeling assumption, not a calibrated bid/ask estimate.
 
 State: IV spread, earnings countdowns for AMD and NVDA, and 30-calendar-day trailing RV for both stocks. Signed size choices: -1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1. Maximum initial vega per reference-capital dollar is 0.001 per leg per new entry.
