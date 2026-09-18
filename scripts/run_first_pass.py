@@ -45,15 +45,15 @@ def load_data(root):
     return data
 
 
-def load_return_history(root):
+def load_return_history(root, return_column='retx'):
     frames = []
     for f in sorted((root / 'crsp_underlying_daily').glob('*.parquet')):
         # Some downloaded year partitions are empty with null-typed identifiers.
-        d = pd.read_parquet(f, columns=['permno', 'date', 'retx'])
+        d = pd.read_parquet(f, columns=['permno', 'date', return_column])
         frames.append(d[d.permno.isin([61241, 86580])])
     ret = pd.concat([f for f in frames if len(f)]).drop_duplicates()
     ret['ticker'] = ret.permno.map({61241: 'AMD', 86580: 'NVDA'})
-    return ret.pivot(index='date', columns='ticker', values='retx').sort_index()
+    return ret.pivot(index='date', columns='ticker', values=return_column).sort_index()
 
 
 def split_data(data):

@@ -13,6 +13,8 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--predictions',type=Path,default=Path('artifacts/walk_forward/predictions.csv'))
     p.add_argument('--output',type=Path,default=Path('reports/walk_forward_annual.csv'))
+    p.add_argument('--models',nargs='+',default=['spread_earnings_rv','spread_earnings_rv_vix'],
+                   help='Models to print; the output CSV always includes every model.')
     args=p.parse_args()
     d=pd.read_csv(args.predictions,index_col='date',parse_dates=['date','end'])
     models=[c.removesuffix('_reward') for c in d.columns if c.endswith('_reward') and c!='long_reward']
@@ -30,7 +32,7 @@ def main():
     result=pd.DataFrame(rows)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     result.to_csv(args.output,index=False)
-    focus=result[result.model.isin(['spread_earnings_rv','spread_earnings_rv_vix'])]
+    focus=result[result.model.isin(args.models)]
     print(focus.pivot(index='year',columns='model',values=['net_pnl_per_dollar_vega_per_leg','annualized_payoff_sharpe']).round(3).to_string())
     print('PERIODS', result.groupby('year').first()[['entries','first_entry','last_entry','last_settlement']].to_string())
 

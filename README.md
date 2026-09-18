@@ -7,3 +7,5 @@ State inputs: AMD–NVDA 30-day IV spread, days until earnings for each stock (a
 [Walk-forward results, 2010–2025](reports/walk_forward.md): annualized net payoff Sharpe after an assumed 0.5-vol-point round-trip pair cost: spread 0.215, + earnings 0.366, + RV 0.527, + VIX -0.020; simple short-higher-IV baseline 0.444.
 
 [Annual P&L and Sharpe](reports/walk_forward_annual.md).
+
+[Short RV and 12–1 momentum experiment](reports/short_rv_momentum.md): on matched training dates, 30-day RV remains strongest; 5/10-day RV and momentum did not improve results.

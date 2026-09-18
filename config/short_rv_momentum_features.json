@@ -1,0 +1,104 @@
+{
+  "rv30cal": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda"
+  ],
+  "rv30cal_vix": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "vix_previous_close"
+  ],
+  "rv30cal_momentum": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "momentum_12_1_amd",
+    "momentum_12_1_nvda"
+  ],
+  "rv30cal_momentum_vix": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "momentum_12_1_amd",
+    "momentum_12_1_nvda",
+    "vix_previous_close"
+  ],
+  "rv5td": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_5td_amd",
+    "rv_5td_nvda"
+  ],
+  "rv5td_vix": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_5td_amd",
+    "rv_5td_nvda",
+    "vix_previous_close"
+  ],
+  "rv5td_momentum": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_5td_amd",
+    "rv_5td_nvda",
+    "momentum_12_1_amd",
+    "momentum_12_1_nvda"
+  ],
+  "rv5td_momentum_vix": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_5td_amd",
+    "rv_5td_nvda",
+    "momentum_12_1_amd",
+    "momentum_12_1_nvda",
+    "vix_previous_close"
+  ],
+  "rv10td": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_10td_amd",
+    "rv_10td_nvda"
+  ],
+  "rv10td_vix": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_10td_amd",
+    "rv_10td_nvda",
+    "vix_previous_close"
+  ],
+  "rv10td_momentum": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_10td_amd",
+    "rv_10td_nvda",
+    "momentum_12_1_amd",
+    "momentum_12_1_nvda"
+  ],
+  "rv10td_momentum_vix": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "rv_10td_amd",
+    "rv_10td_nvda",
+    "momentum_12_1_amd",
+    "momentum_12_1_nvda",
+    "vix_previous_close"
+  ]
+}

@@ -40,9 +40,18 @@ def main():
     p.add_argument('--panel',type=Path,default=Path('artifacts/rv_vix_pass/dataset.parquet'))
     p.add_argument('--output',type=Path,default=Path('artifacts/walk_forward'))
     p.add_argument('--cost',type=float,default=.5)
+    p.add_argument('--features-json',type=Path,help='Optional named feature sets for matched experiments.')
+    p.add_argument('--reference-model',default='spread')
+    p.add_argument('--comparison-model',default='spread_earnings_rv_vix')
     args=p.parse_args()
     if args.cost<0: p.error('--cost must be nonnegative')
     panel=pd.read_parquet(args.panel).sort_index()
+    feature_sets=json.loads(args.features_json.read_text()) if args.features_json else FEATURE_SETS
+    if args.reference_model not in feature_sets or args.comparison_model not in feature_sets:
+        p.error('Comparison and reference models must be named feature sets')
+    columns=sorted({column for features in feature_sets.values() for column in features})
+    if panel[columns].isna().any().any():
+        p.error('All feature sets must use the same complete panel')
     args.output.mkdir(parents=True,exist_ok=True)
     pieces=[]; fold_scores=[]; configs=[]; candidates=[]; folds=[]
     for year in range(2010,2026,2):
@@ -54,7 +63,7 @@ def main():
         out=test[['end','long_reward','spread']].copy()
         out['fold']=fold
         selected={}
-        for name,features in FEATURE_SETS.items():
+        for name,features in feature_sets.items():
             models=[]
             for max_leaves in [4,8,16]:
                 for min_leaf in [126,252]:
@@ -76,7 +85,7 @@ def main():
         out['validation_selected_reward']=out[winner+'_reward']
         out['short_higher_iv_action']=-np.sign(test.spread.to_numpy()).astype(int)
         out['short_higher_iv_reward']=net_rewards(out.short_higher_iv_action,test.long_reward,args.cost)
-        for name in list(FEATURE_SETS)+['validation_selected','short_higher_iv']:
+        for name in list(feature_sets)+['validation_selected','short_higher_iv']:
             fold_scores.append({'fold':fold,'model':name,'annualized_sharpe':payoff_sharpe(out[name+'_reward']),'trade_fraction':float((out[name+'_action']!=0).mean()),'mean_net':float(out[name+'_reward'].mean()),'entries':len(out)})
         pieces.append(out)
         print(f"Completed {fold}: {len(train)} train / {len(val)} validation / {len(test)} test; validation chose {winner}",flush=True)
@@ -84,16 +93,17 @@ def main():
     assert combined.index.is_unique
     positions=nonoverlap_positions(combined)
     scores=[]
-    for name in list(FEATURE_SETS)+['validation_selected','short_higher_iv']:
+    for name in list(feature_sets)+['validation_selected','short_higher_iv']:
         r=combined[name+'_reward'].to_numpy()
         scores.append({'model':name,'annualized_sharpe':payoff_sharpe(r),'sharpe_ci':interval(r,statistic=payoff_sharpe),'trade_fraction':float((combined[name+'_action']!=0).mean()),'mean_net':float(r.mean()),'nonoverlap_sharpe':payoff_sharpe(r[positions])})
     rng=np.random.default_rng(2026)
     differences=[]
     for _ in range(2000):
         idx=((rng.integers(len(combined),size=int(np.ceil(len(combined)/63)))[:,None]+np.arange(63))%len(combined)).ravel()[:len(combined)]
-        differences.append(payoff_sharpe(combined.spread_earnings_rv_vix_reward.to_numpy()[idx])-payoff_sharpe(combined.spread_reward.to_numpy()[idx]))
+        differences.append(payoff_sharpe(combined[args.comparison_model+'_reward'].to_numpy()[idx])-payoff_sharpe(combined[args.reference_model+'_reward'].to_numpy()[idx]))
     summary={'first':str(combined.index.min().date()),'last':str(combined.index.max().date()),'entries':len(combined),'nonoverlap_entries':len(positions),
-             'folds':folds,'scores':scores,'full_minus_spread_sharpe_ci':np.quantile(differences,[.025,.975]).tolist(),
+             'folds':folds,'scores':scores,'comparison_minus_reference_sharpe_ci':np.quantile(differences,[.025,.975]).tolist(),
+             'comparison_model':args.comparison_model,'reference_model':args.reference_model,'feature_sets':feature_sets,
              'source_panel_sha256':hashlib.sha256(args.panel.read_bytes()).hexdigest(),
              'assumptions':{'cost':args.cost,'annualization':'sqrt(365/30)','schedule':'expanding train, prior 2 years validation, next 2 years test','outcome_purging':True,'test_status':'retrospective walk-forward; previously viewed historical data; not pristine holdout','nonoverlap':'greedy entry at first date on/after prior 30-day expiry; one offset diagnostic'}}
     combined.to_csv(args.output/'predictions.csv')
@@ -103,7 +113,7 @@ def main():
     pd.DataFrame(candidates).to_csv(args.output/'candidates.csv',index=False)
     pd.DataFrame(scores).to_csv(args.output/'scores.csv',index=False)
     (args.output/'summary.json').write_text(json.dumps(summary,indent=2))
-    print(json.dumps({'entries':len(combined),'nonoverlap_entries':len(positions),'scores':scores,'full_minus_spread_sharpe_ci':summary['full_minus_spread_sharpe_ci']},indent=2))
+    print(json.dumps({'entries':len(combined),'nonoverlap_entries':len(positions),'scores':scores,'comparison_minus_reference_sharpe_ci':summary['comparison_minus_reference_sharpe_ci']},indent=2))
 
 
 if __name__=='__main__': main()
