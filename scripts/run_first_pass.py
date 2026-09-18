@@ -38,6 +38,14 @@ def load_data(root):
     iv['ticker'] = iv.secid.map({101121.: 'AMD', 108321.: 'NVDA'})
     iv = iv.pivot(index='date', columns='ticker', values='impl_volatility')
     iv = (iv.where(iv > 0).dropna() * 100).rename(columns={'AMD': 'iv_amd', 'NVDA': 'iv_nvda'})
+    ret = load_return_history(root)
+    data = iv.join(forward_rv(ret, iv.index), how='inner').sort_index()
+    data['spread'] = data.iv_amd - data.iv_nvda
+    data['long_reward'] = (data.rv_amd - data.iv_amd) - (data.rv_nvda - data.iv_nvda)
+    return data
+
+
+def load_return_history(root):
     frames = []
     for f in sorted((root / 'crsp_underlying_daily').glob('*.parquet')):
         # Some downloaded year partitions are empty with null-typed identifiers.
@@ -45,11 +53,7 @@ def load_data(root):
         frames.append(d[d.permno.isin([61241, 86580])])
     ret = pd.concat([f for f in frames if len(f)]).drop_duplicates()
     ret['ticker'] = ret.permno.map({61241: 'AMD', 86580: 'NVDA'})
-    ret = ret.pivot(index='date', columns='ticker', values='retx').sort_index()
-    data = iv.join(forward_rv(ret, iv.index), how='inner').sort_index()
-    data['spread'] = data.iv_amd - data.iv_nvda
-    data['long_reward'] = (data.rv_amd - data.iv_amd) - (data.rv_nvda - data.iv_nvda)
-    return data
+    return ret.pivot(index='date', columns='ticker', values='retx').sort_index()
 
 
 def split_data(data):
