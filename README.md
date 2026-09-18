@@ -2,7 +2,7 @@
 
 AMD/NVDA ATM vega-neutral pairs, assuming daily delta hedging. Current model uses IV spread, earnings countdowns, and trailing 30-day RV, with a 0/25/50/75/100% sizing ladder and 1.0-vol-point pair execution cost.
 
-[Current finalized dataset (CSV)](data/current_dataset.csv): 5,685 daily observations, December 2002–August 2025. Includes all five state inputs, each leg’s entry IV and forward 30-day RV, the outcome date, and gross pair payoff. Forward RV and payoff are labels, not state inputs. Earnings countdowns assume actual dates within 30 days were known at entry.
+[Current finalized dataset (CSV)](data/current_dataset.csv): 5,685 daily observations, December 2002–August 2025. Includes all five state inputs, each leg’s entry IV and forward 30-day RV, and the outcome date. Rewards are computed during training; forward RV is used for evaluation, not as a state input. Earnings countdowns assume actual dates within 30 days were known at entry.
 
 [Current model, training command, and yearly results](reports/reference_model.md). Annualized walk-forward payoff Sharpe: **0.667**.
 
