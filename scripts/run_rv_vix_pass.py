@@ -52,7 +52,7 @@ def leaf_states(tree, data, features, leaf_ids):
     return np.searchsorted(leaf_ids, leaves)
 
 
-def fit_tree_policy(train, features, max_leaves, min_leaf, cost):
+def fit_tree_policy(train, features, max_leaves, min_leaf, cost, action_values=None):
     # Supervised state partition, followed by direct Sharpe policy optimization.
     # The partition is learned only on training rewards; prediction uses state only.
     tree = DecisionTreeRegressor(max_leaf_nodes=max_leaves,min_samples_leaf=min_leaf,random_state=2026)
@@ -61,6 +61,12 @@ def fit_tree_policy(train, features, max_leaves, min_leaf, cost):
     state = leaf_states(tree,train,features,leaf_ids)
     fits = [fit_policy(state,train.long_reward.to_numpy(),len(leaf_ids),seed,cost=cost) for seed in range(5)]
     policy,score = max(fits,key=lambda x:x[1])
+    if action_values is not None:
+        fixed_score=score
+        fits=[fit_policy(state,train.long_reward.to_numpy(),len(leaf_ids),seed,cost=cost,
+                         action_values=action_values,initial_policy=policy) for seed in range(5)]
+        policy,score=max(fits,key=lambda x:x[1])
+        assert score>=fixed_score-1e-10
     return tree,leaf_ids,policy,score,fits
 
 

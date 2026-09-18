@@ -43,8 +43,18 @@ def main():
     p.add_argument('--features-json',type=Path,help='Optional named feature sets for matched experiments.')
     p.add_argument('--reference-model',default='spread')
     p.add_argument('--comparison-model',default='spread_earnings_rv_vix')
+    p.add_argument('--sizing-ladder',type=float,nargs='+',help='Nonnegative fractions of max vega, including 0 and 1.')
+    p.add_argument('--max-vega-per-dollar',type=float,default=.001,
+                   help='Per-leg max initial dollar vega per dollar of reference capital, per new trade.')
     args=p.parse_args()
     if args.cost<0: p.error('--cost must be nonnegative')
+    if args.max_vega_per_dollar<=0: p.error('--max-vega-per-dollar must be positive')
+    action_values=None
+    if args.sizing_ladder is not None:
+        levels=np.unique(args.sizing_ladder)
+        if not np.isfinite(levels).all() or np.any(levels<0) or np.any(levels>1) or 0 not in levels or 1 not in levels:
+            p.error('Sizing ladder must be within [0,1] and include 0 and 1')
+        action_values=np.unique(np.r_[-levels,levels])
     panel=pd.read_parquet(args.panel).sort_index()
     feature_sets=json.loads(args.features_json.read_text()) if args.features_json else FEATURE_SETS
     if args.reference_model not in feature_sets or args.comparison_model not in feature_sets:
@@ -67,7 +77,7 @@ def main():
             models=[]
             for max_leaves in [4,8,16]:
                 for min_leaf in [126,252]:
-                    tree,ids,policy,train_score,_=fit_tree_policy(train,features,max_leaves,min_leaf,args.cost)
+                    tree,ids,policy,train_score,_=fit_tree_policy(train,features,max_leaves,min_leaf,args.cost,action_values=action_values)
                     vr=net_rewards(policy[leaf_states(tree,val,features,ids)],val.long_reward.to_numpy(),args.cost)
                     cfg={'fold':fold,'feature_set':name,'max_leaves':max_leaves,'min_leaf':min_leaf,'actual_leaves':len(ids),'train_sharpe':train_score,'validation_sharpe':payoff_sharpe(vr)}
                     candidates.append(cfg)
@@ -77,7 +87,13 @@ def main():
             selected[name]=cfg
             actions=policy[leaf_states(tree,test,features,ids)]
             out[name+'_action']=actions
+            if action_values is not None:
+                out[name+'_amd_vega_per_dollar']=actions*args.max_vega_per_dollar
+                out[name+'_nvda_vega_per_dollar']=-actions*args.max_vega_per_dollar
+                out[name+'_confidence_proxy']=np.abs(actions)
             out[name+'_reward']=net_rewards(actions,test.long_reward.to_numpy(),args.cost)
+            if action_values is not None:
+                out[name+'_return_on_reference_capital']=out[name+'_reward']*args.max_vega_per_dollar
         # This meta-policy selects feature set by preceding validation only.
         winner=max(selected,key=lambda name:selected[name]['validation_sharpe'])
         out['validation_selected_features']=winner
@@ -95,7 +111,8 @@ def main():
     scores=[]
     for name in list(feature_sets)+['validation_selected','short_higher_iv']:
         r=combined[name+'_reward'].to_numpy()
-        scores.append({'model':name,'annualized_sharpe':payoff_sharpe(r),'sharpe_ci':interval(r,statistic=payoff_sharpe),'trade_fraction':float((combined[name+'_action']!=0).mean()),'mean_net':float(r.mean()),'nonoverlap_sharpe':payoff_sharpe(r[positions])})
+        action=combined[name+'_action']
+        scores.append({'model':name,'annualized_sharpe':payoff_sharpe(r),'sharpe_ci':interval(r,statistic=payoff_sharpe),'trade_fraction':float((action!=0).mean()),'mean_net':float(r.mean()),'nonoverlap_sharpe':payoff_sharpe(r[positions]),'average_size':float(np.abs(action).mean()),'size_counts':{str(k):int(v) for k,v in np.abs(action).value_counts().sort_index().items()}})
     rng=np.random.default_rng(2026)
     differences=[]
     for _ in range(2000):
@@ -105,7 +122,7 @@ def main():
              'folds':folds,'scores':scores,'comparison_minus_reference_sharpe_ci':np.quantile(differences,[.025,.975]).tolist(),
              'comparison_model':args.comparison_model,'reference_model':args.reference_model,'feature_sets':feature_sets,
              'source_panel_sha256':hashlib.sha256(args.panel.read_bytes()).hexdigest(),
-             'assumptions':{'cost':args.cost,'annualization':'sqrt(365/30)','schedule':'expanding train, prior 2 years validation, next 2 years test','outcome_purging':True,'test_status':'retrospective walk-forward; previously viewed historical data; not pristine holdout','nonoverlap':'greedy entry at first date on/after prior 30-day expiry; one offset diagnostic'}}
+             'assumptions':{'cost_per_full_size_pair':args.cost,'sizing_ladder':args.sizing_ladder,'max_vega_per_dollar_per_leg_per_entry':args.max_vega_per_dollar,'cost_scaling':'proportional to absolute size','confidence_proxy':'absolute learned allocation, not a calibrated probability','capital_accounting':'fixed reference capital per entry; no portfolio margin limit, rehedge mark, or compounding','annualization':'sqrt(365/30)','schedule':'expanding train, prior 2 years validation, next 2 years test','outcome_purging':True,'test_status':'retrospective walk-forward; previously viewed historical data; not pristine holdout','nonoverlap':'greedy entry at first date on/after prior 30-day expiry; one offset diagnostic'}}
     combined.to_csv(args.output/'predictions.csv')
     combined.iloc[positions].to_csv(args.output/'nonoverlap_predictions.csv')
     pd.DataFrame(fold_scores).to_csv(args.output/'fold_scores.csv',index=False)

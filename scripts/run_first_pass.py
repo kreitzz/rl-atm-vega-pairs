@@ -95,7 +95,7 @@ def payoff_sharpe(reward):
 
 
 def net_rewards(actions, reward, cost):
-    return actions * reward - cost * (actions != 0)
+    return actions * reward - cost * np.abs(actions)
 
 
 def policy_scores(policies, state, reward, nstates, cost=0.5):
@@ -104,14 +104,16 @@ def policy_scores(policies, state, reward, nstates, cost=0.5):
     sums = np.bincount(state, weights=reward, minlength=nstates)
     squares = np.bincount(state, weights=reward ** 2, minlength=nstates)
     counts = np.bincount(state, minlength=nstates)
-    traded = policies ** 2
-    mean = (policies @ sums - cost * (traded @ counts)) / n
-    second = traded @ squares - 2 * cost * (policies @ sums) + cost ** 2 * (traded @ counts)
+    squared = policies ** 2
+    magnitude = np.abs(policies)
+    mean = (policies @ sums - cost * (magnitude @ counts)) / n
+    second = squared @ squares - 2 * cost * ((policies*magnitude) @ sums) + cost ** 2 * (squared @ counts)
     var = np.maximum((second - n * mean ** 2) / (n - 1), 0)
     return SHARPE_ANNUALIZATION * np.divide(mean, np.sqrt(var), out=np.zeros_like(mean), where=var > 1e-24)
 
 
-def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population=256):
+def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population=256,
+               action_values=None, initial_policy=None):
     """Cross-entropy episodic policy search maximizing training payoff Sharpe.
 
     An episode replays the training history; its terminal objective is Sharpe.
@@ -119,14 +121,26 @@ def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population
     outcomes enter their observations. This is direct policy search, not TD Q-learning.
     """
     rng = np.random.default_rng(seed)
-    probabilities = np.full((nstates, 3), 1 / 3)
-    best = np.zeros(nstates, dtype=int)
+    action_values = ACTIONS if action_values is None else np.asarray(action_values,dtype=float)
+    if action_values.ndim!=1 or not np.isfinite(action_values).all() or 0 not in action_values or len(np.unique(action_values))!=len(action_values):
+        raise ValueError('Action values must be finite, unique, and include flat')
+    n_actions=len(action_values)
+    probabilities = np.full((nstates, n_actions), 1 / n_actions)
+    best = np.zeros(nstates, dtype=float)
     best_score = 0.0
+    if initial_policy is not None:
+        initial_policy=np.asarray(initial_policy,dtype=float)
+        if initial_policy.shape!=(nstates,) or not np.isin(initial_policy,action_values).all():
+            raise ValueError('Initial policy must use the specified ladder')
+        initial_score=float(policy_scores(initial_policy[None,:],state,reward,nstates,cost)[0])
+        if initial_score>best_score:
+            best=initial_policy.copy()
+            best_score=initial_score
     for _ in range(iterations):
         draws = rng.random((population, nstates, 1))
         indices = (draws > probabilities.cumsum(axis=1)[None, :, :]).sum(axis=2)
-        indices = np.minimum(indices, 2)
-        policies = ACTIONS[indices]
+        indices = np.minimum(indices, n_actions-1)
+        policies = action_values[indices]
         policies[0] = best
         scores = policy_scores(policies, state, reward, nstates, cost)
         winner = int(scores.argmax())
@@ -134,9 +148,9 @@ def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population
             best_score = float(scores[winner])
             best = policies[winner].copy()
         elite = policies[np.argsort(scores)[-max(2, population // 10):]]
-        frequencies = np.stack([(elite == a).mean(axis=0) for a in ACTIONS], axis=1)
+        frequencies = np.stack([(elite == a).mean(axis=0) for a in action_values], axis=1)
         probabilities = .3 * probabilities + .7 * frequencies
-        probabilities = .97 * probabilities + .03 / 3
+        probabilities = .97 * probabilities + .03 / n_actions
     best[np.bincount(state, minlength=nstates) == 0] = 0
     return best, best_score
 
