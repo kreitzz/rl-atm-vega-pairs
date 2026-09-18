@@ -1,0 +1,52 @@
+{
+  "rv30cal": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda"
+  ],
+  "spread_mean": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "spread_mean_63"
+  ],
+  "spread_zscore": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "spread_z_63"
+  ],
+  "spread_mean_zscore": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "spread_mean_63",
+    "spread_z_63"
+  ],
+  "spread_change": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "spread_change_21"
+  ],
+  "spread_all_history": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "spread_mean_63",
+    "spread_z_63",
+    "spread_change_21"
+  ]
+}

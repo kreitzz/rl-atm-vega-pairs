@@ -11,3 +11,5 @@ State inputs: AMD–NVDA 30-day IV spread, days until earnings for each stock (a
 [Short RV and 12–1 momentum experiment](reports/short_rv_momentum.md): on matched training dates, 30-day RV remains strongest; 5/10-day RV and momentum did not improve results.
 
 [Dynamic entry-sizing ladder](reports/sizing_ladder.md): 0/25/50/75/100% of maximum vega per dollar. The 30-day RV model's annualized payoff Sharpe rises from 0.692 to 0.735; the improvement remains uncertain.
+
+[Historical spread experiment](reports/spread_history.md): a trailing 63-observation z-score scores 0.729 with the ladder versus 0.735 without it; no clear improvement.
