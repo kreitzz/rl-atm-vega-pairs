@@ -15,3 +15,5 @@ State inputs: AMD–NVDA 30-day IV spread, days until earnings for each stock (a
 [Historical spread experiment](reports/spread_history.md): a trailing 63-observation z-score scores 0.729 with the ladder versus 0.735 without it; no clear improvement.
 
 [Rolling beta experiment](reports/rolling_beta.md): 63/126-day AMD-on-NVDA return beta did not improve the current best model.
+
+[Wider execution costs](reports/execution_costs.md): retrained Sharpe is 0.735 / 0.667 / 0.596 / 0.440 at 0.5 / 1 / 1.5 / 2 vol points per pair round trip. These are cost assumptions, not quote-calibrated estimates.
