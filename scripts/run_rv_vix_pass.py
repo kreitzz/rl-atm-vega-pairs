@@ -9,10 +9,10 @@ import pandas as pd
 from sklearn.tree import DecisionTreeRegressor, export_text
 
 if __package__:
-    from .run_first_pass import load_data, load_return_history, split_data, fit_policy, net_rewards, payoff_sharpe, interval
+    from .run_first_pass import DEFAULT_EXECUTION_COST, load_data, load_return_history, split_data, fit_policy, net_rewards, payoff_sharpe, interval
     from .attach_earnings import attach, load_calendar
 else:
-    from run_first_pass import load_data, load_return_history, split_data, fit_policy, net_rewards, payoff_sharpe, interval
+    from run_first_pass import DEFAULT_EXECUTION_COST, load_data, load_return_history, split_data, fit_policy, net_rewards, payoff_sharpe, interval
     from attach_earnings import attach, load_calendar
 
 
@@ -75,7 +75,7 @@ def main():
     p.add_argument('--source-root',type=Path,required=True)
     p.add_argument('--vix',type=Path,default=Path('data/raw/VIX_History.csv'))
     p.add_argument('--output',type=Path,default=Path('artifacts/rv_vix_pass'))
-    p.add_argument('--cost',type=float,default=.5)
+    p.add_argument('--cost',type=float,default=DEFAULT_EXECUTION_COST)
     args=p.parse_args()
     if args.cost<0:
         p.error('--cost must be nonnegative')

@@ -57,7 +57,7 @@ Average allocation is 45.5% of maximum across all entry opportunities. The reali
 The action search is generalized to fractional sizes. For every candidate tree, first learn the original fixed-size policy, then include it as the initial incumbent in each ladder search. This guarantees at least its training Sharpe within that tree while keeping future outcomes out of selection. Test performance has no such guarantee. The same five seeds and validation tree-selection grid are used; each size mode selects its own configuration from the common grid.
 
 ```sh
-python scripts/run_walk_forward.py --panel artifacts/short_rv_momentum/dataset.parquet --output artifacts/sizing_ladder/walk_forward --features-json config/short_rv_momentum_features.json --reference-model rv30cal --comparison-model rv5td_momentum --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001
+python scripts/run_walk_forward.py --panel artifacts/short_rv_momentum/dataset.parquet --output artifacts/sizing_ladder/walk_forward --features-json config/short_rv_momentum_features.json --reference-model rv30cal --comparison-model rv5td_momentum --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001 --cost 0.5
 python scripts/report_sizing.py
 python -m unittest discover -s tests -v
 ```

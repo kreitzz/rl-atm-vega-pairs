@@ -54,7 +54,7 @@ This is a retrospective walk-forward study over previously available and partly 
 First build the RV/VIX panel using `scripts/run_rv_vix_pass.py`, then:
 
 ```sh
-python scripts/run_walk_forward.py
+python scripts/run_walk_forward.py --cost 0.5
 python -m unittest discover -s tests -v
 ```
 

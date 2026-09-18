@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 ACTIONS = np.array([-1, 0, 1])  # +1 = long AMD / short NVDA
+DEFAULT_EXECUTION_COST = 1.0
 HORIZON_CALENDAR_DAYS = 30
 SHARPE_ANNUALIZATION = np.sqrt(365 / HORIZON_CALENDAR_DAYS)
 
@@ -98,7 +99,7 @@ def net_rewards(actions, reward, cost):
     return actions * reward - cost * np.abs(actions)
 
 
-def policy_scores(policies, state, reward, nstates, cost=0.5):
+def policy_scores(policies, state, reward, nstates, cost=DEFAULT_EXECUTION_COST):
     """Exact full-episode Sharpe using per-state sufficient statistics."""
     n = len(reward)
     sums = np.bincount(state, weights=reward, minlength=nstates)
@@ -112,7 +113,7 @@ def policy_scores(policies, state, reward, nstates, cost=0.5):
     return SHARPE_ANNUALIZATION * np.divide(mean, np.sqrt(var), out=np.zeros_like(mean), where=var > 1e-24)
 
 
-def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population=256,
+def fit_policy(state, reward, nstates, seed, cost=DEFAULT_EXECUTION_COST, iterations=80, population=256,
                action_values=None, initial_policy=None):
     """Cross-entropy episodic policy search maximizing training payoff Sharpe.
 
@@ -172,7 +173,7 @@ def main():
     parser.add_argument('--source-root', type=Path, required=True)
     parser.add_argument('--output', type=Path,
                         help='Defaults to a separate artifact directory for each calendar mode.')
-    parser.add_argument('--cost', type=float, default=0.5,
+    parser.add_argument('--cost', type=float, default=DEFAULT_EXECUTION_COST,
                         help='All-in round-trip pair cost, in vol points per $1 vega per leg.')
     parser.add_argument('--earnings', action='store_true',
                         help='Add days until earnings for both legs, bucketed at 30 days.')

@@ -1,6 +1,6 @@
 # Wider execution-cost sensitivity
 
-The 1–2 vol-point assumptions are stress cases, not calibrated estimates of AMD/NVDA execution. Costs are **all-in per full-size pair round trip**, not per leg or per fill. Retain 0.5 as the experiment's reference assumption until actual quotes and hedge costs are measured.
+**Current reference: 1.0 vol point per full-size pair round trip**, selected by the user. This is a modeling assumption rather than a quote-calibrated estimate. Costs are all-in for the pair, not per leg or per fill. The table below retains the original sensitivity study, whose frozen policy was trained at 0.5; new runs default to 1.0.
 
 ## Results
 
@@ -37,7 +37,7 @@ To calibrate instead of assume: estimate option bid/ask concessions, commissions
 ## Reproduce
 
 ```sh
-python scripts/run_execution_costs.py
+python scripts/run_execution_costs.py --reference-cost 0.5
 python -m unittest discover -s tests -v
 ```
 

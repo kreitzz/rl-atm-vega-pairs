@@ -23,9 +23,11 @@ def main():
     p.add_argument('--output',type=Path,default=Path('artifacts/execution_costs'))
     p.add_argument('--report-output',type=Path,default=Path('reports/execution_costs'))
     p.add_argument('--costs',type=float,nargs='+',default=[.5,1.,1.5,2.])
+    p.add_argument('--reference-cost',type=float,default=1.0,
+                   help='Cost at which to freeze the reference policy (default: 1.0).')
     args=p.parse_args()
     if any(not np.isfinite(c) or c<0 for c in args.costs):p.error('Costs must be finite and nonnegative')
-    if .5 not in args.costs:p.error('Include 0.5 as the reference cost')
+    if args.reference_cost not in args.costs:p.error('Include the reference cost in --costs')
     args.output.mkdir(parents=True,exist_ok=True)
     args.report_output.mkdir(parents=True,exist_ok=True)
     features_path=args.output/'features.json'
@@ -46,12 +48,12 @@ def main():
         predictions=pd.read_csv(destination/'predictions.csv',index_col='date',parse_dates=['date','end'])
         runs[cost]=(scores,predictions)
         print(f'Cost {cost:g}: annualized payoff Sharpe {scores["annualized_sharpe"]:.3f}',flush=True)
-    reference=runs[.5][1]
+    reference=runs[args.reference_cost][1]
     old_path=Path('artifacts/sizing_ladder/walk_forward/predictions.csv')
-    if old_path.exists():
+    if .5 in runs and old_path.exists():
         old=pd.read_csv(old_path,index_col='date',parse_dates=['date'])
-        pd.testing.assert_series_equal(reference.rv30cal_action,old.rv30cal_action,check_dtype=False)
-        np.testing.assert_allclose(reference.rv30cal_reward,old.rv30cal_reward,atol=1e-12)
+        pd.testing.assert_series_equal(runs[.5][1].rv30cal_action,old.rv30cal_action,check_dtype=False)
+        np.testing.assert_allclose(runs[.5][1].rv30cal_reward,old.rv30cal_reward,atol=1e-12)
     rows=[];annual=[];allocations=[]
     previous_frozen=None
     for cost,(score,d) in runs.items():
@@ -67,7 +69,7 @@ def main():
             ix=((rng.integers(len(d),size=int(np.ceil(len(d)/63)))[:,None]+np.arange(63))%len(d)).ravel()[:len(d)]
             differences.append(payoff_sharpe(reward[ix])-payoff_sharpe(frozen[ix]))
         low,high=np.quantile(differences,[.025,.975])
-        rows.append({'pair_round_trip_cost':cost,'frozen_policy_sharpe':payoff_sharpe(frozen),'retrained_policy_sharpe':score['annualized_sharpe'],
+        rows.append({'pair_round_trip_cost':cost,'frozen_reference_cost':args.reference_cost,'frozen_policy_sharpe':payoff_sharpe(frozen),'retrained_policy_sharpe':score['annualized_sharpe'],
                      'retrained_sharpe_ci_low':score['sharpe_ci'][0],'retrained_sharpe_ci_high':score['sharpe_ci'][1],
                      'retrained_minus_frozen_ci_low':low,'retrained_minus_frozen_ci_high':high,
                      'trade_fraction':float((a!=0).mean()),'mean_size':float(np.abs(a).mean()),

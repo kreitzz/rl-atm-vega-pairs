@@ -1,0 +1,9 @@
+{
+  "rv30cal": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda"
+  ]
+}

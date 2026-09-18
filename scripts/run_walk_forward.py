@@ -9,10 +9,10 @@ import pandas as pd
 
 if __package__:
     from .run_rv_vix_pass import FEATURE_SETS, fit_tree_policy, leaf_states
-    from .run_first_pass import net_rewards, payoff_sharpe, interval
+    from .run_first_pass import DEFAULT_EXECUTION_COST, net_rewards, payoff_sharpe, interval
 else:
     from run_rv_vix_pass import FEATURE_SETS, fit_tree_policy, leaf_states
-    from run_first_pass import net_rewards, payoff_sharpe, interval
+    from run_first_pass import DEFAULT_EXECUTION_COST, net_rewards, payoff_sharpe, interval
 
 
 def fold_data(panel, test_year):
@@ -39,7 +39,7 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--panel',type=Path,default=Path('artifacts/rv_vix_pass/dataset.parquet'))
     p.add_argument('--output',type=Path,default=Path('artifacts/walk_forward'))
-    p.add_argument('--cost',type=float,default=.5)
+    p.add_argument('--cost',type=float,default=DEFAULT_EXECUTION_COST)
     p.add_argument('--features-json',type=Path,help='Optional named feature sets for matched experiments.')
     p.add_argument('--reference-model',default='spread')
     p.add_argument('--comparison-model',default='spread_earnings_rv_vix')

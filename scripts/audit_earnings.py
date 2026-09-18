@@ -20,11 +20,11 @@ def main():
     rows = []
     for bins in [5,10,20]:
         edges = np.unique(np.quantile(train.spread,np.arange(1,bins)/bins))
-        spread_policy,_ = max([fit_policy(model_states(train,edges),train.long_reward.to_numpy(),len(edges)+1,seed) for seed in range(5)],key=lambda x:x[1])
+        spread_policy,_ = max([fit_policy(model_states(train,edges),train.long_reward.to_numpy(),len(edges)+1,seed,cost=.5) for seed in range(5)],key=lambda x:x[1])
         for earnings in [False,True]:
             nstates=(len(edges)+1)*(4 if earnings else 1)
             state=model_states(train,edges,earnings)
-            policy,score=max([fit_policy(state,train.long_reward.to_numpy(),nstates,seed) for seed in range(5)],key=lambda x:x[1])
+            policy,score=max([fit_policy(state,train.long_reward.to_numpy(),nstates,seed,cost=.5) for seed in range(5)],key=lambda x:x[1])
             row={'spread_bins':bins,'earnings':earnings,'states':nstates,'min_training_rows_per_state':int(np.bincount(state,minlength=nstates).min())}
             for name,frame in [('train',train),('validation',val),('test',test)]:
                 reward=net_rewards(policy[model_states(frame,edges,earnings)],frame.long_reward.to_numpy(),.5)
@@ -35,7 +35,7 @@ def main():
                     lifted_actions=lifted[model_states(frame,edges,True)]
                     np.testing.assert_array_equal(lifted_actions,spread_policy[model_states(frame,edges)])
             if earnings:
-                row['lifted_spread_train_sharpe']=float(policy_scores(np.repeat(spread_policy,4)[None,:],state,train.long_reward.to_numpy(),nstates)[0])
+                row['lifted_spread_train_sharpe']=float(policy_scores(np.repeat(spread_policy,4)[None,:],state,train.long_reward.to_numpy(),nstates,cost=.5)[0])
                 assert score >= row['lifted_spread_train_sharpe'] - 1e-10
             rows.append(row)
     comparison=pd.DataFrame(rows)

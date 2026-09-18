@@ -34,8 +34,8 @@ All Sharpes remain annualized 30-day net payoff ratios (`sqrt(365/30)`), not dai
 
 ```sh
 python scripts/build_rolling_beta.py --source-root /path/to/convert-rv-rl/data/raw/wrds
-python scripts/run_walk_forward.py --panel artifacts/rolling_beta/dataset.parquet --output artifacts/rolling_beta/fixed --features-json config/rolling_beta_features.json --reference-model rv30cal --comparison-model beta63
-python scripts/run_walk_forward.py --panel artifacts/rolling_beta/dataset.parquet --output artifacts/rolling_beta/ladder --features-json config/rolling_beta_features.json --reference-model rv30cal --comparison-model beta63 --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001
+python scripts/run_walk_forward.py --panel artifacts/rolling_beta/dataset.parquet --output artifacts/rolling_beta/fixed --features-json config/rolling_beta_features.json --reference-model rv30cal --comparison-model beta63 --cost 0.5
+python scripts/run_walk_forward.py --panel artifacts/rolling_beta/dataset.parquet --output artifacts/rolling_beta/ladder --features-json config/rolling_beta_features.json --reference-model rv30cal --comparison-model beta63 --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001 --cost 0.5
 python scripts/report_sizing.py --fixed artifacts/rolling_beta/fixed --ladder artifacts/rolling_beta/ladder --output reports/rolling_beta
 python -m unittest discover -s tests -v
 ```

@@ -36,8 +36,8 @@ Each feature set receives the same tree grid, seeds, expanding-window schedule, 
 
 ```sh
 python scripts/build_spread_history.py
-python scripts/run_walk_forward.py --panel artifacts/spread_history/dataset.parquet --output artifacts/spread_history/fixed --features-json config/spread_history_features.json --reference-model rv30cal --comparison-model spread_zscore
-python scripts/run_walk_forward.py --panel artifacts/spread_history/dataset.parquet --output artifacts/spread_history/ladder --features-json config/spread_history_features.json --reference-model rv30cal --comparison-model spread_zscore --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001
+python scripts/run_walk_forward.py --panel artifacts/spread_history/dataset.parquet --output artifacts/spread_history/fixed --features-json config/spread_history_features.json --reference-model rv30cal --comparison-model spread_zscore --cost 0.5
+python scripts/run_walk_forward.py --panel artifacts/spread_history/dataset.parquet --output artifacts/spread_history/ladder --features-json config/spread_history_features.json --reference-model rv30cal --comparison-model spread_zscore --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001 --cost 0.5
 python scripts/report_sizing.py --fixed artifacts/spread_history/fixed --ladder artifacts/spread_history/ladder --output reports/spread_history
 python -m unittest discover -s tests -v
 ```

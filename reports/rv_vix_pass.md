@@ -39,7 +39,7 @@ These representation changes mean comparisons against the old 0.392 earnings-tab
 
 ```sh
 curl -fL https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv -o data/raw/VIX_History.csv
-python scripts/run_rv_vix_pass.py --source-root /path/to/convert-rv-rl/data/raw/wrds
+python scripts/run_rv_vix_pass.py --source-root /path/to/convert-rv-rl/data/raw/wrds --cost 0.5
 python -m unittest discover -s tests -v
 ```
 

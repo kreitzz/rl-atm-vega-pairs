@@ -39,7 +39,7 @@ Annual P&L is the sum of entry-cohort 30-day net payoffs at $1 vega per leg, not
 
 ```sh
 python scripts/build_short_rv_momentum.py --source-root /path/to/convert-rv-rl/data/raw/wrds
-python scripts/run_walk_forward.py --panel artifacts/short_rv_momentum/dataset.parquet --output artifacts/short_rv_momentum/walk_forward --features-json config/short_rv_momentum_features.json --reference-model rv30cal --comparison-model rv5td_momentum
+python scripts/run_walk_forward.py --panel artifacts/short_rv_momentum/dataset.parquet --output artifacts/short_rv_momentum/walk_forward --features-json config/short_rv_momentum_features.json --reference-model rv30cal --comparison-model rv5td_momentum --cost 0.5
 python scripts/report_annual.py --predictions artifacts/short_rv_momentum/walk_forward/predictions.csv --output reports/short_rv_momentum_annual.csv --models rv30cal rv5td rv10td rv30cal_momentum rv5td_momentum rv10td_momentum
 python -m unittest discover -s tests -v
 ```
