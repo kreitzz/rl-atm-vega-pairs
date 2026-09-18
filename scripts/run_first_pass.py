@@ -7,6 +7,8 @@ import numpy as np
 import pandas as pd
 
 ACTIONS = np.array([-1, 0, 1])  # +1 = long AMD / short NVDA
+HORIZON_CALENDAR_DAYS = 30
+SHARPE_ANNUALIZATION = np.sqrt(365 / HORIZON_CALENDAR_DAYS)
 
 
 def forward_rv(returns, entries):
@@ -14,7 +16,7 @@ def forward_rv(returns, entries):
     returns = returns.sort_index()
     rows = []
     for date in entries:
-        end = date + pd.Timedelta(days=30)
+        end = date + pd.Timedelta(days=HORIZON_CALENDAR_DAYS)
         if end > returns.index.max():
             continue
         window = returns.loc[(returns.index > date) & (returns.index <= end)]
@@ -61,11 +63,31 @@ def states(spread, edges):
     return np.searchsorted(edges, spread, side='right')
 
 
+def model_states(data, edges, earnings=False, earnings_mode='actual'):
+    spread_state = states(data.spread, edges)
+    if not earnings:
+        return spread_state
+    if earnings_mode == 'actual':
+        amd = data.amd_days_to_earnings_ex_post
+        nvda = data.nvda_days_to_earnings_ex_post
+    else:
+        amd = data.amd_estimated_days_until_earnings
+        nvda = data.nvda_estimated_days_until_earnings
+    if amd.isna().any() or nvda.isna().any():
+        raise ValueError('Missing earnings countdown')
+    # A coarse first pass: each countdown is inside or outside the holding horizon.
+    return spread_state * 4 + (amd <= HORIZON_CALENDAR_DAYS).to_numpy(int) * 2 + (nvda <= HORIZON_CALENDAR_DAYS).to_numpy(int)
+
+
 def payoff_sharpe(reward):
-    """Unannualized mean / sample SD; all-flat has score zero by convention."""
+    """Annualized 30-day payoff Sharpe; all-flat scores zero by convention.
+
+    Square-root-of-time convention for the payoff horizon, not the daily entry
+    frequency. This is not a serial-correlation-adjusted portfolio Sharpe.
+    """
     reward = np.asarray(reward, dtype=float)
     sd = reward.std(ddof=1)
-    return float(reward.mean() / sd) if sd > 1e-12 else 0.0
+    return float(SHARPE_ANNUALIZATION * reward.mean() / sd) if sd > 1e-12 else 0.0
 
 
 def net_rewards(actions, reward, cost):
@@ -82,7 +104,7 @@ def policy_scores(policies, state, reward, nstates, cost=0.5):
     mean = (policies @ sums - cost * (traded @ counts)) / n
     second = traded @ squares - 2 * cost * (policies @ sums) + cost ** 2 * (traded @ counts)
     var = np.maximum((second - n * mean ** 2) / (n - 1), 0)
-    return np.divide(mean, np.sqrt(var), out=np.zeros_like(mean), where=var > 1e-24)
+    return SHARPE_ANNUALIZATION * np.divide(mean, np.sqrt(var), out=np.zeros_like(mean), where=var > 1e-24)
 
 
 def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population=256):
@@ -111,6 +133,7 @@ def fit_policy(state, reward, nstates, seed, cost=0.5, iterations=80, population
         frequencies = np.stack([(elite == a).mean(axis=0) for a in ACTIONS], axis=1)
         probabilities = .3 * probabilities + .7 * frequencies
         probabilities = .97 * probabilities + .03 / 3
+    best[np.bincount(state, minlength=nstates) == 0] = 0
     return best, best_score
 
 
@@ -129,14 +152,27 @@ def interval(x, seed=2026, repeats=2000, block=63, statistic=np.mean):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--source-root', type=Path, required=True)
-    parser.add_argument('--output', type=Path, default=Path('artifacts/sharpe_pass'))
+    parser.add_argument('--output', type=Path,
+                        help='Defaults to a separate artifact directory for each calendar mode.')
     parser.add_argument('--cost', type=float, default=0.5,
                         help='All-in round-trip pair cost, in vol points per $1 vega per leg.')
+    parser.add_argument('--earnings', action='store_true',
+                        help='Add days until earnings for both legs, bucketed at 30 days.')
+    parser.add_argument('--earnings-mode', choices=['actual','estimated'], default='actual',
+                        help='Actual historical dates assumed known within 30 days, or prior-cadence estimates.')
     args = parser.parse_args()
     if args.cost < 0:
         parser.error('--cost must be nonnegative')
+    if args.output is None:
+        args.output = Path('artifacts') / (f'{args.earnings_mode}_earnings_sharpe_pass' if args.earnings else 'sharpe_pass')
     args.output.mkdir(parents=True, exist_ok=True)
     data = load_data(args.source_root)
+    if args.earnings:
+        if __package__:
+            from .attach_earnings import attach, load_calendar
+        else:
+            from attach_earnings import attach, load_calendar
+        data = attach(data, load_calendar(args.source_root))
     train, val, test = split_data(data)
     assert len(train) and len(val) and len(test)
     assert train.end.max() < val.index.min() and val.end.max() < test.index.min()
@@ -144,16 +180,17 @@ def main():
     models = {}
     for bins in [5, 10, 20]:
         edges = np.unique(np.quantile(train.spread, np.arange(1, bins) / bins))
-        fits = [fit_policy(states(train.spread, edges), train.long_reward.to_numpy(), len(edges)+1, seed, cost=args.cost)
+        nstates = (len(edges)+1) * (4 if args.earnings else 1)
+        fits = [fit_policy(model_states(train, edges, args.earnings, args.earnings_mode), train.long_reward.to_numpy(), nstates, seed, cost=args.cost)
                 for seed in range(5)]
         policy, train_score = max(fits, key=lambda fit: fit[1])
-        validation = net_rewards(policy[states(val.spread, edges)], val.long_reward.to_numpy(), args.cost)
+        validation = net_rewards(policy[model_states(val, edges, args.earnings, args.earnings_mode)], val.long_reward.to_numpy(), args.cost)
         candidates.append({'bins': bins, 'train_sharpe': train_score,
                            'validation_sharpe': payoff_sharpe(validation)})
         models[bins] = (edges, policy, fits)
     selected = max(candidates, key=lambda x: x['validation_sharpe'])['bins']
     edges, learned_policy, fits = models[selected]
-    test_states = states(test.spread, edges)
+    test_states = model_states(test, edges, args.earnings, args.earnings_mode)
     actions = learned_policy[test_states]
     constant = int(max(ACTIONS, key=lambda a: payoff_sharpe(net_rewards(a, train.long_reward.to_numpy(), args.cost))))
     strategies = {'sharpe_policy': actions, 'flat': np.zeros(len(test), dtype=int),
@@ -166,8 +203,8 @@ def main():
         reward = net_rewards(action, test.long_reward.to_numpy(), args.cost)
         lo, hi = interval(reward)
         scores.append({'strategy': name, 'mean_reward': float(reward.mean()),
-                       'ci_low': lo, 'ci_high': hi, 'payoff_sharpe': payoff_sharpe(reward),
-                       'sharpe_ci': interval(reward, statistic=payoff_sharpe), 'trade_fraction': float(np.mean(action != 0)),
+                       'ci_low': lo, 'ci_high': hi, 'annualized_payoff_sharpe': payoff_sharpe(reward),
+                       'annualized_sharpe_ci': interval(reward, statistic=payoff_sharpe), 'trade_fraction': float(np.mean(action != 0)),
                        'long_amd_fraction': float(np.mean(action == 1)),
                        'win_fraction_trades': float(np.mean(reward[action != 0] > 0)) if np.any(action != 0) else None})
     out = test.copy()
@@ -180,16 +217,21 @@ def main():
     pd.DataFrame(scores).to_csv(args.output/'scores.csv', index=False)
     annual = out.groupby(out.index.year).agg(entries=('reward','size'), mean_reward=('reward','mean'), long_amd_fraction=('action',lambda x: (x == 1).mean()))
     annual.to_csv(args.output/'annual.csv')
-    policy = pd.DataFrame({'lower': np.r_[-np.inf, edges], 'upper': np.r_[edges, np.inf],
+    repeats = 4 if args.earnings else 1
+    policy = pd.DataFrame({'lower': np.repeat(np.r_[-np.inf, edges], repeats), 'upper': np.repeat(np.r_[edges, np.inf], repeats),
                            'action': learned_policy})
+    if args.earnings:
+        policy['amd_earnings_within_30d'] = np.tile([False,False,True,True],len(edges)+1)
+        policy['nvda_earnings_within_30d'] = np.tile([False,True,False,True],len(edges)+1)
+        policy['train_count'] = np.bincount(model_states(train,edges,True,args.earnings_mode),minlength=len(policy))
     policy.to_csv(args.output/'policy.csv', index=False)
     diff = out.reward.to_numpy() - net_rewards(constant, out.long_reward.to_numpy(), args.cost)
-    summary = {'source_root': str(args.source_root), 'candidates': candidates, 'selected_bins': selected,
+    summary = {'source_root': str(args.source_root), 'earnings_state_enabled':args.earnings, 'earnings_mode':args.earnings_mode if args.earnings else None, 'earnings_state_definition':('actual historical dates assumed known within 30 days' if args.earnings_mode == 'actual' else 'prior-report rolling median cadence countdown') + '; <=30 vs >30 days per stock' if args.earnings else None, 'candidates': candidates, 'selected_bins': selected,
                'splits': {name: {'count':len(d), 'first':str(d.index.min().date()), 'last':str(d.index.max().date()), 'last_outcome':str(d.end.max().date())} for name,d in [('train',train),('validation',val),('test',test)]},
                'scores': scores, 'increment_vs_train_constant': {'mean':float(diff.mean()), 'ci':interval(diff)},
                'seed_test_sharpes': [payoff_sharpe(net_rewards(m[test_states],test.long_reward.to_numpy(), args.cost)) for m, _ in fits],
                'pair_cost_sensitivity_fixed_policy': {str(cost): {'mean':float(net_rewards(actions,out.long_reward,cost).mean()), 'sharpe':payoff_sharpe(net_rewards(actions,out.long_reward,cost))} for cost in [0,.25,.5,1]},
-               'assumptions': {'dollar_vega_per_leg':1, 'cost_training':args.cost, 'horizon_calendar_days':30, 'rv_annualization':252, 'sharpe_annualized':False, 'bootstrap_block_entries':63, 'bootstrap_repeats':2000, 'iterations':80, 'population':256, 'objective':'unannualized payoff mean / sample SD; flat entries included', 'seeds':list(range(5))}}
+               'assumptions': {'dollar_vega_per_leg':1, 'cost_training':args.cost, 'horizon_calendar_days':HORIZON_CALENDAR_DAYS, 'rv_annualization':252, 'sharpe_annualized':True, 'sharpe_annualization_factor':float(SHARPE_ANNUALIZATION), 'sharpe_convention':'sqrt(365 / horizon calendar days); not portfolio or serial-correlation adjusted', 'bootstrap_block_entries':63, 'bootstrap_repeats':2000, 'iterations':80, 'population':256, 'objective':'annualized payoff mean / sample SD; flat entries included', 'seeds':list(range(5))}}
     (args.output/'summary.json').write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary, indent=2))
     print(annual.to_string())

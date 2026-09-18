@@ -5,6 +5,12 @@ from scripts.run_first_pass import forward_rv, fit_policy, policy_scores, payoff
 
 
 class FirstPassTests(unittest.TestCase):
+    def test_sharpe_annualizes_the_30_day_horizon(self):
+        rewards = np.array([0., 1., 2., 3.])
+        expected = rewards.mean() / rewards.std(ddof=1) * np.sqrt(365 / 30)
+        self.assertAlmostEqual(payoff_sharpe(rewards), expected)
+        self.assertEqual(payoff_sharpe(np.zeros(4)), 0.)
+
     def test_forward_window_excludes_entry_and_later_returns(self):
         dates = pd.bdate_range('2020-01-01', '2020-03-01')
         r = pd.DataFrame(.01, index=dates, columns=['AMD', 'NVDA'])
