@@ -1,0 +1,16 @@
+{
+  "entries": 3922,
+  "active_entries": 3055,
+  "strata": 27,
+  "active_entries_in_mixed_direction_strata": 1730,
+  "trials_per_method": 5000,
+  "seed": 2026,
+  "pair_cost": 1.0,
+  "leg_cost_allocation": "50/50 assumption; not measured per-leg execution costs",
+  "methods": {
+    "coin_flip": "independent fair directions, preserves dates and sizes but not long/short mix or persistence",
+    "stratified_shuffle": "permute sign within each walk-forward fold and exact size; preserves directional count and vega mix within strata",
+    "stratified_circular_shift": "rotate sign within each fold/size stratum in chronological order; preserves that stratum's circular direction runs and exact mix, not all cross-stratum dependence"
+  },
+  "scope": "conditional on learned entry selection and size; no retraining; measures direction alignment in this inspected historical sample, not independent evidence of generalizable edge"
+}

@@ -7,3 +7,5 @@ Reinforcement learning for AMD/NVDA ATM options, assuming equal initial dollar v
 [Reference model and yearly results](reports/reference_model.md) · [Cost sensitivity](reports/execution_costs.md) · [Prior feature experiments](reports/rolling_beta.md)
 
 [Position and leg-level P&L breakdown](reports/reference_positions.md).
+
+[Matched direction controls](reports/direction_controls.md): the policy beats constant directions, but the persistence-preserving randomization result is less decisive.

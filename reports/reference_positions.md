@@ -1,5 +1,7 @@
 # Reference-policy position and P&L breakdown
 
+[Matched always-long, always-short, and randomized-direction controls](direction_controls.md).
+
 Reference: 1.0 vol point per full-size pair round trip; current IV spread, earnings countdowns, 30-day trailing RV, and the dynamic vega-sizing ladder. Attribution covers 3,922 walk-forward entry dates, January 2010–August 2025.
 
 The policy tilts toward **short AMD vega / long NVDA vega**, but it is not a constant-direction strategy. That direction accounts for 60.3% of actual trades, 60.8% of summed absolute entry allocations, and 67.2% of net proxy P&L. The reverse direction contributes the remaining 32.8% of net P&L. There are 867 flat dates (22.1% of entry opportunities).
