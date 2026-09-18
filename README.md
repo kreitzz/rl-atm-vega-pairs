@@ -13,3 +13,5 @@ State inputs: AMD–NVDA 30-day IV spread, days until earnings for each stock (a
 [Dynamic entry-sizing ladder](reports/sizing_ladder.md): 0/25/50/75/100% of maximum vega per dollar. The 30-day RV model's annualized payoff Sharpe rises from 0.692 to 0.735; the improvement remains uncertain.
 
 [Historical spread experiment](reports/spread_history.md): a trailing 63-observation z-score scores 0.729 with the ladder versus 0.735 without it; no clear improvement.
+
+[Rolling beta experiment](reports/rolling_beta.md): 63/126-day AMD-on-NVDA return beta did not improve the current best model.

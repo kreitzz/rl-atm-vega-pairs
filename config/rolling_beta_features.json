@@ -1,0 +1,34 @@
+{
+  "rv30cal": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda"
+  ],
+  "beta63": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "amd_on_nvda_beta_63"
+  ],
+  "beta126": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "amd_on_nvda_beta_126"
+  ],
+  "beta63_126": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "amd_on_nvda_beta_63",
+    "amd_on_nvda_beta_126"
+  ]
+}
