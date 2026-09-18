@@ -1,0 +1,31 @@
+# Local secrets and settings
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# Market data and generated research artifacts
+data/
+artifacts/
+checkpoints/
+runs/
+wandb/
+mlruns/
+*.log
