@@ -34,7 +34,7 @@ Sharpes use `sqrt(365/30)` on 30-day net payoffs including flat dates. Yearly ou
 [Annual P&L and Sharpe CSV](reference_model_annual.csv). Earlier reports preserve their original 0.5-cost assumptions and now explicitly pin that cost in their reproduction commands.
 
 ```sh
-python scripts/run_walk_forward.py --panel artifacts/short_rv_momentum/dataset.parquet --output artifacts/reference_model --features-json config/reference_features.json --reference-model rv30cal --comparison-model rv30cal --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001 --cost 1.0
+python scripts/run_walk_forward.py --panel data/current_dataset.csv --output artifacts/reference_model --features-json config/reference_features.json --reference-model rv30cal --comparison-model rv30cal --sizing-ladder 0 0.25 0.5 0.75 1 --max-vega-per-dollar 0.001 --cost 1.0
 ```
 
-The run already exists locally at `artifacts/execution_costs/cost_1/`.
+Training writes results to the local, ignored `artifacts/reference_model/` directory.

@@ -55,7 +55,8 @@ def main():
         if not np.isfinite(levels).all() or np.any(levels<0) or np.any(levels>1) or 0 not in levels or 1 not in levels:
             p.error('Sizing ladder must be within [0,1] and include 0 and 1')
         action_values=np.unique(np.r_[-levels,levels])
-    panel=pd.read_parquet(args.panel).sort_index()
+    panel=(pd.read_csv(args.panel,index_col='date',parse_dates=['date','end'])
+           if args.panel.suffix.lower()=='.csv' else pd.read_parquet(args.panel)).sort_index()
     feature_sets=json.loads(args.features_json.read_text()) if args.features_json else FEATURE_SETS
     if args.reference_model not in feature_sets or args.comparison_model not in feature_sets:
         p.error('Comparison and reference models must be named feature sets')

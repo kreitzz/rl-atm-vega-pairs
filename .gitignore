@@ -23,28 +23,8 @@ htmlcov/
 
 # Market data and generated research artifacts
 data/*
-!data/raw/
-data/raw/*
-!data/raw/VIX_History.csv
-artifacts/*
-!artifacts/first_pass/
-!artifacts/sharpe_pass/
-!artifacts/earnings/
-!artifacts/earnings_sharpe_pass/
-!artifacts/actual_earnings_sharpe_pass/
-!artifacts/rv_vix_pass/
-!artifacts/short_rv_momentum/
-!artifacts/spread_history/
-!artifacts/rolling_beta/
-artifacts/*/*
-!artifacts/*/dataset.parquet
-!artifacts/short_rv_momentum/dataset.csv
-!artifacts/earnings/daily_panel_with_earnings.parquet
-!artifacts/execution_costs/
-!artifacts/execution_costs/cost_1/
-artifacts/execution_costs/cost_1/*
-!artifacts/execution_costs/cost_1/*.csv
-!artifacts/execution_costs/cost_1/summary.json
+!data/current_dataset.csv
+artifacts/
 checkpoints/
 runs/
 wandb/
