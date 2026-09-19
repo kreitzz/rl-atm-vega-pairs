@@ -25,3 +25,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m scripts.run_four_pairs --sour
 The runner now defaults to independent policies and fixed equal budgets. Historical joint/shared-cap comparisons require `--include-joint`. Local panels and predictions remain ignored. The shared CSV in `data/` still contains the original AMD/NVDA dataset; the runner builds the additional pairs from the local WRDS source files.
 
 [Why the additional pairs lose: annual, correlation, and policy diagnostics](independent_diagnostics.md).
+
+[Stock-return versus IV dependence diagnostics](correlation_gap.md).
