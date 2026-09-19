@@ -6,4 +6,6 @@ AMD/NVDA ATM vega-neutral pairs, assuming daily delta hedging. Current model use
 
 [Current model, training command, and yearly results](reports/reference_model.md). Annualized walk-forward payoff Sharpe: **0.667**.
 
+[Four-pair experiment](reports/four_pairs.md): adding XOM/CVX, JPM/BAC, and HD/LOW did not improve Sharpe in the first pass.
+
 **Academic use only.** Third-party data remain subject to OptionMetrics, CRSP, Compustat, and institutional license terms; this notice grants no additional data rights.
