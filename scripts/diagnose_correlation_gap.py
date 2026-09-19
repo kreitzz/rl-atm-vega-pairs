@@ -8,9 +8,14 @@ from scripts.run_first_pass import payoff_sharpe
 from scripts.run_walk_forward import fold_data
 
 
-def rolling_dependence(a,b,window=252):
-    correlation=a.rolling(window,min_periods=window).corr(b)
-    beta=a.rolling(window,min_periods=window).cov(b)/b.rolling(window,min_periods=window).var()
+def rolling_dependence(a,b,window=252,min_observations=None):
+    minimum=window if min_observations is None else min_observations
+    matched=a.notna()&b.notna()
+    a=a.where(matched);b=b.where(matched)
+    correlation=a.rolling(window,min_periods=minimum).corr(b)
+    beta=a.rolling(window,min_periods=minimum).cov(b)/b.rolling(window,min_periods=minimum).var()
+    correlation.iloc[:window-1]=np.nan
+    beta.iloc[:window-1]=np.nan
     return pd.DataFrame({'correlation':correlation,'beta':beta})
 
 

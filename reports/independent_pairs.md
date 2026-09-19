@@ -27,3 +27,5 @@ The runner now defaults to independent policies and fixed equal budgets. Histori
 [Why the additional pairs lose: annual, correlation, and policy diagnostics](independent_diagnostics.md).
 
 [Stock-return versus IV dependence diagnostics](correlation_gap.md).
+
+[Eight additional pairs and dependence-gap feature tests](universe_gap.md).

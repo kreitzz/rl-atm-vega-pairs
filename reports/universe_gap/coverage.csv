@@ -1,0 +1,13 @@
+pair,industry,original_pair,rows,first,last,iv_dates
+AMD_NVDA,semiconductors,True,5685,2002-12-31,2025-08-29,5936
+XOM_CVX,energy,True,5686,2002-12-31,2025-08-29,5937
+JPM_BAC,banking,True,5686,2002-12-31,2025-08-29,5937
+HD_LOW,home_improvement,True,5686,2002-12-31,2025-08-29,5937
+AMAT_LRCX,semiconductor_equipment,False,5686,2002-12-31,2025-08-29,5937
+MSFT_ORCL,software,False,5686,2002-12-31,2025-08-29,5937
+UPS_FDX,parcel_delivery,False,5686,2002-12-31,2025-08-29,5937
+UNP_CSX,railroads,False,5686,2002-12-31,2025-08-29,5937
+T_VZ,telecommunications,False,5682,2002-12-31,2025-08-29,5933
+DUK_SO,utilities,False,5684,2002-12-31,2025-08-29,5935
+AMGN_GILD,biotechnology,False,5686,2002-12-31,2025-08-29,5936
+C_WFC,banking,False,5685,2002-12-31,2025-08-29,5935

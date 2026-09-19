@@ -5,6 +5,17 @@ from scripts.diagnose_correlation_gap import rolling_dependence
 
 
 class DependenceTests(unittest.TestCase):
+    def test_sparse_missing_observations_use_matched_sample(self):
+        b=pd.Series(np.random.default_rng(7).normal(size=40))
+        a=3*b+2
+        a.iloc[[25,27]]=np.nan
+        result=rolling_dependence(a,b,20,min_observations=15)
+        self.assertTrue(result.iloc[:19].isna().all().all())
+        np.testing.assert_allclose(result.iloc[19:].correlation,1,atol=1e-12)
+        np.testing.assert_allclose(result.iloc[19:].beta,3,atol=1e-12)
+        a.iloc[20:30]=np.nan
+        self.assertTrue(rolling_dependence(a,b,20,min_observations=15).iloc[30].isna().all())
+
     def test_beta_and_correlation_are_distinct(self):
         b=pd.Series(np.random.default_rng(7).normal(size=80))
         result=rolling_dependence(2*b,b,20).dropna()

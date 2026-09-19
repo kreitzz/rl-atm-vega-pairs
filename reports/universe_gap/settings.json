@@ -1,0 +1,46 @@
+{
+  "universe_sha256": "dbe31c126329c128db79e2e2ffd596bdcd527a456fda37587ad6ffd25c5006d3",
+  "variants": {
+    "baseline": [
+      "spread",
+      "amd_earnings_days_capped",
+      "nvda_earnings_days_capped",
+      "trailing_rv_amd",
+      "trailing_rv_nvda"
+    ],
+    "correlation_gap": [
+      "spread",
+      "amd_earnings_days_capped",
+      "nvda_earnings_days_capped",
+      "trailing_rv_amd",
+      "trailing_rv_nvda",
+      "correlation_gap"
+    ],
+    "beta_gap": [
+      "spread",
+      "amd_earnings_days_capped",
+      "nvda_earnings_days_capped",
+      "trailing_rv_amd",
+      "trailing_rv_nvda",
+      "beta_gap"
+    ]
+  },
+  "rate": 0.025,
+  "ladder": [
+    -1.0,
+    -0.75,
+    -0.5,
+    -0.25,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "window": 252,
+  "minimum_matched_observations": 200,
+  "minimum_test_rows": 3000,
+  "selection": "business similarity and data coverage; no payoff ranking",
+  "budget": "equal fixed budgets; independent pair policies; unused budget stays idle",
+  "earnings_overrides_sha256": "55ea73e7d9a4fd3b024dd0bb9a1498500b2cefe36ebae7486feb6e3f89e21755"
+}

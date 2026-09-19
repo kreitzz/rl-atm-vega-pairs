@@ -1,0 +1,182 @@
+[
+  {
+    "pair": "AMD_NVDA",
+    "industry": "semiconductors",
+    "original_pair": true,
+    "names": {
+      "AMD": {
+        "secid": 101121,
+        "permno": 61241
+      },
+      "NVDA": {
+        "secid": 108321,
+        "permno": 86580
+      }
+    }
+  },
+  {
+    "pair": "XOM_CVX",
+    "industry": "energy",
+    "original_pair": true,
+    "names": {
+      "XOM": {
+        "secid": 104533,
+        "permno": 11850
+      },
+      "CVX": {
+        "secid": 102968,
+        "permno": 14541
+      }
+    }
+  },
+  {
+    "pair": "JPM_BAC",
+    "industry": "banking",
+    "original_pair": true,
+    "names": {
+      "JPM": {
+        "secid": 102936,
+        "permno": 47896
+      },
+      "BAC": {
+        "secid": 101966,
+        "permno": 59408
+      }
+    }
+  },
+  {
+    "pair": "HD_LOW",
+    "industry": "home_improvement",
+    "original_pair": true,
+    "names": {
+      "HD": {
+        "secid": 105759,
+        "permno": 66181
+      },
+      "LOW": {
+        "secid": 107045,
+        "permno": 61399
+      }
+    }
+  },
+  {
+    "pair": "AMAT_LRCX",
+    "industry": "semiconductor_equipment",
+    "original_pair": false,
+    "names": {
+      "AMAT": {
+        "secid": 101610,
+        "permno": 14702
+      },
+      "LRCX": {
+        "secid": 106808,
+        "permno": 48486
+      }
+    }
+  },
+  {
+    "pair": "MSFT_ORCL",
+    "industry": "software",
+    "original_pair": false,
+    "names": {
+      "MSFT": {
+        "secid": 107525,
+        "permno": 10107
+      },
+      "ORCL": {
+        "secid": 108505,
+        "permno": 10104
+      }
+    }
+  },
+  {
+    "pair": "UPS_FDX",
+    "industry": "parcel_delivery",
+    "original_pair": false,
+    "names": {
+      "UPS": {
+        "secid": 111434,
+        "permno": 87447
+      },
+      "FDX": {
+        "secid": 104635,
+        "permno": 60628
+      }
+    }
+  },
+  {
+    "pair": "UNP_CSX",
+    "industry": "railroads",
+    "original_pair": false,
+    "names": {
+      "UNP": {
+        "secid": 111394,
+        "permno": 48725
+      },
+      "CSX": {
+        "secid": 102571,
+        "permno": 62148
+      }
+    }
+  },
+  {
+    "pair": "T_VZ",
+    "industry": "telecommunications",
+    "original_pair": false,
+    "names": {
+      "T": {
+        "secid": 109775,
+        "permno": 66093
+      },
+      "VZ": {
+        "secid": 111668,
+        "permno": 65875
+      }
+    }
+  },
+  {
+    "pair": "DUK_SO",
+    "industry": "utilities",
+    "original_pair": false,
+    "names": {
+      "DUK": {
+        "secid": 103979,
+        "permno": 27959
+      },
+      "SO": {
+        "secid": 110337,
+        "permno": 18411
+      }
+    }
+  },
+  {
+    "pair": "AMGN_GILD",
+    "industry": "biotechnology",
+    "original_pair": false,
+    "names": {
+      "AMGN": {
+        "secid": 101508,
+        "permno": 14008
+      },
+      "GILD": {
+        "secid": 105243,
+        "permno": 77274
+      }
+    }
+  },
+  {
+    "pair": "C_WFC",
+    "industry": "banking",
+    "original_pair": false,
+    "names": {
+      "C": {
+        "secid": 103049,
+        "permno": 70519
+      },
+      "WFC": {
+        "secid": 111953,
+        "permno": 38703
+      }
+    }
+  }
+]
