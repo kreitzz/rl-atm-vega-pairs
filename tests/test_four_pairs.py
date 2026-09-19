@@ -1,12 +1,30 @@
 import unittest
 import numpy as np
-from scripts.run_four_pairs import action_menu, action_moments, moment_scores, portfolio_reward, joint_search
-from scripts.run_first_pass import payoff_sharpe
+from scripts.run_four_pairs import action_menu, action_moments, moment_scores, portfolio_reward, joint_search, entry_cost
+from scripts.run_first_pass import payoff_sharpe, policy_scores
 from scripts.run_walk_forward import fold_data
 import pandas as pd
 
 
 class FourPairTests(unittest.TestCase):
+    def test_entry_iv_cost_examples(self):
+        panel=pd.DataFrame({'iv_amd':[40.,20.,40.],'iv_nvda':[40.,20.,20.]})
+        np.testing.assert_allclose(entry_cost(panel,.025),[1.,.5,.75])
+
+    def test_variable_cost_moments(self):
+        rng=np.random.default_rng(87)
+        y=rng.normal(size=(150,4))*3
+        costs=rng.uniform(.2,2,size=y.shape)
+        state=np.arange(len(y))%3; menu=action_menu()
+        policies=rng.integers(len(menu),size=(20,3))
+        sums,squares=action_moments(state,y,menu,3,costs)
+        expected=[payoff_sharpe(portfolio_reward(menu[p[state]],y,costs)) for p in policies]
+        np.testing.assert_allclose(moment_scores(policies,sums,squares,len(y)),expected,atol=1e-12)
+        allocations=menu[policies,0]
+        expected=[payoff_sharpe(a[state]*y[:,0]-np.abs(a[state])*costs[:,0]) for a in allocations]
+        np.testing.assert_allclose(policy_scores(allocations,state,y[:,0],3,costs[:,0]),expected,atol=1e-12)
+        np.testing.assert_allclose(policy_scores(allocations,state,y[:,0],3,1.),policy_scores(allocations,state,y[:,0],3,np.ones(len(y))),atol=1e-12)
+
     def test_budget_and_cost(self):
         menu=action_menu()
         self.assertTrue((np.abs(menu).sum(axis=1)<=1).all())

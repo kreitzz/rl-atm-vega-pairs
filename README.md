@@ -8,4 +8,6 @@ AMD/NVDA ATM vega-neutral pairs, assuming daily delta hedging. Current model use
 
 [Four-pair experiment](reports/four_pairs.md): adding XOM/CVX, JPM/BAC, and HD/LOW did not improve Sharpe in the first pass.
 
+[Proportional-cost test](reports/four_pairs_proportional_cost.md): retrained with pair cost equal to 2.5% of average entry IV.
+
 **Academic use only.** Third-party data remain subject to OptionMetrics, CRSP, Compustat, and institutional license terms; this notice grants no additional data rights.

@@ -67,8 +67,9 @@ def build_panels(root):
 
 def action_moments(state, rewards, menu, nstates, cost=1.):
     sums = np.zeros((nstates,len(menu))); squares = sums.copy()
+    costs = np.broadcast_to(np.asarray(cost,dtype=float),rewards.shape)
     for s in range(nstates):
-        values = rewards[state==s] @ menu.T - cost*np.abs(menu).sum(axis=1)
+        values = rewards[state==s] @ menu.T - costs[state==s] @ np.abs(menu).T
         sums[s] = values.sum(axis=0)
         squares[s] = np.square(values).sum(axis=0)
     return sums,squares
@@ -83,8 +84,8 @@ def moment_scores(policies, sums, squares, n):
     return SHARPE_ANNUALIZATION*np.divide(mean,np.sqrt(var),out=np.zeros_like(mean),where=var>1e-24)
 
 
-def joint_search(state, rewards, menu, nstates, seed, iterations=80, population=256):
-    sums,squares = action_moments(state,rewards,menu,nstates)
+def joint_search(state, rewards, menu, nstates, seed, iterations=80, population=256, cost=1.):
+    sums,squares = action_moments(state,rewards,menu,nstates,cost)
     rng = np.random.default_rng(seed)
     probabilities = np.full((nstates,len(menu)),1/len(menu))
     flat = np.flatnonzero((menu==0).all(axis=1))[0]
@@ -102,16 +103,33 @@ def joint_search(state, rewards, menu, nstates, seed, iterations=80, population=
     return menu[best],best_score
 
 
-def portfolio_reward(actions, rewards):
-    return (actions*rewards-np.abs(actions)).sum(axis=1)
+def portfolio_reward(actions, rewards, cost=1.):
+    return (actions*rewards-cost*np.abs(actions)).sum(axis=1)
+
+
+def entry_cost(panel, rate):
+    return np.ones(len(panel)) if rate is None else rate*(panel.iv_amd+panel.iv_nvda).to_numpy(float)/2
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--source-root',type=Path,required=True)
-    parser.add_argument('--output',type=Path,default=Path('artifacts/four_pairs'))
+    parser.add_argument('--output',type=Path)
+    parser.add_argument('--cost-rate',type=float,help='Pair cost = rate times average entry IV in vol points; default fixed 1 point.')
     parser.add_argument('--resume',action='store_true',help='Reuse local panels and completed folds from this exact experiment.')
-    args = parser.parse_args(); args.output.mkdir(parents=True,exist_ok=True)
+    args = parser.parse_args()
+    if args.cost_rate is not None and (not np.isfinite(args.cost_rate) or args.cost_rate<0):
+        parser.error('--cost-rate must be finite and nonnegative')
+    if args.output is None:
+        args.output=Path('artifacts/four_pairs' if args.cost_rate is None else f'artifacts/four_pairs_cost_{args.cost_rate:g}')
+    args.output.mkdir(parents=True,exist_ok=True)
+    settings={'cost_rate':args.cost_rate,'cost_definition':'fixed 1 point' if args.cost_rate is None else 'rate * (entry IV leg A + entry IV leg B) / 2; scaled by absolute allocation'}
+    settings_path=args.output/'cost_settings.json'
+    if args.resume and settings_path.exists() and json.loads(settings_path.read_text())!=settings:
+        parser.error('Cannot resume an experiment with different cost settings')
+    if args.resume and args.cost_rate is not None and not settings_path.exists():
+        parser.error('Proportional-cost resume requires matching saved settings')
+    settings_path.write_text(json.dumps(settings,indent=2)+'\n')
     cache = args.output/'panels.parquet'
     if args.resume and cache.exists():
         packed = pd.read_parquet(cache)
@@ -126,6 +144,8 @@ def main():
     wide['end'] = panels[PAIRS[0]].end
     for k in PAIRS: wide[k+'_gross'] = panels[k].long_reward
     reward_cols = [k+'_gross' for k in PAIRS]
+    cost_cols = [k+'_cost' for k in PAIRS]
+    for k in PAIRS: wide[k+'_cost']=entry_cost(panels[k],args.cost_rate)
     menu = action_menu(); pieces=[]; configs=[]
     print('Matched rows:',len(wide),'from',wide.index.min(),'to',wide.index.max(),'portfolio actions:',len(menu),flush=True)
     for year in range(2010,2026,2):
@@ -135,46 +155,47 @@ def main():
             configs.extend(json.loads(config_path.read_text())); continue
         train,val,test = fold_data(wide,year)
         assert train.end.max()<val.index.min() and val.end.max()<test.index.min()
-        out = test[['end']].copy(); out['fold']=year
+        out = test[['end']+cost_cols].copy(); out['fold']=year
         fold_configs=[]; independent=[]
         for k in PAIRS:
             p=panels[k]; tr,va,te=p.loc[train.index],p.loc[val.index],p.loc[test.index]
             candidates=[]
             for leaves in [4,8,16]:
                 for minimum in [126,252]:
-                    tree,ids,policy,score,_=fit_tree_policy(tr,FEATURES,leaves,minimum,1.,action_values=LADDER)
-                    vs=payoff_sharpe(net_rewards(policy[leaf_states(tree,va,FEATURES,ids)],va.long_reward.to_numpy(),1.))
+                    tree,ids,policy,score,_=fit_tree_policy(tr,FEATURES,leaves,minimum,entry_cost(tr,args.cost_rate),action_values=LADDER)
+                    vs=payoff_sharpe(net_rewards(policy[leaf_states(tree,va,FEATURES,ids)],va.long_reward.to_numpy(),entry_cost(va,args.cost_rate)))
                     candidates.append((vs,tree,ids,policy,leaves,minimum))
             score,tree,ids,policy,leaves,minimum=max(candidates,key=lambda c:c[0])
             action=policy[leaf_states(tree,te,FEATURES,ids)]; independent.append(action)
             out[k+'_solo_action']=action
-            out[k+'_solo_reward']=net_rewards(action,te.long_reward.to_numpy(),1.)
+            out[k+'_solo_reward']=net_rewards(action,te.long_reward.to_numpy(),entry_cost(te,args.cost_rate))
             fold_configs.append(dict(fold=year,model=k,leaves=leaves,min_leaf=minimum,validation_sharpe=score))
         independent=np.column_stack(independent)
         y=test[reward_cols].to_numpy(float)
-        out['equal_budget_reward']=portfolio_reward(independent/4,y)
+        test_cost=test[cost_cols].to_numpy(float)
+        out['equal_budget_reward']=portfolio_reward(independent/4,y,test_cost)
         # Redistribute unused budget while retaining each independent policy's relative sizes.
         capped=independent/np.maximum(1,np.abs(independent).sum(axis=1))[:,None]
-        out['shared_cap_reward']=portfolio_reward(capped,y)
+        out['shared_cap_reward']=portfolio_reward(capped,y,test_cost)
         candidates=[]
         for leaves in [4,8,16]:
             for minimum in [126,252]:
                 tree=DecisionTreeRegressor(max_leaf_nodes=leaves,min_samples_leaf=minimum,random_state=2026)
                 tree.fit(train[features],train[reward_cols])
                 ids=np.unique(tree.apply(train[features])); state=np.searchsorted(ids,tree.apply(train[features]))
-                fits=[joint_search(state,train[reward_cols].to_numpy(float),menu,len(ids),seed) for seed in range(5)]
+                fits=[joint_search(state,train[reward_cols].to_numpy(float),menu,len(ids),seed,cost=train[cost_cols].to_numpy(float)) for seed in range(5)]
                 policy,training_score=max(fits,key=lambda f:f[1])
                 actions=policy[np.searchsorted(ids,tree.apply(val[features]))]
-                score=payoff_sharpe(portfolio_reward(actions,val[reward_cols].to_numpy(float)))
+                score=payoff_sharpe(portfolio_reward(actions,val[reward_cols].to_numpy(float),val[cost_cols].to_numpy(float)))
                 candidates.append((score,tree,ids,policy,leaves,minimum,training_score))
         score,tree,ids,policy,leaves,minimum,training_score=max(candidates,key=lambda c:c[0])
         actions=policy[np.searchsorted(ids,tree.apply(test[features]))]
         assert (np.abs(actions).sum(axis=1)<=1+1e-12).all()
-        out['joint_reward']=portfolio_reward(actions,y)
+        out['joint_reward']=portfolio_reward(actions,y,test_cost)
         out['joint_gross_allocation']=np.abs(actions).sum(axis=1)
         for i,k in enumerate(PAIRS):
             out[k+'_joint_action']=actions[:,i]
-            out[k+'_joint_reward']=actions[:,i]*y[:,i]-np.abs(actions[:,i])
+            out[k+'_joint_reward']=actions[:,i]*y[:,i]-test_cost[:,i]*np.abs(actions[:,i])
         fold_configs.append(dict(fold=year,model='joint',leaves=leaves,min_leaf=minimum,validation_sharpe=score,train_sharpe=training_score))
         out.to_csv(prediction_path); config_path.write_text(json.dumps(fold_configs,indent=2))
         pieces.append(out); configs.extend(fold_configs)

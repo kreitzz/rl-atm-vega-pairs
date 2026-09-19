@@ -107,8 +107,18 @@ def policy_scores(policies, state, reward, nstates, cost=DEFAULT_EXECUTION_COST)
     counts = np.bincount(state, minlength=nstates)
     squared = policies ** 2
     magnitude = np.abs(policies)
-    mean = (policies @ sums - cost * (magnitude @ counts)) / n
-    second = squared @ squares - 2 * cost * ((policies*magnitude) @ sums) + cost ** 2 * (squared @ counts)
+    if np.ndim(cost)==0:
+        mean = (policies @ sums - cost * (magnitude @ counts)) / n
+        second = squared @ squares - 2 * cost * ((policies*magnitude) @ sums) + cost ** 2 * (squared @ counts)
+    else:
+        costs = np.asarray(cost,dtype=float)
+        if costs.shape != np.shape(reward) or not np.isfinite(costs).all() or (costs<0).any():
+            raise ValueError('Costs must be finite nonnegative values aligned with rewards')
+        cost_sums = np.bincount(state,weights=costs,minlength=nstates)
+        cross = np.bincount(state,weights=costs*reward,minlength=nstates)
+        cost_squares = np.bincount(state,weights=costs**2,minlength=nstates)
+        mean = (policies @ sums - magnitude @ cost_sums) / n
+        second = squared @ squares - 2*((policies*magnitude) @ cross) + squared @ cost_squares
     var = np.maximum((second - n * mean ** 2) / (n - 1), 0)
     return SHARPE_ANNUALIZATION * np.divide(mean, np.sqrt(var), out=np.zeros_like(mean), where=var > 1e-24)
 

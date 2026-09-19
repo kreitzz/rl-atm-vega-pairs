@@ -1,0 +1,4 @@
+{
+  "cost_rate": 0.025,
+  "cost_definition": "rate * (entry IV leg A + entry IV leg B) / 2; scaled by absolute allocation"
+}
