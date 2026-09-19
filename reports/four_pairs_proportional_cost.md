@@ -57,7 +57,7 @@ These are annualized 30-day proxy-payoff Sharpes using `sqrt(365/30)`, not daily
 [Comparison CSV](four_pairs_proportional_cost/comparison.csv) · [Costs and attribution](four_pairs_proportional_cost/costs_and_attribution.csv) · [Annual results](four_pairs_proportional_cost/annual.csv) · [Selected configurations](four_pairs_proportional_cost/selected_configs.csv)
 
 ```sh
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m scripts.run_four_pairs --source-root /path/to/wrds --cost-rate 0.025
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m scripts.run_four_pairs --include-joint --source-root /path/to/wrds --cost-rate 0.025
 python -m unittest discover -s tests -q
 ```
 

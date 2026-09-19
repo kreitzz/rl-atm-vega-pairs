@@ -1,4 +1,4 @@
-"""Four-pair joint Sharpe policy search under one per-entry vega budget."""
+"""Independent pair policies with fixed equal budgets and optional legacy comparisons."""
 import argparse
 import itertools
 import json
@@ -116,14 +116,16 @@ def main():
     parser.add_argument('--source-root',type=Path,required=True)
     parser.add_argument('--output',type=Path)
     parser.add_argument('--cost-rate',type=float,help='Pair cost = rate times average entry IV in vol points; default fixed 1 point.')
+    parser.add_argument('--include-joint',action='store_true',help='Also reproduce the historical joint-policy and shared-cap comparisons.')
     parser.add_argument('--resume',action='store_true',help='Reuse local panels and completed folds from this exact experiment.')
     args = parser.parse_args()
     if args.cost_rate is not None and (not np.isfinite(args.cost_rate) or args.cost_rate<0):
         parser.error('--cost-rate must be finite and nonnegative')
     if args.output is None:
-        args.output=Path('artifacts/four_pairs' if args.cost_rate is None else f'artifacts/four_pairs_cost_{args.cost_rate:g}')
+        prefix='four_pairs' if args.include_joint else 'four_pairs_independent'
+        args.output=Path(f'artifacts/{prefix}' if args.cost_rate is None else f'artifacts/{prefix}_cost_{args.cost_rate:g}')
     args.output.mkdir(parents=True,exist_ok=True)
-    settings={'cost_rate':args.cost_rate,'cost_definition':'fixed 1 point' if args.cost_rate is None else 'rate * (entry IV leg A + entry IV leg B) / 2; scaled by absolute allocation'}
+    settings={'include_joint':args.include_joint,'cost_rate':args.cost_rate,'cost_definition':'fixed 1 point' if args.cost_rate is None else 'rate * (entry IV leg A + entry IV leg B) / 2; scaled by absolute allocation'}
     settings_path=args.output/'cost_settings.json'
     if args.resume and settings_path.exists() and json.loads(settings_path.read_text())!=settings:
         parser.error('Cannot resume an experiment with different cost settings')
@@ -137,7 +139,7 @@ def main():
     else:
         panels = build_panels(args.source_root)
         pd.concat(panels,names=['pair','date']).to_parquet(cache)
-    # One shared tree observes all four states and predicts four forward rewards.
+    # Align dates for reporting; independent fits below see only their own pair columns.
     wide = pd.concat({k:p[FEATURES] for k,p in panels.items()},axis=1)
     wide.columns = ['_'.join(c) for c in wide.columns]
     features = wide.columns.tolist()
@@ -146,8 +148,8 @@ def main():
     reward_cols = [k+'_gross' for k in PAIRS]
     cost_cols = [k+'_cost' for k in PAIRS]
     for k in PAIRS: wide[k+'_cost']=entry_cost(panels[k],args.cost_rate)
-    menu = action_menu(); pieces=[]; configs=[]
-    print('Matched rows:',len(wide),'from',wide.index.min(),'to',wide.index.max(),'portfolio actions:',len(menu),flush=True)
+    menu = action_menu() if args.include_joint else None; pieces=[]; configs=[]
+    print('Matched rows:',len(wide),'from',wide.index.min(),'to',wide.index.max(),'mode:','legacy comparisons' if args.include_joint else 'independent ladders',flush=True)
     for year in range(2010,2026,2):
         prediction_path=args.output/f'fold_{year}.csv'; config_path=args.output/f'fold_{year}.json'
         if args.resume and prediction_path.exists() and config_path.exists():
@@ -174,34 +176,35 @@ def main():
         y=test[reward_cols].to_numpy(float)
         test_cost=test[cost_cols].to_numpy(float)
         out['equal_budget_reward']=portfolio_reward(independent/4,y,test_cost)
-        # Redistribute unused budget while retaining each independent policy's relative sizes.
-        capped=independent/np.maximum(1,np.abs(independent).sum(axis=1))[:,None]
-        out['shared_cap_reward']=portfolio_reward(capped,y,test_cost)
-        candidates=[]
-        for leaves in [4,8,16]:
-            for minimum in [126,252]:
-                tree=DecisionTreeRegressor(max_leaf_nodes=leaves,min_samples_leaf=minimum,random_state=2026)
-                tree.fit(train[features],train[reward_cols])
-                ids=np.unique(tree.apply(train[features])); state=np.searchsorted(ids,tree.apply(train[features]))
-                fits=[joint_search(state,train[reward_cols].to_numpy(float),menu,len(ids),seed,cost=train[cost_cols].to_numpy(float)) for seed in range(5)]
-                policy,training_score=max(fits,key=lambda f:f[1])
-                actions=policy[np.searchsorted(ids,tree.apply(val[features]))]
-                score=payoff_sharpe(portfolio_reward(actions,val[reward_cols].to_numpy(float),val[cost_cols].to_numpy(float)))
-                candidates.append((score,tree,ids,policy,leaves,minimum,training_score))
-        score,tree,ids,policy,leaves,minimum,training_score=max(candidates,key=lambda c:c[0])
-        actions=policy[np.searchsorted(ids,tree.apply(test[features]))]
-        assert (np.abs(actions).sum(axis=1)<=1+1e-12).all()
-        out['joint_reward']=portfolio_reward(actions,y,test_cost)
-        out['joint_gross_allocation']=np.abs(actions).sum(axis=1)
-        for i,k in enumerate(PAIRS):
-            out[k+'_joint_action']=actions[:,i]
-            out[k+'_joint_reward']=actions[:,i]*y[:,i]-test_cost[:,i]*np.abs(actions[:,i])
-        fold_configs.append(dict(fold=year,model='joint',leaves=leaves,min_leaf=minimum,validation_sharpe=score,train_sharpe=training_score))
+        if args.include_joint:
+            # Redistribute unused budget while retaining each independent policy's relative sizes.
+            capped=independent/np.maximum(1,np.abs(independent).sum(axis=1))[:,None]
+            out['shared_cap_reward']=portfolio_reward(capped,y,test_cost)
+            candidates=[]
+            for leaves in [4,8,16]:
+                for minimum in [126,252]:
+                    tree=DecisionTreeRegressor(max_leaf_nodes=leaves,min_samples_leaf=minimum,random_state=2026)
+                    tree.fit(train[features],train[reward_cols])
+                    ids=np.unique(tree.apply(train[features])); state=np.searchsorted(ids,tree.apply(train[features]))
+                    fits=[joint_search(state,train[reward_cols].to_numpy(float),menu,len(ids),seed,cost=train[cost_cols].to_numpy(float)) for seed in range(5)]
+                    policy,training_score=max(fits,key=lambda f:f[1])
+                    actions=policy[np.searchsorted(ids,tree.apply(val[features]))]
+                    score=payoff_sharpe(portfolio_reward(actions,val[reward_cols].to_numpy(float),val[cost_cols].to_numpy(float)))
+                    candidates.append((score,tree,ids,policy,leaves,minimum,training_score))
+            score,tree,ids,policy,leaves,minimum,training_score=max(candidates,key=lambda c:c[0])
+            actions=policy[np.searchsorted(ids,tree.apply(test[features]))]
+            assert (np.abs(actions).sum(axis=1)<=1+1e-12).all()
+            out['joint_reward']=portfolio_reward(actions,y,test_cost)
+            out['joint_gross_allocation']=np.abs(actions).sum(axis=1)
+            for i,k in enumerate(PAIRS):
+                out[k+'_joint_action']=actions[:,i]
+                out[k+'_joint_reward']=actions[:,i]*y[:,i]-test_cost[:,i]*np.abs(actions[:,i])
+            fold_configs.append(dict(fold=year,model='joint',leaves=leaves,min_leaf=minimum,validation_sharpe=score,train_sharpe=training_score))
         out.to_csv(prediction_path); config_path.write_text(json.dumps(fold_configs,indent=2))
         pieces.append(out); configs.extend(fold_configs)
-        print(year,'test entries',len(test),'AMD Sharpe',round(payoff_sharpe(out.AMD_NVDA_solo_reward),3),'joint',round(payoff_sharpe(out.joint_reward),3),flush=True)
+        print(year,'test entries',len(test),'AMD Sharpe',round(payoff_sharpe(out.AMD_NVDA_solo_reward),3),'independent portfolio',round(payoff_sharpe(out.equal_budget_reward),3),flush=True)
     result=pd.concat(pieces).sort_index(); result.to_csv(args.output/'predictions.csv')
-    models=[k+'_solo' for k in PAIRS]+['equal_budget','shared_cap','joint']
+    models=[k+'_solo' for k in PAIRS]+['equal_budget']+(['shared_cap','joint'] if args.include_joint else [])
     scores=[]; annual=[]
     for model in models:
         r=result[model+'_reward']

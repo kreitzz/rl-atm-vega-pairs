@@ -58,7 +58,7 @@ Sharpes retain the existing `sqrt(365/30)` annualization of 30-day net entry pay
 ## Reproduce
 
 ```sh
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m scripts.run_four_pairs --source-root /path/to/wrds
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m scripts.run_four_pairs --include-joint --source-root /path/to/wrds
 python -m unittest discover -s tests -q
 ```
 

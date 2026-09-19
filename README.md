@@ -1,13 +1,9 @@
 # RL for Short-Term ATM Vega Pair Trading
 
-AMD/NVDA ATM vega-neutral pairs, assuming daily delta hedging. Current model uses IV spread, earnings countdowns, and trailing 30-day RV, with a 0/25/50/75/100% sizing ladder and 1.0-vol-point pair execution cost.
+Four independent policies for AMD/NVDA, XOM/CVX, JPM/BAC, and HD/LOW, assuming initial vega neutrality and daily delta hedging. Each uses its own IV spread, earnings countdowns, and trailing 30-day RV, with a 0/25/50/75/100% sizing ladder and a fixed equal budget. Pair cost is 2.5% of average entry IV, scaled by size.
 
-[Current finalized dataset (CSV)](data/current_dataset.csv): 5,685 daily observations, December 2002–August 2025. Includes all five state inputs, each leg’s entry IV and forward 30-day RV, and the outcome date. Rewards are computed during training; forward RV is used for evaluation, not as a state input. Earnings countdowns assume actual dates within 30 days were known at entry.
+[Current setup and results](reports/independent_pairs.md): combined annualized payoff Sharpe **0.499**. [Original AMD/NVDA reference](reports/reference_model.md).
 
-[Current model, training command, and yearly results](reports/reference_model.md). Annualized walk-forward payoff Sharpe: **0.667**.
-
-[Four-pair experiment](reports/four_pairs.md): adding XOM/CVX, JPM/BAC, and HD/LOW did not improve Sharpe in the first pass.
-
-[Proportional-cost test](reports/four_pairs_proportional_cost.md): retrained with pair cost equal to 2.5% of average entry IV.
+[AMD/NVDA dataset (CSV)](data/current_dataset.csv): 5,685 daily observations, December 2002–August 2025. Includes the five state inputs, entry IVs, forward 30-day RVs, and outcome date. Rewards are calculated during training; forward RV is not a state input. Earnings dates within 30 days are assumed known at entry.
 
 **Academic use only.** Third-party data remain subject to OptionMetrics, CRSP, Compustat, and institutional license terms; this notice grants no additional data rights.
