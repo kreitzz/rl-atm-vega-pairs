@@ -14,6 +14,8 @@ Cost per full-size pair is `0.025 * (IV_A + IV_B) / 2`, scaled by its absolute a
 | HD/LOW | -0.105 |
 | Combined, fixed equal budgets | **0.499** |
 
+[Sizing comparison](independent_sizing.md): the ladder improves combined Sharpe from 0.405 for retrained full-size/flat policies to 0.499.
+
 This is the `equal_budget` strategy already evaluated in the [proportional-cost experiment](four_pairs_proportional_cost.md), not the shared-cap or joint strategy. [Yearly results](four_pairs_proportional_cost/annual.csv) include this strategy and each individual pair. Sharpes use the existing annualized 30-day proxy-payoff convention, not daily marked option-and-hedge P&L.
 
 ```sh

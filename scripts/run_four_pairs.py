@@ -117,18 +117,25 @@ def main():
     parser.add_argument('--output',type=Path)
     parser.add_argument('--cost-rate',type=float,help='Pair cost = rate times average entry IV in vol points; default fixed 1 point.')
     parser.add_argument('--include-joint',action='store_true',help='Also reproduce the historical joint-policy and shared-cap comparisons.')
+    parser.add_argument('--sizing',choices=['ladder','fixed'],default='ladder',help='Independent policy sizes: ladder or full-size/flat only.')
     parser.add_argument('--resume',action='store_true',help='Reuse local panels and completed folds from this exact experiment.')
     args = parser.parse_args()
+    if args.include_joint and args.sizing=='fixed':
+        parser.error('--sizing fixed compares independent policies only')
     if args.cost_rate is not None and (not np.isfinite(args.cost_rate) or args.cost_rate<0):
         parser.error('--cost-rate must be finite and nonnegative')
     if args.output is None:
         prefix='four_pairs' if args.include_joint else 'four_pairs_independent'
+        if args.sizing=='fixed': prefix+='_fixed'
         args.output=Path(f'artifacts/{prefix}' if args.cost_rate is None else f'artifacts/{prefix}_cost_{args.cost_rate:g}')
     args.output.mkdir(parents=True,exist_ok=True)
-    settings={'include_joint':args.include_joint,'cost_rate':args.cost_rate,'cost_definition':'fixed 1 point' if args.cost_rate is None else 'rate * (entry IV leg A + entry IV leg B) / 2; scaled by absolute allocation'}
+    settings={'sizing':args.sizing,'include_joint':args.include_joint,'cost_rate':args.cost_rate,'cost_definition':'fixed 1 point' if args.cost_rate is None else 'rate * (entry IV leg A + entry IV leg B) / 2; scaled by absolute allocation'}
     settings_path=args.output/'cost_settings.json'
-    if args.resume and settings_path.exists() and json.loads(settings_path.read_text())!=settings:
-        parser.error('Cannot resume an experiment with different cost settings')
+    if args.resume and settings_path.exists():
+        saved_settings=json.loads(settings_path.read_text())
+        saved_settings.setdefault('sizing','ladder')
+        if saved_settings!=settings:
+            parser.error('Cannot resume an experiment with different settings')
     if args.resume and args.cost_rate is not None and not settings_path.exists():
         parser.error('Proportional-cost resume requires matching saved settings')
     settings_path.write_text(json.dumps(settings,indent=2)+'\n')
@@ -149,7 +156,7 @@ def main():
     cost_cols = [k+'_cost' for k in PAIRS]
     for k in PAIRS: wide[k+'_cost']=entry_cost(panels[k],args.cost_rate)
     menu = action_menu() if args.include_joint else None; pieces=[]; configs=[]
-    print('Matched rows:',len(wide),'from',wide.index.min(),'to',wide.index.max(),'mode:','legacy comparisons' if args.include_joint else 'independent ladders',flush=True)
+    print('Matched rows:',len(wide),'from',wide.index.min(),'to',wide.index.max(),'mode:','legacy comparisons' if args.include_joint else f'independent {args.sizing}',flush=True)
     for year in range(2010,2026,2):
         prediction_path=args.output/f'fold_{year}.csv'; config_path=args.output/f'fold_{year}.json'
         if args.resume and prediction_path.exists() and config_path.exists():
@@ -164,7 +171,7 @@ def main():
             candidates=[]
             for leaves in [4,8,16]:
                 for minimum in [126,252]:
-                    tree,ids,policy,score,_=fit_tree_policy(tr,FEATURES,leaves,minimum,entry_cost(tr,args.cost_rate),action_values=LADDER)
+                    tree,ids,policy,score,_=fit_tree_policy(tr,FEATURES,leaves,minimum,entry_cost(tr,args.cost_rate),action_values=LADDER if args.sizing=='ladder' else None)
                     vs=payoff_sharpe(net_rewards(policy[leaf_states(tree,va,FEATURES,ids)],va.long_reward.to_numpy(),entry_cost(va,args.cost_rate)))
                     candidates.append((vs,tree,ids,policy,leaves,minimum))
             score,tree,ids,policy,leaves,minimum=max(candidates,key=lambda c:c[0])
