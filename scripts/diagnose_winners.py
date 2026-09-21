@@ -72,6 +72,7 @@ def main():
                    'matured_edge_covers_cost':np.sign(a)*f.matured_edge>cost,
                    'rv_value_agrees':a*f.rv_adjusted_value>0,
                    'spread_reversion_agrees':a*f.spread_reversion>0,
+                   'rv_and_spread_agree':(a*f.rv_adjusted_value>0)&(a*f.spread_reversion>0),
                    'both_or_neither_earnings':f.earnings_mismatch.eq(0)}
             gate_returns[pair] = pd.DataFrame({name:net.where(gate,0).loc[ready] for name,gate in gates.items()})
             for name,gate in gates.items():

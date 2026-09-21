@@ -58,6 +58,19 @@ Paired circular block bootstrap intervals use 63-entry blocks and 1,000 resample
 
 ## Next state ablation
 
+### Follow-up: require both value and spread reversion
+
+The combined gate retains the existing action and size only when **both** RV-adjusted value and historical spread reversion agree with its direction. Otherwise the allocation stays idle. This is an AND filter on saved policies, not a policy retrained with both features.
+
+| Basket | Baseline | RV only | Spread only | Both |
+| --- | ---: | ---: | ---: | ---: |
+| 12 stock pairs, 2010–August 2025 | 0.317 | 0.574 | 0.394 | 0.558 |
+| 10 ETF/stock pairs, 2018–August 2025 | 1.036 | 1.408 | 1.346 | 1.531 |
+| Combined 22 pairs, 2018–August 2025 | 0.895 | 1.305 | 1.248 | 1.381 |
+| Combined excluding silver, 2018–August 2025 | -0.054 | 0.279 | 0.279 | 0.411 |
+
+Both improves 19 of 23 longer-history pairs over baseline (median Sharpe change +0.160), with 20 improving in 2018–21 and 16 in 2022–25. Excluding silver, basket Sharpe changes from -0.222 to 0.421 in 2018–21 and from 0.267 to 0.471 in 2022–25. The combined-gate improvement over baseline excluding silver is +0.465 with a descriptive block interval [0.111, 0.951]. This interval does not test improvement over the individual filters or correct for screening. The stock-only basket does slightly better with RV alone. All earlier exploration and execution limitations still apply.
+
 First add **RV-adjusted relative value** alone, then **historical spread z-score** alone, then both. Keep independent policies, budgets, ladder, proportional costs, and the same purged walk-forward setup. Assess broad pair improvement, period stability, and the basket excluding silver alongside aggregate Sharpe. Do not choose the best variant separately for each test pair.
 
 Second priority is **matured edge divided by current cost**, with **matured outcome dispersion** as a sizing/risk input. The diagnostic evidence is mixed; this should not displace the two stronger candidates. This review computes edge/risk and cost/risk ratios but does not establish their incremental predictive value.
