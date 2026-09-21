@@ -29,3 +29,5 @@ The runner now defaults to independent policies and fixed equal budgets. Histori
 [Stock-return versus IV dependence diagnostics](correlation_gap.md).
 
 [Eight additional pairs and dependence-gap feature tests](universe_gap.md).
+
+[ETF/stock and ETF/ETF exploration](etf_exploration.md).

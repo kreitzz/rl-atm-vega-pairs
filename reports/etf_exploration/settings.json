@@ -1,0 +1,36 @@
+{
+  "config_sha256": "fac5c677e2f9b0e60bac552e82adb3b82ecc43dcb507b4b729de5ca402d2735d",
+  "variants": {
+    "baseline": [
+      "spread",
+      "amd_earnings_days_capped",
+      "nvda_earnings_days_capped",
+      "trailing_rv_amd",
+      "trailing_rv_nvda"
+    ],
+    "correlation_gap": [
+      "spread",
+      "amd_earnings_days_capped",
+      "nvda_earnings_days_capped",
+      "trailing_rv_amd",
+      "trailing_rv_nvda",
+      "correlation_gap"
+    ],
+    "beta_gap": [
+      "spread",
+      "amd_earnings_days_capped",
+      "nvda_earnings_days_capped",
+      "trailing_rv_amd",
+      "trailing_rv_nvda",
+      "beta_gap"
+    ]
+  },
+  "cost_rate": 0.025,
+  "window": 252,
+  "min_observations": 200,
+  "min_train": 504,
+  "min_validation": 252,
+  "min_test": 126,
+  "etf_earnings": "constant 31: no corporate earnings countdown",
+  "sizing": "independent ladder; fixed equal pair budgets"
+}

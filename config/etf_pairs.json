@@ -1,0 +1,189 @@
+{
+  "assets": {
+    "XOP": {
+      "secid": 127107,
+      "permno": 91318,
+      "etf": true,
+      "history_start": "2006-06-22"
+    },
+    "COP": {
+      "secid": 108969,
+      "permno": 13928,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "DVN": {
+      "secid": 103802,
+      "permno": 87137,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "APA": {
+      "secid": 101580,
+      "permno": 39490,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "OIH": {
+      "secid": 114726,
+      "permno": 13129,
+      "etf": true,
+      "history_start": "2011-12-21"
+    },
+    "SLB": {
+      "secid": 109956,
+      "permno": 14277,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "HAL": {
+      "secid": 105512,
+      "permno": 23819,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "PPH": {
+      "secid": 108954,
+      "permno": 13130,
+      "etf": true,
+      "history_start": "2011-12-21"
+    },
+    "MRK": {
+      "secid": 107430,
+      "permno": 22752,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "BMY": {
+      "secid": 102349,
+      "permno": 19393,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "AMGN": {
+      "secid": 101508,
+      "permno": 14008,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "SIL": {
+      "secid": 142772,
+      "permno": 93318,
+      "etf": true,
+      "history_start": "2010-04-20"
+    },
+    "HL": {
+      "secid": 105663,
+      "permno": 32651,
+      "etf": false,
+      "history_start": "2002-01-01"
+    },
+    "AG": {
+      "secid": 145681,
+      "permno": 12447,
+      "etf": false,
+      "history_start": "2010-12-15"
+    },
+    "ARKK": {
+      "secid": 205711,
+      "permno": 14948,
+      "etf": true,
+      "history_start": "2014-10-31"
+    },
+    "TSLA": {
+      "secid": 143439,
+      "permno": 93436,
+      "etf": false,
+      "history_start": "2010-06-29"
+    },
+    "GSLC": {
+      "secid": 208067,
+      "permno": 15678,
+      "etf": true,
+      "history_start": "2015-09-21"
+    },
+    "SPYM": {
+      "secid": 125173,
+      "permno": 91010,
+      "etf": true,
+      "history_start": "2018-01-01"
+    }
+  },
+  "pairs": [
+    {
+      "pair": "XOP_COP",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "XOP_DVN",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "XOP_APA",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "OIH_SLB",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "OIH_HAL",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "PPH_MRK",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "PPH_BMY",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "PPH_AMGN",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "SIL_HL",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "SIL_AG",
+      "kind": "ETF_stock",
+      "short_history": false
+    },
+    {
+      "pair": "OIH_XOP",
+      "kind": "ETF_ETF",
+      "short_history": false
+    },
+    {
+      "pair": "ARKK_TSLA",
+      "kind": "ETF_stock",
+      "short_history": true
+    },
+    {
+      "pair": "GSLC_SPYM",
+      "kind": "ETF_ETF",
+      "short_history": true
+    }
+  ],
+  "missing_from_local_cache": [
+    "SPY",
+    "QQQ",
+    "SMH",
+    "SOXX",
+    "XLF",
+    "XLE",
+    "IWM"
+  ],
+  "selection": "Related economic exposures and available local data; candidates fixed before payoff results; historical holdings not used"
+}

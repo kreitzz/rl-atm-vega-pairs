@@ -1,0 +1,7 @@
+group,variant,entries,sharpe
+without_SIL_HL,baseline,1906,0.5506462686335197
+without_SIL_HL,correlation_gap,1906,0.5028223594941492
+without_SIL_HL,beta_gap,1906,0.5253397828171553
+without_silver,baseline,1906,0.026754003225811215
+without_silver,correlation_gap,1906,-0.008546404877658715
+without_silver,beta_gap,1906,0.045052712693026443
