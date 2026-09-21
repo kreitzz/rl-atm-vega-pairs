@@ -8,6 +8,8 @@ The input-only historical screens produce 743 distinct pairs across 2008–24. T
 
 ## Matched annualized proxy Sharpe
 
+See the [trade-quality and profit-concentration audit](trade_quality.md) for leg attribution, direction controls, and concentration sensitivities.
+
 | Basket | RL without profit state | NN full-size/flat + profit state | RL full-size/flat + profit state | RL sizing + profit state |
 | --- | --- | --- | --- | --- |
 | all | 2.788 | 1.519 | 2.647 | 2.606 |
