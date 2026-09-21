@@ -35,3 +35,5 @@ The runner now defaults to independent policies and fixed equal budgets. Histori
 [Winner/loser attribution and candidate state features](winner_loser.md).
 
 [Both-feature retraining: full-size NN versus RL sizing](nn_rl_benchmark.md).
+
+[Broad historical universe and prior out-of-sample profitability state](broad_pairs.md).

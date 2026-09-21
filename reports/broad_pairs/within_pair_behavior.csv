@@ -1,0 +1,5 @@
+model,pairs,pairs_larger_after_positive,median_positive_minus_negative_size,mean_positive_minus_negative_size
+nn_memory,230,102,-0.007706911912822079,-0.009719867031517044
+rl_memory,230,101,-0.014740354226550484,-0.01905504822189139
+rl_memory_fixed,230,94,0.0,-0.016517496874277397
+rl_no_memory,230,107,-0.008483940646891688,-0.021928105983359005

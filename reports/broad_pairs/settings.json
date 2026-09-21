@@ -1,0 +1,53 @@
+{
+  "config": {
+    "screen_years": [
+      2008,
+      2010,
+      2012,
+      2014,
+      2016,
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "test_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "historical_window_sessions": 252,
+    "minimum_observed_sessions": 200,
+    "minimum_median_call_volume": 100,
+    "minimum_median_call_open_interest": 500,
+    "maximum_names_per_historical_sic3": 4,
+    "minimum_return_correlation": 0.4,
+    "maximum_stock_pairs_per_screen": 180,
+    "cost_rate": 0.025,
+    "universe_selection": "Historical industry, input coverage, option activity and return correlation only; no profit ranking",
+    "allocation": "Independent per-pair policies with fixed equal entry budgets; unused allocation stays idle",
+    "profitability_state": "Rolling 252 completed out-of-sample reference-RL entry cohorts: net mean, net Sharpe, active fraction, history count; unknown history is zero with count zero",
+    "reference_policy": "Seven original/value inputs; fixed 8-leaf tree, minimum 126 rows, expanding training through prior completed outcomes, refit every two years from 2006; five-seed Sharpe sizing search"
+  },
+  "features": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "rv_adjusted_value",
+    "spread_reversion",
+    "past_net_mean",
+    "past_net_sharpe",
+    "past_active_fraction",
+    "past_observations"
+  ],
+  "models": [
+    "rl_no_memory",
+    "nn_memory",
+    "rl_memory_fixed",
+    "rl_memory"
+  ],
+  "code_sha256": "3a4563c2e2de4d688de1010a3f8d1553f8c201db031b74e90670a84c993a319c"
+}

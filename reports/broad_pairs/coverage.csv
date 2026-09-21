@@ -1,0 +1,9 @@
+group,fold,candidate_pairs,trained_pairs,calendar_dates,joint_complete_dates,unresolved_pair_dates
+all,2018,103,96,503,466,63
+without_metals,2018,97,90,503,466,63
+all,2020,132,121,505,464,56
+without_metals,2020,128,117,505,464,56
+all,2022,175,149,501,501,0
+without_metals,2022,167,141,501,501,0
+all,2024,153,140,417,374,43
+without_metals,2024,145,132,417,374,43
