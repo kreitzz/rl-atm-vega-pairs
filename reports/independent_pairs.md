@@ -31,3 +31,5 @@ The runner now defaults to independent policies and fixed equal budgets. Histori
 [Eight additional pairs and dependence-gap feature tests](universe_gap.md).
 
 [ETF/stock and ETF/ETF exploration](etf_exploration.md).
+
+[Winner/loser attribution and candidate state features](winner_loser.md).
