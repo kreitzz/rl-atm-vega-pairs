@@ -1,0 +1,52 @@
+{
+  "features": [
+    "spread",
+    "amd_earnings_days_capped",
+    "nvda_earnings_days_capped",
+    "trailing_rv_amd",
+    "trailing_rv_nvda",
+    "rv_adjusted_value",
+    "spread_reversion"
+  ],
+  "models": [
+    "rl_base_sized",
+    "nn_both_fixed",
+    "rl_both_fixed",
+    "rl_both_sized"
+  ],
+  "cost_rate": 0.025,
+  "ladder": [
+    -1.0,
+    -0.75,
+    -0.5,
+    -0.25,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "nn_hidden": [
+    16
+  ],
+  "nn_activation": "tanh",
+  "nn_solver": "lbfgs",
+  "nn_alpha": [
+    0.01,
+    1.0
+  ],
+  "nn_threshold_cost_multipliers": [
+    1,
+    2,
+    4
+  ],
+  "nn_seed": 2026,
+  "nn_max_iter": 10000,
+  "nn_max_fun": 200000,
+  "nn_tolerance": 0.0001,
+  "sources": {
+    "artifacts/etf_exploration/run": "974ef612df66684cc113c1fbdc30f6d14ae3e95d708ddff182a9ff766e0e28f8",
+    "artifacts/universe_gap": "70d94811de2b50fcb33f883cdc66614870764064a35e968207f9470676115dc8"
+  },
+  "source_code_sha256": "6ac0f4f03fb38a35e284bdde133699fead72bda88765a12b4f7f83ac0ad55db5"
+}

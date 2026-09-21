@@ -33,3 +33,5 @@ The runner now defaults to independent policies and fixed equal budgets. Histori
 [ETF/stock and ETF/ETF exploration](etf_exploration.md).
 
 [Winner/loser attribution and candidate state features](winner_loser.md).
+
+[Both-feature retraining: full-size NN versus RL sizing](nn_rl_benchmark.md).
