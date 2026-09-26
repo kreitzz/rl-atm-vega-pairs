@@ -15,7 +15,8 @@ class ContractDownloadTests(unittest.TestCase):
         self.assertFalse(assets.secid.duplicated().any())
         self.assertFalse(pairs.pair.duplicated().any())
         self.assertTrue(set(pairs.secid_a)|set(pairs.secid_b)<=set(assets.secid))
-        self.assertEqual(assets.start.eq('2010-01-01').sum(),41)
+        self.assertTrue(assets.start.eq('2010-01-01').all())
+        self.assertTrue(pairs.start.eq('2010-01-01').all())
 
     def test_partitions_cover_each_requested_name_year_once(self):
         assets=pd.DataFrame([dict(secid=1,start='2010-01-01'),dict(secid=2,start='2018-01-01')])
@@ -49,6 +50,14 @@ class ContractDownloadTests(unittest.TestCase):
             self.assertEqual(sum(map(len,batches)),2)
             with self.assertRaises(MemoryError):
                 read_contracts(temp,[1],'2025-01-01','2025-01-31',max_rows=1)
+            # An expanded universe can leave superseded batches on disk. The
+            # active request list must prevent double counting their quotes.
+            obsolete=folder/'batch=obsolete.parquet'
+            obsolete.write_bytes(path.read_bytes())
+            obsolete.with_suffix('.json').write_text(path.with_suffix('.json').read_text())
+            (Path(temp)/'requests.json').write_text(json.dumps([dict(kind='quotes',year=2025,
+                secids=[1,2],path='quotes/year=2025/batch=test.parquet')]))
+            self.assertEqual(len(read_contracts(temp,[1],'2025-01-01','2025-01-31')),2)
 
     def test_compact_calendar_preserves_first_and_last_date(self):
         a,b=mask_bounds((1<<0)|(1<<365))

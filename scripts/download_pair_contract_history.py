@@ -1,7 +1,7 @@
 """Resumable actual-contract cache for every previously screened/tested pair.
 
 Calls, all strikes, 0--60 calendar days to expiry; no quote/Greek/liquidity
-filter. Legacy 25-pair assets start in 2010; broad-screen assets start in 2018.
+filter. All previously explored assets request history from January 2010.
 Raw licensed records are ignored under data/option_contracts, never published.
 """
 import argparse
@@ -62,7 +62,7 @@ def registry():
     for r in screens[screens.year.ge(2018)].itertuples():
         a,b = lookup.loc[r.asset_a],lookup.loc[r.asset_b]
         add(r.label, {str(a.ticker): a.to_dict(), str(b.ticker): b.to_dict()},
-            '2018-01-01', 'broad_screen')
+            '2010-01-01', 'broad_screen')
     def clean(rows):
         return pd.DataFrame([{k: '|'.join(sorted(v)) if isinstance(v,set) else v
                               for k,v in x.items()} for x in rows])
