@@ -10,6 +10,8 @@ Four independent policies for AMD/NVDA, XOM/CVX, JPM/BAC, and HD/LOW, assuming i
 
 [Actual-contract AMD/NVDA pilot](reports/contract_pilot.md): daily option-and-stock-hedge P&L, costs, and cash accounting.
 
+[Contract data coverage for all previously explored pairs](reports/contract_data.md).
+
 [AMD/NVDA dataset (CSV)](data/current_dataset.csv): 5,685 daily observations, December 2002–August 2025. Includes the five state inputs, entry IVs, forward 30-day RVs, and outcome date. Rewards are calculated during training; forward RV is not a state input. Earnings dates within 30 days are assumed known at entry.
 
 **Academic use only.** Third-party data remain subject to OptionMetrics, CRSP, Compustat, and institutional license terms; this notice grants no additional data rights.
