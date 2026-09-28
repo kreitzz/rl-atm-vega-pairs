@@ -6,6 +6,8 @@ Four independent policies for AMD/NVDA, XOM/CVX, JPM/BAC, and HD/LOW, assuming i
 
 [NN versus RL benchmark](reports/nn_rl_benchmark.md): full-size/flat neural network versus independently sized RL policies, with both relative-value features.
 
+[Q-learning revision](reports/q_batch.md): exhaustive batch Q updates, economic state ablations, and missing-date sensitivity; AMD/NVDA improves in point estimate, without a statistically reliable advantage over cross-entropy.
+
 [Broader universe and prior-profitability state](reports/broad_pairs.md).
 
 [Actual-contract AMD/NVDA pilot](reports/contract_pilot.md): daily option-and-stock-hedge P&L, costs, and cash accounting.
