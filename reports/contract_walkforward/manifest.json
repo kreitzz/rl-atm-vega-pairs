@@ -1,0 +1,67 @@
+{
+  "settings": {
+    "capital": 1000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 20000,
+    "max_entry_vega_imbalance": 0.1,
+    "option_commission": 0.65,
+    "stock_cost_bps": 1,
+    "borrowing_spread": 0.01,
+    "stock_borrow_rate": 0.003,
+    "min_open_interest": 100,
+    "max_relative_spread": 0.25,
+    "max_moneyness_distance": 0.1,
+    "min_dte": 21,
+    "max_dte": 45,
+    "target_dte": 30,
+    "holding_days": 30,
+    "repair_crossed_held_quotes": true,
+    "support_integer_splits": true,
+    "option_spread_fraction": 0.5,
+    "risk_controls": true,
+    "max_hedge_leverage": 2.0,
+    "max_reserve_fraction": 0.8,
+    "stock_reserve_fraction": 0.5,
+    "max_stress_loss_fraction": 0.05,
+    "spot_stress": 0.2,
+    "vol_stress": 0.1
+  },
+  "pairs": [
+    "AMD_NVDA",
+    "XOM_CVX",
+    "JPM_BAC",
+    "HD_LOW"
+  ],
+  "start": "2013-01-01",
+  "end": "2025-08-29",
+  "train_years": 5,
+  "min_training_rows": 504,
+  "tree_leaves": 8,
+  "tree_min_leaf": 63,
+  "ladder": [
+    -1.0,
+    -0.75,
+    -0.5,
+    -0.25,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "beta_window": 126,
+  "beta_tolerance": 0.25,
+  "correlation_floor": 0.5,
+  "memory_days": [
+    91,
+    365
+  ],
+  "training_objective": "daily standalone shadow-book excess PnL Sharpe; final evaluation includes NAV scaling and risk limits",
+  "memory": "completed independent directional shadow trades, normalized by actual mean initial leg vega",
+  "peak_rss_bytes": 852361216,
+  "code_sha256": {
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/run_contract_walkforward.py": "78f1a4f5df5dd2485e34e2725ab6a76452d747c18e91498805bab0bd0837960d",
+    "scripts/contract_learning_labels.py": "9686bf80a8d8b6826c30caa391f96b94525d032f7faf41ad6e6fb80746973ad5",
+    "scripts/contract_engine.py": "e467e2d63fcde6b941236495b01281e3259289908029580afacb8bc330c93d76"
+  }
+}

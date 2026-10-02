@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "complete_windows": 2760,
+  "unresolved_windows": 0,
+  "common_complete_pairs": 345,
+  "original_nn_directions_verified": true,
+  "frozen_rl_directions_verified": true,
+  "enabled_nn_refits": 713,
+  "largest_ledger_error": 5.358060661819763e-10,
+  "training_hurdle": 0.65,
+  "actual_commission": 0.03
+}

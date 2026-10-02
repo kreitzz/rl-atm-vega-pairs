@@ -1,0 +1,7 @@
+group,model,status,pairs,completed_pairs,failed_pairs
+broad,rl_reference,incomplete,350,317,33
+broad,rl_sized,incomplete,350,316,34
+broad,nn_fixed,incomplete,350,317,33
+all,rl_reference,incomplete,358,325,33
+all,rl_sized,incomplete,358,324,34
+all,nn_fixed,incomplete,358,325,33

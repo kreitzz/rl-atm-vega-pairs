@@ -1,0 +1,7 @@
+pair,label,variant,nonzero_signals,status,entries,total_return,excess_return,annualized_excess_sharpe,max_drawdown,option_pnl,hedge_pnl,ledger_error,worker_peak_rss_bytes,net_excess_pnl,nav_source,structural_cash,error
+103802__111296,DVN/MRO,rank_no_memory_gate,53.0,incomplete,,,,,,,,,1297137664.0,,,,2023-02-14: unsupported distribution for 152049246
+103802__111296,DVN/MRO,rank_term_no_memory_gate,168.0,incomplete,,,,,,,,,1297137664.0,,,,2023-02-14: unsupported distribution for 152049246
+112463__161182,RCL/NCLH,rank_no_memory_gate,31.0,incomplete,,,,,,,,,1281720320.0,,,,2020-03-13: missing held option 129807664
+112463__161182,RCL/NCLH,rank_term_no_memory_gate,22.0,incomplete,,,,,,,,,1281720320.0,,,,2020-03-13: missing held option 129807664
+105512__114726,OIH/HAL,full_no_memory_gate,166.0,incomplete,,,,,,,,,1378189312.0,,,,2020-04-15: invalid held quote 130191640
+109956__114726,OIH/SLB,full_no_memory_gate,252.0,incomplete,,,,,,,,,1281720320.0,,,,2020-04-15: invalid held quote 130191641

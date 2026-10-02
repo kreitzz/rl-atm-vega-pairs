@@ -1,0 +1,5 @@
+variant,status,pairs,annualized_excess_sharpe,net_excess_pnl,entries
+full_no_memory_gate,incomplete,346,,,
+rank_with_memory_gate,complete,346,-0.14050866676956927,-53562.18899536133,330.0
+rank_no_memory_gate,incomplete,346,,,
+rank_term_no_memory_gate,incomplete,346,,,

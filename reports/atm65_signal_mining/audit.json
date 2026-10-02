@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "complete_windows": 2760,
+  "unresolved_windows": 0,
+  "common_complete_pairs": 345,
+  "largest_ledger_error": 5.231015620665858e-10,
+  "disabled_exit_baselines_reconciled": 30,
+  "largest_baseline_error": 0.0,
+  "policy_exit_cohorts_verified": 400,
+  "original_inputs_unchanged": true,
+  "early_ranks_end_before_2018": true
+}

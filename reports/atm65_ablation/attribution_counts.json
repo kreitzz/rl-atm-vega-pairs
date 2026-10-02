@@ -1,0 +1,72 @@
+{
+  "decision_status_counts_full": {
+    "nn_fixed": {
+      "flat": 47243,
+      "entered": 221,
+      "risk_limit_entry": 1150,
+      "entry_quote_unavailable": 130,
+      "risk_deleveraging": 269,
+      "integer_vega_mismatch": 22
+    },
+    "nn_sized": {
+      "flat": 47243,
+      "entered": 442,
+      "integer_vega_mismatch": 86,
+      "entry_quote_unavailable": 130,
+      "risk_limit_entry": 730,
+      "risk_deleveraging": 404
+    },
+    "tree_fixed": {
+      "flat": 30146,
+      "entered": 118,
+      "risk_limit_entry": 778,
+      "entry_quote_unavailable": 96,
+      "risk_deleveraging": 291,
+      "integer_vega_mismatch": 10
+    },
+    "rl_fixed_frozen": {
+      "flat": 29124,
+      "entered": 111,
+      "risk_limit_entry": 629,
+      "entry_quote_unavailable": 76,
+      "risk_deleveraging": 264,
+      "integer_vega_mismatch": 10
+    },
+    "rl_fixed": {
+      "flat": 21991,
+      "entered": 88,
+      "risk_limit_entry": 456,
+      "entry_quote_unavailable": 68,
+      "risk_deleveraging": 220,
+      "integer_vega_mismatch": 3
+    },
+    "rl_sized": {
+      "flat": 29124,
+      "entered": 224,
+      "risk_limit_entry": 476,
+      "risk_deleveraging": 249,
+      "entry_quote_unavailable": 76,
+      "integer_vega_mismatch": 65
+    }
+  },
+  "monthly_fit_status_counts": {
+    "rl_sized": {
+      "flat_validation_gate": 1539,
+      "flat_no_validation_opportunities": 2628,
+      "enabled": 514,
+      "insufficient_training": 605
+    },
+    "rl_fixed": {
+      "flat_validation_gate": 1618,
+      "flat_no_validation_opportunities": 2628,
+      "enabled": 435,
+      "insufficient_training": 605
+    },
+    "tree_fixed": {
+      "flat_validation_gate": 1543,
+      "flat_no_validation_opportunities": 2628,
+      "enabled": 510,
+      "insufficient_training": 605
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "ciq_transcripts.wrds_transcript_detail": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "ciq_transcripts.ciqtranscriptcomponent": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "revelio_workforce_dynamics.workforce_dynamics_geo": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "revelio_job_postings.postings_cosmos": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "revelio_layoffs.layoffs": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "revelio_sentiment.sentiment_individual_reviews": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "revelio_common.company_mapping": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "wrdssec_secsa.wrds_nlpsa": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "wrdssec_secsa.bow_filingsummary": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "wrdssec_secsa.bow_cossim": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_ibes.det_epsus": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_ibes.act_epsus": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_ibes.statsum_epsus": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_insiders.table1": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_13f.s34type3": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "shortint.wrds_finra_short_interest": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema wrds_finra_short_interest"
+  },
+  "shortvol.wrds_shortvolume": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema wrds_short_volume"
+  },
+  "markit.cds2024": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema markit_cds"
+  },
+  "estimize.consensus": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema estimize_estimates_consensus"
+  },
+  "etfg.fund_flow": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema etfg_fund_flow"
+  },
+  "zacks.eps_cons_daily": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema zacks_all"
+  },
+  "ravenpack_trial.rpa_full_equities": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "contrib_liquidity_taq.bbd": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "contrib_liquidity_taq.ilc": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "contrib_corporate_bond_returns.bonds": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "contrib_bond_dickerson.dickerson_bonds_daily": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "wrdsapps_bondret.bondret": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "wrdssec_insiders.document_info": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "factset_revere_supply_chain.wrds_relationship": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema factset_revere_supply_chain"
+  },
+  "ciq_keydev.wrds_keydev": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema ciq_keydev"
+  },
+  "reprisk_v2.v2_risk_incidents": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema reprisk_v2"
+  },
+  "reprisk_v2.v2_metrics": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema reprisk_v2"
+  },
+  "optionm.borrate2024": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "optionm.opvold": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_ibes.statsumu_epsus": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_ibes_guidance.det_guidance": {
+    "status": "error",
+    "sqlstate": "42501",
+    "message": "permission denied for schema tr_ibes_guidance"
+  },
+  "audit_audit_comp.feed20_nt": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "audit_audit_comp.feed39_financial_restatements": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "audit_corp_legal.f14_lit_legal_case": {
+    "status": "readable",
+    "nonempty": true
+  },
+  "tr_13f.s34type1": {
+    "status": "readable",
+    "nonempty": true
+  }
+}

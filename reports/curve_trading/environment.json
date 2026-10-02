@@ -1,0 +1,14 @@
+{
+  "python": "3.11.6",
+  "platform": "macOS-14.2.1-arm64-arm-64bit",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0",
+    "pyarrow": "25.0.1"
+  },
+  "blas_threads": 1,
+  "training_workers": 2,
+  "tests": "23 targeted tests passed"
+}

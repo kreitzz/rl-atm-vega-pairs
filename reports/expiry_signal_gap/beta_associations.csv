@@ -1,0 +1,3 @@
+policy,active_pairs,trades,pair_distance_vs_net_sharpe,pair_correlation_vs_net_sharpe,trade_distance_vs_gross_per_vega
+trained_nn,90,746,-0.030563444046590116,-0.20046096225871504,-0.0009560030899532994
+trained_rl,52,547,-0.20498591308802183,-0.1354904806625117,-0.07868468592040427

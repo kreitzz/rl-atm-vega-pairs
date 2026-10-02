@@ -1,0 +1,3 @@
+model,active_pairs,entries,winning_pairs,losing_pairs,winner_profit,loser_loss,top1_share_of_positive_profit,top3_share_of_positive_profit,gross_positive_net_negative,losers_positive_without_worst_day,losers_positive_without_worst_year,pairs_traded_both_periods,early_later_rank_correlation,early_winners,early_winners_later_positive
+nn_fixed,63,389,25,38,376102.70708457753,-442723.3037476449,0.08963040749464742,0.2528331706765628,6,16,7,18,0.2115583075335397,6,4
+rl_sized,35,280,20,15,193348.35704912175,-87559.16311948537,0.24006215401456077,0.42880340382197707,3,7,2,5,-0.6,2,1

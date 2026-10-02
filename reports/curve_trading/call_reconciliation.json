@@ -1,0 +1,85 @@
+{
+  "checks": [
+    {
+      "tenor": 14,
+      "cp": "C",
+      "bucket_a": 25,
+      "bucket_b": 75,
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 1.552535877635819e-12
+    },
+    {
+      "tenor": 14,
+      "cp": "C",
+      "bucket_a": 75,
+      "bucket_b": 25,
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 1.0347833701018772e-12
+    },
+    {
+      "tenor": 14,
+      "cp": "C",
+      "bucket_a": "atm",
+      "bucket_b": "atm",
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 1.0348388812531084e-12
+    },
+    {
+      "tenor": 30,
+      "cp": "C",
+      "bucket_a": 25,
+      "bucket_b": 75,
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 1.0347278589506459e-12
+    },
+    {
+      "tenor": 30,
+      "cp": "C",
+      "bucket_a": 75,
+      "bucket_b": 25,
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 7.762679388179095e-13
+    },
+    {
+      "tenor": 30,
+      "cp": "C",
+      "bucket_a": "atm",
+      "bucket_b": "atm",
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 7.762679388179095e-13
+    },
+    {
+      "tenor": 45,
+      "cp": "C",
+      "bucket_a": 25,
+      "bucket_b": 75,
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 7.762679388179095e-13
+    },
+    {
+      "tenor": 45,
+      "cp": "C",
+      "bucket_a": 75,
+      "bucket_b": 25,
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 1.034949903555571e-12
+    },
+    {
+      "tenor": 45,
+      "cp": "C",
+      "bucket_a": "atm",
+      "bucket_b": "atm",
+      "cohorts": 4,
+      "complete": 4,
+      "max_label_error": 7.762679388179095e-13
+    }
+  ]
+}

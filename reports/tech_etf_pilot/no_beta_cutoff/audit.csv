@@ -1,0 +1,9 @@
+pair,label,label_rows,complete_labels,unresolved_labels,audit
+SMH_AMD,SMH/AMD,2693,2554,6,passed
+SMH_AMAT,SMH/AMAT,2740,2597,6,passed
+SMH_INTC,SMH/INTC,2749,2630,6,passed
+SMH_LRCX,SMH/LRCX,2612,2434,6,passed
+SMH_MU,SMH/MU,2744,2650,6,passed
+SMH_NVDA,SMH/NVDA,2750,2650,6,passed
+SMH_TER,SMH/TER,2224,2044,5,passed
+SMH_QRVO,SMH/QRVO,1852,1787,5,passed

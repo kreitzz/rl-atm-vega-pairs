@@ -1,0 +1,149 @@
+[
+  {
+    "pair": "OIH_SLB",
+    "label": "OIH/SLB",
+    "group": "broad",
+    "secids": [
+      114726,
+      109956
+    ],
+    "source_pair": "s114726p13129__s109956p14277",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-03-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041318001946/c91215_nq.htm"
+  },
+  {
+    "pair": "OIH_HAL",
+    "label": "OIH/HAL",
+    "group": "broad",
+    "secids": [
+      114726,
+      105512
+    ],
+    "source_pair": "s114726p13129__s105512p23819",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-03-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041318001946/c91215_nq.htm"
+  },
+  {
+    "pair": "OIH_RIG",
+    "label": "OIH/RIG",
+    "group": "broad",
+    "secids": [
+      114726,
+      112333
+    ],
+    "source_pair": "s114726p13129__s112333p79237",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-03-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041318001946/c91215_nq.htm"
+  },
+  {
+    "pair": "OIH_BKR",
+    "label": "OIH/BKR",
+    "group": "broad",
+    "secids": [
+      114726,
+      101920
+    ],
+    "source_pair": "s114726p13129__s101920p75034",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-03-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041318001946/c91215_nq.htm"
+  },
+  {
+    "pair": "SIL_HL",
+    "label": "SIL/HL",
+    "group": "broad",
+    "secids": [
+      142772,
+      105663
+    ],
+    "source_pair": "s142772p93318__s105663p32651",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-07-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1432353/000114420418051506/tv502272_nq.htm"
+  },
+  {
+    "pair": "SIL_AG",
+    "label": "SIL/AG",
+    "group": "broad",
+    "secids": [
+      142772,
+      145681
+    ],
+    "source_pair": "s142772p93318__s145681p12447",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-07-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1432353/000114420418051506/tv502272_nq.htm"
+  },
+  {
+    "pair": "SIL_CDE",
+    "label": "SIL/CDE",
+    "group": "broad",
+    "secids": [
+      142772,
+      103131
+    ],
+    "source_pair": "s142772p93318__s103131p24441",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2018-07-31",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1432353/000114420418051506/tv502272_nq.htm"
+  }
+]

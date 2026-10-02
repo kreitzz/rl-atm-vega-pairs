@@ -1,0 +1,5 @@
+{
+  "pairs": 311,
+  "cost_method": "Fixed inventories and hedges; cash financing recomputed exactly; no retraining or resizing. Cost add-backs are diagnostic, not executable policies.",
+  "proxy_method": "Same common-complete pair union and fixed budgets. Original proxy rewards, common complete-outcome dates, 35-day runoff. Entry eligibility and then actual initial vega applied. Proxy cohort Sharpe is not daily marked Sharpe."
+}

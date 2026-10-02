@@ -1,0 +1,167 @@
+{
+  "ciq_transcripts.ciqtranscript.transcriptcreationdateutc": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 576065
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 576065
+    },
+    "metadata_statistics": {
+      "status": "approximate_analyze_statistics",
+      "first": "2008-06-20 05:21:24",
+      "last": "2026-09-12 00:40:02"
+    }
+  },
+  "ciq_transcripts.wrds_transcript_detail.mostimportantdateutc": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 454797
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 454797
+    },
+    "metadata_statistics": {
+      "status": "approximate_analyze_statistics",
+      "first": "2004-09-08",
+      "last": "2026-09-11"
+    }
+  },
+  "revelio_workforce_dynamics.workforce_dynamics_geo.datemonth": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 905522776
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 905522776
+    }
+  },
+  "revelio_job_postings.postings_cosmos.post_date": {
+    "first": {
+      "status": "observed",
+      "value": "2008-01-01"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-09-06"
+    }
+  },
+  "revelio_layoffs.layoffs.notice_date": {
+    "first": {
+      "status": "observed",
+      "value": "1989-03-01"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-09-09"
+    }
+  },
+  "revelio_sentiment.sentiment_individual_reviews.review_date": {
+    "first": {
+      "status": "observed",
+      "value": "2008-01-25"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-09-02"
+    }
+  },
+  "tr_ibes.det_epsus.actdats": {
+    "first": {
+      "status": "observed",
+      "value": "1980-01-28"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-08-20"
+    }
+  },
+  "tr_ibes.act_epsus.actdats": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 394784
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 394784
+    }
+  },
+  "tr_ibes.statsum_epsus.statpers": {
+    "first": {
+      "status": "observed",
+      "value": "1976-01-15"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-08-20"
+    }
+  },
+  "wrdssec_secsa.wrds_nlpsa.fdate": {
+    "first": {
+      "status": "observed",
+      "value": "1980-01-02"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-09-30"
+    }
+  },
+  "wrdssec_secsa.bow_filingsummary.secadate": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 3618714
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 3618714
+    }
+  },
+  "tr_insiders.table1.fdate": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 2905202
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 2905202
+    },
+    "metadata_statistics": {
+      "status": "approximate_analyze_statistics",
+      "first": "2007-08-20",
+      "last": "2026-09-30"
+    }
+  },
+  "tr_13f.s34type3.fdate": {
+    "first": {
+      "status": "observed",
+      "value": "1980-03-31"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2026-03-31"
+    }
+  },
+  "ravenpack_trial.rpa_full_equities.rpa_date_utc": {
+    "first": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 131999
+    },
+    "last": {
+      "status": "skipped_large_scan",
+      "estimated_rows": 131999
+    }
+  },
+  "optionm.borrate2024.date": {
+    "first": {
+      "status": "observed",
+      "value": "2024-01-02"
+    },
+    "last": {
+      "status": "observed",
+      "value": "2024-12-31"
+    }
+  }
+}

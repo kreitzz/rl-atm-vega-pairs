@@ -1,0 +1,26 @@
+{
+  "source_files_verified": 581,
+  "baseline_archive_sha256_verified": true,
+  "retrained_pairs": 100,
+  "monthly_controls_verified": 4394,
+  "original_state_columns_unchanged": true,
+  "training_outcomes_strictly_purged": true,
+  "accounting": {
+    "requested_pairs": 345,
+    "common_complete_pairs": 345,
+    "unresolved": []
+  },
+  "entry_coverage": {
+    "nn_transcripts": {
+      "entries_with_transcripts": 167,
+      "entries_without_transcripts": 7
+    },
+    "rl_transcripts": {
+      "entries_with_transcripts": 174,
+      "entries_without_transcripts": 16
+    }
+  },
+  "enabled_rl_refits": 471,
+  "enabled_rl_refits_using_transcript_values": 224,
+  "enabled_rl_refits_using_missingness": 9
+}

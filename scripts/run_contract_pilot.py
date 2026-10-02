@@ -84,6 +84,7 @@ def main():
     parser.add_argument('--repair-crossed-held-quotes', action='store_true',
                         help='Explicit sensitivity only: swap crossed held bid/ask into a conservative envelope')
     parser.add_argument('--direction-control', choices=['saved', 'higher_iv'], default='saved')
+    parser.add_argument('--greeks-source', choices=['vendor', 'black_scholes'], default='vendor')
     args = parser.parse_args()
     cfg = json.loads(args.config.read_text())
     settings = Settings(**{f.name: cfg[f.name] for f in fields(Settings) if f.name in cfg})
@@ -91,6 +92,23 @@ def main():
         settings.repair_crossed_held_quotes = True
     cfg['repair_crossed_held_quotes'] = settings.repair_crossed_held_quotes
     q, stocks, signals, calendar, dividends, files = load_inputs(cfg, args.source_root, args.quotes)
+    cfg['greeks_source'] = args.greeks_source
+    if args.greeks_source == 'black_scholes':
+        from scripts.black_scholes import fit_quotes
+        zero = pd.read_parquet(args.source_root/'zero_curve.parquet')
+        distributions = pd.read_parquet(args.source_root/'actual_distributions.parquet')
+        # Fit all available marks, including contracts after they cease to be ATM.
+        # Bound temporary pricing arrays; preserve observed quotes for executions.
+        fitted = []
+        for offset in range(0, len(q), 5000):
+            part = fit_quotes(q.iloc[offset:offset+5000], stocks, zero, distributions)
+            fitted.append(part[['bs_iv', 'bs_delta', 'bs_vega', 'bs_status']])
+        marks = pd.concat(fitted, ignore_index=True)
+        for name in ['delta', 'vega', 'impl_volatility']:
+            q['vendor_'+name] = q[name]
+        for name, fitted_name in [('delta','bs_delta'), ('vega','bs_vega'), ('impl_volatility','bs_iv')]:
+            q[name] = marks[fitted_name].to_numpy()
+        cfg['bs_fit_statuses'] = marks.bs_status.value_counts().to_dict()
     cfg['direction_control'] = args.direction_control
     if args.direction_control == 'higher_iv':
         control = signals.copy()
@@ -117,6 +135,7 @@ def main():
     excess = nav.excess_return.iloc[1:]
     peak = nav.nav.cummax().clip(lower=settings.capital)
     summary = dict(pair=cfg['pair'], action_column=cfg['action_column'],
+                   greeks_source=args.greeks_source,
                    direction_control=args.direction_control, sessions=len(nav),
                    start=str(calendar[0].date()), end=str(calendar[-1].date()),
                    entered_cohorts=int(decisions.status.eq('entered').sum()),

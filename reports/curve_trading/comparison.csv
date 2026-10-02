@@ -1,0 +1,7 @@
+variant,scope,status,pairs,entries,active_pairs,annualized_excess_sharpe,net_excess_pnl
+previous_atm_reference,common,complete,346,256,30,0.21487009358671372,96245.52064013481
+previous_atm_reference,full,complete,346,256,30,0.21487009358671372,96245.52064013481
+atm_control,common,complete,346,238,30,0.27560005326447046,110465.0145444274
+atm_control,full,complete,346,238,30,0.27560005326447046,110465.0145444274
+curve,common,complete,346,215,27,0.15748100373139534,67151.11674958467
+curve,full,complete,346,215,27,0.15748100373139534,67151.11674958467

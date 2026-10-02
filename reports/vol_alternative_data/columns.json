@@ -1,0 +1,302 @@
+[
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "legal_case_key",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "title",
+    "type": "character varying"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "web_summary",
+    "type": "character varying"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "law_court_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "judge_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "derivative_legal_case_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "lcd_ref_id",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "docket_number",
+    "type": "character varying"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "cross_claim",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "counter_claim",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "potential_exposure_dollars",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "claim_dollars",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "settlement_dollars",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "case_start_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "case_end_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "exposure_start_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "exposure_end_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "create_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_case",
+    "column": "change_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "legal_party_key",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "company_fkey",
+    "type": "character varying"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "auditor_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "gov_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "law_firm_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "legal_case_fkey",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "defendant",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "plaintiff",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "is_the_lead_player",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "been_terminated",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "terminated_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "consolidated",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "related_non_party",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "relief_defendant",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "third_party",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "name_text",
+    "type": "character varying"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "is_creditor",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "is_debtor",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "settlement_amount",
+    "type": "double precision"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "create_date",
+    "type": "date"
+  },
+  {
+    "schema": "audit_corp_legal",
+    "table": "f14_lit_legal_party",
+    "column": "change_date",
+    "type": "date"
+  },
+  {
+    "schema": "optionm",
+    "table": "borrate2024",
+    "column": "securityid",
+    "type": "double precision"
+  },
+  {
+    "schema": "optionm",
+    "table": "borrate2024",
+    "column": "date",
+    "type": "date"
+  },
+  {
+    "schema": "optionm",
+    "table": "borrate2024",
+    "column": "expirationdate",
+    "type": "date"
+  },
+  {
+    "schema": "optionm",
+    "table": "borrate2024",
+    "column": "days",
+    "type": "double precision"
+  },
+  {
+    "schema": "optionm",
+    "table": "borrate2024",
+    "column": "borrowrate",
+    "type": "double precision"
+  },
+  {
+    "schema": "optionm",
+    "table": "opvold",
+    "column": "secid",
+    "type": "double precision"
+  },
+  {
+    "schema": "optionm",
+    "table": "opvold",
+    "column": "date",
+    "type": "date"
+  },
+  {
+    "schema": "optionm",
+    "table": "opvold",
+    "column": "cp_flag",
+    "type": "character varying"
+  },
+  {
+    "schema": "optionm",
+    "table": "opvold",
+    "column": "volume",
+    "type": "double precision"
+  },
+  {
+    "schema": "optionm",
+    "table": "opvold",
+    "column": "open_interest",
+    "type": "double precision"
+  }
+]

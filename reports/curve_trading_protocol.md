@@ -1,0 +1,11 @@
+# Expanded contract-choice test
+
+Predeclared before the expanded backtest: test 14-, 30-, and 45-day target expiries. Match calls with calls and puts with puts, with independently chosen delta buckets on the two legs. Use actual contracts nearest 10/25/50/75/90 absolute Black–Scholes delta within 0.075 delta, plus the exact original ATM selection. Both legs share a target tenor; actual expiries can differ. This gives 216 combinations and 1,729 actions including eight signed sizes and flat.
+
+Keep the native 30-day reference state and observation dates, costs, risk limits, beta 0.85–1.15, correlation ≥0.5, daily delta hedging, and hold-to-own-expiry accounting. The explicit delta grid replaces the old 10% ATM moneyness filter. Vega is matched at entry within the existing 10% integer-sizing tolerance; option quantities are not rebalanced each day. Contract-specific completed profitability memory gates each selected direction. Early assignment remains unmodeled.
+
+For a bounded search, each January rank every combination by full-size directional shadow daily Sharpe using only the five years before the prior validation year. Require 21 eligible, memory-permitted cohorts for ranking. Keep original ATM30 calls and up to seven additional combinations. Monthly eight-leaf direct Sharpe policy search then chooses among their signed sizing ladders and flat. All shortlists and cutoffs are saved. The ATM-only control uses the same generalized optimizer; also report the previously completed ATM reference.
+
+Preserve the separate prior-year positive-Sharpe validation gate, subsequent five-year completed-outcome refit, and 60-calendar-day entry runoff. As previously, the validation gate tests pre-refit weights. Use the same 346-pair roster, and show incomplete sleeves explicitly in both variants. Never make deployment availability depend on future held-contract completeness. These are previously explored research years, not an untouched holdout.
+
+Process raw data in bounded batches and train at most two pairs concurrently. Reconcile the optimized labels with the existing engine on synthetic lifecycle cases and real contracts before running the full backtest. Report cash-excess annualized Sharpe, annual results, pair concentration, and actual tenor/type/delta choices. No reference model is promoted automatically.

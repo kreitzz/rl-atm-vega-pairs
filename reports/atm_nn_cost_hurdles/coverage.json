@@ -1,0 +1,13 @@
+{
+  "attempted_pairs": 346,
+  "common_complete_pairs": 345,
+  "incomplete_windows": 2,
+  "excluded_pairs": [
+    {
+      "pair": "103802__111296",
+      "label": "DVN/MRO"
+    }
+  ],
+  "scope": "common_complete_subset",
+  "incomplete_books_assigned_cash": false
+}

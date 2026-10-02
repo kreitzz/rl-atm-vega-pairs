@@ -1,0 +1,222 @@
+{
+  "pair": "AMD/NVDA",
+  "convention": "fixed capital, no portfolio risk rejection",
+  "checks": [
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": -1.0,
+      "max_error": 1.0347278589506459e-12
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": -0.75,
+      "max_error": 5.174749517777855e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": -0.5,
+      "max_error": 5.174749517777855e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": -0.25,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": 0.0,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": 0.25,
+      "max_error": 5.17585974080248e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": 0.5,
+      "max_error": 5.173639294753229e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": 0.75,
+      "max_error": 5.173639294753229e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-02",
+      "action": 1.0,
+      "max_error": 2.589040093425865e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": -1.0,
+      "max_error": 2.589040093425865e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": -0.75,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": -0.5,
+      "max_error": 5.173916850509386e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": -0.25,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": 0.0,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": 0.25,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": 0.5,
+      "max_error": 5.174749517777855e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": 0.75,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 14,
+      "signal": "2018-01-03",
+      "action": 1.0,
+      "max_error": 7.760458942129844e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": -1.0,
+      "max_error": 5.17585974080248e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": -0.75,
+      "max_error": 7.760458942129844e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": -0.5,
+      "max_error": 5.174749517777855e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": -0.25,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": 0.0,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": 0.25,
+      "max_error": 5.174194406265542e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": 0.5,
+      "max_error": 7.760458942129844e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": 0.75,
+      "max_error": 7.761569165154469e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-02",
+      "action": 1.0,
+      "max_error": 7.760458942129844e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": -1.0,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": -0.75,
+      "max_error": 7.761014053642157e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": -0.5,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": -0.25,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": 0.0,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": 0.25,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": 0.5,
+      "max_error": 2.5870071517096625e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": 0.75,
+      "max_error": 5.17585974080248e-13
+    },
+    {
+      "tenor": 45,
+      "signal": "2018-01-03",
+      "action": 1.0,
+      "max_error": 5.17585974080248e-13
+    }
+  ]
+}

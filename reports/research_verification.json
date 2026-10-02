@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-01",
+  "relevant_unittest_tests_passed": 39,
+  "immutable_source_hashes_checked": 3546,
+  "immutable_source_changes": 0,
+  "export_rows": 290151,
+  "exact_model_feature_roundtrips": 139,
+  "structural_cash_sleeves_checked": 206,
+  "retrained_nn": false,
+  "new_strategy_fit_started": false
+}

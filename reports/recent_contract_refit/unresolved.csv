@@ -1,0 +1,4 @@
+pair,label,group,model,variant,nonzero_signals,status,entries,option_pnl,hedge_pnl,ledger_error,worker_peak_rss_bytes,error
+102265__105169,BA/GE,broad,nn_fixed,recent,101,incomplete,,,,,626016256,2023-01-04: invalid held quote 141664731
+102265__105169,BA/GE,broad,nn_fixed,recent_memory,38,incomplete,,,,,626016256,2023-01-04: invalid held quote 141664730
+103651__106899,DHI/LEN,broad,rl_sized,recent,127,incomplete,,,,,626016256,2019-05-31: held underlying corporate action 106899

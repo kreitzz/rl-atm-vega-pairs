@@ -1,0 +1,43 @@
+{
+  "prior_date": "2014-07-17",
+  "failure_date": "2014-07-18",
+  "initial_capital": 1000000.0,
+  "prior_nav": 56911.17299741274,
+  "terminal_nav": -42315.54291352513,
+  "terminal_pnl": -99226.71591093787,
+  "terminal_pnl_fraction_initial_capital": -0.09922671591093787,
+  "prior_active_cohorts": 18,
+  "prior_gross_vega": 10442.02780273256,
+  "prior_net_vega": 134.12258080618568,
+  "gross_hedge_notional": 10140792.258629099,
+  "option_execution_cost": 1052811.250000001,
+  "commissions": 606193.25,
+  "max_delta_residual_shares": 4.656612873077393e-10,
+  "audited_sessions": 1142,
+  "terminal_market_pnl": -95310.88184425747,
+  "terminal_cost_and_financing_pnl": -3915.8340666803997,
+  "legs": [
+    {
+      "ticker": "AMD",
+      "stock_return": -0.16192560175054704,
+      "contracts": -17897,
+      "prior_vega": -5153.952610963189,
+      "hedge_shares": 1257020.970119765,
+      "hedge_notional": 5744585.833447327,
+      "option_mark_pnl": 781903.5,
+      "stock_hedge_pnl": -930195.5178886264,
+      "combined_mark_pnl": -148292.01788862643
+    },
+    {
+      "ticker": "NVDA",
+      "stock_return": -0.04455958549222794,
+      "contracts": 4117,
+      "prior_vega": 5288.075191769375,
+      "hedge_shares": -227782.71633066173,
+      "hedge_notional": 4396206.425181772,
+      "option_mark_pnl": -142912.0,
+      "stock_hedge_pnl": 195893.13604436896,
+      "combined_mark_pnl": 52981.13604436896
+    }
+  ]
+}

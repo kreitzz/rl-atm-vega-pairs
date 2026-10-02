@@ -1,0 +1,9 @@
+{
+  "pairs_checked": 358,
+  "matched_pairs": 346,
+  "nn_validation_fits": 8026,
+  "nn_validation_warnings": 3582,
+  "nn_recent_fits": 2947,
+  "nn_recent_warnings": 1356,
+  "momentum_coverage": 0.9954969728814353
+}

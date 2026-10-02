@@ -1,0 +1,8 @@
+scale,months,model
+0.0,15,rl_sized
+0.25,4,rl_sized
+0.5,8,rl_sized
+0.75,2,rl_sized
+1.0,15,rl_sized
+0.0,24,nn_fixed
+1.0,20,nn_fixed

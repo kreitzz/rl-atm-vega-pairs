@@ -1,0 +1,5 @@
+group,model,completed_pairs,traded_pairs,profitable_over_cash,cash_only_pairs,entries
+broad,rl_sized,348,95,34,253,2722
+broad,nn_fixed,348,101,32,247,1989
+legacy_extra,rl_sized,8,1,0,7,89
+legacy_extra,nn_fixed,8,2,1,6,80

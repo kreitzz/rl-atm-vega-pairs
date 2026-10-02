@@ -1,0 +1,13 @@
+{
+  "retrain_models": [
+    "rl"
+  ],
+  "retrain_nn": false,
+  "nn_benchmark": "saved historical results only",
+  "reference_checkpoint": "config/atm30_fee065_employee_2026-10-01_checkpoint.json",
+  "training_commission_per_contract": 0.65,
+  "execution_commission_per_contract": 0.03,
+  "workers": 1,
+  "cpu_duty_cycle": 0.5,
+  "memory_stop_gib": 3
+}

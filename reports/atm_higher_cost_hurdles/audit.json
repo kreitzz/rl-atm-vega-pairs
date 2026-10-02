@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "pairs": 346,
+  "sleeve_windows_checked": 1384,
+  "memory_pairs_checked": 140,
+  "nested_memory_gates": true,
+  "largest_ledger_error": 5.482547749124933e-10,
+  "largest_original_memory_error": 2.12763140439165e-12,
+  "execution_commission": 0.03
+}

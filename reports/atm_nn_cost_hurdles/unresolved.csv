@@ -1,0 +1,3 @@
+model,pair,label,training_hurdle,period,status,error,included_in_all_matched_comparisons
+nn_fixed,103802__111296,DVN/MRO,0.3,full,incomplete,2023-02-14: unsupported distribution for 152049246,False
+nn_fixed,103802__111296,DVN/MRO,0.3,recent,incomplete,2023-02-14: unsupported distribution for 152049246,False

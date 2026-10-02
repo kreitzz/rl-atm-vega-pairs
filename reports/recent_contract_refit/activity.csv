@@ -1,0 +1,9 @@
+variant,model,pairs,entries,active_pairs
+baseline,nn_fixed,348,1989,101
+baseline,rl_sized,348,2722,95
+previous_memory,nn_fixed,348,389,73
+previous_memory,rl_sized,348,514,55
+recent,nn_fixed,348,2200,101
+recent,rl_sized,348,2655,94
+recent_memory,nn_fixed,348,400,77
+recent_memory,rl_sized,348,504,54

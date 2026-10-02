@@ -1,0 +1,149 @@
+[
+  {
+    "pair": "SMH_AMD",
+    "label": "SMH/AMD",
+    "group": "broad",
+    "secids": [
+      151720,
+      101121
+    ],
+    "source_pair": "s151720p13132__s101121p61241",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  },
+  {
+    "pair": "SMH_AMAT",
+    "label": "SMH/AMAT",
+    "group": "broad",
+    "secids": [
+      151720,
+      101610
+    ],
+    "source_pair": "s151720p13132__s101610p14702",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  },
+  {
+    "pair": "SMH_INTC",
+    "label": "SMH/INTC",
+    "group": "broad",
+    "secids": [
+      151720,
+      106203
+    ],
+    "source_pair": "s151720p13132__s106203p59328",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  },
+  {
+    "pair": "SMH_LRCX",
+    "label": "SMH/LRCX",
+    "group": "broad",
+    "secids": [
+      151720,
+      106808
+    ],
+    "source_pair": "s151720p13132__s106808p48486",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  },
+  {
+    "pair": "SMH_NVDA",
+    "label": "SMH/NVDA",
+    "group": "broad",
+    "secids": [
+      151720,
+      108321
+    ],
+    "source_pair": "s151720p13132__s108321p86580",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  },
+  {
+    "pair": "SMH_TER",
+    "label": "SMH/TER",
+    "group": "broad",
+    "secids": [
+      151720,
+      110952
+    ],
+    "source_pair": "s151720p13132__s110952p51369",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  },
+  {
+    "pair": "SMH_QRVO",
+    "label": "SMH/QRVO",
+    "group": "broad",
+    "secids": [
+      151720,
+      206043
+    ],
+    "source_pair": "s151720p13132__s206043p85035",
+    "screen_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "holdings_snapshot": "2017-09-30",
+    "holdings_source": "https://www.sec.gov/Archives/edgar/data/1137360/000093041317004003/c89776_ncsr.htm"
+  }
+]

@@ -1,0 +1,3 @@
+pair,label,group,model,signal_dates,nonzero_signals,feature_rows,status,entries,total_return,excess_return,annualized_excess_sharpe,max_drawdown,option_pnl,hedge_pnl,ledger_error,error
+103651__106899,DHI/LEN,broad,rl_sized,1120,138,2893,incomplete,,,,,,,,,2019-05-31: held underlying corporate action 106899
+102265__105169,BA/GE,broad,nn_fixed,352,91,2980,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731
