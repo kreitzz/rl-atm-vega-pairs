@@ -8,6 +8,10 @@ Actual ATM options closest to 30 days, initially vega neutral and delta hedged d
 
 Training/validation commission: **$0.65 per contract**; execution: **$0.03**, plus 0.10 vol-point option penalty and 1 bp stock hedging cost. Monthly retraining, completed-outcome purging, beta 0.85–1.15 and correlation ≥0.5. Existing position, financing and risk limits are retained.
 
+[Q-learning revision](reports/q_batch.md): exhaustive batch Q updates, economic state ablations, and missing-date sensitivity; AMD/NVDA improves in point estimate, without a statistically reliable advantage over cross-entropy.
+
+[Broader universe and prior-profitability state](reports/broad_pairs.md).
+
 **Future research is RL-only.** Historical NN comparisons stay saved. [Training settings](config/research_training.json) · [RL-only runner](scripts/run_atm65_rl_transcripts.py). New runs use one worker, 50% of one CPU core and a 3 GiB memory stop.
 
 [Research findings and comparisons](reports/research_findings.md) · [New alternative-data priorities](reports/vol_alternative_data.md) · [Original ATM-IV proxy dataset](data/current_dataset.csv).

@@ -1,0 +1,12 @@
+[
+  {
+    "reference": "current_cem",
+    "reference_sharpe": 0.2496182814496961,
+    "selected_sharpe": 0.2963184103246038,
+    "difference": 0.04670012887490771,
+    "difference_ci": [
+      -0.3466213398303409,
+      0.5692969729941808
+    ]
+  }
+]
