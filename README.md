@@ -12,6 +12,10 @@ Four independent policies for AMD/NVDA, XOM/CVX, JPM/BAC, and HD/LOW, assuming i
 
 [Actual-contract AMD/NVDA pilot](reports/contract_pilot.md): daily option-and-stock-hedge P&L, costs, and cash accounting.
 
+[Contract-based Q learner](reports/contract_q.md): train directly on actual call-contract and hedge P&L, with next-session bid/ask execution and fixed contract IDs. The initial 2024 run selected cash; a profitable contract policy has not yet been established.
+
+[Finite contract episodes](reports/contract_episodes.md): separate entry forecasts and Q exits. The selected fixed-horizon policy earned −0.021% above cash in 2024 and +1.156% through August 2025 on only two trades per period; Q still stayed flat.
+
 [Contract data coverage for all previously explored pairs](reports/contract_data.md).
 
 [AMD/NVDA dataset (CSV)](data/current_dataset.csv): 5,685 daily observations, December 2002–August 2025. Includes the five state inputs, entry IVs, forward 30-day RVs, and outcome date. Rewards are calculated during training; forward RV is not a state input. Earnings dates within 30 days are assumed known at entry.

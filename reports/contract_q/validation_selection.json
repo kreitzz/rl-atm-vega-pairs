@@ -1,0 +1,50 @@
+[
+  {
+    "model": "cash",
+    "complete": true,
+    "error": null,
+    "sessions": 250,
+    "start": "2023-01-03",
+    "end": "2023-12-29",
+    "entries": 0,
+    "excess_sharpe": 0.0,
+    "total_return": 0.04808603463466765,
+    "excess_return_initial_capital": 0.0,
+    "annualized_excess_vol": 0.0,
+    "max_drawdown": 0.0,
+    "option_cost": 0.0,
+    "hedge_cost": 0.0
+  },
+  {
+    "model": "q_downside_0",
+    "complete": true,
+    "error": null,
+    "sessions": 250,
+    "start": "2023-01-03",
+    "end": "2023-12-29",
+    "entries": 0,
+    "excess_sharpe": 0.0,
+    "total_return": 0.04808603463466765,
+    "excess_return_initial_capital": 0.0,
+    "annualized_excess_vol": 0.0,
+    "max_drawdown": 0.0,
+    "option_cost": 0.0,
+    "hedge_cost": 0.0
+  },
+  {
+    "model": "q_downside_0.1",
+    "complete": true,
+    "error": null,
+    "sessions": 250,
+    "start": "2023-01-03",
+    "end": "2023-12-29",
+    "entries": 0,
+    "excess_sharpe": 0.0,
+    "total_return": 0.04808603463466765,
+    "excess_return_initial_capital": 0.0,
+    "annualized_excess_vol": 0.0,
+    "max_drawdown": 0.0,
+    "option_cost": 0.0,
+    "hedge_cost": 0.0
+  }
+]
