@@ -1,0 +1,101 @@
+pair,label,group,model,saved_signals,nonzero_signals,screen_years,no_fitted_policy,status,entries,total_return,excess_return,annualized_excess_sharpe,max_drawdown,option_pnl,hedge_pnl,ledger_error,error,failure_type
+101322__104416,HES/EQT,broad,rl_reference,502,312,[2018],False,incomplete,,,,,,,,,2018-11-13: invalid held quote 123986430,invalid held quote
+101322__104416,HES/EQT,broad,rl_sized,502,312,[2018],False,incomplete,,,,,,,,,2018-11-13: invalid held quote 123986430,invalid held quote
+101322__104416,HES/EQT,broad,nn_fixed,502,445,[2018],False,incomplete,,,,,,,,,2018-11-13: invalid held quote 123986430,invalid held quote
+101533__102963,APC/CHK,broad,rl_reference,394,394,[2018],False,incomplete,,,,,,,,,2019-08-09: invalid underlying 101533,invalid underlying
+101533__102963,APC/CHK,broad,nn_fixed,394,346,[2018],False,incomplete,,,,,,,,,2019-08-09: invalid underlying 101533,invalid underlying
+101533__110366,APC/SWN,broad,rl_reference,394,136,[2018],False,incomplete,,,,,,,,,2019-08-09: invalid underlying 101533,invalid underlying
+101533__110366,APC/SWN,broad,rl_sized,394,314,[2018],False,incomplete,,,,,,,,,2019-08-09: invalid underlying 101533,invalid underlying
+101533__119431,APC/WLL,broad,rl_reference,394,95,[2018],False,incomplete,,,,,,,,,2019-08-09: invalid underlying 101533,invalid underlying
+101533__119431,APC/WLL,broad,nn_fixed,394,393,[2018],False,incomplete,,,,,,,,,2019-08-09: invalid underlying 101533,invalid underlying
+101580__151404,APA/WPX,broad,rl_reference,194,194,[2020],False,incomplete,,,,,,,,,2020-03-13: missing held option 132188178,missing held option
+101580__151404,APA/WPX,broad,nn_fixed,194,158,[2020],False,incomplete,,,,,,,,,2020-03-13: missing held option 132188176,missing held option
+102235__106905,BLK/JEF,broad,rl_reference,500,500,[2022],False,incomplete,,,,,,,,,2023-01-17: invalid held quote 142388005,invalid held quote
+102235__106905,BLK/JEF,broad,rl_sized,500,452,[2022],False,incomplete,,,,,,,,,2023-01-17: invalid held quote 142388005,invalid held quote
+102235__106905,BLK/JEF,broad,nn_fixed,500,389,[2022],False,incomplete,,,,,,,,,2023-01-17: invalid held quote 142388005,invalid held quote
+102265__105169,BA/GE,broad,rl_reference,500,500,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731,invalid held quote
+102265__105169,BA/GE,broad,rl_sized,500,500,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731,invalid held quote
+102265__105169,BA/GE,broad,nn_fixed,500,408,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731,invalid held quote
+102265__111459,BA/RTX,broad,rl_reference,988,966,"[2020, 2022]",False,incomplete,,,,,,,,,2020-04-03: invalid held quote 130683237,invalid held quote
+102265__111459,BA/RTX,broad,rl_sized,988,688,"[2020, 2022]",False,incomplete,,,,,,,,,2020-04-03: invalid held quote 130683237,invalid held quote
+102571__106625,CSX/KSU,broad,nn_fixed,475,430,"[2020, 2022]",False,incomplete,,,,,,,,,2021-12-14: invalid underlying 106625,invalid underlying
+102752__112463,CCL/RCL,broad,rl_reference,990,832,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-13: missing held option 132591447,missing held option
+102752__112463,CCL/RCL,broad,rl_sized,990,698,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-13: missing held option 132591447,missing held option
+102752__112463,CCL/RCL,broad,nn_fixed,990,918,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-13: missing held option 132591447,missing held option
+103651__106899,DHI/LEN,broad,rl_reference,1492,692,"[2018, 2020, 2022]",False,incomplete,,,,,,,,,2019-05-31: held underlying corporate action 106899,held underlying corporate action
+103651__106899,DHI/LEN,broad,rl_sized,1492,651,"[2018, 2020, 2022]",False,incomplete,,,,,,,,,2019-05-31: held underlying corporate action 106899,held underlying corporate action
+103651__106899,DHI/LEN,broad,nn_fixed,1492,1204,"[2018, 2020, 2022]",False,incomplete,,,,,,,,,2019-05-31: held underlying corporate action 106899,held underlying corporate action
+103979__104508,DUK/EXC,broad,rl_reference,1395,1179,"[2018, 2022, 2024]",False,incomplete,,,,,,,,,2022-02-02: invalid held quote 144179312,invalid held quote
+103979__104508,DUK/EXC,broad,rl_sized,1395,1197,"[2018, 2022, 2024]",False,incomplete,,,,,,,,,2022-02-02: invalid held quote 144179312,invalid held quote
+104286__105169,EMR/GE,broad,rl_reference,487,262,[2020],False,incomplete,,,,,,,,,2021-08-02: invalid held quote 140846400,invalid held quote
+104286__105169,EMR/GE,broad,rl_sized,487,337,[2020],False,incomplete,,,,,,,,,2021-08-02: invalid held quote 141017234,invalid held quote
+104286__105169,EMR/GE,broad,nn_fixed,487,449,[2020],False,incomplete,,,,,,,,,2021-08-02: invalid held quote 141017234,invalid held quote
+104508__108609,EXC/PCG,broad,rl_reference,892,559,"[2022, 2024]",False,incomplete,,,,,,,,,2022-02-02: invalid held quote 144179312,invalid held quote
+104508__108609,EXC/PCG,broad,rl_sized,892,890,"[2022, 2024]",False,incomplete,,,,,,,,,2022-02-02: invalid held quote 144179312,invalid held quote
+104508__108609,EXC/PCG,broad,nn_fixed,892,869,"[2022, 2024]",False,incomplete,,,,,,,,,2022-02-02: invalid held quote 144179312,invalid held quote
+105169__111459,GE/RTX,broad,rl_reference,500,289,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731,invalid held quote
+105169__111459,GE/RTX,broad,rl_sized,500,500,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731,invalid held quote
+105169__111459,GE/RTX,broad,nn_fixed,500,315,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664731,invalid held quote
+105169__128252,GE/SPR,broad,rl_sized,500,473,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664730,invalid held quote
+105169__128252,GE/SPR,broad,nn_fixed,500,484,[2022],False,incomplete,,,,,,,,,2023-01-04: invalid held quote 141664730,invalid held quote
+105329__106905,GS/JEF,broad,rl_reference,500,361,[2022],False,incomplete,,,,,,,,,2023-01-17: invalid held quote 151426929,invalid held quote
+105329__106905,GS/JEF,broad,rl_sized,500,361,[2022],False,incomplete,,,,,,,,,2023-01-17: invalid held quote 151426929,invalid held quote
+105329__106905,GS/JEF,broad,nn_fixed,500,480,[2022],False,incomplete,,,,,,,,,2023-01-17: invalid held quote 151426930,invalid held quote
+105615__110945,EHC/THC,broad,rl_sized,500,388,[2022],False,incomplete,,,,,,,,,2022-07-01: invalid held quote 143686997,invalid held quote
+105615__110945,EHC/THC,broad,nn_fixed,500,497,[2022],False,incomplete,,,,,,,,,2022-07-01: invalid held quote 143686997,invalid held quote
+105615__146286,EHC/HCA,broad,rl_reference,500,500,[2022],False,incomplete,,,,,,,,,2022-07-01: invalid held quote 143686997,invalid held quote
+105615__146286,EHC/HCA,broad,rl_sized,500,487,[2022],False,incomplete,,,,,,,,,2022-07-01: invalid held quote 143686997,invalid held quote
+105615__146286,EHC/HCA,broad,nn_fixed,500,417,[2022],False,incomplete,,,,,,,,,2022-07-01: invalid held quote 143686997,invalid held quote
+105785__107616,HON/MMM,broad,rl_reference,501,481,[2018],False,incomplete,,,,,,,,,2018-10-01: invalid held quote 121845971,invalid held quote
+105785__107616,HON/MMM,broad,rl_sized,501,91,[2018],False,incomplete,,,,,,,,,2018-10-01: invalid held quote 121916187,invalid held quote
+105785__107616,HON/MMM,broad,nn_fixed,501,419,[2018],False,incomplete,,,,,,,,,2018-10-01: invalid held quote 121984435,invalid held quote
+106625__111394,KSU/UNP,broad,rl_reference,978,753,"[2018, 2020, 2022]",False,incomplete,,,,,,,,,2021-12-14: invalid underlying 106625,invalid underlying
+106625__111394,KSU/UNP,broad,rl_sized,978,689,"[2018, 2020, 2022]",False,incomplete,,,,,,,,,2021-12-14: invalid underlying 106625,invalid underlying
+106625__111394,KSU/UNP,broad,nn_fixed,978,923,"[2018, 2020, 2022]",False,incomplete,,,,,,,,,2021-12-14: invalid underlying 106625,invalid underlying
+106790__109371,LH/DGX,broad,rl_reference,988,691,"[2020, 2022]",False,incomplete,,,,,,,,,2023-07-03: invalid held quote 154548123,invalid held quote
+106790__109371,LH/DGX,broad,nn_fixed,988,819,"[2020, 2022]",False,incomplete,,,,,,,,,2023-07-03: invalid held quote 154548123,invalid held quote
+107248__127317,MAR/WYN,broad,rl_reference,502,385,[2018],False,incomplete,,,,,,,,,2018-06-01: invalid held quote 120286912,invalid held quote
+107248__127317,MAR/WYN,broad,rl_sized,502,445,[2018],False,incomplete,,,,,,,,,2018-06-01: invalid held quote 120286912,invalid held quote
+107248__127317,MAR/WYN,broad,nn_fixed,502,462,[2018],False,incomplete,,,,,,,,,2018-06-01: invalid held quote 120286912,invalid held quote
+109775__121764,T/TMUS,broad,rl_sized,487,418,[2020],False,incomplete,,,,,,,,,2020-06-24: held underlying corporate action 121764,held underlying corporate action
+109775__121764,T/TMUS,broad,nn_fixed,487,479,[2020],False,incomplete,,,,,,,,,2020-06-24: held underlying corporate action 121764,held underlying corporate action
+110366__151404,SWN/WPX,broad,rl_reference,194,116,[2020],False,incomplete,,,,,,,,,2020-03-13: missing held option 132188178,missing held option
+110366__151404,SWN/WPX,broad,rl_sized,194,154,[2020],False,incomplete,,,,,,,,,2020-03-13: missing held option 132188178,missing held option
+111434__116076,UPS/XPO,broad,rl_sized,500,259,[2022],False,incomplete,,,,,,,,,2022-11-01: invalid held quote 146039115,invalid held quote
+111434__116076,UPS/XPO,broad,nn_fixed,500,493,[2022],False,incomplete,,,,,,,,,2022-11-01: invalid held quote 146039114,invalid held quote
+111436__128233,URI/AER,broad,rl_sized,1884,1818,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2018-11-02: missing held option 124060262,missing held option
+111436__128233,URI/AER,broad,nn_fixed,1884,1737,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2018-11-02: missing held option 124060262,missing held option
+112463__161182,RCL/NCLH,broad,rl_reference,1883,1468,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-03-13: missing held option 132695087,missing held option
+112463__161182,RCL/NCLH,broad,rl_sized,1883,1169,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-03-13: missing held option 132695087,missing held option
+114695__213271,EXAS/GH,broad,rl_reference,372,255,[2024],False,incomplete,,,,,,,,,2024-05-23: missing held option 160968606,missing held option
+114695__213271,EXAS/GH,broad,rl_sized,372,255,[2024],False,incomplete,,,,,,,,,2024-05-23: missing held option 160968606,missing held option
+114695__213271,EXAS/GH,broad,nn_fixed,372,288,[2024],False,incomplete,,,,,,,,,2024-05-23: missing held option 160968604,missing held option
+105512__114726,OIH/HAL,broad,rl_reference,1883,1130,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-04-15: invalid held quote 132968093,invalid held quote
+105512__114726,OIH/HAL,broad,rl_sized,1883,1263,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-04-15: invalid held quote 132968093,invalid held quote
+105512__114726,OIH/HAL,broad,nn_fixed,1883,1359,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-04-15: invalid held quote 132968093,invalid held quote
+109956__114726,OIH/SLB,broad,rl_reference,1883,1270,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-04-15: invalid held quote 133325658,invalid held quote
+109956__114726,OIH/SLB,broad,rl_sized,1883,1163,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-04-15: invalid held quote 133325658,invalid held quote
+109956__114726,OIH/SLB,broad,nn_fixed,1883,1360,"[2018, 2020, 2022, 2024]",False,incomplete,,,,,,,,,2020-04-15: invalid held quote 132968093,invalid held quote
+114726__127107,OIH/XOP,broad,rl_reference,989,984,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132628338,invalid held quote
+114726__127107,OIH/XOP,broad,rl_sized,989,521,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132628338,invalid held quote
+114726__127107,OIH/XOP,broad,nn_fixed,989,669,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132628338,invalid held quote
+121571__142517,SFL/STNG,broad,rl_reference,893,893,"[2022, 2024]",False,incomplete,,,,,,,,,2023-02-07: missing held option 151483275,missing held option
+121571__142517,SFL/STNG,broad,rl_sized,893,893,"[2022, 2024]",False,incomplete,,,,,,,,,2023-02-07: missing held option 151483275,missing held option
+125179__128133,SPWR/CSIQ,broad,rl_reference,487,487,[2020],False,incomplete,,,,,,,,,2020-08-27: invalid held quote 132168602,invalid held quote
+125179__128133,SPWR/CSIQ,broad,rl_sized,487,487,[2020],False,incomplete,,,,,,,,,2020-08-27: invalid held quote 132168602,invalid held quote
+125179__128133,SPWR/CSIQ,broad,nn_fixed,487,408,[2020],False,incomplete,,,,,,,,,2020-08-27: invalid held quote 132168602,invalid held quote
+101580__127107,XOP/APA,broad,rl_reference,990,990,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132834378,invalid held quote
+101580__127107,XOP/APA,broad,rl_sized,990,990,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132834378,invalid held quote
+101580__127107,XOP/APA,broad,nn_fixed,990,939,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132834378,invalid held quote
+103802__127107,XOP/DVN,broad,rl_reference,990,822,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132834378,invalid held quote
+103802__127107,XOP/DVN,broad,rl_sized,990,987,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132834378,invalid held quote
+103802__127107,XOP/DVN,broad,nn_fixed,990,761,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132834378,invalid held quote
+108969__127107,XOP/COP,broad,rl_reference,990,575,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132628338,invalid held quote
+108969__127107,XOP/COP,broad,rl_sized,990,805,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132628338,invalid held quote
+108969__127107,XOP/COP,broad,nn_fixed,990,821,"[2018, 2020]",False,incomplete,,,,,,,,,2020-03-30: invalid held quote 132628338,invalid held quote
+144671__205575,GM/FCAU,broad,rl_reference,486,485,"[2018, 2020]",False,incomplete,,,,,,,,,2021-03-15: invalid held quote 138726677,invalid held quote
+144671__205575,GM/FCAU,broad,rl_sized,486,485,"[2018, 2020]",False,incomplete,,,,,,,,,2021-03-15: invalid held quote 138726677,invalid held quote
+144671__205575,GM/FCAU,broad,nn_fixed,486,451,"[2018, 2020]",False,incomplete,,,,,,,,,2021-03-15: invalid held quote 138726677,invalid held quote
+207444__213287,CC/LTHM,broad,rl_reference,2,2,[2024],False,incomplete,,,,,,,,,2024-01-04: invalid underlying 213287,invalid underlying
+207444__213287,CC/LTHM,broad,rl_sized,2,2,[2024],False,incomplete,,,,,,,,,2024-01-04: invalid underlying 213287,invalid underlying
+207444__213287,CC/LTHM,broad,nn_fixed,2,2,[2024],False,incomplete,,,,,,,,,2024-01-04: invalid underlying 213287,invalid underlying

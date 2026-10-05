@@ -1,0 +1,26 @@
+{
+  "source_files_verified": 576,
+  "baseline_action_files_unchanged": 285,
+  "refitted_pairs": 28,
+  "monthly_controls_verified": 1511,
+  "original_state_columns_unchanged": true,
+  "training_outcomes_strictly_purged": true,
+  "current_review_vintage_not_archived": true,
+  "accounting": {
+    "requested_pairs": 345,
+    "common_complete_pairs": 345,
+    "unresolved": []
+  },
+  "entries_by_model": {
+    "nn_sentiment": {
+      "entries": 40,
+      "entries_with_reviews": 36,
+      "entries_without_reviews": 4
+    },
+    "rl_sentiment": {
+      "entries": 45,
+      "entries_with_reviews": 37,
+      "entries_without_reviews": 8
+    }
+  }
+}

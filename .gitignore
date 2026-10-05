@@ -24,6 +24,9 @@ htmlcov/
 # Market data and generated research artifacts
 data/*
 !data/current_dataset.csv
+!data/current_rl_inputs.csv.gz
+!data/current_rl_pairs.csv
+!data/current_rl_data_manifest.json
 artifacts/
 checkpoints/
 runs/

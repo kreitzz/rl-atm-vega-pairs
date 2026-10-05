@@ -1,0 +1,32 @@
+# Additional data for the vega-neutral RL strategy
+
+October 1, 2026. This search targets differences in future realized volatility, jump risk and volatility demand between the two legs. Access and coverage checks below do not establish predictive power. The 0.368 Sharpe employee-leadership checkpoint remains the reference; subsequent fitting will be RL-only.
+
+| Priority | Source | Concrete states to screen | Access and practical fit |
+|---|---|---|---|
+| 1 | Option volume/open interest | Prior-session abnormal call/put activity, volume relative to open interest, open-interest change; first-minus-second differences | `optionm.opvold` returned a nonempty read. Standard IvyDB includes volume/open interest; these measure activity, not buyer/seller direction. Aggregate daily totals are preferable to our maturity-limited chain cache. |
+| 2 | Option-implied borrowing conditions | Borrow-rate level, recent change and pair difference | `optionm.borrate2024` is readable, with observed dates January 2–December 31, 2024. Other annual partitions are catalogued; continuity across our companies still needs checking. It could flag hard-to-borrow/parity distortions and jump risk. It is a separate state candidate, not a replacement for the replay's borrowing charges. |
+| 3 | Cboe volatility regime | Previous-close VVIX, VIX9D/VIX and recent changes, interacted with relative IV value | Official downloadable histories are listed by Cboe. Our present state has VIX, but no volatility-of-volatility or short-versus-monthly market regime. These are candidates for sizing and abstention rather than a standalone pair direction. |
+| 4 | Audit Analytics late filings and restatements | Days since public non-reliance/restatement notice; recent late-filing indicator on either leg; pair difference | New live reads succeeded. In cached company links: 43 late filings for 23 company keys and 244 restatements for 91 keys during 2010–August 2025. Only 7 and 24 records respectively fall in 2022 onward. Sparse events favor a risk-control state over a broad directional signal. |
+| 5 | Audit Analytics litigation | Newly public lawsuit indicator, recent case count and pair difference | Both case metadata and the party-link columns are catalogued; the case table returned a successful read. Company-pair coverage is not measured yet. Requires case-to-company links and initial-publication timing. |
+| 6 | News-based market/policy uncertainty | Lagged daily equity-market uncertainty, policy-news shocks, interactions with each leg's sector exposure | Public research series exist. This is a macro sizing/regime hypothesis; simple shared exposure may cancel in a vega-neutral pair. Publication timing and historical revisions need checking. |
+
+[OptionMetrics data specification](https://optionmetrics.com/data-products/) confirms standard end-of-day volume/open interest and distinguishes its separate signed-volume add-on. We have not verified signed-volume entitlement, so neither trade direction nor dealer gamma inventory can be inferred from ordinary volume or open interest. The vendor describes [option-implied borrowing data](https://optionmetrics.com/news/optionmetrics-announces-ivydb-borrow-rate-to-assess-short-selling-opportunities-and-risks/).
+
+[Cboe's historical-data page](https://www.cboe.com/tradable-products/vix/vix-historical-data) supplies VVIX and VIX9D histories. [Audit Analytics on WRDS](https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/audit-analytics-and-oia-other-independent-audits/) describes restatements, disclosure and federal litigation coverage. [Daily equity-market uncertainty](https://www.policyuncertainty.com/equity_uncert.html) and [monthly category-specific volatility-news trackers](https://www.policyuncertainty.com/EMV_monthly.html) provide public alternatives. A current downloadable research history does not prove that the same numerical value was available contemporaneously.
+
+## Timing and sources that did not clear access
+
+Late-filing signals should start after the public acceptance timestamp (`file_accepted`) and next trading session. Do not use eventual actual-filing dates to label how long the delay will last. Restatement signals should use the first verified public disclosure; later fraud classifications, final financial impact and subsequent corrected values are excluded until public. Litigation states must not use settlement amounts, future case closure or retrospectively assigned outcomes. Creation/change dates alone do not fully establish an archived initial record.
+
+RepRisk incidents/metrics, Capital IQ key developments and I/B/E/S management guidance all returned **permission denied** on this login despite visible catalog metadata. They are not currently usable datasets. Unadjusted I/B/E/S summaries are readable, but dispersion was already included in our earlier analyst signal screen, so it is not a new source. Institutional holdings are readable but slower and require true filing-publication dates.
+
+Public firm-level political-risk data are an interesting transcript-based alternative, but the authors' [download page](https://www.firmlevelrisk.com/download) currently says its measures stop in March 2021. That limits usefulness for the recent evaluation and the 2025 loss year.
+
+## Next screen
+
+Start with option activity, borrowing-condition differences and the two market volatility regime inputs, preserving the best checkpoint's contracts, costs and risk limits. Measure incremental association with directional delta-hedged payoff and extreme losses after controlling for existing IV/RV states. Use early/later periods and nonoverlapping outcomes, then add one feature family at a time to RL. For sparse accounting events, first examine whether they explain avoidable losses; do not assume they provide profitable direction.
+
+[Live access results](wrds_discovery/probes.json) · [New event coverage](vol_alternative_data/coverage.csv) · [Focused column metadata](vol_alternative_data/columns.json) · [Coverage assumptions and resource use](vol_alternative_data/manifest.json) · [Reusable bounded profiler](../scripts/profile_vol_alternative_data.py).
+
+One read-only connection, eight-second query timeouts, at most 20,000 rows per source, one worker at 50% of one core and a 3 GiB memory stop. Event coverage uses company links from the earlier 128-pair signal screen, not the full 345-pair portfolio. Raw event rows remain in local ignored artifacts; this report publishes aggregate findings.

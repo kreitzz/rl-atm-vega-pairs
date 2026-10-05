@@ -1,0 +1,61 @@
+{
+  "settings": {
+    "capital": 1000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 20000,
+    "max_entry_vega_imbalance": 0.1,
+    "option_commission": 0.65,
+    "stock_cost_bps": 1,
+    "borrowing_spread": 0.01,
+    "stock_borrow_rate": 0.003,
+    "min_open_interest": 100,
+    "max_relative_spread": 0.25,
+    "max_moneyness_distance": 0.1,
+    "min_dte": 21,
+    "max_dte": 45,
+    "target_dte": 30,
+    "holding_days": 30,
+    "repair_crossed_held_quotes": true,
+    "support_integer_splits": true,
+    "option_spread_fraction": 0,
+    "option_penalty_vol_points": 0.1,
+    "allow_missing_flat_underlying": true,
+    "risk_controls": true,
+    "max_hedge_leverage": 2.0,
+    "max_reserve_fraction": 0.8,
+    "stock_reserve_fraction": 0.5,
+    "max_stress_loss_fraction": 0.05,
+    "spot_stress": 0.2,
+    "vol_stress": 0.1
+  },
+  "pairs": 358,
+  "models": [
+    "rl_sized",
+    "nn_fixed"
+  ],
+  "start": "2018-01-02",
+  "end": "2025-08-29",
+  "training": "Monthly: five-year standalone net-contract trajectory proposal fit; minimum 504 known rows; separate one-year full-book validation; positive validation excess Sharpe required. No refit on validation.",
+  "memory": "91/365-day completed net directional shadow outcomes, not proxy RV outcomes",
+  "eligibility": "original historical pair screen membership in evaluation; monthly preceding-126-session beta 0.75-1.25 and correlation >=0.5",
+  "limitations": "Proposal objective uses standalone cohorts, not an exact overlapping-book optimizer; validation and evaluation use the full identical risk-controlled engine. Unresolved histories remain explicit.",
+  "elapsed_seconds": 1563.2807236249791,
+  "peak_rss_bytes": 850788352,
+  "inputs_sha256": null,
+  "workers": 3,
+  "worker_inputs": [
+    {
+      "path": "artifacts/contracts/aligned_learning/worker_0/inputs.json",
+      "sha256": "35254e80dc91a38aa2f659aeb6515445cf529face966a1260b83df5321e45961"
+    },
+    {
+      "path": "artifacts/contracts/aligned_learning/worker_1/inputs.json",
+      "sha256": "00d8c45a4778e320060c5068deebdb6822996dd78a29ccd4e6f7f7ef81b433e6"
+    },
+    {
+      "path": "artifacts/contracts/aligned_learning/worker_2/inputs.json",
+      "sha256": "51d97afebd8a441c2783b374b61616258e88b8795ea66f7f7649de74f1ff83ca"
+    }
+  ],
+  "worker_peak_rss_sum_bytes": 2517237760
+}

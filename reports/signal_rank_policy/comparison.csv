@@ -1,0 +1,7 @@
+variant,label,pairs,entries,active_pairs,annualized_excess_sharpe,net_excess_pnl
+reference_calls,Original calls-only reference,342,227,31,0.23457181364679122,108572.78723531961
+cc_matched_rows,"Prior calls-only, matched training rows",342,227,30,0.2379534496853181,110052.33970040083
+full_no_memory_gate,"Full state, profitability gate removed",342,1513,58,-0.23954487724127,-294539.3508076072
+rank_with_memory_gate,"IV spread/reversion ranks, original profitability gate",342,276,37,-0.2306015059664968,-84516.68971961737
+rank_no_memory_gate,"IV spread/reversion ranks, no profitability gate",342,1719,60,-0.629733094604094,-513400.8935804963
+rank_term_no_memory_gate,"Spread/reversion + term-slope ranks, no profitability gate",342,1840,62,-0.2972848418259871,-462256.3609483242

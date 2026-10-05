@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "complete_windows": 5520,
+  "unresolved_windows": 0,
+  "common_complete_pairs": 345,
+  "largest_ledger_error": 6.139089236967266e-10,
+  "learned_exit_cohorts_verified": 645,
+  "overlapping_inventory_books": 240,
+  "original_states_unchanged": true,
+  "training_outcomes_purged": true,
+  "original_contract_inventory_conserved": true
+}

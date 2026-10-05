@@ -1,0 +1,5 @@
+pair,label,group,model,variant,original_signals,nonzero_signals,status,entries,ledger_error,error
+102265__105169,BA/GE,broad,nn_fixed,memory_year,91,36,incomplete,,,2023-01-04: invalid held quote 141664731
+102265__105169,BA/GE,broad,nn_fixed,memory_both,91,36,incomplete,,,2023-01-04: invalid held quote 141664731
+102265__105169,BA/GE,broad,nn_fixed,commission_budget,91,91,incomplete,,,2023-01-04: invalid held quote 141664731
+103651__106899,DHI/LEN,broad,rl_sized,memory_year,138,60,incomplete,,,2019-05-31: held underlying corporate action 106899

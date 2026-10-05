@@ -1,0 +1,3 @@
+model,pairs,active_pairs,entries,annualized_excess_sharpe,net_excess_pnl,total_return_percent
+calls_only,346,35,280,0.225695326267303,105789.19392985106,21.84739446352244
+call_put_choice,346,34,277,-0.023597633143515644,-10598.406107544899,21.813756428829567

@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "pairs": 346,
+  "memory_pairs_checked": 140,
+  "largest_original_memory_error": 2.12763140439165e-12,
+  "largest_ledger_error": 5.725269147660583e-10,
+  "old_permitted_direction_days": 28740,
+  "new_permitted_direction_days": 33558,
+  "newly_permitted_direction_days": 4818,
+  "lost_memory_permissions": 0,
+  "new_active_full": 7,
+  "lost_active_full": 1
+}

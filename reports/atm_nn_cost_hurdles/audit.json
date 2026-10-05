@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "pairs": 346,
+  "sleeve_windows_checked": 4150,
+  "incomplete_windows": 2,
+  "common_complete_pairs": 345,
+  "incomplete_books_assigned_cash": false,
+  "matched_state_gate_pairs": 840,
+  "fixed_size_actions_only": true,
+  "monthly_fits": 31860,
+  "nn_nonconverged_proposal_fits": 5474,
+  "nn_nonconverged_refits": 1860,
+  "largest_ledger_error": 5.63431967748329e-10,
+  "execution_commission": 0.03
+}

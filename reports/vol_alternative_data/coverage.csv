@@ -1,0 +1,3 @@
+source,table,status,rows,matched_company_keys,first_observed,last_observed,before_2022,from_2022
+late_filings,audit_audit_comp.feed20_nt,readable,43,23,2010-03-05 00:00:00,2024-11-12 00:00:00,36,7
+restatements,audit_audit_comp.feed39_financial_restatements,readable,244,91,2010-02-24 00:00:00,2025-08-11 00:00:00,220,24

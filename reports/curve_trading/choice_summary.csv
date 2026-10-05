@@ -1,0 +1,8 @@
+variant,tenor,cp,entries
+atm_control,30,C,238
+curve,14,C,2
+curve,14,P,19
+curve,30,C,144
+curve,30,P,5
+curve,45,C,26
+curve,45,P,19

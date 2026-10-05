@@ -1,0 +1,16 @@
+{
+  "evaluations": 1432,
+  "refit_decisions": 2331,
+  "nn_convergence_warnings": 429,
+  "max_ledger_error": 8.631104719825088e-10,
+  "both_legs_available_fraction": {
+    "downside_skew": 0.3093588903257808,
+    "smile_curvature": 0.2218639834186611,
+    "term_bend": 0.3864373150985846,
+    "term_slope": 0.3864373150985846
+  },
+  "original_states_and_policy_constraints": "unchanged",
+  "completed_outcome_timing": "passed",
+  "tests_passed": 126,
+  "conservative_worker_memory_bound_bytes": 1252163584
+}

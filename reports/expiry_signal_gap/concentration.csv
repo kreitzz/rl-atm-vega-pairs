@@ -1,0 +1,3 @@
+model,active_pairs,gross_winners,net_winners,five_worst_fraction_of_losing_pair_losses
+rl,52,22,22,0.4809751651288416
+nn,90,37,32,0.2679642596522348

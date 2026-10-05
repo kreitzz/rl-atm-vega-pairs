@@ -1,0 +1,3 @@
+variant,different_bucket_fraction,different_expiry_fraction,median_entry_vega_imbalance,maximum_entry_vega_imbalance
+atm_control,0.0,0.36554621848739494,0.010676550011405031,0.09758098563317606
+curve,0.33488372093023255,0.31627906976744186,0.007213907457577641,0.09395193259068058

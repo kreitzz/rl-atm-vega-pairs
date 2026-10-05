@@ -1,0 +1,4 @@
+variant,profitable_pairs,losing_pairs,top_three_share_of_positive_pnl,largest_winner,largest_winner_excess_pnl,sharpe_replacing_largest_winner_with_cash
+previous_atm_reference,16,14,0.46220394834201556,GES/TJX,46415.62306838855,0.11633193049197443
+atm_control,18,12,0.4605884750948872,GES/TJX,46415.62306838855,0.1681020383210504
+curve,15,12,0.5956689375595038,GES/TJX,46415.62306838855,0.0510174002832227

@@ -1,0 +1,9 @@
+policy,diagnosis,leg_exits,median_dte,median_bound_gap
+earlier_filtered_rl,mid_at_or_below_european_bound,92,8.0,-0.07322382351083334
+surface_filtered_nn,mid_at_or_below_european_bound,69,8.0,-0.07920983700133277
+surface_filtered_rl,mid_at_or_below_european_bound,98,7.0,-0.11163811207643448
+surface_nn,crossed_quote,5,4.0,0.025
+surface_nn,mid_at_or_below_european_bound,370,8.0,-0.04974493135676816
+surface_rl,crossed_quote,1,3.0,0.025
+surface_rl,mid_at_or_below_european_bound,417,8.0,-0.08410404413816153
+surface_rl,unsupported_distribution,1,23.0,0.8300000000000001

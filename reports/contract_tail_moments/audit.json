@@ -1,0 +1,11 @@
+{
+  "evaluations": 1432,
+  "refit_decisions": 2331,
+  "nn_convergence_warnings": 128,
+  "max_ledger_error": 1.0193161870120091e-09,
+  "both_moments_available_on_beta_eligible_signal_rows": 0.9992913957731758,
+  "original_states_and_policy_constraints": "unchanged",
+  "completed_outcome_timing": "passed",
+  "tests_passed": 122,
+  "conservative_worker_memory_bound_bytes": 1367769088
+}

@@ -1,0 +1,8229 @@
+[
+  {
+    "pair": "101029__104229",
+    "label": "ATVI/EA",
+    "secids": [
+      101029,
+      104229
+    ],
+    "group": "broad",
+    "source_pair": "s101029p79678__s104229p75828",
+    "industry": "792",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101029p79678__s104229p75828/2018.csv",
+      "artifacts/broad_pairs/memory/s101029p79678__s104229p75828/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101121__106203",
+    "label": "AMD/INTC",
+    "secids": [
+      101121,
+      106203
+    ],
+    "group": "broad",
+    "source_pair": "s101121p61241__s106203p59328",
+    "industry": "367",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101121p61241__s106203p59328/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101121__107544",
+    "label": "AMD/MU",
+    "secids": [
+      101121,
+      107544
+    ],
+    "group": "broad",
+    "source_pair": "s101121p61241__s107544p53613",
+    "industry": "367",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101121p61241__s107544p53613/2020.csv",
+      "artifacts/broad_pairs/memory/s101121p61241__s107544p53613/2022.csv",
+      "artifacts/broad_pairs/memory/s101121p61241__s107544p53613/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101121__108321",
+    "label": "AMD/NVDA",
+    "secids": [
+      101121,
+      108321
+    ],
+    "group": "broad",
+    "source_pair": "s101121p61241__s108321p86580",
+    "industry": "367",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101121p61241__s108321p86580/2018.csv",
+      "artifacts/broad_pairs/memory/s101121p61241__s108321p86580/2020.csv",
+      "artifacts/broad_pairs/memory/s101121p61241__s108321p86580/2022.csv",
+      "artifacts/broad_pairs/memory/s101121p61241__s108321p86580/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101149__110991",
+    "label": "A/TMO",
+    "secids": [
+      101149,
+      110991
+    ],
+    "group": "broad",
+    "source_pair": "s101149p87432__s110991p62092",
+    "industry": "382",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101149p87432__s110991p62092/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101151__105316",
+    "label": "AEM/GG",
+    "secids": [
+      101151,
+      105316
+    ],
+    "group": "broad",
+    "source_pair": "s101151p78223__s105316p69892",
+    "industry": "104",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101151p78223__s105316p69892/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101151__106701",
+    "label": "AEM/KGC",
+    "secids": [
+      101151,
+      106701
+    ],
+    "group": "broad",
+    "source_pair": "s101151p78223__s106701p89692",
+    "industry": "104",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101151p78223__s106701p89692/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101151__108130",
+    "label": "AEM/NEM",
+    "secids": [
+      101151,
+      108130
+    ],
+    "group": "broad",
+    "source_pair": "s101151p78223__s108130p21207",
+    "industry": "104",
+    "screen_years": [
+      2018,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101151p78223__s108130p21207/2018.csv",
+      "artifacts/broad_pairs/memory/s101151p78223__s108130p21207/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101151__145681",
+    "label": "AEM/AG",
+    "secids": [
+      101151,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s101151p78223__s145681p12447",
+    "industry": "104",
+    "screen_years": [
+      2018,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101151p78223__s145681p12447/2018.csv",
+      "artifacts/broad_pairs/memory/s101151p78223__s145681p12447/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101204__103434",
+    "label": "HWM/GLW",
+    "secids": [
+      101204,
+      103434
+    ],
+    "group": "broad",
+    "source_pair": "s101204p24643__s103434p22293",
+    "industry": "335",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101204p24643__s103434p22293/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101227__109958",
+    "label": "ATI/SCHN",
+    "secids": [
+      101227,
+      109958
+    ],
+    "group": "broad",
+    "source_pair": "s101227p43123__s109958p79866",
+    "industry": "331",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101227p43123__s109958p79866/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101227__110497",
+    "label": "ATI/STLD",
+    "secids": [
+      101227,
+      110497
+    ],
+    "group": "broad",
+    "source_pair": "s101227p43123__s110497p84262",
+    "industry": "331",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101227p43123__s110497p84262/2020.csv",
+      "artifacts/broad_pairs/memory/s101227p43123__s110497p84262/2022.csv",
+      "artifacts/broad_pairs/memory/s101227p43123__s110497p84262/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101227__111337",
+    "label": "ATI/X",
+    "secids": [
+      101227,
+      111337
+    ],
+    "group": "broad",
+    "source_pair": "s101227p43123__s111337p76644",
+    "industry": "331",
+    "screen_years": [
+      2020,
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101227p43123__s111337p76644/2020.csv",
+      "artifacts/broad_pairs/memory/s101227p43123__s111337p76644/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101310__110752",
+    "label": "AMZN/TJX",
+    "secids": [
+      101310,
+      110752
+    ],
+    "group": "broad",
+    "source_pair": "s101310p84788__s110752p40539",
+    "industry": "533",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101310p84788__s110752p40539/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101310__205536",
+    "label": "AMZN/W",
+    "secids": [
+      101310,
+      205536
+    ],
+    "group": "broad",
+    "source_pair": "s101310p84788__s205536p14983",
+    "industry": "596",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101310p84788__s205536p14983/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101322__102968",
+    "label": "HES/CVX",
+    "secids": [
+      101322,
+      102968
+    ],
+    "group": "broad",
+    "source_pair": "s101322p28484__s102968p14541",
+    "industry": "131",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101322p28484__s102968p14541/2018.csv",
+      "artifacts/broad_pairs/memory/s101322p28484__s102968p14541/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101322__104416",
+    "label": "HES/EQT",
+    "secids": [
+      101322,
+      104416
+    ],
+    "group": "broad",
+    "source_pair": "s101322p28484__s104416p24328",
+    "industry": "131",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101322p28484__s104416p24328/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101322__104533",
+    "label": "HES/XOM",
+    "secids": [
+      101322,
+      104533
+    ],
+    "group": "broad",
+    "source_pair": "s101322p28484__s104533p11850",
+    "industry": "131",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101322p28484__s104533p11850/2018.csv",
+      "artifacts/broad_pairs/memory/s101322p28484__s104533p11850/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101322__143107",
+    "label": "HES/OAS",
+    "secids": [
+      101322,
+      143107
+    ],
+    "group": "broad",
+    "source_pair": "s101322p28484__s143107p93420",
+    "industry": "131",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101322p28484__s143107p93420/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101368__103979",
+    "label": "AEP/DUK",
+    "secids": [
+      101368,
+      103979
+    ],
+    "group": "broad",
+    "source_pair": "s101368p24109__s103979p27959",
+    "industry": "491",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101368p24109__s103979p27959/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101368__108649",
+    "label": "AEP/PPL",
+    "secids": [
+      101368,
+      108649
+    ],
+    "group": "broad",
+    "source_pair": "s101368p24109__s108649p22517",
+    "industry": "491",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101368p24109__s108649p22517/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101368__110337",
+    "label": "AEP/SO",
+    "secids": [
+      101368,
+      110337
+    ],
+    "group": "broad",
+    "source_pair": "s101368p24109__s110337p18411",
+    "industry": "491",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101368p24109__s110337p18411/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101369__105120",
+    "label": "AEO/GPS",
+    "secids": [
+      101369,
+      105120
+    ],
+    "group": "broad",
+    "source_pair": "s101369p80432__s105120p59010",
+    "industry": "565",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101369p80432__s105120p59010/2018.csv",
+      "artifacts/broad_pairs/memory/s101369p80432__s105120p59010/2020.csv",
+      "artifacts/broad_pairs/memory/s101369p80432__s105120p59010/2022.csv",
+      "artifacts/broad_pairs/memory/s101369p80432__s105120p59010/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101369__105450",
+    "label": "AEO/GES",
+    "secids": [
+      101369,
+      105450
+    ],
+    "group": "broad",
+    "source_pair": "s101369p80432__s105450p83822",
+    "industry": "565",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101369p80432__s105450p83822/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101369__110752",
+    "label": "AEO/TJX",
+    "secids": [
+      101369,
+      110752
+    ],
+    "group": "broad",
+    "source_pair": "s101369p80432__s110752p40539",
+    "industry": "565",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101369p80432__s110752p40539/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101397__105581",
+    "label": "AIG/HIG",
+    "secids": [
+      101397,
+      105581
+    ],
+    "group": "broad",
+    "source_pair": "s101397p66800__s105581p82775",
+    "industry": "633",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101397p66800__s105581p82775/2020.csv",
+      "artifacts/broad_pairs/memory/s101397p66800__s105581p82775/2022.csv",
+      "artifacts/broad_pairs/memory/s101397p66800__s105581p82775/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101397__109869",
+    "label": "AIG/TRV",
+    "secids": [
+      101397,
+      109869
+    ],
+    "group": "broad",
+    "source_pair": "s101397p66800__s109869p59459",
+    "industry": "633",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101397p66800__s109869p59459/2022.csv",
+      "artifacts/broad_pairs/memory/s101397p66800__s109869p59459/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101397__112254",
+    "label": "AIG/CB",
+    "secids": [
+      101397,
+      112254
+    ],
+    "group": "broad",
+    "source_pair": "s101397p66800__s112254p79057",
+    "industry": "633",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101397p66800__s112254p79057/2022.csv",
+      "artifacts/broad_pairs/memory/s101397p66800__s112254p79057/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101475__107325",
+    "label": "COR/MCK",
+    "secids": [
+      101475,
+      107325
+    ],
+    "group": "broad",
+    "source_pair": "s101475p81540__s107325p81061",
+    "industry": "512",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101475p81540__s107325p81061/2018.csv",
+      "artifacts/broad_pairs/memory/s101475p81540__s107325p81061/2020.csv",
+      "artifacts/broad_pairs/memory/s101475p81540__s107325p81061/2022.csv",
+      "artifacts/broad_pairs/memory/s101475p81540__s107325p81061/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101477__104081",
+    "label": "AMTD/ETFC",
+    "secids": [
+      101477,
+      104081
+    ],
+    "group": "broad",
+    "source_pair": "s101477p84597__s104081p83862",
+    "industry": "622",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101477p84597__s104081p83862/2018.csv",
+      "artifacts/broad_pairs/memory/s101477p84597__s104081p83862/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101533__102963",
+    "label": "APC/CHK",
+    "secids": [
+      101533,
+      102963
+    ],
+    "group": "broad",
+    "source_pair": "s101533p70332__s102963p78877",
+    "industry": "132",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101533p70332__s102963p78877/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101533__110366",
+    "label": "APC/SWN",
+    "secids": [
+      101533,
+      110366
+    ],
+    "group": "broad",
+    "source_pair": "s101533p70332__s110366p63765",
+    "industry": "132",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101533p70332__s110366p63765/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101533__119431",
+    "label": "APC/WLL",
+    "secids": [
+      101533,
+      119431
+    ],
+    "group": "broad",
+    "source_pair": "s101533p70332__s119431p89901",
+    "industry": "132",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101533p70332__s119431p89901/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101556__103131",
+    "label": "AU/CDE",
+    "secids": [
+      101556,
+      103131
+    ],
+    "group": "broad",
+    "source_pair": "s101556p86341__s103131p24441",
+    "industry": "104",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101556p86341__s103131p24441/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101556__108130",
+    "label": "AU/NEM",
+    "secids": [
+      101556,
+      108130
+    ],
+    "group": "broad",
+    "source_pair": "s101556p86341__s108130p21207",
+    "industry": "104",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101556p86341__s108130p21207/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101561__111814",
+    "label": "NLY/VNO",
+    "secids": [
+      101561,
+      111814
+    ],
+    "group": "broad",
+    "source_pair": "s101561p85414__s111814p28388",
+    "industry": "679",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101561p85414__s111814p28388/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101561__139176",
+    "label": "NLY/IVR",
+    "secids": [
+      101561,
+      139176
+    ],
+    "group": "broad",
+    "source_pair": "s101561p85414__s139176p92951",
+    "industry": "679",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101561p85414__s139176p92951/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101561__139331",
+    "label": "NLY/STWD",
+    "secids": [
+      101561,
+      139331
+    ],
+    "group": "broad",
+    "source_pair": "s101561p85414__s139331p92999",
+    "industry": "679",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101561p85414__s139331p92999/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101561__139653",
+    "label": "NLY/TWO",
+    "secids": [
+      101561,
+      139653
+    ],
+    "group": "broad",
+    "source_pair": "s101561p85414__s139653p93070",
+    "industry": "679",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101561p85414__s139653p93070/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101561__204531",
+    "label": "NLY/DBRG",
+    "secids": [
+      101561,
+      204531
+    ],
+    "group": "broad",
+    "source_pair": "s101561p85414__s204531p14686",
+    "industry": "679",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101561p85414__s204531p14686/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101580__102963",
+    "label": "APA/CHK",
+    "secids": [
+      101580,
+      102963
+    ],
+    "group": "broad",
+    "source_pair": "s101580p39490__s102963p78877",
+    "industry": "132",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101580p39490__s102963p78877/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101580__110366",
+    "label": "APA/SWN",
+    "secids": [
+      101580,
+      110366
+    ],
+    "group": "broad",
+    "source_pair": "s101580p39490__s110366p63765",
+    "industry": "132",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101580p39490__s110366p63765/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101580__151404",
+    "label": "APA/WPX",
+    "secids": [
+      101580,
+      151404
+    ],
+    "group": "broad",
+    "source_pair": "s101580p39490__s151404p13141",
+    "industry": "132",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101580p39490__s151404p13141/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101594__103042",
+    "label": "AAPL/CSCO",
+    "secids": [
+      101594,
+      103042
+    ],
+    "group": "broad",
+    "source_pair": "s101594p14593__s103042p76076",
+    "industry": "357",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101594p14593__s103042p76076/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101594__111987",
+    "label": "AAPL/WDC",
+    "secids": [
+      101594,
+      111987
+    ],
+    "group": "broad",
+    "source_pair": "s101594p14593__s111987p66384",
+    "industry": "357",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101594p14593__s111987p66384/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101594__208503",
+    "label": "AAPL/SQ",
+    "secids": [
+      101594,
+      208503
+    ],
+    "group": "broad",
+    "source_pair": "s101594p14593__s208503p15826",
+    "industry": "357",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101639__112934",
+    "label": "ADM/BG",
+    "secids": [
+      101639,
+      112934
+    ],
+    "group": "broad",
+    "source_pair": "s101639p10516__s112934p89138",
+    "industry": "207",
+    "screen_years": [
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101639p10516__s112934p89138/2020.csv",
+      "artifacts/broad_pairs/memory/s101639p10516__s112934p89138/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101803__207008",
+    "label": "SGMS/IGT",
+    "secids": [
+      101803,
+      207008
+    ],
+    "group": "broad",
+    "source_pair": "s101803p79338__s207008p15331",
+    "industry": "799",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101803p79338__s207008p15331/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101853__102373",
+    "label": "ACLS/AZTA",
+    "secids": [
+      101853,
+      102373
+    ],
+    "group": "broad",
+    "source_pair": "s101853p88417__s102373p81241",
+    "industry": "355",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101853p88417__s102373p81241/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101853__106808",
+    "label": "ACLS/LRCX",
+    "secids": [
+      101853,
+      106808
+    ],
+    "group": "broad",
+    "source_pair": "s101853p88417__s106808p48486",
+    "industry": "355",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101853p88417__s106808p48486/2022.csv",
+      "artifacts/broad_pairs/memory/s101853p88417__s106808p48486/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101920__110955",
+    "label": "BKR/TEX",
+    "secids": [
+      101920,
+      110955
+    ],
+    "group": "broad",
+    "source_pair": "s101920p75034__s110955p58318",
+    "industry": "353",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101920p75034__s110955p58318/2022.csv",
+      "artifacts/broad_pairs/memory/s101920p75034__s110955p58318/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101920__111921",
+    "label": "BKR/WFRD",
+    "secids": [
+      101920,
+      111921
+    ],
+    "group": "broad",
+    "source_pair": "s101920p75034__s111921p32791",
+    "industry": "353",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101920p75034__s111921p32791/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101966__102936",
+    "label": "BAC/JPM",
+    "secids": [
+      101966,
+      102936
+    ],
+    "group": "broad",
+    "source_pair": "s101966p59408__s102936p47896",
+    "industry": "602",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101966p59408__s102936p47896/2018.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s102936p47896/2020.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s102936p47896/2022.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s102936p47896/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101966__103049",
+    "label": "BAC/C",
+    "secids": [
+      101966,
+      103049
+    ],
+    "group": "broad",
+    "source_pair": "s101966p59408__s103049p70519",
+    "industry": "602",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101966p59408__s103049p70519/2018.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s103049p70519/2020.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s103049p70519/2022.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s103049p70519/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101966__111953",
+    "label": "BAC/WFC",
+    "secids": [
+      101966,
+      111953
+    ],
+    "group": "broad",
+    "source_pair": "s101966p59408__s111953p38703",
+    "industry": "602",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s101966p59408__s111953p38703/2018.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s111953p38703/2020.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s111953p38703/2022.csv",
+      "artifacts/broad_pairs/memory/s101966p59408__s111953p38703/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102043__104185",
+    "label": "BAX/EW",
+    "secids": [
+      102043,
+      104185
+    ],
+    "group": "broad",
+    "source_pair": "s102043p27887__s104185p87657",
+    "industry": "384",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102043p27887__s104185p87657/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102043__107398",
+    "label": "BAX/MDT",
+    "secids": [
+      102043,
+      107398
+    ],
+    "group": "broad",
+    "source_pair": "s102043p27887__s107398p60097",
+    "industry": "384",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102043p27887__s107398p60097/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102064__103651",
+    "label": "BZH/DHI",
+    "secids": [
+      102064,
+      103651
+    ],
+    "group": "broad",
+    "source_pair": "s102064p80193__s103651p77661",
+    "industry": "153",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102064p80193__s103651p77661/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102064__106629",
+    "label": "BZH/KBH",
+    "secids": [
+      102064,
+      106629
+    ],
+    "group": "broad",
+    "source_pair": "s102064p80193__s106629p70092",
+    "industry": "153",
+    "screen_years": [
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102064p80193__s106629p70092/2020.csv",
+      "artifacts/broad_pairs/memory/s102064p80193__s106629p70092/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102064__111071",
+    "label": "BZH/TOL",
+    "secids": [
+      102064,
+      111071
+    ],
+    "group": "broad",
+    "source_pair": "s102064p80193__s111071p70228",
+    "industry": "153",
+    "screen_years": [
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102064p80193__s111071p70228/2020.csv",
+      "artifacts/broad_pairs/memory/s102064p80193__s111071p70228/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102235__105329",
+    "label": "BLK/GS",
+    "secids": [
+      102235,
+      105329
+    ],
+    "group": "broad",
+    "source_pair": "s102235p87267__s105329p86868",
+    "industry": "621",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102235p87267__s105329p86868/2022.csv",
+      "artifacts/broad_pairs/memory/s102235p87267__s105329p86868/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102235__106067",
+    "label": "BLK/WETF",
+    "secids": [
+      102235,
+      106067
+    ],
+    "group": "broad",
+    "source_pair": "s102235p87267__s106067p77217",
+    "industry": "621",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102235p87267__s106067p77217/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102235__106905",
+    "label": "BLK/JEF",
+    "secids": [
+      102235,
+      106905
+    ],
+    "group": "broad",
+    "source_pair": "s102235p87267__s106905p20415",
+    "industry": "621",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102235p87267__s106905p20415/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102235__123704",
+    "label": "BLK/LAZ",
+    "secids": [
+      102235,
+      123704
+    ],
+    "group": "broad",
+    "source_pair": "s102235p87267__s123704p90701",
+    "industry": "628",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102235p87267__s123704p90701/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102235__143554",
+    "label": "BLK/KKR",
+    "secids": [
+      102235,
+      143554
+    ],
+    "group": "broad",
+    "source_pair": "s102235p87267__s143554p11990",
+    "industry": "628",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102235p87267__s143554p11990/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102265__105169",
+    "label": "BA/GE",
+    "secids": [
+      102265,
+      105169
+    ],
+    "group": "broad",
+    "source_pair": "s102265p19561__s105169p12060",
+    "industry": "372",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102265p19561__s105169p12060/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102265__111459",
+    "label": "BA/RTX",
+    "secids": [
+      102265,
+      111459
+    ],
+    "group": "broad",
+    "source_pair": "s102265p19561__s111459p17830",
+    "industry": "372",
+    "screen_years": [
+      2020,
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102265p19561__s111459p17830/2020.csv",
+      "artifacts/broad_pairs/memory/s102265p19561__s111459p17830/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102265__128252",
+    "label": "BA/SPR",
+    "secids": [
+      102265,
+      128252
+    ],
+    "group": "broad",
+    "source_pair": "s102265p19561__s128252p91594",
+    "industry": "372",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102265p19561__s128252p91594/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102373__106808",
+    "label": "AZTA/LRCX",
+    "secids": [
+      102373,
+      106808
+    ],
+    "group": "broad",
+    "source_pair": "s102373p81241__s106808p48486",
+    "industry": "355",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102373p81241__s106808p48486/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102373__213673",
+    "label": "AZTA/DM",
+    "secids": [
+      102373,
+      213673
+    ],
+    "group": "broad",
+    "source_pair": "s102373p81241__s213673p18719",
+    "industry": "355",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102381__110215",
+    "label": "CAL/SKX",
+    "secids": [
+      102381,
+      110215
+    ],
+    "group": "broad",
+    "source_pair": "s102381p10866__s110215p86949",
+    "industry": "513",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102381p10866__s110215p86949/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102472__154945",
+    "label": "CBRL/BLMN",
+    "secids": [
+      102472,
+      154945
+    ],
+    "group": "broad",
+    "source_pair": "s102472p27562__s154945p13548",
+    "industry": "581",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102472p27562__s154945p13548/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102472__206149",
+    "label": "CBRL/SHAK",
+    "secids": [
+      102472,
+      206149
+    ],
+    "group": "broad",
+    "source_pair": "s102472p27562__s206149p15167",
+    "industry": "581",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102472p27562__s206149p15167/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102571__102668",
+    "label": "CSX/CNI",
+    "secids": [
+      102571,
+      102668
+    ],
+    "group": "broad",
+    "source_pair": "s102571p62148__s102668p84181",
+    "industry": "401",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102571p62148__s102668p84181/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102571__106625",
+    "label": "CSX/KSU",
+    "secids": [
+      102571,
+      106625
+    ],
+    "group": "broad",
+    "source_pair": "s102571p62148__s106625p12650",
+    "industry": "401",
+    "screen_years": [
+      2020,
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102571p62148__s106625p12650/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102571__111394",
+    "label": "CSX/UNP",
+    "secids": [
+      102571,
+      111394
+    ],
+    "group": "broad",
+    "source_pair": "s102571p62148__s111394p48725",
+    "industry": "401",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102571p62148__s111394p48725/2018.csv",
+      "artifacts/broad_pairs/memory/s102571p62148__s111394p48725/2020.csv",
+      "artifacts/broad_pairs/memory/s102571p62148__s111394p48725/2022.csv",
+      "artifacts/broad_pairs/memory/s102571p62148__s111394p48725/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102632__213921",
+    "label": "MODG/PTON",
+    "secids": [
+      102632,
+      213921
+    ],
+    "group": "broad",
+    "source_pair": "s102632p77366__s213921p18940",
+    "industry": "394",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102668__111394",
+    "label": "CNI/UNP",
+    "secids": [
+      102668,
+      111394
+    ],
+    "group": "broad",
+    "source_pair": "s102668p84181__s111394p48725",
+    "industry": "401",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102668p84181__s111394p48725/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102752__112463",
+    "label": "CCL/RCL",
+    "secids": [
+      102752,
+      112463
+    ],
+    "group": "broad",
+    "source_pair": "s102752p75154__s112463p79145",
+    "industry": "440",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102752p75154__s112463p79145/2018.csv",
+      "artifacts/broad_pairs/memory/s102752p75154__s112463p79145/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102752__161182",
+    "label": "CCL/NCLH",
+    "secids": [
+      102752,
+      161182
+    ],
+    "group": "broad",
+    "source_pair": "s102752p75154__s161182p13760",
+    "industry": "440",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102752p75154__s161182p13760/2018.csv",
+      "artifacts/broad_pairs/memory/s102752p75154__s161182p13760/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102833__209658",
+    "label": "CAR/HTZ",
+    "secids": [
+      102833,
+      209658
+    ],
+    "group": "broad",
+    "source_pair": "s102833p25487__s209658p16086",
+    "industry": "751",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102833__216878",
+    "label": "CAR/HTZ",
+    "secids": [
+      102833,
+      216878
+    ],
+    "group": "broad",
+    "source_pair": "s102833p25487__s216878p16086",
+    "industry": "751",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102873__210354",
+    "label": "CENX/AA",
+    "secids": [
+      102873,
+      210354
+    ],
+    "group": "broad",
+    "source_pair": "s102873p83244__s210354p16347",
+    "industry": "333",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102873p83244__s210354p16347/2022.csv",
+      "artifacts/broad_pairs/memory/s102873p83244__s210354p16347/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102885__103054",
+    "label": "CTL/FTR",
+    "secids": [
+      102885,
+      103054
+    ],
+    "group": "broad",
+    "source_pair": "s102885p60599__s103054p23887",
+    "industry": "481",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102885p60599__s103054p23887/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102936__103049",
+    "label": "JPM/C",
+    "secids": [
+      102936,
+      103049
+    ],
+    "group": "broad",
+    "source_pair": "s102936p47896__s103049p70519",
+    "industry": "602",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102936p47896__s103049p70519/2018.csv",
+      "artifacts/broad_pairs/memory/s102936p47896__s103049p70519/2020.csv",
+      "artifacts/broad_pairs/memory/s102936p47896__s103049p70519/2022.csv",
+      "artifacts/broad_pairs/memory/s102936p47896__s103049p70519/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102936__111953",
+    "label": "JPM/WFC",
+    "secids": [
+      102936,
+      111953
+    ],
+    "group": "broad",
+    "source_pair": "s102936p47896__s111953p38703",
+    "industry": "602",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102936p47896__s111953p38703/2018.csv",
+      "artifacts/broad_pairs/memory/s102936p47896__s111953p38703/2020.csv",
+      "artifacts/broad_pairs/memory/s102936p47896__s111953p38703/2022.csv",
+      "artifacts/broad_pairs/memory/s102936p47896__s111953p38703/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102956__108463",
+    "label": "LNG/OKE",
+    "secids": [
+      102956,
+      108463
+    ],
+    "group": "broad",
+    "source_pair": "s102956p84723__s108463p25232",
+    "industry": "492",
+    "screen_years": [
+      2018,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102956p84723__s108463p25232/2018.csv",
+      "artifacts/broad_pairs/memory/s102956p84723__s108463p25232/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102956__112042",
+    "label": "LNG/WMB",
+    "secids": [
+      102956,
+      112042
+    ],
+    "group": "broad",
+    "source_pair": "s102956p84723__s112042p38156",
+    "industry": "492",
+    "screen_years": [
+      2018,
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102956p84723__s112042p38156/2018.csv",
+      "artifacts/broad_pairs/memory/s102956p84723__s112042p38156/2020.csv",
+      "artifacts/broad_pairs/memory/s102956p84723__s112042p38156/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102956__145634",
+    "label": "LNG/TRGP",
+    "secids": [
+      102956,
+      145634
+    ],
+    "group": "broad",
+    "source_pair": "s102956p84723__s145634p12476",
+    "industry": "492",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102956p84723__s145634p12476/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102956__146036",
+    "label": "LNG/KMI",
+    "secids": [
+      102956,
+      146036
+    ],
+    "group": "broad",
+    "source_pair": "s102956p84723__s146036p12558",
+    "industry": "492",
+    "screen_years": [
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102956p84723__s146036p12558/2020.csv",
+      "artifacts/broad_pairs/memory/s102956p84723__s146036p12558/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102963__110366",
+    "label": "CHK/SWN",
+    "secids": [
+      102963,
+      110366
+    ],
+    "group": "broad",
+    "source_pair": "s102963p78877__s110366p63765",
+    "industry": "132",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102963p78877__s110366p63765/2018.csv",
+      "artifacts/broad_pairs/memory/s102963p78877__s110366p63765/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102963__119431",
+    "label": "CHK/WLL",
+    "secids": [
+      102963,
+      119431
+    ],
+    "group": "broad",
+    "source_pair": "s102963p78877__s119431p89901",
+    "industry": "132",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102963p78877__s119431p89901/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102963__151404",
+    "label": "CHK/WPX",
+    "secids": [
+      102963,
+      151404
+    ],
+    "group": "broad",
+    "source_pair": "s102963p78877__s151404p13141",
+    "industry": "132",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102963p78877__s151404p13141/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102968__104533",
+    "label": "CVX/XOM",
+    "secids": [
+      102968,
+      104533
+    ],
+    "group": "broad",
+    "source_pair": "s102968p14541__s104533p11850",
+    "industry": "291",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102968p14541__s104533p11850/2018.csv",
+      "artifacts/broad_pairs/memory/s102968p14541__s104533p11850/2020.csv",
+      "artifacts/broad_pairs/memory/s102968p14541__s104533p11850/2022.csv",
+      "artifacts/broad_pairs/memory/s102968p14541__s104533p11850/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102968__108969",
+    "label": "CVX/COP",
+    "secids": [
+      102968,
+      108969
+    ],
+    "group": "broad",
+    "source_pair": "s102968p14541__s108969p13928",
+    "industry": "291",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102968p14541__s108969p13928/2022.csv",
+      "artifacts/broad_pairs/memory/s102968p14541__s108969p13928/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "102968__143107",
+    "label": "CVX/OAS",
+    "secids": [
+      102968,
+      143107
+    ],
+    "group": "broad",
+    "source_pair": "s102968p14541__s143107p93420",
+    "industry": "131",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s102968p14541__s143107p93420/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103022__129677",
+    "label": "CIEN/INFN",
+    "secids": [
+      103022,
+      129677
+    ],
+    "group": "broad",
+    "source_pair": "s103022p84519__s129677p92095",
+    "industry": "366",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103022p84519__s129677p92095/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103022__207743",
+    "label": "CIEN/LITE",
+    "secids": [
+      103022,
+      207743
+    ],
+    "group": "broad",
+    "source_pair": "s103022p84519__s207743p15490",
+    "industry": "366",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103042__208503",
+    "label": "CSCO/SQ",
+    "secids": [
+      103042,
+      208503
+    ],
+    "group": "broad",
+    "source_pair": "s103042p76076__s208503p15826",
+    "industry": "357",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103049__111953",
+    "label": "C/WFC",
+    "secids": [
+      103049,
+      111953
+    ],
+    "group": "broad",
+    "source_pair": "s103049p70519__s111953p38703",
+    "industry": "602",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103049p70519__s111953p38703/2018.csv",
+      "artifacts/broad_pairs/memory/s103049p70519__s111953p38703/2020.csv",
+      "artifacts/broad_pairs/memory/s103049p70519__s111953p38703/2022.csv",
+      "artifacts/broad_pairs/memory/s103049p70519__s111953p38703/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103098__105003",
+    "label": "CLF/FCX",
+    "secids": [
+      103098,
+      105003
+    ],
+    "group": "broad",
+    "source_pair": "s103098p27422__s105003p81774",
+    "industry": "100",
+    "screen_years": [
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103098p27422__s105003p81774/2020.csv",
+      "artifacts/broad_pairs/memory/s103098p27422__s105003p81774/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103098__127149",
+    "label": "CLF/TECK",
+    "secids": [
+      103098,
+      127149
+    ],
+    "group": "broad",
+    "source_pair": "s103098p27422__s127149p91321",
+    "industry": "108",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103098p27422__s127149p91321/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103098__214407",
+    "label": "CLF/MP",
+    "secids": [
+      103098,
+      214407
+    ],
+    "group": "broad",
+    "source_pair": "s103098p27422__s214407p19433",
+    "industry": "100",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103131__108130",
+    "label": "CDE/NEM",
+    "secids": [
+      103131,
+      108130
+    ],
+    "group": "broad",
+    "source_pair": "s103131p24441__s108130p21207",
+    "industry": "104",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103131p24441__s108130p21207/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103198__104146",
+    "label": "CMCSA/DISH",
+    "secids": [
+      103198,
+      104146
+    ],
+    "group": "broad",
+    "source_pair": "s103198p89525__s104146p81696",
+    "industry": "484",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103198p89525__s104146p81696/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103198__139906",
+    "label": "CMCSA/CHTR",
+    "secids": [
+      103198,
+      139906
+    ],
+    "group": "broad",
+    "source_pair": "s103198p89525__s139906p12308",
+    "industry": "484",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103198p89525__s139906p12308/2018.csv",
+      "artifacts/broad_pairs/memory/s103198p89525__s139906p12308/2020.csv",
+      "artifacts/broad_pairs/memory/s103198p89525__s139906p12308/2022.csv",
+      "artifacts/broad_pairs/memory/s103198p89525__s139906p12308/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103255__110945",
+    "label": "CYH/THC",
+    "secids": [
+      103255,
+      110945
+    ],
+    "group": "broad",
+    "source_pair": "s103255p88284__s110945p52337",
+    "industry": "806",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103255p88284__s110945p52337/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103255__146286",
+    "label": "CYH/HCA",
+    "secids": [
+      103255,
+      146286
+    ],
+    "group": "broad",
+    "source_pair": "s103255p88284__s146286p12622",
+    "industry": "806",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103255p88284__s146286p12622/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103368__103404",
+    "label": "STZ/TAP",
+    "secids": [
+      103368,
+      103404
+    ],
+    "group": "broad",
+    "source_pair": "s103368p69796__s103404p59248",
+    "industry": "208",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103368p69796__s103404p59248/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103466__139733",
+    "label": "COST/DG",
+    "secids": [
+      103466,
+      139733
+    ],
+    "group": "broad",
+    "source_pair": "s103466p87055__s139733p93096",
+    "industry": "533",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103466p87055__s139733p93096/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103651__106629",
+    "label": "DHI/KBH",
+    "secids": [
+      103651,
+      106629
+    ],
+    "group": "broad",
+    "source_pair": "s103651p77661__s106629p70092",
+    "industry": "153",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103651p77661__s106629p70092/2022.csv",
+      "artifacts/broad_pairs/memory/s103651p77661__s106629p70092/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103651__106899",
+    "label": "DHI/LEN",
+    "secids": [
+      103651,
+      106899
+    ],
+    "group": "broad",
+    "source_pair": "s103651p77661__s106899p52708",
+    "industry": "153",
+    "screen_years": [
+      2018,
+      2020,
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103651p77661__s106899p52708/2018.csv",
+      "artifacts/broad_pairs/memory/s103651p77661__s106899p52708/2020.csv",
+      "artifacts/broad_pairs/memory/s103651p77661__s106899p52708/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103651__111071",
+    "label": "DHI/TOL",
+    "secids": [
+      103651,
+      111071
+    ],
+    "group": "broad",
+    "source_pair": "s103651p77661__s111071p70228",
+    "industry": "153",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103651p77661__s111071p70228/2022.csv",
+      "artifacts/broad_pairs/memory/s103651p77661__s111071p70228/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103676__110991",
+    "label": "DHR/TMO",
+    "secids": [
+      103676,
+      110991
+    ],
+    "group": "broad",
+    "source_pair": "s103676p49680__s110991p62092",
+    "industry": "382",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103676p49680__s110991p62092/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103802__107158",
+    "label": "DVN/TELL",
+    "secids": [
+      103802,
+      107158
+    ],
+    "group": "broad",
+    "source_pair": "s103802p87137__s107158p89790",
+    "industry": "131",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103802p87137__s107158p89790/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103802__110366",
+    "label": "DVN/SWN",
+    "secids": [
+      103802,
+      110366
+    ],
+    "group": "broad",
+    "source_pair": "s103802p87137__s110366p63765",
+    "industry": "131",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103802p87137__s110366p63765/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103802__111296",
+    "label": "DVN/MRO",
+    "secids": [
+      103802,
+      111296
+    ],
+    "group": "broad",
+    "source_pair": "s103802p87137__s111296p15069",
+    "industry": "131",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103802p87137__s111296p15069/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103802__189349",
+    "label": "DVN/AR",
+    "secids": [
+      103802,
+      189349
+    ],
+    "group": "broad",
+    "source_pair": "s103802p87137__s189349p14179",
+    "industry": "131",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103802p87137__s189349p14179/2022.csv",
+      "artifacts/broad_pairs/memory/s103802p87137__s189349p14179/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103979__104508",
+    "label": "DUK/EXC",
+    "secids": [
+      103979,
+      104508
+    ],
+    "group": "broad",
+    "source_pair": "s103979p27959__s104508p21776",
+    "industry": "493",
+    "screen_years": [
+      2018,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103979p27959__s104508p21776/2018.csv",
+      "artifacts/broad_pairs/memory/s103979p27959__s104508p21776/2022.csv",
+      "artifacts/broad_pairs/memory/s103979p27959__s104508p21776/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103979__104878",
+    "label": "DUK/FE",
+    "secids": [
+      103979,
+      104878
+    ],
+    "group": "broad",
+    "source_pair": "s103979p27959__s104878p23026",
+    "industry": "491",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103979p27959__s104878p23026/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103979__108609",
+    "label": "DUK/PCG",
+    "secids": [
+      103979,
+      108609
+    ],
+    "group": "broad",
+    "source_pair": "s103979p27959__s108609p13688",
+    "industry": "493",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103979p27959__s108609p13688/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103979__108649",
+    "label": "DUK/PPL",
+    "secids": [
+      103979,
+      108649
+    ],
+    "group": "broad",
+    "source_pair": "s103979p27959__s108649p22517",
+    "industry": "491",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103979p27959__s108649p22517/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103979__110337",
+    "label": "DUK/SO",
+    "secids": [
+      103979,
+      110337
+    ],
+    "group": "broad",
+    "source_pair": "s103979p27959__s110337p18411",
+    "industry": "491",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s103979p27959__s110337p18411/2018.csv",
+      "artifacts/broad_pairs/memory/s103979p27959__s110337p18411/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104019__135145",
+    "label": "DYN/CPN",
+    "secids": [
+      104019,
+      135145
+    ],
+    "group": "broad",
+    "source_pair": "s104019p90352__s135145p92530",
+    "industry": "493",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104019p90352__s135145p92530/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104081__106067",
+    "label": "ETFC/WETF",
+    "secids": [
+      104081,
+      106067
+    ],
+    "group": "broad",
+    "source_pair": "s104081p83862__s106067p77217",
+    "industry": "622",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104081p83862__s106067p77217/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104286__105169",
+    "label": "EMR/GE",
+    "secids": [
+      104286,
+      105169
+    ],
+    "group": "broad",
+    "source_pair": "s104286p22103__s105169p12060",
+    "industry": "360",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104286p22103__s105169p12060/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104360__110197",
+    "label": "AUD/SBGI",
+    "secids": [
+      104360,
+      110197
+    ],
+    "group": "broad",
+    "source_pair": "s104360p86560__s110197p81740",
+    "industry": "483",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104360p86560__s110197p81740/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104508__104878",
+    "label": "EXC/FE",
+    "secids": [
+      104508,
+      104878
+    ],
+    "group": "broad",
+    "source_pair": "s104508p21776__s104878p23026",
+    "industry": "491",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104508p21776__s104878p23026/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104508__108609",
+    "label": "EXC/PCG",
+    "secids": [
+      104508,
+      108609
+    ],
+    "group": "broad",
+    "source_pair": "s104508p21776__s108609p13688",
+    "industry": "493",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104508p21776__s108609p13688/2022.csv",
+      "artifacts/broad_pairs/memory/s104508p21776__s108609p13688/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104508__110337",
+    "label": "EXC/SO",
+    "secids": [
+      104508,
+      110337
+    ],
+    "group": "broad",
+    "source_pair": "s104508p21776__s110337p18411",
+    "industry": "491",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104508p21776__s110337p18411/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104508__119846",
+    "label": "EXC/NRG",
+    "secids": [
+      104508,
+      119846
+    ],
+    "group": "broad",
+    "source_pair": "s104508p21776__s119846p90071",
+    "industry": "493",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104508p21776__s119846p90071/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104533__108969",
+    "label": "XOM/COP",
+    "secids": [
+      104533,
+      108969
+    ],
+    "group": "broad",
+    "source_pair": "s104533p11850__s108969p13928",
+    "industry": "291",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104533p11850__s108969p13928/2022.csv",
+      "artifacts/broad_pairs/memory/s104533p11850__s108969p13928/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104533__143107",
+    "label": "XOM/OAS",
+    "secids": [
+      104533,
+      143107
+    ],
+    "group": "broad",
+    "source_pair": "s104533p11850__s143107p93420",
+    "industry": "131",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104533p11850__s143107p93420/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104560__104878",
+    "label": "NEE/FE",
+    "secids": [
+      104560,
+      104878
+    ],
+    "group": "broad",
+    "source_pair": "s104560p24205__s104878p23026",
+    "industry": "491",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104560p24205__s104878p23026/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104633__106723",
+    "label": "M/KSS",
+    "secids": [
+      104633,
+      106723
+    ],
+    "group": "broad",
+    "source_pair": "s104633p77462__s106723p77606",
+    "industry": "531",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104633p77462__s106723p77606/2018.csv",
+      "artifacts/broad_pairs/memory/s104633p77462__s106723p77606/2020.csv",
+      "artifacts/broad_pairs/memory/s104633p77462__s106723p77606/2022.csv",
+      "artifacts/broad_pairs/memory/s104633p77462__s106723p77606/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104633__108849",
+    "label": "M/JCP",
+    "secids": [
+      104633,
+      108849
+    ],
+    "group": "broad",
+    "source_pair": "s104633p77462__s108849p18403",
+    "industry": "531",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104633p77462__s108849p18403/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104633__189248",
+    "label": "M/BURL",
+    "secids": [
+      104633,
+      189248
+    ],
+    "group": "broad",
+    "source_pair": "s104633p77462__s189248p14182",
+    "industry": "531",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104633p77462__s189248p14182/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104635__125537",
+    "label": "FDX/UAL",
+    "secids": [
+      104635,
+      125537
+    ],
+    "group": "broad",
+    "source_pair": "s104635p60628__s125537p91103",
+    "industry": "451",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104635p60628__s125537p91103/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104635__129410",
+    "label": "FDX/DAL",
+    "secids": [
+      104635,
+      129410
+    ],
+    "group": "broad",
+    "source_pair": "s104635p60628__s129410p91926",
+    "industry": "451",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104635p60628__s129410p91926/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104635__189845",
+    "label": "FDX/AAL",
+    "secids": [
+      104635,
+      189845
+    ],
+    "group": "broad",
+    "source_pair": "s104635p60628__s189845p21020",
+    "industry": "451",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104635p60628__s189845p21020/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104681__207748",
+    "label": "FNSR/VIAV",
+    "secids": [
+      104681,
+      207748
+    ],
+    "group": "broad",
+    "source_pair": "s104681p87390__s207748p79879",
+    "industry": "335",
+    "screen_years": [
+      2018
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104878__110337",
+    "label": "FE/SO",
+    "secids": [
+      104878,
+      110337
+    ],
+    "group": "broad",
+    "source_pair": "s104878p23026__s110337p18411",
+    "industry": "491",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104878p23026__s110337p18411/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104939__144671",
+    "label": "F/GM",
+    "secids": [
+      104939,
+      144671
+    ],
+    "group": "broad",
+    "source_pair": "s104939p25785__s144671p12369",
+    "industry": "371",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104939p25785__s144671p12369/2018.csv",
+      "artifacts/broad_pairs/memory/s104939p25785__s144671p12369/2020.csv",
+      "artifacts/broad_pairs/memory/s104939p25785__s144671p12369/2022.csv",
+      "artifacts/broad_pairs/memory/s104939p25785__s144671p12369/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104939__205575",
+    "label": "F/FCAU",
+    "secids": [
+      104939,
+      205575
+    ],
+    "group": "broad",
+    "source_pair": "s104939p25785__s205575p14987",
+    "industry": "371",
+    "screen_years": [
+      2018
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104992__121756",
+    "label": "BEN/PSEC",
+    "secids": [
+      104992,
+      121756
+    ],
+    "group": "broad",
+    "source_pair": "s104992p37584__s121756p90291",
+    "industry": "628",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104992p37584__s121756p90291/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104992__143554",
+    "label": "BEN/KKR",
+    "secids": [
+      104992,
+      143554
+    ],
+    "group": "broad",
+    "source_pair": "s104992p37584__s143554p11990",
+    "industry": "628",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104992p37584__s143554p11990/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "104992__147220",
+    "label": "BEN/APO",
+    "secids": [
+      104992,
+      147220
+    ],
+    "group": "broad",
+    "source_pair": "s104992p37584__s147220p12591",
+    "industry": "628",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s104992p37584__s147220p12591/2022.csv",
+      "artifacts/broad_pairs/memory/s104992p37584__s147220p12591/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105003__127149",
+    "label": "FCX/TECK",
+    "secids": [
+      105003,
+      127149
+    ],
+    "group": "broad",
+    "source_pair": "s105003p81774__s127149p91321",
+    "industry": "102",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105003p81774__s127149p91321/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105003__214407",
+    "label": "FCX/MP",
+    "secids": [
+      105003,
+      214407
+    ],
+    "group": "broad",
+    "source_pair": "s105003p81774__s214407p19433",
+    "industry": "100",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "8957__105003",
+    "label": "FCX/TRQ",
+    "secids": [
+      105003,
+      8957
+    ],
+    "group": "broad",
+    "source_pair": "s105003p81774__s8957p89911",
+    "industry": "102",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105003p81774__s8957p89911/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105040__207852",
+    "label": "FCEL/RUN",
+    "secids": [
+      105040,
+      207852
+    ],
+    "group": "broad",
+    "source_pair": "s105040p77699__s207852p15643",
+    "industry": "491",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105040p77699__s207852p15643/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105120__105450",
+    "label": "GPS/GES",
+    "secids": [
+      105120,
+      105450
+    ],
+    "group": "broad",
+    "source_pair": "s105120p59010__s105450p83822",
+    "industry": "565",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105120p59010__s105450p83822/2022.csv",
+      "artifacts/broad_pairs/memory/s105120p59010__s105450p83822/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105120__110752",
+    "label": "GPS/TJX",
+    "secids": [
+      105120,
+      110752
+    ],
+    "group": "broad",
+    "source_pair": "s105120p59010__s110752p40539",
+    "industry": "565",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105120p59010__s110752p40539/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105169__111459",
+    "label": "GE/RTX",
+    "secids": [
+      105169,
+      111459
+    ],
+    "group": "broad",
+    "source_pair": "s105169p12060__s111459p17830",
+    "industry": "372",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105169p12060__s111459p17830/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105169__128252",
+    "label": "GE/SPR",
+    "secids": [
+      105169,
+      128252
+    ],
+    "group": "broad",
+    "source_pair": "s105169p12060__s128252p91594",
+    "industry": "372",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105169p12060__s128252p91594/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105316__108130",
+    "label": "GG/NEM",
+    "secids": [
+      105316,
+      108130
+    ],
+    "group": "broad",
+    "source_pair": "s105316p69892__s108130p21207",
+    "industry": "104",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105316p69892__s108130p21207/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105316__145681",
+    "label": "GG/AG",
+    "secids": [
+      105316,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s105316p69892__s145681p12447",
+    "industry": "104",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105316p69892__s145681p12447/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105329__106067",
+    "label": "GS/WETF",
+    "secids": [
+      105329,
+      106067
+    ],
+    "group": "broad",
+    "source_pair": "s105329p86868__s106067p77217",
+    "industry": "621",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105329p86868__s106067p77217/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105329__106905",
+    "label": "GS/JEF",
+    "secids": [
+      105329,
+      106905
+    ],
+    "group": "broad",
+    "source_pair": "s105329p86868__s106905p20415",
+    "industry": "621",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105329p86868__s106905p20415/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105450__110752",
+    "label": "GES/TJX",
+    "secids": [
+      105450,
+      110752
+    ],
+    "group": "broad",
+    "source_pair": "s105450p83822__s110752p40539",
+    "industry": "565",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105450p83822__s110752p40539/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105512__109476",
+    "label": "HAL/RRC",
+    "secids": [
+      105512,
+      109476
+    ],
+    "group": "broad",
+    "source_pair": "s105512p23819__s109476p50017",
+    "industry": "138",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105512p23819__s109476p50017/2018.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s109476p50017/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105512__109956",
+    "label": "HAL/SLB",
+    "secids": [
+      105512,
+      109956
+    ],
+    "group": "broad",
+    "source_pair": "s105512p23819__s109956p14277",
+    "industry": "138",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105512p23819__s109956p14277/2018.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s109956p14277/2020.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s109956p14277/2022.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s109956p14277/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105512__112333",
+    "label": "HAL/RIG",
+    "secids": [
+      105512,
+      112333
+    ],
+    "group": "broad",
+    "source_pair": "s105512p23819__s112333p79237",
+    "industry": "138",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105512p23819__s112333p79237/2018.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s112333p79237/2020.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s112333p79237/2022.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s112333p79237/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105512__116545",
+    "label": "HAL/GLNG",
+    "secids": [
+      105512,
+      116545
+    ],
+    "group": "broad",
+    "source_pair": "s105512p23819__s116545p89618",
+    "industry": "138",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105512p23819__s116545p89618/2022.csv",
+      "artifacts/broad_pairs/memory/s105512p23819__s116545p89618/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105573__108231",
+    "label": "LHX/NOC",
+    "secids": [
+      105573,
+      108231
+    ],
+    "group": "broad",
+    "source_pair": "s105573p25582__s108231p24766",
+    "industry": "381",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105573p25582__s108231p24766/2020.csv",
+      "artifacts/broad_pairs/memory/s105573p25582__s108231p24766/2022.csv",
+      "artifacts/broad_pairs/memory/s105573p25582__s108231p24766/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105573__109497",
+    "label": "LHX/RTN",
+    "secids": [
+      105573,
+      109497
+    ],
+    "group": "broad",
+    "source_pair": "s105573p25582__s109497p24942",
+    "industry": "381",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105573p25582__s109497p24942/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105581__109869",
+    "label": "HIG/TRV",
+    "secids": [
+      105581,
+      109869
+    ],
+    "group": "broad",
+    "source_pair": "s105581p82775__s109869p59459",
+    "industry": "633",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105581p82775__s109869p59459/2022.csv",
+      "artifacts/broad_pairs/memory/s105581p82775__s109869p59459/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105581__112254",
+    "label": "HIG/CB",
+    "secids": [
+      105581,
+      112254
+    ],
+    "group": "broad",
+    "source_pair": "s105581p82775__s112254p79057",
+    "industry": "633",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105581p82775__s112254p79057/2022.csv",
+      "artifacts/broad_pairs/memory/s105581p82775__s112254p79057/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105615__110945",
+    "label": "EHC/THC",
+    "secids": [
+      105615,
+      110945
+    ],
+    "group": "broad",
+    "source_pair": "s105615p10693__s110945p52337",
+    "industry": "806",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105615p10693__s110945p52337/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105615__111493",
+    "label": "EHC/UHS",
+    "secids": [
+      105615,
+      111493
+    ],
+    "group": "broad",
+    "source_pair": "s105615p10693__s111493p79637",
+    "industry": "806",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105615p10693__s111493p79637/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105615__146286",
+    "label": "EHC/HCA",
+    "secids": [
+      105615,
+      146286
+    ],
+    "group": "broad",
+    "source_pair": "s105615p10693__s146286p12622",
+    "industry": "806",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105615p10693__s146286p12622/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105663__106701",
+    "label": "HL/KGC",
+    "secids": [
+      105663,
+      106701
+    ],
+    "group": "broad",
+    "source_pair": "s105663p32651__s106701p89692",
+    "industry": "104",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105663p32651__s106701p89692/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105663__111450",
+    "label": "HL/MUX",
+    "secids": [
+      105663,
+      111450
+    ],
+    "group": "broad",
+    "source_pair": "s105663p32651__s111450p70704",
+    "industry": "104",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105663p32651__s111450p70704/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105663__145681",
+    "label": "HL/AG",
+    "secids": [
+      105663,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s105663p32651__s145681p12447",
+    "industry": "104",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105663p32651__s145681p12447/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105759__107045",
+    "label": "HD/LOW",
+    "secids": [
+      105759,
+      107045
+    ],
+    "group": "broad",
+    "source_pair": "s105759p66181__s107045p61399",
+    "industry": "521",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105759p66181__s107045p61399/2018.csv",
+      "artifacts/broad_pairs/memory/s105759p66181__s107045p61399/2020.csv",
+      "artifacts/broad_pairs/memory/s105759p66181__s107045p61399/2022.csv",
+      "artifacts/broad_pairs/memory/s105759p66181__s107045p61399/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105785__107616",
+    "label": "HON/MMM",
+    "secids": [
+      105785,
+      107616
+    ],
+    "group": "broad",
+    "source_pair": "s105785p10145__s107616p22592",
+    "industry": "509",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s105785p10145__s107616p22592/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106067__106905",
+    "label": "WETF/JEF",
+    "secids": [
+      106067,
+      106905
+    ],
+    "group": "broad",
+    "source_pair": "s106067p77217__s106905p20415",
+    "industry": "621",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106067p77217__s106905p20415/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106203__107544",
+    "label": "INTC/MU",
+    "secids": [
+      106203,
+      107544
+    ],
+    "group": "broad",
+    "source_pair": "s106203p59328__s107544p53613",
+    "industry": "367",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106203p59328__s107544p53613/2020.csv",
+      "artifacts/broad_pairs/memory/s106203p59328__s107544p53613/2022.csv",
+      "artifacts/broad_pairs/memory/s106203p59328__s107544p53613/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106203__108321",
+    "label": "INTC/NVDA",
+    "secids": [
+      106203,
+      108321
+    ],
+    "group": "broad",
+    "source_pair": "s106203p59328__s108321p86580",
+    "industry": "367",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106203p59328__s108321p86580/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106625__111394",
+    "label": "KSU/UNP",
+    "secids": [
+      106625,
+      111394
+    ],
+    "group": "broad",
+    "source_pair": "s106625p12650__s111394p48725",
+    "industry": "401",
+    "screen_years": [
+      2018,
+      2020,
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106625p12650__s111394p48725/2018.csv",
+      "artifacts/broad_pairs/memory/s106625p12650__s111394p48725/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106629__106899",
+    "label": "KBH/LEN",
+    "secids": [
+      106629,
+      106899
+    ],
+    "group": "broad",
+    "source_pair": "s106629p70092__s106899p52708",
+    "industry": "153",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106629p70092__s106899p52708/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106629__111071",
+    "label": "KBH/TOL",
+    "secids": [
+      106629,
+      111071
+    ],
+    "group": "broad",
+    "source_pair": "s106629p70092__s111071p70228",
+    "industry": "153",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106629p70092__s111071p70228/2018.csv",
+      "artifacts/broad_pairs/memory/s106629p70092__s111071p70228/2020.csv",
+      "artifacts/broad_pairs/memory/s106629p70092__s111071p70228/2022.csv",
+      "artifacts/broad_pairs/memory/s106629p70092__s111071p70228/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106701__108130",
+    "label": "KGC/NEM",
+    "secids": [
+      106701,
+      108130
+    ],
+    "group": "broad",
+    "source_pair": "s106701p89692__s108130p21207",
+    "industry": "104",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106701p89692__s108130p21207/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106701__111450",
+    "label": "KGC/MUX",
+    "secids": [
+      106701,
+      111450
+    ],
+    "group": "broad",
+    "source_pair": "s106701p89692__s111450p70704",
+    "industry": "104",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106701p89692__s111450p70704/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106701__145681",
+    "label": "KGC/AG",
+    "secids": [
+      106701,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s106701p89692__s145681p12447",
+    "industry": "104",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106701p89692__s145681p12447/2022.csv",
+      "artifacts/broad_pairs/memory/s106701p89692__s145681p12447/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106701__151613",
+    "label": "KGC/PVG",
+    "secids": [
+      106701,
+      151613
+    ],
+    "group": "broad",
+    "source_pair": "s106701p89692__s151613p13191",
+    "industry": "108",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106701p89692__s151613p13191/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106715__111434",
+    "label": "KNX/UPS",
+    "secids": [
+      106715,
+      111434
+    ],
+    "group": "broad",
+    "source_pair": "s106715p12473__s111434p87447",
+    "industry": "421",
+    "screen_years": [
+      2020,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106715p12473__s111434p87447/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106715__112185",
+    "label": "KNX/YRCW",
+    "secids": [
+      106715,
+      112185
+    ],
+    "group": "broad",
+    "source_pair": "s106715p12473__s112185p59483",
+    "industry": "421",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106715__116076",
+    "label": "KNX/XPO",
+    "secids": [
+      106715,
+      116076
+    ],
+    "group": "broad",
+    "source_pair": "s106715p12473__s116076p90175",
+    "industry": "421",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106715p12473__s116076p90175/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106723__108849",
+    "label": "KSS/JCP",
+    "secids": [
+      106723,
+      108849
+    ],
+    "group": "broad",
+    "source_pair": "s106723p77606__s108849p18403",
+    "industry": "531",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106723p77606__s108849p18403/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106723__189248",
+    "label": "KSS/BURL",
+    "secids": [
+      106723,
+      189248
+    ],
+    "group": "broad",
+    "source_pair": "s106723p77606__s189248p14182",
+    "industry": "531",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106723p77606__s189248p14182/2022.csv",
+      "artifacts/broad_pairs/memory/s106723p77606__s189248p14182/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106744__110649",
+    "label": "KR/SVU",
+    "secids": [
+      106744,
+      110649
+    ],
+    "group": "broad",
+    "source_pair": "s106744p16678__s110649p44951",
+    "industry": "541",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106744p16678__s110649p44951/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106744__208300",
+    "label": "KR/ACI",
+    "secids": [
+      106744,
+      208300
+    ],
+    "group": "broad",
+    "source_pair": "s106744p16678__s208300p19413",
+    "industry": "541",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106775__124758",
+    "label": "LXU/CF",
+    "secids": [
+      106775,
+      124758
+    ],
+    "group": "broad",
+    "source_pair": "s106775p49488__s124758p90829",
+    "industry": "287",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106775p49488__s124758p90829/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106790__109371",
+    "label": "LH/DGX",
+    "secids": [
+      106790,
+      109371
+    ],
+    "group": "broad",
+    "source_pair": "s106790p12062__s109371p84373",
+    "industry": "807",
+    "screen_years": [
+      2020,
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106790p12062__s109371p84373/2020.csv",
+      "artifacts/broad_pairs/memory/s106790p12062__s109371p84373/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "106899__111071",
+    "label": "LEN/TOL",
+    "secids": [
+      106899,
+      111071
+    ],
+    "group": "broad",
+    "source_pair": "s106899p52708__s111071p70228",
+    "industry": "153",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s106899p52708__s111071p70228/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107107__108423",
+    "label": "MTG/ORI",
+    "secids": [
+      107107,
+      108423
+    ],
+    "group": "broad",
+    "source_pair": "s107107p76804__s108423p59396",
+    "industry": "635",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107107p76804__s108423p59396/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107110__108843",
+    "label": "MGM/PENN",
+    "secids": [
+      107110,
+      108843
+    ],
+    "group": "broad",
+    "source_pair": "s107110p11891__s108843p80563",
+    "industry": "701",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107110p11891__s108843p80563/2022.csv",
+      "artifacts/broad_pairs/memory/s107110p11891__s108843p80563/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107110__116416",
+    "label": "MGM/WYNN",
+    "secids": [
+      107110,
+      116416
+    ],
+    "group": "broad",
+    "source_pair": "s107110p11891__s116416p89533",
+    "industry": "701",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107110p11891__s116416p89533/2022.csv",
+      "artifacts/broad_pairs/memory/s107110p11891__s116416p89533/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107110__205208",
+    "label": "MGM/CZR",
+    "secids": [
+      107110,
+      205208
+    ],
+    "group": "broad",
+    "source_pair": "s107110p11891__s205208p14882",
+    "industry": "701",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107110p11891__s205208p14882/2022.csv",
+      "artifacts/broad_pairs/memory/s107110p11891__s205208p14882/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107141__110188",
+    "label": "MAC/SPG",
+    "secids": [
+      107141,
+      110188
+    ],
+    "group": "broad",
+    "source_pair": "s107141p80399__s110188p80100",
+    "industry": "679",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107141p80399__s110188p80100/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107158__110366",
+    "label": "TELL/SWN",
+    "secids": [
+      107158,
+      110366
+    ],
+    "group": "broad",
+    "source_pair": "s107158p89790__s110366p63765",
+    "industry": "131",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107158p89790__s110366p63765/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107158__189349",
+    "label": "TELL/AR",
+    "secids": [
+      107158,
+      189349
+    ],
+    "group": "broad",
+    "source_pair": "s107158p89790__s189349p14179",
+    "industry": "131",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107158p89790__s189349p14179/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107248__116416",
+    "label": "MAR/WYNN",
+    "secids": [
+      107248,
+      116416
+    ],
+    "group": "broad",
+    "source_pair": "s107248p85913__s116416p89533",
+    "industry": "701",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107248p85913__s116416p89533/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107248__127317",
+    "label": "MAR/WYN",
+    "secids": [
+      107248,
+      127317
+    ],
+    "group": "broad",
+    "source_pair": "s107248p85913__s127317p91392",
+    "industry": "701",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107248p85913__s127317p91392/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107248__189909",
+    "label": "MAR/HLT",
+    "secids": [
+      107248,
+      189909
+    ],
+    "group": "broad",
+    "source_pair": "s107248p85913__s189909p14338",
+    "industry": "701",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107248p85913__s189909p14338/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107484__113437",
+    "label": "MET/PRU",
+    "secids": [
+      107484,
+      113437
+    ],
+    "group": "broad",
+    "source_pair": "s107484p87842__s113437p89258",
+    "industry": "631",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107484p87842__s113437p89258/2018.csv",
+      "artifacts/broad_pairs/memory/s107484p87842__s113437p89258/2020.csv",
+      "artifacts/broad_pairs/memory/s107484p87842__s113437p89258/2022.csv",
+      "artifacts/broad_pairs/memory/s107484p87842__s113437p89258/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107484__121535",
+    "label": "MET/GNW",
+    "secids": [
+      107484,
+      121535
+    ],
+    "group": "broad",
+    "source_pair": "s107484p87842__s121535p90162",
+    "industry": "631",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107484p87842__s121535p90162/2022.csv",
+      "artifacts/broad_pairs/memory/s107484p87842__s121535p90162/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107525__121812",
+    "label": "MSFT/GOOGL",
+    "secids": [
+      107525,
+      121812
+    ],
+    "group": "broad",
+    "source_pair": "s107525p10107__s121812p90319",
+    "industry": "737",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107525p10107__s121812p90319/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107525__135419",
+    "label": "MSFT/V",
+    "secids": [
+      107525,
+      135419
+    ],
+    "group": "broad",
+    "source_pair": "s107525p10107__s135419p92611",
+    "industry": "737",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107525p10107__s135419p92611/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107525__154402",
+    "label": "MSFT/META",
+    "secids": [
+      107525,
+      154402
+    ],
+    "group": "broad",
+    "source_pair": "s107525p10107__s154402p13407",
+    "industry": "737",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107525p10107__s154402p13407/2018.csv",
+      "artifacts/broad_pairs/memory/s107525p10107__s154402p13407/2020.csv",
+      "artifacts/broad_pairs/memory/s107525p10107__s154402p13407/2022.csv",
+      "artifacts/broad_pairs/memory/s107525p10107__s154402p13407/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107544__108321",
+    "label": "MU/NVDA",
+    "secids": [
+      107544,
+      108321
+    ],
+    "group": "broad",
+    "source_pair": "s107544p53613__s108321p86580",
+    "industry": "367",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107544p53613__s108321p86580/2018.csv",
+      "artifacts/broad_pairs/memory/s107544p53613__s108321p86580/2020.csv",
+      "artifacts/broad_pairs/memory/s107544p53613__s108321p86580/2022.csv",
+      "artifacts/broad_pairs/memory/s107544p53613__s108321p86580/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "107616__111222",
+    "label": "MMM/TRN",
+    "secids": [
+      107616,
+      111222
+    ],
+    "group": "broad",
+    "source_pair": "s107616p22592__s111222p55001",
+    "industry": "509",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s107616p22592__s111222p55001/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108114__123307",
+    "label": "NYCB/BOFI",
+    "secids": [
+      108114,
+      123307
+    ],
+    "group": "broad",
+    "source_pair": "s108114p79859__s123307p90634",
+    "industry": "603",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108114p79859__s123307p90634/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108114__208142",
+    "label": "NYCB/COOP",
+    "secids": [
+      108114,
+      208142
+    ],
+    "group": "broad",
+    "source_pair": "s108114p79859__s208142p81593",
+    "industry": "603",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108130__145681",
+    "label": "NEM/AG",
+    "secids": [
+      108130,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s108130p21207__s145681p12447",
+    "industry": "104",
+    "screen_years": [
+      2018,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108130p21207__s145681p12447/2018.csv",
+      "artifacts/broad_pairs/memory/s108130p21207__s145681p12447/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108231__109497",
+    "label": "NOC/RTN",
+    "secids": [
+      108231,
+      109497
+    ],
+    "group": "broad",
+    "source_pair": "s108231p24766__s109497p24942",
+    "industry": "381",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108231p24766__s109497p24942/2018.csv",
+      "artifacts/broad_pairs/memory/s108231p24766__s109497p24942/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108253__129677",
+    "label": "INSG/INFN",
+    "secids": [
+      108253,
+      129677
+    ],
+    "group": "broad",
+    "source_pair": "s108253p88807__s129677p92095",
+    "industry": "366",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108253p88807__s129677p92095/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108463__112042",
+    "label": "OKE/WMB",
+    "secids": [
+      108463,
+      112042
+    ],
+    "group": "broad",
+    "source_pair": "s108463p25232__s112042p38156",
+    "industry": "492",
+    "screen_years": [
+      2018,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108463p25232__s112042p38156/2018.csv",
+      "artifacts/broad_pairs/memory/s108463p25232__s112042p38156/2022.csv",
+      "artifacts/broad_pairs/memory/s108463p25232__s112042p38156/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108463__146036",
+    "label": "OKE/KMI",
+    "secids": [
+      108463,
+      146036
+    ],
+    "group": "broad",
+    "source_pair": "s108463p25232__s146036p12558",
+    "industry": "492",
+    "screen_years": [
+      2018,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108463p25232__s146036p12558/2018.csv",
+      "artifacts/broad_pairs/memory/s108463p25232__s146036p12558/2022.csv",
+      "artifacts/broad_pairs/memory/s108463p25232__s146036p12558/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108463__211296",
+    "label": "OKE/AM",
+    "secids": [
+      108463,
+      211296
+    ],
+    "group": "broad",
+    "source_pair": "s108463p25232__s211296p16738",
+    "industry": "492",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108649__110337",
+    "label": "PPL/SO",
+    "secids": [
+      108649,
+      110337
+    ],
+    "group": "broad",
+    "source_pair": "s108649p22517__s110337p18411",
+    "industry": "491",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108649p22517__s110337p18411/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108843__116416",
+    "label": "PENN/WYNN",
+    "secids": [
+      108843,
+      116416
+    ],
+    "group": "broad",
+    "source_pair": "s108843p80563__s116416p89533",
+    "industry": "701",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108843p80563__s116416p89533/2022.csv",
+      "artifacts/broad_pairs/memory/s108843p80563__s116416p89533/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108843__205208",
+    "label": "PENN/CZR",
+    "secids": [
+      108843,
+      205208
+    ],
+    "group": "broad",
+    "source_pair": "s108843p80563__s205208p14882",
+    "industry": "701",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s108843p80563__s205208p14882/2022.csv",
+      "artifacts/broad_pairs/memory/s108843p80563__s205208p14882/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109006__112046",
+    "label": "PIR/WSM",
+    "secids": [
+      109006,
+      112046
+    ],
+    "group": "broad",
+    "source_pair": "s109006p51692__s112046p83011",
+    "industry": "571",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109006p51692__s112046p83011/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109072__213108",
+    "label": "PLUG/BE",
+    "secids": [
+      109072,
+      213108
+    ],
+    "group": "broad",
+    "source_pair": "s109072p87337__s213108p17949",
+    "industry": "362",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109072p87337__s213108p17949/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109072__214357",
+    "label": "PLUG/EOSE",
+    "secids": [
+      109072,
+      214357
+    ],
+    "group": "broad",
+    "source_pair": "s109072p87337__s214357p19416",
+    "industry": "369",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109072__214803",
+    "label": "PLUG/STEM",
+    "secids": [
+      109072,
+      214803
+    ],
+    "group": "broad",
+    "source_pair": "s109072p87337__s214803p19919",
+    "industry": "369",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109182__124209",
+    "label": "BKNG/EXPE",
+    "secids": [
+      109182,
+      124209
+    ],
+    "group": "broad",
+    "source_pair": "s109182p86783__s124209p90808",
+    "industry": "470",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109182p86783__s124209p90808/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109182__151386",
+    "label": "PCLN/TRIP",
+    "secids": [
+      109182,
+      151386
+    ],
+    "group": "broad",
+    "source_pair": "s109182p86783__s151386p13168",
+    "industry": "472",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109182p86783__s151386p13168/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109476__109956",
+    "label": "RRC/SLB",
+    "secids": [
+      109476,
+      109956
+    ],
+    "group": "broad",
+    "source_pair": "s109476p50017__s109956p14277",
+    "industry": "138",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109476p50017__s109956p14277/2018.csv",
+      "artifacts/broad_pairs/memory/s109476p50017__s109956p14277/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109476__112333",
+    "label": "RRC/RIG",
+    "secids": [
+      109476,
+      112333
+    ],
+    "group": "broad",
+    "source_pair": "s109476p50017__s112333p79237",
+    "industry": "138",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109476p50017__s112333p79237/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109775__111668",
+    "label": "T/VZ",
+    "secids": [
+      109775,
+      111668
+    ],
+    "group": "broad",
+    "source_pair": "s109775p66093__s111668p65875",
+    "industry": "481",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109775p66093__s111668p65875/2018.csv",
+      "artifacts/broad_pairs/memory/s109775p66093__s111668p65875/2020.csv",
+      "artifacts/broad_pairs/memory/s109775p66093__s111668p65875/2022.csv",
+      "artifacts/broad_pairs/memory/s109775p66093__s111668p65875/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109775__121764",
+    "label": "T/TMUS",
+    "secids": [
+      109775,
+      121764
+    ],
+    "group": "broad",
+    "source_pair": "s109775p66093__s121764p91937",
+    "industry": "481",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109775p66093__s121764p91937/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109869__112254",
+    "label": "TRV/CB",
+    "secids": [
+      109869,
+      112254
+    ],
+    "group": "broad",
+    "source_pair": "s109869p59459__s112254p79057",
+    "industry": "633",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109869p59459__s112254p79057/2018.csv",
+      "artifacts/broad_pairs/memory/s109869p59459__s112254p79057/2020.csv",
+      "artifacts/broad_pairs/memory/s109869p59459__s112254p79057/2022.csv",
+      "artifacts/broad_pairs/memory/s109869p59459__s112254p79057/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109956__112333",
+    "label": "SLB/RIG",
+    "secids": [
+      109956,
+      112333
+    ],
+    "group": "broad",
+    "source_pair": "s109956p14277__s112333p79237",
+    "industry": "138",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109956p14277__s112333p79237/2018.csv",
+      "artifacts/broad_pairs/memory/s109956p14277__s112333p79237/2020.csv",
+      "artifacts/broad_pairs/memory/s109956p14277__s112333p79237/2022.csv",
+      "artifacts/broad_pairs/memory/s109956p14277__s112333p79237/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109956__116545",
+    "label": "SLB/GLNG",
+    "secids": [
+      109956,
+      116545
+    ],
+    "group": "broad",
+    "source_pair": "s109956p14277__s116545p89618",
+    "industry": "138",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109956p14277__s116545p89618/2022.csv",
+      "artifacts/broad_pairs/memory/s109956p14277__s116545p89618/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109958__110497",
+    "label": "SCHN/STLD",
+    "secids": [
+      109958,
+      110497
+    ],
+    "group": "broad",
+    "source_pair": "s109958p79866__s110497p84262",
+    "industry": "331",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109958p79866__s110497p84262/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109958__111337",
+    "label": "SCHN/X",
+    "secids": [
+      109958,
+      111337
+    ],
+    "group": "broad",
+    "source_pair": "s109958p79866__s111337p76644",
+    "industry": "331",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s109958p79866__s111337p76644/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110000__122791",
+    "label": "SEE/CE",
+    "secids": [
+      110000,
+      122791
+    ],
+    "group": "broad",
+    "source_pair": "s110000p85926__s122791p90520",
+    "industry": "282",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110000p85926__s122791p90520/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110000__123090",
+    "label": "SEE/HUN",
+    "secids": [
+      110000,
+      123090
+    ],
+    "group": "broad",
+    "source_pair": "s110000p85926__s123090p90558",
+    "industry": "282",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110000p85926__s123090p90558/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110262__110460",
+    "label": "SNA/SWK",
+    "secids": [
+      110262,
+      110460
+    ],
+    "group": "broad",
+    "source_pair": "s110262p60206__s110460p43350",
+    "industry": "342",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110262p60206__s110460p43350/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110357__125537",
+    "label": "LUV/UAL",
+    "secids": [
+      110357,
+      125537
+    ],
+    "group": "broad",
+    "source_pair": "s110357p58683__s125537p91103",
+    "industry": "451",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110357p58683__s125537p91103/2022.csv",
+      "artifacts/broad_pairs/memory/s110357p58683__s125537p91103/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110357__129410",
+    "label": "LUV/DAL",
+    "secids": [
+      110357,
+      129410
+    ],
+    "group": "broad",
+    "source_pair": "s110357p58683__s129410p91926",
+    "industry": "451",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110357p58683__s129410p91926/2022.csv",
+      "artifacts/broad_pairs/memory/s110357p58683__s129410p91926/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110357__189845",
+    "label": "LUV/AAL",
+    "secids": [
+      110357,
+      189845
+    ],
+    "group": "broad",
+    "source_pair": "s110357p58683__s189845p21020",
+    "industry": "451",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110357p58683__s189845p21020/2022.csv",
+      "artifacts/broad_pairs/memory/s110357p58683__s189845p21020/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110366__119431",
+    "label": "SWN/WLL",
+    "secids": [
+      110366,
+      119431
+    ],
+    "group": "broad",
+    "source_pair": "s110366p63765__s119431p89901",
+    "industry": "132",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110366p63765__s119431p89901/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110366__151404",
+    "label": "SWN/WPX",
+    "secids": [
+      110366,
+      151404
+    ],
+    "group": "broad",
+    "source_pair": "s110366p63765__s151404p13141",
+    "industry": "132",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110366p63765__s151404p13141/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110366__189349",
+    "label": "SWN/AR",
+    "secids": [
+      110366,
+      189349
+    ],
+    "group": "broad",
+    "source_pair": "s110366p63765__s189349p14179",
+    "industry": "131",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110366p63765__s189349p14179/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110497__111337",
+    "label": "STLD/X",
+    "secids": [
+      110497,
+      111337
+    ],
+    "group": "broad",
+    "source_pair": "s110497p84262__s111337p76644",
+    "industry": "331",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110497p84262__s111337p76644/2018.csv",
+      "artifacts/broad_pairs/memory/s110497p84262__s111337p76644/2020.csv",
+      "artifacts/broad_pairs/memory/s110497p84262__s111337p76644/2022.csv",
+      "artifacts/broad_pairs/memory/s110497p84262__s111337p76644/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110945__111493",
+    "label": "THC/UHS",
+    "secids": [
+      110945,
+      111493
+    ],
+    "group": "broad",
+    "source_pair": "s110945p52337__s111493p79637",
+    "industry": "806",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110945p52337__s111493p79637/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110945__146286",
+    "label": "THC/HCA",
+    "secids": [
+      110945,
+      146286
+    ],
+    "group": "broad",
+    "source_pair": "s110945p52337__s146286p12622",
+    "industry": "806",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110945p52337__s146286p12622/2018.csv",
+      "artifacts/broad_pairs/memory/s110945p52337__s146286p12622/2020.csv",
+      "artifacts/broad_pairs/memory/s110945p52337__s146286p12622/2022.csv",
+      "artifacts/broad_pairs/memory/s110945p52337__s146286p12622/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110952__111279",
+    "label": "TER/IIVI",
+    "secids": [
+      110952,
+      111279
+    ],
+    "group": "broad",
+    "source_pair": "s110952p51369__s111279p11752",
+    "industry": "382",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110952p51369__s111279p11752/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110952__206043",
+    "label": "TER/QRVO",
+    "secids": [
+      110952,
+      206043
+    ],
+    "group": "broad",
+    "source_pair": "s110952p51369__s206043p85035",
+    "industry": "382",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110952p51369__s206043p85035/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110962__152875",
+    "label": "ANDV/PSX",
+    "secids": [
+      110962,
+      152875
+    ],
+    "group": "broad",
+    "source_pair": "s110962p37284__s152875p13356",
+    "industry": "291",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110962p37284__s152875p13356/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110979__111459",
+    "label": "TXT/UTX",
+    "secids": [
+      110979,
+      111459
+    ],
+    "group": "broad",
+    "source_pair": "s110979p23579__s111459p17830",
+    "industry": "372",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110979p23579__s111459p17830/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110979__128763",
+    "label": "TXT/AVAV",
+    "secids": [
+      110979,
+      128763
+    ],
+    "group": "broad",
+    "source_pair": "s110979p23579__s128763p91733",
+    "industry": "372",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110979p23579__s128763p91733/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "110991__144520",
+    "label": "TMO/PACB",
+    "secids": [
+      110991,
+      144520
+    ],
+    "group": "broad",
+    "source_pair": "s110991p62092__s144520p12360",
+    "industry": "382",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s110991p62092__s144520p12360/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111279__206043",
+    "label": "IIVI/QRVO",
+    "secids": [
+      111279,
+      206043
+    ],
+    "group": "broad",
+    "source_pair": "s111279p11752__s206043p85035",
+    "industry": "382",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111279p11752__s206043p85035/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111296__189349",
+    "label": "MRO/AR",
+    "secids": [
+      111296,
+      189349
+    ],
+    "group": "broad",
+    "source_pair": "s111296p15069__s189349p14179",
+    "industry": "131",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111296p15069__s189349p14179/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111359__189478",
+    "label": "SLM/OMF",
+    "secids": [
+      111359,
+      189478
+    ],
+    "group": "broad",
+    "source_pair": "s111359p66325__s189478p14229",
+    "industry": "614",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111359p66325__s189478p14229/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111434__116076",
+    "label": "UPS/XPO",
+    "secids": [
+      111434,
+      116076
+    ],
+    "group": "broad",
+    "source_pair": "s111434p87447__s116076p90175",
+    "industry": "421",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111434p87447__s116076p90175/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111436__128233",
+    "label": "URI/AER",
+    "secids": [
+      111436,
+      128233
+    ],
+    "group": "broad",
+    "source_pair": "s111436p85663__s128233p91602",
+    "industry": "735",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111436p85663__s128233p91602/2018.csv",
+      "artifacts/broad_pairs/memory/s111436p85663__s128233p91602/2020.csv",
+      "artifacts/broad_pairs/memory/s111436p85663__s128233p91602/2022.csv",
+      "artifacts/broad_pairs/memory/s111436p85663__s128233p91602/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111436__208308",
+    "label": "URI/WSC",
+    "secids": [
+      111436,
+      208308
+    ],
+    "group": "broad",
+    "source_pair": "s111436p85663__s208308p15782",
+    "industry": "735",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111450__145681",
+    "label": "MUX/AG",
+    "secids": [
+      111450,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s111450p70704__s145681p12447",
+    "industry": "104",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111450p70704__s145681p12447/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111459__128252",
+    "label": "RTX/SPR",
+    "secids": [
+      111459,
+      128252
+    ],
+    "group": "broad",
+    "source_pair": "s111459p17830__s128252p91594",
+    "industry": "372",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111459p17830__s128252p91594/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111469__113119",
+    "label": "UNH/ELV",
+    "secids": [
+      111469,
+      113119
+    ],
+    "group": "broad",
+    "source_pair": "s111469p92655__s113119p89179",
+    "industry": "632",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111469p92655__s113119p89179/2018.csv",
+      "artifacts/broad_pairs/memory/s111469p92655__s113119p89179/2020.csv",
+      "artifacts/broad_pairs/memory/s111469p92655__s113119p89179/2022.csv",
+      "artifacts/broad_pairs/memory/s111469p92655__s113119p89179/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111469__113430",
+    "label": "UNH/CNC",
+    "secids": [
+      111469,
+      113430
+    ],
+    "group": "broad",
+    "source_pair": "s111469p92655__s113430p89269",
+    "industry": "632",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111469p92655__s113430p89269/2018.csv",
+      "artifacts/broad_pairs/memory/s111469p92655__s113430p89269/2020.csv",
+      "artifacts/broad_pairs/memory/s111469p92655__s113430p89269/2022.csv",
+      "artifacts/broad_pairs/memory/s111469p92655__s113430p89269/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111493__146286",
+    "label": "UHS/HCA",
+    "secids": [
+      111493,
+      146286
+    ],
+    "group": "broad",
+    "source_pair": "s111493p79637__s146286p12622",
+    "industry": "806",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111493p79637__s146286p12622/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111814__204531",
+    "label": "VNO/DBRG",
+    "secids": [
+      111814,
+      204531
+    ],
+    "group": "broad",
+    "source_pair": "s111814p28388__s204531p14686",
+    "industry": "679",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s111814p28388__s204531p14686/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "111987__208503",
+    "label": "WDC/SQ",
+    "secids": [
+      111987,
+      208503
+    ],
+    "group": "broad",
+    "source_pair": "s111987p66384__s208503p15826",
+    "industry": "357",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112042__145634",
+    "label": "WMB/TRGP",
+    "secids": [
+      112042,
+      145634
+    ],
+    "group": "broad",
+    "source_pair": "s112042p38156__s145634p12476",
+    "industry": "492",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112042p38156__s145634p12476/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112042__146036",
+    "label": "WMB/KMI",
+    "secids": [
+      112042,
+      146036
+    ],
+    "group": "broad",
+    "source_pair": "s112042p38156__s146036p12558",
+    "industry": "492",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112042p38156__s146036p12558/2018.csv",
+      "artifacts/broad_pairs/memory/s112042p38156__s146036p12558/2020.csv",
+      "artifacts/broad_pairs/memory/s112042p38156__s146036p12558/2022.csv",
+      "artifacts/broad_pairs/memory/s112042p38156__s146036p12558/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112042__211296",
+    "label": "WMB/AM",
+    "secids": [
+      112042,
+      211296
+    ],
+    "group": "broad",
+    "source_pair": "s112042p38156__s211296p16738",
+    "industry": "492",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112046__155603",
+    "label": "WSM/RH",
+    "secids": [
+      112046,
+      155603
+    ],
+    "group": "broad",
+    "source_pair": "s112046p83011__s155603p13687",
+    "industry": "571",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112046p83011__s155603p13687/2022.csv",
+      "artifacts/broad_pairs/memory/s112046p83011__s155603p13687/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112213__113437",
+    "label": "SPB/PRU",
+    "secids": [
+      112213,
+      113437
+    ],
+    "group": "broad",
+    "source_pair": "s112213p38295__s113437p89258",
+    "industry": "631",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112213p38295__s113437p89258/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112333__116545",
+    "label": "RIG/GLNG",
+    "secids": [
+      112333,
+      116545
+    ],
+    "group": "broad",
+    "source_pair": "s112333p79237__s116545p89618",
+    "industry": "138",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112333p79237__s116545p89618/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112463__161182",
+    "label": "RCL/NCLH",
+    "secids": [
+      112463,
+      161182
+    ],
+    "group": "broad",
+    "source_pair": "s112463p79145__s161182p13760",
+    "industry": "448",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112463p79145__s161182p13760/2018.csv",
+      "artifacts/broad_pairs/memory/s112463p79145__s161182p13760/2020.csv",
+      "artifacts/broad_pairs/memory/s112463p79145__s161182p13760/2022.csv",
+      "artifacts/broad_pairs/memory/s112463p79145__s161182p13760/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112472__116545",
+    "label": "TK/GLNG",
+    "secids": [
+      112472,
+      116545
+    ],
+    "group": "broad",
+    "source_pair": "s112472p81784__s116545p89618",
+    "industry": "441",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112472p81784__s116545p89618/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112472__121571",
+    "label": "TK/SFL",
+    "secids": [
+      112472,
+      121571
+    ],
+    "group": "broad",
+    "source_pair": "s112472p81784__s121571p90219",
+    "industry": "441",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112472p81784__s121571p90219/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112472__125052",
+    "label": "TK/DHT",
+    "secids": [
+      112472,
+      125052
+    ],
+    "group": "broad",
+    "source_pair": "s112472p81784__s125052p90943",
+    "industry": "441",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112472p81784__s125052p90943/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "112472__142517",
+    "label": "TK/STNG",
+    "secids": [
+      112472,
+      142517
+    ],
+    "group": "broad",
+    "source_pair": "s112472p81784__s142517p93299",
+    "industry": "441",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s112472p81784__s142517p93299/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "113119__113430",
+    "label": "ELV/CNC",
+    "secids": [
+      113119,
+      113430
+    ],
+    "group": "broad",
+    "source_pair": "s113119p89179__s113430p89269",
+    "industry": "632",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s113119p89179__s113430p89269/2020.csv",
+      "artifacts/broad_pairs/memory/s113119p89179__s113430p89269/2022.csv",
+      "artifacts/broad_pairs/memory/s113119p89179__s113430p89269/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "113437__121535",
+    "label": "PRU/GNW",
+    "secids": [
+      113437,
+      121535
+    ],
+    "group": "broad",
+    "source_pair": "s113437p89258__s121535p90162",
+    "industry": "631",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s113437p89258__s121535p90162/2022.csv",
+      "artifacts/broad_pairs/memory/s113437p89258__s121535p90162/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "114695__145989",
+    "label": "EXAS/GEVO",
+    "secids": [
+      114695,
+      145989
+    ],
+    "group": "broad",
+    "source_pair": "s114695p88863__s145989p12579",
+    "industry": "873",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "114695__213271",
+    "label": "EXAS/GH",
+    "secids": [
+      114695,
+      213271
+    ],
+    "group": "broad",
+    "source_pair": "s114695p88863__s213271p18135",
+    "industry": "807",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s114695p88863__s213271p18135/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105512__114726",
+    "label": "OIH/HAL",
+    "secids": [
+      114726,
+      105512
+    ],
+    "group": "broad",
+    "source_pair": "s114726p13129__s105512p23819",
+    "industry": "ETF",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s114726p13129__s105512p23819/2018.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s105512p23819/2020.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s105512p23819/2022.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s105512p23819/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "109956__114726",
+    "label": "OIH/SLB",
+    "secids": [
+      114726,
+      109956
+    ],
+    "group": "broad",
+    "source_pair": "s114726p13129__s109956p14277",
+    "industry": "ETF",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s114726p13129__s109956p14277/2018.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s109956p14277/2020.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s109956p14277/2022.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s109956p14277/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "114726__127107",
+    "label": "OIH/XOP",
+    "secids": [
+      114726,
+      127107
+    ],
+    "group": "broad",
+    "source_pair": "s114726p13129__s127107p91318",
+    "industry": "ETF",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s114726p13129__s127107p91318/2018.csv",
+      "artifacts/broad_pairs/memory/s114726p13129__s127107p91318/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "116416__189909",
+    "label": "WYNN/HLT",
+    "secids": [
+      116416,
+      189909
+    ],
+    "group": "broad",
+    "source_pair": "s116416p89533__s189909p14338",
+    "industry": "701",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s116416p89533__s189909p14338/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "116416__205208",
+    "label": "WYNN/CZR",
+    "secids": [
+      116416,
+      205208
+    ],
+    "group": "broad",
+    "source_pair": "s116416p89533__s205208p14882",
+    "industry": "701",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s116416p89533__s205208p14882/2022.csv",
+      "artifacts/broad_pairs/memory/s116416p89533__s205208p14882/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121355__121995",
+    "label": "AINV/ARCC",
+    "secids": [
+      121355,
+      121995
+    ],
+    "group": "broad",
+    "source_pair": "s121355p90121__s121995p90401",
+    "industry": "672",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121355p90121__s121995p90401/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121355__123847",
+    "label": "AINV/HTGC",
+    "secids": [
+      121355,
+      123847
+    ],
+    "group": "broad",
+    "source_pair": "s121355p90121__s123847p90731",
+    "industry": "672",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121355p90121__s123847p90731/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121571__125052",
+    "label": "SFL/DHT",
+    "secids": [
+      121571,
+      125052
+    ],
+    "group": "broad",
+    "source_pair": "s121571p90219__s125052p90943",
+    "industry": "441",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121571p90219__s125052p90943/2022.csv",
+      "artifacts/broad_pairs/memory/s121571p90219__s125052p90943/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121571__142517",
+    "label": "SFL/STNG",
+    "secids": [
+      121571,
+      142517
+    ],
+    "group": "broad",
+    "source_pair": "s121571p90219__s142517p93299",
+    "industry": "441",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121571p90219__s142517p93299/2022.csv",
+      "artifacts/broad_pairs/memory/s121571p90219__s142517p93299/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121571__214242",
+    "label": "SFL/ATCO",
+    "secids": [
+      121571,
+      214242
+    ],
+    "group": "broad",
+    "source_pair": "s121571p90219__s214242p90853",
+    "industry": "441",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121756__143554",
+    "label": "PSEC/KKR",
+    "secids": [
+      121756,
+      143554
+    ],
+    "group": "broad",
+    "source_pair": "s121756p90291__s143554p11990",
+    "industry": "628",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121756p90291__s143554p11990/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121812__154402",
+    "label": "GOOGL/META",
+    "secids": [
+      121812,
+      154402
+    ],
+    "group": "broad",
+    "source_pair": "s121812p90319__s154402p13407",
+    "industry": "737",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121812p90319__s154402p13407/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "121995__123847",
+    "label": "ARCC/HTGC",
+    "secids": [
+      121995,
+      123847
+    ],
+    "group": "broad",
+    "source_pair": "s121995p90401__s123847p90731",
+    "industry": "672",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s121995p90401__s123847p90731/2022.csv",
+      "artifacts/broad_pairs/memory/s121995p90401__s123847p90731/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "122791__123090",
+    "label": "CE/HUN",
+    "secids": [
+      122791,
+      123090
+    ],
+    "group": "broad",
+    "source_pair": "s122791p90520__s123090p90558",
+    "industry": "282",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s122791p90520__s123090p90558/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "123090__207444",
+    "label": "HUN/CC",
+    "secids": [
+      123090,
+      207444
+    ],
+    "group": "broad",
+    "source_pair": "s123090p90558__s207444p15398",
+    "industry": "280",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "123090__213287",
+    "label": "HUN/LTHM",
+    "secids": [
+      123090,
+      213287
+    ],
+    "group": "broad",
+    "source_pair": "s123090p90558__s213287p18138",
+    "industry": "280",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "123704__143554",
+    "label": "LAZ/KKR",
+    "secids": [
+      123704,
+      143554
+    ],
+    "group": "broad",
+    "source_pair": "s123704p90701__s143554p11990",
+    "industry": "628",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s123704p90701__s143554p11990/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "124209__151386",
+    "label": "EXPE/TRIP",
+    "secids": [
+      124209,
+      151386
+    ],
+    "group": "broad",
+    "source_pair": "s124209p90808__s151386p13168",
+    "industry": "472",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s124209p90808__s151386p13168/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "124737__142517",
+    "label": "SSW/STNG",
+    "secids": [
+      124737,
+      142517
+    ],
+    "group": "broad",
+    "source_pair": "s124737p90853__s142517p93299",
+    "industry": "441",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s124737p90853__s142517p93299/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "125052__142517",
+    "label": "DHT/STNG",
+    "secids": [
+      125052,
+      142517
+    ],
+    "group": "broad",
+    "source_pair": "s125052p90943__s142517p93299",
+    "industry": "441",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s125052p90943__s142517p93299/2020.csv",
+      "artifacts/broad_pairs/memory/s125052p90943__s142517p93299/2022.csv",
+      "artifacts/broad_pairs/memory/s125052p90943__s142517p93299/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "125052__214242",
+    "label": "DHT/ATCO",
+    "secids": [
+      125052,
+      214242
+    ],
+    "group": "broad",
+    "source_pair": "s125052p90943__s214242p90853",
+    "industry": "441",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "125179__128133",
+    "label": "SPWR/CSIQ",
+    "secids": [
+      125179,
+      128133
+    ],
+    "group": "broad",
+    "source_pair": "s125179p90978__s128133p91607",
+    "industry": "335",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s125179p90978__s128133p91607/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "125537__129410",
+    "label": "UAL/DAL",
+    "secids": [
+      125537,
+      129410
+    ],
+    "group": "broad",
+    "source_pair": "s125537p91103__s129410p91926",
+    "industry": "451",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s125537p91103__s129410p91926/2018.csv",
+      "artifacts/broad_pairs/memory/s125537p91103__s129410p91926/2020.csv",
+      "artifacts/broad_pairs/memory/s125537p91103__s129410p91926/2022.csv",
+      "artifacts/broad_pairs/memory/s125537p91103__s129410p91926/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "125537__189845",
+    "label": "UAL/AAL",
+    "secids": [
+      125537,
+      189845
+    ],
+    "group": "broad",
+    "source_pair": "s125537p91103__s189845p21020",
+    "industry": "451",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s125537p91103__s189845p21020/2020.csv",
+      "artifacts/broad_pairs/memory/s125537p91103__s189845p21020/2022.csv",
+      "artifacts/broad_pairs/memory/s125537p91103__s189845p21020/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "125944__151709",
+    "label": "GPRE/REGI",
+    "secids": [
+      125944,
+      151709
+    ],
+    "group": "broad",
+    "source_pair": "s125944p91161__s151709p13201",
+    "industry": "286",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s125944p91161__s151709p13201/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101580__127107",
+    "label": "XOP/APA",
+    "secids": [
+      127107,
+      101580
+    ],
+    "group": "broad",
+    "source_pair": "s127107p91318__s101580p39490",
+    "industry": "ETF",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s127107p91318__s101580p39490/2018.csv",
+      "artifacts/broad_pairs/memory/s127107p91318__s101580p39490/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "103802__127107",
+    "label": "XOP/DVN",
+    "secids": [
+      127107,
+      103802
+    ],
+    "group": "broad",
+    "source_pair": "s127107p91318__s103802p87137",
+    "industry": "ETF",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s127107p91318__s103802p87137/2018.csv",
+      "artifacts/broad_pairs/memory/s127107p91318__s103802p87137/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "108969__127107",
+    "label": "XOP/COP",
+    "secids": [
+      127107,
+      108969
+    ],
+    "group": "broad",
+    "source_pair": "s127107p91318__s108969p13928",
+    "industry": "ETF",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s127107p91318__s108969p13928/2018.csv",
+      "artifacts/broad_pairs/memory/s127107p91318__s108969p13928/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "8957__127149",
+    "label": "TECK/TRQ",
+    "secids": [
+      127149,
+      8957
+    ],
+    "group": "broad",
+    "source_pair": "s127149p91321__s8957p89911",
+    "industry": "102",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s127149p91321__s8957p89911/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "129410__189845",
+    "label": "DAL/AAL",
+    "secids": [
+      129410,
+      189845
+    ],
+    "group": "broad",
+    "source_pair": "s129410p91926__s189845p21020",
+    "industry": "451",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s129410p91926__s189845p21020/2020.csv",
+      "artifacts/broad_pairs/memory/s129410p91926__s189845p21020/2022.csv",
+      "artifacts/broad_pairs/memory/s129410p91926__s189845p21020/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "129677__189574",
+    "label": "INFN/COMM",
+    "secids": [
+      129677,
+      189574
+    ],
+    "group": "broad",
+    "source_pair": "s129677p92095__s189574p14239",
+    "industry": "366",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s129677p92095__s189574p14239/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "135419__154402",
+    "label": "V/FB",
+    "secids": [
+      135419,
+      154402
+    ],
+    "group": "broad",
+    "source_pair": "s135419p92611__s154402p13407",
+    "industry": "737",
+    "screen_years": [
+      2018
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s135419p92611__s154402p13407/2018.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "139176__139653",
+    "label": "IVR/TWO",
+    "secids": [
+      139176,
+      139653
+    ],
+    "group": "broad",
+    "source_pair": "s139176p92951__s139653p93070",
+    "industry": "679",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s139176p92951__s139653p93070/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "142517__214242",
+    "label": "STNG/ATCO",
+    "secids": [
+      142517,
+      214242
+    ],
+    "group": "broad",
+    "source_pair": "s142517p93299__s214242p90853",
+    "industry": "441",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "105663__142772",
+    "label": "SIL/HL",
+    "secids": [
+      142772,
+      105663
+    ],
+    "group": "broad",
+    "source_pair": "s142772p93318__s105663p32651",
+    "industry": "ETF",
+    "screen_years": [
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s142772p93318__s105663p32651/2020.csv",
+      "artifacts/broad_pairs/memory/s142772p93318__s105663p32651/2022.csv",
+      "artifacts/broad_pairs/memory/s142772p93318__s105663p32651/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "142772__145681",
+    "label": "SIL/AG",
+    "secids": [
+      142772,
+      145681
+    ],
+    "group": "broad",
+    "source_pair": "s142772p93318__s145681p12447",
+    "industry": "ETF",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s142772p93318__s145681p12447/2022.csv",
+      "artifacts/broad_pairs/memory/s142772p93318__s145681p12447/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "143554__147220",
+    "label": "KKR/APO",
+    "secids": [
+      143554,
+      147220
+    ],
+    "group": "broad",
+    "source_pair": "s143554p11990__s147220p12591",
+    "industry": "628",
+    "screen_years": [
+      2018,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s143554p11990__s147220p12591/2018.csv",
+      "artifacts/broad_pairs/memory/s143554p11990__s147220p12591/2022.csv",
+      "artifacts/broad_pairs/memory/s143554p11990__s147220p12591/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "144671__205575",
+    "label": "GM/FCAU",
+    "secids": [
+      144671,
+      205575
+    ],
+    "group": "broad",
+    "source_pair": "s144671p12369__s205575p14987",
+    "industry": "371",
+    "screen_years": [
+      2018,
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s144671p12369__s205575p14987/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "145634__146036",
+    "label": "TRGP/KMI",
+    "secids": [
+      145634,
+      146036
+    ],
+    "group": "broad",
+    "source_pair": "s145634p12476__s146036p12558",
+    "industry": "492",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s145634p12476__s146036p12558/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "146036__211296",
+    "label": "KMI/AM",
+    "secids": [
+      146036,
+      211296
+    ],
+    "group": "broad",
+    "source_pair": "s146036p12558__s211296p16738",
+    "industry": "492",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "154402__189705",
+    "label": "FB/TWTR",
+    "secids": [
+      154402,
+      189705
+    ],
+    "group": "broad",
+    "source_pair": "s154402p13407__s189705p14295",
+    "industry": "737",
+    "screen_years": [
+      2020
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s154402p13407__s189705p14295/2020.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "154402__210918",
+    "label": "FB/SNAP",
+    "secids": [
+      154402,
+      210918
+    ],
+    "group": "broad",
+    "source_pair": "s154402p13407__s210918p16595",
+    "industry": "737",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s154402p13407__s210918p16595/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "155271__211715",
+    "label": "RLGY/RDFN",
+    "secids": [
+      155271,
+      211715
+    ],
+    "group": "broad",
+    "source_pair": "s155271p13622__s211715p16829",
+    "industry": "653",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "189478__214964",
+    "label": "OMF/AFRM",
+    "secids": [
+      189478,
+      214964
+    ],
+    "group": "broad",
+    "source_pair": "s189478p14229__s214964p20339",
+    "industry": "614",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "143439__205711",
+    "label": "ARKK/TSLA",
+    "secids": [
+      205711,
+      143439
+    ],
+    "group": "broad",
+    "source_pair": "s205711p14948__s143439p93436",
+    "industry": "ETF",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s205711p14948__s143439p93436/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "206322__208220",
+    "label": "NVTA/NVCR",
+    "secids": [
+      206322,
+      208220
+    ],
+    "group": "broad",
+    "source_pair": "s206322p15198__s208220p15789",
+    "industry": "801",
+    "screen_years": [
+      2020
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "206322__213271",
+    "label": "NVTA/GH",
+    "secids": [
+      206322,
+      213271
+    ],
+    "group": "broad",
+    "source_pair": "s206322p15198__s213271p18135",
+    "industry": "807",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "207008__213816",
+    "label": "IGT/DKNG",
+    "secids": [
+      207008,
+      213816
+    ],
+    "group": "broad",
+    "source_pair": "s207008p15331__s213816p18835",
+    "industry": "799",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "207039__207768",
+    "label": "ETSY/Z",
+    "secids": [
+      207039,
+      207768
+    ],
+    "group": "broad",
+    "source_pair": "s207039p15291__s207768p15546",
+    "industry": "738",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s207039p15291__s207768p15546/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "207444__213287",
+    "label": "CC/LTHM",
+    "secids": [
+      207444,
+      213287
+    ],
+    "group": "broad",
+    "source_pair": "s207444p15398__s213287p18138",
+    "industry": "281",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s207444p15398__s213287p18138/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "210291__211188",
+    "label": "ARCH/BTU",
+    "secids": [
+      210291,
+      211188
+    ],
+    "group": "broad",
+    "source_pair": "s210291p16436__s211188p16689",
+    "industry": "122",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s210291p16436__s211188p16689/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "210291__212347",
+    "label": "ARCH/CEIX",
+    "secids": [
+      210291,
+      212347
+    ],
+    "group": "broad",
+    "source_pair": "s210291p16436__s212347p17039",
+    "industry": "122",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s210291p16436__s212347p17039/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "210291__213365",
+    "label": "ARCH/AMR",
+    "secids": [
+      210291,
+      213365
+    ],
+    "group": "broad",
+    "source_pair": "s210291p16436__s213365p18224",
+    "industry": "122",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "210603__210831",
+    "label": "IIPR/INVH",
+    "secids": [
+      210603,
+      210831
+    ],
+    "group": "broad",
+    "source_pair": "s210603p16515__s210831p16581",
+    "industry": "651",
+    "screen_years": [
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s210603p16515__s210831p16581/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "210918__213638",
+    "label": "SNAP/UBER",
+    "secids": [
+      210918,
+      213638
+    ],
+    "group": "broad",
+    "source_pair": "s210918p16595__s213638p18576",
+    "industry": "737",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "211188__211224",
+    "label": "BTU/HCC",
+    "secids": [
+      211188,
+      211224
+    ],
+    "group": "broad",
+    "source_pair": "s211188p16689__s211224p16653",
+    "industry": "122",
+    "screen_years": [
+      2022
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s211188p16689__s211224p16653/2022.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "211188__212347",
+    "label": "BTU/CEIX",
+    "secids": [
+      211188,
+      212347
+    ],
+    "group": "broad",
+    "source_pair": "s211188p16689__s212347p17039",
+    "industry": "122",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/broad_pairs/memory/s211188p16689__s212347p17039/2024.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "211188__213365",
+    "label": "BTU/AMR",
+    "secids": [
+      211188,
+      213365
+    ],
+    "group": "broad",
+    "source_pair": "s211188p16689__s213365p18224",
+    "industry": "122",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "211224__212347",
+    "label": "HCC/CEIX",
+    "secids": [
+      211224,
+      212347
+    ],
+    "group": "broad",
+    "source_pair": "s211224p16653__s212347p17039",
+    "industry": "122",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "211715__214410",
+    "label": "RDFN/OPEN",
+    "secids": [
+      211715,
+      214410
+    ],
+    "group": "broad",
+    "source_pair": "s211715p16829__s214410p19455",
+    "industry": "653",
+    "screen_years": [
+      2022,
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "212347__213365",
+    "label": "CEIX/AMR",
+    "secids": [
+      212347,
+      213365
+    ],
+    "group": "broad",
+    "source_pair": "s212347p17039__s213365p18224",
+    "industry": "122",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "213114__213363",
+    "label": "TLRY/ACB",
+    "secids": [
+      213114,
+      213363
+    ],
+    "group": "broad",
+    "source_pair": "s213114p17977__s213363p18151",
+    "industry": "283",
+    "screen_years": [
+      2022
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "213531__213638",
+    "label": "LYFT/UBER",
+    "secids": [
+      213531,
+      213638
+    ],
+    "group": "broad",
+    "source_pair": "s213531p18452__s213638p18576",
+    "industry": "738",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "214803__216213",
+    "label": "STEM/FREY",
+    "secids": [
+      214803,
+      216213
+    ],
+    "group": "broad",
+    "source_pair": "s214803p19919__s216213p21692",
+    "industry": "369",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "214904__215427",
+    "label": "UPST/COIN",
+    "secids": [
+      214904,
+      215427
+    ],
+    "group": "broad",
+    "source_pair": "s214904p20196__s215427p20892",
+    "industry": "619",
+    "screen_years": [
+      2024
+    ],
+    "paths": [],
+    "columns": {
+      "rl_reference": "rl_no_memory_action",
+      "rl_sized": "rl_memory_action",
+      "nn_fixed": "nn_memory_action"
+    }
+  },
+  {
+    "pair": "101508__105243",
+    "label": "AMGN_GILD",
+    "secids": [
+      101508,
+      105243
+    ],
+    "group": "legacy_extra",
+    "source_pair": "AMGN_GILD",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/AMGN_GILD.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "101508__108954",
+    "label": "PPH_AMGN",
+    "secids": [
+      108954,
+      101508
+    ],
+    "group": "legacy_extra",
+    "source_pair": "PPH_AMGN",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/PPH_AMGN.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "101610__106808",
+    "label": "AMAT_LRCX",
+    "secids": [
+      101610,
+      106808
+    ],
+    "group": "legacy_extra",
+    "source_pair": "AMAT_LRCX",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/AMAT_LRCX.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "102349__108954",
+    "label": "PPH_BMY",
+    "secids": [
+      108954,
+      102349
+    ],
+    "group": "legacy_extra",
+    "source_pair": "PPH_BMY",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/PPH_BMY.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "104635__111434",
+    "label": "UPS_FDX",
+    "secids": [
+      111434,
+      104635
+    ],
+    "group": "legacy_extra",
+    "source_pair": "UPS_FDX",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/UPS_FDX.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "107430__108954",
+    "label": "PPH_MRK",
+    "secids": [
+      108954,
+      107430
+    ],
+    "group": "legacy_extra",
+    "source_pair": "PPH_MRK",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/PPH_MRK.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "107525__108505",
+    "label": "MSFT_ORCL",
+    "secids": [
+      107525,
+      108505
+    ],
+    "group": "legacy_extra",
+    "source_pair": "MSFT_ORCL",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/MSFT_ORCL.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  },
+  {
+    "pair": "125173__208067",
+    "label": "GSLC_SPYM",
+    "secids": [
+      208067,
+      125173
+    ],
+    "group": "legacy_extra",
+    "source_pair": "GSLC_SPYM",
+    "industry": "legacy",
+    "screen_years": [
+      2018,
+      2020,
+      2022,
+      2024
+    ],
+    "paths": [
+      "artifacts/nn_rl_benchmark/GSLC_SPYM.csv"
+    ],
+    "columns": {
+      "rl_reference": "rl_base_sized_action",
+      "rl_sized": "rl_both_sized_action",
+      "nn_fixed": "nn_both_fixed_action"
+    }
+  }
+]

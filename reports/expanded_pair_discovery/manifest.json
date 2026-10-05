@@ -1,0 +1,28 @@
+{
+  "prepared_assets": 1922,
+  "formation_dates": 31,
+  "unique_candidates": 28335,
+  "new_pairs": 28141,
+  "new_pairs_cached_names": 6750,
+  "additional_underlyings": 540,
+  "elapsed_seconds": 25.057431541965343,
+  "peak_rss_bytes": 957677568,
+  "selection": "Quarterly discovery; previous 252 sessions liquidity/coverage, previous 126 complete-session return beta .85\u20131.15 and correlation >=.5; no industry cap, no pair count cap, no payoff or IV-level ranking",
+  "orientation": "Lower SECID regressed on higher SECID; no orientation search",
+  "limitations": "Prepared 1,922-security local universe is not the entire US option market; upstream standardized-IV availability and historical earnings coverage affect asset inclusion. Both downloaded names does not establish tradable pair/date coverage. Historical candidate membership must be respected in any future test.",
+  "code_sha256": "bffa08f96e7d6aaf822335686eca39948b0f4bf414d52bcc4c3eab1e95e09d57",
+  "source_metadata_sha256": "be6f14edaf9f0ac9c5c4bdcf19e6946eacffaa5b6170cd723d855e344359ad1c",
+  "name_history_sha256": "7907e33afc2bdf0b58ad9ce81b9002fc1b599d8b445476bebdd206130cd2a069",
+  "return_source_hashes": {
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2016.parquet": "80f55c88ec1800048387e34e10c2dd0c50852fa5c0df7e47c6be23b959a7358b",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2017.parquet": "5938beb6464cd53d9a97a61885cddfdd5001b3c46247595f5433f3bbeec6bb38",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2018.parquet": "fc3d9b947c5531acd0f5f0e50d3f0bc53f82c9345bccbb5079be9ba6a486a5ad",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2019.parquet": "a47f14fabb8c1074daa96a154d69adf1ea5d977f453bb3b0506d45f28ead038e",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2020.parquet": "f8ca389e83ec7a916bca3bbdae7fe776e4d9c091a0a1063fbfae3fd9d1925d9d",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2021.parquet": "592d43e34154b6203947d111323443ea5dec8b2cf15900b8bf3f86b1127af88d",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2022.parquet": "2f0413484bb4760cc310c5378b2f020c4949bce725b51253882eba2fd30b2c94",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2023.parquet": "986a32be749c96489cb12810c3d0aa592050a0354e690478c0608a4d5514a79e",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2024.parquet": "ecf40a62a4cf2ab2ef6e31ac276f6dde107d0e7848674f65effc74ea491dfe42",
+    "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2025.parquet": "5c194977d793f2e84e359e562d09d26e3380d29769b119037fd29ec219d59eea"
+  }
+}

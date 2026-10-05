@@ -1,0 +1,11 @@
+{
+  "scanned_at": "2026-10-02T01:43:15.752301+00:00",
+  "coverage_scope": "Historical cached company links from the 128-pair signal screen, not full 345-pair coverage.",
+  "queried_ciks": 163,
+  "company_key_assumption": "Company keys matched to padded/unpadded CIK; identifier audit remains required.",
+  "statement_timeout_seconds": 8,
+  "row_cap_per_source": 20000,
+  "readonly": true,
+  "peak_rss_bytes": 120225792,
+  "task": "Source access and event coverage only. No profitability test or policy retraining."
+}

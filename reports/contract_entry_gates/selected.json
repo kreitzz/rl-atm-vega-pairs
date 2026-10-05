@@ -1,0 +1,14 @@
+[
+  {
+    "model": "rl_sized",
+    "variant": "memory_both",
+    "development_sharpe": 0.24196088707137464,
+    "beats_cash_in_development": true
+  },
+  {
+    "model": "nn_fixed",
+    "variant": "memory_year",
+    "development_sharpe": -0.4958145842551212,
+    "beats_cash_in_development": false
+  }
+]

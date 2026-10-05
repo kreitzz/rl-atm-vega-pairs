@@ -1,0 +1,4 @@
+variant,dates,excluded_unknown_dates,payoff_sharpe,net_proxy_sum
+all_saved_entries,1835,66,2.567230890146343,835.0279412119228
+accepted_entries,1835,66,1.4452940179479516,127.44015704918951
+accepted_actual_vega,1835,66,1.4304217131238655,131.78495872886083

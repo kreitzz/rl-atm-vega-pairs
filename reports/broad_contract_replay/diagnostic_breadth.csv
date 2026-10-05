@@ -1,0 +1,7 @@
+group,model,common_complete_pairs,traded_pairs,cash_only_pairs,profitable_over_cash,unprofitable_over_cash
+broad,rl_reference,311,255,56,78,177
+broad,rl_sized,311,256,55,88,168
+broad,nn_fixed,311,261,50,50,211
+legacy_extra,rl_reference,8,7,1,1,6
+legacy_extra,rl_sized,8,7,1,1,6
+legacy_extra,nn_fixed,8,7,1,0,7

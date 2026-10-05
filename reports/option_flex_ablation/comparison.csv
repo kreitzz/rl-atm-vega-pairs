@@ -1,0 +1,12 @@
+variant,label,pairs,entries,active_pairs,annualized_excess_sharpe,net_excess_pnl
+reference_calls,Original calls-only reference,346,280,35,0.225695326267303,105789.19392985106
+reference_unrestricted,Previous unrestricted CC/CP/PC/PP (context only),346,277,34,-0.023597633143515644,-10598.406107544899
+frozen_CC,Original entries → calls/calls (control),346,280,35,0.225695326267303,105789.19392985106
+frozen_PP,Original entries → puts/puts,346,69,23,-0.008608889472721107,-4854.945725619793
+cc_original,Retrain calls only (control),346,280,35,0.225695326267303,105789.19392985106
+cc_matched_rows,"Calls only, matched-type training rows",346,275,34,0.24692464459723834,115427.62718075514
+same_type,Calls/calls or puts/puts + sizing,346,205,30,0.08564160275020351,38643.6268645525
+same_type_cc_memory,Same type + original call-memory gate,346,289,38,0.18284215770871487,88929.90055513382
+same_type_no_sizing,"Same type, full size or flat",346,84,23,0.028339008596902627,12473.559894561768
+same_type_search_4x,"Same type, 4× policy-search iterations",346,203,30,0.062327322273807835,27166.49128484726
+same_type_memory_features,Same type + put-memory inputs,346,191,27,0.10099486206211263,49519.782088160515

@@ -1,0 +1,11 @@
+{
+  "evaluations": 1432,
+  "fits": 2331,
+  "nn_convergence_warnings": 82,
+  "max_ledger_error": 6.757545634172857e-10,
+  "timing_and_gate_checks": "passed",
+  "insufficient_recent_history": 3,
+  "test_suite": "119 unittest tests passed",
+  "max_worker_peak_rss_bytes": 707182592,
+  "conservative_two_worker_peak_bound_bytes": 1414365184
+}

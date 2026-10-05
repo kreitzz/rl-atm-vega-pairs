@@ -1,0 +1,11 @@
+{
+  "selected": 778907,
+  "fitted": 775453,
+  "peak_rss_bytes": 374947840,
+  "underlyings": 316,
+  "statuses": {
+    "ok": 775453,
+    "unsupported_distribution": 3428,
+    "invalid_input_or_price_bounds": 26
+  }
+}

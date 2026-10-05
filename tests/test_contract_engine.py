@@ -22,6 +22,54 @@ def fixture():
 
 
 class ContractEngineTests(unittest.TestCase):
+    def test_half_spread_fills_on_both_sides_at_entry_and_exit(self):
+        q,s,a,d,c=fixture()
+        c.option_spread_fraction=.5;c.option_commission=.65
+        nav,trades,dec=simulate(q,s,a,d,[1,2],c)
+        np.testing.assert_allclose(trades.loc[trades.quantity.gt(0),'price'],5.05)
+        np.testing.assert_allclose(trades.loc[trades.quantity.lt(0),'price'],4.95)
+        self.assertAlmostEqual(trades.commission.sum(),2.60)
+        self.assertAlmostEqual(nav.option_execution_cost.sum(),22.60)
+        self.assertAlmostEqual(nav.nav.iloc[-1]-c.capital,-22.60)
+
+    def test_spread_fraction_validation(self):
+        for value in [-.1,1.1,np.nan]:
+            with self.assertRaises(ValueError):Settings(option_spread_fraction=value)
+
+    def test_capital_exhaustion_preserves_cost_diagnostics(self):
+        q,s,a,d,c=fixture()
+        c.capital=10;c.option_commission=100
+        with self.assertRaises(UnresolvedPosition) as caught:
+            simulate(q,s,a,d,[1,2],c)
+        failure=caught.exception
+        self.assertLess(failure.diagnostics['nav'],0)
+        self.assertAlmostEqual(failure.diagnostics['option_execution_cost'],220)
+        self.assertEqual(len(failure.partial_nav),1)
+        self.assertEqual(len(failure.trades),2)
+
+    def test_daily_selection_does_not_substitute_another_contract(self):
+        q,s,a,d,c=fixture()
+        # The explicitly selected name-1 contract fails its entry Greek check;
+        # an otherwise eligible alternative must not replace it.
+        extra=q[q.secid.eq(1)].copy();extra['optionid']=3
+        q.loc[q.optionid.eq(1),'vega']=np.nan
+        q=pd.concat([q,extra],ignore_index=True)
+        selected=pd.DataFrame([dict(date=d[0],secid=1,optionid=1),
+                               dict(date=d[0],secid=2,optionid=2)])
+        nav,trades,dec=simulate(q,s,a,d,[1,2],c,selections=selected)
+        self.assertTrue(trades.empty)
+        self.assertEqual(dec.status.iloc[0],'no_eligible_contract')
+
+    def test_daily_selection_uses_full_held_contract_history(self):
+        q,s,a,d,c=fixture()
+        # Only the signal date has a daily selection; subsequent marks still
+        # come from the original contract's trajectory.
+        selected=q[q.date.eq(d[0])][['date','secid','optionid']]
+        nav,trades,dec=simulate(q,s,a,d,[1,2],c,selections=selected)
+        self.assertEqual(dec.status.iloc[0],'entered')
+        self.assertEqual(set(trades.optionid),{1,2})
+        self.assertEqual(nav.active_cohorts.iloc[-1],0)
+
     def test_units(self):
         raw = pd.DataFrame([dict(date='2025-01-02', exdate='2025-02-07', secid=1,
                                  optionid=1, strike_price=100000., vega=10., ss_flag='0')])
