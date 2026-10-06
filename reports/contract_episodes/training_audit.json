@@ -1,0 +1,32 @@
+{
+  "forecasts": {
+    "variance_rows": 2193,
+    "iv_rows": 1896,
+    "last_outcome": "2018-12-31",
+    "variance_target": "10-session log variance: common level and inter-asset difference"
+  },
+  "episodes": {
+    "5": {
+      "exit_episodes": 3938,
+      "entry_episodes": 1970,
+      "entry_statuses": {
+        "entered": 1828,
+        "entry_rejected": 60,
+        "hedge_notional_rejected": 2,
+        "size_rejected": 80
+      },
+      "mean_fixed_target": -1523.4925318022088
+    },
+    "10": {
+      "exit_episodes": 3928,
+      "entry_episodes": 1960,
+      "entry_statuses": {
+        "entered": 1818,
+        "entry_rejected": 60,
+        "hedge_notional_rejected": 2,
+        "size_rejected": 80
+      },
+      "mean_fixed_target": -1591.4443594520772
+    }
+  }
+}

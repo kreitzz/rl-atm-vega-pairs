@@ -1,0 +1,176 @@
+{
+  "settings": {
+    "target_vega": 10000.0,
+    "commission": 0.65,
+    "min_hold_dte": 7,
+    "target_dte": 30,
+    "target_delta": 0.5,
+    "single_dte_range": [
+      21,
+      45
+    ]
+  },
+  "configs": {
+    "single_daily": [
+      "single",
+      {
+        "dte": 0.0,
+        "delta": 0.0,
+        "vega": 0.0
+      },
+      false
+    ],
+    "single_engine_like": [
+      "single",
+      {
+        "dte": 9,
+        "delta": 0.15,
+        "vega": 0.25
+      },
+      false
+    ],
+    "single_wide": [
+      "single",
+      {
+        "dte": 15,
+        "delta": 0.25,
+        "vega": 0.5
+      },
+      false
+    ],
+    "single_monthly_wide": [
+      "single",
+      {
+        "dte": 15,
+        "delta": 0.25,
+        "vega": 0.5
+      },
+      true
+    ],
+    "interp_daily": [
+      "interp",
+      {
+        "dte": 0.0,
+        "delta": 0.0,
+        "vega": 0.0
+      },
+      false
+    ],
+    "interp_band_3d_5": [
+      "interp",
+      {
+        "dte": 3,
+        "delta": 0.05,
+        "vega": 0.1
+      },
+      false
+    ],
+    "interp_band_7d_10": [
+      "interp",
+      {
+        "dte": 7,
+        "delta": 0.1,
+        "vega": 0.2
+      },
+      false
+    ],
+    "interp_band_10d_15": [
+      "interp",
+      {
+        "dte": 10,
+        "delta": 0.15,
+        "vega": 0.3
+      },
+      false
+    ],
+    "interp_band_15d_20": [
+      "interp",
+      {
+        "dte": 15,
+        "delta": 0.2,
+        "vega": 0.5
+      },
+      false
+    ],
+    "interp_monthly_daily": [
+      "interp",
+      {
+        "dte": 0.0,
+        "delta": 0.0,
+        "vega": 0.0
+      },
+      true
+    ],
+    "interp_monthly_7d_10": [
+      "interp",
+      {
+        "dte": 7,
+        "delta": 0.1,
+        "vega": 0.2
+      },
+      true
+    ],
+    "interp_monthly_10d_15": [
+      "interp",
+      {
+        "dte": 10,
+        "delta": 0.15,
+        "vega": 0.3
+      },
+      true
+    ],
+    "interp_monthly_15d_20": [
+      "interp",
+      {
+        "dte": 15,
+        "delta": 0.2,
+        "vega": 0.5
+      },
+      true
+    ]
+  },
+  "spot_sensitivity_interp_daily": {
+    "2010-2022": {
+      "AMD": {
+        "corr_with_stock_return": -0.012207699160382238,
+        "vol_points_per_1pct_move": -0.011582783951874405,
+        "te_rmse": 3.265368418843583,
+        "te_rmse_after_removing_stock_move": 3.2646319862802855
+      },
+      "NVDA": {
+        "corr_with_stock_return": 0.4527738750019442,
+        "vol_points_per_1pct_move": 0.2626579787668467,
+        "te_rmse": 1.621153031020018,
+        "te_rmse_after_removing_stock_move": 1.4412606692402756
+      }
+    },
+    "2017-2022": {
+      "AMD": {
+        "corr_with_stock_return": 0.23828855204459798,
+        "vol_points_per_1pct_move": 0.09157263255058097,
+        "te_rmse": 1.3764645548726215,
+        "te_rmse_after_removing_stock_move": 1.3367589722571296
+      },
+      "NVDA": {
+        "corr_with_stock_return": 0.5067642718067907,
+        "vol_points_per_1pct_move": 0.3051116321581221,
+        "te_rmse": 1.9047486707846135,
+        "te_rmse_after_removing_stock_move": 1.641491301634088
+      }
+    },
+    "2023-2025": {
+      "AMD": {
+        "corr_with_stock_return": 0.34750921653523464,
+        "vol_points_per_1pct_move": 0.07777632835618564,
+        "te_rmse": 0.6708372635250816,
+        "te_rmse_after_removing_stock_move": 0.6270668429674223
+      },
+      "NVDA": {
+        "corr_with_stock_return": 0.4316589329510125,
+        "vol_points_per_1pct_move": 0.1075012600017162,
+        "te_rmse": 0.7936579041156573,
+        "te_rmse_after_removing_stock_move": 0.7137609750069562
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "replay": [
+    {
+      "year": 2024,
+      "family": "fixed",
+      "chosen": "fixed_h10_buffer250",
+      "complete": true,
+      "error": null,
+      "sessions": 252,
+      "start": "2024-01-02",
+      "end": "2024-12-31",
+      "entries": 2,
+      "excess_sharpe": -0.043593250984528785,
+      "total_return": 0.05304542006562141,
+      "excess_return_initial_capital": -0.00020765265250997618,
+      "annualized_excess_vol": 0.004332893469173613,
+      "max_drawdown": -0.0023231801739471702,
+      "option_cost": 1686.7000000000012,
+      "hedge_cost": 241.69722149170002
+    },
+    {
+      "year": 2024,
+      "family": "q_exit",
+      "chosen": "cash",
+      "complete": true,
+      "error": null,
+      "sessions": 252,
+      "start": "2024-01-02",
+      "end": "2024-12-31",
+      "entries": 0,
+      "excess_sharpe": 0.0,
+      "total_return": 0.05325307271813129,
+      "excess_return_initial_capital": 0.0,
+      "annualized_excess_vol": 0.0,
+      "max_drawdown": 0.0,
+      "option_cost": 0.0,
+      "hedge_cost": 0.0
+    },
+    {
+      "year": 2025,
+      "family": "fixed",
+      "chosen": "fixed_h10_buffer250",
+      "complete": true,
+      "error": null,
+      "sessions": 165,
+      "start": "2025-01-02",
+      "end": "2025-08-29",
+      "entries": 2,
+      "excess_sharpe": 0.862657474100236,
+      "total_return": 0.04166059203229033,
+      "excess_return_initial_capital": 0.011555202785034314,
+      "annualized_excess_vol": 0.020109352172261345,
+      "max_drawdown": -0.002777280996765108,
+      "option_cost": 1186.8000000000009,
+      "hedge_cost": 242.6081502
+    },
+    {
+      "year": 2025,
+      "family": "q_exit",
+      "chosen": "cash",
+      "complete": true,
+      "error": null,
+      "sessions": 165,
+      "start": "2025-01-02",
+      "end": "2025-08-29",
+      "entries": 0,
+      "excess_sharpe": 0.0,
+      "total_return": 0.03010538924725603,
+      "excess_return_initial_capital": 0.0,
+      "annualized_excess_vol": 0.0,
+      "max_drawdown": 0.0,
+      "option_cost": 0.0,
+      "hedge_cost": 0.0
+    }
+  ],
+  "validation_values": {
+    "fixed_h5_buffer0": {
+      "eligible_decisions": 240,
+      "positive_entry_predictions": 0,
+      "mean_best_entry_dollars": -879.2644754858155,
+      "largest_entry_dollars": -225.34544219450564
+    },
+    "fixed_h5_buffer250": {
+      "eligible_decisions": 240,
+      "positive_entry_predictions": 0,
+      "mean_best_entry_dollars": -879.2644754858155,
+      "largest_entry_dollars": -225.34544219450564
+    },
+    "q_exit_h5_buffer0": {
+      "eligible_decisions": 240,
+      "positive_entry_predictions": 0,
+      "mean_best_entry_dollars": -989.1395247515211,
+      "largest_entry_dollars": -683.4800456841677
+    },
+    "q_exit_h5_buffer250": {
+      "eligible_decisions": 240,
+      "positive_entry_predictions": 0,
+      "mean_best_entry_dollars": -989.1395247515211,
+      "largest_entry_dollars": -683.4800456841677
+    },
+    "fixed_h10_buffer0": {
+      "eligible_decisions": 235,
+      "positive_entry_predictions": 13,
+      "mean_best_entry_dollars": -650.8815881364112,
+      "largest_entry_dollars": 320.8378838181827
+    },
+    "fixed_h10_buffer250": {
+      "eligible_decisions": 235,
+      "positive_entry_predictions": 5,
+      "mean_best_entry_dollars": -650.8815881364112,
+      "largest_entry_dollars": 320.8378838181827
+    },
+    "q_exit_h10_buffer0": {
+      "eligible_decisions": 235,
+      "positive_entry_predictions": 0,
+      "mean_best_entry_dollars": -1018.6542755349143,
+      "largest_entry_dollars": -722.779564593752
+    },
+    "q_exit_h10_buffer250": {
+      "eligible_decisions": 235,
+      "positive_entry_predictions": 0,
+      "mean_best_entry_dollars": -1018.6542755349143,
+      "largest_entry_dollars": -722.779564593752
+    }
+  },
+  "posthoc_same_entries_q_exits": [
+    {
+      "year": 2024,
+      "complete": true,
+      "error": null,
+      "sessions": 252,
+      "start": "2024-01-02",
+      "end": "2024-12-31",
+      "entries": 2,
+      "excess_sharpe": -1.510225089189465,
+      "total_return": 0.05101765148378057,
+      "excess_return_initial_capital": -0.002235421234350884,
+      "annualized_excess_vol": 0.0014119872152006869,
+      "max_drawdown": -0.0015371050602969172,
+      "option_cost": 1727.7000000000028,
+      "hedge_cost": 130.41727460599998
+    },
+    {
+      "year": 2025,
+      "complete": true,
+      "error": null,
+      "sessions": 165,
+      "start": "2025-01-02",
+      "end": "2025-08-29",
+      "entries": 2,
+      "excess_sharpe": 0.9681014458699511,
+      "total_return": 0.042482930312005784,
+      "excess_return_initial_capital": 0.012377541064749588,
+      "annualized_excess_vol": 0.019153306842973325,
+      "max_drawdown": -0.0023404740050954054,
+      "option_cost": 1200.3000000000102,
+      "hedge_cost": 157.3416994055
+    }
+  ]
+}

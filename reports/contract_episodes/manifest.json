@@ -1,0 +1,38 @@
+{
+  "data_sha256": "06addbf34c357d2014a4be215f062197e22ced1ff3cfa1d8f0ff4732f1ef9c39",
+  "code_sha256": "a3873e9951d6b0ace5499dde52105ad01509ad65ff2f056876029e3ae3f8cbda",
+  "settings": {
+    "capital": 1000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 20000,
+    "max_entry_vega_imbalance": 0.1,
+    "option_commission": 0.65,
+    "stock_cost_bps": 1,
+    "borrowing_spread": 0.01,
+    "stock_borrow_rate": 0.003,
+    "min_open_interest": 100,
+    "max_relative_spread": 0.25,
+    "max_moneyness_distance": 0.1,
+    "min_dte": 21,
+    "max_dte": 45,
+    "target_dte": 30,
+    "holding_days": 30,
+    "repair_crossed_held_quotes": false
+  },
+  "horizons": [
+    5,
+    10
+  ],
+  "threshold_dollars": [
+    0,
+    250
+  ],
+  "exit_training": "2010-2018",
+  "entry_training": "2019-2022",
+  "validation": "2023",
+  "test": [
+    "2024",
+    "2025 available"
+  ],
+  "cash_ties": true
+}
