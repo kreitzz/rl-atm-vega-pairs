@@ -34,40 +34,36 @@
     "reports/p25_reversion_q/findings.txt": "0def9acf9be4180dd8ef1e89fa278ca43b381669a3a7ed47103a9ca72581bb58",
     "reports/p25_reversion_q/audit.json": "8c1b5f9c59030d1bd319caf4f46b2000a771b0abaeb66724e985b07fe133b9ae",
     "data/p25_variance_premium_inputs.csv": "8e99c2bb448e65e38a87d1e2410c5769d829c7797b5d698e2e8b496e28167ae9",
-    "scripts/rewrite_research_report.py": "f99b7c967c384ff270163712703d525c4b84a2828bfe8c2e1bb34cf4658f6fea",
-    "scripts/build_research_publication.py": "cc7f8da1392ba6870341758d153271481adc1e715eeb98973bcc218b387f2ab6",
+    "scripts/rewrite_research_report.py": "b8a65077271dbf283194bd1c3fe6ea9680e0f83352d638e27dd95f5263e94565",
+    "scripts/build_research_publication.py": "6a3677ae070e55cf3b9383c8417e678255cf433c864da95d8dacbefeb5e50137",
     "scripts/report_long_tenor_search.py": "81a058e18199ea473d5b710170b9f0ca2f3dc0e36d941d384e5a42f56248097f",
     "reports/native_year_entry/comparison.csv": "ed1c1aa720996e6b5b86303adc5165a92becc2a2b800485305a9e21287d7b5b0",
-    "reports/p25_reversion_q/annual.csv": "534b2cda97efb858c2551fddd791f9fe348b50c076661656abfb56ba19f45b30"
+    "reports/p25_reversion_q/annual.csv": "534b2cda97efb858c2551fddd791f9fe348b50c076661656abfb56ba19f45b30",
+    "config/p25_submission.json": "f1f1a20ba9fab6adfc78da053292ccd4073943adfab15391ef67f6b398a32659",
+    "scripts/research_report_text.py": "f3c61881d48d7a2ec80ceb869fab89158b4f4d1d123bc1c975ee88091d8e7727",
+    "reports/year_cheap_vega/comparison.csv": "494c0bfca3de5908282204ea446768dd51415968b2ab7157ab08d822908a52f2"
   },
   "charts": {
     "research_map": {
-      "caption": "Research design: separate discovery of tradable relative value from allocation and subsequent extensions. The comparisons below retain their individual data and accounting conventions.",
+      "caption": "The two main decisions: identify a relative-price opportunity, then choose exposure. Management and portfolio allocation are tested separately.",
       "sources": [
-        "slides/230ZB_volatility_spreads (1).pptx"
+        "config/p25_submission.json"
       ]
     },
     "original_paper": {
-      "caption": "Ning and Lee (2024), Tables 3–4: arithmetic mean of reported daily Sharpe across ten pairs, formed in 2022 and traded in 2023. These published equity results use a different metric and setup from our annualized options results.",
+      "caption": "Mean daily Sharpe across the motivating paper’s ten equity pairs. Their daily metric and equity setup differ from our annualized options results; the values should not be compared directly.",
       "sources": [
         "Advanced Statistical Arbitrage with Reinforcement Learning.pdf"
       ]
     },
     "workflow": {
-      "caption": "Retained P25 strategy: rules propose the direction; the learner adjusts size. Orders use prior-close selected contracts on the next session. Positions hold to each leg’s expiry, except audited corporate exits.",
+      "caption": "A proposal uses the signal-date information and contract identities. Subsequent fills, stock hedges and settlement determine the actual profit.",
       "sources": [
-        "config/p25_variance_premium_candidate.json"
+        "config/p25_submission.json"
       ]
     },
-    "smile_transfer": {
-      "caption": "Restricted 30D/90D formation comparison with learned positive sizing floors and matched proposal counts within each wing (P25 213, ATM 222, P75 55). P25 remains strongest at 30D; all three weaken at 90D. This restricted sample is distinct from the retained 608-proposal checkpoint.",
-      "sources": [
-        "reports/p25_maturity_matched/comparison.csv"
-      ],
-      "plotted_data": "figure_data/smile_transfer.csv"
-    },
     "signal_example": {
-      "caption": "AMD/NVDA, 2019: daily rolling selected-contract P25 IV spread and strictly prior rank boundaries. Green markers are signal dates; executions occur next session (12/13 August signals, 13/14 August fills). Gaps remain where either quote is unavailable; this is not the held-cohort mark series.",
+      "caption": "AMD minus NVDA put IV, 2019, with boundaries calculated from prior observations. Green markers show signals that lead to learned-policy entries in the following session. Gaps indicate unavailable quotes.",
       "sources": [
         "slides/chart_data/example_amd_nvda_iv_spread_daily.csv",
         "slides/chart_data/example_amd_nvda_proposals_and_entries.csv"
@@ -75,33 +71,19 @@
       "plotted_data": "figure_data/signal_example.csv"
     },
     "feature_ablations": {
-      "caption": "Original $345m research reference, identical 608 qualified proposals. Each block is added separately to the prior 27-input state. The retained variance-premium block reaches 1.006; most additional signals fail to improve the 0.962 learned baseline.",
+      "caption": "Development comparisons: one feature block added at a time. These use the original $345 million research account; the controlled $10 million comparison follows on page 8.",
       "sources": [
         "reports/p25_feature_search/comparison.csv"
       ]
     },
-    "recency_search": {
-      "caption": "Monthly positive-floor sizing with alternative training windows, original $345m research reference. The retained 18-month model scores 0.962 versus 0.826 for the five-year reference. These are selected development results; shorter history does not improve monotonically.",
-      "sources": [
-        "reports/p25_recency/comparison.csv"
-      ],
-      "plotted_data": "figure_data/recency_search.csv"
-    },
     "allocation_model": {
-      "caption": "Retained contextual learner. Tree partitions map observable states to positive vega budgets; CEM searches allocations jointly. No Bellman continuation, learned exit, or direction reversal enters this checkpoint.",
+      "caption": "The monthly fit groups current conditions and searches for a size assignment with a better combined historical Sharpe. Only completed outcomes enter training.",
       "sources": [
-        "config/p25_variance_premium_candidate.json"
-      ]
-    },
-    "train_test": {
-      "caption": "Learned sizing improves each within-period benchmark. Training uses aggregated P&L paths and $0.65 commissions; walk-forward uses the funded ledger and $0.03 commissions. The levels are not directly comparable.",
-      "sources": [
-        "artifacts/contracts/p25_feature_search/models/variance_premium/2018-01-01.json",
-        "reports/p25_capital_sensitivity/comparison.csv"
+        "config/p25_submission.json"
       ]
     },
     "cash_relative_wealth": {
-      "caption": "Actual $10m funded portfolios, 2018–29 August 2025. Curves show 100 × (NAV / same-equity cash benchmark − 1), not total NAV returns. All controls share proposals and risk limits; sizing changes admission and inventory.",
+      "caption": "Cumulative growth relative to the cash benchmark in the $10 million account. Proposals are shared; position sizes and executed portfolios differ.",
       "sources": [
         "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/daily_nav.parquet",
         "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet",
@@ -109,90 +91,62 @@
       ]
     },
     "annual_results": {
-      "caption": "$10m learned strategy. Sharpe is annualized; calendar-period return above cash is not. The 2025 observation is partial through 29 August. Positive total funded returns can coexist with negative trading excess returns.",
+      "caption": "Learned sizing in the $10 million account: annual returns and annualized excess Sharpe. Return above cash is measured in percentage points. 2025 is partial through 29 August.",
       "sources": [
         "reports/p25_capital_sensitivity/10m_learned_annual.csv"
-      ]
-    },
-    "pair_contributions": {
-      "caption": "Five largest losing and winning pairs in the original $345m reference. Includes costs, hedges and dividends; excludes shared financing. This is retrospective attribution, not a rule for selecting or banning names.",
-      "sources": [
-        "reports/p25_variance_years/annual_pairs.csv"
-      ]
-    },
-    "management_results": {
-      "caption": "$10m live-admission replays. At 30D, 36-month management adds 0.027 Sharpe, while 18-month management reduces it. At 180D, conservative fitted Q adds 0.018. Algorithms, training schedules and strategies differ across panels; compare controls within each panel.",
-      "sources": [
-        "reports/p25_short_management/comparison.csv",
-        "reports/long_tenor_fitted_q/comparison.csv"
       ],
-      "plotted_data": "figure_data/management_results.csv"
-    },
-    "reversion_q": {
-      "caption": "Paper-inspired actual-P&L fitted Q, plain-P&L reward. The locked exit control preserves original accepted entries/counts (a counterfactual attribution control). Broad cases preserve all 17,967 cached evaluation candidates; 698/729 trades execute. Final model/execution v3 only; risk-penalized variants are separately reported and also fail to beat the checkpoint.",
-      "sources": [
-        "reports/p25_reversion_q/comparison.csv"
-      ],
-      "plotted_data": "figure_data/reversion_q.csv"
-    },
-    "portfolio_results": {
-      "caption": "2018–August 2025 including equal-weight warmup. Longer sleeves are the managed 180D and independently forecast 365D put strategies. Prior-performance allocation fails to beat equal weights. These are combinations of saved sleeve returns, not a new shared-inventory portfolio execution backtest.",
-      "sources": [
-        "reports/native_year_entry/replacement_blend/walk_forward_24M/comparison.csv",
-        "reports/native_year_entry/replacement_blend/walk_forward_24M_30D_180D/comparison.csv"
-      ],
-      "plotted_data": "figure_data/portfolio_results.csv"
+      "plotted_data": "figure_data/annual_results.csv"
     }
   },
   "layout_checks": [
     {
       "page": 1,
-      "bottom_content_points": 191.04999999999995,
+      "bottom_content_points": 104.05000000000001,
       "overflow": false
     },
     {
       "page": 2,
-      "bottom_content_points": 105.04999999999995,
+      "bottom_content_points": 110.84999999999997,
       "overflow": false
     },
     {
       "page": 3,
-      "bottom_content_points": 152.54999999999995,
+      "bottom_content_points": 152.29999999999995,
       "overflow": false
     },
     {
       "page": 4,
-      "bottom_content_points": 82.98662714097495,
+      "bottom_content_points": 82.79999999999995,
       "overflow": false
     },
     {
       "page": 5,
-      "bottom_content_points": 89.14999999999995,
+      "bottom_content_points": 114.29999999999995,
       "overflow": false
     },
     {
       "page": 6,
-      "bottom_content_points": 61.349999999999966,
+      "bottom_content_points": 78.05000000000001,
       "overflow": false
     },
     {
       "page": 7,
-      "bottom_content_points": 65.84045424621479,
+      "bottom_content_points": 119.54999999999995,
       "overflow": false
     },
     {
       "page": 8,
-      "bottom_content_points": 56.34999999999991,
+      "bottom_content_points": 85.85000000000014,
       "overflow": false
     },
     {
       "page": 9,
-      "bottom_content_points": 54.59999999999991,
+      "bottom_content_points": 94.4858130348913,
       "overflow": false
     },
     {
       "page": 10,
-      "bottom_content_points": 59.44999999999993,
+      "bottom_content_points": 108.00000000000023,
       "overflow": false
     }
   ],
@@ -202,18 +156,11 @@
     "research_map": 1,
     "original_paper": 2,
     "workflow": 3,
-    "smile_transfer": 4,
-    "signal_example": 5,
-    "feature_ablations": 6,
-    "recency_search": 7,
-    "allocation_model": 8,
-    "train_test": 9,
-    "cash_relative_wealth": 10,
-    "annual_results": 11,
-    "pair_contributions": 12,
-    "management_results": 13,
-    "reversion_q": 14,
-    "portfolio_results": 15
+    "signal_example": 4,
+    "feature_ablations": 5,
+    "allocation_model": 6,
+    "cash_relative_wealth": 7,
+    "annual_results": 8
   },
   "protected_files": {
     "slides/230ZB_volatility_spreads.pptx": "f85d2462a7904eeddad40c71990409d284902e78953d9ea1d1d26d9a2810c478",
@@ -234,6 +181,7 @@
     "reports/p25_reversion_q/findings.txt",
     "reports/native_year_entry/replacement_blend/walk_forward_24M/comparison.csv",
     "reports/native_year_entry/replacement_blend/walk_forward_24M_30D_180D/comparison.csv",
-    "reports/long_tenor_search_summary/core_comparison.csv"
+    "reports/long_tenor_search_summary/core_comparison.csv",
+    "reports/year_cheap_vega/comparison.csv"
   ]
 }
