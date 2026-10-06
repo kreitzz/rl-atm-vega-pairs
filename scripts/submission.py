@@ -172,6 +172,11 @@ def verify():
 def restore():
     verify()
     count = 0
+    # Git checkout resets mtimes. Restore the original stamps only on newly
+    # created cache sources so the cheap-vega immutable-cache check remains
+    # valid. Their contents were verified by SHA-256 above.
+    stamp_path = BUNDLE / 'artifacts/contracts/year_cheap_vega/market_cache/metadata.json'
+    stamps = json.loads(stamp_path.read_text())['sources'] if stamp_path.exists() else {}
     for record in load_manifest()['files']:
         target = ROOT / relative_path(record['source'])
         if target.is_symlink() or any(p.is_symlink() for p in target.parents if p != ROOT.parent):
@@ -191,6 +196,11 @@ def restore():
             if digest(temporary) != record['sha256']:
                 raise ValueError(f'Extracted cache differs: {target}')
             temporary.replace(target)
+            stamp = stamps.get(record['source'])
+            if stamp is not None:
+                if target.stat().st_size != stamp['bytes']:
+                    raise ValueError(f'Cache-stamp size differs: {target}')
+                os.utime(target, ns=(target.stat().st_atime_ns, stamp['mtime_ns']))
             count += 1
         finally:
             temporary.unlink(missing_ok=True)
@@ -319,6 +329,7 @@ def tests(pattern):
     # leakage. The supervisor still bounds the whole child process tree.
     failures = []
     for path in sorted((ROOT / 'tests').glob(pattern)):
+        print(f'Test module: {path.name}', flush=True)
         result = subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', path.name], cwd=ROOT)
         if result.returncode:
             failures.append(path.name)
