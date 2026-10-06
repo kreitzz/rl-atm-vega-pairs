@@ -64,8 +64,25 @@
     "resolution": "Include broad rosters and action histories; both modules pass from fresh checkout,7 tests",
     "remaining_tests_passed": 581,
     "corrected_tests_rerun_in_fresh_checkout": 7,
-    "full_rerun_on_next_push": true
+    "full_rerun_on_next_push": false,
+    "full_rerun_completed": true,
+    "corrected_full_suite_passed": true
   },
   "raw_intermediate_caches_excluded": true,
-  "private_repository": true
+  "private_repository": true,
+  "validated_code_commit": "6ed99eac17dc39b2e66e41981eaddde5105999e0",
+  "github_validation": {
+    "url": "https://github.com/kreitzz/rl-atm-vega-pairs/actions/runs/37541161900",
+    "status": "completed",
+    "conclusion": "success",
+    "test_modules": 126,
+    "tests": 584,
+    "all_three_funded_replays_match": true,
+    "guard_worker_peaks_mib": [
+      114.5,
+      309.1,
+      320.9,
+      343.6
+    ]
+  }
 }
