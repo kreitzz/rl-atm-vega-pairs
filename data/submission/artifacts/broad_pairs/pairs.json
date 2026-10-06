@@ -1,0 +1,6689 @@
+[
+  {
+    "pair": "s104939p25785__s105175p12079",
+    "asset_a": "s104939p25785",
+    "asset_b": "s105175p12079",
+    "label": "F/GM",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107525p10107__s112180p83435",
+    "asset_a": "s107525p10107",
+    "asset_b": "s112180p83435",
+    "label": "MSFT/YHOO",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101594p14593__s104049p10147",
+    "asset_a": "s101594p14593",
+    "asset_b": "s104049p10147",
+    "label": "AAPL/EMC",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101966p59408__s103049p70519",
+    "asset_a": "s101966p59408",
+    "asset_b": "s103049p70519",
+    "label": "BAC/C",
+    "industry": "602",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101121p61241__s106203p59328",
+    "asset_a": "s101121p61241",
+    "asset_b": "s106203p59328",
+    "label": "AMD/INTC",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104533p11850__s108969p13928",
+    "asset_a": "s104533p11850",
+    "asset_b": "s108969p13928",
+    "label": "XOM/COP",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s108130p21207",
+    "asset_a": "s105003p81774",
+    "asset_b": "s108130p21207",
+    "label": "FCX/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101508p14008__s106566p22111",
+    "asset_a": "s101508p14008",
+    "asset_b": "s106566p22111",
+    "label": "AMGN/JNJ",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109775p66093__s111668p65875",
+    "asset_a": "s109775p66093",
+    "asset_b": "s111668p65875",
+    "label": "T/VZ",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100917p21020__s111434p87447",
+    "asset_a": "s100917p21020",
+    "asset_b": "s111434p87447",
+    "label": "AMR/UPS",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s109956p14277",
+    "asset_a": "s105512p23819",
+    "asset_b": "s109956p14277",
+    "label": "HAL/SLB",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105329p86868__s106893p80599",
+    "asset_a": "s105329p86868",
+    "asset_b": "s106893p80599",
+    "label": "GS/LEH",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105759p66181__s107045p61399",
+    "asset_a": "s105759p66181",
+    "asset_b": "s107045p61399",
+    "label": "HD/LOW",
+    "industry": "521",
+    "division": "52",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104633p77462__s117073p89757",
+    "asset_a": "s104633p77462",
+    "asset_b": "s117073p89757",
+    "label": "M/SHLD",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102265p19561__s105785p10145",
+    "asset_a": "s102265p19561",
+    "asset_b": "s105785p10145",
+    "label": "BA/HON",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101637p75326__s115179p88991",
+    "asset_a": "s101637p75326",
+    "asset_b": "s115179p88991",
+    "label": "ACI/BTU",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s102963p78877",
+    "asset_a": "s101533p70332",
+    "asset_b": "s102963p78877",
+    "label": "APC/CHK",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s115142p88992__s119846p90071",
+    "asset_a": "s115142p88992",
+    "asset_b": "s119846p90071",
+    "label": "RRI/NRG",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104206p77481__s112042p38156",
+    "asset_a": "s104206p77481",
+    "asset_b": "s112042p38156",
+    "label": "EP/WMB",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106629p70092__s111071p70228",
+    "asset_a": "s106629p70092",
+    "asset_b": "s111071p70228",
+    "label": "KBH/TOL",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102571p62148__s111394p48725",
+    "asset_a": "s102571p62148",
+    "asset_b": "s111394p48725",
+    "label": "CSX/UNP",
+    "industry": "401",
+    "division": "40",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103651p77661__s106899p52708",
+    "asset_a": "s103651p77661",
+    "asset_b": "s106899p52708",
+    "label": "DHI/LEN",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111469p92655__s113119p89179",
+    "asset_a": "s111469p92655",
+    "asset_b": "s113119p89179",
+    "label": "UNH/ELV",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101201p24264__s101204p24643",
+    "asset_a": "s101201p24264",
+    "asset_b": "s101204p24643",
+    "label": "ZZZZ/AA",
+    "industry": "333",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103879p26403__s106293p45277",
+    "asset_a": "s103879p26403",
+    "asset_b": "s106293p45277",
+    "label": "DIS/IGT",
+    "industry": "799",
+    "division": "79",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110497p84262__s111337p76644",
+    "asset_a": "s110497p84262",
+    "asset_b": "s111337p76644",
+    "label": "STLD/X",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104146p81696__s119891p89954",
+    "asset_a": "s104146p81696",
+    "asset_b": "s119891p89954",
+    "label": "DISH/DTV",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101610p14702__s106808p48486",
+    "asset_a": "s101610p14702",
+    "asset_b": "s106808p48486",
+    "label": "AMAT/LRCX",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s110488p91207",
+    "asset_a": "s107110p11891",
+    "asset_b": "s110488p91207",
+    "label": "MGM/HOT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103434p22293__s111062p83699",
+    "asset_a": "s103434p22293",
+    "asset_b": "s111062p83699",
+    "label": "GLW/TIE",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103574p41080__s105169p12060",
+    "asset_a": "s103574p41080",
+    "asset_b": "s105169p12060",
+    "label": "CMI/GE",
+    "industry": "351",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101639p10516__s112934p89138",
+    "asset_a": "s101639p10516",
+    "asset_b": "s112934p89138",
+    "label": "ADM/BG",
+    "industry": "207",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108114p79859__s111884p81593",
+    "asset_a": "s108114p79859",
+    "asset_b": "s111884p81593",
+    "label": "NYB/WM",
+    "industry": "603",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101263p76887__s111893p11955",
+    "asset_a": "s101263p76887",
+    "asset_b": "s111893p11955",
+    "label": "AW/WMI",
+    "industry": "495",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101375p59176__s103292p86819",
+    "asset_a": "s101375p59176",
+    "asset_b": "s103292p86819",
+    "label": "AXP/CCRT",
+    "industry": "614",
+    "division": "61",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107107p76804__s108640p81530",
+    "asset_a": "s107107p76804",
+    "asset_b": "s108640p81530",
+    "label": "MTG/PMI",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105119p47941__s122337p90441",
+    "asset_a": "s105119p47941",
+    "asset_b": "s122337p90441",
+    "label": "TGNA/FOXA",
+    "industry": "271",
+    "division": "27",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102752p75154__s112463p79145",
+    "asset_a": "s102752p75154",
+    "asset_b": "s112463p79145",
+    "label": "CCL/RCL",
+    "industry": "440",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101149p87432__s103676p49680",
+    "asset_a": "s101149p87432",
+    "asset_b": "s103676p49680",
+    "label": "A/DHR",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101397p66800__s109869p59459",
+    "asset_a": "s101397p66800",
+    "asset_b": "s109869p59459",
+    "label": "AIG/TRV",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110260p80543__s110926p66114",
+    "asset_a": "s110260p80543",
+    "asset_b": "s110926p66114",
+    "label": "SSCC/TIN",
+    "industry": "263",
+    "division": "26",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103399p81857__s110107p80032",
+    "asset_a": "s103399p81857",
+    "asset_b": "s110107p80032",
+    "label": "CAM/SHAW",
+    "industry": "349",
+    "division": "34",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s111018p79351",
+    "asset_a": "s101561p85414",
+    "asset_b": "s111018p79351",
+    "label": "NLY/TMA",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101920p75034__s110955p58318",
+    "asset_a": "s101920p75034",
+    "asset_b": "s110955p58318",
+    "label": "BKR/TEX",
+    "industry": "353",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101138p85593__s115929p89463",
+    "asset_a": "s101138p85593",
+    "asset_b": "s115929p89463",
+    "label": "AMG/CIT",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105581p82775__s107484p87842",
+    "asset_a": "s105581p82775",
+    "asset_b": "s107484p87842",
+    "label": "HIG/MET",
+    "industry": "641",
+    "division": "64",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108231p24766__s109497p24942",
+    "asset_a": "s108231p24766",
+    "asset_b": "s109497p24942",
+    "label": "NOC/RTN",
+    "industry": "381",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102018p79667__s116402p89540",
+    "asset_a": "s102018p79667",
+    "asset_b": "s116402p89540",
+    "label": "BKS/DKS",
+    "industry": "594",
+    "division": "59",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105120p59010__s110752p40539",
+    "asset_a": "s105120p59010",
+    "asset_b": "s110752p40539",
+    "label": "GPS/TJX",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101475p81540__s107325p81061",
+    "asset_a": "s101475p81540",
+    "asset_b": "s107325p81061",
+    "label": "COR/MCK",
+    "industry": "512",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107317p64629__s112487p88853",
+    "asset_a": "s107317p64629",
+    "asset_b": "s112487p88853",
+    "label": "MDR/FLR",
+    "industry": "871",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102472p27562__s111957p63060",
+    "asset_a": "s102472p27562",
+    "asset_b": "s111957p63060",
+    "label": "CBRL/WEN",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112462p75454__s123007p90589",
+    "asset_a": "s112462p75454",
+    "asset_b": "s123007p90589",
+    "label": "EXM/DRYS",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101444p86111__s103545p86339",
+    "asset_a": "s101444p86111",
+    "asset_b": "s103545p86339",
+    "label": "AMT/CCI",
+    "industry": "489",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s113437p89258__s121535p90162",
+    "asset_a": "s113437p89258",
+    "asset_b": "s121535p90162",
+    "label": "PRU/GNW",
+    "industry": "631",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101325p24985__s109285p23712",
+    "asset_a": "s101325p24985",
+    "asset_b": "s109285p23712",
+    "label": "AEE/PEG",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104699p35124__s106822p77018",
+    "asset_a": "s104699p35124",
+    "asset_b": "s106822p77018",
+    "label": "FAF/LFG",
+    "industry": "636",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104286p22103__s111288p81925",
+    "asset_a": "s104286p22103",
+    "asset_b": "s111288p81925",
+    "label": "EMR/GTI",
+    "industry": "362",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100896p77520__s112437p84179",
+    "asset_a": "s100896p77520",
+    "asset_b": "s112437p84179",
+    "label": "AGCO/CNH",
+    "industry": "352",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107525p10107__s108505p10104",
+    "asset_a": "s107525p10107",
+    "asset_b": "s108505p10104",
+    "label": "MSFT/ORCL",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101966p59408__s102936p47896",
+    "asset_a": "s101966p59408",
+    "asset_b": "s102936p47896",
+    "label": "BAC/JPM",
+    "industry": "602",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102349p19393__s106566p22111",
+    "asset_a": "s102349p19393",
+    "asset_b": "s106566p22111",
+    "label": "BMY/JNJ",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101594p14593__s105700p27828",
+    "asset_a": "s101594p14593",
+    "asset_b": "s105700p27828",
+    "label": "AAPL/HPQ",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s105316p69892",
+    "asset_a": "s105003p81774",
+    "asset_b": "s105316p69892",
+    "label": "FCX/GG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102968p14541__s104533p11850",
+    "asset_a": "s102968p14541",
+    "asset_b": "s104533p11850",
+    "label": "CVX/XOM",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100917p21020__s125537p91103",
+    "asset_a": "s100917p21020",
+    "asset_b": "s125537p91103",
+    "label": "AMR/UAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s112333p79237",
+    "asset_a": "s105512p23819",
+    "asset_b": "s112333p79237",
+    "label": "HAL/RIG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105329p86868__s107455p52919",
+    "asset_a": "s105329p86868",
+    "asset_b": "s107455p52919",
+    "label": "GS/MER",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s103802p87137",
+    "asset_a": "s101533p70332",
+    "asset_b": "s103802p87137",
+    "label": "APC/DVN",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102265p19561__s111459p17830",
+    "asset_a": "s102265p19561",
+    "asset_b": "s111459p17830",
+    "label": "BA/RTX",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104019p90352__s115142p88992",
+    "asset_a": "s104019p90352",
+    "asset_b": "s115142p88992",
+    "label": "DYN/RRI",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102064p80193__s103651p77661",
+    "asset_a": "s102064p80193",
+    "asset_b": "s103651p77661",
+    "label": "BZH/DHI",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106629p70092__s114242p89347",
+    "asset_a": "s106629p70092",
+    "asset_b": "s114242p89347",
+    "label": "KBH/WCI",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101637p75326__s103354p86799",
+    "asset_a": "s101637p75326",
+    "asset_b": "s103354p86799",
+    "label": "ACI/CNX",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104633p77462__s108849p18403",
+    "asset_a": "s104633p77462",
+    "asset_b": "s108849p18403",
+    "label": "M/JCP",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101227p43123__s110497p84262",
+    "asset_a": "s101227p43123",
+    "asset_b": "s110497p84262",
+    "label": "ATI/STLD",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104939p25785__s106872p80422",
+    "asset_a": "s104939p25785",
+    "asset_b": "s106872p80422",
+    "label": "F/LEA",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101610p14702__s108266p12067",
+    "asset_a": "s101610p14702",
+    "asset_b": "s108266p12067",
+    "label": "AMAT/NVLS",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102929p87378__s103198p89525",
+    "asset_a": "s102929p87378",
+    "asset_b": "s103198p89525",
+    "label": "CHTR/CMCSA",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107248p85913__s110488p91207",
+    "asset_a": "s107248p85913",
+    "asset_b": "s110488p91207",
+    "label": "MAR/HOT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101375p59176__s101462p75858",
+    "asset_a": "s101375p59176",
+    "asset_b": "s101462p75858",
+    "label": "AXP/ACF",
+    "industry": "614",
+    "division": "61",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101578p61735__s111504p71175",
+    "asset_a": "s101578p61735",
+    "asset_b": "s111504p71175",
+    "label": "AOC/UNM",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s110188p80100",
+    "asset_a": "s101561p85414",
+    "asset_b": "s110188p80100",
+    "label": "NLY/SPG",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107107p76804__s109439p78038",
+    "asset_a": "s107107p76804",
+    "asset_b": "s109439p78038",
+    "label": "MTG/RDN",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103677p76515__s111893p11955",
+    "asset_a": "s103677p76515",
+    "asset_b": "s111893p11955",
+    "label": "CVA/WMI",
+    "industry": "495",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102571p62148__s106625p12650",
+    "asset_a": "s102571p62148",
+    "asset_b": "s106625p12650",
+    "label": "CSX/KSU",
+    "industry": "401",
+    "division": "40",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101397p66800__s103015p59192",
+    "asset_a": "s101397p66800",
+    "asset_b": "s103015p59192",
+    "label": "AIG/CB",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105161p84776__s111062p83699",
+    "asset_a": "s105161p84776",
+    "asset_b": "s111062p83699",
+    "label": "BGC/TIE",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102006p92663__s108114p79859",
+    "asset_a": "s102006p92663",
+    "asset_b": "s108114p79859",
+    "label": "BKUNA/NYB",
+    "industry": "603",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101920p75034__s114729p88897",
+    "asset_a": "s101920p75034",
+    "asset_b": "s114729p88897",
+    "label": "BHI/OIS",
+    "industry": "353",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101325p24985__s109557p21792",
+    "asset_a": "s101325p24985",
+    "asset_b": "s109557p21792",
+    "label": "AEE/CNP",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102936p47896__s103049p70519",
+    "asset_a": "s102936p47896",
+    "asset_b": "s103049p70519",
+    "label": "JPM/C",
+    "industry": "602",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104049p10147__s105700p27828",
+    "asset_a": "s104049p10147",
+    "asset_b": "s105700p27828",
+    "label": "EMC/HPQ",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107525p10107__s121812p90319",
+    "asset_a": "s107525p10107",
+    "asset_b": "s121812p90319",
+    "label": "MSFT/GOOGL",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105316p69892__s108130p21207",
+    "asset_a": "s105316p69892",
+    "asset_b": "s108130p21207",
+    "label": "GG/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102968p14541__s108969p13928",
+    "asset_a": "s102968p14541",
+    "asset_b": "s108969p13928",
+    "label": "CVX/COP",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109956p14277__s112333p79237",
+    "asset_a": "s109956p14277",
+    "asset_b": "s112333p79237",
+    "label": "SLB/RIG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106893p80599__s107455p52919",
+    "asset_a": "s106893p80599",
+    "asset_b": "s107455p52919",
+    "label": "LEH/MER",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100917p21020__s103380p79641",
+    "asset_a": "s100917p21020",
+    "asset_b": "s103380p79641",
+    "label": "AMR/CAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s103802p87137",
+    "asset_a": "s102963p78877",
+    "asset_b": "s103802p87137",
+    "label": "CHK/DVN",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105785p10145__s111459p17830",
+    "asset_a": "s105785p10145",
+    "asset_b": "s111459p17830",
+    "label": "HON/UTX",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104019p90352__s119846p90071",
+    "asset_a": "s104019p90352",
+    "asset_b": "s119846p90071",
+    "label": "DYN/NRG",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102064p80193__s106899p52708",
+    "asset_a": "s102064p80193",
+    "asset_b": "s106899p52708",
+    "label": "BZH/LEN",
+    "industry": "152",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111071p70228__s114242p89347",
+    "asset_a": "s111071p70228",
+    "asset_b": "s114242p89347",
+    "label": "TOL/WCI",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103354p86799__s115179p88991",
+    "asset_a": "s103354p86799",
+    "asset_b": "s115179p88991",
+    "label": "CNX/BTU",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108849p18403__s117073p89757",
+    "asset_a": "s108849p18403",
+    "asset_b": "s117073p89757",
+    "label": "JCP/SHLD",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101227p43123__s111337p76644",
+    "asset_a": "s101227p43123",
+    "asset_b": "s111337p76644",
+    "label": "ATI/X",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105175p12079__s106872p80422",
+    "asset_a": "s105175p12079",
+    "asset_b": "s106872p80422",
+    "label": "GM/LEA",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106808p48486__s108266p12067",
+    "asset_a": "s106808p48486",
+    "asset_b": "s108266p12067",
+    "label": "LRCX/NVLS",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101462p75858__s103292p86819",
+    "asset_a": "s101462p75858",
+    "asset_b": "s103292p86819",
+    "label": "ACF/CCRT",
+    "industry": "614",
+    "division": "61",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105805p46703__s107248p85913",
+    "asset_a": "s105805p46703",
+    "asset_b": "s107248p85913",
+    "label": "HST/MAR",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108640p81530__s109439p78038",
+    "asset_a": "s108640p81530",
+    "asset_b": "s109439p78038",
+    "label": "PMI/RDN",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106625p12650__s111394p48725",
+    "asset_a": "s106625p12650",
+    "asset_b": "s111394p48725",
+    "label": "KSU/UNP",
+    "industry": "401",
+    "division": "40",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103015p59192__s109869p59459",
+    "asset_a": "s103015p59192",
+    "asset_b": "s109869p59459",
+    "label": "CB/TRV",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102006p92663__s111884p81593",
+    "asset_a": "s102006p92663",
+    "asset_b": "s111884p81593",
+    "label": "BKUNA/WM",
+    "industry": "603",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110955p58318__s114729p88897",
+    "asset_a": "s110955p58318",
+    "asset_b": "s114729p88897",
+    "label": "TEX/OIS",
+    "industry": "353",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109285p23712__s109557p21792",
+    "asset_a": "s109285p23712",
+    "asset_b": "s109557p21792",
+    "label": "PEG/CNP",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101966p59408__s111953p38703",
+    "asset_a": "s101966p59408",
+    "asset_b": "s111953p38703",
+    "label": "BAC/WFC",
+    "industry": "602",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108505p10104__s121812p90319",
+    "asset_a": "s108505p10104",
+    "asset_b": "s121812p90319",
+    "label": "ORCL/GOOG",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s112325p85080",
+    "asset_a": "s105512p23819",
+    "asset_b": "s112325p85080",
+    "label": "HAL/GSF",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103380p79641__s125537p91103",
+    "asset_a": "s103380p79641",
+    "asset_b": "s125537p91103",
+    "label": "CAL/UAUA",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103131p24441__s105003p81774",
+    "asset_a": "s103131p24441",
+    "asset_b": "s105003p81774",
+    "label": "CDE/FCX",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s105329p86868",
+    "asset_a": "s104081p83862",
+    "asset_b": "s105329p86868",
+    "label": "ETFC/GS",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104019p90352__s104508p21776",
+    "asset_a": "s104019p90352",
+    "asset_b": "s104508p21776",
+    "label": "DYN/EXC",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102968p14541__s110962p37284",
+    "asset_a": "s102968p14541",
+    "asset_b": "s110962p37284",
+    "label": "CVX/TSO",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104633p77462__s106723p77606",
+    "asset_a": "s104633p77462",
+    "asset_b": "s106723p77606",
+    "label": "M/KSS",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101637p75326__s123096p90547",
+    "asset_a": "s101637p75326",
+    "asset_b": "s123096p90547",
+    "label": "ACI/ANR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101341p86547__s104939p25785",
+    "asset_a": "s101341p86547",
+    "asset_b": "s104939p25785",
+    "label": "AXL/F",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106629p70092__s110454p72696",
+    "asset_a": "s106629p70092",
+    "asset_b": "s110454p72696",
+    "label": "KBH/CAA",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105805p46703__s110488p91207",
+    "asset_a": "s105805p46703",
+    "asset_b": "s110488p91207",
+    "label": "HST/HOT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101610p14702__s103612p83928",
+    "asset_a": "s101610p14702",
+    "asset_b": "s103612p83928",
+    "label": "AMAT/CYMI",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102265p19561__s110979p23579",
+    "asset_a": "s102265p19561",
+    "asset_b": "s110979p23579",
+    "label": "BA/TXT",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101227p43123__s110971p40694",
+    "asset_a": "s101227p43123",
+    "asset_b": "s110971p40694",
+    "label": "ATI/TXI",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102571p62148__s102668p84181",
+    "asset_a": "s102571p62148",
+    "asset_b": "s102668p84181",
+    "label": "CSX/CNI",
+    "industry": "401",
+    "division": "40",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107107p76804__s112339p86314",
+    "asset_a": "s107107p76804",
+    "asset_b": "s112339p86314",
+    "label": "MTG/XL",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101397p66800__s112254p79057",
+    "asset_a": "s101397p66800",
+    "asset_b": "s112254p79057",
+    "label": "AIG/CB",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101325p24985__s110051p86136",
+    "asset_a": "s101325p24985",
+    "asset_b": "s110051p86136",
+    "label": "AEE/SRE",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102936p47896__s111953p38703",
+    "asset_a": "s102936p47896",
+    "asset_b": "s111953p38703",
+    "label": "JPM/WFC",
+    "industry": "602",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112180p83435__s121812p90319",
+    "asset_a": "s112180p83435",
+    "asset_b": "s121812p90319",
+    "label": "YHOO/GOOG",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109956p14277__s112325p85080",
+    "asset_a": "s109956p14277",
+    "asset_b": "s112325p85080",
+    "label": "SLB/GSF",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103131p24441__s105316p69892",
+    "asset_a": "s103131p24441",
+    "asset_b": "s105316p69892",
+    "label": "CDE/GG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s106893p80599",
+    "asset_a": "s104081p83862",
+    "asset_b": "s106893p80599",
+    "label": "ETFC/LEH",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104508p21776__s115142p88992",
+    "asset_a": "s104508p21776",
+    "asset_b": "s115142p88992",
+    "label": "EXC/RRI",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104533p11850__s110962p37284",
+    "asset_a": "s104533p11850",
+    "asset_b": "s110962p37284",
+    "label": "XOM/TSO",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106723p77606__s108849p18403",
+    "asset_a": "s106723p77606",
+    "asset_b": "s108849p18403",
+    "label": "KSS/JCP",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103354p86799__s123096p90547",
+    "asset_a": "s103354p86799",
+    "asset_b": "s123096p90547",
+    "label": "CNX/ANR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101341p86547__s105175p12079",
+    "asset_a": "s101341p86547",
+    "asset_b": "s105175p12079",
+    "label": "AXL/GM",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110454p72696__s111071p70228",
+    "asset_a": "s110454p72696",
+    "asset_b": "s111071p70228",
+    "label": "CAA/TOL",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103612p83928__s106808p48486",
+    "asset_a": "s103612p83928",
+    "asset_b": "s106808p48486",
+    "label": "CYMI/LRCX",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105785p10145__s110979p23579",
+    "asset_a": "s105785p10145",
+    "asset_b": "s110979p23579",
+    "label": "HON/TXT",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110497p84262__s110971p40694",
+    "asset_a": "s110497p84262",
+    "asset_b": "s110971p40694",
+    "label": "STLD/TXI",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102668p84181__s106625p12650",
+    "asset_a": "s102668p84181",
+    "asset_b": "s106625p12650",
+    "label": "CNI/KSU",
+    "industry": "401",
+    "division": "40",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108640p81530__s112339p86314",
+    "asset_a": "s108640p81530",
+    "asset_b": "s112339p86314",
+    "label": "PMI/XL",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103015p59192__s112254p79057",
+    "asset_a": "s103015p59192",
+    "asset_b": "s112254p79057",
+    "label": "CB/ACE",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109285p23712__s110051p86136",
+    "asset_a": "s109285p23712",
+    "asset_b": "s110051p86136",
+    "label": "PEG/SRE",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103049p70519__s111953p38703",
+    "asset_a": "s103049p70519",
+    "asset_b": "s111953p38703",
+    "label": "C/WFC",
+    "industry": "602",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112325p85080__s112333p79237",
+    "asset_a": "s112325p85080",
+    "asset_b": "s112333p79237",
+    "label": "GSF/RIG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103131p24441__s108130p21207",
+    "asset_a": "s103131p24441",
+    "asset_b": "s108130p21207",
+    "label": "CDE/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s107455p52919",
+    "asset_a": "s104081p83862",
+    "asset_b": "s107455p52919",
+    "label": "ETFC/MER",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104508p21776__s119846p90071",
+    "asset_a": "s104508p21776",
+    "asset_b": "s119846p90071",
+    "label": "EXC/NRG",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108969p13928__s110962p37284",
+    "asset_a": "s108969p13928",
+    "asset_b": "s110962p37284",
+    "label": "COP/TSO",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106723p77606__s117073p89757",
+    "asset_a": "s106723p77606",
+    "asset_b": "s117073p89757",
+    "label": "KSS/SHLD",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s115179p88991__s123096p90547",
+    "asset_a": "s115179p88991",
+    "asset_b": "s123096p90547",
+    "label": "BTU/ANR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101341p86547__s106872p80422",
+    "asset_a": "s101341p86547",
+    "asset_b": "s106872p80422",
+    "label": "AXL/LEA",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110454p72696__s114242p89347",
+    "asset_a": "s110454p72696",
+    "asset_b": "s114242p89347",
+    "label": "SPF/WCI",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103612p83928__s108266p12067",
+    "asset_a": "s103612p83928",
+    "asset_b": "s108266p12067",
+    "label": "CYMI/NVLS",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110979p23579__s111459p17830",
+    "asset_a": "s110979p23579",
+    "asset_b": "s111459p17830",
+    "label": "TXT/UTX",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110971p40694__s111337p76644",
+    "asset_a": "s110971p40694",
+    "asset_b": "s111337p76644",
+    "label": "TXI/X",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102668p84181__s111394p48725",
+    "asset_a": "s102668p84181",
+    "asset_b": "s111394p48725",
+    "label": "CNI/UNP",
+    "industry": "401",
+    "division": "40",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109869p59459__s112254p79057",
+    "asset_a": "s109869p59459",
+    "asset_b": "s112254p79057",
+    "label": "TRV/CB",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109557p21792__s110051p86136",
+    "asset_a": "s109557p21792",
+    "asset_b": "s110051p86136",
+    "label": "CNP/SRE",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103042p76076__s107747p22779",
+    "asset_a": "s103042p76076",
+    "asset_b": "s107747p22779",
+    "label": "CSCO/MOT",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111434p87447__s125537p91103",
+    "asset_a": "s111434p87447",
+    "asset_b": "s125537p91103",
+    "label": "UPS/UAUA",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s105663p32651",
+    "asset_a": "s105003p81774",
+    "asset_b": "s105663p32651",
+    "label": "FCX/HL",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s103533p79212",
+    "asset_a": "s102963p78877",
+    "asset_b": "s103533p79212",
+    "label": "CHK/XTO",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101375p59176__s102702p81055",
+    "asset_a": "s101375p59176",
+    "asset_b": "s102702p81055",
+    "label": "AXP/COF",
+    "industry": "671",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103198p89525__s119891p89954",
+    "asset_a": "s103198p89525",
+    "asset_b": "s119891p89954",
+    "label": "CMCSA/DTV",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105751p76095__s107398p60097",
+    "asset_a": "s105751p76095",
+    "asset_b": "s107398p60097",
+    "label": "HOLX/MDT",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101176p87299__s116416p89533",
+    "asset_a": "s101176p87299",
+    "asset_b": "s116416p89533",
+    "label": "AKAM/WYNN",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102113p85914__s113993p89301",
+    "asset_a": "s102113p85914",
+    "asset_b": "s113993p89301",
+    "label": "BBY/GME",
+    "industry": "573",
+    "division": "57",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100900p76712__s119846p90071",
+    "asset_a": "s100900p76712",
+    "asset_b": "s119846p90071",
+    "label": "AES/NRG",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110253p70923__s111285p77730",
+    "asset_a": "s110253p70923",
+    "asset_b": "s111285p77730",
+    "label": "SFD/TSN",
+    "industry": "201",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s123007p90589__s124226p90813",
+    "asset_a": "s123007p90589",
+    "asset_b": "s124226p90813",
+    "label": "DRYS/GNK",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110956p65293__s124758p90829",
+    "asset_a": "s110956p65293",
+    "asset_b": "s124758p90829",
+    "label": "TRA/CF",
+    "industry": "287",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103015p59192__s105581p82775",
+    "asset_a": "s103015p59192",
+    "asset_b": "s105581p82775",
+    "label": "CB/HIG",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106329p53065__s110771p84342",
+    "asset_a": "s106329p53065",
+    "asset_b": "s110771p84342",
+    "label": "IPG/MWW",
+    "industry": "731",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103676p49680__s106567p42534",
+    "asset_a": "s103676p49680",
+    "asset_b": "s106567p42534",
+    "label": "DHR/JCI",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108120p60986__s108573p77157",
+    "asset_a": "s108120p60986",
+    "asset_b": "s108573p77157",
+    "label": "NWL/OI",
+    "industry": "322",
+    "division": "32",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s127753p91531__s135419p92611",
+    "asset_a": "s127753p91531",
+    "asset_b": "s135419p92611",
+    "label": "OC/V",
+    "industry": "999",
+    "division": "99",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108401p75573__s116402p89540",
+    "asset_a": "s108401p75573",
+    "asset_b": "s116402p89540",
+    "label": "ODP/DKS",
+    "industry": "594",
+    "division": "59",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109958p79866__s116499p89685",
+    "asset_a": "s109958p79866",
+    "asset_b": "s116499p89685",
+    "label": "SCHN/NIHD",
+    "industry": "509",
+    "division": "50",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101689p85349__s104939p25785",
+    "asset_a": "s101689p85349",
+    "asset_b": "s104939p25785",
+    "label": "ARM/F",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101138p85593__s115885p90601",
+    "asset_a": "s101138p85593",
+    "asset_b": "s115885p90601",
+    "label": "AMG/NDAQ",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106970p77421__s108428p63714",
+    "asset_a": "s106970p77421",
+    "asset_b": "s108428p63714",
+    "label": "LNCR/OCR",
+    "industry": "809",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106569p76638__s133928p92203",
+    "asset_a": "s106569p76638",
+    "asset_b": "s133928p92203",
+    "label": "JNY/LULU",
+    "industry": "233",
+    "division": "23",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102347p23297__s110472p77702",
+    "asset_a": "s102347p23297",
+    "asset_b": "s110472p77702",
+    "label": "EAT/SBUX",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104699p35124__s125017p90925",
+    "asset_a": "s104699p35124",
+    "asset_b": "s125017p90925",
+    "label": "FAF/FNF",
+    "industry": "636",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106790p12062__s109371p84373",
+    "asset_a": "s106790p12062",
+    "asset_b": "s109371p84373",
+    "label": "LH/DGX",
+    "industry": "807",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102855p86249__s103368p69796",
+    "asset_a": "s102855p86249",
+    "asset_b": "s103368p69796",
+    "label": "CEDC/STZ",
+    "industry": "208",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105368p76135__s128216p91579",
+    "asset_a": "s105368p76135",
+    "asset_b": "s128216p91579",
+    "label": "GVA/KBR",
+    "industry": "162",
+    "division": "16",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104327p87659__s112669p89031",
+    "asset_a": "s104327p87659",
+    "asset_b": "s112669p89031",
+    "label": "ENR/TASR",
+    "industry": "369",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110510p83906__s111893p11955",
+    "asset_a": "s110510p83906",
+    "asset_b": "s111893p11955",
+    "label": "SRCL/WM",
+    "industry": "495",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112112p75070__s128550p91655",
+    "asset_a": "s112112p75070",
+    "asset_b": "s128550p91655",
+    "label": "INT/ANW",
+    "industry": "517",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108505p10104__s112180p83435",
+    "asset_a": "s108505p10104",
+    "asset_b": "s112180p83435",
+    "label": "ORCL/YHOO",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106203p59328__s109459p84827",
+    "asset_a": "s106203p59328",
+    "asset_b": "s109459p84827",
+    "label": "INTC/RMBS",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105663p32651__s108130p21207",
+    "asset_a": "s105663p32651",
+    "asset_b": "s108130p21207",
+    "label": "HL/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101637p75326__s104918p26382",
+    "asset_a": "s101637p75326",
+    "asset_b": "s104918p26382",
+    "label": "ACI/MEE",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101375p59176__s104967p18112",
+    "asset_a": "s101375p59176",
+    "asset_b": "s104967p18112",
+    "label": "AXP/FWLT",
+    "industry": "671",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100900p76712__s103979p27959",
+    "asset_a": "s100900p76712",
+    "asset_b": "s103979p27959",
+    "label": "AES/DUK",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s106892p65330",
+    "asset_a": "s104081p83862",
+    "asset_b": "s106892p65330",
+    "label": "ETFC/LM",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103198p89525__s104146p81696",
+    "asset_a": "s103198p89525",
+    "asset_b": "s104146p81696",
+    "label": "CMCSA/DISH",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s127317p91392",
+    "asset_a": "s107110p11891",
+    "asset_b": "s127317p91392",
+    "label": "MGM/WYN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109775p66093__s121724p89644",
+    "asset_a": "s109775p66093",
+    "asset_b": "s121724p89644",
+    "label": "T/VMED",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101176p87299__s124209p90808",
+    "asset_a": "s101176p87299",
+    "asset_b": "s124209p90808",
+    "label": "AKAM/EXPE",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107398p60097__s109866p68591",
+    "asset_a": "s107398p60097",
+    "asset_b": "s109866p68591",
+    "label": "MDT/STJ",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s109248p80406",
+    "asset_a": "s101561p85414",
+    "asset_b": "s109248p80406",
+    "label": "NLY/ZZZZ",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106329p53065__s106809p83879",
+    "asset_a": "s106329p53065",
+    "asset_b": "s106809p83879",
+    "label": "IPG/LAMR",
+    "industry": "731",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102113p85914__s109447p15560",
+    "asset_a": "s102113p85914",
+    "asset_b": "s109447p15560",
+    "label": "BBY/RSH",
+    "industry": "573",
+    "division": "57",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111469p92655__s121673p90272",
+    "asset_a": "s111469p92655",
+    "asset_b": "s121673p90272",
+    "label": "UNH/WCG",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101444p86111__s104415p89617",
+    "asset_a": "s101444p86111",
+    "asset_b": "s104415p89617",
+    "label": "AMT/EQIX",
+    "industry": "489",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103434p22293__s105161p84776",
+    "asset_a": "s103434p22293",
+    "asset_b": "s105161p84776",
+    "label": "GLW/BGC",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s127753p91531__s128133p91607",
+    "asset_a": "s127753p91531",
+    "asset_b": "s128133p91607",
+    "label": "OC/CSIQ",
+    "industry": "999",
+    "division": "99",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103042p76076__s106780p86021",
+    "asset_a": "s103042p76076",
+    "asset_b": "s106780p86021",
+    "label": "CSCO/LLL",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s113437p89258__s117682p89841",
+    "asset_a": "s113437p89258",
+    "asset_b": "s117682p89841",
+    "label": "PRU/CNO",
+    "industry": "631",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101138p85593__s113058p89199",
+    "asset_a": "s101138p85593",
+    "asset_b": "s113058p89199",
+    "label": "AMG/DB",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104206p77481__s129596p92035",
+    "asset_a": "s104206p77481",
+    "asset_b": "s129596p92035",
+    "label": "EP/CLNE",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105450p83822__s106569p76638",
+    "asset_a": "s105450p83822",
+    "asset_b": "s106569p76638",
+    "label": "GES/JNY",
+    "industry": "233",
+    "division": "23",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101243p38149__s103879p26403",
+    "asset_a": "s101243p38149",
+    "asset_b": "s103879p26403",
+    "label": "BYI/DIS",
+    "industry": "799",
+    "division": "79",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104548p79265__s108231p24766",
+    "asset_a": "s104548p79265",
+    "asset_b": "s108231p24766",
+    "label": "FLIR/NOC",
+    "industry": "381",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102347p23297__s102472p27562",
+    "asset_a": "s102347p23297",
+    "asset_b": "s102472p27562",
+    "label": "EAT/CBRL",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102018p79667__s108401p75573",
+    "asset_a": "s102018p79667",
+    "asset_b": "s108401p75573",
+    "label": "BKS/ODP",
+    "industry": "594",
+    "division": "59",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107264p19880__s128216p91579",
+    "asset_a": "s107264p19880",
+    "asset_b": "s128216p91579",
+    "label": "MTZ/KBR",
+    "industry": "162",
+    "division": "16",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103715p82307__s106970p77421",
+    "asset_a": "s103715p82307",
+    "asset_b": "s106970p77421",
+    "label": "DVA/LNCR",
+    "industry": "809",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107317p64629__s110966p77191",
+    "asset_a": "s107317p64629",
+    "asset_b": "s110966p77191",
+    "label": "MDR/TTEK",
+    "industry": "871",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101121p61241__s107544p53613",
+    "asset_a": "s101121p61241",
+    "asset_b": "s107544p53613",
+    "label": "AMD/MU",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104229p75828__s107525p10107",
+    "asset_a": "s104229p75828",
+    "asset_b": "s107525p10107",
+    "label": "ERTS/MSFT",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105316p69892__s105663p32651",
+    "asset_a": "s105316p69892",
+    "asset_b": "s105663p32651",
+    "label": "GG/HL",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103533p79212__s103802p87137",
+    "asset_a": "s103533p79212",
+    "asset_b": "s103802p87137",
+    "label": "XTO/DVN",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104918p26382__s115179p88991",
+    "asset_a": "s104918p26382",
+    "asset_b": "s115179p88991",
+    "label": "MEE/BTU",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103979p27959__s119846p90071",
+    "asset_a": "s103979p27959",
+    "asset_b": "s119846p90071",
+    "label": "DUK/NRG",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105329p86868__s106892p65330",
+    "asset_a": "s105329p86868",
+    "asset_b": "s106892p65330",
+    "label": "GS/LM",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110488p91207__s127317p91392",
+    "asset_a": "s110488p91207",
+    "asset_b": "s127317p91392",
+    "label": "HOT/WYN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111668p65875__s121724p89644",
+    "asset_a": "s111668p65875",
+    "asset_b": "s121724p89644",
+    "label": "VZ/VMED",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105581p82775__s109869p59459",
+    "asset_a": "s105581p82775",
+    "asset_b": "s109869p59459",
+    "label": "HIG/TRV",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s116416p89533__s124209p90808",
+    "asset_a": "s116416p89533",
+    "asset_b": "s124209p90808",
+    "label": "WYNN/EXPE",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109248p80406__s110188p80100",
+    "asset_a": "s109248p80406",
+    "asset_b": "s110188p80100",
+    "label": "ZZZZ/SPG",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101149p87432__s106567p42534",
+    "asset_a": "s101149p87432",
+    "asset_b": "s106567p42534",
+    "label": "A/JCI",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112462p75454__s124226p90813",
+    "asset_a": "s112462p75454",
+    "asset_b": "s124226p90813",
+    "label": "EXM/GNK",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106809p83879__s110771p84342",
+    "asset_a": "s106809p83879",
+    "asset_b": "s110771p84342",
+    "label": "LAMR/MWW",
+    "industry": "731",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s113119p89179__s121673p90272",
+    "asset_a": "s113119p89179",
+    "asset_b": "s121673p90272",
+    "label": "WLP/WCG",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103545p86339__s104415p89617",
+    "asset_a": "s103545p86339",
+    "asset_b": "s104415p89617",
+    "label": "CCI/EQIX",
+    "industry": "489",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106780p86021__s107747p22779",
+    "asset_a": "s106780p86021",
+    "asset_b": "s107747p22779",
+    "label": "LLL/MOT",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s117682p89841__s121535p90162",
+    "asset_a": "s117682p89841",
+    "asset_b": "s121535p90162",
+    "label": "CNO/GNW",
+    "industry": "631",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s113058p89199__s115885p90601",
+    "asset_a": "s113058p89199",
+    "asset_b": "s115885p90601",
+    "label": "DB/NDAQ",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112042p38156__s129596p92035",
+    "asset_a": "s112042p38156",
+    "asset_b": "s129596p92035",
+    "label": "WMB/CLNE",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105450p83822__s133928p92203",
+    "asset_a": "s105450p83822",
+    "asset_b": "s133928p92203",
+    "label": "GES/LULU",
+    "industry": "233",
+    "division": "23",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101243p38149__s106293p45277",
+    "asset_a": "s101243p38149",
+    "asset_b": "s106293p45277",
+    "label": "BYI/IGT",
+    "industry": "799",
+    "division": "79",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102472p27562__s110472p77702",
+    "asset_a": "s102472p27562",
+    "asset_b": "s110472p77702",
+    "label": "CBRL/SBUX",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110966p77191__s112487p88853",
+    "asset_a": "s110966p77191",
+    "asset_b": "s112487p88853",
+    "label": "TTEK/FLR",
+    "industry": "871",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106203p59328__s107544p53613",
+    "asset_a": "s106203p59328",
+    "asset_b": "s107544p53613",
+    "label": "INTC/MU",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104229p75828__s108505p10104",
+    "asset_a": "s104229p75828",
+    "asset_b": "s108505p10104",
+    "label": "ERTS/ORCL",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s111921p32791",
+    "asset_a": "s105512p23819",
+    "asset_b": "s111921p32791",
+    "label": "HAL/WFT",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101594p14593__s109901p82618",
+    "asset_a": "s101594p14593",
+    "asset_b": "s109901p82618",
+    "label": "AAPL/SNDK",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103380p79641__s111434p87447",
+    "asset_a": "s103380p79641",
+    "asset_b": "s111434p87447",
+    "label": "CAL/UPS",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101322p28484__s102968p14541",
+    "asset_a": "s101322p28484",
+    "asset_b": "s102968p14541",
+    "label": "HES/CVX",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103979p27959__s110337p18411",
+    "asset_a": "s103979p27959",
+    "asset_b": "s110337p18411",
+    "label": "DUK/SO",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s107248p85913",
+    "asset_a": "s107110p11891",
+    "asset_b": "s107248p85913",
+    "label": "MGM/MAR",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105630p86042__s109248p80406",
+    "asset_a": "s105630p86042",
+    "asset_b": "s109248p80406",
+    "label": "HW/ZZZZ",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s104992p37584",
+    "asset_a": "s104081p83862",
+    "asset_b": "s104992p37584",
+    "label": "ETFC/BEN",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101149p87432__s110952p51369",
+    "asset_a": "s101149p87432",
+    "asset_b": "s110952p51369",
+    "label": "A/TER",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101176p87299__s115211p89002",
+    "asset_a": "s101176p87299",
+    "asset_b": "s115211p89002",
+    "label": "AKAM/ADS",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104939p25785__s144671p12369",
+    "asset_a": "s104939p25785",
+    "asset_b": "s144671p12369",
+    "label": "F/GM",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106566p22111__s107430p22752",
+    "asset_a": "s106566p22111",
+    "asset_b": "s107430p22752",
+    "label": "JNJ/MRK",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s100917p21020__s129410p91926",
+    "asset_a": "s100917p21020",
+    "asset_b": "s129410p91926",
+    "label": "AMR/DAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s134752p92421",
+    "asset_a": "s102963p78877",
+    "asset_b": "s134752p92421",
+    "label": "CHK/SD",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103198p89525__s111063p87255",
+    "asset_a": "s103198p89525",
+    "asset_b": "s111063p87255",
+    "label": "CMCSA/TIVO",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103022p84519__s103042p76076",
+    "asset_a": "s103022p84519",
+    "asset_b": "s103042p76076",
+    "label": "CIEN/CSCO",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101176p87299__s135419p92611",
+    "asset_a": "s101176p87299",
+    "asset_b": "s135419p92611",
+    "label": "AKAM/V",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101397p66800__s105581p82775",
+    "asset_a": "s101397p66800",
+    "asset_b": "s105581p82775",
+    "label": "AIG/HIG",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104508p21776__s135145p92530",
+    "asset_a": "s104508p21776",
+    "asset_b": "s135145p92530",
+    "label": "EXC/CPN",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102043p27887__s107398p60097",
+    "asset_a": "s102043p27887",
+    "asset_b": "s107398p60097",
+    "label": "BAX/MDT",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107484p87842__s121535p90162",
+    "asset_a": "s107484p87842",
+    "asset_b": "s121535p90162",
+    "label": "MET/GNW",
+    "industry": "631",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110530p81173__s143623p11999",
+    "asset_a": "s110530p81173",
+    "asset_b": "s143623p11999",
+    "label": "SWC/MCP",
+    "industry": "109",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s105936p75846",
+    "asset_a": "s101561p85414",
+    "asset_b": "s105936p75846",
+    "label": "NLY/SFI",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s116416p89533",
+    "asset_a": "s107110p11891",
+    "asset_b": "s116416p89533",
+    "label": "MGM/WYNN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101369p80432__s105120p59010",
+    "asset_a": "s101369p80432",
+    "asset_b": "s105120p59010",
+    "label": "AEO/GPS",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101920p75034__s103399p81857",
+    "asset_a": "s101920p75034",
+    "asset_b": "s103399p81857",
+    "label": "BHI/CAM",
+    "industry": "353",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103255p88284__s110945p52337",
+    "asset_a": "s103255p88284",
+    "asset_b": "s110945p52337",
+    "label": "CYH/THC",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101444p86111__s119891p89954",
+    "asset_a": "s101444p86111",
+    "asset_b": "s119891p89954",
+    "label": "AMT/DTV",
+    "industry": "489",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104967p18112__s112487p88853",
+    "asset_a": "s104967p18112",
+    "asset_b": "s112487p88853",
+    "label": "FWLT/FLR",
+    "industry": "871",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106744p16678__s112026p77281",
+    "asset_a": "s106744p16678",
+    "asset_b": "s112026p77281",
+    "label": "KR/WFM",
+    "industry": "541",
+    "division": "54",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107255p34032__s115885p90601",
+    "asset_a": "s107255p34032",
+    "asset_b": "s115885p90601",
+    "label": "MAS/NDAQ",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110472p77702__s111205p19828",
+    "asset_a": "s110472p77702",
+    "asset_b": "s111205p19828",
+    "label": "SBUX/WEN",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108266p12067__s111642p81116",
+    "asset_a": "s108266p12067",
+    "asset_b": "s111642p81116",
+    "label": "NVLS/VECO",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101204p24643__s102873p83244",
+    "asset_a": "s101204p24643",
+    "asset_b": "s102873p83244",
+    "label": "AA/CENX",
+    "industry": "333",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110649p44951__s114245p89329",
+    "asset_a": "s110649p44951",
+    "asset_b": "s114245p89329",
+    "label": "SVU/CQB",
+    "industry": "514",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102583p17005__s108428p63714",
+    "asset_a": "s102583p17005",
+    "asset_b": "s108428p63714",
+    "label": "CVS/OCR",
+    "industry": "591",
+    "division": "59",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106329p53065__s111555p77461",
+    "asset_a": "s106329p53065",
+    "asset_b": "s111555p77461",
+    "label": "IPG/VCI",
+    "industry": "731",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109557p21792__s129596p92035",
+    "asset_a": "s109557p21792",
+    "asset_b": "s129596p92035",
+    "label": "CNP/CLNE",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121355p90121__s121995p90401",
+    "asset_a": "s121355p90121",
+    "asset_b": "s121995p90401",
+    "label": "AINV/ARCC",
+    "industry": "672",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102855p86249__s104958p10225",
+    "asset_a": "s102855p86249",
+    "asset_b": "s104958p10225",
+    "label": "CEDC/BEAM",
+    "industry": "208",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104509p88159__s106049p79906",
+    "asset_a": "s104509p88159",
+    "asset_b": "s106049p79906",
+    "label": "EXEL/INCY",
+    "industry": "873",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109006p51692__s112046p83011",
+    "asset_a": "s109006p51692",
+    "asset_b": "s112046p83011",
+    "label": "PIR/WSM",
+    "industry": "571",
+    "division": "57",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102752p75154__s116545p89618",
+    "asset_a": "s102752p75154",
+    "asset_b": "s116545p89618",
+    "label": "CCL/GLNG",
+    "industry": "448",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106203p59328__s112306p88360",
+    "asset_a": "s106203p59328",
+    "asset_b": "s112306p88360",
+    "label": "INTC/MRVL",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s106701p89692",
+    "asset_a": "s105003p81774",
+    "asset_b": "s106701p89692",
+    "label": "FCX/KGC",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103022p84519__s106581p86979",
+    "asset_a": "s103022p84519",
+    "asset_b": "s106581p86979",
+    "label": "CIEN/JNPR",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102885p60599__s109775p66093",
+    "asset_a": "s102885p60599",
+    "asset_b": "s109775p66093",
+    "label": "CTL/T",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107484p87842__s113437p89258",
+    "asset_a": "s107484p87842",
+    "asset_b": "s113437p89258",
+    "label": "MET/PRU",
+    "industry": "631",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101176p87299__s111283p45356",
+    "asset_a": "s101176p87299",
+    "asset_b": "s111283p45356",
+    "label": "AKAM/TYC",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101368p24109__s104508p21776",
+    "asset_a": "s101368p24109",
+    "asset_b": "s104508p21776",
+    "label": "AEP/EXC",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104939p25785__s143439p93436",
+    "asset_a": "s104939p25785",
+    "asset_b": "s143439p93436",
+    "label": "F/TSLA",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s134822p92385",
+    "asset_a": "s101561p85414",
+    "asset_b": "s134822p92385",
+    "label": "NLY/CIM",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101149p87432__s110078p87632",
+    "asset_a": "s101149p87432",
+    "asset_b": "s110078p87632",
+    "label": "A/SQNM",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102043p27887__s109866p68591",
+    "asset_a": "s102043p27887",
+    "asset_b": "s109866p68591",
+    "label": "BAX/STJ",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101477p84597__s104081p83862",
+    "asset_a": "s101477p84597",
+    "asset_b": "s104081p83862",
+    "label": "AMTD/ETFC",
+    "industry": "622",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104967p18112__s110107p80032",
+    "asset_a": "s104967p18112",
+    "asset_b": "s110107p80032",
+    "label": "FWLT/SHAW",
+    "industry": "871",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106892p65330__s107255p34032",
+    "asset_a": "s106892p65330",
+    "asset_b": "s107255p34032",
+    "label": "LM/MAS",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104206p77481__s128604p91650",
+    "asset_a": "s104206p77481",
+    "asset_b": "s128604p91650",
+    "label": "EP/SE",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101369p80432__s110752p40539",
+    "asset_a": "s101369p80432",
+    "asset_b": "s110752p40539",
+    "label": "AEO/TJX",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101475p81540__s122567p90516",
+    "asset_a": "s101475p81540",
+    "asset_b": "s122567p90516",
+    "label": "ABC/HLF",
+    "industry": "512",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102947p77902__s110472p77702",
+    "asset_a": "s102947p77902",
+    "asset_b": "s110472p77702",
+    "label": "CAKE/SBUX",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103404p59248__s104958p10225",
+    "asset_a": "s103404p59248",
+    "asset_b": "s104958p10225",
+    "label": "TAP/BEAM",
+    "industry": "208",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106049p79906__s107866p80560",
+    "asset_a": "s106049p79906",
+    "asset_b": "s107866p80560",
+    "label": "INCY/NPSP",
+    "industry": "873",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121355p90121__s121756p90291",
+    "asset_a": "s121355p90121",
+    "asset_b": "s121756p90291",
+    "label": "AINV/PSEC",
+    "industry": "672",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103434p22293__s109958p79866",
+    "asset_a": "s103434p22293",
+    "asset_b": "s109958p79866",
+    "label": "GLW/SCHN",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106329p53065__s108429p30681",
+    "asset_a": "s106329p53065",
+    "asset_b": "s108429p30681",
+    "label": "IPG/OMC",
+    "industry": "731",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111469p92655__s125545p91113",
+    "asset_a": "s111469p92655",
+    "asset_b": "s125545p91113",
+    "label": "UNH/HS",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107544p53613__s112306p88360",
+    "asset_a": "s107544p53613",
+    "asset_b": "s112306p88360",
+    "label": "MU/MRVL",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106701p89692__s108130p21207",
+    "asset_a": "s106701p89692",
+    "asset_b": "s108130p21207",
+    "label": "KGC/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s125537p91103__s129410p91926",
+    "asset_a": "s125537p91103",
+    "asset_b": "s129410p91926",
+    "label": "UAL/DAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102349p19393__s107430p22752",
+    "asset_a": "s102349p19393",
+    "asset_b": "s107430p22752",
+    "label": "BMY/MRK",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109956p14277__s111921p32791",
+    "asset_a": "s109956p14277",
+    "asset_b": "s111921p32791",
+    "label": "SLB/WFT",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s134752p92421",
+    "asset_a": "s101533p70332",
+    "asset_b": "s134752p92421",
+    "label": "APC/SD",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103042p76076__s106581p86979",
+    "asset_a": "s103042p76076",
+    "asset_b": "s106581p86979",
+    "label": "CSCO/JNPR",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102885p60599__s111668p65875",
+    "asset_a": "s102885p60599",
+    "asset_b": "s111668p65875",
+    "label": "CTL/VZ",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109447p15560__s113993p89301",
+    "asset_a": "s109447p15560",
+    "asset_b": "s113993p89301",
+    "label": "RSH/GME",
+    "industry": "573",
+    "division": "57",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111283p45356__s135419p92611",
+    "asset_a": "s111283p45356",
+    "asset_b": "s135419p92611",
+    "label": "TYC/V",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110488p91207__s116416p89533",
+    "asset_a": "s110488p91207",
+    "asset_b": "s116416p89533",
+    "label": "HOT/WYNN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101368p24109__s135145p92530",
+    "asset_a": "s101368p24109",
+    "asset_b": "s135145p92530",
+    "label": "AEP/CPN",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109439p78038__s112339p86314",
+    "asset_a": "s109439p78038",
+    "asset_b": "s112339p86314",
+    "label": "RDN/XL",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s143439p93436__s144671p12369",
+    "asset_a": "s143439p93436",
+    "asset_b": "s144671p12369",
+    "label": "TSLA/GM",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105936p75846__s134822p92385",
+    "asset_a": "s105936p75846",
+    "asset_b": "s134822p92385",
+    "label": "SFI/CIM",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106567p42534__s110078p87632",
+    "asset_a": "s106567p42534",
+    "asset_b": "s110078p87632",
+    "label": "JCI/SQNM",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103545p86339__s119891p89954",
+    "asset_a": "s103545p86339",
+    "asset_b": "s119891p89954",
+    "label": "CCI/DTV",
+    "industry": "489",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103198p89525__s121562p90227",
+    "asset_a": "s103198p89525",
+    "asset_b": "s121562p90227",
+    "label": "CMCSA/LBTYA",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103399p81857__s110955p58318",
+    "asset_a": "s103399p81857",
+    "asset_b": "s110955p58318",
+    "label": "CAM/TEX",
+    "industry": "353",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101477p84597__s105329p86868",
+    "asset_a": "s101477p84597",
+    "asset_b": "s105329p86868",
+    "label": "AMTD/GS",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106808p48486__s111642p81116",
+    "asset_a": "s106808p48486",
+    "asset_b": "s111642p81116",
+    "label": "LRCX/VECO",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110107p80032__s112487p88853",
+    "asset_a": "s110107p80032",
+    "asset_b": "s112487p88853",
+    "label": "SHAW/FLR",
+    "industry": "871",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106892p65330__s115885p90601",
+    "asset_a": "s106892p65330",
+    "asset_b": "s115885p90601",
+    "label": "LM/NDAQ",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112042p38156__s128604p91650",
+    "asset_a": "s112042p38156",
+    "asset_b": "s128604p91650",
+    "label": "WMB/SE",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107325p81061__s122567p90516",
+    "asset_a": "s107325p81061",
+    "asset_b": "s122567p90516",
+    "label": "MCK/HLF",
+    "industry": "512",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102947p77902__s111205p19828",
+    "asset_a": "s102947p77902",
+    "asset_b": "s111205p19828",
+    "label": "CAKE/WEN",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109285p23712__s129596p92035",
+    "asset_a": "s109285p23712",
+    "asset_b": "s129596p92035",
+    "label": "PEG/CLNE",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121756p90291__s121995p90401",
+    "asset_a": "s121756p90291",
+    "asset_b": "s121995p90401",
+    "label": "PSEC/ARCC",
+    "industry": "672",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105161p84776__s109958p79866",
+    "asset_a": "s105161p84776",
+    "asset_b": "s109958p79866",
+    "label": "BGC/SCHN",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108429p30681__s111555p77461",
+    "asset_a": "s108429p30681",
+    "asset_b": "s111555p77461",
+    "label": "OMC/VCI",
+    "industry": "731",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s113119p89179__s125545p91113",
+    "asset_a": "s113119p89179",
+    "asset_b": "s125545p91113",
+    "label": "WLP/HS",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106203p59328__s108321p86580",
+    "asset_a": "s106203p59328",
+    "asset_b": "s108321p86580",
+    "label": "INTC/NVDA",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104049p10147__s116539p89641",
+    "asset_a": "s104049p10147",
+    "asset_b": "s116539p89641",
+    "label": "EMC/STX",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101508p14008__s102349p19393",
+    "asset_a": "s101508p14008",
+    "asset_b": "s102349p19393",
+    "label": "AMGN/BMY",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102968p14541__s111296p15069",
+    "asset_a": "s102968p14541",
+    "asset_b": "s111296p15069",
+    "label": "CVX/MRO",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s107329p80557",
+    "asset_a": "s101533p70332",
+    "asset_b": "s107329p80557",
+    "label": "APC/MMR",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s127107p91318__s108969p13928",
+    "asset_a": "s127107p91318",
+    "asset_b": "s108969p13928",
+    "label": "XOP/COP",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s127107p91318__s103802p87137",
+    "asset_a": "s127107p91318",
+    "asset_b": "s103802p87137",
+    "label": "XOP/DVN",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s127107p91318__s101580p39490",
+    "asset_a": "s127107p91318",
+    "asset_b": "s101580p39490",
+    "label": "XOP/APA",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s142772p93318__s105663p32651",
+    "asset_a": "s142772p93318",
+    "asset_b": "s105663p32651",
+    "label": "SIL/HL",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s142772p93318__s145681p12447",
+    "asset_a": "s142772p93318",
+    "asset_b": "s145681p12447",
+    "label": "SIL/AG",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s105243p77274__s106566p22111",
+    "asset_a": "s105243p77274",
+    "asset_b": "s106566p22111",
+    "label": "GILD/JNJ",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101322p28484__s104533p11850",
+    "asset_a": "s101322p28484",
+    "asset_b": "s104533p11850",
+    "label": "HES/XOM",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112042p38156__s146036p12558",
+    "asset_a": "s112042p38156",
+    "asset_b": "s146036p12558",
+    "label": "WMB/KMI",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101639p10516__s105174p17144",
+    "asset_a": "s101639p10516",
+    "asset_b": "s105174p17144",
+    "label": "ADM/GIS",
+    "industry": "204",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102064p80193__s111071p70228",
+    "asset_a": "s102064p80193",
+    "asset_b": "s111071p70228",
+    "label": "BZH/TOL",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s8957p89911",
+    "asset_a": "s105003p81774",
+    "asset_b": "s8957p89911",
+    "label": "FCX/TRQ",
+    "industry": "102",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106892p65330__s143554p11990",
+    "asset_a": "s106892p65330",
+    "asset_b": "s143554p11990",
+    "label": "LM/KKR",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102702p81055__s139977p93150",
+    "asset_a": "s102702p81055",
+    "asset_b": "s139977p93150",
+    "label": "COF/CIT",
+    "industry": "671",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106749p48144__s106808p48486",
+    "asset_a": "s106749p48144",
+    "asset_b": "s106808p48486",
+    "label": "KLIC/LRCX",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106629p70092__s109356p85792",
+    "asset_a": "s106629p70092",
+    "asset_b": "s109356p85792",
+    "label": "KBH/PWR",
+    "industry": "173",
+    "division": "17",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105617p76565__s110945p52337",
+    "asset_a": "s105617p76565",
+    "asset_b": "s110945p52337",
+    "label": "HMA/THC",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102762p85280__s151412p13139",
+    "asset_a": "s102762p85280",
+    "asset_b": "s151412p13139",
+    "label": "CRZO/SN",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105402p80719__s111222p55001",
+    "asset_a": "s105402p80719",
+    "asset_b": "s111222p55001",
+    "label": "GBX/TRN",
+    "industry": "374",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105316p69892__s106701p89692",
+    "asset_a": "s105316p69892",
+    "asset_b": "s106701p89692",
+    "label": "GG/KGC",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104508p21776__s110337p18411",
+    "asset_a": "s104508p21776",
+    "asset_b": "s110337p18411",
+    "label": "EXC/SO",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104635p60628__s111434p87447",
+    "asset_a": "s104635p60628",
+    "asset_b": "s111434p87447",
+    "label": "FDX/UPS",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105759p66181__s107255p34032",
+    "asset_a": "s105759p66181",
+    "asset_b": "s107255p34032",
+    "label": "HD/MAS",
+    "industry": "521",
+    "division": "52",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102064p80193__s110454p72696",
+    "asset_a": "s102064p80193",
+    "asset_b": "s110454p72696",
+    "label": "BZH/SPF",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102702p81055__s106905p20415",
+    "asset_a": "s102702p81055",
+    "asset_b": "s106905p20415",
+    "label": "COF/LUK",
+    "industry": "671",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s143554p11990__s147220p12591",
+    "asset_a": "s143554p11990",
+    "asset_b": "s147220p12591",
+    "label": "KKR/APO",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103255p88284__s105617p76565",
+    "asset_a": "s103255p88284",
+    "asset_b": "s105617p76565",
+    "label": "CYH/HMA",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s123007p90589__s124012p90724",
+    "asset_a": "s123007p90589",
+    "asset_b": "s124012p90724",
+    "label": "DRYS/EGLE",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110337p18411__s119846p90071",
+    "asset_a": "s110337p18411",
+    "asset_b": "s119846p90071",
+    "label": "SO/NRG",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107045p61399__s107255p34032",
+    "asset_a": "s107045p61399",
+    "asset_b": "s107255p34032",
+    "label": "LOW/MAS",
+    "industry": "521",
+    "division": "52",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106905p20415__s139977p93150",
+    "asset_a": "s106905p20415",
+    "asset_b": "s139977p93150",
+    "label": "LUK/CIT",
+    "industry": "671",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s124012p90724__s124226p90813",
+    "asset_a": "s124012p90724",
+    "asset_b": "s124226p90813",
+    "label": "EGLE/GNK",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s102956p84723",
+    "asset_a": "s101533p70332",
+    "asset_b": "s102956p84723",
+    "label": "APC/LNG",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101637p75326__s111869p82540",
+    "asset_a": "s101637p75326",
+    "asset_b": "s111869p82540",
+    "label": "ACI/WLT",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101322p28484__s152875p13356",
+    "asset_a": "s101322p28484",
+    "asset_b": "s152875p13356",
+    "label": "HES/PSX",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103979p27959__s104508p21776",
+    "asset_a": "s103979p27959",
+    "asset_b": "s104508p21776",
+    "label": "DUK/EXC",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102265p19561__s107010p21178",
+    "asset_a": "s102265p19561",
+    "asset_b": "s107010p21178",
+    "label": "BA/LMT",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s112463p79145",
+    "asset_a": "s107110p11891",
+    "asset_b": "s112463p79145",
+    "label": "MGM/RCL",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101477p84597__s104992p37584",
+    "asset_a": "s101477p84597",
+    "asset_b": "s104992p37584",
+    "label": "AMTD/BEN",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102064p80193__s107084p66245",
+    "asset_a": "s102064p80193",
+    "asset_b": "s107084p66245",
+    "label": "BZH/MDC",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102956p84723__s102963p78877",
+    "asset_a": "s102956p84723",
+    "asset_b": "s102963p78877",
+    "label": "LNG/CHK",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105663p32651__s106701p89692",
+    "asset_a": "s105663p32651",
+    "asset_b": "s106701p89692",
+    "label": "HL/KGC",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111869p82540__s115179p88991",
+    "asset_a": "s111869p82540",
+    "asset_b": "s115179p88991",
+    "label": "WLT/BTU",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102968p14541__s152875p13356",
+    "asset_a": "s102968p14541",
+    "asset_b": "s152875p13356",
+    "label": "CVX/PSX",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105785p10145__s107010p21178",
+    "asset_a": "s105785p10145",
+    "asset_b": "s107010p21178",
+    "label": "HON/LMT",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110488p91207__s112463p79145",
+    "asset_a": "s110488p91207",
+    "asset_b": "s112463p79145",
+    "label": "HOT/RCL",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105581p82775__s112254p79057",
+    "asset_a": "s105581p82775",
+    "asset_b": "s112254p79057",
+    "label": "HIG/CB",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104992p37584__s105329p86868",
+    "asset_a": "s104992p37584",
+    "asset_b": "s105329p86868",
+    "label": "BEN/GS",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107084p66245__s110454p72696",
+    "asset_a": "s107084p66245",
+    "asset_b": "s110454p72696",
+    "label": "MDC/CAA",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111869p82540__s123096p90547",
+    "asset_a": "s111869p82540",
+    "asset_b": "s123096p90547",
+    "label": "WLT/ANR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104533p11850__s152875p13356",
+    "asset_a": "s104533p11850",
+    "asset_b": "s152875p13356",
+    "label": "XOM/PSX",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111921p32791__s112333p79237",
+    "asset_a": "s111921p32791",
+    "asset_b": "s112333p79237",
+    "label": "WFT/RIG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107010p21178__s111459p17830",
+    "asset_a": "s107010p21178",
+    "asset_b": "s111459p17830",
+    "label": "LMT/UTX",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112463p79145__s116416p89533",
+    "asset_a": "s112463p79145",
+    "asset_b": "s116416p89533",
+    "label": "RCL/WYNN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107084p66245__s111071p70228",
+    "asset_a": "s107084p66245",
+    "asset_b": "s111071p70228",
+    "label": "MDC/TOL",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s114726p13129__s109956p14277",
+    "asset_a": "s114726p13129",
+    "asset_b": "s109956p14277",
+    "label": "OIH/SLB",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s114726p13129__s105512p23819",
+    "asset_a": "s114726p13129",
+    "asset_b": "s105512p23819",
+    "label": "OIH/HAL",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s114726p13129__s127107p91318",
+    "asset_a": "s114726p13129",
+    "asset_b": "s127107p91318",
+    "label": "OIH/XOP",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_ETF"
+  },
+  {
+    "pair": "s107525p10107__s154402p13407",
+    "asset_a": "s107525p10107",
+    "asset_b": "s154402p13407",
+    "label": "MSFT/META",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101594p14593__s103042p76076",
+    "asset_a": "s101594p14593",
+    "asset_b": "s103042p76076",
+    "label": "AAPL/CSCO",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s129410p91926__s189845p21020",
+    "asset_a": "s129410p91926",
+    "asset_b": "s189845p21020",
+    "label": "DAL/AAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103198p89525__s103879p26403",
+    "asset_a": "s103198p89525",
+    "asset_b": "s103879p26403",
+    "label": "CMCSA/DIS",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105243p77274__s107430p22752",
+    "asset_a": "s105243p77274",
+    "asset_b": "s107430p22752",
+    "label": "GILD/MRK",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103098p27422__s127149p91321",
+    "asset_a": "s103098p27422",
+    "asset_b": "s127149p91321",
+    "label": "CLF/TECK",
+    "industry": "108",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s148753p13003",
+    "asset_a": "s101561p85414",
+    "asset_b": "s148753p13003",
+    "label": "NLY/VER",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110945p52337__s146286p12622",
+    "asset_a": "s110945p52337",
+    "asset_b": "s146286p12622",
+    "label": "THC/HCA",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103022p84519__s129677p92095",
+    "asset_a": "s103022p84519",
+    "asset_b": "s129677p92095",
+    "label": "CIEN/INFN",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111436p85663__s128233p91602",
+    "asset_a": "s111436p85663",
+    "asset_b": "s128233p91602",
+    "label": "URI/AER",
+    "industry": "735",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101328p77418__s106985p86408",
+    "asset_a": "s101328p77418",
+    "asset_b": "s106985p86408",
+    "label": "TWX/LGF",
+    "industry": "781",
+    "division": "78",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112185p59483__s145720p12473",
+    "asset_a": "s112185p59483",
+    "asset_b": "s145720p12473",
+    "label": "YRCW/SWFT",
+    "industry": "421",
+    "division": "42",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106744p16678__s110649p44951",
+    "asset_a": "s106744p16678",
+    "asset_b": "s110649p44951",
+    "label": "KR/SVU",
+    "industry": "541",
+    "division": "54",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104992p37584__s121756p90291",
+    "asset_a": "s104992p37584",
+    "asset_b": "s121756p90291",
+    "label": "BEN/PSEC",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s125052p90943__s142517p93299",
+    "asset_a": "s125052p90943",
+    "asset_b": "s142517p93299",
+    "label": "DHT/STNG",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112046p83011__s155603p13687",
+    "asset_a": "s112046p83011",
+    "asset_b": "s155603p13687",
+    "label": "WSM/RH",
+    "industry": "571",
+    "division": "57",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102752p75154__s161182p13760",
+    "asset_a": "s102752p75154",
+    "asset_b": "s161182p13760",
+    "label": "CCL/NCLH",
+    "industry": "440",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101610p14702__s106203p59328",
+    "asset_a": "s101610p14702",
+    "asset_b": "s106203p59328",
+    "label": "AMAT/INTC",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s108969p13928",
+    "asset_a": "s105512p23819",
+    "asset_b": "s108969p13928",
+    "label": "HAL/COP",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101151p78223__s105316p69892",
+    "asset_a": "s101151p78223",
+    "asset_b": "s105316p69892",
+    "label": "AEM/GG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103054p23887__s109775p66093",
+    "asset_a": "s103054p23887",
+    "asset_b": "s109775p66093",
+    "label": "FTR/T",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106701p89692__s127149p91321",
+    "asset_a": "s106701p89692",
+    "asset_b": "s127149p91321",
+    "label": "KGC/TCK",
+    "industry": "108",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s189909p14338",
+    "asset_a": "s107110p11891",
+    "asset_b": "s189909p14338",
+    "label": "MGM/HLT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104939p25785__s105785p10145",
+    "asset_a": "s104939p25785",
+    "asset_b": "s105785p10145",
+    "label": "F/HON",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101444p86111__s101561p85414",
+    "asset_a": "s101444p86111",
+    "asset_b": "s101561p85414",
+    "label": "AMT/NLY",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102043p27887__s105751p76095",
+    "asset_a": "s102043p27887",
+    "asset_b": "s105751p76095",
+    "label": "BAX/HOLX",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101149p87432__s110991p62092",
+    "asset_a": "s101149p87432",
+    "asset_b": "s110991p62092",
+    "label": "A/TMO",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106629p70092__s107084p66245",
+    "asset_a": "s106629p70092",
+    "asset_b": "s107084p66245",
+    "label": "KBH/MDC",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111469p92655__s113430p89269",
+    "asset_a": "s111469p92655",
+    "asset_b": "s113430p89269",
+    "label": "UNH/CNC",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104327p87659__s107325p81061",
+    "asset_a": "s104327p87659",
+    "asset_b": "s107325p81061",
+    "label": "EPC/MCK",
+    "industry": "512",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121571p90219__s125052p90943",
+    "asset_a": "s121571p90219",
+    "asset_b": "s125052p90943",
+    "label": "SFL/DHT",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104992p37584__s121995p90401",
+    "asset_a": "s104992p37584",
+    "asset_b": "s121995p90401",
+    "label": "BEN/ARCC",
+    "industry": "672",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102235p87267__s143554p11990",
+    "asset_a": "s102235p87267",
+    "asset_b": "s143554p11990",
+    "label": "BLK/KKR",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101251p76477__s108231p24766",
+    "asset_a": "s101251p76477",
+    "asset_b": "s108231p24766",
+    "label": "OA/NOC",
+    "industry": "381",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103995p12008__s107264p19880",
+    "asset_a": "s103995p12008",
+    "asset_b": "s107264p19880",
+    "label": "DY/MTZ",
+    "industry": "162",
+    "division": "16",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112180p83435__s154402p13407",
+    "asset_a": "s112180p83435",
+    "asset_b": "s154402p13407",
+    "label": "YHOO/FB",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101610p14702__s107544p53613",
+    "asset_a": "s101610p14702",
+    "asset_b": "s107544p53613",
+    "label": "AMAT/MU",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103042p76076__s105700p27828",
+    "asset_a": "s103042p76076",
+    "asset_b": "s105700p27828",
+    "label": "CSCO/HPQ",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s125537p91103__s189845p21020",
+    "asset_a": "s125537p91103",
+    "asset_b": "s189845p21020",
+    "label": "UAL/AAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108969p13928__s112333p79237",
+    "asset_a": "s108969p13928",
+    "asset_b": "s112333p79237",
+    "label": "COP/RIG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s129635p92215",
+    "asset_a": "s101533p70332",
+    "asset_b": "s129635p92215",
+    "label": "APC/EXXI",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101151p78223__s108130p21207",
+    "asset_a": "s101151p78223",
+    "asset_b": "s108130p21207",
+    "label": "AEM/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103054p23887__s111668p65875",
+    "asset_a": "s103054p23887",
+    "asset_b": "s111668p65875",
+    "label": "FTR/VZ",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104533p11850__s111296p15069",
+    "asset_a": "s104533p11850",
+    "asset_b": "s111296p15069",
+    "label": "XOM/MRO",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103879p26403__s104146p81696",
+    "asset_a": "s103879p26403",
+    "asset_b": "s104146p81696",
+    "label": "DIS/DISH",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110488p91207__s189909p14338",
+    "asset_a": "s110488p91207",
+    "asset_b": "s189909p14338",
+    "label": "HOT/HLT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s128604p91650__s146036p12558",
+    "asset_a": "s128604p91650",
+    "asset_b": "s146036p12558",
+    "label": "SE/KMI",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105785p10145__s144671p12369",
+    "asset_a": "s105785p10145",
+    "asset_b": "s144671p12369",
+    "label": "HON/GM",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101444p86111__s148753p13003",
+    "asset_a": "s101444p86111",
+    "asset_b": "s148753p13003",
+    "label": "AMT/VER",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103676p49680__s110991p62092",
+    "asset_a": "s103676p49680",
+    "asset_b": "s110991p62092",
+    "label": "DHR/TMO",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106701p89692__s110179p83909",
+    "asset_a": "s106701p89692",
+    "asset_b": "s110179p83909",
+    "label": "KGC/SSRI",
+    "industry": "108",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103255p88284__s146286p12622",
+    "asset_a": "s103255p88284",
+    "asset_b": "s146286p12622",
+    "label": "CYH/HCA",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s113119p89179__s113430p89269",
+    "asset_a": "s113119p89179",
+    "asset_b": "s113430p89269",
+    "label": "ELV/CNC",
+    "industry": "632",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121571p90219__s142517p93299",
+    "asset_a": "s121571p90219",
+    "asset_b": "s142517p93299",
+    "label": "SFL/STNG",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102235p87267__s147220p12591",
+    "asset_a": "s102235p87267",
+    "asset_b": "s147220p12591",
+    "label": "BLK/APO",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101251p76477__s109497p24942",
+    "asset_a": "s101251p76477",
+    "asset_b": "s109497p24942",
+    "label": "OA/RTN",
+    "industry": "381",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111434p87447__s129410p91926",
+    "asset_a": "s111434p87447",
+    "asset_b": "s129410p91926",
+    "label": "UPS/DAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102956p84723__s129635p92215",
+    "asset_a": "s102956p84723",
+    "asset_b": "s129635p92215",
+    "label": "LNG/EXXI",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101151p78223__s105663p32651",
+    "asset_a": "s101151p78223",
+    "asset_b": "s105663p32651",
+    "label": "AEM/HL",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103198p89525__s139906p12308",
+    "asset_a": "s103198p89525",
+    "asset_b": "s139906p12308",
+    "label": "CMCSA/CHTR",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s119846p90071__s135145p92530",
+    "asset_a": "s119846p90071",
+    "asset_b": "s135145p92530",
+    "label": "NRG/CPN",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112042p38156__s145634p12476",
+    "asset_a": "s112042p38156",
+    "asset_b": "s145634p12476",
+    "label": "WMB/TRGP",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101444p86111__s105613p67598",
+    "asset_a": "s101444p86111",
+    "asset_b": "s105613p67598",
+    "label": "AMT/HCP",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102043p27887__s109538p76614",
+    "asset_a": "s102043p27887",
+    "asset_b": "s109538p76614",
+    "label": "BAX/REGN",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101477p84597__s104443p87487",
+    "asset_a": "s101477p84597",
+    "asset_b": "s104443p87487",
+    "label": "AMTD/BGCP",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101369p80432__s189248p14182",
+    "asset_a": "s101369p80432",
+    "asset_b": "s189248p14182",
+    "label": "AEO/BURL",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101397p66800__s128140p91603",
+    "asset_a": "s101397p66800",
+    "asset_b": "s128140p91603",
+    "label": "AIG/AFSI",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102235p87267__s123704p90701",
+    "asset_a": "s102235p87267",
+    "asset_b": "s123704p90701",
+    "label": "BLK/LAZ",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103255p88284__s111493p79637",
+    "asset_a": "s103255p88284",
+    "asset_b": "s111493p79637",
+    "label": "CYH/UHS",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108969p13928__s109956p14277",
+    "asset_a": "s108969p13928",
+    "asset_b": "s109956p14277",
+    "label": "COP/SLB",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s129635p92215",
+    "asset_a": "s102963p78877",
+    "asset_b": "s129635p92215",
+    "label": "CHK/EXXI",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103879p26403__s139906p12308",
+    "asset_a": "s103879p26403",
+    "asset_b": "s139906p12308",
+    "label": "DIS/CHTR",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s128604p91650__s145634p12476",
+    "asset_a": "s128604p91650",
+    "asset_b": "s145634p12476",
+    "label": "SE/TRGP",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105613p67598__s148753p13003",
+    "asset_a": "s105613p67598",
+    "asset_b": "s148753p13003",
+    "label": "HCP/VER",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105751p76095__s109538p76614",
+    "asset_a": "s105751p76095",
+    "asset_b": "s109538p76614",
+    "label": "HOLX/REGN",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s104443p87487",
+    "asset_a": "s104081p83862",
+    "asset_b": "s104443p87487",
+    "label": "ETFC/BGCP",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105120p59010__s189248p14182",
+    "asset_a": "s105120p59010",
+    "asset_b": "s189248p14182",
+    "label": "GPS/BURL",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105581p82775__s128140p91603",
+    "asset_a": "s105581p82775",
+    "asset_b": "s128140p91603",
+    "label": "HIG/AFSI",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s123704p90701__s143554p11990",
+    "asset_a": "s123704p90701",
+    "asset_b": "s143554p11990",
+    "label": "LAZ/KKR",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110945p52337__s111493p79637",
+    "asset_a": "s110945p52337",
+    "asset_b": "s111493p79637",
+    "label": "THC/UHS",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104146p81696__s139906p12308",
+    "asset_a": "s104146p81696",
+    "asset_b": "s139906p12308",
+    "label": "DISH/CHTR",
+    "industry": "484",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s145634p12476__s146036p12558",
+    "asset_a": "s145634p12476",
+    "asset_b": "s146036p12558",
+    "label": "TRGP/KMI",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107398p60097__s109538p76614",
+    "asset_a": "s107398p60097",
+    "asset_b": "s109538p76614",
+    "label": "MDT/REGN",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104443p87487__s105329p86868",
+    "asset_a": "s104443p87487",
+    "asset_b": "s105329p86868",
+    "label": "BGCP/GS",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110752p40539__s189248p14182",
+    "asset_a": "s110752p40539",
+    "asset_b": "s189248p14182",
+    "label": "TJX/BURL",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109869p59459__s128140p91603",
+    "asset_a": "s109869p59459",
+    "asset_b": "s128140p91603",
+    "label": "TRV/AFSI",
+    "industry": "633",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s123704p90701__s147220p12591",
+    "asset_a": "s123704p90701",
+    "asset_b": "s147220p12591",
+    "label": "LAZ/APO",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111493p79637__s146286p12622",
+    "asset_a": "s111493p79637",
+    "asset_b": "s146286p12622",
+    "label": "UHS/HCA",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101121p61241__s108321p86580",
+    "asset_a": "s101121p61241",
+    "asset_b": "s108321p86580",
+    "label": "AMD/NVDA",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s119431p89901",
+    "asset_a": "s102963p78877",
+    "asset_b": "s119431p89901",
+    "label": "CHK/WLL",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104681p87390__s207748p79879",
+    "asset_a": "s104681p87390",
+    "asset_b": "s207748p79879",
+    "label": "FNSR/VIAV",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104019p90352__s135145p92530",
+    "asset_a": "s104019p90352",
+    "asset_b": "s135145p92530",
+    "label": "DYN/CPN",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105785p10145__s107616p22592",
+    "asset_a": "s105785p10145",
+    "asset_b": "s107616p22592",
+    "label": "HON/MMM",
+    "industry": "509",
+    "division": "50",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110962p37284__s152875p13356",
+    "asset_a": "s110962p37284",
+    "asset_b": "s152875p13356",
+    "label": "ANDV/PSX",
+    "industry": "291",
+    "division": "29",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109182p86783__s151386p13168",
+    "asset_a": "s109182p86783",
+    "asset_b": "s151386p13168",
+    "label": "PCLN/TRIP",
+    "industry": "472",
+    "division": "47",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103022p84519__s207743p15490",
+    "asset_a": "s103022p84519",
+    "asset_b": "s207743p15490",
+    "label": "CIEN/LITE",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101029p79678__s104229p75828",
+    "asset_a": "s101029p79678",
+    "asset_b": "s104229p75828",
+    "label": "ATVI/EA",
+    "industry": "792",
+    "division": "79",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s139331p92999",
+    "asset_a": "s101561p85414",
+    "asset_b": "s139331p92999",
+    "label": "NLY/STWD",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107248p85913__s127317p91392",
+    "asset_a": "s107248p85913",
+    "asset_b": "s127317p91392",
+    "label": "MAR/WYN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110952p51369__s206043p85035",
+    "asset_a": "s110952p51369",
+    "asset_b": "s206043p85035",
+    "label": "TER/QRVO",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102043p27887__s104185p87657",
+    "asset_a": "s102043p27887",
+    "asset_b": "s104185p87657",
+    "label": "BAX/EW",
+    "industry": "384",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108114p79859__s123307p90634",
+    "asset_a": "s108114p79859",
+    "asset_b": "s123307p90634",
+    "label": "NYCB/BOFI",
+    "industry": "603",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112472p81784__s116545p89618",
+    "asset_a": "s112472p81784",
+    "asset_b": "s116545p89618",
+    "label": "TK/GLNG",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107525p10107__s135419p92611",
+    "asset_a": "s107525p10107",
+    "asset_b": "s135419p92611",
+    "label": "MSFT/V",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107544p53613__s108321p86580",
+    "asset_a": "s107544p53613",
+    "asset_b": "s108321p86580",
+    "label": "MU/NVDA",
+    "industry": "367",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104939p25785__s205575p14987",
+    "asset_a": "s104939p25785",
+    "asset_b": "s205575p14987",
+    "label": "F/FCAU",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s110366p63765",
+    "asset_a": "s102963p78877",
+    "asset_b": "s110366p63765",
+    "label": "CHK/SWN",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102885p60599__s103054p23887",
+    "asset_a": "s102885p60599",
+    "asset_b": "s103054p23887",
+    "label": "CTL/FTR",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105316p69892__s145681p12447",
+    "asset_a": "s105316p69892",
+    "asset_b": "s145681p12447",
+    "label": "GG/AG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102956p84723__s112042p38156",
+    "asset_a": "s102956p84723",
+    "asset_b": "s112042p38156",
+    "label": "LNG/WMB",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106701p89692__s151613p13191",
+    "asset_a": "s106701p89692",
+    "asset_b": "s151613p13191",
+    "label": "KGC/PVG",
+    "industry": "108",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107141p80399__s110188p80100",
+    "asset_a": "s107141p80399",
+    "asset_b": "s110188p80100",
+    "label": "MAC/SPG",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s135419p92611__s154402p13407",
+    "asset_a": "s135419p92611",
+    "asset_b": "s154402p13407",
+    "label": "V/FB",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s144671p12369__s205575p14987",
+    "asset_a": "s144671p12369",
+    "asset_b": "s205575p14987",
+    "label": "GM/FCAU",
+    "industry": "371",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110366p63765__s119431p89901",
+    "asset_a": "s110366p63765",
+    "asset_b": "s119431p89901",
+    "label": "SWN/WLL",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108130p21207__s145681p12447",
+    "asset_a": "s108130p21207",
+    "asset_b": "s145681p12447",
+    "label": "NEM/AG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102956p84723__s108463p25232",
+    "asset_a": "s102956p84723",
+    "asset_b": "s108463p25232",
+    "label": "LNG/OKE",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112463p79145__s161182p13760",
+    "asset_a": "s112463p79145",
+    "asset_b": "s161182p13760",
+    "label": "RCL/NCLH",
+    "industry": "448",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s109476p50017",
+    "asset_a": "s105512p23819",
+    "asset_b": "s109476p50017",
+    "label": "HAL/RRC",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101322p28484__s104416p24328",
+    "asset_a": "s101322p28484",
+    "asset_b": "s104416p24328",
+    "label": "HES/EQT",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103979p27959__s104878p23026",
+    "asset_a": "s103979p27959",
+    "asset_b": "s104878p23026",
+    "label": "DUK/FE",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108463p25232__s112042p38156",
+    "asset_a": "s108463p25232",
+    "asset_b": "s112042p38156",
+    "label": "OKE/WMB",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109476p50017__s109956p14277",
+    "asset_a": "s109476p50017",
+    "asset_b": "s109956p14277",
+    "label": "RRC/SLB",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s110366p63765",
+    "asset_a": "s101533p70332",
+    "asset_b": "s110366p63765",
+    "label": "APC/SWN",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104508p21776__s104878p23026",
+    "asset_a": "s104508p21776",
+    "asset_b": "s104878p23026",
+    "label": "EXC/FE",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108463p25232__s146036p12558",
+    "asset_a": "s108463p25232",
+    "asset_b": "s146036p12558",
+    "label": "OKE/KMI",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101533p70332__s119431p89901",
+    "asset_a": "s101533p70332",
+    "asset_b": "s119431p89901",
+    "label": "APC/WLL",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101151p78223__s145681p12447",
+    "asset_a": "s101151p78223",
+    "asset_b": "s145681p12447",
+    "label": "AEM/AG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104878p23026__s110337p18411",
+    "asset_a": "s104878p23026",
+    "asset_b": "s110337p18411",
+    "label": "FE/SO",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103098p27422__s105003p81774",
+    "asset_a": "s103098p27422",
+    "asset_b": "s105003p81774",
+    "label": "CLF/FCX",
+    "industry": "100",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101580p39490__s102963p78877",
+    "asset_a": "s101580p39490",
+    "asset_b": "s102963p78877",
+    "label": "APA/CHK",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106715p12473__s111434p87447",
+    "asset_a": "s106715p12473",
+    "asset_b": "s111434p87447",
+    "label": "KNX/UPS",
+    "industry": "421",
+    "division": "42",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104286p22103__s105169p12060",
+    "asset_a": "s104286p22103",
+    "asset_b": "s105169p12060",
+    "label": "EMR/GE",
+    "industry": "360",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108649p22517__s110337p18411",
+    "asset_a": "s108649p22517",
+    "asset_b": "s110337p18411",
+    "label": "PPL/SO",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101803p79338__s207008p15331",
+    "asset_a": "s101803p79338",
+    "asset_b": "s207008p15331",
+    "label": "SGMS/IGT",
+    "industry": "799",
+    "division": "79",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101310p84788__s110752p40539",
+    "asset_a": "s101310p84788",
+    "asset_b": "s110752p40539",
+    "label": "AMZN/TJX",
+    "industry": "533",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s125179p90978__s128133p91607",
+    "asset_a": "s125179p90978",
+    "asset_b": "s128133p91607",
+    "label": "SPWR/CSIQ",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104081p83862__s106067p77217",
+    "asset_a": "s104081p83862",
+    "asset_b": "s106067p77217",
+    "label": "ETFC/WETF",
+    "industry": "622",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107248p85913__s116416p89533",
+    "asset_a": "s107248p85913",
+    "asset_b": "s116416p89533",
+    "label": "MAR/WYNN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s123090p90558__s207444p15398",
+    "asset_a": "s123090p90558",
+    "asset_b": "s207444p15398",
+    "label": "HUN/CC",
+    "industry": "280",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102833p25487__s209658p16086",
+    "asset_a": "s102833p25487",
+    "asset_b": "s209658p16086",
+    "label": "CAR/HTZ",
+    "industry": "751",
+    "division": "75",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111279p11752__s206043p85035",
+    "asset_a": "s111279p11752",
+    "asset_b": "s206043p85035",
+    "label": "IIVI/QRVO",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s206322p15198__s208220p15789",
+    "asset_a": "s206322p15198",
+    "asset_b": "s208220p15789",
+    "label": "NVTA/NVCR",
+    "industry": "801",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107616p22592__s111222p55001",
+    "asset_a": "s107616p22592",
+    "asset_b": "s111222p55001",
+    "label": "MMM/TRN",
+    "industry": "509",
+    "division": "50",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110262p60206__s110460p43350",
+    "asset_a": "s110262p60206",
+    "asset_b": "s110460p43350",
+    "label": "SNA/SWK",
+    "industry": "342",
+    "division": "34",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s154402p13407__s189705p14295",
+    "asset_a": "s154402p13407",
+    "asset_b": "s189705p14295",
+    "label": "FB/TWTR",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101594p14593__s208503p15826",
+    "asset_a": "s101594p14593",
+    "asset_b": "s208503p15826",
+    "label": "AAPL/SQ",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101580p39490__s110366p63765",
+    "asset_a": "s101580p39490",
+    "asset_b": "s110366p63765",
+    "label": "APA/SWN",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101556p86341__s103131p24441",
+    "asset_a": "s101556p86341",
+    "asset_b": "s103131p24441",
+    "label": "AU/CDE",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103979p27959__s108649p22517",
+    "asset_a": "s103979p27959",
+    "asset_b": "s108649p22517",
+    "label": "DUK/PPL",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109775p66093__s121764p91937",
+    "asset_a": "s109775p66093",
+    "asset_b": "s121764p91937",
+    "label": "T/TMUS",
+    "industry": "481",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s205208p14882",
+    "asset_a": "s107110p11891",
+    "asset_b": "s205208p14882",
+    "label": "MGM/CZR",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107248p85913__s189909p14338",
+    "asset_a": "s107248p85913",
+    "asset_b": "s189909p14338",
+    "label": "MAR/HLT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110952p51369__s111279p11752",
+    "asset_a": "s110952p51369",
+    "asset_b": "s111279p11752",
+    "label": "TER/IIVI",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102064p80193__s106629p70092",
+    "asset_a": "s102064p80193",
+    "asset_b": "s106629p70092",
+    "label": "BZH/KBH",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s123090p90558__s213287p18138",
+    "asset_a": "s123090p90558",
+    "asset_b": "s213287p18138",
+    "label": "HUN/LTHM",
+    "industry": "280",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106715p12473__s112185p59483",
+    "asset_a": "s106715p12473",
+    "asset_b": "s112185p59483",
+    "label": "KNX/YRCW",
+    "industry": "421",
+    "division": "42",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s124737p90853__s142517p93299",
+    "asset_a": "s124737p90853",
+    "asset_b": "s142517p93299",
+    "label": "SSW/STNG",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105573p25582__s108231p24766",
+    "asset_a": "s105573p25582",
+    "asset_b": "s108231p24766",
+    "label": "LHX/NOC",
+    "industry": "381",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103042p76076__s208503p15826",
+    "asset_a": "s103042p76076",
+    "asset_b": "s208503p15826",
+    "label": "CSCO/SQ",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101556p86341__s108130p21207",
+    "asset_a": "s101556p86341",
+    "asset_b": "s108130p21207",
+    "label": "AU/NEM",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102956p84723__s146036p12558",
+    "asset_a": "s102956p84723",
+    "asset_b": "s146036p12558",
+    "label": "LNG/KMI",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s116416p89533__s189909p14338",
+    "asset_a": "s116416p89533",
+    "asset_b": "s189909p14338",
+    "label": "WYNN/HLT",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105573p25582__s109497p24942",
+    "asset_a": "s105573p25582",
+    "asset_b": "s109497p24942",
+    "label": "LHX/RTN",
+    "industry": "381",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110979p23579__s128763p91733",
+    "asset_a": "s110979p23579",
+    "asset_b": "s128763p91733",
+    "label": "TXT/AVAV",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101594p14593__s111987p66384",
+    "asset_a": "s101594p14593",
+    "asset_b": "s111987p66384",
+    "label": "AAPL/WDC",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104635p60628__s125537p91103",
+    "asset_a": "s104635p60628",
+    "asset_b": "s125537p91103",
+    "label": "FDX/UAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101322p28484__s143107p93420",
+    "asset_a": "s101322p28484",
+    "asset_b": "s143107p93420",
+    "label": "HES/OAS",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101580p39490__s151404p13141",
+    "asset_a": "s101580p39490",
+    "asset_b": "s151404p13141",
+    "label": "APA/WPX",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102956p84723__s145634p12476",
+    "asset_a": "s102956p84723",
+    "asset_b": "s145634p12476",
+    "label": "LNG/TRGP",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101368p24109__s103979p27959",
+    "asset_a": "s101368p24109",
+    "asset_b": "s103979p27959",
+    "label": "AEP/DUK",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111987p66384__s208503p15826",
+    "asset_a": "s111987p66384",
+    "asset_b": "s208503p15826",
+    "label": "WDC/SQ",
+    "industry": "357",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104635p60628__s129410p91926",
+    "asset_a": "s104635p60628",
+    "asset_b": "s129410p91926",
+    "label": "FDX/DAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102968p14541__s143107p93420",
+    "asset_a": "s102968p14541",
+    "asset_b": "s143107p93420",
+    "label": "CVX/OAS",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102963p78877__s151404p13141",
+    "asset_a": "s102963p78877",
+    "asset_b": "s151404p13141",
+    "label": "CHK/WPX",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101368p24109__s108649p22517",
+    "asset_a": "s101368p24109",
+    "asset_b": "s108649p22517",
+    "label": "AEP/PPL",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109476p50017__s112333p79237",
+    "asset_a": "s109476p50017",
+    "asset_b": "s112333p79237",
+    "label": "RRC/RIG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104635p60628__s189845p21020",
+    "asset_a": "s104635p60628",
+    "asset_b": "s189845p21020",
+    "label": "FDX/AAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104533p11850__s143107p93420",
+    "asset_a": "s104533p11850",
+    "asset_b": "s143107p93420",
+    "label": "XOM/OAS",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110366p63765__s151404p13141",
+    "asset_a": "s110366p63765",
+    "asset_b": "s151404p13141",
+    "label": "SWN/WPX",
+    "industry": "132",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101368p24109__s110337p18411",
+    "asset_a": "s101368p24109",
+    "asset_b": "s110337p18411",
+    "label": "AEP/SO",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102265p19561__s105169p12060",
+    "asset_a": "s102265p19561",
+    "asset_b": "s105169p12060",
+    "label": "BA/GE",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s213114p17977__s213363p18151",
+    "asset_a": "s213114p17977",
+    "asset_b": "s213363p18151",
+    "label": "TLRY/ACB",
+    "industry": "283",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106701p89692__s145681p12447",
+    "asset_a": "s106701p89692",
+    "asset_b": "s145681p12447",
+    "label": "KGC/AG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111296p15069__s189349p14179",
+    "asset_a": "s111296p15069",
+    "asset_b": "s189349p14179",
+    "label": "MRO/AR",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s127149p91321",
+    "asset_a": "s105003p81774",
+    "asset_b": "s127149p91321",
+    "label": "FCX/TECK",
+    "industry": "102",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s124209p90808__s151386p13168",
+    "asset_a": "s124209p90808",
+    "asset_b": "s151386p13168",
+    "label": "EXPE/TRIP",
+    "industry": "472",
+    "division": "47",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s139176p92951",
+    "asset_a": "s101561p85414",
+    "asset_b": "s139176p92951",
+    "label": "NLY/IVR",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105040p77699__s207852p15643",
+    "asset_a": "s105040p77699",
+    "asset_b": "s207852p15643",
+    "label": "FCEL/RUN",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s207039p15291__s207768p15546",
+    "asset_a": "s207039p15291",
+    "asset_b": "s207768p15546",
+    "label": "ETSY/Z",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s207008p15331__s213816p18835",
+    "asset_a": "s207008p15331",
+    "asset_b": "s213816p18835",
+    "label": "IGT/DKNG",
+    "industry": "799",
+    "division": "79",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104508p21776__s108609p13688",
+    "asset_a": "s104508p21776",
+    "asset_b": "s108609p13688",
+    "label": "EXC/PCG",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109072p87337__s214803p19919",
+    "asset_a": "s109072p87337",
+    "asset_b": "s214803p19919",
+    "label": "PLUG/STEM",
+    "industry": "369",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101204p24643__s103434p22293",
+    "asset_a": "s101204p24643",
+    "asset_b": "s103434p22293",
+    "label": "HWM/GLW",
+    "industry": "335",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s142517p93299__s214242p90853",
+    "asset_a": "s142517p93299",
+    "asset_b": "s214242p90853",
+    "label": "STNG/ATCO",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s211715p16829__s214410p19455",
+    "asset_a": "s211715p16829",
+    "asset_b": "s214410p19455",
+    "label": "RDFN/OPEN",
+    "industry": "653",
+    "division": "65",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108253p88807__s129677p92095",
+    "asset_a": "s108253p88807",
+    "asset_b": "s129677p92095",
+    "label": "INSG/INFN",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103466p87055__s139733p93096",
+    "asset_a": "s103466p87055",
+    "asset_b": "s139733p93096",
+    "label": "COST/DG",
+    "industry": "533",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s114695p88863__s145989p12579",
+    "asset_a": "s114695p88863",
+    "asset_b": "s145989p12579",
+    "label": "EXAS/GEVO",
+    "industry": "873",
+    "division": "87",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102472p27562__s154945p13548",
+    "asset_a": "s102472p27562",
+    "asset_b": "s154945p13548",
+    "label": "CBRL/BLMN",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106744p16678__s208300p19413",
+    "asset_a": "s106744p16678",
+    "asset_b": "s208300p19413",
+    "label": "KR/ACI",
+    "industry": "541",
+    "division": "54",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108114p79859__s208142p81593",
+    "asset_a": "s108114p79859",
+    "asset_b": "s208142p81593",
+    "label": "NYCB/COOP",
+    "industry": "603",
+    "division": "60",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111434p87447__s116076p90175",
+    "asset_a": "s111434p87447",
+    "asset_b": "s116076p90175",
+    "label": "UPS/XPO",
+    "industry": "421",
+    "division": "42",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102873p83244__s210354p16347",
+    "asset_a": "s102873p83244",
+    "asset_b": "s210354p16347",
+    "label": "CENX/AA",
+    "industry": "333",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105329p86868__s106905p20415",
+    "asset_a": "s105329p86868",
+    "asset_b": "s106905p20415",
+    "label": "GS/JEF",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104360p86560__s110197p81740",
+    "asset_a": "s104360p86560",
+    "asset_b": "s110197p81740",
+    "label": "AUD/SBGI",
+    "industry": "483",
+    "division": "48",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102381p10866__s110215p86949",
+    "asset_a": "s102381p10866",
+    "asset_b": "s110215p86949",
+    "label": "CAL/SKX",
+    "industry": "513",
+    "division": "51",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106775p49488__s124758p90829",
+    "asset_a": "s106775p49488",
+    "asset_b": "s124758p90829",
+    "label": "LXU/CF",
+    "industry": "287",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s211188p16689__s211224p16653",
+    "asset_a": "s211188p16689",
+    "asset_b": "s211224p16653",
+    "label": "BTU/HCC",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111359p66325__s189478p14229",
+    "asset_a": "s111359p66325",
+    "asset_b": "s189478p14229",
+    "label": "SLM/OMF",
+    "industry": "614",
+    "division": "61",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s125944p91161__s151709p13201",
+    "asset_a": "s125944p91161",
+    "asset_b": "s151709p13201",
+    "label": "GPRE/REGI",
+    "industry": "286",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121995p90401__s123847p90731",
+    "asset_a": "s121995p90401",
+    "asset_b": "s123847p90731",
+    "label": "ARCC/HTGC",
+    "industry": "672",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102373p81241__s106808p48486",
+    "asset_a": "s102373p81241",
+    "asset_b": "s106808p48486",
+    "label": "AZTA/LRCX",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107107p76804__s108423p59396",
+    "asset_a": "s107107p76804",
+    "asset_b": "s108423p59396",
+    "label": "MTG/ORI",
+    "industry": "635",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s154402p13407__s210918p16595",
+    "asset_a": "s154402p13407",
+    "asset_b": "s210918p16595",
+    "label": "FB/SNAP",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106701p89692__s111450p70704",
+    "asset_a": "s106701p89692",
+    "asset_b": "s111450p70704",
+    "label": "KGC/MUX",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103802p87137__s111296p15069",
+    "asset_a": "s103802p87137",
+    "asset_b": "s111296p15069",
+    "label": "DVN/MRO",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107110p11891__s108843p80563",
+    "asset_a": "s107110p11891",
+    "asset_b": "s108843p80563",
+    "label": "MGM/PENN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s139653p93070",
+    "asset_a": "s101561p85414",
+    "asset_b": "s139653p93070",
+    "label": "NLY/TWO",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104560p24205__s104878p23026",
+    "asset_a": "s104560p24205",
+    "asset_b": "s104878p23026",
+    "label": "NEE/FE",
+    "industry": "491",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112042p38156__s211296p16738",
+    "asset_a": "s112042p38156",
+    "asset_b": "s211296p16738",
+    "label": "WMB/AM",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103651p77661__s111071p70228",
+    "asset_a": "s103651p77661",
+    "asset_b": "s111071p70228",
+    "label": "DHI/TOL",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102472p27562__s206149p15167",
+    "asset_a": "s102472p27562",
+    "asset_b": "s206149p15167",
+    "label": "CBRL/SHAK",
+    "industry": "581",
+    "division": "58",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109072p87337__s214357p19416",
+    "asset_a": "s109072p87337",
+    "asset_b": "s214357p19416",
+    "label": "PLUG/EOSE",
+    "industry": "369",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102235p87267__s105329p86868",
+    "asset_a": "s102235p87267",
+    "asset_b": "s105329p86868",
+    "label": "BLK/GS",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104992p37584__s147220p12591",
+    "asset_a": "s104992p37584",
+    "asset_b": "s147220p12591",
+    "label": "BEN/APO",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s155271p13622__s211715p16829",
+    "asset_a": "s155271p13622",
+    "asset_b": "s211715p16829",
+    "label": "RLGY/RDFN",
+    "industry": "653",
+    "division": "65",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106715p12473__s116076p90175",
+    "asset_a": "s106715p12473",
+    "asset_b": "s116076p90175",
+    "label": "KNX/XPO",
+    "industry": "421",
+    "division": "42",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s206322p15198__s213271p18135",
+    "asset_a": "s206322p15198",
+    "asset_b": "s213271p18135",
+    "label": "NVTA/GH",
+    "industry": "807",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105615p10693__s110945p52337",
+    "asset_a": "s105615p10693",
+    "asset_b": "s110945p52337",
+    "label": "EHC/THC",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111436p85663__s208308p15782",
+    "asset_a": "s111436p85663",
+    "asset_b": "s208308p15782",
+    "label": "URI/WSC",
+    "industry": "735",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102373p81241__s213673p18719",
+    "asset_a": "s102373p81241",
+    "asset_b": "s213673p18719",
+    "label": "AZTA/DM",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106723p77606__s189248p14182",
+    "asset_a": "s106723p77606",
+    "asset_b": "s189248p14182",
+    "label": "KSS/BURL",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s211188p16689__s212347p17039",
+    "asset_a": "s211188p16689",
+    "asset_b": "s212347p17039",
+    "label": "BTU/CEIX",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s210918p16595__s213638p18576",
+    "asset_a": "s210918p16595",
+    "asset_b": "s213638p18576",
+    "label": "SNAP/UBER",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111450p70704__s145681p12447",
+    "asset_a": "s111450p70704",
+    "asset_b": "s145681p12447",
+    "label": "MUX/AG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103802p87137__s189349p14179",
+    "asset_a": "s103802p87137",
+    "asset_b": "s189349p14179",
+    "label": "DVN/AR",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108843p80563__s116416p89533",
+    "asset_a": "s108843p80563",
+    "asset_b": "s116416p89533",
+    "label": "PENN/WYNN",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105169p12060__s111459p17830",
+    "asset_a": "s105169p12060",
+    "asset_b": "s111459p17830",
+    "label": "GE/RTX",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s139176p92951__s139653p93070",
+    "asset_a": "s139176p92951",
+    "asset_b": "s139653p93070",
+    "label": "IVR/TWO",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s146036p12558__s211296p16738",
+    "asset_a": "s146036p12558",
+    "asset_b": "s211296p16738",
+    "label": "KMI/AM",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s127149p91321__s8957p89911",
+    "asset_a": "s127149p91321",
+    "asset_b": "s8957p89911",
+    "label": "TECK/TRQ",
+    "industry": "102",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106899p52708__s111071p70228",
+    "asset_a": "s106899p52708",
+    "asset_b": "s111071p70228",
+    "label": "LEN/TOL",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s125052p90943__s214242p90853",
+    "asset_a": "s125052p90943",
+    "asset_b": "s214242p90853",
+    "label": "DHT/ATCO",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102235p87267__s106905p20415",
+    "asset_a": "s102235p87267",
+    "asset_b": "s106905p20415",
+    "label": "BLK/JEF",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105615p10693__s146286p12622",
+    "asset_a": "s105615p10693",
+    "asset_b": "s146286p12622",
+    "label": "EHC/HCA",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121355p90121__s123847p90731",
+    "asset_a": "s121355p90121",
+    "asset_b": "s123847p90731",
+    "label": "AINV/HTGC",
+    "industry": "672",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101853p88417__s102373p81241",
+    "asset_a": "s101853p88417",
+    "asset_b": "s102373p81241",
+    "label": "ACLS/AZTA",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s211224p16653__s212347p17039",
+    "asset_a": "s211224p16653",
+    "asset_b": "s212347p17039",
+    "label": "HCC/CEIX",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110357p58683__s125537p91103",
+    "asset_a": "s110357p58683",
+    "asset_b": "s125537p91103",
+    "label": "LUV/UAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102265p19561__s128252p91594",
+    "asset_a": "s102265p19561",
+    "asset_b": "s128252p91594",
+    "label": "BA/SPR",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105512p23819__s116545p89618",
+    "asset_a": "s105512p23819",
+    "asset_b": "s116545p89618",
+    "label": "HAL/GLNG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103651p77661__s106629p70092",
+    "asset_a": "s103651p77661",
+    "asset_b": "s106629p70092",
+    "label": "DHI/KBH",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101369p80432__s105450p83822",
+    "asset_a": "s101369p80432",
+    "asset_b": "s105450p83822",
+    "label": "AEO/GES",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102235p87267__s106067p77217",
+    "asset_a": "s102235p87267",
+    "asset_b": "s106067p77217",
+    "label": "BLK/WETF",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101227p43123__s109958p79866",
+    "asset_a": "s101227p43123",
+    "asset_b": "s109958p79866",
+    "label": "ATI/SCHN",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105615p10693__s111493p79637",
+    "asset_a": "s105615p10693",
+    "asset_b": "s111493p79637",
+    "label": "EHC/UHS",
+    "industry": "806",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101853p88417__s106808p48486",
+    "asset_a": "s101853p88417",
+    "asset_b": "s106808p48486",
+    "label": "ACLS/LRCX",
+    "industry": "355",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110357p58683__s129410p91926",
+    "asset_a": "s110357p58683",
+    "asset_b": "s129410p91926",
+    "label": "LUV/DAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105663p32651__s111450p70704",
+    "asset_a": "s105663p32651",
+    "asset_b": "s111450p70704",
+    "label": "HL/MUX",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108843p80563__s205208p14882",
+    "asset_a": "s108843p80563",
+    "asset_b": "s205208p14882",
+    "label": "PENN/CZR",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105169p12060__s128252p91594",
+    "asset_a": "s105169p12060",
+    "asset_b": "s128252p91594",
+    "label": "GE/SPR",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109956p14277__s116545p89618",
+    "asset_a": "s109956p14277",
+    "asset_b": "s116545p89618",
+    "label": "SLB/GLNG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106629p70092__s106899p52708",
+    "asset_a": "s106629p70092",
+    "asset_b": "s106899p52708",
+    "label": "KBH/LEN",
+    "industry": "153",
+    "division": "15",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105120p59010__s105450p83822",
+    "asset_a": "s105120p59010",
+    "asset_b": "s105450p83822",
+    "label": "GPS/GES",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105329p86868__s106067p77217",
+    "asset_a": "s105329p86868",
+    "asset_b": "s106067p77217",
+    "label": "GS/WETF",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109958p79866__s110497p84262",
+    "asset_a": "s109958p79866",
+    "asset_b": "s110497p84262",
+    "label": "SCHN/STLD",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110357p58683__s189845p21020",
+    "asset_a": "s110357p58683",
+    "asset_b": "s189845p21020",
+    "label": "LUV/AAL",
+    "industry": "451",
+    "division": "45",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105663p32651__s145681p12447",
+    "asset_a": "s105663p32651",
+    "asset_b": "s145681p12447",
+    "label": "HL/AG",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s116416p89533__s205208p14882",
+    "asset_a": "s116416p89533",
+    "asset_b": "s205208p14882",
+    "label": "WYNN/CZR",
+    "industry": "701",
+    "division": "70",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111459p17830__s128252p91594",
+    "asset_a": "s111459p17830",
+    "asset_b": "s128252p91594",
+    "label": "RTX/SPR",
+    "industry": "372",
+    "division": "37",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s108463p25232__s211296p16738",
+    "asset_a": "s108463p25232",
+    "asset_b": "s211296p16738",
+    "label": "OKE/AM",
+    "industry": "492",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121571p90219__s214242p90853",
+    "asset_a": "s121571p90219",
+    "asset_b": "s214242p90853",
+    "label": "SFL/ATCO",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105450p83822__s110752p40539",
+    "asset_a": "s105450p83822",
+    "asset_b": "s110752p40539",
+    "label": "GES/TJX",
+    "industry": "565",
+    "division": "56",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s106067p77217__s106905p20415",
+    "asset_a": "s106067p77217",
+    "asset_b": "s106905p20415",
+    "label": "WETF/JEF",
+    "industry": "621",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109958p79866__s111337p76644",
+    "asset_a": "s109958p79866",
+    "asset_b": "s111337p76644",
+    "label": "SCHN/X",
+    "industry": "331",
+    "division": "33",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s205711p14948__s143439p93436",
+    "asset_a": "s205711p14948",
+    "asset_b": "s143439p93436",
+    "label": "ARKK/TSLA",
+    "industry": "ETF",
+    "division": "ETF",
+    "kind": "ETF_stock"
+  },
+  {
+    "pair": "s121812p90319__s154402p13407",
+    "asset_a": "s121812p90319",
+    "asset_b": "s154402p13407",
+    "label": "GOOGL/META",
+    "industry": "737",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s213531p18452__s213638p18576",
+    "asset_a": "s213531p18452",
+    "asset_b": "s213638p18576",
+    "label": "LYFT/UBER",
+    "industry": "738",
+    "division": "73",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103802p87137__s107158p89790",
+    "asset_a": "s103802p87137",
+    "asset_b": "s107158p89790",
+    "label": "DVN/TELL",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s214904p20196__s215427p20892",
+    "asset_a": "s214904p20196",
+    "asset_b": "s215427p20892",
+    "label": "UPST/COIN",
+    "industry": "619",
+    "division": "61",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101310p84788__s205536p14983",
+    "asset_a": "s101310p84788",
+    "asset_b": "s205536p14983",
+    "label": "AMZN/W",
+    "industry": "596",
+    "division": "59",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s204531p14686",
+    "asset_a": "s101561p85414",
+    "asset_b": "s204531p14686",
+    "label": "NLY/DBRG",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109072p87337__s213108p17949",
+    "asset_a": "s109072p87337",
+    "asset_b": "s213108p17949",
+    "label": "PLUG/BE",
+    "industry": "362",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s214803p19919__s216213p21692",
+    "asset_a": "s214803p19919",
+    "asset_b": "s216213p21692",
+    "label": "STEM/FREY",
+    "industry": "369",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103368p69796__s103404p59248",
+    "asset_a": "s103368p69796",
+    "asset_b": "s103404p59248",
+    "label": "STZ/TAP",
+    "industry": "208",
+    "division": "20",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s129677p92095__s189574p14239",
+    "asset_a": "s129677p92095",
+    "asset_b": "s189574p14239",
+    "label": "INFN/COMM",
+    "industry": "366",
+    "division": "36",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s207444p15398__s213287p18138",
+    "asset_a": "s207444p15398",
+    "asset_b": "s213287p18138",
+    "label": "CC/LTHM",
+    "industry": "281",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s109182p86783__s124209p90808",
+    "asset_a": "s109182p86783",
+    "asset_b": "s124209p90808",
+    "label": "BKNG/EXPE",
+    "industry": "470",
+    "division": "47",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102632p77366__s213921p18940",
+    "asset_a": "s102632p77366",
+    "asset_b": "s213921p18940",
+    "label": "MODG/PTON",
+    "industry": "394",
+    "division": "39",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s189478p14229__s214964p20339",
+    "asset_a": "s189478p14229",
+    "asset_b": "s214964p20339",
+    "label": "OMF/AFRM",
+    "industry": "614",
+    "division": "61",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s102833p25487__s216878p16086",
+    "asset_a": "s102833p25487",
+    "asset_b": "s216878p16086",
+    "label": "CAR/HTZ",
+    "industry": "751",
+    "division": "75",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s114695p88863__s213271p18135",
+    "asset_a": "s114695p88863",
+    "asset_b": "s213271p18135",
+    "label": "EXAS/GH",
+    "industry": "807",
+    "division": "80",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101920p75034__s111921p32791",
+    "asset_a": "s101920p75034",
+    "asset_b": "s111921p32791",
+    "label": "BKR/WFRD",
+    "industry": "353",
+    "division": "35",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s122791p90520__s123090p90558",
+    "asset_a": "s122791p90520",
+    "asset_b": "s123090p90558",
+    "label": "CE/HUN",
+    "industry": "282",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s210603p16515__s210831p16581",
+    "asset_a": "s210603p16515",
+    "asset_b": "s210831p16581",
+    "label": "IIPR/INVH",
+    "industry": "651",
+    "division": "65",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103802p87137__s110366p63765",
+    "asset_a": "s103802p87137",
+    "asset_b": "s110366p63765",
+    "label": "DVN/SWN",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101561p85414__s111814p28388",
+    "asset_a": "s101561p85414",
+    "asset_b": "s111814p28388",
+    "label": "NLY/VNO",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103098p27422__s214407p19433",
+    "asset_a": "s103098p27422",
+    "asset_b": "s214407p19433",
+    "label": "CLF/MP",
+    "industry": "100",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112213p38295__s113437p89258",
+    "asset_a": "s112213p38295",
+    "asset_b": "s113437p89258",
+    "label": "SPB/PRU",
+    "industry": "631",
+    "division": "63",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110991p62092__s144520p12360",
+    "asset_a": "s110991p62092",
+    "asset_b": "s144520p12360",
+    "label": "TMO/PACB",
+    "industry": "382",
+    "division": "38",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104633p77462__s189248p14182",
+    "asset_a": "s104633p77462",
+    "asset_b": "s189248p14182",
+    "label": "M/BURL",
+    "industry": "531",
+    "division": "53",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s121756p90291__s143554p11990",
+    "asset_a": "s121756p90291",
+    "asset_b": "s143554p11990",
+    "label": "PSEC/KKR",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s211188p16689__s213365p18224",
+    "asset_a": "s211188p16689",
+    "asset_b": "s213365p18224",
+    "label": "BTU/AMR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112472p81784__s125052p90943",
+    "asset_a": "s112472p81784",
+    "asset_b": "s125052p90943",
+    "label": "TK/DHT",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110000p85926__s122791p90520",
+    "asset_a": "s110000p85926",
+    "asset_b": "s122791p90520",
+    "label": "SEE/CE",
+    "industry": "282",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107158p89790__s110366p63765",
+    "asset_a": "s107158p89790",
+    "asset_b": "s110366p63765",
+    "label": "TELL/SWN",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s111814p28388__s204531p14686",
+    "asset_a": "s111814p28388",
+    "asset_b": "s204531p14686",
+    "label": "VNO/DBRG",
+    "industry": "679",
+    "division": "67",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s105003p81774__s214407p19433",
+    "asset_a": "s105003p81774",
+    "asset_b": "s214407p19433",
+    "label": "FCX/MP",
+    "industry": "100",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s103979p27959__s108609p13688",
+    "asset_a": "s103979p27959",
+    "asset_b": "s108609p13688",
+    "label": "DUK/PCG",
+    "industry": "493",
+    "division": "49",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s212347p17039__s213365p18224",
+    "asset_a": "s212347p17039",
+    "asset_b": "s213365p18224",
+    "label": "CEIX/AMR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112472p81784__s142517p93299",
+    "asset_a": "s112472p81784",
+    "asset_b": "s142517p93299",
+    "label": "TK/STNG",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110000p85926__s123090p90558",
+    "asset_a": "s110000p85926",
+    "asset_b": "s123090p90558",
+    "label": "SEE/HUN",
+    "industry": "282",
+    "division": "28",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s101151p78223__s106701p89692",
+    "asset_a": "s101151p78223",
+    "asset_b": "s106701p89692",
+    "label": "AEM/KGC",
+    "industry": "104",
+    "division": "10",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s104992p37584__s143554p11990",
+    "asset_a": "s104992p37584",
+    "asset_b": "s143554p11990",
+    "label": "BEN/KKR",
+    "industry": "628",
+    "division": "62",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112472p81784__s121571p90219",
+    "asset_a": "s112472p81784",
+    "asset_b": "s121571p90219",
+    "label": "TK/SFL",
+    "industry": "441",
+    "division": "44",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s210291p16436__s211188p16689",
+    "asset_a": "s210291p16436",
+    "asset_b": "s211188p16689",
+    "label": "ARCH/BTU",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s107158p89790__s189349p14179",
+    "asset_a": "s107158p89790",
+    "asset_b": "s189349p14179",
+    "label": "TELL/AR",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s210291p16436__s212347p17039",
+    "asset_a": "s210291p16436",
+    "asset_b": "s212347p17039",
+    "label": "ARCH/CEIX",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s110366p63765__s189349p14179",
+    "asset_a": "s110366p63765",
+    "asset_b": "s189349p14179",
+    "label": "SWN/AR",
+    "industry": "131",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s112333p79237__s116545p89618",
+    "asset_a": "s112333p79237",
+    "asset_b": "s116545p89618",
+    "label": "RIG/GLNG",
+    "industry": "138",
+    "division": "13",
+    "kind": "stock_stock"
+  },
+  {
+    "pair": "s210291p16436__s213365p18224",
+    "asset_a": "s210291p16436",
+    "asset_b": "s213365p18224",
+    "label": "ARCH/AMR",
+    "industry": "122",
+    "division": "12",
+    "kind": "stock_stock"
+  }
+]

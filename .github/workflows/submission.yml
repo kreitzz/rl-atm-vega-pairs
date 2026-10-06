@@ -30,5 +30,7 @@ jobs:
         run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 300 --duty-cycle 0.5 --rss-limit-mib 384 -- --metrics
       - name: Refit the initial window and verify monthly model decisions
         run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 600 --duty-cycle 0.5 --rss-limit-mib 384 -- --fit-check
+      - name: Match all three funded execution portfolios
+        run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 900 --duty-cycle 0.5 --rss-limit-mib 384 -- --replay --policy all
       - name: Run unit tests serially
         run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 1800 --duty-cycle 0.5 --rss-limit-mib 384 -- --tests

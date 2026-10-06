@@ -69,6 +69,10 @@ def package():
         'artifacts/contracts/year_reversion_management/models/*',
         'artifacts/contracts/year_reversion_management/protected_sources.json',
         'artifacts/contracts/year_reversion_management/prepared.json',
+        'artifacts/broad_pairs/pairs.json',
+        'artifacts/broad_pairs/assets.json',
+        'artifacts/broad_pairs/memory/*/*.csv',
+        'artifacts/nn_rl_benchmark/*.csv',
     ]:
         add(pattern)
     for folder in [CAPITAL / 'replays',
@@ -285,10 +289,13 @@ def fit_check():
 def replay(policy):
     import gc
     import pandas as pd
-    from scripts import run_p25_action_windows as base
+    from scripts import uniform_smile_engine as engine
+    from scripts.uniform_smile_risk import book_risk
     from scripts.option_flex.contract_engine import Settings
-    base.cached.OUT = BUNDLE / 'artifacts/contracts/p25_signal_transfer'
-    market = base.Market()
+    from scripts.cheap_vega_runtime import mark_book
+    from scripts.submission_market import FrozenMarket, verify_ledger
+    checkpoint = json.loads((ROOT / 'config/p25_submission.json').read_text())
+    market = FrozenMarket(BUNDLE / 'artifacts/contracts/p25_signal_transfer/market')
     cal = market.rates.index[market.rates.index >= '2018-01-01']
     original = pd.read_parquet(BUNDLE / FEATURE / 'replays/variance_premium/scored_allocations.parquet')
     for case in CASES if policy == 'all' else [f'10m_{policy}']:
@@ -299,22 +306,22 @@ def replay(policy):
         elif case.endswith('fixed100'):
             rows['learned_level'] = 4
         cfg = Settings(**json.loads((reference / 'config.json').read_text()))
-        saved = base.engine.book_risk
+        saved = engine.book_risk
         try:
-            base.engine.book_risk = base.book_risk
-            nav, trades, decisions, ledger = base.engine.simulate(market, rows, cal, cfg, 1_000_000,
+            engine.book_risk = book_risk
+            nav, trades, decisions, ledger = engine.simulate(market, rows, cal, cfg, 1_000_000,
                 policy=lambda row, context: int(row['learned_level']),
-                corporate_events=base.UNIFORM_CORPORATE_EVENTS, wing_capital=1_000_000)
+                corporate_events=checkpoint['corporate_events'], wing_capital=1_000_000)
         finally:
-            base.engine.book_risk = saved
-        base.mark_book(nav, market.rates, cfg.capital)
+            engine.book_risk = saved
+        mark_book(nav, market.rates, cfg.capital)
         pd.testing.assert_frame_equal(nav, pd.read_parquet(reference / 'daily_nav.parquet'),
                                       check_exact=False, rtol=1e-12, atol=1e-6)
         for frame, name, dates in [(trades, 'trades.csv', ['date']),
                                    (decisions, 'decisions.csv', ['signal_date', 'entry_date'])]:
             pd.testing.assert_frame_equal(frame.reset_index(drop=True), pd.read_csv(reference / name, parse_dates=dates),
                                           check_dtype=False, check_exact=False, rtol=1e-10, atol=1e-6)
-        audit = base.verify(nav, trades, decisions, rows, cfg)
+        audit = verify_ledger(nav, trades, decisions, rows)
         output = ROOT / 'artifacts/submission/replays' / case
         output.mkdir(parents=True, exist_ok=True)
         nav.to_parquet(output / 'daily_nav.parquet')

@@ -1,0 +1,71 @@
+{
+  "status": "validated",
+  "date": "2026-10-06",
+  "input_rows": 36327,
+  "model_inputs": 33,
+  "qualified_proposals": 608,
+  "packaged_cache_files": 1339,
+  "packaged_cache_bytes": 421032275,
+  "integrity_hashes_verified": true,
+  "paper_sources_verified": true,
+  "fresh_checkout_restore_passed": true,
+  "initial_training_fold_refit_exact": true,
+  "all_monthly_allocations_verified": true,
+  "retained_and_six_cheap_vega_metrics_recomputed": true,
+  "funded_replays": {
+    "10m_learned": {
+      "audit": {
+        "entries": 212,
+        "active_pairs": 42,
+        "independent_ledger_error": 4.826233634958044e-09,
+        "all_inventory_closed": true
+      },
+      "ledger": {
+        "max_ledger_error": 4.826233634958044e-09,
+        "shared_cash": true,
+        "shared_stock_hedges": true
+      }
+    },
+    "10m_fixed50": {
+      "audit": {
+        "entries": 263,
+        "active_pairs": 44,
+        "independent_ledger_error": 6.250502337934449e-09,
+        "all_inventory_closed": true
+      },
+      "ledger": {
+        "max_ledger_error": 6.250502337934449e-09,
+        "shared_cash": true,
+        "shared_stock_hedges": true
+      }
+    },
+    "10m_fixed100": {
+      "audit": {
+        "entries": 133,
+        "active_pairs": 40,
+        "independent_ledger_error": 5.701622285414487e-09,
+        "all_inventory_closed": true
+      },
+      "ledger": {
+        "max_ledger_error": 5.701622285414487e-09,
+        "shared_cash": true,
+        "shared_stock_hedges": true
+      }
+    }
+  },
+  "fresh_replay_peak_worker_rss_mib": 370.4,
+  "numerical_rss_stop_mib": 384,
+  "cpu_core_duty_cycle": 0.2,
+  "unit_suite": {
+    "github_run": "https://github.com/kreitzz/rl-atm-vega-pairs/actions/runs/37524535573",
+    "tests_executed": 584,
+    "initial_errors": 3,
+    "initial_error_cause": "Missing historical roster metadata in two legacy test modules",
+    "resolution": "Include broad rosters and action histories; both modules pass from fresh checkout,7 tests",
+    "remaining_tests_passed": 581,
+    "corrected_tests_rerun_in_fresh_checkout": 7,
+    "full_rerun_on_next_push": true
+  },
+  "raw_intermediate_caches_excluded": true,
+  "private_repository": true
+}

@@ -1,0 +1,2 @@
+,end,past_net_mean,past_net_sharpe,past_active_fraction,past_observations,rl_no_memory_action,rl_no_memory_reward,rl_memory_action,rl_memory_reward,rl_memory_fixed_action,rl_memory_fixed_reward,nn_memory_action,nn_memory_reward
+2024-03-11,2024-04-10,7.341946537899762,1.1671800408086865,0.8492063492063492,1.0,0.5,103.55625782029537,1.0,207.11251564059074,1,207.11251564059074,1.0,207.11251564059074

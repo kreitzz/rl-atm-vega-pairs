@@ -68,6 +68,8 @@ Fresh outputs go to `artifacts/submission/`; protected research checkpoints are 
 
 For paper generation, also install `requirements-report.txt`. The existing rebuild script reads saved results, not newly fitted models. [paper/reproduction.txt](paper/reproduction.txt) records the guarded command. The saved PDF and visuals require no rebuild for submission.
 
+[Submission validation](reports/submission_validation.json) records integrity checks, initial-fold fitting, result recomputation, fresh-checkout replay comparisons and test coverage. All three funded portfolios match their saved NAV, trades and decisions; the local replay peaked at 370.4 MiB. GitHub repeats these checks on every push.
+
 ## Results and research history
 
 | Question | Saved evidence |
