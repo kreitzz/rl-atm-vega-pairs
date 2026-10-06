@@ -1,0 +1,17 @@
+status,count,model,period
+risk_limit_entry,193,rule,full
+entered,31,rule,full
+entry_quote_unavailable,29,rule,full
+risk_deleveraging,16,rule,full
+risk_limit_entry,144,rule,recent
+entered,24,rule,recent
+entry_quote_unavailable,18,rule,recent
+risk_deleveraging,16,rule,recent
+risk_limit_entry,39,rl_sized,full
+entered,21,rl_sized,full
+risk_deleveraging,14,rl_sized,full
+entry_quote_unavailable,3,rl_sized,full
+risk_limit_entry,39,rl_sized,recent
+entered,21,rl_sized,recent
+risk_deleveraging,14,rl_sized,recent
+entry_quote_unavailable,3,rl_sized,recent

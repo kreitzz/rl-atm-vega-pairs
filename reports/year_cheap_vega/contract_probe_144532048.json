@@ -1,0 +1,60 @@
+[
+  {
+    "path": "data/native_year_options/entry_history/2022.parquet",
+    "rows": 99,
+    "first": [
+      {
+        "date": "2022-03-01",
+        "optionid": 144532048,
+        "secid": 147220,
+        "exdate": "2023-01-20",
+        "cp_flag": "P",
+        "strike_price": 50000.0,
+        "best_bid": 3.9,
+        "best_offer": 4.3,
+        "ss_flag": "0"
+      }
+    ],
+    "last": [
+      {
+        "date": "2022-07-19",
+        "optionid": 144532048,
+        "secid": 147220,
+        "exdate": "2023-01-20",
+        "cp_flag": "P",
+        "strike_price": 50000.0,
+        "best_bid": 4.7,
+        "best_offer": 5.2,
+        "ss_flag": "0"
+      },
+      {
+        "date": "2022-07-20",
+        "optionid": 144532048,
+        "secid": 147220,
+        "exdate": "2023-01-20",
+        "cp_flag": "P",
+        "strike_price": 50000.0,
+        "best_bid": 4.4,
+        "best_offer": 4.8,
+        "ss_flag": "0"
+      },
+      {
+        "date": "2022-07-21",
+        "optionid": 144532048,
+        "secid": 147220,
+        "exdate": "2023-01-20",
+        "cp_flag": "P",
+        "strike_price": 50000.0,
+        "best_bid": 4.1,
+        "best_offer": 4.6,
+        "ss_flag": "0"
+      }
+    ]
+  },
+  {
+    "path": "data/native_year_options/entry_history/2023.parquet",
+    "rows": 0,
+    "first": [],
+    "last": []
+  }
+]

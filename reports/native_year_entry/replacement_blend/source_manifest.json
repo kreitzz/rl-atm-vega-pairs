@@ -1,0 +1,12 @@
+{
+  "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/report_native_year_replacement.py": "3f537e94b12fd301027c7a4b520cdc67c1634d94adbc3804e01ea423493a705e",
+  "scripts/report_long_tenor_search.py": "81a058e18199ea473d5b710170b9f0ca2f3dc0e36d941d384e5a42f56248097f",
+  "scripts/run_signal_discovery_guarded.py": "10af34c6cfc948295308b5585cac1c82fd351529feecb538de4cf361841701d4",
+  "reports/long_tenor_reversible/best_portfolio.json": "c8394c7d6ca1ad87c73c60f622eca0eaad97edd056df88da40ad351c3e066b64",
+  "reports/long_tenor_reversible/best_portfolio_daily.csv": "0f9bd0dbce51a1a2a24a27fd7630140d887be2b788e8d883c217dfc6c7c6a6ab",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/status.json": "014c1cebf48cb662b9dc3b0f0ed5b3c35c6c1118289416813e14a6043aa6c7e3",
+  "artifacts/contracts/p25_long_management/replays/30D_manage_36M/daily_nav.parquet": "64b23ec1db3a9337ae1ccea4b8428a6982f09e3220fcd7f463198f45319f1eb1",
+  "artifacts/contracts/long_tenor_fitted_q/P25/180D/replays/fixed50_fitted_q_conservative_aligned_runoff/daily_nav.parquet": "439acf74260a26fdfa91d23313bb89c54363b3569fa1d87bd7fd6670f82f58c2",
+  "artifacts/contracts/long_tenor_reversible/P25/365D/replays/fixed50_hold_fork_control/daily_nav.parquet": "161c9ce9326793040a16cd4ceb990d37160e09cd848be5e82cb9e39cc5729523",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/daily_nav.parquet": "9210bd43d42647b6480fc087c05988e6ed0dab540021be318cca3c9d306e483f"
+}

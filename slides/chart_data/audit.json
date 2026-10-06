@@ -1,0 +1,40 @@
+{
+  "main_cases": [
+    "10m_fixed50",
+    "10m_fixed100",
+    "10m_learned"
+  ],
+  "common_proposals_per_case": 608,
+  "funded_equity": 10000000,
+  "daily_returns_and_yearly_metrics_reconciled": true,
+  "pnl_reconciled_to_cash_benchmark": true,
+  "example": "AMD/NVDA",
+  "example_rank_reproduces_saved_states": true,
+  "actual_entry_dates_included": true,
+  "models_or_backtests_rerun": false,
+  "managed_checkpoint_in_main_data": false,
+  "development_funding_reference": 345000000,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 142131200,
+  "source_sha256": {
+    "scripts/export_slide_chart_data.py": "4581fa331d2eaff9920d63c163dd9e0e10d2d2a3e8b94946e07d8de1f46b7492",
+    "reports/p25_capital_sensitivity/comparison.csv": "3aabf0133886aff15f0bfeadb54da455d73168c840f614b9572003f57d914332",
+    "reports/p25_variance_validation/initial_train_walk_forward.csv": "e56002f4820cc957448ad5c084a78ab8c16a39e522321eee5a34e931135ba1aa",
+    "reports/p25_capital_sensitivity/annual.csv": "81b62a4afc47c4205e311094491c9b8742d35b8f53ca1f753efbaeed44618412",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/daily_nav.parquet": "bcf47d1c5689fa1d3318047e4a3826e6f299f422c7844c50f6476bd21bf0fb04",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/decisions.csv": "edf61d05dedf36ff5dbdc5f5c4a61d43c5180d5747ca39a6add4514ea766b1d6",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/decisions.csv": "9611f6df0d971ada55b9c1d9274388ad02ed51f4c6a04aee6f71f0443da86c3d",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned/daily_nav.parquet": "00bc8a21193f7582373ab6b6dae52de8751ede39800ae2f02fc02d0ac40febb1",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned/decisions.csv": "4ab274b9da58a06fe96138c1a81ac09724d1281e7eec6178c959cc77894bb4f2",
+    "artifacts/contracts/uniform_smile/market/rates.parquet": "96346c87a5d71514f7e7378d2041ee116ca89f515fd5a76da74414ff9a40ddc3",
+    "artifacts/contracts/uniform_smile/market/assets/101121_selection.parquet": "e9ae03a38a9e9dc2909055600af25554529e4dfdeb962a7d488d13c2a4eb4000",
+    "artifacts/contracts/uniform_smile/market/assets/108321_selection.parquet": "26c66519b80fcada29ad34600ceb4ed172fba83135cd6322e135b1905cc900b9",
+    "artifacts/contracts/uniform_smile/pairs/101121__108321/P25_observed.parquet": "087508e56800516a60eb9406789b0c40d4142ab710d4fc87b18508a93a747103",
+    "artifacts/contracts/p25_feature_search/replays/variance_premium/scored_allocations.parquet": "4bcd216c0139900fe4429659470d916f2af8755684cce8646aab3254be28aa54",
+    "reports/p25_recency/comparison.csv": "2fe179d66d0ba2a2e764e1a9908e3343d779ec9d8cf5161e8284975d14e01314",
+    "config/p25_variance_premium_candidate.json": "5ae66336de59b5e8f18cf51a0ec051d2ee53d510cfa66cd80302d2360f268b6d",
+    "slides/teammate_only/teammate_paper_slides.pdf": "093f87943c509606a2bf0c47932d9bb0a165781fba29fa7f1903fd3818ddaef6"
+  }
+}

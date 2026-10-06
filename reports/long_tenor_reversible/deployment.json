@@ -1,0 +1,50 @@
+[
+  {
+    "tenor": 180,
+    "mode": "enriched_irreversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 180,
+    "mode": "enriched_reversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 180,
+    "mode": "risk_irreversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 180,
+    "mode": "risk_reversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 365,
+    "mode": "enriched_irreversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 365,
+    "mode": "enriched_reversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 365,
+    "mode": "risk_irreversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  },
+  {
+    "tenor": 365,
+    "mode": "risk_reversible",
+    "first_active_fit": "2018-07-01",
+    "active_refits": 29
+  }
+]

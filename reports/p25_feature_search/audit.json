@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "models": 990,
+  "replays": 15,
+  "original90_models_and_five_cash_books_reproduced": true,
+  "all608_proposals_preserved": true,
+  "all_ledgers_verified": true,
+  "outcomes_strictly_before_fit": true,
+  "peak_rss_bytes": 556269568
+}

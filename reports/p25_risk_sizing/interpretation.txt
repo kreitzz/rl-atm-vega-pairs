@@ -1,0 +1,70 @@
+Risk-sizing tests completed
+
+The frozen30D P25 checkpoint remains best among the declared tests.
+Annualized cash-excess Sharpe,2018 through August29,2025:
+Frozen P25                         0.825623  200 entries
+RL + directional long/short RV/IV  0.759846  200 entries
+RL + correlation/IV and mismatch  0.797771  210 entries
+RL + both sets                    0.676185  205 entries
+RL + both + inventory overlay     0.716538  214 entries
+Frozen P25 + inventory overlay    0.774265  208 entries
+
+The original608 signal proposals, contracts, directions and qualified
+calendar are unchanged. The learner uses the same monthly completed-outcome
+five-year fits, optimizer,50/75/100 ladder and0.65 training-cost labels.
+Actual execution costs, financing, daily hedges, expiry holdings and risk
+limits are unchanged. Actual accepted trades can change when different
+sizes fit within the unchanged risk budgets. No higher-correlation gate,
+pair exclusion, missing-feature veto, NN or new threshold search was added.
+
+Combined smile book, transferring the same P25 stream to existing ATM/P75:
+Frozen combined                   0.524844  536 entries
+Both-feature sizing combined      0.433328  551 entries
+Both + inventory combined         0.516824  613 entries
+Frozen combined + inventory       0.538538  601 entries
+
+The last comparison adds about$13,216 net excess P&L ($349,172->$362,388)
+and improves the worst daily excess loss from$49,943 to$47,070. Its paired
+126-session block-bootstrap Sharpe difference95% interval is[-0.078,+0.123].
+The small Sharpe lift is not convincing evidence of improvement. Bootstrap
+intervals do not remedy research selection, multiple comparisons, or the
+absence of a fresh holdout. No model was promoted or frozen checkpoint
+overwritten.
+
+The inventory overlay is a fixed causal sizing adjustment, not a learned
+sequential inventory policy. It uses the maximum gross vega already held
+in either proposed name at the actual prior close, including other pairs
+and wings. It reduces the learned size by1/sqrt(1+inventory units), rounded
+to the same50/75/100 ladder, with a50% floor. It does not impose an absolute
+aggregate exposure cap and cannot suppress an eligible signal entirely.
+
+2024 P25 Sharpe: reference-0.834;RV-0.834;relationship-1.078;both-1.222;
+both+inventory-1.177;frozen+inventory-1.079. These changes did not solve the
+recent loss concentration. With the both-feature model, the first UPST/COIN
+signal dropped from100% to50%, but the next-day50% proposal also executed
+where the reference's additional100% proposal had been rejected. UAL/AAL
+also executed both May1 and May10 P25 signals at50%; the reference executed
+only May10 at100%. Different expiry cohorts/holding paths can have different
+gamma and event losses despite smaller individual entry sizes. Worst P25
+daily excess loss consequently increased from about$24.9k to$32.8k.
+This shows why per-trade sizing and total inventory risk must be evaluated
+jointly; it is not a proof that the new signals are intrinsically useless.
+
+The new features were used by the learned partitions: directional RV inputs
+accounted for43 split nodes across the90 RV fits and44 across the both fits;
+relationship inputs accounted for66 and58 split nodes, respectively.
+Feature-use counts are diagnostic, not importance or causal attribution.
+
+Validation: four focused tests cover long/short feature orientation, future
+return perturbation, optional missing-data handling and prior-inventory
+normalization/floor sizing. The augmented replay without an overlay exactly
+reproduces the original P25 NAV,trades and decisions. All270 training fits
+use outcomes ending strictly before fit date. All replay ledgers reconcile,
+entries match integer vega within10%, and runoff closes all inventory.
+
+This is an experiment on already inspected history with inherited roster/
+calendar conditioning. It establishes no independent out-of-sample claim.
+Year and calendar-period comparisons are in annual.csv/periods.csv;
+key_risk_decisions.csv preserves the actual entry decisions for the loss cases.
+All jobs completed; one guarded worker used the agreed50%-of-one-core limit
+and3GiB memory stop. Frozen input hashes and output hashes are preserved.

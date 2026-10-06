@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="158.4pt" viewBox="0 0 576 158.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-06T09:56:37.181490</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 158.4 
+L 576 158.4 
+L 576 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 12.816 124.56 
+L 133.56 124.56 
+Q 138.0528 124.56 138.0528 118.8 
+L 138.0528 36 
+Q 138.0528 30.24 133.56 30.24 
+L 12.816 30.24 
+Q 8.3232 30.24 8.3232 36 
+L 8.3232 118.8 
+Q 8.3232 124.56 12.816 124.56 
+z
+" clip-path="url(#p7a7ffc4e20)" style="fill: #eef3f8; stroke: #b9cde0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 153.216 124.56 
+L 273.96 124.56 
+Q 278.4528 124.56 278.4528 118.8 
+L 278.4528 36 
+Q 278.4528 30.24 273.96 30.24 
+L 153.216 30.24 
+Q 148.7232 30.24 148.7232 36 
+L 148.7232 118.8 
+Q 148.7232 124.56 153.216 124.56 
+z
+" clip-path="url(#p7a7ffc4e20)" style="fill: #eef3f8; stroke: #b9cde0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 293.616 124.56 
+L 414.36 124.56 
+Q 418.8528 124.56 418.8528 118.8 
+L 418.8528 36 
+Q 418.8528 30.24 414.36 30.24 
+L 293.616 30.24 
+Q 289.1232 30.24 289.1232 36 
+L 289.1232 118.8 
+Q 289.1232 124.56 293.616 124.56 
+z
+" clip-path="url(#p7a7ffc4e20)" style="fill: #eef3f8; stroke: #b9cde0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 434.016 124.56 
+L 554.76 124.56 
+Q 559.2528 124.56 559.2528 118.8 
+L 559.2528 36 
+Q 559.2528 30.24 554.76 30.24 
+L 434.016 30.24 
+Q 429.5232 30.24 429.5232 36 
+L 429.5232 118.8 
+Q 429.5232 124.56 434.016 124.56 
+z
+" clip-path="url(#p7a7ffc4e20)" style="fill: #eef3f8; stroke: #b9cde0; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2463a6" x="73.188" y="56.88" transform="rotate(-0 73.188 56.88)">Eligible pair</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(43.08425 82.957344)">beta 0.85–1.15</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(29.903625 92.559531)">corr ≥ 0.5; past profit</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 138.367055 77.76 
+Q 141.984945 77.76 144.484801 77.76 
+" style="fill: none; stroke: #66717e; stroke-linecap: round"/>
+    <path d="M 140.484801 75.76 
+L 144.484801 77.76 
+L 140.484801 79.76 
+" style="fill: none; stroke: #66717e; stroke-linecap: round"/>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2463a6" x="213.588" y="56.88" transform="rotate(-0 213.588 56.88)">Relative value</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(174.298 82.957344)">252-session IV rank</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(175.898625 92.559531)">20 / 80 boundaries</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 278.767055 77.76 
+Q 282.384945 77.76 284.884801 77.76 
+" style="fill: none; stroke: #66717e; stroke-linecap: round"/>
+    <path d="M 280.884801 75.76 
+L 284.884801 77.76 
+L 280.884801 79.76 
+" style="fill: none; stroke: #66717e; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2463a6" x="353.988" y="56.88" transform="rotate(-0 353.988 56.88)">Learned size</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(309.2555 82.957656)">33 inputs → ≤8 leaves</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(324.592375 92.559219)">50 / 75 / 100%</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 419.167055 77.76 
+Q 422.784945 77.76 425.284801 77.76 
+" style="fill: none; stroke: #66717e; stroke-linecap: round"/>
+    <path d="M 421.284801 75.76 
+L 425.284801 77.76 
+L 421.284801 79.76 
+" style="fill: none; stroke: #66717e; stroke-linecap: round"/>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2463a6" x="494.388" y="56.88" transform="rotate(-0 494.388 56.88)">Actual positions</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(448.869875 82.957344)">integer vega matching</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'" transform="translate(459.597375 92.559531)">daily delta hedge</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7a7ffc4e20">
+   <rect x="7.2" y="7.2" width="561.6" height="144"/>
+  </clipPath>
+ </defs>
+</svg>

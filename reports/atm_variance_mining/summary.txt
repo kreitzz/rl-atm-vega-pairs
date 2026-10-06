@@ -1,0 +1,114 @@
+Current-cost ATM signal mining, before RL selects trades
+No RL or NN policy refits. All original 345 sleeves counted in coverage; only evaluable eligible actual-contract cohorts enter payoff diagnostics.
+Actual costs: $0.03/option contract, mid + 0.1-vol-point entry penalty, original stock costs, borrow and financing. ATM30 calls, next-session execution, daily delta hedging and own expiry settlement.
+Forecasts: quarterly, preceding five years, outcomes completed strictly before the fit, unique asset/date/contract rows, equal training weight per name, fixed ridge shrinkage and train-only transformations.
+RV target excludes the entry-day move. IV-anchored models predict log(realized variance / IV squared), with training-only smearing. The direct leg model forecasts symmetric directional actual P&L per initial vega; it is a diagnostic regression, not an NN policy.
+OHLC predictors: trailing variance, EWMA, Parkinson range plus overnight variance, overnight/downside/jump fractions. These are daily bars, not intraday realized volatility.
+Gamma-horizon edge adjusts annualized variance for known remaining trading sessions and calendar tenor; it is an approximation, not exact gamma attribution.
+Historical VRP uses each name history. Joint factor residuals use past-only 252-session market/industry/DTE fits; market means leave-one-name-out cross-sectional median, not SPX IV. Sector grouping uses historical roster industry; missing factor marked unavailable, no future filling.
+Within-pair correlations remove between-pair ranking effects and weight pairs equally. Economic directions remain fixed; signs are not flipped to make later results positive.
+Extreme thresholds and quintile boundaries use only completed 2018-2021 observations, then remain frozen for 2022-Aug2025 diagnostics. Earlier training models may use 2010 onwards.
+Forecast/factor membership uses all signal-ready names, independent of future entry/quote/return availability. Labels remain missing for unavailable outcomes; their resolution conditions only the evaluation sample. Nonoverlap thinning does not remove shared-name dependence.
+This history has already been inspected; the later period is not a new untouched holdout. No winner is automatically promoted; no annualized portfolio Sharpe is computed from terminal payoffs.
+
+                signal  early_within_pair_corr  later_within_pair_corr  later_nonoverlap_corr  positive_later_years  later_years  later_extreme_mean_net  nonoverlap_extreme_mean_net  later_extreme_trades
+             iv_spread                0.154812                0.091952               0.020042                     3            4                2.675793                     2.947474                  1439
+          trailing_vrp               -0.057689               -0.011671              -0.040997                     2            4               -0.924643                     1.511394                  1657
+              ewma_vrp               -0.058176               -0.023569              -0.079283                     1            4               -1.398125                     1.283964                  1814
+             range_vrp                0.014080                0.014026              -0.059194                     2            4               -0.756985                     0.237950                  2086
+            har_anchor               -0.106872               -0.096339              -0.069006                     0            4               -2.292021                    -1.902572                  1884
+       expanded_anchor               -0.062232               -0.091329              -0.057305                     0            4               -1.734656                    -0.186532                  1616
+    horizon_gamma_edge               -0.073527               -0.086286              -0.022019                     0            4               -1.457936                     0.981488                  1687
+      historical_vrp_z               -0.084006               -0.007018              -0.027881                     1            4               -0.169925                     0.288739                  1316
+   factor_vrp_residual               -0.066759               -0.067453              -0.059807                     0            4               -1.196974                     2.878249                   851
+   iv_factor_reversion                0.091518                0.108834                    NaN                     3            4                3.325217                     2.916357                   602
+     predicted_leg_pnl               -0.008430               -0.037930               0.023214                     1            4               -0.636066                     0.909882                  3402
+   rv_acceleration_gap               -0.005003               -0.021602              -0.065739                     0            4               -0.406338                     2.272733                  1288
+overnight_fraction_gap                0.057740                0.023749               0.058976                     3            4               -1.182806                    -1.767274                  1854
+ downside_fraction_gap               -0.021675                0.066416               0.036805                     4            4                1.474389                     5.255557                  1102
+     jump_fraction_gap               -0.069593                0.000161              -0.054645                     2            4               -0.538302                    -0.591796                  1519
+
+period        forecast   legs      mse    qlike  mean_forecast_variance  mean_realized_variance  within_name_rank_corr
+ early              iv  95423 0.408935 0.554462                0.165990                0.211359               0.458426
+ early            rv21  95423 0.544701 0.823421                0.191738                0.211359               0.253912
+ early          ewma10  95423 0.496552 0.779428                0.191501                0.211359               0.254522
+ early      har_anchor  95423 0.410661 0.562736                0.202432                0.211359               0.412917
+ early expanded_anchor  95423 0.417118 0.577356                0.204115                0.211359               0.403466
+ later              iv 102190 0.060883 0.185111                0.183266                0.193171               0.522547
+ later            rv21 102190 0.123835 0.373495                0.190782                0.193171               0.259697
+ later          ewma10 102190 0.104223 0.307672                0.190987                0.193171               0.271024
+ later      har_anchor 102190 0.066086 0.198295                0.243674                0.193171               0.535488
+ later expanded_anchor 102190 0.064689 0.199695                0.240480                0.193171               0.529395
+
+Incremental evidence and concentration:
+                signal  early_within_pair_corr  later_within_pair_corr  later_nonoverlap_corr  positive_later_years  later_years  later_extreme_mean_net  nonoverlap_extreme_mean_net  later_extreme_trades  partial_within_pair_rank_corr  active_pairs  top_positive_pair_share  worst_leave_one_pair_out_mean
+             iv_spread                0.154812                0.091952               0.020042                     3            4                2.675793                     2.947474                  1439                            NaN            43                 0.156214                       1.888390
+          trailing_vrp               -0.057689               -0.011671              -0.040997                     2            4               -0.924643                     1.511394                  1657                       0.005776            70                 0.147159                      -1.310502
+              ewma_vrp               -0.058176               -0.023569              -0.079283                     1            4               -1.398125                     1.283964                  1814                      -0.031444            69                 0.203771                      -1.944199
+             range_vrp                0.014080                0.014026              -0.059194                     2            4               -0.756985                     0.237950                  2086                       0.002309            74                 0.179327                      -1.202765
+            har_anchor               -0.106872               -0.096339              -0.069006                     0            4               -2.292021                    -1.902572                  1884                      -0.062530            64                 0.188861                      -2.745895
+       expanded_anchor               -0.062232               -0.091329              -0.057305                     0            4               -1.734656                    -0.186532                  1616                      -0.051529            68                 0.148410                      -2.160394
+    horizon_gamma_edge               -0.073527               -0.086286              -0.022019                     0            4               -1.457936                     0.981488                  1687                      -0.042888            67                 0.128451                      -1.820526
+      historical_vrp_z               -0.084006               -0.007018              -0.027881                     1            4               -0.169925                     0.288739                  1316                       0.021042            65                 0.245354                      -0.644121
+   factor_vrp_residual               -0.066759               -0.067453              -0.059807                     0            4               -1.196974                     2.878249                   851                      -0.038251            61                 0.221743                      -1.922791
+   iv_factor_reversion                0.091518                0.108834                    NaN                     3            4                3.325217                     2.916357                   602                       0.031238            43                 0.454421                       1.593961
+     predicted_leg_pnl               -0.008430               -0.037930               0.023214                     1            4               -0.636066                     0.909882                  3402                      -0.000281            79                 0.109371                      -0.829972
+   rv_acceleration_gap               -0.005003               -0.021602              -0.065739                     0            4               -0.406338                     2.272733                  1288                      -0.017707            77                 0.128342                      -0.707145
+overnight_fraction_gap                0.057740                0.023749               0.058976                     3            4               -1.182806                    -1.767274                  1854                       0.013102            74                 0.140152                      -1.435817
+ downside_fraction_gap               -0.021675                0.066416               0.036805                     4            4                1.474389                     5.255557                  1102                       0.047011            69                 0.224286                       0.702900
+     jump_fraction_gap               -0.069593                0.000161              -0.054645                     2            4               -0.538302                    -0.591796                  1519                       0.000933            66                 0.127083                      -0.774473
+
+Verification:
+{
+  "source_states_verified": 139,
+  "frozen_files_verified": 2661,
+  "frozen_archive_verified": true,
+  "purged_quarterly_fits": 53,
+  "unique_signal_ready_legs": 364954,
+  "signal_ready_legs_with_unavailable_payoff": 18280,
+  "unavailable_payoffs_retained_in_forecast_factor_universe": true,
+  "resolved_pair_cohorts": 25872,
+  "pairs_with_evaluable_cohorts": 126,
+  "requested_sleeves": 345,
+  "sleeves_with_state_inputs": 139,
+  "unresolved_pair_outcomes": 88,
+  "current_cost_commission": 0.03,
+  "rl_refits": 0,
+  "nn_refits": 0,
+  "source_and_output_sha256": {
+    "artifacts/contracts/atm_variance_mining/legs.parquet": "13e20719ebc4df0a0a453922684f1bb8d3c9bd3251e5b238d697858a0839b493",
+    "artifacts/contracts/atm_variance_mining/outcomes.parquet": "7b0e8097b510e7821b4358f9dd8c05810a83f355273027ab2a907d3c07b87587",
+    "artifacts/contracts/atm_variance_mining/forecasts.parquet": "e85ae3fb85f313d57b1e1e24168c5217fbedc4712429bfe5a13470927accca18",
+    "artifacts/contracts/atm_variance_mining/pair_signals.parquet": "1a15223146e9470ebb95541388911d0b43ea809a783fc027fd83884fd1ef38ca",
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/audit_atm_variance_mining.py": "ff05edf73876b954ae423a0449c4f183ed26cd2c49891f681c87f41b3741bbfc"
+  },
+  "diagnostic_note": "Partial rank correlations regress within-pair ranks on the 47 existing common numeric states, in the evaluation sample. This is conditional association, not an executable residual forecast or a policy backtest."
+}
+
+Exploratory IV-spread agreement filters:
+Follow-up hypotheses proposed after the initial screen, not predeclared or a fresh holdout. The original economic IV direction and early-only 90th-percentile absolute-spread threshold remain fixed. Each comparison matches signal availability. Payoffs are standalone terminal dollars per initial mean leg vega, not portfolio Sharpe.
+             filter          period     sample              rule  eligible_observations  trades  active_pairs  mean_net  median_net  net_per_opportunity
+iv_factor_agreement early_completed        all matched_iv_spread                   5320     218            14 -0.683948   -1.777105            -0.028026
+iv_factor_agreement early_completed        all    with_agreement                   5320     158            12 -0.464027   -1.701050            -0.013781
+iv_factor_agreement early_completed nonoverlap matched_iv_spread                    242      12             7 -3.083219   -3.901696            -0.152887
+iv_factor_agreement early_completed nonoverlap    with_agreement                    242       9             6 -5.309833   -4.973363            -0.197473
+iv_factor_agreement           later        all matched_iv_spread                   5026     415            19 -1.410104    1.238552            -0.116433
+iv_factor_agreement           later        all    with_agreement                   5026     292            18  4.232747    5.310189             0.245914
+iv_factor_agreement           later nonoverlap matched_iv_spread                    226      18             9  5.397897    8.480128             0.429921
+iv_factor_agreement           later nonoverlap    with_agreement                    226      15             9  7.206457    8.581863             0.478305
+ downside_agreement early_completed        all matched_iv_spread                  11973    1198            43  1.411619    1.252699             0.141244
+ downside_agreement early_completed        all    with_agreement                  11973     670            36  1.755729    0.799253             0.098249
+ downside_agreement early_completed nonoverlap matched_iv_spread                    648      83            26  3.119220    2.065264             0.399530
+ downside_agreement early_completed nonoverlap    with_agreement                    648      47            22  1.317371    0.276869             0.095550
+ downside_agreement           later        all matched_iv_spread                  13582    1439            43  2.675793    3.475827             0.283498
+ downside_agreement           later        all    with_agreement                  13582     615            34  8.165767    8.378392             0.369750
+ downside_agreement           later nonoverlap matched_iv_spread                    786      91            30  2.947474    4.379374             0.341247
+ downside_agreement           later nonoverlap    with_agreement                    786      38            19  7.614460    6.958672             0.368129
+         both_agree early_completed        all matched_iv_spread                   5320     218            14 -0.683948   -1.777105            -0.028026
+         both_agree early_completed        all    with_agreement                   5320      99            11  1.053133   -1.018506             0.019598
+         both_agree early_completed nonoverlap matched_iv_spread                    242      12             7 -3.083219   -3.901696            -0.152887
+         both_agree early_completed nonoverlap    with_agreement                    242       6             5 -1.225653   -4.466278            -0.030388
+         both_agree           later        all matched_iv_spread                   5026     415            19 -1.410104    1.238552            -0.116433
+         both_agree           later        all    with_agreement                   5026      89            14  7.559620   13.209075             0.133865
+         both_agree           later nonoverlap matched_iv_spread                    226      18             9  5.397897    8.480128             0.429921
+         both_agree           later nonoverlap    with_agreement                    226       5             4 16.316012   28.597378             0.360974

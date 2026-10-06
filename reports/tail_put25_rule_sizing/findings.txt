@@ -1,0 +1,22 @@
+Fixed put25 spread rule plus RL allocation
+
+The full-size control reproduces the frozen rule daily portfolio, accepted entry counts, P&L and Sharpe exactly for both full and recent periods.
+Both use identical causal candidate signals/directions and economic settings. RL cannot add or reverse a trade; it chooses 0/25/50/75/100% allocation. Filled trades can differ because smaller sizes affect integer contracts, hedge inventory and capital constraints.
+State: adapted ATM core, put spread historical rank, optional reversion availability, and original covered employee features. Missing reversion gets causal neutral fill with an observed flag, preserving the rule opportunity set.
+Monthly purged five-year fits, minimum504 valid observations, eight leaves, seed2026, direct shadow-book Sharpe search. Training/validation costs $0.65 versus $0.03 actual commission. Prior-year actual-inventory validation must improve on the full-size rule; otherwise sizing remains the original full-size rule. No history/validation failure forces an otherwise valid rule trade to cash.
+This is a rule-anchored sizing overlay, rather than the earlier free-direction or full-state replacement tests. No NN, thresholds or seed sweep.
+
+        model period  entries  active_pairs  net_excess_pnl  annualized_excess_sharpe
+ rule_control   full      129            41   246969.223927                  0.711325
+ rule_control recent       76            27   123374.540884                  0.747752
+rl_rule_sized   full      131            41   241094.264109                  0.697475
+rl_rule_sized recent       79            27   119348.635675                  0.727967
+
+status
+fallback_insufficient_training          3841
+fallback_no_validation_opportunities    1017
+fallback_validation_no_improvement       231
+enabled                                   64
+
+Annualized daily cash-excess Sharpe uses sqrt252; 2025 ends August29. All 345 independent $1m sleeves, including cash, remain. Midpoint plus 0.1-vol-point entry penalty, daily stock hedge costs, dividends, financing and borrow remain included. Initial integer vega neutrality, daily delta hedging and own-expiry holding.
+Previously inspected history, not a new holdout. European put approximation; assignment is not modeled. This is not a shared-inventory portfolio agent.

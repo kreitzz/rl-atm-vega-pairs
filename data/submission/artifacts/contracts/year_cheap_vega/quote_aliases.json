@@ -1,0 +1,36 @@
+{
+  "aliases": [
+    {
+      "old_optionid": 144532048,
+      "new_optionid": 135980064,
+      "first_new_id": "2022-07-22",
+      "secid": 147220,
+      "strike": 50.0,
+      "expiry": "2023-01-20",
+      "cp_flag": "P",
+      "cfadj": 1,
+      "multiplier": 100,
+      "standard": true
+    },
+    {
+      "old_optionid": 144532050,
+      "new_optionid": 135980066,
+      "first_new_id": "2022-07-22",
+      "secid": 147220,
+      "strike": 60.0,
+      "expiry": "2023-01-20",
+      "cp_flag": "P",
+      "cfadj": 1,
+      "multiplier": 100,
+      "standard": true
+    }
+  ],
+  "added_quote_rows": 0,
+  "sources": {
+    "artifacts/contracts/year_cheap_vega/supplemental_quotes/apollo_family_2022.parquet": "04f293fe27f873b6efacfeb23f75de4ac3886476ab7e62742889daf15e2f430f",
+    "artifacts/contracts/year_cheap_vega/supplemental_quotes/apollo_family_2023.parquet": "3f22d16c648f94597f9e24dc40b1cd8ec32f0e52ce8a9b5352faddf9ca510667"
+  },
+  "evidence": "Read-only WRDS continuation query: matching standard contract economic fields; first50-strike lookup also confirms936 open interest on both July21/22",
+  "inserted_this_family_repair": 0,
+  "total_supplemental_quote_rows": 125
+}

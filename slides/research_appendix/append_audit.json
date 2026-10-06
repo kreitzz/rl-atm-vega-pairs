@@ -1,0 +1,111 @@
+{
+  "original_commit": "8d3aa74",
+  "original_slides": 23,
+  "mode": "replace_obsolete_extension",
+  "paper_slides_2_through_7_byte_identical": true,
+  "title_context_updated": true,
+  "obsolete_proxy_slides_removed": 16,
+  "appended_slides": 13,
+  "first_appended_slide": 8,
+  "total_slides": 20,
+  "original_complete_html_sha256": "ea2ae4c2b05c0af90d29d180e14701abb4892486fda040f13f51b85c63fee041",
+  "original_script_sha256": "2274ed409e3d8a6a34b7319d125143f59867661d849a24dec7481bda3ebcc242",
+  "removing_append_recovers_original_exactly": false,
+  "original_slide_sections_byte_identical": false,
+  "original_speaker_script_preserved_as_exact_prefix": true,
+  "models_or_backtests_rerun": false,
+  "paper_changed": false,
+  "combined_format": "HTML",
+  "appendix_pdf_pages": 13,
+  "appended_slide_layout_checks": [
+    {
+      "slide": 8,
+      "bottom_content_points": 294.0,
+      "overflow": false
+    },
+    {
+      "slide": 9,
+      "bottom_content_points": 209.99999999999997,
+      "overflow": false
+    },
+    {
+      "slide": 10,
+      "bottom_content_points": 311.40000000000003,
+      "overflow": false
+    },
+    {
+      "slide": 11,
+      "bottom_content_points": 336.1,
+      "overflow": false
+    },
+    {
+      "slide": 12,
+      "bottom_content_points": 70.89999999999998,
+      "overflow": false
+    },
+    {
+      "slide": 13,
+      "bottom_content_points": 269.5,
+      "overflow": false
+    },
+    {
+      "slide": 14,
+      "bottom_content_points": 282.0,
+      "overflow": false
+    },
+    {
+      "slide": 15,
+      "bottom_content_points": 269.5,
+      "overflow": false
+    },
+    {
+      "slide": 16,
+      "bottom_content_points": 133.99999999999997,
+      "overflow": false
+    },
+    {
+      "slide": 17,
+      "bottom_content_points": 185.89999999999998,
+      "overflow": false
+    },
+    {
+      "slide": 18,
+      "bottom_content_points": 250.0,
+      "overflow": false
+    },
+    {
+      "slide": 19,
+      "bottom_content_points": 336.1,
+      "overflow": false
+    },
+    {
+      "slide": 20,
+      "bottom_content_points": 336.1,
+      "overflow": false
+    }
+  ],
+  "sources": {
+    "scripts/append_research_slides.py": "7c4809842c1ccad78c6ae92e6bcd15dd3dcfc95fd76a11609dfde7d3e6f5a94a",
+    "scripts/build_research_publication.py": "cc7f8da1392ba6870341758d153271481adc1e715eeb98973bcc218b387f2ab6",
+    "reports/p25_capital_sensitivity/comparison.csv": "3aabf0133886aff15f0bfeadb54da455d73168c840f614b9572003f57d914332",
+    "reports/p25_variance_validation/initial_train_walk_forward.csv": "e56002f4820cc957448ad5c084a78ab8c16a39e522321eee5a34e931135ba1aa",
+    "reports/p25_long_management/comparison.csv": "ccf6951bc429e43d7b69657ca0b998d3baeec93805f2ec0fcb25c65dcf19a4b9",
+    "reports/long_tenor_fitted_q/comparison.csv": "5b90814206860597ebe08b112f4204654a60b185adac5f84d18c2b66d8bc00a6",
+    "reports/native_year_entry/comparison.csv": "ed1c1aa720996e6b5b86303adc5165a92becc2a2b800485305a9e21287d7b5b0",
+    "reports/native_year_entry/paired_comparison.csv": "ce83f2b4f46510ff667eef9588f6fc1c19f8613f975f6a73b15a8d3480719059",
+    "reports/p25_long_management/annual.csv": "65372710e24683349a84cbebe625bfbfd152b8ca660a9995e8460ac69d0e09f0",
+    "reports/long_tenor_fitted_q/annual.csv": "ba8ff0f9c4131fb1eb9a4b79a4e5748780fb7ab846cf0bc0b88aff4223755910",
+    "reports/native_year_entry/annual.csv": "43475f17370a1b447daa30e286c9146127b30b43bf8cc4573c9e9e9b3aa2ef66",
+    "reports/smile_sizing/comparison.csv": "284d8589b30c907519f04016b29cc0dc16f996cf589aa340ed8d01816cf40025",
+    "reports/p25_variance_validation/research_summary.txt": "7d0ec2148db0c48c0d72b7dd5ae60b17a27770f22d2ba0b130af5975e9a04686",
+    "reports/native_year_entry/replacement_blend/walk_forward_24M_sharpe_proportional/comparison.csv": "747239f5af6fed9b27729926edf9f6e3890daf91b7374196274dcb3f2b465a0b",
+    "reports/native_year_entry/replacement_blend/walk_forward_24M_30D_180D/comparison.csv": "73312d0b6b7223cc7ec10b6619cd1d9a19fa33c4640610dc2f61c40756701bd3"
+  },
+  "image_hashes": {
+    "slides/img/paper_table3.png": "7d817a3f2ce2ed59ca59c4255497c7a913cd13cf5d9b5f09464264982f20ca8d",
+    "slides/img/paper_table4.png": "3b48a530bd6c3fab9d2aba5018e53a3343220f82aa414f85c351c7cc8a3b2b56",
+    "slides/research_appendix/figures/contract_sizing.svg": "a30a36352a04bb3b465d1f1790be8784a1ee948d3d8afd8a7821d03b858ecd6a",
+    "slides/research_appendix/figures/feature_research.svg": "3991013a475768dd76dc5e7497c200c97108d2ce6b82a5a9e9b306cbfc96c490"
+  },
+  "peak_rss_bytes": 321191936
+}

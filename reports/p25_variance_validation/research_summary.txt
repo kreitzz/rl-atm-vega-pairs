@@ -1,0 +1,57 @@
+Best retained research candidate: annualized daily cash-excess Sharpe1.006304706; 213 pair entries,42 traded pairs,$320285.67 above cash,maximum excess-profit drawdown$46012.45. Best observed objective variant1.007098 is effectively tied.
+Added20-session half-life EWMA expected variance premium, its prior252-session history z-score, and expected-realized/implied variance ratio, each as long-minus-short plus availability flag. Existing27 features,608 proposals, direction, contracts, profit-memory/pair/formation rules,18-month monthly fitting,50/75/100 actions, costs and original risk caps unchanged. No learned skipping.
+Fixed50/100 Sharpe0.769675/0.756932; previous learned0.961745; same-state profit-only sizing0.979114; standalone-state Sharpe0.725012; diagonal covariance1.007098. Five allocator seeds yield identical candidate NAV; this does not test alternate tree partitions or prove structural robustness. Matched proposals are identical; executable accepted trades differ because size affects entry risk admission and subsequent inventory.
+Ten of11 feature configurations beat the best constant size; transcripts fail. Only variance-premium additions improve the original learned baseline. Most extra features are unhelpful, and IV-factor coverage is sparse. Wider entry boundaries and removing caps reduced Sharpe in the preceding study. See all reports, not only winners.
+Profit-only sizing is close to direct-Sharpe sizing. This supports adaptive sizing over constant sizing on this sample, not universal RL superiority or a new NN result. Current method is contextual tree/CEM optimization, not sequential inventory-trained RL.
+2024 remains negative;2024-partial2025 combined Sharpe is-.021153. 2022 supplies about55%of total net excess dollars. Bootstrap uncertainty is broad; the incremental feature improvement versus prior RL includes zero. Multiple research selection and retrospective universe/calendar conditioning are uncorrected. A1.0 sample estimate is achieved, not a guaranteed population Sharpe or fresh validation.
+Data ends2025-08-29;2025 is partial with final signal2025-06-30 and expiry runoff. Sharpe uses sqrt252 and daily net cash-excess returns,ddof1. Cash-excess risk is reported; funded NAV drawdown includes interest on large idle cash.
+Inputs-only CSV:data/p25_variance_premium_inputs.csv;36327 rows;33 model fields plus identifiers and eligibility. No target, reward, outcome completion or future availability fields. Counts/profit memory are completed-history input states, not future rewards. Cached option chains and training reward paths remain in existing local research files. Vendor inputs remain subject to existing data-access terms.
+
+           model    kind   sharpe  entries  net_excess_pnl  early_sharpe  recent_sharpe  max_excess_drawdown fixed_control  sharpe_difference_vs_control
+variance_premium learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+         control learned 0.961745      208   304285.994757      1.224369      -0.250337        -46105.126867        fixed2                      0.192070
+       iv_factor learned 0.961745      208   304285.994757      1.224369      -0.250337        -46105.126867        fixed2                      0.192070
+  term_structure learned 0.959444      208   303651.792764      1.221485      -0.250337        -46122.039493        fixed2                      0.189768
+       volume_oi learned 0.955495      210   302309.542497      1.216745      -0.250337        -46157.834046        fixed2                      0.185820
+     smile_shape learned 0.949333      208   300619.077414      1.203258      -0.221069        -44660.447458        fixed2                      0.179658
+     smile_price learned 0.940798      208   297073.485113      1.197277      -0.240976        -47341.413821        fixed2                      0.171123
+        employee learned 0.893335      209   281985.480712      1.141482      -0.250337        -46699.827390        fixed2                      0.123660
+         rv_risk learned 0.892203      205   284464.493167      1.160369      -0.238731        -56307.899952        fixed2                      0.122528
+   physical_tail learned 0.882475      204   283961.330911      1.182975      -0.414187        -56047.533489        fixed2                      0.112800
+          fixed2   fixed 0.769675      263   249064.569721      1.180895      -0.693227        -75891.834959        fixed2                      0.000000
+          fixed4   fixed 0.756932      134   266316.555691      0.957162      -0.112832        -66229.514226        fixed2                     -0.012744
+     transcripts learned 0.752283      214   246956.810792      1.146689      -0.693749        -76789.890252        fixed2                     -0.017393
+          fixed1   fixed 0.728683      381   169183.144605      1.125834      -0.387296        -61273.853699        fixed2                     -0.040992
+          fixed3   fixed 0.728236      180   249571.262170      1.037662      -0.583529        -74280.538125        fixed2                     -0.041439
+
+          model    kind   sharpe  entries  net_excess_pnl  early_sharpe  recent_sharpe  max_excess_drawdown fixed_control  sharpe_difference_vs_control
+diagonal_sharpe learned 1.007098      211   320538.167804      1.237329      -0.021153        -46005.716551        fixed2                      0.237423
+   sharpe_seed1 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+sharpe_seed2026 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+sharpe_seed2027 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+  sharpe_seed42 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+   sharpe_seed7 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+       mean_pnl learned 0.979114      205   314439.986282      1.201153      -0.021153        -46168.340235        fixed2                      0.209439
+         fixed2   fixed 0.769675      263   249064.569721      1.180895      -0.693227        -75891.834959        fixed2                      0.000000
+         fixed4   fixed 0.756932      134   266316.555691      0.957162      -0.112832        -66229.514226        fixed2                     -0.012744
+         fixed1   fixed 0.728683      381   169183.144605      1.125834      -0.387296        -61273.853699        fixed2                     -0.040992
+         fixed3   fixed 0.728236      180   249571.262170      1.037662      -0.583529        -74280.538125        fixed2                     -0.041439
+   local_sharpe learned 0.725012      201   256543.132833      0.979231      -0.514438        -68598.363271        fixed2                     -0.044663
+
+model   control    fixed2    fixed4  variance_premium
+year                                                 
+2018   0.520077  0.000658  0.182250          0.393785
+2019  -0.544831 -0.386654 -0.516602         -0.580442
+2020   1.556414  1.338994  1.102225          1.584218
+2021  -0.569005 -0.536225  0.021360         -0.569005
+2022   2.465962  2.563579  2.199733          2.470225
+2023   1.507347  1.609187  1.118193          1.620856
+2024  -0.918688 -1.216053 -0.807132         -0.783037
+2025   1.057756  0.749560  1.110410          1.211255
+
+Initial training versus subsequent walk-forward evidence
+Before the first January2018 fit, the retained variance-premium sizing model has annualized training Sharpe 2.015194, versus 1.573320 for fixed100% sizing: improvement 0.441873. The18-month training window starts 2016-07-01, has74 eligible completed trade examples, and includes outcomes only through 2017-12-29. This is an optimized in-sample score on aggregated training PnL paths, not an executable pre2018 shared-capital replay or the entire pre2018 history. The earlier0.773 figure averages monthly rolling training scores; it is not the initial pre2018 score.
+On2018 through partial2025 ending2025-08-29, the frozen monthly sizing policies replayed with10m funded equity have annualized daily cash-excess Sharpe 1.002988, versus fixed100% 0.768515 and fixed50% 0.760690. Improvement versus fixed100% is 0.234474. The accepted portfolios differ because position size affects risk admission and overlapping inventory, although proposals, entry direction, contracts, execution assumptions, and risk limits are shared. Monthly refits use only completed prior outcomes; later policies also train on earlier walk-forward history.
+Reportable interpretation: the initial training sample contains a positive signal, learned sizing improves its optimized training score, and learned sizing also outperforms fixed sizing in the subsequent walk-forward research sample. The walk-forward comparison supplies the stronger evidence of sizing value; improvement in training is expected when Sharpe is directly optimized. This does not establish statistically reliable RL superiority, a comparison against supervised learning, or performance on an untouched holdout.
+Training scores use0.65 commission labels and aggregated PnL paths; walk-forward results use0.03 actual commissions and the full portfolio ledger. These are within-period fixed-versus-learned comparisons, not directly comparable train/test Sharpe levels or a measure of generalization decay. Both Sharpe measures are annualized withsqrt252. Retrospective pair/formation conditioning and repeated feature/strategy selection remain;2025 is partial, negative years and concentration in2022 remain reported above.
+Sources: artifacts/contracts/p25_feature_search/models/variance_premium/2018-01-01.json; reports/p25_recency/fits.csv; reports/p25_capital_sensitivity/comparison.csv. Machine-readable comparison: reports/p25_variance_validation/initial_train_walk_forward.csv.

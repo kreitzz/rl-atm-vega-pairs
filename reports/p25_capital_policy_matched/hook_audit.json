@@ -1,0 +1,9 @@
+{
+  "original_10m_nav_reproduced": true,
+  "all_608_prior_equity_states_verified": true,
+  "ledger": {
+    "max_ledger_error": 4.826233634958044e-09,
+    "shared_cash": true,
+    "shared_stock_hedges": true
+  }
+}

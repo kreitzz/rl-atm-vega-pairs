@@ -1,0 +1,66 @@
+{
+  "status": "complete",
+  "same_structure_across_all_wings": true,
+  "previous_protocol": "config/same_structure_smile_research.json",
+  "changes": {
+    "minimum_open_interest": 10,
+    "expiry_selection": "Each wing selects its own closest usable expiry to 30 calendar days at the next trading session; expiry proximity precedes strike or delta proximity",
+    "entry_dte_range": [21, 45],
+    "previous_replay_entry_dte_range": [7, 55],
+    "selection_information": "Signal-close quotes and the known trading calendar only"
+  },
+  "common_quote_requirements": {
+    "positive_uncrossed_bid_ask": true,
+    "standard_multiplier": 100,
+    "maximum_relative_bid_ask_width": 0.25,
+    "successful_black_scholes_fit": true
+  },
+  "wings": {
+    "ATM": "Calls, closest strike within 10% of spot",
+    "P25": "Puts, absolute fitted delta 0.25 +/- 0.075",
+    "P75": "Puts, absolute fitted delta 0.75 +/- 0.075"
+  },
+  "unchanged": [
+    "27 feature definitions",
+    "IV-rank direction and profitability-memory gates",
+    "Beta 0.85-1.15 and minimum correlation 0.5",
+    "Monthly five-year pooled training, policy search and seed",
+    "0.65 training commission hurdle and 0.03 actual commission",
+    "Mid plus 0.1 vol point per leg and daily delta hedge costs",
+    "Financing, dividends, borrow, shared inventory and risk limits",
+    "Original formation-date index equally applied to all three wings"
+  ],
+  "ladders": {
+    "fixed": [0.5, 0.75, 1.0],
+    "floor": [0.5, 0.75, 1.0],
+    "flex": [0.0, 0.25, 0.5, 0.75, 1.0]
+  },
+  "completed_monthly_model_fits": 540,
+  "completed_replays": 15,
+  "evaluation": "2018 through 2025-08-29, with entries through 2025-06-30",
+  "combined_annualized_cash_excess_sharpe": {
+    "fixed_50": 0.1647994879476079,
+    "fixed_75": 0.09847915646147025,
+    "fixed_100": 0.15746162657216067,
+    "floor": 0.20666295168394747,
+    "flex": 0.021993543315702184
+  },
+  "interpretation": "Coverage recovery materially increases available tail observations. ATM and P75 improve under fixed sizing, while P25 deteriorates sharply. This is a reconstructed strategy, not the frozen strategy with extra observations: only 31 of 134 previous fixed-size P25 entries remain, 60 are no longer proposed, and 43 encounter execution or inventory rejection. The experiment shows sensitivity to construction but cannot attribute the deterioration to the original signal itself. The modest combined floor-sizing improvement over fixed sizing has a paired bootstrap interval including zero.",
+  "evidence_limits": [
+    "Previously inspected history, no fresh holdout",
+    "Inherited retrospective formation-calendar conditioning; 122 of 345 roster pairs have admitted dates",
+    "Selection rules are identical, but the enlarged selection changes contracts, rank histories, memory, and training samples",
+    "Open-interest, expiry selection and the allowed entry-DTE range changed together; this experiment does not isolate their individual effects",
+    "Direct-Sharpe sizing policy search, not sequential inventory RL"
+  ],
+  "frozen_checkpoints_preserved": true,
+  "resources": {"workers": 1, "cpu_duty_cycle": 0.5, "memory_stop_gib": 3, "replay_peak_rss_bytes": 664485888},
+  "results": "reports/recovered_smile/results.csv",
+  "previous_comparison": "reports/recovered_smile/coverage_effect.csv",
+  "annual_sharpes": "reports/recovered_smile/annual_comparison.csv",
+  "data_coverage": "reports/recovered_smile/coverage_recovery.csv",
+  "training_coverage": "reports/recovered_smile/training_coverage.csv",
+  "sizing_uncertainty": "reports/recovered_smile/sizing_uplift.csv",
+  "verification": "reports/recovered_smile/verification.json",
+  "script": "scripts/run_recovered_smile.py"
+}

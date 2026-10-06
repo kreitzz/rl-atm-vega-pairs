@@ -1,0 +1,1991 @@
+[
+  {
+    "fit": "2022-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 70,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2022-06-17",
+    "selected": "delta_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.2875651049907089,
+        "entered_cohorts": 30,
+        "active_sessions": 220
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.3359673963901928,
+        "entered_cohorts": 33,
+        "active_sessions": 216
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.1433346538999123,
+        "entered_cohorts": 32,
+        "active_sessions": 213
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.2151058254044012,
+        "entered_cohorts": 32,
+        "active_sessions": 216
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.106733917502509,
+        "entered_cohorts": 32,
+        "active_sessions": 213
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 1.560024188725795,
+        "entered_cohorts": 31,
+        "active_sessions": 219
+      }
+    ]
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 131,
+    "history_sessions": 251,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2022-12-30",
+    "selected": "delta_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 2.327804397085078,
+        "entered_cohorts": 66,
+        "active_sessions": 235
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 2.292305740083217,
+        "entered_cohorts": 69,
+        "active_sessions": 235
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 2.2473512134796514,
+        "entered_cohorts": 69,
+        "active_sessions": 235
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 2.303564126955353,
+        "entered_cohorts": 69,
+        "active_sessions": 235
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 2.1873226702049227,
+        "entered_cohorts": 69,
+        "active_sessions": 235
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 2.407268509346499,
+        "entered_cohorts": 69,
+        "active_sessions": 235
+      }
+    ]
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 46,
+    "history_sessions": 125,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2018-06-29",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 85,
+    "history_sessions": 251,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2018-12-21",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.21133829126741363,
+        "entered_cohorts": 17,
+        "active_sessions": 212
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.3989719107006355,
+        "entered_cohorts": 20,
+        "active_sessions": 211
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.6518767996306056,
+        "entered_cohorts": 19,
+        "active_sessions": 203
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.711365116055256,
+        "entered_cohorts": 18,
+        "active_sessions": 208
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.12598211126878225,
+        "entered_cohorts": 18,
+        "active_sessions": 203
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.021915047781074087,
+        "entered_cohorts": 17,
+        "active_sessions": 212
+      }
+    ]
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 78,
+    "history_sessions": 253,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2020-08-21",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.497267385476172,
+        "entered_cohorts": 32,
+        "active_sessions": 136
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.0307283987556055,
+        "entered_cohorts": 39,
+        "active_sessions": 115
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.1900173817594648,
+        "entered_cohorts": 41,
+        "active_sessions": 110
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.1295363026521357,
+        "entered_cohorts": 39,
+        "active_sessions": 115
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.8520399286701659,
+        "entered_cohorts": 35,
+        "active_sessions": 118
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 1.208444391930853,
+        "entered_cohorts": 33,
+        "active_sessions": 134
+      }
+    ]
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 72,
+    "history_sessions": 253,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2020-06-26",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.8264743348073457,
+        "entered_cohorts": 33,
+        "active_sessions": 182
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.5317253740200396,
+        "entered_cohorts": 40,
+        "active_sessions": 153
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.42179939427615065,
+        "entered_cohorts": 41,
+        "active_sessions": 143
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.4152583485268889,
+        "entered_cohorts": 40,
+        "active_sessions": 153
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.9117563454214218,
+        "entered_cohorts": 36,
+        "active_sessions": 166
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.7549547961791564,
+        "entered_cohorts": 34,
+        "active_sessions": 180
+      }
+    ]
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 77,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2023-12-15",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.4882828864469453,
+        "entered_cohorts": 16,
+        "active_sessions": 193
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.3532419718446032,
+        "entered_cohorts": 18,
+        "active_sessions": 187
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.5753648750234406,
+        "entered_cohorts": 16,
+        "active_sessions": 170
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.5742338359519188,
+        "entered_cohorts": 16,
+        "active_sessions": 178
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.590787404730748,
+        "entered_cohorts": 16,
+        "active_sessions": 172
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 1.578685907369625,
+        "entered_cohorts": 18,
+        "active_sessions": 193
+      }
+    ]
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 61,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2025-06-20",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.4900715273219924,
+        "entered_cohorts": 18,
+        "active_sessions": 189
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.2999428686190535,
+        "entered_cohorts": 20,
+        "active_sessions": 158
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.6410730616453246,
+        "entered_cohorts": 18,
+        "active_sessions": 139
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.550806899091766,
+        "entered_cohorts": 18,
+        "active_sessions": 155
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.7254017130898123,
+        "entered_cohorts": 18,
+        "active_sessions": 164
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 1.0491032973563925,
+        "entered_cohorts": 18,
+        "active_sessions": 190
+      }
+    ]
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 145,
+    "history_sessions": 251,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2023-06-30",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 2.2641748664545385,
+        "entered_cohorts": 51,
+        "active_sessions": 226
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 2.1514443263549903,
+        "entered_cohorts": 53,
+        "active_sessions": 235
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 2.5233569878598723,
+        "entered_cohorts": 51,
+        "active_sessions": 226
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 2.5947470513564745,
+        "entered_cohorts": 51,
+        "active_sessions": 226
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 2.5005914138616196,
+        "entered_cohorts": 51,
+        "active_sessions": 226
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 2.134652584389777,
+        "entered_cohorts": 54,
+        "active_sessions": 235
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 57,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2021-12-23",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.8751092011375085,
+        "entered_cohorts": 19,
+        "active_sessions": 163
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.655710567239504,
+        "entered_cohorts": 21,
+        "active_sessions": 159
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -1.0920393568693059,
+        "entered_cohorts": 20,
+        "active_sessions": 154
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -0.5650445713306482,
+        "entered_cohorts": 21,
+        "active_sessions": 159
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -1.1130620969218148,
+        "entered_cohorts": 19,
+        "active_sessions": 156
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -1.2523611323817576,
+        "entered_cohorts": 19,
+        "active_sessions": 162
+      }
+    ]
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 76,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2019-06-21",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.3541129813550701,
+        "entered_cohorts": 27,
+        "active_sessions": 207
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.07130404307599299,
+        "entered_cohorts": 27,
+        "active_sessions": 184
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.0646566079500387,
+        "entered_cohorts": 27,
+        "active_sessions": 176
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.12011053462405931,
+        "entered_cohorts": 27,
+        "active_sessions": 184
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.48623466757354306,
+        "entered_cohorts": 27,
+        "active_sessions": 197
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.4367782444458592,
+        "entered_cohorts": 27,
+        "active_sessions": 207
+      }
+    ]
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 0,
+    "history_sessions": 0,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 37,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2024-12-20",
+    "selected": "hold",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.7527381482538867,
+        "entered_cohorts": 10,
+        "active_sessions": 124
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -1.7645463678471207,
+        "entered_cohorts": 11,
+        "active_sessions": 104
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -1.3673787807499107,
+        "entered_cohorts": 10,
+        "active_sessions": 91
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -1.400362085782424,
+        "entered_cohorts": 10,
+        "active_sessions": 103
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -1.0774402199785158,
+        "entered_cohorts": 10,
+        "active_sessions": 112
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.8860074414171536,
+        "entered_cohorts": 10,
+        "active_sessions": 124
+      }
+    ]
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 32,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2024-06-21",
+    "selected": "hold",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.1896792573729949,
+        "entered_cohorts": 10,
+        "active_sessions": 170
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.9196736261048548,
+        "entered_cohorts": 11,
+        "active_sessions": 160
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -0.31832067465637615,
+        "entered_cohorts": 10,
+        "active_sessions": 151
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -0.33673953974974535,
+        "entered_cohorts": 10,
+        "active_sessions": 159
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.32822747435885147,
+        "entered_cohorts": 10,
+        "active_sessions": 153
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.3089957684968019,
+        "entered_cohorts": 10,
+        "active_sessions": 165
+      }
+    ]
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 53,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2019-11-15",
+    "selected": "delta_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.6029567400023603,
+        "entered_cohorts": 23,
+        "active_sessions": 202
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.3619789109358345,
+        "entered_cohorts": 24,
+        "active_sessions": 173
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -0.3333096738541579,
+        "entered_cohorts": 23,
+        "active_sessions": 165
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -0.3387943375593701,
+        "entered_cohorts": 23,
+        "active_sessions": 173
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.4806376329070154,
+        "entered_cohorts": 23,
+        "active_sessions": 201
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.23066883758481185,
+        "entered_cohorts": 23,
+        "active_sessions": 202
+      }
+    ]
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 30,
+    "window_months": 12,
+    "training_proposals": 22,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2021-06-18",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -1.0978856681839724,
+        "entered_cohorts": 12,
+        "active_sessions": 77
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -1.078056727726834,
+        "entered_cohorts": 14,
+        "active_sessions": 75
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -1.0501232537478014,
+        "entered_cohorts": 12,
+        "active_sessions": 75
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -1.0324226773334988,
+        "entered_cohorts": 12,
+        "active_sessions": 75
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -1.0967332082225594,
+        "entered_cohorts": 12,
+        "active_sessions": 75
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -1.2765732123226379,
+        "entered_cohorts": 12,
+        "active_sessions": 77
+      }
+    ]
+  },
+  {
+    "fit": "2022-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 34,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2022-06-17",
+    "selected": "delta_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.7502202464765277,
+        "entered_cohorts": 20,
+        "active_sessions": 104
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 2.032262694955663,
+        "entered_cohorts": 22,
+        "active_sessions": 104
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.7158454418606257,
+        "entered_cohorts": 22,
+        "active_sessions": 104
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.7730401387949213,
+        "entered_cohorts": 22,
+        "active_sessions": 104
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.6768130615938328,
+        "entered_cohorts": 22,
+        "active_sessions": 104
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 2.101580873089257,
+        "entered_cohorts": 21,
+        "active_sessions": 104
+      }
+    ]
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 84,
+    "history_sessions": 127,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2022-12-30",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 3.159832995164529,
+        "entered_cohorts": 40,
+        "active_sessions": 113
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 2.9062662343347387,
+        "entered_cohorts": 40,
+        "active_sessions": 113
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 3.3404897354044434,
+        "entered_cohorts": 40,
+        "active_sessions": 113
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 3.4282759321400236,
+        "entered_cohorts": 40,
+        "active_sessions": 113
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 3.2792757086785804,
+        "entered_cohorts": 40,
+        "active_sessions": 113
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 2.9762083881396264,
+        "entered_cohorts": 41,
+        "active_sessions": 113
+      }
+    ]
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 46,
+    "history_sessions": 125,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2018-06-29",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.6897219420039039,
+        "entered_cohorts": 7,
+        "active_sessions": 106
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.4013937667252743,
+        "entered_cohorts": 10,
+        "active_sessions": 113
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.7266137200275354,
+        "entered_cohorts": 9,
+        "active_sessions": 106
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.7596364375520365,
+        "entered_cohorts": 8,
+        "active_sessions": 106
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.8342267042363869,
+        "entered_cohorts": 8,
+        "active_sessions": 106
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.7304620007913708,
+        "entered_cohorts": 7,
+        "active_sessions": 106
+      }
+    ]
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 30,
+    "history_sessions": 126,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2018-12-21",
+    "selected": "spread_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.5668899768616319,
+        "entered_cohorts": 8,
+        "active_sessions": 83
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.3086002618526698,
+        "entered_cohorts": 8,
+        "active_sessions": 79
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.12468510533085209,
+        "entered_cohorts": 8,
+        "active_sessions": 74
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.24627492286091393,
+        "entered_cohorts": 8,
+        "active_sessions": 79
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.9891637384187333,
+        "entered_cohorts": 8,
+        "active_sessions": 74
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.850560625296465,
+        "entered_cohorts": 8,
+        "active_sessions": 83
+      }
+    ]
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 3,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2020-08-21",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 56,
+    "history_sessions": 125,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2020-06-26",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.5165069418983175,
+        "entered_cohorts": 24,
+        "active_sessions": 97
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.0183057934842323,
+        "entered_cohorts": 30,
+        "active_sessions": 78
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.0496741780545924,
+        "entered_cohorts": 32,
+        "active_sessions": 73
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.0440753185364278,
+        "entered_cohorts": 31,
+        "active_sessions": 78
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.9258445832971776,
+        "entered_cohorts": 27,
+        "active_sessions": 81
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 1.2342237606967494,
+        "entered_cohorts": 25,
+        "active_sessions": 95
+      }
+    ]
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 15,
+    "history_sessions": 126,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2023-12-15",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 31,
+    "history_sessions": 122,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2025-06-20",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.6099495700885447,
+        "entered_cohorts": 8,
+        "active_sessions": 105
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.2664024917875514,
+        "entered_cohorts": 9,
+        "active_sessions": 89
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.707296639553845,
+        "entered_cohorts": 8,
+        "active_sessions": 82
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.7137017760462223,
+        "entered_cohorts": 8,
+        "active_sessions": 86
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.8777290690471287,
+        "entered_cohorts": 8,
+        "active_sessions": 86
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.8945705204089582,
+        "entered_cohorts": 8,
+        "active_sessions": 106
+      }
+    ]
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 57,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2023-06-30",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.7574508982401804,
+        "entered_cohorts": 10,
+        "active_sessions": 95
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 1.0436577734788528,
+        "entered_cohorts": 12,
+        "active_sessions": 104
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 1.380305987748817,
+        "entered_cohorts": 10,
+        "active_sessions": 95
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 1.4500031112652587,
+        "entered_cohorts": 10,
+        "active_sessions": 95
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 1.4723666752236027,
+        "entered_cohorts": 10,
+        "active_sessions": 95
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.6667644854012841,
+        "entered_cohorts": 12,
+        "active_sessions": 104
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 22,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2021-12-23",
+    "selected": "delta_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.2929130117356021,
+        "entered_cohorts": 6,
+        "active_sessions": 99
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.45398658609181275,
+        "entered_cohorts": 6,
+        "active_sessions": 95
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -0.9543417810990885,
+        "entered_cohorts": 6,
+        "active_sessions": 92
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -0.442324404878241,
+        "entered_cohorts": 6,
+        "active_sessions": 95
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.9543417810990885,
+        "entered_cohorts": 6,
+        "active_sessions": 92
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.44576891254328915,
+        "entered_cohorts": 6,
+        "active_sessions": 98
+      }
+    ]
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 37,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2019-06-21",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.004840009853929882,
+        "entered_cohorts": 14,
+        "active_sessions": 117
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.15416649708086486,
+        "entered_cohorts": 14,
+        "active_sessions": 98
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.2730943522785244,
+        "entered_cohorts": 14,
+        "active_sessions": 95
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.2868628777714325,
+        "entered_cohorts": 14,
+        "active_sessions": 98
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.15798195063736456,
+        "entered_cohorts": 14,
+        "active_sessions": 116
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.053815437179101956,
+        "entered_cohorts": 14,
+        "active_sessions": 117
+      }
+    ]
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 0,
+    "history_sessions": 0,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 18,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2024-12-20",
+    "selected": "carry_exit",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 1.5027295519087653,
+        "entered_cohorts": 7,
+        "active_sessions": 70
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 2.249943082620444,
+        "entered_cohorts": 7,
+        "active_sessions": 49
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 2.9059834064279917,
+        "entered_cohorts": 7,
+        "active_sessions": 37
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 2.433687574198557,
+        "entered_cohorts": 7,
+        "active_sessions": 49
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 2.049354789376557,
+        "entered_cohorts": 7,
+        "active_sessions": 58
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 1.2986316313335955,
+        "entered_cohorts": 7,
+        "active_sessions": 70
+      }
+    ]
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 15,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2024-06-21",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 16,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2019-11-15",
+    "selected": "delta_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -1.086715965915118,
+        "entered_cohorts": 9,
+        "active_sessions": 85
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.5539433374895746,
+        "entered_cohorts": 10,
+        "active_sessions": 75
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -0.8289519956162464,
+        "entered_cohorts": 9,
+        "active_sessions": 70
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -0.8491745900337708,
+        "entered_cohorts": 9,
+        "active_sessions": 75
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.9981381361942038,
+        "entered_cohorts": 9,
+        "active_sessions": 85
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.46678063857758595,
+        "entered_cohorts": 9,
+        "active_sessions": 85
+      }
+    ]
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 30,
+    "window_months": 6,
+    "training_proposals": 19,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2021-06-18",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -1.3490885373632666,
+        "entered_cohorts": 10,
+        "active_sessions": 47
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -1.2261152446946784,
+        "entered_cohorts": 11,
+        "active_sessions": 47
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -1.238633832937805,
+        "entered_cohorts": 10,
+        "active_sessions": 47
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -1.20887123174052,
+        "entered_cohorts": 10,
+        "active_sessions": 47
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -1.3109255508349282,
+        "entered_cohorts": 10,
+        "active_sessions": 47
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -1.628034390650529,
+        "entered_cohorts": 10,
+        "active_sessions": 47
+      }
+    ]
+  },
+  {
+    "fit": "2022-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 26,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2022-06-17",
+    "selected": "slow_carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.9295896525101957,
+        "entered_cohorts": 16,
+        "active_sessions": 168
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": -0.3485833868342014,
+        "entered_cohorts": 21,
+        "active_sessions": 162
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": -0.4529009494022673,
+        "entered_cohorts": 20,
+        "active_sessions": 152
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": -0.5171752737971107,
+        "entered_cohorts": 20,
+        "active_sessions": 162
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": -0.29906054458432585,
+        "entered_cohorts": 20,
+        "active_sessions": 162
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -1.1121669181311933,
+        "entered_cohorts": 16,
+        "active_sessions": 168
+      }
+    ]
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 33,
+    "history_sessions": 251,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2022-12-16",
+    "selected": "carry_exit",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.052374867452555145,
+        "entered_cohorts": 25,
+        "active_sessions": 230
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.566096681779583,
+        "entered_cohorts": 27,
+        "active_sessions": 208
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.6076685866633201,
+        "entered_cohorts": 26,
+        "active_sessions": 197
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.47982276181334976,
+        "entered_cohorts": 26,
+        "active_sessions": 197
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.5218491476713641,
+        "entered_cohorts": 26,
+        "active_sessions": 208
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.2616115841396354,
+        "entered_cohorts": 25,
+        "active_sessions": 230
+      }
+    ]
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 13,
+    "history_sessions": 125,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2018-06-15",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 25,
+    "history_sessions": 251,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2018-09-21",
+    "selected": "carry_exit",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.04787364380916253,
+        "entered_cohorts": 6,
+        "active_sessions": 134
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.005613646969913622,
+        "entered_cohorts": 7,
+        "active_sessions": 141
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.17547286050177224,
+        "entered_cohorts": 7,
+        "active_sessions": 118
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.14254673548921284,
+        "entered_cohorts": 7,
+        "active_sessions": 125
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.14201640493967063,
+        "entered_cohorts": 7,
+        "active_sessions": 141
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": 0.10219921163775816,
+        "entered_cohorts": 6,
+        "active_sessions": 141
+      }
+    ]
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 30,
+    "history_sessions": 253,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2020-09-18",
+    "selected": "spread_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.026575360399615097,
+        "entered_cohorts": 18,
+        "active_sessions": 169
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.2417197173087936,
+        "entered_cohorts": 24,
+        "active_sessions": 137
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.09499086739863644,
+        "entered_cohorts": 24,
+        "active_sessions": 102
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.08046674558944211,
+        "entered_cohorts": 24,
+        "active_sessions": 137
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.07486249137228368,
+        "entered_cohorts": 22,
+        "active_sessions": 149
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.0671512346927444,
+        "entered_cohorts": 18,
+        "active_sessions": 169
+      }
+    ]
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 9,
+    "history_sessions": 253,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2020-04-17",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 42,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2023-12-15",
+    "selected": "carry_trim",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.35939493983603976,
+        "entered_cohorts": 13,
+        "active_sessions": 199
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.43671393198599723,
+        "entered_cohorts": 16,
+        "active_sessions": 152
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.5728098996625087,
+        "entered_cohorts": 16,
+        "active_sessions": 134
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.8020821946878557,
+        "entered_cohorts": 16,
+        "active_sessions": 152
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.6884323001933601,
+        "entered_cohorts": 16,
+        "active_sessions": 151
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.14845199719725352,
+        "entered_cohorts": 13,
+        "active_sessions": 199
+      }
+    ]
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 15,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2025-06-20",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 53,
+    "history_sessions": 251,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2023-06-16",
+    "selected": "carry_exit",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": -0.058883230989986296,
+        "entered_cohorts": 33,
+        "active_sessions": 226
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.15277079934969073,
+        "entered_cohorts": 34,
+        "active_sessions": 216
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.44253190627413813,
+        "entered_cohorts": 33,
+        "active_sessions": 206
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.3928243081672238,
+        "entered_cohorts": 33,
+        "active_sessions": 216
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.2842377832997183,
+        "entered_cohorts": 33,
+        "active_sessions": 226
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.3941623175191475,
+        "entered_cohorts": 33,
+        "active_sessions": 226
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 1,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2021-07-16",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 12,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2019-06-21",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 0,
+    "history_sessions": 0,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 6,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2024-12-20",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 7,
+    "history_sessions": 250,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2024-03-15",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 14,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2019-12-20",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 90,
+    "window_months": 12,
+    "training_proposals": 1,
+    "history_sessions": 252,
+    "minimum_history_sessions": 250,
+    "training_last_outcome": "2020-09-18",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2022-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 8,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2022-06-17",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 11,
+    "history_sessions": 127,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2022-12-16",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 13,
+    "history_sessions": 125,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2018-06-15",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 1,
+    "history_sessions": 126,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2018-09-21",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 1,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2020-09-18",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 2,
+    "history_sessions": 125,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2020-04-17",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 4,
+    "history_sessions": 126,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2023-12-15",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 4,
+    "history_sessions": 122,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2025-06-20",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 19,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2023-06-16",
+    "selected": "carry_exit",
+    "fitted": true,
+    "candidates": [
+      {
+        "rule": "hold",
+        "annualized_training_excess_sharpe": 0.2034048607217595,
+        "entered_cohorts": 8,
+        "active_sessions": 73
+      },
+      {
+        "rule": "spread_trim",
+        "annualized_training_excess_sharpe": 0.027941134222519697,
+        "entered_cohorts": 9,
+        "active_sessions": 63
+      },
+      {
+        "rule": "carry_exit",
+        "annualized_training_excess_sharpe": 0.40915922367580543,
+        "entered_cohorts": 8,
+        "active_sessions": 53
+      },
+      {
+        "rule": "carry_trim",
+        "annualized_training_excess_sharpe": 0.37589430632377435,
+        "entered_cohorts": 8,
+        "active_sessions": 63
+      },
+      {
+        "rule": "slow_carry_trim",
+        "annualized_training_excess_sharpe": 0.14664596785126668,
+        "entered_cohorts": 8,
+        "active_sessions": 73
+      },
+      {
+        "rule": "delta_trim",
+        "annualized_training_excess_sharpe": -0.029649781177736385,
+        "entered_cohorts": 8,
+        "active_sessions": 73
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 0,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 11,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2019-06-21",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 0,
+    "history_sessions": 0,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 1,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2024-12-20",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 0,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 3,
+    "history_sessions": 128,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": "2019-12-20",
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 90,
+    "window_months": 6,
+    "training_proposals": 0,
+    "history_sessions": 124,
+    "minimum_history_sessions": 100,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "fitted": false,
+    "candidates": []
+  }
+]

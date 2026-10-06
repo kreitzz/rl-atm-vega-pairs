@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "same_settings_verified": true,
+  "sole_numerical_design_change": "contract target delta 10 to25",
+  "sources": {
+    "artifacts/contracts/tail_put10_strategy/inputs.json": "e9c83c43b54ac26c76492ea91a9c745449a6863bdb5f10b59aec32a6b476bc1f",
+    "reports/tail_put10_strategy/audit.json": "c27cd72f57f61ee8df4fdc853cb18b8559ccdc6eda6da2872fab738997e8cb05",
+    "reports/tail_put10_strategy/comparison.csv": "904d849c8b9c901cdadb01ef71e9f6449496b65b31f7467f141be3e464bc79be",
+    "reports/tail_put10_strategy/coverage.csv": "b728c0daa1e809c4a4c5bcf2ea0dd0d3524cffc92fbf75fa6602bb80fc81a26f",
+    "reports/tail_put10_strategy/fits.csv": "663044ef929e0a3568eb578fe52f35aa588da0a4fc9589a812c90f3a3fb0cf21",
+    "artifacts/contracts/tail_put25_strategy/inputs.json": "9481050bd1ff7bce139e114cef948416f2966985f536592f40987805a65fd623",
+    "reports/tail_put25_strategy/audit.json": "d82f03f2a8c3e6678dce03dd0c5fa85afb29993ac7732cc9ee5bd47172638473",
+    "reports/tail_put25_strategy/comparison.csv": "8ec0e95fdb0e42011cef75d96d0085e2a0f222ef13743fe4b40906bec39b0f92",
+    "reports/tail_put25_strategy/coverage.csv": "2028a2600f65a7ec637a52a564a5cd2ac79476948548a161a4e614bf95fa48e0",
+    "reports/tail_put25_strategy/fits.csv": "dfdd7e033bc2b6966ed32e694efaed701903b1143f277006f933553b06632e2a",
+    "reports/atm_tail_stack/findings.txt": "018888d65e1fff7ccb51ecea6fdb6ecb390d5ce77c72a3277fe8312143be1494",
+    "reports/atm_put25_stack/findings.txt": "df596fe860517e5d4da06510feee7540c2ef6d7bfad5b4928b8a3ba6ba25530e",
+    "reports/atm_tail_stack/audit.json": "19f54c08e83dc8ccb588aab3b723d4df48eae83a8d1298543086753124952875",
+    "reports/atm_put25_stack/audit.json": "21d725fa8baaefb82e7e4e8048a1f83d922fa25f9ec97da935f5b6b9a4a56fac"
+  },
+  "output_sha256": {
+    "reports/put_tail_delta_comparison/coverage.csv": "e3c4785784b424779680937018c99c3a8cca56d45ccea00b4f21aa4998e13775",
+    "reports/put_tail_delta_comparison/comparison.csv": "aeb49d94907e4ef74d00c875b5a06ba44f0e2d5f4cfb408edb139cfe9a3576dd"
+  }
+}

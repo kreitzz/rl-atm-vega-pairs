@@ -1,0 +1,33 @@
+                    model  net_excess_pnl   option_cost    hedge_cost   status                   variant  proposals  entries  active_pairs  independent_ledger_error  commission  all_inventory_closed  total_return  excess_return  annualized_excess_sharpe  max_drawdown  max_ledger_error  shared_cash  shared_stock_hedges
+              spread_full   979038.730565 553555.915078 705790.202847 complete               spread_full      28449     5295           122                  0.000002    47335.11                  True      0.219114       0.000946                  0.231053     -0.000369          0.000002         True                 True
+             spread_floor   998704.887130 529537.643869 670529.943642 complete              spread_floor      28449     8843           122                  0.000002    45597.93                  True      0.219133       0.000965                  0.256003     -0.000374          0.000002         True                 True
+              spread_flex   608732.100379  73998.577959 110363.648742 complete               spread_flex       2812     1232            98                  0.000001     9112.02                  True      0.218756       0.000588                  0.294768     -0.000358          0.000001         True                 True
+              memory_full  -194678.116568  86064.546632 152614.560089 complete               memory_full       3989      832           102                  0.000001     6719.97                  True      0.217980      -0.000188                 -0.130707     -0.000096          0.000001         True                 True
+             memory_floor  -123176.378466  84430.860084 148896.586185 complete              memory_floor       3989     1300           102                  0.000001     6609.06                  True      0.218049      -0.000119                 -0.094353     -0.000060          0.000001         True                 True
+              memory_flex  -148753.081430  31554.538616  55978.844325 complete               memory_flex       1331      601            85                  0.000001     2605.77                  True      0.218024      -0.000144                 -0.174386     -0.000040          0.000001         True                 True
+           rl_entry_fixed  -220735.177800  98806.101773 134954.740236 complete            rl_entry_fixed       4649      893           101                  0.000001    14040.42                  True      0.217955      -0.000213                 -0.079042     -0.000226          0.000001         True                 True
+           rl_entry_sized  -441289.862895 114148.799338 148948.403553 complete            rl_entry_sized       5457     1719           107                  0.000001    16649.76                  True      0.217742      -0.000426                 -0.167428     -0.000199          0.000001         True                 True
+      rl_entry_sized_full  -508856.556453 116098.580661 152185.310986 complete       rl_entry_sized_full       5457     1043           104                  0.000001    16951.80                  True      0.217677      -0.000492                 -0.181035     -0.000226          0.000001         True                 True
+spread_flex_selected_full   525738.252696  80860.958125 123475.903800 complete spread_flex_selected_full       2812      741            98                  0.000001     9992.25                  True      0.218676       0.000508                  0.234513     -0.000353          0.000001         True                 True
+
+Nine predeclared matched variants across independent ATM/P25/P75 wing policies, all345 roster pairs retained. Same35 raw/directional-history features, optional neutral fill/availability flags, monthly five-year completed-outcome training, eight-leaf direct-Sharpe CEM seed2026. Common monthly beta0.85-1.15/correlation>=0.5 and original paired formation/calendar context for all wings. Spread-rule bottom/top252-session IV-gap rank quintiles min63 quotes: fullsize,50/75/100 sizing,0/25/50/75/100 sizing. Repeat those three with a common directional completed-profit filter: positive91/365day means and counts>=21/63. RL entry/direction on every observed eligible contextual date: cash/long/short fullsize, cash/long/short50/75/100 sizing, plus force the sized policy nonzero outputs to fullsize. No per-pair validation/model activation or optional-feature veto; one global full-size spread-rule fallback when completed training rows<16. Identical0.65 training commission,0.03 actual, mid+.1volpoint perleg, stock1bp, original financing/dividend/borrow conventions. Actual options at approximately30D, ATM calls/P25 puts/P75 puts. Integer entry-vega match<=10%, daily delta hedge, hold own expiry/corporate exits. Equal pair-wing capital1m andgrossvega20k risk reservation, pair3m/60k; shared cash and net stock hedges, identical summed global risk caps. Standalone labels approximate actual shared-book funding/risk; this is direct policy search, not sequential inventory-trained RL. Replay exits paired inventory on causal unsupported-distribution declarations and blocks known corporate effective-session reentry. Hess July18 stock deliverable follows public OCC56907 (1.025CVX); absent option exit quotes use the existing last-IV model fallback that session only. Training targets and historical profit memory retain only available historical paths; unsupported standalone labels are excluded at completed training cutoffs, never used to filter evaluated candidates. Inspected 2018-Aug2025 research history: every variant reported, no new holdout or claim that a selected maximum is confirmatory. Oneworker,50%of onecore,oneBLAS/Arrowthread,3GiB RSS stop; original checkpoints and old experiments preserved.
+
+{
+  "status": "complete",
+  "roster_pairs": 345,
+  "variants": 10,
+  "predeclared_variants": 9,
+  "post_selection_sizing_controls": 1,
+  "monthly_models": 1620,
+  "common_features": 35,
+  "actual_commission": 0.03,
+  "training_commission": 0.65,
+  "frozen_sources_verified": 20775,
+  "causal_completed_training_verified": true,
+  "full_roster_retained": true,
+  "sequential_inventory_training": false,
+  "elapsed_seconds": 1964.5810281670128,
+  "peak_rss_bytes": 1083719680,
+  "phase": "summarize",
+  "sizing_control_signal_identity_verified": true
+}

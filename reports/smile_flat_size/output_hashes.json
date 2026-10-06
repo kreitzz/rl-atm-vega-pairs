@@ -1,0 +1,22 @@
+{
+  "scripts/compare_smile_flat_size.py": "aeeae9a5390d696fddd74390a878711b24c6c3f3e611a855856d2583ccfcfeb5",
+  "scripts/joint_smile_engine.py": "954a6325a02301fe6986aade80bf0daec70707099e0ae7eba64b3d82244c4022",
+  "scripts/joint_smile_data.py": "6ba3fbfd03c34f74d6952cc9b819ebd673cea418587da83b18ba84db3cf2dc15",
+  "scripts/option_flex/contract_engine.py": "c17ef15da86630a71441ffb98ac90760274015ad8fef77ffe49d6fc0c0504c0b",
+  "scripts/option_flex/contract_risk.py": "e52da8cd221c1b08dad7a56730b5e83f12689ab4d6af126d76144b651cc3a13b",
+  "artifacts/contracts/smile_flat_size/sources.json": "26dc7b7c9be21866022a8c7916deff9dc11d3d797e98d726fb71303b1dec0c16",
+  "artifacts/contracts/smile_flat_size/decisions.csv": "6e17f9fe12973441c1b1dd12526467c39831e4481b82448582438ef92add9e25",
+  "artifacts/contracts/smile_flat_size/inputs.json": "6a6b417603b25cc46633c03e29359385ee70dc45ac11155e80c99ec137d15d73",
+  "artifacts/contracts/smile_flat_size/trades.csv": "aab0a7e7561965277a4f596bdf8d72e7bc5ded756a9c3ab56813009816c29510",
+  "artifacts/contracts/smile_flat_size/daily_nav.parquet": "9d114b128e76ecce40e1158019682b448d747dcb1835366ee846e7b52d8eebbe",
+  "reports/smile_flat_size/fixed_full_vega_portfolio.csv": "96fc6a78721611672afdf0f8bdceacc5dba3914c956fc881c953164188d025cb",
+  "reports/smile_flat_size/audit.json": "ceb14ceaed4c244db22f108bad5a300b4642a0f8601a734f3a524c757d7a5726",
+  "reports/smile_flat_size/annual_comparison.csv": "10c428fd0ca8100cc0ab6143ae39ac7669c23314d9a92444364a8f3d6725b405",
+  "reports/smile_flat_size/ledger_audit.csv": "4d07c263d88594d7dedfdb8109e2916c663a5715b7ee9f9ed113abb02646cc5d",
+  "reports/smile_flat_size/decisions.csv": "ef7d0ff58ae5463d0562db91bebc980e936d6eb0ecf2011ce3dbf769780b8c77",
+  "reports/smile_flat_size/wings.csv": "abdc68fa78478217b338c5100294df4980342beb68f15feee6888edce4314987",
+  "reports/smile_flat_size/individual_sizing_portfolio.csv": "672884c66d7734cf57ae278f1e8eade96f2d6335219cd2279b6418a3269ff5e4",
+  "reports/smile_flat_size/annual.csv": "74e4019ffe029d6c3e2a058cb0f4f3080a5cde1a4cd75f9ae08de757bf78f498",
+  "reports/smile_flat_size/comparison.csv": "2968a548ee6a0dea53e5bb0e231c0388f17aac3f2094b3a133e83af94883dd10",
+  "reports/smile_flat_size/findings.txt": "12441b15a1ade73ea05464f71344497800a4b7cb51f2aec3af4d94aa4297758e"
+}

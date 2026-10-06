@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "cases": 12,
+  "all_ledgers_verified": true,
+  "completed_outcome_purge": true,
+  "original_sources_unchanged": true,
+  "protected_source_count": 331,
+  "matched_option_types": true,
+  "peak_rss_bytes": 645906432
+}

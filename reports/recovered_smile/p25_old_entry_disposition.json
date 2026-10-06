@@ -1,0 +1,12 @@
+{
+  "old_proposals": 608,
+  "new_proposals": 1614,
+  "shared_proposals": 375,
+  "old_entries_new_disposition": {
+    "entered": 31,
+    "risk_limit_entry": 34,
+    "not_proposed_after_recomputed_signals_or_gates": 60,
+    "no_eligible_contract": 6,
+    "risk_deleveraging": 3
+  }
+}

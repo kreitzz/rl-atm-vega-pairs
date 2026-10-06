@@ -1,0 +1,55 @@
+                       model  annualized_excess_sharpe  net_excess_pnl  entries  active_pairs  mean_entered_size  inventory_reduced_proposals  worst_daily_excess_pnl
+               reference_P25                  0.825623   262872.856615      200            42           0.646250                            0           -24857.941165
+inventory_reference_combined                  0.538538   362388.142812      601            46           0.604825                          756           -47070.284248
+                      rv_P25                  0.759846   245876.574274      200            42           0.646250                            0           -24860.289793
+            relationship_P25                  0.797771   254818.157122      210            42           0.615476                            0           -24859.054202
+     inventory_reference_P25                  0.774265   243929.911496      208            42           0.641827                          200           -24860.746307
+     both_inventory_combined                  0.516824   346047.894679      613            46           0.596656                          759           -54160.277210
+               both_combined                  0.433328   284778.700910      551            46           0.640653                            0           -54167.389078
+                    both_P25                  0.676185   218363.237089      205            42           0.630488                            0           -32828.161360
+          both_inventory_P25                  0.716538   236399.831035      214            42           0.623832                          196           -32825.856492
+          reference_combined                  0.524844   349172.138652      536            46           0.659049                            0           -49943.038771
+
+                       model     period  annualized_excess_sharpe
+               reference_P25 2018to2020                  0.678724
+               reference_P25 2021to2023                  1.423917
+               reference_P25 2024to2025                 -0.366274
+inventory_reference_combined 2018to2020                  0.127955
+inventory_reference_combined 2021to2023                  1.606143
+inventory_reference_combined 2024to2025                 -0.595086
+                      rv_P25 2018to2020                  0.581802
+                      rv_P25 2021to2023                  1.336239
+                      rv_P25 2024to2025                 -0.366274
+            relationship_P25 2018to2020                  0.678724
+            relationship_P25 2021to2023                  1.495533
+            relationship_P25 2024to2025                 -0.564898
+     inventory_reference_P25 2018to2020                  0.660838
+     inventory_reference_P25 2021to2023                  1.511692
+     inventory_reference_P25 2024to2025                 -0.586951
+     both_inventory_combined 2018to2020                  0.127955
+     both_inventory_combined 2021to2023                  1.591348
+     both_inventory_combined 2024to2025                 -0.630979
+               both_combined 2018to2020                  0.177260
+               both_combined 2021to2023                  1.392912
+               both_combined 2024to2025                 -0.694287
+                    both_P25 2018to2020                  0.581802
+                    both_P25 2021to2023                  1.390690
+                    both_P25 2024to2025                 -0.688236
+          both_inventory_P25 2018to2020                  0.591027
+          both_inventory_P25 2021to2023                  1.444763
+          both_inventory_P25 2024to2025                 -0.666470
+          reference_combined 2018to2020                  0.245068
+          reference_combined 2021to2023                  1.476436
+          reference_combined 2024to2025                 -0.616729
+
+                       model          reference  sharpe_difference  ci_lower  ci_upper
+inventory_reference_combined reference_combined           0.013694 -0.078484  0.122519
+                      rv_P25      reference_P25          -0.065777 -0.147320 -0.011148
+            relationship_P25      reference_P25          -0.027852 -0.163808  0.066800
+     inventory_reference_P25      reference_P25          -0.051358 -0.211638  0.075639
+     both_inventory_combined reference_combined          -0.008020 -0.111802  0.098724
+               both_combined reference_combined          -0.091517 -0.176216 -0.019506
+                    both_P25      reference_P25          -0.149438 -0.342744 -0.004139
+          both_inventory_P25      reference_P25          -0.109085 -0.305456  0.054120
+
+Preserve all608 original P25 pair/date/direction/contract proposals and original formation/calendar/positive directional-profit screens. Baseline .8256229208692676 must reproduce NAV,trades,decisions. Add causal long/short20-sessionRV-to-selected-putIV ratios; separately IV*(1-returnCorrelation) and absolute log126-session volatility ratio derived from beta/correlation; then both sets together. Optional missing inputs have explicit flags and zero neutral values; never a new veto. Same27 existing features, monthly5Y completed-outcome pooled fits, 8-leaf tree with identical adaptive minleaf, CEM50x192 seed2026, full-size anchor,16-row global fallback,50/75/100 ladder. Same saved0.65 training-cost labels; actual0.03 commission,mid+.1volpoint, 1bp stock hedge and original financing/borrow/dividends/risk limits. Fourth arm applies declared actual-prior-close same-name gross-vega overlay: nearest floor-ladder level to learned level/sqrt(1+max name inventory/current funded full-size per-leg vega budget),minimum50%. Overlay is fixed,not learned sequential inventory RL,and has no veto. Apply that same declared overlay to the frozen baseline as an isolated inventory ablation,at P25 and combined-book scope. Also replay both-feature P25 sizing transferred to all3 existing smile wings, with/without overlay, against the saved identical combined stream. Actual prior inventory is shared across names,pairs,and wings. No new pair exclusions,correlation cutoff,quote selection,or threshold search. Already inspected history and retrospective roster/calendar conditioning; this is research,not an untouched holdout. Single worker,50%of onecore,oneBLAS/Arrow thread,3GiB RSS stop.

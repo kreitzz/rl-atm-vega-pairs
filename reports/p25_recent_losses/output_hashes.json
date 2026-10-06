@@ -1,0 +1,23 @@
+{
+  "reports/p25_recent_losses/30D_floor_ATM_cohort_daily.parquet": "4b4e610659e208ae12eccb5fb084154d5346e9293f14790e621451dc18b863a8",
+  "reports/p25_recent_losses/30D_floor_P25_cohort_daily.parquet": "f1a4dedcb5a3c20b38e85bc3f8a83a354cbc8be866ba51aa936ab80376094a09",
+  "reports/p25_recent_losses/30D_floor_P75_cohort_daily.parquet": "e00827ff0be3728afbca3e9b6b414fe000bf42611c7920a0b78f82a2ab1db63b",
+  "reports/p25_recent_losses/30D_floor_cohort_daily.parquet": "ca977afa37a0a1b35638237cd79121b822df7a7bd3a8efa5f0c219883b1c67d2",
+  "reports/p25_recent_losses/90D_floor_ATM_cohort_daily.parquet": "b552aa6af29b4a54307aec395125b31c384c38b611cdb3034844a15aed6d7fdc",
+  "reports/p25_recent_losses/90D_floor_P25_cohort_daily.parquet": "61fa7ed1d886436964ba1e7709dabcc9c5133d71d8f2eeea36f6fe1c176e800a",
+  "reports/p25_recent_losses/90D_floor_P75_cohort_daily.parquet": "5275d7fde50d388a2e824103b32d3dff140b6d6d3b5f2cb8721576f40752ffd4",
+  "reports/p25_recent_losses/90D_floor_cohort_daily.parquet": "7abd4123f3dd408ec940df0a67a508225641044960f13539e83a448662e7e466",
+  "reports/p25_recent_losses/annual_components.csv": "a5257140cbdc89f74c4d904377e7f7b3f32aa50570b87750dcdd021b1591d629",
+  "reports/p25_recent_losses/annual_pairs.csv": "f9d229dd985be01cbb393a02bf7fe5f7fe39ed354146f28a66c77d45fc6a7b1a",
+  "reports/p25_recent_losses/annual_summary.csv": "e47acf8c103af8aea26b4dda11e32019f653a7a0c5ad81a12fff6ec87e60c727",
+  "reports/p25_recent_losses/audit.json": "f1bb10f7741d30d152d52b46623ab8a11409b8b8f40fb32c87604213bf042cfa",
+  "reports/p25_recent_losses/calendar_cohorts.csv": "141a5ddf87ebb389373b04d3d9e905db97a7c625374855b12cbc0f1046358144",
+  "reports/p25_recent_losses/findings.txt": "eb61255ced2d52552c39f79ea60b5431bf55b1fff9cb52772dd51834ebbd8a89",
+  "reports/p25_recent_losses/key_entry_signals.csv": "ffea76515d796ddc214c09bffb94513364cb9ec1be4d9e3e9fa420e862850e99",
+  "reports/p25_recent_losses/key_portfolio_days.csv": "f38cd4a6bc803b8e9c5445f0fc77483629ec73d5e29d35c07aa840f529bdb163",
+  "reports/p25_recent_losses/legs.csv": "0e61c0e67deb10dbabf6a36f4e042042ce5c7b24f222a17c76f676dbb8857937",
+  "reports/p25_recent_losses/progress.json": "1d1dd57630b53eaa96d2dd6156dae592e59febbfa85a82020bd6e4200c9d1721",
+  "reports/p25_recent_losses/supplemental_sources.json": "625542507d8479f4fc25785d0ffb1f604a35dfdbbfc51e953702d3f77a811713",
+  "reports/p25_recent_losses/worst_cohort_days.csv": "68f60975478c041ca82b89a1c32e6ff07f6452adf84e32c5fddce9bc5b04cc08",
+  "reports/p25_recent_losses/worst_day_quotes.csv": "c9811a37025095e2a08b6f4ef52677bea7f17415dc2174fe3bb7f6c77a064929"
+}

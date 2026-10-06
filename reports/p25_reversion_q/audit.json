@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "completed_cases": [
+    "matched_frozen_sized_q_managed_locked_v3",
+    "matched_frozen_sized_q_managed_locked_v3_risk0",
+    "matched_frozen_sized_q_managed_v3",
+    "matched_frozen_sized_q_managed_v3_risk0",
+    "matched_q_fixed_managed_v3",
+    "matched_q_fixed_managed_v3_risk0",
+    "matched_q_sized_managed_v3",
+    "matched_q_sized_managed_v3_risk0",
+    "universe_q_fixed_hold_v3",
+    "universe_q_fixed_hold_v3_risk0",
+    "universe_q_fixed_managed_v3",
+    "universe_q_fixed_managed_v3_risk0",
+    "universe_q_sized_hold_v3",
+    "universe_q_sized_hold_v3_risk0",
+    "universe_q_sized_managed_v3",
+    "universe_q_sized_managed_v3_risk0",
+    "frozen_10m_fixed100",
+    "frozen_10m_learned"
+  ],
+  "prior_checkpoint_unchanged": true,
+  "fit_cutoffs_verified": 552,
+  "original_anchor_verified": true,
+  "peak_rss_bytes": 751992832,
+  "executable_replays_verified": 16,
+  "all_universe_candidates_preserved": true,
+  "option_costs_verified": true,
+  "entry_vega_tolerance_verified": true,
+  "next_session_exits_verified": true,
+  "pnl_components_reconcile": true
+}

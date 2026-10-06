@@ -1,0 +1,9 @@
+{
+  "selected_using": "2018-2023",
+  "model": "variance_premium",
+  "full_sharpe": 1.0063047056719723,
+  "recent_sharpe": -0.021153458859478246,
+  "fixed_control": "fixed2",
+  "descriptive_best_full": "variance_premium",
+  "no_fresh_holdout": true
+}

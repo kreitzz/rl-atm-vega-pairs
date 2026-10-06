@@ -1,0 +1,24 @@
+NATIVE 180D / 365D P25 SIZING AND MANAGEMENT
+
+Same 529 frozen pair/date/direction proposals, native selected contracts, costs and risk limits. Entry ladder 0/25/50/75/100%, including an explicit learned zero-size action; fixed 50/100% controls retain the identical learned zero masks. Cold start keeps original entry sizes and holds. Quarterly refits require original scheduled expiry before the fit, with minimum 16 completed episodes. 48-month fits use baseline labels plus isolated minimum-size executions of every remaining native executable proposal. Inputs include a 252-session EWMA variance forecast, with explicit RV60 fallback when unavailable, term spread, IV spread/level, correlation and VIX. Shadow elective-exit costs are doubled during training only. Direct episodic policy search uses up to 4 tree leaves and exhaustive discrete action-map optimization. Management observes current features every five sessions from age five; irreversible hold/half/close of both legs, filled at the next observed session. 
+This extends the checkpoint policy-search method, not neural Q-learning. Shadow training uses fractional quantities and isolated stock hedge/borrow costs; option/hedge/dividend gross paths independently reconcile the unchanged baseline. All final results use the executable integer shared-cash ledger with original admission/risk limits and independently checked cash flows. Training commission .65; actual .03, 0.1 vol point options, 1bp stocks. All 529 proposals remain explicit.
+C75 uses actual same-strike/expiry call counterparts of P25 selections, approximately 75-delta at entry; calls use their native fitted Greeks with integer vega matching. Same 529 proposals, not the previously accepted-put-only locked parity subset. Call training and baselines separate.
+Missing history, American exercise, future dividend forecasts and financing approximation limitations remain. No new entry universe, untouched holdout or guaranteed improvement. All variants and loss periods retained.
+
+ tenor                        case  annualized_excess_sharpe  entries  net_excess_pnl
+   180                   180D_hold                  0.485755      177   170816.696568
+   180             180D_manage_36M                  0.500640      181   168742.598919
+   180              fixed_100_hold                  0.427375      144   180999.932441
+   180               fixed_50_hold                  0.591775      204   150660.026366
+   180          flexible_joint_48M                  0.301291       95    59980.165329
+   180           flexible_size_48M                  0.231971       95    50336.886654
+   180 same_learned_skip_fixed_100                  0.235533       79    67484.832114
+   180  same_learned_skip_fixed_50                  0.342704      102    53968.498517
+   365                   365D_hold                  0.359071      142   133453.635413
+   365             365D_manage_36M                  0.296745      146   106449.315446
+   365              fixed_100_hold                  0.281315      120   119623.335568
+   365               fixed_50_hold                  0.396012      167   102842.468074
+   365          flexible_joint_48M                  0.175104       90    38418.785728
+   365           flexible_size_48M                  0.217199       90    53701.843583
+   365 same_learned_skip_fixed_100                  0.268499       79    92380.522203
+   365  same_learned_skip_fixed_50                  0.327758       96    63944.516029

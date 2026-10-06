@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "cases": 13,
+  "anchor_reproduced": true,
+  "all_608_proposals_retained": true,
+  "all_ledgers_verified": true,
+  "frozen_learning_only": true,
+  "broker_margin_model": false,
+  "forced_liquidation": false,
+  "new_leverage_learner": false,
+  "peak_rss_bytes": 473038848
+}

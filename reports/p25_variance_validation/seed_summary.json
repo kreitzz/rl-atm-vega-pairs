@@ -1,0 +1,14 @@
+{
+  "retained_seed": 2026,
+  "no_best_seed_promotion": true,
+  "seeds": [
+    2026,
+    1,
+    7,
+    42,
+    2027
+  ],
+  "min_sharpe": 1.0063047056719725,
+  "median_sharpe": 1.0063047056719725,
+  "max_sharpe": 1.0063047056719725
+}

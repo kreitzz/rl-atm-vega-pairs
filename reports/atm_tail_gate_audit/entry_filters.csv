@@ -1,0 +1,4 @@
+strategy,evaluation_dates,observed_pair_states,beta_eligible_states,memory_permitted_states,memory_blocked_states
+atm_rl,94155,94155,28374,10890,17484
+tail_free_rl,92423,33544,9463,3264,6199
+tail_sizing_rl,92423,33544,9463,3264,6199

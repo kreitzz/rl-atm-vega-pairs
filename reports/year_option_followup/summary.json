@@ -1,0 +1,16 @@
+{
+  "best_fixed_case": "fixed25_hold",
+  "best_fixed_sharpe": 0.4707754377343355,
+  "original_fixed50_sharpe": 0.3960120301941098,
+  "learned_variants_beat_best_fixed": false,
+  "actual_vs_matched_shadow": {
+    "case": "actual_book_2state_48M",
+    "control": "matched_shadow_2state_48M",
+    "sharpe_gain": 0.09084613703903183,
+    "unadjusted_gain_95_low": -0.03086293280656623,
+    "unadjusted_gain_95_high": 0.21686386746395514
+  },
+  "untouched_holdout": false,
+  "verified_manifest_entries": 942,
+  "selection": "All outcomes shown; fixed25 and shorter holdings were adaptively explored after earlier learned failures"
+}

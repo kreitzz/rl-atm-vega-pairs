@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "label_paths_at_065_exact": true,
+  "baseline90_models_and_replay_exact": true,
+  "all608_proposals_preserved": true,
+  "actual_execution_unchanged": true,
+  "fixed100_exact": true,
+  "monthly_models": 360,
+  "frozen_065_states_and_eligibility": true,
+  "reward_only_ablation": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 466731008
+}

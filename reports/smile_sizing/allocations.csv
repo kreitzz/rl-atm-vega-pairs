@@ -1,0 +1,16 @@
+model,allocation,signals
+C25_flex,0.0,6320
+C25_flex,0.25,730
+C25_flex,0.5,311
+C25_flex,0.75,146
+C25_flex,1.0,266
+C25_floor,0.5,5514
+C25_floor,1.0,2259
+P75_flex,0.0,630
+P75_flex,0.25,165
+P75_flex,0.5,84
+P75_flex,0.75,108
+P75_flex,1.0,100
+P75_floor,0.5,617
+P75_floor,0.75,40
+P75_floor,1.0,430

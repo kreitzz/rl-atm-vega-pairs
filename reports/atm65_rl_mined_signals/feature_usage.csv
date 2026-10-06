@@ -1,0 +1,10 @@
+model,signal,enabled_refits,enabled_refits_using_value,enabled_refits_using_availability
+rl_downside,downside_fraction,527,89,0.0
+rl_downside,iv_factor_reversion,527,0,0.0
+rl_downside,any_new_value,527,89,
+rl_iv_factor,downside_fraction,388,0,0.0
+rl_iv_factor,iv_factor_reversion,388,9,0.0
+rl_iv_factor,any_new_value,388,9,
+rl_both,downside_fraction,534,93,0.0
+rl_both,iv_factor_reversion,534,9,0.0
+rl_both,any_new_value,534,100,

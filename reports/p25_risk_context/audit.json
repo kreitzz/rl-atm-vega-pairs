@@ -1,0 +1,21 @@
+{
+  "trades": 194,
+  "no_retraining": true,
+  "no_trade_changes": true,
+  "no_threshold_search": true,
+  "entry_states_observed_before_fill": true,
+  "source_hashes": {
+    "reports/p25_recent_losses/legs.csv": "0e61c0e67deb10dbabf6a36f4e042042ce5c7b24f222a17c76f676dbb8857937",
+    "artifacts/contracts/same_structure_smile/P25_rows.parquet": "95706a9ae59aa56a57cdef11a04d3d92940f262c30a2afcfe0291fec7fa750f2",
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/explore_pair_risk_context.py": "681b299d296afc155e9d956a08415489c400e25e350cfd16cddaef3684f02de8"
+  },
+  "limitations": [
+    "Actual accepted trades only; frozen entry/risk selection",
+    "Inspected history; no fresh holdout",
+    "Overlapping cohorts are not independent observations",
+    "Trade P&L before shared financing; not portfolio return or Sharpe",
+    "Latest study has May2025 entry cutoff",
+    "Round diagnostic thresholds are exploratory",
+    "Recent losses are not used to remove names or change policy"
+  ]
+}

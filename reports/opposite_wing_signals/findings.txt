@@ -1,0 +1,18 @@
+                   model  entries  active_pairs  signals  net_excess_pnl  max_excess_drawdown_dollars  risk_breach_pair_sessions  correlation_with_put25_rl  commission   option_cost    hedge_cost  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+              P75_spread      278            47     1087    90660.134380               -104723.727736                       1313                  -0.001863     2975.64  29478.366139  69158.756492      0.218431       0.000263                  0.130719     -0.000062
+P75_spread_native_memory       21            14       72     5256.412913                -21704.907529                         75                   0.012778      174.69   2172.732701   5632.985754      0.218183       0.000015                  0.039255     -0.000039
+              C25_spread     1385            90     7773    -7500.253518               -742593.170494                       6119                  -0.054698    13241.31 145776.830572 213516.087988      0.218146      -0.000022                 -0.002686     -0.000911
+C25_spread_native_memory      153            44      824    21996.390096               -124444.029874                        751                   0.024282     1092.24  15742.873796  26069.507897      0.218232       0.000064                  0.038188     -0.000129
+
+{
+  "status": "complete",
+  "roster_pairs": 345,
+  "strategy_books": 1380,
+  "source_files_verified": 16184,
+  "rl_models_trained": 0,
+  "strategies_combined": false,
+  "elapsed_seconds": 247.47228562500095,
+  "peak_rss_bytes": 878952448
+}
+
+Separate per-pair 30D P75 and C25 attempts, not a joint strike/direction menu. Scan all 345 roster pairs, retaining each missing-feature coverage. Fourteen predeclared causal signals, completed actual-contract directional outcomes and entry-quality associations; report broad and original-calendar/ nonoverlapping samples before2022 and2022+. HAR-style variance forecast: monthly five-year regression of future20session variance on1/5/20session backward variance; minimum252 completed observations then ridge1 after standardization; prior RV20 fallback before sufficient global name history. Vol beta: prior126session IV/VIX change covariance, minimum42; signal-close VIX available before next-session execution. Two predefined fixed-size rules per wing: bottom/top252session spread-rank quintiles, min63 quotes, with/without native0.65-commission completed-profit history (positive91/365days, min21/63 completed observations). Actual commission0.03, mid+.1volpoint perleg, all original financing/hedge costs and inventory risk limits. Exact legacy pair/date calendar for trading comparisons; broad sample retained for discovery, no per-pair fitted-model veto. No RL fitting or strategy combination in this signal stage. Preserved0.756 rule/0.792 sizing references. No early assignment or ongoing option-vega rebalancing; each leg holds to own expiry except preannounced corporate-action paired exits. Shared-name risk not consolidated between separate pair sleeves. Inspected history, overlapping cohorts, exploratory multiple comparisons, no new holdout. A1Sharpe combined strategy is a research target, not a selected result.

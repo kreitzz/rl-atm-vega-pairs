@@ -1,0 +1,69 @@
+{
+  "status": "complete",
+  "reference": "artifacts/contracts/same_structure_calendar/replays/floor_P25",
+  "experiment": "Transfer the frozen P25 entry dates, pair selection, direction, profitability gates and monthly sizing decisions to ATM calls and P75 puts",
+  "same_decision_stream_across_all_wings": true,
+  "proposals_per_wing": 608,
+  "additional_wing_native_signal_veto": false,
+  "contract_mapping": "Keep each wing's original selected contracts. Use cached alternative choices only on missing dates and only with signal OI>=100. Leave missing IDs in the replay for explicit execution rejection.",
+  "original_contracts_never_replaced": true,
+  "original_p25_contracts_and_decisions_unchanged": true,
+  "original_p25_standalone_nav_trades_and_decisions_reproduced": true,
+  "unchanged_execution": {
+    "minimum_open_interest": 100,
+    "entry_dte_range": [
+      7,
+      55
+    ],
+    "actual_option_commission": 0.03,
+    "execution_penalty_vol_points_per_leg": 0.1,
+    "stock_hedge_cost_bps": 1,
+    "integer_vega_mismatch_maximum": 0.1,
+    "holding": "Each leg to its own expiry with the existing audited corporate exits",
+    "risk": "Original shared inventory, funding and per-pair/per-wing risk budgets"
+  },
+  "frozen_sizing_ladder": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "fixed_controls": [
+    0.5,
+    1.0
+  ],
+  "retraining": false,
+  "annualized_cash_excess_sharpe": {
+    "ATM_fixed_100": 0.19187167862934665,
+    "ATM_frozen_P25_sizing": 0.16866353141685317,
+    "P25_fixed_100": 0.756931810129242,
+    "P25_frozen_P25_sizing": 0.8256229208692676,
+    "P75_fixed_100": 0.09720636970531454,
+    "P75_frozen_P25_sizing": 4.7248612799216575e-05,
+    "combined_fixed_100": 0.5448068077664545,
+    "combined_frozen_P25_sizing": 0.5248443407953023
+  },
+  "interpretation": "Preserving the working P25 decision stream restores the approximately 0.8 P25 result exactly and gives a stronger combined result than the previous common wing-native gate reconstruction. The P25 sizing decisions do not add Sharpe in the other wings or combined book. This experiment establishes decision transfer; it does not establish equal economic signal across the smile or successful independently trained wing sizing.",
+  "coverage": {
+    "ATM": 608,
+    "P25": 608,
+    "P75": 223
+  },
+  "limits": [
+    "Cached fallback is not an exhaustive search for every usable OI100 expiry",
+    "P75 has explicit missing contracts on 385 proposals",
+    "Transferred model outputs use P25 states; no wing-native sizing model was fitted in this experiment",
+    "Previously inspected history, retrospective formation-calendar conditioning and no fresh holdout",
+    "Combined inventory can change P25 executions even though its proposals and standalone baseline are preserved"
+  ],
+  "resources": {
+    "workers": 1,
+    "cpu_duty_cycle": 0.5,
+    "memory_stop_gib": 3
+  },
+  "completed_replays": 15,
+  "script": "scripts/run_p25_signal_transfer.py",
+  "results": "reports/p25_signal_transfer/results.csv",
+  "annual_results": "reports/p25_signal_transfer/annual_comparison.csv",
+  "coverage_report": "reports/p25_signal_transfer/coverage.csv",
+  "audit": "reports/p25_signal_transfer/audit.json"
+}

@@ -1,0 +1,35 @@
+CALL/PUT AND SMILE AUDIT
+
+25-delta puts and 25-delta calls have different strikes; put-call parity concerns identical strike and expiry. Same-strike counterparts are approximately 75-delta calls. Signal-day diagnostics use actual WRDS quotes and vendor IVs alongside our European BS fit. The fit includes declared ordinary dividends only, not forecasts of undeclared dividends or American exercise. Midpoint parity residuals therefore include carry/model approximations as well as quote noise, not necessarily arbitrage.
+
+Replay the originally accepted put cohorts with identical integer quantities and reproduce the complete baseline NAV. Then transfer them to actual calls at the identical strike/expiry, retaining all original dates/directions/counts, daily hedge, actual costs and risk limits. Rejected calls remain explicit. The common-cohort put replay is a descriptive entry-feasibility control, not a new tradable signal. A separate call-price control uses put delta+1 and put vega (European parity) to isolate separate BS inversion effects; it is not an American pricing model or a deployed policy. Corporate actions retain the announced pre-effective paired exits, including GE HealthCare.
+
+ tenor  matched_strike_quotes  valid_bs_quotes  valid_vendor_iv_pairs  median_put25_minus_call25_iv_points  median_call25_strike_above_put25_pct  same_expiry_fraction  median_same_strike_call_minus_put_bs_iv_points  median_abs_same_strike_bs_iv_gap  median_abs_same_strike_vendor_iv_gap  parity_inside_bid_ask_fraction  median_delta_parity_error  median_vega_ratio
+    30                   1033             1032                   1032                             4.833268                             16.666667              0.895730                                        0.482949                          1.258530                               1.04675                        0.742498                  -0.001830           1.003660
+   180                    747              747                    747                             7.178976                             40.000000              0.984419                                       -2.232847                          2.411725                               0.91260                        0.384203                   0.007530           0.983603
+   365                    575              574                    574                             7.885987                             50.757576              0.980989                                       -4.178077                          4.213439                               1.00825                        0.309565                   0.012113           0.975095
+
+                                        case  annualized_excess_sharpe  entries  locked_cohort_risk_rejections  net_excess_pnl
+       180D_actual_call_parity_greeks_locked                 -0.009061       87                             90    -3264.798237
+         180D_actual_call_same_strike_locked                 -0.008998       75                            102    -2885.122383
+         180D_put_common_call_entries_locked                  0.187697       75                              0    39475.927196
+180D_put_common_parity_greeks_entries_locked                  0.172135       87                              0    38966.101594
+                   180D_reference_put_locked                  0.485755      177                              0   170816.696568
+        30D_actual_call_parity_greeks_locked                  0.240480       64                            124    46491.478205
+          30D_actual_call_same_strike_locked                  0.111222       60                            128    20666.535101
+          30D_put_common_call_entries_locked                  0.400975       60                              0    48757.671473
+ 30D_put_common_parity_greeks_entries_locked                  0.431388       64                              0    53082.774045
+                    30D_reference_put_locked                  0.885554      188                              0   270779.745198
+       365D_actual_call_parity_greeks_locked                  0.064327      102                             40    26968.711988
+         365D_actual_call_same_strike_locked                  0.053091       77                             65    19949.056832
+         365D_put_common_call_entries_locked                  0.241380       77                              0    68225.172106
+365D_put_common_parity_greeks_entries_locked                  0.201849      102                              0    61835.105939
+                   365D_reference_put_locked                  0.359071      142                              0   133453.635413
+
+INTERPRETATION
+
+30D European-parity-Greek control, 64 identical cohorts/counts: before execution and stock borrowing, after financing, puts earn $64,594.97 and calls $65,259.63. Net excess P&L is $53,082.77 versus $46,491.48; extra call hedge trading and stock borrowing explain most of this endpoint difference. Daily excess Sharpe is .4314 versus .2405. Monthly return correlation is 0.9719, compared with .4695 daily. This supports economically similar 30D payoff exposure with additional call costs and short-lived mark/carry variation, rather than evidence of a completely different volatility signal. It does not separately identify stale quotes versus changing carry. Sampling diagnostics retain the daily Sharpe as the primary measure; monthly Sharpe is not substituted to optimize results.
+
+This control is a 64-trade subset through the common July 2024 entry cutoff, not the full ~1.0 Sharpe put checkpoint. Native independently fitted call Greeks use 60 matched trades; their puts/calls are .4010/.1112. Longer maturities show larger carry and model differences. European declared-dividend-only fits, American exercise/assignment omissions, hard-to-borrow pricing and floating cash financing versus term discounting require further validation before attributing a long-expiry put/call difference to alpha.
+
+Primary parity reference: https://www.optionseducation.org/advancedconcepts/put-call-parity

@@ -1,0 +1,21 @@
+{
+  "original_commit": "8d3aa74",
+  "exported_original_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "original_sections_preserved_before_asset_embedding": true,
+  "original_script_sha256": "2274ed409e3d8a6a34b7319d125143f59867661d849a24dec7481bda3ebcc242",
+  "original_images_embedded": true,
+  "our_research_included": false,
+  "pdf_pages": 7,
+  "layout_overflow": false,
+  "browser_peak_rss_bytes": 234635264,
+  "cpu_limit_fraction_of_one_core": 0.5,
+  "numerical_workers": 1
+}

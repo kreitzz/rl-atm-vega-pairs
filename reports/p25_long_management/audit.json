@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "cases": 16,
+  "anchor_and_hold_hook_reproduced": true,
+  "all_ledgers_verified": true,
+  "next_session_management": true,
+  "models_use_completed_history": true,
+  "calendar_positions_verified": true,
+  "locked_cohort_risk_rejections": {
+    "30D_locked_hold": 0.0,
+    "30D_locked_manage_18M": 1.0,
+    "30D_locked_manage_36M": 0.0,
+    "90D_locked_hold": 0.0,
+    "90D_locked_manage_36M": 0.0
+  },
+  "peak_rss_bytes": 633831424
+}

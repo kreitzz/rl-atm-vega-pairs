@@ -1,0 +1,7 @@
+{
+  "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/audit_tail_put25_atm_transfer.py": "5cc1e3f99f92c156ab1875be834084138a1223fb1b63ee054bf91dbb89ea3d69",
+  "reports/tail_put25_atm_transfer/output_hashes.json": "36d7ac56fb861d9cff344c902a869d680a74733e09940d6849588381b6a113b5",
+  "reports/tail_put25_atm_transfer/coverage.csv": "2ba06f433b17370a8ecde48d51063c223b858d592c3b6cf485b655b06dbfd0f5",
+  "reports/tail_put25_strategy/coverage.csv": "2028a2600f65a7ec637a52a564a5cd2ac79476948548a161a4e614bf95fa48e0",
+  "reports/tail_put25_strategy/entered_cohorts.csv": "29ec8abd6ce1abeb22c6ca5c6a07dae862ee21bdb1c2823a5cdbd0b786bcf499"
+}

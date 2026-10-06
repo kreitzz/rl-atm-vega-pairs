@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "original_checkpoint_reproduced": true,
+  "models": 270,
+  "training_labels_end_before_each_fit": true,
+  "same608_proposals": true,
+  "optional_missing_inputs_never_veto": true,
+  "overlay_uses_actual_previous_close_name_inventory": true,
+  "inventory_overlay_not_learned": true,
+  "no_fresh_holdout": true,
+  "seed": 2026,
+  "peak_rss_bytes": 598999040
+}

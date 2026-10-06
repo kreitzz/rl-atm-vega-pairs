@@ -1,0 +1,42 @@
+[
+  {
+    "model": "fixed_100_ATM",
+    "old_entries": 401,
+    "new_entries": 361,
+    "shared_entry_dates_pairs": 139,
+    "shared_same_contracts": 75,
+    "shared_same_direction": 139,
+    "old_only": 262,
+    "new_only": 222
+  },
+  {
+    "model": "fixed_100_P25",
+    "old_entries": 134,
+    "new_entries": 266,
+    "shared_entry_dates_pairs": 31,
+    "shared_same_contracts": 21,
+    "shared_same_direction": 31,
+    "old_only": 103,
+    "new_only": 235
+  },
+  {
+    "model": "fixed_100_P75",
+    "old_entries": 14,
+    "new_entries": 182,
+    "shared_entry_dates_pairs": 2,
+    "shared_same_contracts": 1,
+    "shared_same_direction": 2,
+    "old_only": 12,
+    "new_only": 180
+  },
+  {
+    "model": "floor_P25",
+    "old_entries": 200,
+    "new_entries": 401,
+    "shared_entry_dates_pairs": 45,
+    "shared_same_contracts": 31,
+    "shared_same_direction": 45,
+    "old_only": 155,
+    "new_only": 356
+  }
+]

@@ -1,0 +1,4 @@
+model,period,pair,label,entries,net_excess_pnl
+rl_atm_state,full,101966__102936,BAC/JPM,7,-430.84670070558786
+rl_atm_state,full,101966__103049,BAC/C,3,-8063.461952534737
+rl_atm_state,full,101966__111953,BAC/WFC,1,1993.5485325292684

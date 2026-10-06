@@ -1,0 +1,26 @@
+{
+  "components": [
+    "30D",
+    "180D"
+  ],
+  "window_months": 24,
+  "rebalance": "quarterly",
+  "warmup": "Equal weights during 2018-2019",
+  "first_historical_allocation": "2020-01-02",
+  "weights_use_strictly_prior_sessions": true,
+  "future_perturbation_and_truncation_audit_dates": [
+    "2020-01-02",
+    "2022-10-03",
+    "2025-07-01"
+  ],
+  "full_history_weight_optimization": false,
+  "window_search": false,
+  "retrospective_component_selection": true,
+  "no_fresh_holdout": true,
+  "after_component_costs": true,
+  "additional_reallocation_costs_included": false,
+  "shared_portfolio_replayed": false,
+  "one_year_replaces_old_component": false,
+  "one_year_component_excluded": true,
+  "peak_rss_bytes": 195084288
+}

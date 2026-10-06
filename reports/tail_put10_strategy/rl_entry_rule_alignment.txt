@@ -1,0 +1,34 @@
+Why the first tail RL test did not implement the spread rule
+
+The RL policy learned freely from two spread inputs; it was not an overlay
+that kept the simple rule's entry thresholds/direction and chose only size.
+Of its 21 actual full-book entries:
+  11 occurred in the middle-rank region where the simple rule is flat.
+   7 chose the opposite direction to the raw extreme-spread rule.
+   3 agreed with the raw extreme-spread rule.
+
+All seven opposite-direction cases would also have been blocked in the
+rule's intended direction by the shared historical profitability gate.
+Consequently the actual gated rule would skip 18 of these 21 signal dates;
+it would not simply take the opposite side of all seven. These counts compare
+signal conditions, not counterfactual realized fills or profits.
+
+18/21 RL entries were at 25% size. All filled entries were in AMD/MU or
+BAC/JPM. 18/21 occurred in 2023; the simple rule's major profits were in 2022.
+The gate, learned policy, sparse observations and validation selected a very
+different opportunity set from the simple rule.
+
+Of 139 pair state panels, 90 ever had valid raw spread plus historical rank;
+45 had at least 504 such states across the entire history. A monthly fit
+requires at least 504 states in its purged historical training window, so
+3,546/4,183 logs report insufficient training. Terminal labels include
+next-session quote failures and risk overlays subsequently reject proposals;
+the simple feature correlation is not a guarantee of profitable inventory.
+
+A different test could retain the rule's direction/entry conditions and
+allow RL only to skip or choose size. That is not what this first fit tested.
+Any change to training history requirements or pooling across names would
+also be a distinct experiment, not a correction to the saved result.
+
+Actual entry dates, state ranks, directions and memory-gate eligibility are
+in rl_entry_rule_alignment.csv. Original fit/actions/ledgers are unchanged.

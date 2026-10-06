@@ -1,0 +1,27 @@
+ONE-YEAR ACTION-OUTPUT FITTED-Q EXPERIMENT
+
+Same native 25-delta put contracts, all 529 entry proposals, fixed50 entries, daily delta hedging, and original execution/capital limits. Management can hold, trim, close, or restore a trimmed pair to its original allocation. Different leg expiries retain original natural runoff.
+Change the critic representation first: jointly predict three Q outputs per observed state/inventory rather than put action in a single scalar-Q tree input. Shared trees preserve paired action covariance. Same20 trees, depth5, leaf40, conservative mean-minus-one-ensemble-standard-deviation advantage. Leaf40 now counts inventory-state observations rather than augmented action rows, so effective leaf regularization differs. A tie holds current inventory.
+Next test64 Bellman fits with weekly gamma .995, versus16 fits and .98. Original16 fits propagate at most roughly80 observed trading days of future rewards;64 covers the typical one-year weekly sequence. Discounted reward remains a surrogate, not exact portfolio Sharpe. A third arm uses the previously declared past-calibrated mean-variance utility.
+Before observing replay performance, add greedy-versus-conservative inference for all three fitted models. Greedy maximizes mean Q; conservative subtracts one standard deviation of paired tree advantages over holding. Ensemble dispersion is a heuristic, not calibrated statistical uncertainty. The extra arms require no additional fits.
+Quarterly48-month fits use only completed weekly transitions ending strictly before the fit date. Training commission .65; actual .03; execution0.1 vol points/leg and stock1bp unchanged. No extra leverage or tail-win selection. Local fractional shadow rewards approximate shared portfolio interactions; executable integer ledger is the final evaluation.
+All history has already been researched. Full-period rankings and block intervals are exploratory and not adjusted for model selection;2024–partial2025 is a diagnostic slice, not an untouched test.
+
+                                        case  annualized_excess_sharpe  entries  trims  exits  restore_fills  formation_2018_2023_sharpe  recent_2024_partial2025_sharpe
+                        fixed50_hold_control                  0.396012      167      0      0              0                    0.425061                        0.279675
+fixed50_fitted_q_conservative_aligned_runoff                  0.374410      173      0     38              0                    0.398149                        0.280819
+          enriched_reversible_aligned_warmup                  0.357650      171      4     26              0                    0.377162                        0.280820
+                           action_outputs_16                  0.367170      174     26     54              2                    0.387756                        0.280307
+                             long_horizon_64                  0.343636      173     28     20             12                    0.360811                        0.272332
+                        long_horizon_risk_64                  0.337795      173     16     24              6                    0.358090                        0.255104
+                    action_outputs_16_greedy                  0.324192      181     76    216             50                    0.350572                        0.220556
+                      long_horizon_64_greedy                  0.333693      177    138    132             96                    0.362343                        0.210109
+                 long_horizon_risk_64_greedy                  0.350563      180    134    174             84                    0.380394                        0.227827
+
+                       case  sharpe_gain  unadjusted_gain_95_low  unadjusted_gain_95_high
+          action_outputs_16    -0.028842               -0.147430                 0.048035
+            long_horizon_64    -0.052376               -0.180888                 0.024295
+       long_horizon_risk_64    -0.058217               -0.170505                 0.009396
+   action_outputs_16_greedy    -0.071820               -0.290819                 0.103798
+     long_horizon_64_greedy    -0.062319               -0.251607                 0.105162
+long_horizon_risk_64_greedy    -0.045449               -0.234800                 0.102241

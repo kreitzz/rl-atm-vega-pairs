@@ -1,0 +1,15 @@
+case,active_sessions,sessions_with_modeled_held_marks,modeled_held_mark_evaluations,sessions_with_greek_fallbacks,greek_fallback_evaluations,repaired_crossed_quote_evaluations
+fixed100_same_rl_direction_skips,1770,1,2,262,656,0
+fixed50_same_rl_direction_skips,1770,1,2,274,692,0
+forecast_fixed100_same_sized_skips,1770,1,2,173,449,0
+forecast_fixed50_same_sized_skips,1770,1,2,176,478,0
+forecast_rl_sized,1770,1,2,174,462,0
+forecast_rl_sized_no_flat,1875,1,2,341,1080,1
+forecast_variance_fixed100,1875,1,2,347,987,1
+forecast_variance_fixed25,1875,1,2,336,1033,1
+forecast_variance_fixed50,1875,1,2,355,1152,1
+historical_premium_fixed50,1875,1,2,355,1156,1
+native_iv_history_fixed50,1875,1,2,355,1157,1
+rl_direction_fixed,1770,1,2,255,604,0
+rl_direction_sized,1770,1,2,272,678,0
+slow_variance_fixed50,1875,1,2,355,1147,1

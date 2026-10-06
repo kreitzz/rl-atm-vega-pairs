@@ -1,0 +1,16 @@
+{
+  "native_training_episodes": 230,
+  "executed_entry_cohorts": 167,
+  "entries_by_year": {
+    "2018": 18,
+    "2019": 35,
+    "2020": 33,
+    "2021": 10,
+    "2022": 34,
+    "2023": 30,
+    "2024": 7
+  },
+  "last_entry": "2024-05-28",
+  "last_mark": "2025-08-29",
+  "peak_rss_bytes": 311361536
+}

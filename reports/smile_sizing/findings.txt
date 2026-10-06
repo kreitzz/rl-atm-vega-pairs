@@ -1,0 +1,60 @@
+                model  funded_sleeve_sets  net_excess_pnl  max_excess_drawdown_dollars  entries  active_pairs  risk_breach_pair_sessions  commission   option_cost    hedge_cost  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+             P75_rule                   1    89213.144360               -104783.586861    278.0          47.0                     1313.0     2975.61  29478.177592  69158.312398      0.218427       0.000259                  0.128641     -0.000062
+            P75_floor                   1   213009.801795                -82558.444230    440.0          49.0                     1178.0     3127.89  29935.645075  71546.565624      0.218786       0.000617                  0.289190     -0.000090
+             P75_flex                   1   135872.926409                -64662.426861    261.0          40.0                      541.0     1472.97  13509.206882  33751.842772      0.218562       0.000394                  0.269230     -0.000040
+             C25_rule                   1    -6826.639952               -741968.735181   1385.0          90.0                     6119.0    13241.31 145776.830572 213516.087988      0.218148      -0.000020                 -0.002413     -0.000911
+            C25_floor                   1    34744.288739               -576007.757726   2266.0          91.0                     5438.0    12629.76 139647.258373 200558.123908      0.218269       0.000101                  0.017736     -0.000654
+             C25_flex                   1   -55664.332627               -296333.992770    703.0          75.0                     1070.0     3520.56  31049.154748  48253.975993      0.218007      -0.000161                 -0.051392     -0.000303
+         put25_frozen                   1   256944.329850                -61673.849852      NaN           NaN                        NaN         NaN           NaN           NaN      0.218913       0.000745                  0.792041     -0.000025
+           atm_frozen                   1   145778.177100                -51928.908834      NaN           NaN                        NaN         NaN           NaN           NaN      0.218591       0.000423                  0.368039     -0.000025
+       ATM_plus_put25                   2   402722.506950                -83722.799886      NaN           NaN                        NaN         NaN           NaN           NaN      0.218752       0.000584                  0.768099     -0.000010
+  put25_plus_C25_rule                   2   250117.689898               -514371.148255      NaN           NaN                        NaN         NaN           NaN           NaN      0.218531       0.000362                  0.101269     -0.000410
+ whole_smile_C25_rule                   3   395895.866998               -392499.902779      NaN           NaN                        NaN         NaN           NaN           NaN      0.218551       0.000383                  0.157848     -0.000251
+ put25_plus_C25_floor                   2   291688.618589               -348410.170799      NaN           NaN                        NaN         NaN           NaN           NaN      0.218591       0.000423                  0.146428     -0.000281
+whole_smile_C25_floor                   3   437466.795689               -277579.168596      NaN           NaN                        NaN         NaN           NaN           NaN      0.218591       0.000423                  0.215047     -0.000165
+  put25_plus_C25_flex                   2   201279.997223               -152284.429042      NaN           NaN                        NaN         NaN           NaN           NaN      0.218460       0.000292                  0.182636     -0.000137
+ whole_smile_C25_flex                   3   347058.174323               -154904.371972      NaN           NaN                        NaN         NaN           NaN           NaN      0.218504       0.000335                  0.296774     -0.000079
+  put25_plus_P75_rule                   2   346157.474210                -74714.962984      NaN           NaN                        NaN         NaN           NaN           NaN      0.218670       0.000502                  0.452130     -0.000031
+ whole_smile_P75_rule                   3   491935.651311                -96264.231939      NaN           NaN                        NaN         NaN           NaN           NaN      0.218643       0.000475                  0.561209     -0.000019
+ put25_plus_P75_floor                   2   469954.131645                -69469.092885      NaN           NaN                        NaN         NaN           NaN           NaN      0.218849       0.000681                  0.595432     -0.000040
+whole_smile_P75_floor                   3   615732.308745                -65392.062326      NaN           NaN                        NaN         NaN           NaN           NaN      0.218763       0.000595                  0.689162     -0.000023
+  put25_plus_P75_flex                   2   392817.256258                -66114.154348      NaN           NaN                        NaN         NaN           NaN           NaN      0.218737       0.000569                  0.666165     -0.000009
+ whole_smile_P75_flex                   3   538595.433359                -86911.126334      NaN           NaN                        NaN         NaN           NaN           NaN      0.218689       0.000520                  0.761532     -0.000005
+
+{
+  "status": "complete",
+  "models": 360,
+  "roster_pairs": 345,
+  "strategy_books": 1380,
+  "scored_rows_by_wing_and_variant": [
+    {
+      "silo": "C25",
+      "variant": "flex",
+      "rows": 145989
+    },
+    {
+      "silo": "C25",
+      "variant": "floor",
+      "rows": 145989
+    },
+    {
+      "silo": "P75",
+      "variant": "flex",
+      "rows": 58518
+    },
+    {
+      "silo": "P75",
+      "variant": "floor",
+      "rows": 58518
+    }
+  ],
+  "global_cold_start_months": 0,
+  "source_files_verified": 43787,
+  "frozen_atm_and_put25_reproduced": true,
+  "combined_shared_inventory": false,
+  "finalization_only": true,
+  "elapsed_seconds": 56.1867420419876,
+  "peak_rss_bytes": 354041856
+}
+
+Two wing-specific monthly five-year pooled direct-Sharpe sizing fits; all345 roster pairs retained, all observed states scored. Deploy exactly the saved ungated 30D C25 and P75 spread-rule signals and directions. Ladders50/75/100 and0/25/50/75/100; no optional-feature or per-pair model activation veto; any global cold start keeps full size. Compact causal relative-IV/factor-IV/risk-reversal/right-slope features plus market context and completed native profit memory; memory is an input, not an entry veto. Training uses only completed standalone integer-contract paths with0.65 commission hurdle; actual replay pays0.03, mid+.1volpoint perleg, daily delta hedge, previous financing and risk limits, initial vega matching10pct, hold own expiry with documented corporate exits. Training context: original put-state dates pre2018, legacy pair/date calendar thereafter. All observed states remain scored outside that calendar. Frozen .792 put25 sizing and .368 ATM center are not retrained. Predeclared equal-capital combinations of funded sleeve ledgers, no optimized hindsight wing weights. P75 and C25 tested as alternative upside implementations, never both in a primary stack. Stacks use separately funded/risk-limited pair-wing accounts; cash and financing are additive, no shared-name hedge netting or global risk consolidation, not a common-inventory strategy. Training paths are additive standalone cohorts, not sequential inventory-aware RL. Inspected history, multiple comparisons, no new holdout; frozen formation/calendar conditioning and no American early assignment; TECK cash uses fixed declaration-time FX approximation. Dividend cash tables are scoped per issuer; rebuild FCX/TECK label histories and native memory, and compare against full-size controls with the same repaired cash accounting. Previous opposite-wing study remains archived; its affected dividend flows are not reused for this matched comparison.

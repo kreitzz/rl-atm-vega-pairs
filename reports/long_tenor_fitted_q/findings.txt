@@ -1,0 +1,20 @@
+LONG-TENOR FITTED Q MANAGEMENT
+
+Same 529 original pair/date/direction proposals. Fixed 50% entry on 180D/365D P25 contracts. The shared integer cash ledger, fees, daily hedges and all entry risk limits are unchanged.
+Quarterly 48-month fits use past completed five-session transitions, including past portions of still-open contracts. Every transition end precedes its fit. No future expiry payoff is a training target. Cold start holds until 16 distinct cohorts and 640 action transitions.
+State: current slow/recent expected carry, slow-RV availability, IV gap convergence, age fraction, relative delta and retained inventory. Actions: irreversible hold/half/close, checked weekly and filled next session only with executable actual quotes.
+Natural runoff follows the fixed control and shadow labels: if one leg expires first, the remaining leg continues to its own expiry unless a prior learned paired exit has closed it. Entry vega neutrality is not continuously rebalanced. Earlier unaligned replay folders are retained for diagnosis and excluded from the final comparison.
+Fitted Q iteration uses 20 shallow ExtraTrees, 16 Bellman updates and discount .98 per five sessions. Two utilities: expected step reward and a .5 standardized quadratic risk penalty. An adaptive follow-up after the initial 180D replay penalizes risk0 action advantage by one ensemble standard deviation; this discourages unstable exits and is not a calibrated confidence interval. Training option commissions remain .65 and actual .03; removes the former extra 2x elective-exit training penalty. Weekly shadow rewards use isolated fractional hedge/borrow costs; real evaluation is the reconciled shared-account integer replay.
+This isolates sequential management from entry sizing. Additional opportunity selection, re-expansion, rolls, dynamic gamma/vega rebalancing and portfolio-level capital state are not part of this test. All history has been explored; no fresh holdout or multiple-comparison-adjusted significance claim.
+
+ tenor                                         case  annualized_excess_sharpe  entries  trims  exits  formation_2018_2023_sharpe  recent_2024_partial2025_sharpe
+   180                                fixed_50_hold                  0.591775      204      0      0                    0.660210                        0.325024
+   180 fixed50_fitted_q_conservative_aligned_runoff                  0.610028      207      0     28                    0.680847                        0.325024
+   180      fixed50_fitted_q_risk0.5_aligned_runoff                  0.002005      270    132    536                    0.011643                       -0.573473
+   180        fixed50_fitted_q_risk0_aligned_runoff                  0.398267      216     52    190                    0.426232                        0.372856
+   365                                fixed_50_hold                  0.396012      167      0      0                    0.425061                        0.279675
+   365 fixed50_fitted_q_conservative_aligned_runoff                  0.374410      173      0     38                    0.398149                        0.280819
+   365      fixed50_fitted_q_risk0.5_aligned_runoff                  0.094087      187     64    374                    0.148818                       -0.708977
+   365        fixed50_fitted_q_risk0_aligned_runoff                  0.367937      182     80    232                    0.425599                        0.218178
+
+Diagnostics: paired_comparison.csv, exit_continuation_summary.csv, management_comparison.png and portfolio_followup.json. The latter is an exploratory optimized saved-return blend, without joint portfolio replay.

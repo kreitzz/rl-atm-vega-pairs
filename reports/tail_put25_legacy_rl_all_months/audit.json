@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "preserved_source_files": 20294,
+  "baseline_reproduced": true,
+  "available_pairs": 332,
+  "scored_rows": {
+    "existing_pooled_rl": 136459,
+    "memory_trained_pooled_rl": 136459
+  },
+  "fallback_rows": {
+    "existing_pooled_rl": 0,
+    "memory_trained_pooled_rl": 0
+  },
+  "enabled_monthly_fits": 90,
+  "pair_model_activation_vetoes": 0,
+  "elapsed_seconds": 243.9539336670132,
+  "peak_rss_bytes": 591347712,
+  "limitations": "Direct Sharpe policy search on standalone additive shadow books, not sequential inventory-aware RL. Training shadows retain their prior accounting, including unresolved rows excluded only after completion; final inventory uses equally repaired accounting. Broad pooled training memory-qualified experience differs from legacy-calendar execution context. Initial vega neutrality, daily delta hedging, own-expiry hold; American early assignment unmodeled. Independent $1m pair risk sleeves, no consolidated name limits; no new holdout. Original calendar combines historical screens and ATM data availability, effects not isolated."
+}

@@ -1,0 +1,54 @@
+Frozen ATM RL plus 30D put25 spread rule — October 2, 2026
+
+Annualized daily excess-return Sharpe, sqrt(252), above cash:
+                         2018-Aug2025        2022-Aug2025
+Frozen ATM RL                0.368               0.428
+Put25 simple rule            0.711               0.748
+Combined                     0.736               0.759
+For comparison, ATM plus put10 rule was 0.441/0.545.
+
+Daily excess-return correlation is 0.027 full / 0.045 recent. On dates where
+either stream is materially active it is 0.027/0.045 too. No fitted weights.
+Combined full-book entries: 353 (224 ATM +129 tail); recent: 255 (179+76).
+Separate recent books independently start flat in 2022, not sliced from full.
+
+Full-book annual Sharpes:
+year        ATM        Put25 rule      Combined
+2018       -0.727          0.181          -0.232
+2019        0.043         -0.515          -0.199
+2020        1.146          1.101           1.154
+2021        0.580          1.049           1.008
+2022        0.907          2.100           1.889
+2023        0.815          0.428           0.890
+2024        0.144         -0.806          -0.257
+2025       -0.976          1.109           0.590 (through August)
+
+Full-period P&L above cash: combined +$392,747, ATM +$145,778 and tail
++$246,969. Recent combined P&L: +$226,773. Each saved component retains
+its original $345m capital across 345 $1m sleeves; combined capital is
+$690m. Equal capital is allocated to each strategy, with both original
+recorded risk sizes and funding/collateral buffers retained. Full excess
+return on combined capital is 0.0569%. This is not a capital efficiency or
+leverage estimate. We combine NAV/cash benchmarks, not individual Sharpes.
+
+The improvement is less fragile than put10 stacking but remains concentrated.
+Removing the largest tail winner leaves combined Sharpe 0.676 full /0.650
+recent. Removing the three largest tail winners leaves 0.560/0.421.
+Removing the three biggest combined winning pairs leaves 0.529/0.381.
+All replacements retain the original cash allocation. They are ex-post
+concentration diagnostics, not trading selection rules.
+
+This is arithmetic combination of two frozen, complete separate-sleeve
+books. It does not replay shared capital, recompute joint collateral/stress
+limits, or net stock hedges/fees between strategies. Both original policies,
+costs and source ledgers remain unchanged. No RL refit, weight optimization,
+checkpoint promotion or additional data download. The put25 rule was tested
+after looking at this history; these results are not untouched confirmation.
+
+Verification: calendars/cash benchmarks identical, original standalone
+Sharpe/P&L reproduced, sum of streams equals combined and pair-level P&L,
+relevant inputs and concentration ledgers match recorded hashes. Detailed
+comparison.csv, annual.csv, dependence.csv, concentration.csv, pairs.csv
+and audit.json are saved here. Reproduce with scripts/combine_atm_put25_rule.py.
+The standalone study and negative put25 RL result are preserved separately
+in reports/tail_put25_strategy.

@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "models": 15,
+  "replays": 5,
+  "all_training_outcomes_before_fit": true,
+  "original_10m_nav_reproduced": true,
+  "previous_close_capital_state_verified": true,
+  "all_cash_ledgers_verified": true,
+  "all_proposals_retained": true,
+  "equal_constraints_for_learned_and_constant_policies": true,
+  "pair_and_wing_reference_budget": 4000000,
+  "funded_equity": 10000000,
+  "broker_margin_model": false,
+  "forced_liquidation": false,
+  "market_impact_modeled": false,
+  "peak_rss_bytes": 474054656
+}

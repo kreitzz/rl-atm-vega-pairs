@@ -1,0 +1,38 @@
+Controlled RL experiment: relative versus absolute volatility trades
+Frozen reference: annualized excess Sharpe 0.368 full / 0.428 recent.
+Add each leg IV squared minus trailing-RV squared, and its standardized deviation from its own prior 252-session history (minimum 126 observations), plus availability flags.
+Name histories are deduplicated across sleeves; ambiguous same-name observations are omitted from the normalizer. Each signal uses only earlier history.
+Trailing RV is an existing forecast proxy, not a new calibrated HAR forecast. No market/sector residualization has been added in this first ablation.
+Pair-only and both expanded menus share the same original eight-leaf relative-value tree partition, original state features and common purged training rows.
+Pair-only: flat or the original eight paired ladder choices. Expanded menus add eight signed sizes in either leg individually.
+Historical singles: both z-scores negative for a long, positive for a short. Absolute singles: both forecast-variance-minus-IV-squared edges positive for a long, negative for a short.
+Pairs retain their original completed-profitability and beta/correlation gates. Each single leg has its own completed-profitability gates (91/365-day windows, minimum 21/63 outcomes).
+The same masked data and monthly prior-year validation decide whether each candidate may trade; recent-five-year refits use only fully completed outcomes.
+Single-only label payoffs are zero on dates disallowed by its known signal condition. The pair label definition remains unchanged.
+ATM30 calls, daily delta hedging, held to each actual expiry. No new NN fits.
+Same $0.65 training/$0.03 execution commission, 0.1-vol-point entry penalty, stock costs, funding and stress/reserve/gross-vega limits.
+Standalone entry target is at most $450 per vol point, using the original 25/50/75/100% ladder. A new single entry is rejected if total projected net vega exceeds $900 per vol point per sleeve, scaled by NAV.
+The additional net-vega limit is an entry limit: held Greeks can drift; hold-to-expiry accounting is unchanged. Pair entries retain the original rules.
+All 345 original sleeves remain in the requested universe; both full (2018) and recent (2022) books independently start flat through August 2025.
+Expanded policies can earn or lose from outright volatility exposure. A Sharpe increase does not alone establish better relative-value signal quality.
+This history has been inspected repeatedly. No checkpoint is automatically promoted.
+
+     universe                model period  pairs  entries  active_pairs  net_excess_pnl  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+          all          rl_baseline   full    344      221            28   166199.353896      0.218651       0.000483                  0.419435     -0.000025
+          all          rl_baseline recent    344      176            21   122848.059659      0.159390       0.000357                  0.507828     -0.000025
+          all          rl_pair_vrp   full    344      248            30   139052.054383      0.218572       0.000404                  0.307167     -0.000023
+          all          rl_pair_vrp recent    344      190            24    90576.035710      0.159296       0.000263                  0.339568     -0.000023
+          all rl_single_historical   full    344      421            38   -57589.123177      0.218001      -0.000167                 -0.134251     -0.000028
+          all rl_single_historical recent    344      313            26   -24014.736583      0.158963      -0.000070                 -0.101468     -0.000026
+          all   rl_single_absolute   full    344      518            44  -119677.379515      0.217820      -0.000348                 -0.254286     -0.000054
+          all   rl_single_absolute recent    344      356            32   -65850.186709      0.158842      -0.000191                 -0.261355     -0.000030
+refit_covered          rl_baseline   full    125      221            28   166199.353896      0.219498       0.001330                  0.419577     -0.000152
+refit_covered          rl_baseline recent    125      176            21   122848.059659      0.160016       0.000983                  0.508009     -0.000151
+refit_covered          rl_pair_vrp   full    125      248            30   139052.054383      0.219281       0.001112                  0.307293     -0.000173
+refit_covered          rl_pair_vrp recent    125      190            24    90576.035710      0.159758       0.000725                  0.339728     -0.000173
+refit_covered rl_single_historical   full    125      421            38   -57589.123176      0.217707      -0.000461                 -0.134126     -0.000161
+refit_covered rl_single_historical recent    125      313            26   -24014.736583      0.158841      -0.000192                 -0.101326     -0.000156
+refit_covered   rl_single_absolute   full    125      518            44  -119677.379515      0.217211      -0.000957                 -0.254135     -0.000224
+refit_covered   rl_single_absolute recent    125      356            32   -65850.186709      0.158506      -0.000527                 -0.261189     -0.000166
+
+Files: comparison.csv, annual.csv, pairs.csv, coverage.csv, fits.csv, accounting_coverage.json

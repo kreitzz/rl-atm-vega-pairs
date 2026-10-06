@@ -1,0 +1,2097 @@
+[
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2022-07-01",
+    "training_episodes": 86,
+    "last_training_expiry": "2022-06-17",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.1832694950392874,
+      "shadow_original_sharpe": 0.08283290612565684,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.08283290612565655,
+      "shadow_hold_sharpe": 0.08283290612565655,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2025
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.1832694950392874,
+      "shadow_hold_sharpe": 0.1832694950392874,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2025
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2023-01-01",
+    "training_episodes": 80,
+    "last_training_expiry": "2022-09-16",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.18014654245056938,
+      "shadow_original_sharpe": 0.08832768755938536,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.0883276875593849,
+      "shadow_hold_sharpe": 0.0883276875593849,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1880
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.18014654245056938,
+      "shadow_hold_sharpe": 0.18014654245056938,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1880
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2018-07-01",
+    "training_episodes": 2,
+    "last_training_expiry": "2018-06-15",
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2019-01-01",
+    "training_episodes": 20,
+    "last_training_expiry": "2018-12-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.24664885146094717,
+      "shadow_original_sharpe": -0.2834308455381818,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2834308455381816,
+      "shadow_hold_sharpe": -0.2834308455381816,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 446
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.24664885146094717,
+      "shadow_hold_sharpe": -0.24664885146094717,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 446
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2020-04-01",
+    "training_episodes": 49,
+    "last_training_expiry": "2020-01-17",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.21012206882287898,
+      "shadow_original_sharpe": -0.29159560689960795,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2915956068996087,
+      "shadow_hold_sharpe": -0.2915956068996087,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1098
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.21012206882287898,
+      "shadow_hold_sharpe": -0.21012206882287898,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1098
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2025-04-01",
+    "training_episodes": 108,
+    "last_training_expiry": "2024-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.49054816463235407,
+      "shadow_original_sharpe": 0.2889256189649206,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.535517925386858,
+      "shadow_hold_sharpe": 0.2889256189649238,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2611
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.543316322644904,
+      "shadow_hold_sharpe": 0.49054816463235407,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 2611
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2019-10-01",
+    "training_episodes": 40,
+    "last_training_expiry": "2019-09-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.17347051857663284,
+      "shadow_original_sharpe": -0.24690034270984038,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.24690034270983996,
+      "shadow_hold_sharpe": -0.24690034270983996,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 892
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.17347051857663284,
+      "shadow_hold_sharpe": -0.17347051857663284,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 892
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2023-10-01",
+    "training_episodes": 103,
+    "last_training_expiry": "2023-09-15",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.3640774089891567,
+      "shadow_original_sharpe": 0.1771488696062792,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.20774027618365648,
+      "shadow_hold_sharpe": 0.17714886960627926,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2465
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.40032652010190234,
+      "shadow_hold_sharpe": 0.3640774089891565,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 2465
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2018-04-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2021-01-01",
+    "training_episodes": 59,
+    "last_training_expiry": "2020-12-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.2682559932631573,
+      "shadow_original_sharpe": -0.3650582435726813,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.36505824357268163,
+      "shadow_hold_sharpe": -0.36505824357268163,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1331
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.2682559932631573,
+      "shadow_hold_sharpe": -0.2682559932631573,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1331
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2024-10-01",
+    "training_episodes": 108,
+    "last_training_expiry": "2024-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.5262869353533147,
+      "shadow_original_sharpe": 0.30996061143386544,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.5745409114986694,
+      "shadow_hold_sharpe": 0.309960611433865,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2611
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.5829090464227681,
+      "shadow_hold_sharpe": 0.5262869353533147,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 2611
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2020-07-01",
+    "training_episodes": 50,
+    "last_training_expiry": "2020-04-17",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.20515589448970717,
+      "shadow_original_sharpe": -0.28509327008834223,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2850932700883425,
+      "shadow_hold_sharpe": -0.2850932700883425,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1120
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.20515589448970717,
+      "shadow_hold_sharpe": -0.20515589448970717,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1120
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2022-04-01",
+    "training_episodes": 74,
+    "last_training_expiry": "2022-01-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.20436042163332388,
+      "shadow_original_sharpe": 0.11894708223841154,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.11894708223841195,
+      "shadow_hold_sharpe": 0.11894708223841195,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1723
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.20436042163332388,
+      "shadow_hold_sharpe": 0.20436042163332388,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1723
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2021-10-01",
+    "training_episodes": 72,
+    "last_training_expiry": "2021-01-15",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.11425895073524457,
+      "shadow_original_sharpe": -0.12380840336611415,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.12380840336611472,
+      "shadow_hold_sharpe": -0.12380840336611472,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.11425895073524457,
+      "shadow_hold_sharpe": -0.11425895073524457,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2024-01-01",
+    "training_episodes": 126,
+    "last_training_expiry": "2023-11-17",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.4224643995668829,
+      "shadow_original_sharpe": 0.23270510435414182,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.2480721550760795,
+      "shadow_hold_sharpe": 0.2327051043541422,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3031
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.4444109892623365,
+      "shadow_hold_sharpe": 0.4224643995668829,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3031
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2025-07-01",
+    "training_episodes": 107,
+    "last_training_expiry": "2024-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.47105253031965644,
+      "shadow_original_sharpe": 0.26529617560081603,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.49725320822322033,
+      "shadow_hold_sharpe": 0.2652961756008148,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2583
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.51870880742278,
+      "shadow_hold_sharpe": 0.47105253031965644,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 2583
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2018-10-01",
+    "training_episodes": 15,
+    "last_training_expiry": "2018-09-21",
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2024-04-01",
+    "training_episodes": 126,
+    "last_training_expiry": "2024-01-19",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.44840112348252387,
+      "shadow_original_sharpe": 0.25385567834616773,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.2626522237173111,
+      "shadow_hold_sharpe": 0.25385567834616846,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3038
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.4654578914179844,
+      "shadow_hold_sharpe": 0.44840112348252387,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3038
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2022-10-01",
+    "training_episodes": 80,
+    "last_training_expiry": "2022-09-16",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.1860987270997444,
+      "shadow_original_sharpe": 0.0912458040459327,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.0912458040459325,
+      "shadow_hold_sharpe": 0.0912458040459325,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1880
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.1860987270997444,
+      "shadow_hold_sharpe": 0.1860987270997444,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1880
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2023-07-01",
+    "training_episodes": 92,
+    "last_training_expiry": "2023-06-16",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.14093073520600666,
+      "shadow_original_sharpe": -0.009325335115801135,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.00662457452381729,
+      "shadow_hold_sharpe": -0.009325335115800871,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2189
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.14093073520600666,
+      "shadow_hold_sharpe": 0.14093073520600666,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2189
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2022-01-01",
+    "training_episodes": 72,
+    "last_training_expiry": "2021-01-15",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.11057202848176434,
+      "shadow_original_sharpe": -0.11981330378453235,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.11981330378453312,
+      "shadow_hold_sharpe": -0.11981330378453312,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.11057202848176434,
+      "shadow_hold_sharpe": -0.11057202848176434,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2019-07-01",
+    "training_episodes": 27,
+    "last_training_expiry": "2019-01-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.1468245268467923,
+      "shadow_original_sharpe": -0.2505807743883737,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2505807743883743,
+      "shadow_hold_sharpe": -0.2505807743883743,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 612
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.1468245268467923,
+      "shadow_hold_sharpe": -0.1468245268467923,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 612
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2018-01-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2021-04-01",
+    "training_episodes": 72,
+    "last_training_expiry": "2021-01-15",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.12281937165303566,
+      "shadow_original_sharpe": -0.13308437453371874,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.13308437453371902,
+      "shadow_hold_sharpe": -0.13308437453371902,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.12281937165303566,
+      "shadow_hold_sharpe": -0.12281937165303566,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2025-01-01",
+    "training_episodes": 108,
+    "last_training_expiry": "2024-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.5069024633384648,
+      "shadow_original_sharpe": 0.2985517405939105,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.5533749016157681,
+      "shadow_hold_sharpe": 0.2985517405939108,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2611
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.5614339744446347,
+      "shadow_hold_sharpe": 0.5069024633384648,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 2611
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2020-10-01",
+    "training_episodes": 52,
+    "last_training_expiry": "2020-07-17",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.2506119973773739,
+      "shadow_original_sharpe": -0.3537211667269897,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.3537211667269898,
+      "shadow_hold_sharpe": -0.3537211667269898,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1161
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.2506119973773739,
+      "shadow_hold_sharpe": -0.2506119973773739,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1161
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2024-07-01",
+    "training_episodes": 111,
+    "last_training_expiry": "2024-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.4727682610328056,
+      "shadow_original_sharpe": 0.27612482055839005,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.4874512337723691,
+      "shadow_hold_sharpe": 0.2761248205583905,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 2683
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.5207393366944556,
+      "shadow_hold_sharpe": 0.4727682610328056,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 2683
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2019-04-01",
+    "training_episodes": 27,
+    "last_training_expiry": "2019-01-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.16096817761164414,
+      "shadow_original_sharpe": -0.27472386092298684,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.27472386092298656,
+      "shadow_hold_sharpe": -0.27472386092298656,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 612
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.16096817761164414,
+      "shadow_hold_sharpe": -0.16096817761164414,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 612
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2020-01-01",
+    "training_episodes": 40,
+    "last_training_expiry": "2019-09-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.1620581590925191,
+      "shadow_original_sharpe": -0.23065534257583567,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.23065534257583514,
+      "shadow_hold_sharpe": -0.23065534257583514,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 892
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.1620581590925191,
+      "shadow_hold_sharpe": -0.1620581590925191,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 892
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2021-07-01",
+    "training_episodes": 72,
+    "last_training_expiry": "2021-01-15",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.11834112013520409,
+      "shadow_original_sharpe": -0.1282317915518566,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.12823179155185713,
+      "shadow_hold_sharpe": -0.12823179155185713,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.11834112013520409,
+      "shadow_hold_sharpe": -0.11834112013520409,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1639
+    }
+  },
+  {
+    "tenor": 180,
+    "window": 48,
+    "fit": "2023-04-01",
+    "training_episodes": 78,
+    "last_training_expiry": "2023-01-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.19376204362580285,
+      "shadow_original_sharpe": 0.09979296209600066,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.099792962096001,
+      "shadow_hold_sharpe": 0.099792962096001,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1839
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.19376204362580285,
+      "shadow_hold_sharpe": 0.19376204362580285,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1839
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2022-07-01",
+    "training_episodes": 68,
+    "last_training_expiry": "2022-01-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.23745515747901702,
+      "shadow_original_sharpe": -0.2683387136436126,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.26833871364361406,
+      "shadow_hold_sharpe": -0.26833871364361406,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3166
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.22088143760833537,
+      "shadow_hold_sharpe": -0.23745515747901702,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 3166
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2023-01-01",
+    "training_episodes": 57,
+    "last_training_expiry": "2022-01-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.18251104326031234,
+      "shadow_original_sharpe": -0.22366276012556774,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.22366276012556588,
+      "shadow_hold_sharpe": -0.22366276012556588,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2642
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.18251104326031234,
+      "shadow_hold_sharpe": -0.18251104326031234,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2642
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2018-07-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2019-01-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2020-04-01",
+    "training_episodes": 76,
+    "last_training_expiry": "2020-01-17",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.057951518910297144,
+      "shadow_original_sharpe": -0.18646147292547055,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.18646147292547005,
+      "shadow_hold_sharpe": -0.18646147292547005,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3536
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.057951518910297144,
+      "shadow_hold_sharpe": -0.057951518910297144,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3536
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2025-04-01",
+    "training_episodes": 66,
+    "last_training_expiry": "2025-03-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.25859381341314375,
+      "shadow_original_sharpe": 0.20087821472096107,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.20087821472096087,
+      "shadow_hold_sharpe": 0.20087821472096087,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3081
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.25859381341314375,
+      "shadow_hold_sharpe": 0.25859381341314375,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3081
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2019-10-01",
+    "training_episodes": 47,
+    "last_training_expiry": "2019-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.018182159276406,
+      "shadow_original_sharpe": -0.12498729608757105,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.1249872960875712,
+      "shadow_hold_sharpe": -0.1249872960875712,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2206
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.018182159276406,
+      "shadow_hold_sharpe": -0.018182159276406,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2206
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2023-10-01",
+    "training_episodes": 55,
+    "last_training_expiry": "2023-01-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.08533227737285125,
+      "shadow_original_sharpe": -0.17912492174031386,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.1791249217403126,
+      "shadow_hold_sharpe": -0.1791249217403126,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2621
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.08533227737285125,
+      "shadow_hold_sharpe": -0.08533227737285125,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2621
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2018-04-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2021-01-01",
+    "training_episodes": 82,
+    "last_training_expiry": "2020-06-19",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.019757977957482842,
+      "shadow_original_sharpe": -0.10234114547081094,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.10234114547081084,
+      "shadow_hold_sharpe": -0.10234114547081084,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3807
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.019757977957482842,
+      "shadow_hold_sharpe": 0.019757977957482842,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3807
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2024-10-01",
+    "training_episodes": 67,
+    "last_training_expiry": "2024-09-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.2559976377686887,
+      "shadow_original_sharpe": 0.20728293649514962,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.2174762853222587,
+      "shadow_hold_sharpe": 0.20728293649514976,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3104
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.28245758971946905,
+      "shadow_hold_sharpe": 0.2559976377686886,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3104
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2020-07-01",
+    "training_episodes": 82,
+    "last_training_expiry": "2020-06-19",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.02167821253429495,
+      "shadow_original_sharpe": -0.11228791633704854,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.11228791633704861,
+      "shadow_hold_sharpe": -0.11228791633704861,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3807
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.02167821253429495,
+      "shadow_hold_sharpe": 0.02167821253429495,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3807
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2022-04-01",
+    "training_episodes": 78,
+    "last_training_expiry": "2022-01-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.27067392885716757,
+      "shadow_original_sharpe": -0.29504911536773143,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.29504911536773193,
+      "shadow_hold_sharpe": -0.29504911536773193,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3686
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.21416084354620565,
+      "shadow_hold_sharpe": -0.27067392885716757,
+      "states": 2,
+      "choices": [
+        0.0,
+        1.0
+      ],
+      "training_states": 3686
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2021-10-01",
+    "training_episodes": 102,
+    "last_training_expiry": "2021-06-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.1295564441232741,
+      "shadow_original_sharpe": -0.23327679087285869,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2332767908728585,
+      "shadow_hold_sharpe": -0.2332767908728585,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 4796
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.1295564441232741,
+      "shadow_hold_sharpe": -0.1295564441232741,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 4796
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2024-01-01",
+    "training_episodes": 55,
+    "last_training_expiry": "2023-01-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.08258936404597096,
+      "shadow_original_sharpe": -0.1733666049775013,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.173366604977501,
+      "shadow_hold_sharpe": -0.173366604977501,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2621
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.08258936404597096,
+      "shadow_hold_sharpe": -0.08258936404597096,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2621
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2025-07-01",
+    "training_episodes": 68,
+    "last_training_expiry": "2025-06-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.2330066246403645,
+      "shadow_original_sharpe": 0.16331644226680636,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.16331644226680622,
+      "shadow_hold_sharpe": 0.16331644226680622,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3189
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.2330066246403645,
+      "shadow_hold_sharpe": 0.2330066246403645,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3189
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2018-10-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2024-04-01",
+    "training_episodes": 73,
+    "last_training_expiry": "2024-01-19",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.07928890203963031,
+      "shadow_original_sharpe": 0.022348223477755814,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.02234822347775591,
+      "shadow_hold_sharpe": 0.02234822347775591,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3390
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.07928890203963031,
+      "shadow_hold_sharpe": 0.07928890203963031,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3390
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2022-10-01",
+    "training_episodes": 60,
+    "last_training_expiry": "2022-01-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.1918067335652729,
+      "shadow_original_sharpe": -0.23214363097652763,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2321436309765275,
+      "shadow_hold_sharpe": -0.2321436309765275,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2803
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.1918067335652729,
+      "shadow_hold_sharpe": -0.1918067335652729,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2803
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2023-07-01",
+    "training_episodes": 61,
+    "last_training_expiry": "2023-01-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.050077679301569006,
+      "shadow_original_sharpe": -0.13411624433271851,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.13411624433271802,
+      "shadow_hold_sharpe": -0.13411624433271802,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2892
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.050077679301569006,
+      "shadow_hold_sharpe": -0.050077679301569006,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2892
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2022-01-01",
+    "training_episodes": 102,
+    "last_training_expiry": "2021-06-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.12537584139081343,
+      "shadow_original_sharpe": -0.2257482071924088,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.2257482071924097,
+      "shadow_hold_sharpe": -0.2257482071924097,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 4796
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.12537584139081343,
+      "shadow_hold_sharpe": -0.12537584139081343,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 4796
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2019-07-01",
+    "training_episodes": 47,
+    "last_training_expiry": "2019-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.0196725977742868,
+      "shadow_original_sharpe": -0.13523353087822035,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.13523353087822035,
+      "shadow_hold_sharpe": -0.13523353087822035,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2206
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.0196725977742868,
+      "shadow_hold_sharpe": -0.0196725977742868,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2206
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2018-01-01",
+    "training_episodes": 0,
+    "last_training_expiry": null,
+    "fitted": false,
+    "fallback": "original_30D_sizes_and_hold"
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2021-04-01",
+    "training_episodes": 84,
+    "last_training_expiry": "2021-01-15",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.09337200688021799,
+      "shadow_original_sharpe": -0.2810246635690202,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.28102466356902006,
+      "shadow_hold_sharpe": -0.28102466356902006,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3906
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.09337200688021799,
+      "shadow_hold_sharpe": -0.09337200688021799,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3906
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2025-01-01",
+    "training_episodes": 67,
+    "last_training_expiry": "2024-09-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.24730587308913943,
+      "shadow_original_sharpe": 0.20024575833499428,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.21009292607423194,
+      "shadow_hold_sharpe": 0.20024575833499514,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3104
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.2728669271331585,
+      "shadow_hold_sharpe": 0.2473058730891393,
+      "states": 2,
+      "choices": [
+        0.5,
+        1.0
+      ],
+      "training_states": 3104
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2020-10-01",
+    "training_episodes": 82,
+    "last_training_expiry": "2020-06-19",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.020651438316332812,
+      "shadow_original_sharpe": -0.1069692343501805,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.10696923435018066,
+      "shadow_hold_sharpe": -0.10696923435018066,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3807
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.020651438316332812,
+      "shadow_hold_sharpe": 0.020651438316332812,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3807
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2024-07-01",
+    "training_episodes": 66,
+    "last_training_expiry": "2024-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.11190536565248761,
+      "shadow_original_sharpe": 0.09053625512854402,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.09053625512854394,
+      "shadow_hold_sharpe": 0.09053625512854394,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3054
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.11190536565248761,
+      "shadow_hold_sharpe": 0.11190536565248761,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 3054
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2019-04-01",
+    "training_episodes": 29,
+    "last_training_expiry": "2019-01-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": 0.12688701989261875,
+      "shadow_original_sharpe": 0.10291342298238819,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": 0.10291342298238774,
+      "shadow_hold_sharpe": 0.10291342298238774,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1323
+    },
+    "joint_management": {
+      "shadow_training_sharpe": 0.12688701989261875,
+      "shadow_hold_sharpe": 0.12688701989261875,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 1323
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2020-01-01",
+    "training_episodes": 47,
+    "last_training_expiry": "2019-06-21",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.01698611105960603,
+      "shadow_original_sharpe": -0.116765001856097,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.11676500185609719,
+      "shadow_hold_sharpe": -0.11676500185609719,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2206
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.01698611105960603,
+      "shadow_hold_sharpe": -0.01698611105960603,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2206
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2021-07-01",
+    "training_episodes": 102,
+    "last_training_expiry": "2021-06-18",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.13418522478552272,
+      "shadow_original_sharpe": -0.24161259746627906,
+      "states": 2,
+      "choices": [
+        4,
+        2
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.24161259746627903,
+      "shadow_hold_sharpe": -0.24161259746627903,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 4796
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.13418522478552272,
+      "shadow_hold_sharpe": -0.13418522478552272,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 4796
+    }
+  },
+  {
+    "tenor": 365,
+    "window": 48,
+    "fit": "2023-04-01",
+    "training_episodes": 61,
+    "last_training_expiry": "2023-01-20",
+    "fitted": true,
+    "fallback": "original_30D_sizes_and_hold",
+    "sizing": {
+      "shadow_training_sharpe": -0.05170794244330148,
+      "shadow_original_sharpe": -0.13848263861255844,
+      "states": 2,
+      "choices": [
+        2,
+        4
+      ]
+    },
+    "management": {
+      "shadow_training_sharpe": -0.1384826386125584,
+      "shadow_hold_sharpe": -0.1384826386125584,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2892
+    },
+    "joint_management": {
+      "shadow_training_sharpe": -0.05170794244330148,
+      "shadow_hold_sharpe": -0.05170794244330148,
+      "states": 2,
+      "choices": [
+        1.0,
+        1.0
+      ],
+      "training_states": 2892
+    }
+  }
+]

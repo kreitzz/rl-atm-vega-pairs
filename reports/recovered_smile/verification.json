@@ -1,0 +1,51 @@
+{
+  "completed_replays": 15,
+  "all_inventory_closed": true,
+  "max_independent_ledger_error_usd": 1.4386605471372604e-06,
+  "coverage": [
+    {
+      "wing": "ATM",
+      "previous_observed_pair_days": "378073",
+      "recovered_observed_pair_days": "436345"
+    },
+    {
+      "wing": "P25",
+      "previous_observed_pair_days": "136459",
+      "recovered_observed_pair_days": "290224"
+    },
+    {
+      "wing": "P75",
+      "previous_observed_pair_days": "58518",
+      "recovered_observed_pair_days": "258767"
+    }
+  ],
+  "training_coverage": [
+    {
+      "wing": "ATM",
+      "previous_min": 976,
+      "previous_median": 1294.0,
+      "previous_max": 2066,
+      "recovered_min": 1074,
+      "recovered_median": 1318.5,
+      "recovered_max": 2118
+    },
+    {
+      "wing": "P25",
+      "previous_min": 363,
+      "previous_median": 435.5,
+      "previous_max": 598,
+      "recovered_min": 934,
+      "recovered_median": 1099.0,
+      "recovered_max": 1450
+    },
+    {
+      "wing": "P75",
+      "previous_min": 10,
+      "previous_median": 39.5,
+      "previous_max": 64,
+      "recovered_min": 544,
+      "recovered_median": 698.5,
+      "recovered_max": 1010
+    }
+  ]
+}

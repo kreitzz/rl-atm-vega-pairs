@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "cases": 5,
+  "baseline_10m_exactly_reproduced": true,
+  "all_608_proposals_retained": true,
+  "independent_cash_ledgers_verified": true,
+  "frozen_allocations": true,
+  "no_retraining": true,
+  "global_risk_limits_unchanged": true,
+  "pair_budget_changes_explicit": true,
+  "broker_margin_model": false,
+  "forced_liquidation": false,
+  "market_impact_modeled": false,
+  "peak_rss_bytes": 465059840
+}

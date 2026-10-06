@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "models": 360,
+  "roster_pairs": 345,
+  "strategy_books": 1380,
+  "scored_rows_by_wing_and_variant": [
+    {
+      "silo": "C25",
+      "variant": "flex",
+      "rows": 145989
+    },
+    {
+      "silo": "C25",
+      "variant": "floor",
+      "rows": 145989
+    },
+    {
+      "silo": "P75",
+      "variant": "flex",
+      "rows": 58518
+    },
+    {
+      "silo": "P75",
+      "variant": "floor",
+      "rows": 58518
+    }
+  ],
+  "global_cold_start_months": 0,
+  "source_files_verified": 43787,
+  "frozen_atm_and_put25_reproduced": true,
+  "combined_shared_inventory": false,
+  "finalization_only": true,
+  "elapsed_seconds": 56.1867420419876,
+  "peak_rss_bytes": 354041856
+}

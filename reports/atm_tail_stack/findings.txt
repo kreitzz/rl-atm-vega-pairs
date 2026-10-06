@@ -1,0 +1,57 @@
+Frozen ATM RL plus standalone put10 spread rule — October 2, 2026
+
+Equal-capital allocation to the two saved books improves annualized daily
+excess-return Sharpe, using sqrt(252) and the original cash benchmarks:
+                          2018-Aug2025       2022-Aug2025
+Frozen ATM RL                 0.368              0.428
+Put10 spread rule             0.348              0.524
+Combined                      0.441              0.545
+
+Daily excess-return correlation: 0.037 full, 0.038 recent. Restricting the
+calculation to dates when either stream has material excess returns gives
+0.037/0.038 too; the low correlation is not just joint cash dates.
+Combined entry counts: 255 full and 203 recent. Recent books start separately
+flat in 2022; they are not sliced from the full-period books.
+
+This sums the recorded component NAV and cash-benchmark paths, not Sharpes.
+Each component retains its original $345m of capital across 345 $1m sleeves;
+combined initial capital is $690m. Both original position sizes, costs, risk
+controls, collateral buffers, and financing remain in their separate sleeves.
+Combined P&L above cash is $182,700 full and $137,857 recent. Full-period excess
+return on that combined capital is 0.0265%. No capital efficiency or leverage
+is assumed from combining these streams. No refit or weight optimization.
+
+Full-book annual Sharpes:
+year        ATM       Put10 rule    Combined
+2018       -0.727         n/a         -0.727
+2019        0.043       -0.442          0.005
+2020        1.146        0.066          0.453
+2021        0.580       -0.408          0.516
+2022        0.907        1.359          1.277
+2023        0.815       -0.165          0.713
+2024        0.144         n/a          0.144
+2025       -0.976         n/a         -0.976
+N/a means no material daily excess-return variation. Tail trading had no
+entries in 2024 or 2025, so it does not repair the ATM strategy's 2025 losses.
+Its added 2020 variation lowers that year's combined Sharpe, despite its
+positive overall diversification contribution.
+
+Concentration remains. Replacing the single biggest tail winner UAL/AAL with
+cash reduces combined Sharpe to 0.394 full / 0.471 recent. Replacing the
+three biggest tail winners gives 0.327/0.365, below standalone ATM. Replacing
+the three biggest combined winning pairs gives 0.234/0.226. These are ex-post
+diagnostics, not deployable selection rules. Positive stacking is promising
+research evidence, not untouched confirmation.
+
+The combination is arithmetic stacking of frozen separate-sleeve books,
+not a shared-capital execution simulation. Cross-strategy hedge netting,
+joint reserve/stress limits and collateral reuse have not been recomputed.
+The tail rule was selected after inspecting this history; the weights were
+fixed at equal capital for this comparison. No checkpoint was promoted.
+
+Verification: saved standalone Sharpes/P&L reproduced, both calendars and
+cash benchmarks reconciled, combined P&L equals both streams and their pair
+contributions, relevant source CSVs and ledgers match recorded hashes, and
+no input changed during calculation. See audit.json and the reproducible
+scripts/combine_atm_tail_rule.py. Annual, dependence, pair and concentration
+tables are saved alongside this file.

@@ -1,0 +1,11 @@
+{
+  "all_original_checkpoints_unchanged": true,
+  "actual_return_sharpes_reproduced": true,
+  "variants": 82,
+  "source_hashes": 3353,
+  "allocation_optimization": "Retrospective full-history and previously inspected formation periods reported separately",
+  "bootstrap": "126-session circular paired blocks, 1000 repetitions, seed2026; not adjusted for model or allocation selection",
+  "no_fresh_holdout": true,
+  "shared_portfolio_blends_replayed": false,
+  "peak_rss_bytes": 260210688
+}

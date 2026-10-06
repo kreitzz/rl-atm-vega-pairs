@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "no_refits": true,
+  "no_replays": true,
+  "sources_verified": 1693,
+  "positive_candidate_months_blocked_only_by_added_rule_comparison": 36,
+  "affected_pairs": 9
+}

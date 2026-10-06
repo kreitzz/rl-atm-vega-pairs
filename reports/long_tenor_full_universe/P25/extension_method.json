@@ -1,0 +1,10 @@
+{
+  "all_original_proposals_checked": 529,
+  "labels": "All baseline labels plus isolated minimum-size executions of remaining proposals; original scheduled expiry purge retained",
+  "rv_horizon": 252,
+  "controller_leaves": 2,
+  "training_turnover_multiplier": 2,
+  "final_costs_and_risk_limits": "Unchanged",
+  "training_window_months": 48,
+  "prior_first_search_preserved": true
+}

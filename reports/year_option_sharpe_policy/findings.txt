@@ -1,0 +1,21 @@
+PAST-PREFIX ONE-YEAR SHARPE ALLOCATION POLICY
+
+Adaptively tested after management-Q and native-entry-Q failures. Reuse all230 native label episodes without waiting for maturity: only daily rewards strictly before each quarterly refit are visible. Entry cohorts need20 observed holding sessions; at least16 cohorts and252 training-calendar sessions.
+An entry-state tree partitions native long-tenor signals into2/3 states; a discrete episodic policy search assigns50/75/100% allocations to maximize daily portfolio Sharpe on the observed training prefixes. Pair-aware arm adds one-hot pair identities from the known candidate universe. This is contextual episodic allocation policy optimization; not a claim of sequential Q learning or neural RL.
+Preserve all529 pair/date/direction proposals and hold each leg to its original expiry. No new confidence/entry gate, no elective exits. Quarterly24/48-month windows. Same real .03 option commissions,0.1-vol-point penalties,1bp stock hedges, floating cash and stock borrow, and global/pair/wing risk limits. Training .65 commissions unchanged. Compare against fixed50/75/100; higher sizing can affect integer eligibility and shared risk admission.
+Shadow portfolio sums fractional independent cohort histories. Final evaluation replays integer actual contracts and shared cash, financing, costs and constraints. All tested histories were previously explored; all variants reported and intervals are unadjusted for adaptive selection.
+
+             case  annualized_excess_sharpe  entries  net_excess_pnl  recent_2024_partial2025_sharpe
+    fixed_50_hold                  0.396012      167   102842.468074                        0.279675
+   fixed_100_hold                  0.281315      120   119623.335568                        0.367533
+     fixed75_hold                  0.321192      135   107583.504688                        0.327017
+     native_2_48M                  0.281476      147    96067.827276                        0.124281
+     native_3_48M                  0.292536      156   101775.830340                        0.168087
+     native_3_24M                  0.273578      161    89370.003735                        0.287369
+pair_native_3_48M                  0.272047      161    94575.183535                        0.171282
+
+             case       control  sharpe_gain  unadjusted_gain_95_low  unadjusted_gain_95_high
+     native_2_48M fixed_50_hold    -0.114536               -0.215365                -0.009502
+     native_3_48M fixed_50_hold    -0.103476               -0.216017                 0.033875
+     native_3_24M fixed_50_hold    -0.122434               -0.220207                -0.005728
+pair_native_3_48M fixed_50_hold    -0.123965               -0.231198                -0.002511

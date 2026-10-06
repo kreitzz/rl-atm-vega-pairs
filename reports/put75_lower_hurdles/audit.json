@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "models_retrained": 270,
+  "roster_pairs": 345,
+  "all_states_scored": true,
+  "actual_commission": 0.03,
+  "frozen_source_files_verified": 5168,
+  "combined_shared_inventory": false,
+  "elapsed_seconds": 292.46332191699184,
+  "peak_rss_bytes": 440336384,
+  "finalization_only": false
+}

@@ -1,0 +1,17 @@
+{
+  "annualized_excess_sharpe": 1.0994499458252018,
+  "weights": {
+    "30D": 0.5784371083300974,
+    "180D": 0.2130541396197494,
+    "365D": 0.20850875205015323
+  },
+  "components": {
+    "30D": "previous managed 30D checkpoint",
+    "180D": "fixed50_fitted_q_conservative_aligned_runoff",
+    "365D": "fixed_50_hold"
+  },
+  "previous_optimized_blend_sharpe": 1.0949854373230519,
+  "full_history_optimized": true,
+  "shared_portfolio_replayed": false,
+  "no_fresh_holdout": true
+}

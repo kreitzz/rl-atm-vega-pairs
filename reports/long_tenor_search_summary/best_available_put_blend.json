@@ -1,0 +1,25 @@
+{
+  "annualized_excess_sharpe": 1.0949854373230519,
+  "weights": {
+    "30D": 0.5905337544369492,
+    "180D": 0.19751351467653974,
+    "365D": 0.21195273088651104
+  },
+  "components": {
+    "30D": "managed original 30D checkpoint",
+    "180D": "long_tenor_policy_search/P25/180D/fixed_50_hold",
+    "365D": "long_tenor_policy_search/P25/365D/fixed_50_hold"
+  },
+  "fixed_same_weights_sharpe": 0.8798856744337911,
+  "independently_optimized_fixed_weights": {
+    "30D": 0.41334506049251696,
+    "180D": 0.36524553881034416,
+    "365D": 0.22140940069713885
+  },
+  "independently_optimized_fixed_sharpe": 0.9109742276987044,
+  "gain_over_independently_optimized_fixed": 0.18401120962434747,
+  "unadjusted_bootstrap_gain_95_low": -0.009417393588347108,
+  "unadjusted_bootstrap_gain_95_high": 0.3411646647182779,
+  "full_history_optimized": true,
+  "shared_ledger_replayed": false
+}

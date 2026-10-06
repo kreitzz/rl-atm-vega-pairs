@@ -1,0 +1,91 @@
+Pair-quality comparison for UAL/AAL and UPST/COIN
+
+Read-only analysis of all 345 cached roster pairs. No trades, models, costs,
+or screens changed. History: 2018 through August 29, 2025, where available.
+UPST/COIN has a shorter overlapping stock history: 46 known monthly screens,
+versus UAL/AAL's 85. Historical medians describe each pair's available data;
+the roster median is equal weight across pair medians, not across all days.
+
+Beta is A-on-B based on 126 preceding return observations, shifted one day
+and frozen at monthly formation. It is neither beta to the market nor a new
+daily estimate. Correlation uses the same return sample. IV is the mean
+selected approximately 30D 25-delta put BS IV across both names. RV is the
+mean annualized 20-session close-to-close RV used by the existing state.
+
+Signal-date comparisons, against quoted pairs passing the existing
+0.85-1.15 beta and >=0.5 correlation screen on the same date:
+
+                              Beta   Return corr   Mean IV   Mean20D RV
+UAL/AAL May10,2024            0.858        0.796     34.71%       56.44%
+Eligible quoted group median 0.985        0.789     25.27%       24.57%
+UPST/COIN Feb14,2024          0.862        0.511     92.09%       94.13%
+Eligible quoted group median 0.945        0.691     28.96%       30.00%
+
+There are 11 and 18 quoted eligible pairs in the respective comparisons,
+including the target. Broader observed-roster comparisons have 68/100 quoted
+pairs and 67/99 with valid return screens; those are also exported.
+
+UAL/AAL: beta is close to the lower boundary and among the least close to
+one in the eligible set (95th percentile of absolute beta distance from1).
+Return correlation is around the eligible-group median. Recent mean RV is
+highest in that 11-pair group (midrank percentile95.45); IV77th percentile.
+In the broader quoted roster, return correlation87th, IV60th, RV92nd.
+
+UPST/COIN: lowest beta and lowest return correlation in the 18-pair eligible
+quoted group. IV86th and RV81st percentiles within that group; both95.5th
+percentile across all100 quoted roster pairs that day. Beta distance from1
+is92nd percentile within the eligible group. It passes the screen narrowly.
+
+Directional beta can conceal a volatility mismatch
+For the same return sample, beta(A|B)=corr(A,B)*sigma(A)/sigma(B).
+Consequently:
+UAL/AAL formation-sample RV ratio =1.078; reverse beta(AAL|UAL)=0.738.
+UPST/COIN formation-sample RV ratio=1.686; reverse beta(COIN|UPST)=0.303.
+The ratios are derived from the formation sample, NOT from the20-session
+RV state. The current gate checks only the stored A-on-B beta, so it does
+not require near-one beta in both directions or equal return volatility.
+
+Historical profile medians
+                              UAL/AAL   UPST/COIN   Roster median
+Return beta                     0.811       0.617           0.564
+Return correlation              0.819       0.468           0.590
+Mean selected-put IV            48.21%      95.54%         42.28%
+Mean20D RV                      42.01%      89.24%         36.53%
+Eligible fraction known months  31.76%      13.04%          3.95%
+
+UAL/AAL historical return correlation is93rd percentile across345 pair
+medians. UPST/COIN is23rd percentile. UPST/COIN IV and RV medians are both
+about98th percentile among333 pairs with observed option states. UAL/AAL
+is around65th percentile on both. UAL/AAL is thus generally a coherent,
+moderately volatile equity pair; UPST/COIN is extremely volatile with weaker
+and less consistently qualifying return co-movement. These are descriptive
+comparisons, not proof that dropping one pair improves future returns.
+
+IV co-movement: sparse-data diagnostic
+With126-session rolling correlations and at least84 paired observations,
+historical median IV-level correlation is0.942 UAL/AAL and0.516 UPST/COIN;
+IV-change correlation is0.690 and0.040, respectively. Only64 roster pairs
+have any valid IV-level rolling estimate and40 have any valid IV-change
+estimate. UAL/AAL has434/147 valid rolling observations, UPST/COIN292/51;
+these windows overlap and are not independent observations.
+At the specific losing-entry dates neither pair has enough paired quotes
+to meet that84-observation threshold:70/81 level observations and48/64
+change observations, respectively. Missing quotes are not filled. Therefore
+these IV-correlation results are coverage-limited and should not be presented
+as precise full-universe rankings or signal-date observations.
+
+Interpretation
+UPST/COIN gives a clearer pair-quality warning than UAL/AAL. UAL/AAL's
+strong co-movement did not protect against the later AAL-specific price jump;
+its recent RV was elevated at entry. Beta near one alone is insufficient to
+identify similar volatility exposures. A possible next test is a symmetric
+pair-quality/risk input plus concentration controls, using causal rolling
+evaluation rather than excluding these names because their losses are known.
+
+Files: entry_comparisons.csv contains same-date ranks and sample counts;
+pair_history.csv contains all pair profiles and metric observation counts;
+date_universe.csv contains each date's full roster snapshots;
+target_monthly_screens.csv preserves target beta/correlation histories.
+All asset-mean IV checks reconcile to the cached pair state. Source hashes
+and definitions are in audit.json. One guarded worker,50% of one core;
+peak RSS about153MiB.

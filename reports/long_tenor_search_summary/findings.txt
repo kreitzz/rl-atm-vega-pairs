@@ -1,0 +1,73 @@
+LONG-EXPIRY RL POLICY SEARCH
+
+Compare same frozen pair/date/direction proposals and actual matched-type contracts, shared cash, daily delta hedge, entry vega neutrality and unchanged execution/risk conventions. Every native entry proposal remains an explicit decision. P25 and same-strike approximately C75 trained separately.
+Three declared search families: (1) 24/48-month quarterly native entry/exit fits using original executed cohorts and four-leaf policies; (2) all remaining native executable opportunities independently labeled, 252-session EWMA variance forecast, two-leaf regularization and 2x training elective-option-exit penalty; (3) same broad labels/signals with four leaves and learned entry actions 0/25/50/75/100%, plus identical learned-skip fixed-size controls. Management always irreversible hold/half/close, weekly checks and next-session actual observed fills.
+Training uses only fully completed original scheduled expiries, minimum16 episodes and original cold-start sizes/hold. Compact episodic direct policy optimization learns action maps from realized rewards; not neural Q-learning. Shadow training uses fractional unnetted hedge/borrow costs; all final single-tenor tests execute integer quantities and reconcile independent cash flows.
+Full-history strongest variants/allocations are hyperoptimized exploratory results. A separate 2018-2023-selected comparison shows 2024-partial2025 behavior, but those dates were previously inspected and are not a fresh holdout. Bootstrap intervals do not adjust for this search. Saved-return portfolio blends include component costs, but not joint hedge netting or shared admission/integer allocations. American exercise/assignment and long-term expected-dividend/BS hedge-model limitations remain, especially for deep calls.
+
+30D CORE: SIZING AND MANAGEMENT INCREMENTS
+                  case  annualized_excess_sharpe  gain_over_best_fixed  unadjusted_bootstrap_gain_95_low  unadjusted_bootstrap_gain_95_high
+              fixed_50                  0.760690             -0.007824                         -0.399044                           0.308416
+             fixed_100                  0.768515              0.000000                          0.000000                           0.000000
+   learned_sizing_hold                  1.002988              0.234474                         -0.031146                           0.416073
+learned_sizing_managed                  1.029493              0.260979                          0.049569                           0.413156
+
+instrument  tenor                selection                                         learned_key  learned_sharpe  learned_entries                                        fixed_key  fixed_sharpe  fixed_entries  sharpe_gain  unadjusted_bootstrap_gain_95_low  unadjusted_bootstrap_gain_95_high  learned_recent_sharpe  fixed_recent_sharpe
+       P25    180 full_history_exploratory   long_tenor_full_universe/P25/180D/native_size_48M        0.525973              184  long_tenor_policy_search/P25/180D/fixed_50_hold      0.591775            204    -0.065802                         -0.283610                           0.120282               0.341628             0.325024
+       P25    180      2018_2023_formation  long_tenor_policy_search/P25/180D/native_joint_24M        0.506660              187  long_tenor_policy_search/P25/180D/fixed_50_hold      0.591775            204    -0.085115                         -0.354343                           0.117114              -0.167453             0.325024
+       P25    365 full_history_exploratory   long_tenor_policy_search/P25/365D/native_size_24M        0.356649              137  long_tenor_policy_search/P25/365D/fixed_50_hold      0.396012            167    -0.039363                         -0.162726                           0.108206               0.455711             0.279675
+       P25    365      2018_2023_formation long_tenor_policy_search/P25/365D/native_manage_48M        0.317617              154  long_tenor_policy_search/P25/365D/fixed_50_hold      0.396012            167    -0.078395                         -0.221150                           0.107982               0.194170             0.279675
+       C75    180 full_history_exploratory  long_tenor_policy_search/C75/180D/native_joint_24M        0.064080              103  long_tenor_policy_search/C75/180D/fixed_50_hold     -0.016915            104     0.080995                         -0.253516                           0.380653               0.170621             0.109733
+       C75    180      2018_2023_formation  long_tenor_policy_search/C75/180D/native_joint_24M        0.064080              103  long_tenor_policy_search/C75/180D/fixed_50_hold     -0.016915            104     0.080995                         -0.253516                           0.380653               0.170621             0.109733
+       C75    365 full_history_exploratory   long_tenor_policy_search/C75/365D/native_size_24M        0.012592              104 long_tenor_policy_search/C75/365D/fixed_100_hold     -0.001822             84     0.014414                         -0.073036                           0.092536               0.285852             0.162534
+       C75    365      2018_2023_formation   long_tenor_policy_search/C75/365D/native_size_24M        0.012592              104 long_tenor_policy_search/C75/365D/fixed_100_hold     -0.001822             84     0.014414                         -0.073036                           0.092536               0.285852             0.162534
+
+PUT PORTFOLIO BLENDS
+               selection                    allocation  weight_30D  weight_180D  weight_365D  learned_sharpe  fixed_same_weights_sharpe  sharpe_gain  learned_recent_sharpe  fixed_recent_sharpe  unadjusted_bootstrap_gain_95_low  unadjusted_bootstrap_gain_95_high
+full_history_exploratory                      80_10_10    0.800000     0.100000     0.100000        1.064825                   0.823240     0.241585               0.084428            -0.015227                          0.046976                           0.399760
+full_history_exploratory                     optimized    0.731615     0.095904     0.172481        1.071857                   0.837875     0.233983               0.150915             0.009103                          0.052082                           0.383755
+full_history_exploratory fixed_independently_optimized    0.413345     0.365246     0.221409             NaN                   0.910974          NaN                    NaN                  NaN                               NaN                                NaN
+     2018_2023_formation                      80_10_10    0.800000     0.100000     0.100000        1.051855                   0.823240     0.228614              -0.002851            -0.015227                          0.033237                           0.391629
+     2018_2023_formation                     optimized    0.792016     0.056433     0.151551        1.051990                   0.819495     0.232495               0.010730            -0.002391                          0.040217                           0.388420
+     2018_2023_formation fixed_independently_optimized    0.485751     0.315899     0.198350             NaN                   0.905753          NaN                    NaN                  NaN                               NaN                                NaN
+
+STRONGEST AVAILABLE PUT BLEND
+{
+  "annualized_excess_sharpe": 1.0949854373230519,
+  "weights": {
+    "30D": 0.5905337544369492,
+    "180D": 0.19751351467653974,
+    "365D": 0.21195273088651104
+  },
+  "components": {
+    "30D": "managed original 30D checkpoint",
+    "180D": "long_tenor_policy_search/P25/180D/fixed_50_hold",
+    "365D": "long_tenor_policy_search/P25/365D/fixed_50_hold"
+  },
+  "fixed_same_weights_sharpe": 0.8798856744337911,
+  "independently_optimized_fixed_weights": {
+    "30D": 0.41334506049251696,
+    "180D": 0.36524553881034416,
+    "365D": 0.22140940069713885
+  },
+  "independently_optimized_fixed_sharpe": 0.9109742276987044,
+  "gain_over_independently_optimized_fixed": 0.18401120962434747,
+  "unadjusted_bootstrap_gain_95_low": -0.009417393588347108,
+  "unadjusted_bootstrap_gain_95_high": 0.3411646647182779,
+  "full_history_optimized": true,
+  "shared_ledger_replayed": false
+}
+
+YEARLY STRONGEST-BLEND COMPARISON
+ year  sessions  optimized_mixed_sharpe  optimized_fixed_sharpe  partial_year
+ 2018       250                0.096991               -0.155056         False
+ 2019       252               -0.307299               -0.197748         False
+ 2020       253                1.889391                1.563313         False
+ 2021       252               -0.040047               -0.123630         False
+ 2022       251                2.514249                2.251950         False
+ 2023       250                1.497770                1.136685         False
+ 2024       252               -0.609817               -0.535574         False
+ 2025       165                1.281920                1.357757          True
+
+Interpretation: the observed incremental learning benefit is concentrated in the original 30D core. Best learned put controllers do not beat the strongest unconditional fixed sizing at 180D/365D. Long call improvements are small in absolute Sharpe. The strongest mixed portfolio uses learned 30D sizing/management plus fixed-size longer-tenor puts. Its interval against independently optimized fixed allocation includes zero; it is not conclusive statistical evidence after model/allocation selection.
+Charts: sleeve_comparison.png and optimized_blend_by_year.png. All sharpes annualize daily cash-excess returns with sqrt(252); 2025 is partial.

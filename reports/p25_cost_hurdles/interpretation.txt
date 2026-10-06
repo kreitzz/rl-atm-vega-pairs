@@ -1,0 +1,25 @@
+Lower training cost-hurdle sensitivity on the18-month P25 sizing candidate.
+
+    model  training_reward_commission  actual_commission  annualized_excess_sharpe  entries  active_pairs  net_excess_pnl  selection_2018_2023_sharpe  recent_2024_2025_sharpe  mean_entered_size  worst_daily_excess_pnl
+train_065                        0.65               0.03                  0.961745      208            44   304285.994757                    1.224369                -0.250337           0.646635           -21698.843211
+train_015                        0.15               0.03                  0.961700      207            43   304231.422296                    1.224347                -0.250337           0.652174           -21698.850752
+train_030                        0.30               0.03                  0.950610      207            43   301163.774337                    1.210457                -0.250337           0.649758           -21699.274655
+train_003                        0.03               0.03                  0.945966      208            43   299222.760170                    1.205180                -0.250337           0.652644           -21699.542873
+fixed_100                         NaN               0.03                  0.756932      134            40   266316.555691                    0.957162                -0.112832           1.000000           -25614.824017
+
+    model  changed_signal_sizes  changes_2024_2025  mean_proposed_size
+train_030                    10                  1            0.738898
+train_015                    22                  1            0.735197
+train_003                    25                  1            0.735197
+
+Training commissions varied between$0.65,$0.30,$0.15 and$0.03 per contract. These are conservative reward hurdles,not actual execution charges. Actual option commission remained$0.03,option penalty0.1 volatility point per leg and stock hedge execution1bp.
+
+Same608 proposals,27 original inputs,direction/contracts,18-month completed-outcome windows,monthly fits,50/75/100 sizing and risk budgets. This reward-only ablation rebuilt label cash flows,financing,tree targets and sizing objectives. The commission input and completed-shadow profitability memory remain at their original$0.65 definition;signal screens and formation dates are frozen. Thus it does not test expanding the qualified signal set by lowering its profitability-memory hurdle.
+
+All required$0.65 label paths,all90 baseline monthly trees/choices,and baseline NAV,trades and decisions reproduced exactly. Fixed100 reference also reproduced. Training never sees unfinished outcomes.
+
+Lower training costs alone did not increase completed trades or improve full-history Sharpe. The$0.15 policy essentially ties the reference.2024-partial2025 results are effectively identical across fees. The unchanged eligibility screens and risk limits still matter: baseline has277 risk-limit entry rejections and71 existing-inventory breach rejections. None of the lower-fee policies changes the total348 risk-related rejections by more than one.
+
+The$0.65 reference also ranks first using2018-2023 alone. Preserve the0.9617449 checkpoint. Next experiments can separately rebuild profitability memory and entry qualification at lower hurdles,or learn inventory-aware sizing;these should be labeled as different experiments. This is previously inspected history,not fresh validation;paired bootstrap intervals are diagnostic and do not adjust for all prior research.
+
+One worker,50%of one core,3GiB RSS stop. Peak observed RSS:445.1MiB.

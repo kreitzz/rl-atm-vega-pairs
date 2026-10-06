@@ -1,0 +1,25 @@
+Diagnostic follow-up after variance-premium feature selection. Same33 features and original variance-premium trees,18-month completed training windows and positive50/75/100 actions. Compare CEM seeds2026/1/7/42/2027 (50x192), profit-only action selection, each leaf standalone Sharpe, and direct portfolio Sharpe ignoring cross-leaf covariance. Seed2026 remains the retained candidate regardless of best descriptive seed. These are contextual sizing objective ablations, not an NN or a new sequential RL algorithm. Same608 frozen proposals, original costs/risk/cash/hedges; four fixed controls. Original90 candidate allocations and cash book must reproduce. Joint circular moving-block bootstrap60/126 sessions,2000 draws,95% intervals not adjusted for multiple research selection. Previously explored2018-Aug2025 history and retrospective formation; no fresh holdout, no universal RL benefit claim. One worker50%onecore,3GiB.
+
+          model    kind   sharpe  entries  net_excess_pnl  early_sharpe  recent_sharpe  max_excess_drawdown fixed_control  sharpe_difference_vs_control
+diagonal_sharpe learned 1.007098      211   320538.167804      1.237329      -0.021153        -46005.716551        fixed2                      0.237423
+   sharpe_seed1 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+sharpe_seed2026 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+sharpe_seed2027 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+  sharpe_seed42 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+   sharpe_seed7 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+       mean_pnl learned 0.979114      205   314439.986282      1.201153      -0.021153        -46168.340235        fixed2                      0.209439
+         fixed2   fixed 0.769675      263   249064.569721      1.180895      -0.693227        -75891.834959        fixed2                      0.000000
+         fixed4   fixed 0.756932      134   266316.555691      0.957162      -0.112832        -66229.514226        fixed2                     -0.012744
+         fixed1   fixed 0.728683      381   169183.144605      1.125834      -0.387296        -61273.853699        fixed2                     -0.040992
+         fixed3   fixed 0.728236      180   249571.262170      1.037662      -0.583529        -74280.538125        fixed2                     -0.041439
+   local_sharpe learned 0.725012      201   256543.132833      0.979231      -0.514438        -68598.363271        fixed2                     -0.044663
+
+      comparison  block_sessions    point    ci_low  ci_high  draws  selection_adjusted
+candidate_sharpe              60 1.006305  0.324878 1.631251   2000               False
+  vs_previous_rl              60 0.044560 -0.007890 0.107397   2000               False
+   vs_best_fixed              60 0.236629  0.027392 0.472695   2000               False
+    vs_full_size              60 0.249373  0.035885 0.440115   2000               False
+candidate_sharpe             126 1.006305  0.136622 1.659659   2000               False
+  vs_previous_rl             126 0.044560 -0.006003 0.117460   2000               False
+   vs_best_fixed             126 0.236629  0.008174 0.519296   2000               False
+    vs_full_size             126 0.249373 -0.011339 0.426789   2000               False

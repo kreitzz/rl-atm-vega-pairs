@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "raw_partitions": 256,
+  "scanned_evaluation_partitions": 128,
+  "start": "2018-01-01",
+  "end": "2025-06-30",
+  "raw_delta_diagnostics": "Vendor delta, not BS delta; exact BS pilot is separate.",
+  "no_retraining": true,
+  "no_backtest": true,
+  "downloaded_files_checked": "Existence, recorded bytes and parquet-footer row counts; download hashes retained, not reread.",
+  "resource_limits": "One worker, one Arrow/BLAS thread, self-throttled to 50% process CPU, 3 GiB RSS stop.",
+  "peak_rss_bytes": 751894528,
+  "elapsed_seconds": 14.941831042000558
+}

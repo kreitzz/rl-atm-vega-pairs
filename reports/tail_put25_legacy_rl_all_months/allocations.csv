@@ -1,0 +1,11 @@
+model,allocation,signals
+existing_pooled_rl,0.0,437
+existing_pooled_rl,0.25,114
+existing_pooled_rl,0.5,4
+existing_pooled_rl,0.75,6
+existing_pooled_rl,1.0,47
+memory_trained_pooled_rl,0.0,327
+memory_trained_pooled_rl,0.25,89
+memory_trained_pooled_rl,0.5,54
+memory_trained_pooled_rl,0.75,57
+memory_trained_pooled_rl,1.0,81

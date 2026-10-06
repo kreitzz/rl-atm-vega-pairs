@@ -1,0 +1,24 @@
+Maturity transfer of the frozen 30D P25 pair/date, direction and monthly 50/75/100 sizing stream to 30D and90D ATM calls/P25 puts/P75 puts. No retraining and no new wing-native rank or profitability veto. Preserve existing30D mapped contracts. Use existing90D selections (OI100,ATM-expiry anchor, fitted delta tolerance.075) with no replacement or selection based on future quote paths. Missing selections reach execution explicitly. Both maturities use the same entry cutoff 110 calendar days before Aug29,2025, allowing90D holding runoff. Original30D entry eligibility7-55D;90D75-105D. All other costs, risk and financing settings identical; actualcommission.03, mid+.1volpoint,stockhedge1bp,vegamatch<=10%,daily deltahedge, hold each leg to its own expiry with existing causal corporate exits. Fixed100 control versus frozen P25 sizing, separate wings and combined shared book. Report full2018-Aug2025, calendar2018-2020,2021-2023, 2024-partial2025 and individualyears. Calendar returns include open inventory carried across boundaries; periods are not independent reset backtests or untouched holdouts. Report entry/coverage counts and reject all unresolved holdings rather than dropping outcomes. Full frozen30D baseline remains unchanged outside this matched cutoff study. One worker,50%of onecore,oneBLAS/Arrowthread,3GiB stop.
+
+period                    2018_2020  2021_2023  2024_2025_partial      full
+tenor wing     variant                                                     
+30    ATM      fixed_100   0.005519   1.093704          -0.990042  0.196657
+               floor      -0.099720   1.148258          -0.902894  0.170411
+      P25      fixed_100   0.562541   1.373761           0.000764  0.779300
+               floor       0.678724   1.423917          -0.300663  0.841666
+      P75      fixed_100   0.267231   0.219152          -0.266778  0.084443
+               floor      -0.047751   0.262908          -0.181979 -0.008385
+      combined fixed_100   0.444480   1.330445          -0.627770  0.552436
+               floor       0.245068   1.476436          -0.631622  0.529350
+90    ATM      fixed_100  -0.254808  -0.049697          -1.202398 -0.288648
+               floor      -0.317722   0.033312          -1.152843 -0.302070
+      P25      fixed_100  -0.137810  -0.418575          -0.783025 -0.399224
+               floor      -0.017050  -0.420153          -0.767830 -0.362968
+      P75      fixed_100  -0.067352  -0.231239          -0.442838 -0.233811
+               floor      -0.014219  -0.009766          -0.659482 -0.118789
+      combined fixed_100  -0.178166  -0.236003          -1.121909 -0.385697
+               floor      -0.121735  -0.103357          -1.241143 -0.321640
+
+Matched signal availability: 222 ATM, 213 P25 and 55 P75 proposals are shared across maturities. P25 frozen-sizing Sharpe is +0.284693 at30D and -0.362968 at90D on that matched proposal set. The paired126-session block-bootstrap95% interval for90D-minus30D P25 sizing Sharpe is [-1.180571,-0.169743]. This is exploratory historical uncertainty, not new held-out validation. Recent matched P25 entry counts are only7 at30D and11 at90D.
+
+All32 ledgers close and reconcile. The original30D books reproduce through the common entry cutoff. Full-period0.841666 at30D results from the earlier common cutoff, not a newly improved model. The unchanged original checkpoint remains0.825623.

@@ -1,0 +1,7 @@
+model,wing,proposals,entries,mean_entry_allocation
+individual_sizing,ATM,1073,224,0.5089285714285714
+individual_sizing,P25,608,203,0.6490147783251231
+individual_sizing,P75,452,251,0.5268924302788844
+fixed_full_vega,ATM,1073,111,1.0
+fixed_full_vega,P25,608,135,1.0
+fixed_full_vega,P75,452,144,1.0

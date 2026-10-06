@@ -1,0 +1,15 @@
+          model    kind   sharpe  entries  net_excess_pnl  early_sharpe  recent_sharpe  max_excess_drawdown fixed_control  sharpe_difference_vs_control
+diagonal_sharpe learned 1.007098      211   320538.167804      1.237329      -0.021153        -46005.716551        fixed2                      0.237423
+   sharpe_seed1 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+sharpe_seed2026 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+sharpe_seed2027 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+  sharpe_seed42 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+   sharpe_seed7 learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+       mean_pnl learned 0.979114      205   314439.986282      1.201153      -0.021153        -46168.340235        fixed2                      0.209439
+         fixed2   fixed 0.769675      263   249064.569721      1.180895      -0.693227        -75891.834959        fixed2                      0.000000
+         fixed4   fixed 0.756932      134   266316.555691      0.957162      -0.112832        -66229.514226        fixed2                     -0.012744
+         fixed1   fixed 0.728683      381   169183.144605      1.125834      -0.387296        -61273.853699        fixed2                     -0.040992
+         fixed3   fixed 0.728236      180   249571.262170      1.037662      -0.583529        -74280.538125        fixed2                     -0.041439
+   local_sharpe learned 0.725012      201   256543.132833      0.979231      -0.514438        -68598.363271        fixed2                     -0.044663
+
+Eleven declared feature blocks including exact control. Frozen608 P25 proposals, same entry direction, beta/correlation/memory/formation screens, costs, funded capital, original5% stress and other caps. 18-month monthly completed-outcome fits,8-leaf tree,CEM50x192 seed2026,50/75/100 sizing and full-size fallback. New signals use signal-close options/prices or cached lagged vendor states; long-minus-short gaps, zero fill plus availability flag, never gate proposals. Physical tails use backward windows; EWMA variance uses20-session half-life; VRP z-score uses strictly prior252 sessions. IV factor is leave-one-name-out median changes with lagged rolling beta. Options smile uses cached selected 14/30/45-day surfaces, a context surface that can differ from audited traded contract. No future payoff field is a feature. Vendor historical revisions are not independently archived/PIT verified. Compare four constant sizes and select the constant control on2018-2023. Report full/recent/annual and negative results; previously explored history, no fresh holdout. One worker,50%of one core,3GiB RSS stop. Original checkpoint unchanged.

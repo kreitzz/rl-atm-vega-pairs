@@ -1,0 +1,40 @@
+Raw-data coverage audit, 2018-01-01 through 2025-06-30.
+
+All 256 requested 2010-2025 put partitions are present, with matching recorded
+file sizes and parquet-footer row counts. No new data was downloaded. The
+evaluation-period scan covers 128 partitions. Download hashes were retained
+from metadata; the entire raw files were not rehashed.
+
+Across the 345-pair roster, raw vendor-delta quote coverage near P25/P75 is
+328,480/310,048 pair-days before OI/spread restrictions. At OI >=100 and relative
+width <=25%, it falls to 136,653/56,791. At OI >=10 with the same width limit it
+is 226,631/143,667. These raw diagnostics use vendor delta, not fitted BS delta.
+
+The prepared dataset's fitted-IV presence exactly reconciles for every pair
+and wing: P25 136,459 pair-days, P75 58,518. No post-selection IV-loss discrepancy
+was found. This is coverage before beta, calendar, rank, memory and risk gates.
+
+AMD/NVDA Black-Scholes reconstruction, on the same evaluation dates:
+                         P25 pair-days   P75 pair-days
+OI100, ATM expiry            1712             713
+OI10, ATM expiry             1832            1382
+OI1, ATM expiry              1833            1742
+OI100, any 21-45D expiry     1882            1594
+OI10, any 21-45D expiry      1882            1860
+
+The current OI100/ATM-expiry pilot reproduces the prepared dataset exactly.
+The pilot refitted 583,673 positive standard put quotes with OI >=1 and 21-45
+calendar DTE; all pilot ATM expiry anchors lie within this range. No BS fitting
+failures occurred among vendor near-target quotes in this pilot. A delta shift
+can change bucket membership and is not equivalent to an IV fitting failure.
+
+Conclusion: the main coverage losses are the OI100 selection threshold and
+inheriting the ATM-call expiry, rather than an unfinished download. A common
+selection protocol can choose the closest-to-30D usable expiry per delta bucket
+and compare common OI thresholds without wing-specific exceptions.
+
+These are signal-date quote-availability counts, not completed training labels,
+actual trade counts, or profitability results. Newly admitted contracts still
+need their holding histories, execution eligibility and risk checks before use.
+All frozen policies and their backtest datasets remain unchanged. One worker,
+one Arrow/BLAS thread, self-throttled 50% process CPU, 3 GiB RSS stop.

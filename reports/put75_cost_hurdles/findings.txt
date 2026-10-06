@@ -1,0 +1,35 @@
+                      model  funded_sleeve_sets  net_excess_pnl  total_return  excess_return  annualized_excess_sharpe  max_drawdown  training_hurdle  entries  active_pairs  commission  option_cost   hedge_cost  risk_breach_pair_sessions
+                 atm_frozen                   1   145778.177100      0.218591       0.000423                  0.368039     -0.000025              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+               put25_frozen                   1   256944.329850      0.218913       0.000745                  0.792041     -0.000025              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+                   P75_flex                   1   135872.926409      0.218562       0.000394                  0.269230     -0.000040             0.65    261.0          40.0         NaN          NaN          NaN                        NaN
+                  P75_floor                   1   213009.801795      0.218786       0.000617                  0.289190     -0.000090              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+               P75_flex_100                   1    17196.630276      0.218218       0.000050                  0.037055     -0.000039             1.00    226.0          40.0     1366.32 12735.715315 32703.712986                      575.0
+               P75_flex_150                   1   -88693.901003      0.217911      -0.000257                 -0.193010     -0.000030             1.50    195.0          37.0     1185.24 10867.243975 27767.242898                      391.0
+             ATM_plus_put25                   2   402722.506950      0.218752       0.000584                  0.768099     -0.000010              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+       put25_plus_P75_floor                   2   469954.131645      0.218849       0.000681                  0.595432     -0.000040              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+   ATM_put25_plus_P75_floor                   3   615732.308745      0.218763       0.000595                  0.689162     -0.000023              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+        put25_plus_P75_flex                   2   392817.256258      0.218737       0.000569                  0.666165     -0.000009              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+    ATM_put25_plus_P75_flex                   3   538595.433359      0.218689       0.000520                  0.761532     -0.000005              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+    put25_plus_P75_flex_100                   2   274140.960126      0.218566       0.000397                  0.491081     -0.000010              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+ATM_put25_plus_P75_flex_100                   3   419919.137227      0.218574       0.000406                  0.628504     -0.000005              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+    put25_plus_P75_flex_150                   2   168250.428847      0.218412       0.000244                  0.299912     -0.000013              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+ATM_put25_plus_P75_flex_150                   3   314028.605947      0.218472       0.000303                  0.465846     -0.000007              NaN      NaN           NaN         NaN          NaN          NaN                        NaN
+
+{
+  "status": "complete",
+  "models_retrained": 180,
+  "models_frozen": 90,
+  "roster_pairs": 345,
+  "all_states_scored": true,
+  "actual_commission": 0.03,
+  "frozen_source_files_verified": 5132,
+  "combined_shared_inventory": false,
+  "elapsed_seconds": 8.756562416994711,
+  "peak_rss_bytes": 344047616,
+  "finalization_only": true,
+  "research_run_elapsed_seconds": 251.6831255829893,
+  "research_run_peak_rss_bytes": 490258432,
+  "reporting_keyword_repaired": true
+}
+
+P75 only: fixed 0.65/1.00/1.50 training commission hurdles, actual commission 0.03. Frozen 0.65 flexible policy and ledgers reused; two higher hurdles retrained monthly on five years of completed standalone integer-contract outcomes. All 345 roster pairs and every observed state retained, same ungated rule directions/features/calendars; native profitability memory remains a frozen input. Flexible 0/25/50/75/100 sizing, pooled direct-Sharpe allocation search, not a sequential inventory-aware RL agent. Unit cash flows change entry commissions only; pair financing and cash-sign borrowing recomputed exactly. Baseline labels must reproduce bit-for-bit. Identical actual actions may reuse audited actual ledgers. Actual risk limits, daily delta hedging, initial vega matching and own-expiry hold remain unchanged. Frozen ATM/downside policies, equal-capital separately funded sleeve combinations, no shared inventory or fitted combination weights. Known wide held quotes left unchanged equally across trials. Previously inspected history; exploratory sensitivity, not an untouched holdout or proof of an optimal hurdle. One worker, 50% of one core, 3 GiB RSS stop, single BLAS/Arrow thread.

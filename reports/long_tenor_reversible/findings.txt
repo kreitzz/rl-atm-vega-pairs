@@ -1,0 +1,42 @@
+ENRICHED INVENTORY STATE AND REVERSIBLE LONG-TENOR RL
+
+Same 529 pair/date/direction proposals, native 180D/365D P25 contracts, fixed 50% entries. Entry vega-matched, daily delta hedges; no continuous vega rebalance. Natural runoff matches the prior control, including different leg expiry dates.
+Compare prior selective FQI, richer-state irreversible FQI, and richer-state reversible FQI. Same ExtraTrees depth5, 20 trees, 16 Bellman updates, quarterly 48-month completed-weekly-step fits and ensemble-disagreement action penalty. State adds current IV level, net/gross dollar gamma, vega drift, local capital reserve and global reserve utilization. Shadow quantities scale with retained inventory.
+Both menus activate only after 16 cohorts and 128 unique weekly transitions. Earlier models/replays counted augmented action rows, allowing the reversible 365D model to activate one quarter earlier; those replay folders are retained and excluded from final comparison. A cached model below the shared activation minimum is not deployed.
+After the six-month mean-reward policies chose no trims, add an explicitly adaptive reward ablation: utility r-k*r^2/2, with k=max(0,past mean full-hold reward)/past full-hold second moment, using only completed prior transitions and cohort-balanced weights. This is a local Sharpe-like mean-variance surrogate, not an exact portfolio Sharpe objective. Compare irreversible/reversible menus under both reward definitions; retain the original mean-reward results.
+Reversible actions restore half-trimmed pairs to their original counts only; fully closed cohorts cannot reopen. Both legs require observed executable quotes, prior-known OI, live incremental vega match within10% and unchanged global/pair/wing risk checks after option and hedge costs. No added leverage. Failed requests retain inventory. Nondecision days retain current inventory.
+Logged fixed50 global capital state enters training; actual book state enters inference. Local counterfactual weekly rewards and fractional hedges approximate portfolio interactions, while final evaluation is the reconciled shared-cash integer book. Training commission .65, real .03, 0.1-vol-point option penalties and1bp stock execution unchanged. European BS and undeclared-dividend/assignment limitations persist.
+All history has been explored; intervals are unadjusted for search, and there is no fresh holdout.
+
+ tenor                                         case  annualized_excess_sharpe  entries  trims  exits  restore_fills  recent_2024_partial2025_sharpe
+   180                    fixed50_hold_fork_control                  0.591775      204      0      0              0                        0.325024
+   180 fixed50_fitted_q_conservative_aligned_runoff                  0.610028      207      0     28              0                        0.325024
+   180         enriched_irreversible_aligned_warmup                  0.602508      204      0     10              0                        0.325024
+   180           enriched_reversible_aligned_warmup                  0.601322      205      0     16              0                        0.325024
+   180             risk_irreversible_aligned_warmup                  0.602508      204      0     10              0                        0.325024
+   180               risk_reversible_aligned_warmup                  0.601322      205      0     16              0                        0.325024
+   365                    fixed50_hold_fork_control                  0.396012      167      0      0              0                        0.279675
+   365 fixed50_fitted_q_conservative_aligned_runoff                  0.374410      173      0     38              0                        0.280819
+   365         enriched_irreversible_aligned_warmup                  0.338039      170      0     20              0                        0.252896
+   365           enriched_reversible_aligned_warmup                  0.357650      171      4     26              0                        0.280820
+   365             risk_irreversible_aligned_warmup                  0.338039      170      0     20              0                        0.252896
+   365               risk_reversible_aligned_warmup                  0.357650      171      4     26              0                        0.280820
+
+Best saved-return blend (exploratory; no joint portfolio replay):
+{
+  "annualized_excess_sharpe": 1.0994499458252018,
+  "weights": {
+    "30D": 0.5784371083300974,
+    "180D": 0.2130541396197494,
+    "365D": 0.20850875205015323
+  },
+  "components": {
+    "30D": "previous managed 30D checkpoint",
+    "180D": "fixed50_fitted_q_conservative_aligned_runoff",
+    "365D": "fixed50_hold_fork_control"
+  },
+  "previous_optimized_blend_sharpe": 1.0994499458252018,
+  "full_history_optimized": true,
+  "shared_portfolio_replayed": false,
+  "no_fresh_holdout": true
+}

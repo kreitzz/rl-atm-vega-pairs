@@ -1,0 +1,25 @@
+{
+  "entry_actions": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "management_actions": [
+    0,
+    0.5,
+    1.0
+  ],
+  "maximum_leaves": 4,
+  "learned_zero_is_explicit": true,
+  "external_entry_gates_added": false,
+  "all_original_proposals": 529,
+  "identical_learned_skip_fixed_controls": [
+    0.5,
+    1.0
+  ],
+  "full_universe_labels_from": "artifacts/contracts/long_tenor_full_universe/C75",
+  "final_costs_and_risk_limits": "Unchanged",
+  "source_sha256": "055920a556ee81bff068455b14dac8392476d900320b04b9eb577bc1ef5cc9cb"
+}

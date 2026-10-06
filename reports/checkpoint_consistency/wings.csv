@@ -1,0 +1,16 @@
+model,wing,proposals,entries,mean_entry_allocation
+individual_sizing,ATM,1073,224,0.5089285714285714
+individual_sizing,P25,608,203,0.6490147783251231
+individual_sizing,P75,452,251,0.5268924302788844
+fixed_50,ATM,1073,247,0.5
+fixed_50,P25,608,263,0.5
+fixed_50,P75,452,270,0.5
+fixed_75,ATM,1073,160,0.75
+fixed_75,P25,608,180,0.75
+fixed_75,P75,452,194,0.75
+fixed_100,ATM,1073,111,1.0
+fixed_100,P25,608,135,1.0
+fixed_100,P75,452,144,1.0
+joint_sizing,ATM,1073,150,0.3616666666666667
+joint_sizing,P25,608,121,0.6425619834710744
+joint_sizing,P75,452,145,0.4413793103448276

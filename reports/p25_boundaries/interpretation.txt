@@ -1,0 +1,48 @@
+Spread-boundary and inherited risk-cap comparison.
+
+Numeric risk limits were implementation assumptions inherited from the earlier simulation,not user-selected limits. The current overlay caps stress loss at5%of fundedNAV,capital reserve at80%,gross hedge notional at2xNAV and gross vega at20,000per pair reference. Shared funded capital is$345m with$1m pair/wing reference budgets. Stress tests use+/-20%stock and+/-10volatility points,and independently sum worst losses by name. The reserve is a research constraint,not an actual broker-margin model.
+
+Three spread thresholds20/80,30/70,40/60 were retrained separately on18months of completed outcomes,monthly,with unchanged50/75/100 menus,27inputs,.65training labels,.03actual commissions,.1volpoint perleg penalty,1bp stock execution,funding,delta hedges and own-expiry holding. Positive91/365day profit-memory,count21/63,beta0.85-1.15/correlation>=.5,and inherited formation/calendar conditioning remain unchanged. No future-label filter on evaluation proposals. New contracts use existing cached selections;no downloads or new selection.
+
+For each boundary,the same learned sizes are replayed under current caps,stress cap disabled,and all discretionary entry caps disabled. Fixed100 gets exactly the same proposals and risk configuration. NonpositiveNAV checks and contract/vega/ledger rules remain everywhere. Capital and dollar-vega sizing are unchanged,so removing caps measures extra inventory admitted rather than changing return normalization. These are sensitivity tests;no inventory-aware policy was retrained for each risk setting.
+
+ boundary risk_mode  learned_sharpe  fixed_sharpe  sharpe_difference  learned_entries  fixed_entries
+       20   current        0.961745      0.756932           0.204813              208            134
+       20   no_caps        0.528703      0.621621          -0.092918              556            557
+       20 no_stress        0.550671      0.577035          -0.026365              473            432
+       30   current        0.791712      0.828893          -0.037181              262            164
+       30   no_caps        0.343993      0.523019          -0.179026              781            786
+       30 no_stress        0.412970      0.495048          -0.082077              653            575
+       40   current        0.754026      0.792733          -0.038706              306            198
+       40   no_caps        0.288503      0.350072          -0.061568             1043           1051
+       40 no_stress        0.202126      0.269202          -0.067076              826            736
+
+                model  boundary risk_mode     kind  proposals  entries  active_pairs  annualized_excess_sharpe  net_excess_pnl  selection_2018_2023_sharpe  recent_2024_2025_sharpe  worst_daily_excess_pnl  max_excess_drawdown_dollars  peak_active_cohorts  commission  mean_entered_size
+   20_current_learned        20   current  learned        608      208            44                  0.961745   304285.994757                    1.224369                -0.250337           -21698.843211                -46105.126867                   21     1085.01           0.646635
+  30_current_fixed100        30   current fixed100        846      164            43                  0.828893   337019.185903                    1.000129                -0.004457           -25606.517642                -65333.517723                   11     1291.08           1.000000
+  40_current_fixed100        40   current fixed100       1127      198            46                  0.792733   354790.052825                    0.977966                -0.079381           -38772.415911                -74833.876143                   11     1546.44           1.000000
+   30_current_learned        30   current  learned        846      262            45                  0.791712   289863.362622                    1.002245                -0.090261           -25611.884236                -66153.020476                   17     1265.43           0.627863
+  20_current_fixed100        20   current fixed100        608      134            40                  0.756932   266316.555691                    0.957162                -0.112832           -25614.824017                -66229.514226                    9     1073.49           1.000000
+   40_current_learned        40   current  learned       1127      306            49                  0.754026   311837.165835                    0.935416                -0.034515           -38804.861654                -77834.535337                   21     1535.10           0.645425
+  20_no_caps_fixed100        20   no_caps fixed100        608      557            44                  0.621621   734592.714959                    1.009608                -0.413289          -112091.983251               -298232.265675                   33     4137.96           1.000000
+20_no_stress_fixed100        20 no_stress fixed100        608      432            44                  0.577035   594700.516506                    1.057189                -0.469809          -112109.331140               -301721.000583                   31     3302.43           1.000000
+ 20_no_stress_learned        20 no_stress  learned        608      473            44                  0.550671   446220.511261                    1.222532                -0.428206          -109372.944419               -278878.283441                   33     2575.89           0.713531
+   20_no_caps_learned        20   no_caps  learned        608      556            44                  0.528703   466120.358642                    1.055720                -0.367037          -109372.232882               -279809.801293                   33     3058.98           0.737410
+  30_no_caps_fixed100        30   no_caps fixed100        846      786            47                  0.523019   837787.114786                    0.926804                -0.524785          -220717.376274               -435434.335283                   52     5839.38           1.000000
+30_no_stress_fixed100        30 no_stress fixed100        846      575            47                  0.495048   559028.611250                    0.951698                -0.499865          -136408.524610               -330104.348113                   42     4390.44           1.000000
+ 30_no_stress_learned        30 no_stress  learned        846      653            47                  0.412970   438283.513854                    0.880972                -0.556349          -135814.116926               -346825.609563                   45     3459.75           0.690658
+  40_no_caps_fixed100        40   no_caps fixed100       1127     1051            51                  0.350072   666313.500212                    0.781146                -0.693813          -296737.126365               -611362.372617                   65     7631.58           1.000000
+   30_no_caps_learned        30   no_caps  learned        846      781            47                  0.343993   455409.076653                    0.839457                -0.648451          -219902.817618               -487123.284429                   52     4188.87           0.704225
+   40_no_caps_learned        40   no_caps  learned       1127     1043            51                  0.288503   489445.797893                    0.778143                -0.713121          -297603.462766               -591855.836089                   65     5697.90           0.746884
+40_no_stress_fixed100        40 no_stress fixed100       1127      736            51                  0.269202   359238.099932                    0.798921                -0.800662          -212306.621861               -437576.667552                   50     5556.72           1.000000
+ 40_no_stress_learned        40 no_stress  learned       1127      826            51                  0.202126   247482.926347                    0.775705                -0.811973          -213206.580200               -438856.340954                   53     4379.82           0.713378
+
+Current20/80 remains highest full-history Sharpe and selected first using2018-2023 only. Widening the boundaries adds proposals608->846->1127 but reduces learned Sharpe. Removing the stress cap at20/80 adds entries208->473 and increases above-cash profit$304k->$446k,but reduces Sharpe from.961745 to.550671;all-caps-off Sharpe is.528703.
+
+At20/80,all-caps-off learned trading earns$466k above cash with556entries,but worst daily excess loss rises from$21.7k to$109.4k and peak-to-trough excess-profit drawdown from$46.1k to$279.8k. Fixed100 all-caps-off earns$735k with557entries and.621621Sharpe. Thus the best reported RL-sizing advantage is specific to20/80 with current risk caps;the other8of9settings favor fixed100. This does not establish a universal RL benefit. The.961745 checkpoint combines signal,learned entry sizing and an inherited inventory-admission overlay.
+
+All90 baseline learned models and both learned/fixed reference NAV,trades and decisions reproduced exactly. All18 cash-ledger,vega-matching and closed-inventory audits passed. Original candidate/checkpoints remain untouched. All results are previously inspected history with retrospective roster/calendar conditioning,not new holdout evidence.2025 endsAugust29 with last signalJune30.
+
+Next research direction: use current inventory/risk capacity during training and optimize the actual book admissions,while testing any stress-limit calibration explicitly. A larger trade count alone did not improve Sharpe in this sweep.
+
+One worker at50%of onecore;3GiB stop. Peak observed memory:459.9MiB.

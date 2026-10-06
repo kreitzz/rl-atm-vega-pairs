@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "common_structure_across_all_wings": true,
+  "pairs": 345,
+  "monthly_models": 540,
+  "variants": 5,
+  "same_skip_diagnostic": 1,
+  "separate_wing_replays": 6,
+  "frozen_source_files": 5210,
+  "elapsed_seconds": 443.86339279200183,
+  "peak_rss_bytes": 993624064,
+  "no_new_holdout": true
+}

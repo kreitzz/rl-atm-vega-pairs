@@ -1,0 +1,5 @@
+period,sample,observations,daily_excess_return_correlation
+full,whole_period,1925,0.027397200347003086
+full,either_stream_active,1575,0.027173910088538616
+recent,whole_period,917,0.04539488009041937
+recent,either_stream_active,854,0.04530610533818643

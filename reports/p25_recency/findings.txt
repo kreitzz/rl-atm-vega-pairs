@@ -1,0 +1,104 @@
+         model      kind  annualized_excess_sharpe  selection_2018_2023_sharpe  recent_2024_2025_sharpe  entries  active_pairs  net_excess_pnl  mean_entered_size  worst_daily_excess_pnl
+     18M_floor     model                  0.961745                    1.224369                -0.250337      208            44   304285.994757           0.646635           -21698.843211
+     12M_floor     model                  0.855190                    1.162824                -0.327885      211            42   283336.468388           0.636256           -23812.588603
+  5Y_reference reference                  0.825623                    1.108878                -0.366274      200            42   262872.856615           0.646250           -24857.941165
+       36M_hl6     model                  0.794904                    1.110922                -0.443761      201            41   263198.014616           0.650498           -23770.887305
+       12M_hl6     model                  0.789608                    1.143290                -0.517107      209            41   267903.691380           0.630383           -33867.565267
+      6M_floor     model                  0.785523                    0.986969                -0.104906      200            43   285082.583577           0.667500           -28506.756583
+12M_high_floor     model                  0.784684                    1.023959                -0.193308      158            42   273781.858807           0.851266           -23157.205674
+      9M_floor     model                  0.770670                    1.115494                -0.522096      202            43   260338.486073           0.655941           -30744.326568
+     24M_floor     model                  0.757383                    1.043991                -0.347223      201            42   252464.639374           0.659204           -33869.517857
+     fixed_100     fixed                  0.756932                    0.957162                -0.112832      134            40   266316.555691           1.000000           -25614.824017
+      36M_hl12     model                  0.667979                    0.990938                -0.666630      194            42   225642.132924           0.676546           -25615.398811
+
+         model  year  annualized_excess_sharpe  net_excess_pnl  entries
+     12M_floor  2018                 -0.008776     -111.424454       21
+     12M_floor  2019                 -0.640178    -9685.996799       22
+     12M_floor  2020                  1.464515    73963.784433       30
+     12M_floor  2021                 -0.161350    -2237.323494       18
+     12M_floor  2022                  2.368391   164745.334491       66
+     12M_floor  2023                  1.504995    54832.442422       18
+     12M_floor  2024                 -1.064448   -31475.846791       21
+     12M_floor  2025                  1.149858    33305.498580       15
+12M_high_floor  2018                 -0.198896    -2569.632325       13
+12M_high_floor  2019                 -0.780774   -12206.778134       16
+12M_high_floor  2020                  1.297564    73607.418504       22
+12M_high_floor  2021                  0.105229     1687.510245       15
+12M_high_floor  2022                  2.097039   148412.287893       52
+12M_high_floor  2023                  1.300769    55322.132837       16
+12M_high_floor  2024                 -0.865373   -23679.236725       14
+12M_high_floor  2025                  1.158609    33208.156510       10
+       12M_hl6  2018                 -0.103413    -1534.822703       21
+       12M_hl6  2019                 -0.642833    -9306.668579       18
+       12M_hl6  2020                  1.456756    73429.214811       30
+       12M_hl6  2021                 -0.161350    -2239.420606       18
+       12M_hl6  2022                  2.329023   164424.476936       70
+       12M_hl6  2023                  1.467317    56282.410907       16
+       12M_hl6  2024                 -1.171149   -41467.464627       20
+       12M_hl6  2025                  1.015186    28315.965240       16
+     18M_floor  2018                  0.520077     6973.042915       22
+     18M_floor  2019                 -0.544831    -7124.259789       21
+     18M_floor  2020                  1.556414    68251.253059       31
+     18M_floor  2021                 -0.569005    -9563.366126       23
+     18M_floor  2022                  2.465962   176429.493383       66
+     18M_floor  2023                  1.507347    57891.305297       19
+     18M_floor  2024                 -0.918688   -16378.131120       11
+     18M_floor  2025                  1.057756    27806.657138       15
+     24M_floor  2018                  0.073927     1275.354756       17
+     24M_floor  2019                 -0.370560    -5379.961170       24
+     24M_floor  2020                  1.176977    50698.361705       28
+     24M_floor  2021                 -0.494651    -8355.342681       22
+     24M_floor  2022                  2.339225   176096.297769       64
+     24M_floor  2023                  1.226307    40059.777529       16
+     24M_floor  2024                 -0.951103   -28882.377031       17
+     24M_floor  2025                  0.936536    26952.528496       13
+      36M_hl12  2018                  0.269833     3494.997859       17
+      36M_hl12  2019                 -0.513611    -6882.128992       21
+      36M_hl12  2020                  1.241245    62601.940542       29
+      36M_hl12  2021                 -0.646004    -9202.654704       21
+      36M_hl12  2022                  2.284313   164244.765129       63
+      36M_hl12  2023                  0.672731    33674.842186       16
+      36M_hl12  2024                 -1.121750   -36805.721873       14
+      36M_hl12  2025                  0.467154    14516.092778       13
+       36M_hl6  2018                  0.234507     3062.842534       19
+       36M_hl6  2019                 -0.445083    -5578.112357       17
+       36M_hl6  2020                  1.246166    62245.632484       30
+       36M_hl6  2021                 -0.543752    -9014.975072       21
+       36M_hl6  2022                  2.471865   177616.371273       63
+       36M_hl6  2023                  1.263160    41443.109175       16
+       36M_hl6  2024                 -1.009950   -31639.244881       20
+       36M_hl6  2025                  0.991604    25062.391460       15
+  5Y_reference  2018                  0.240564     2836.986528       18
+  5Y_reference  2019                 -0.554727    -7449.653759       18
+  5Y_reference  2020                  1.381517    59767.701370       33
+  5Y_reference  2021                 -0.592064    -9397.174349       23
+  5Y_reference  2022                  2.274119   164075.797114       63
+  5Y_reference  2023                  1.501287    52667.827606       17
+  5Y_reference  2024                 -0.833752   -19769.194251       14
+  5Y_reference  2025                  0.736250    20140.566356       14
+      6M_floor  2018                 -0.215019    -3894.166280       21
+      6M_floor  2019                 -0.842347   -12869.218000       19
+      6M_floor  2020                  1.026803    67430.450639       30
+      6M_floor  2021                  0.121249     1784.766468       17
+      6M_floor  2022                  2.206986   159049.099967       66
+      6M_floor  2023                  1.603721    57381.221822       18
+      6M_floor  2024                 -0.714855   -15590.094442       16
+      6M_floor  2025                  1.102038    31790.523402       13
+      9M_floor  2018                 -0.152592    -2691.176899       21
+      9M_floor  2019                 -0.451499    -6817.469634       22
+      9M_floor  2020                  1.264442    63818.154730       28
+      9M_floor  2021                 -0.091091    -1376.628406       18
+      9M_floor  2022                  2.375134   166818.128115       65
+      9M_floor  2023                  1.546868    54112.627825       18
+      9M_floor  2024                 -1.212449   -42946.372485       20
+      9M_floor  2025                  1.102364    29421.222827       10
+     fixed_100  2018                  0.182250     3153.342507       11
+     fixed_100  2019                 -0.516602    -8165.714990       13
+     fixed_100  2020                  1.102225    76092.153103       20
+     fixed_100  2021                  0.021360      446.103178       14
+     fixed_100  2022                  2.199733   126414.354428       42
+     fixed_100  2023                  1.118193    54049.621506       14
+     fixed_100  2024                 -0.807132   -18751.307766       10
+     fixed_100  2025                  1.110410    33078.003726       10
+
+Nine declared policies (eight new plus exact12M floor control):6/9/12/18/24 month windows with50/75/100 sizing;12month75/100;12month6month half-life; 36month6/12month half-life. Recency weighting applies to tree signal-date weights and daily training-book mean/covariance. Same8leaf tree,minleaf, CEM50x192 seed2026,full-size anchor/fallback and monthly refits. Completed outcomes strictly before fit,signal date within lookback. Preserve original 608P25 proposals,27features,approximately30D25delta puts,entry vega matching,daily delta hedging,own expiry,costs(.65 training,.03 actual commission,mid+.1volpoint,1bp stock),financing and original risk budgets. No learned skips,new risk features,seed search,exits or wings. Sizes can change which overlapping entries pass risk limits. Exact12M baseline model/NAV/trades/decisions reproduction required;fixed100 also reproduced. Ranking specified before fitting uses2018-2023 cash-excess Sharpe;report 2024-partial2025,annuals and full-history separately. Previously inspected history and retrospective roster/calendar conditioning;no fresh holdout or automatic checkpoint promotion. One worker,50%one core,3GiB RSS stop.

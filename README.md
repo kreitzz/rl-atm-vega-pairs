@@ -1,19 +1,17 @@
-# RL for ATM Vega Pair Trading
+# Reinforcement learning for options relative value
 
-Actual ATM options closest to 30 days, initially vega neutral and delta hedged daily, held to expiry. RL chooses direction and a 0/25/50/75/100% sizing ladder independently for each pair.
+Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A frozen spread signal proposes trades; a contextual learner selects 50%, 75% or 100% vega exposure using monthly fits on completed past outcomes. The retained learner uses direct Sharpe optimization, not Q-learning.
 
-**Current best: 0.368 annualized excess Sharpe (2018–August 2025); 0.428 since 2022.** [Checkpoint](config/current_contract_reference.json) · [Results](reports/atm65_employee_sentiment.md) · [Yearly returns and Sharpe](reports/atm65_employee_sentiment/annual.csv) · [Pair results](reports/atm65_employee_sentiment/pairs.csv).
+**Retained result: 1.003 annualized excess Sharpe**, versus **0.769** for fixed full sizing and **0.761** for fixed half sizing. These are actual-contract, $10m funded replays from January 2018 through August 2025, with the same 608 proposals and risk limits. Sizing changes inventory and admission, so executed portfolios differ. This is a selected historical research result with no fresh holdout.
 
-[Finalized RL inputs (compressed CSV)](data/current_rl_inputs.csv.gz): 290,151 daily rows across 139 pairs with states; [full roster](data/current_rl_pairs.csv) contains 345 sleeves, including structural cash sleeves. Includes the 47 original state inputs, two employee-leadership states, entry IVs and entry gates. Employee states are used only where `employee_features_enabled` is true. Legacy AMD/NVDA column suffixes mean the first/second leg for every pair. No forward rewards or targets; profitability-memory columns use completed past trades. [Data details and hashes](data/current_rl_data_manifest.json). Contract replay and reward reconstruction also require the licensed source option, stock, dividend and rate histories.
+[10-page paper](paper/options_relative_value.pdf) · [Latest saved presentation](slides/230ZB_volatility_spreads%20%281%29.pptx) · [Browser slides](slides/index.html) · [Submission and reproduction guide](SUBMISSION.md)
 
-Training/validation commission: **$0.65 per contract**; execution: **$0.03**, plus 0.10 vol-point option penalty and 1 bp stock hedging cost. Monthly retraining, completed-outcome purging, beta 0.85–1.15 and correlation ≥0.5. Existing position, financing and risk limits are retained.
+[Finalized strategy inputs (CSV)](data/p25_variance_premium_inputs.csv): **36,327 rows and 33 model inputs**, plus contract identifiers and entry flags. No future rewards or targets; profitability memory uses completed past outcomes. Saved models, separate training-label paths and selected execution data are in [data/submission](data/submission/manifest.json).
 
-[Q-learning revision](reports/q_batch.md): exhaustive batch Q updates, economic state ablations, and missing-date sensitivity; AMD/NVDA improves in point estimate, without a statistically reliable advantage over cross-entropy.
+[Checkpoint](config/p25_submission.json) · [Controlled results](reports/p25_capital_sensitivity/comparison.csv) · [Yearly returns and Sharpe](reports/p25_capital_sensitivity/10m_learned_annual.csv) · [Research and extension results](SUBMISSION.md#results-and-research-history)
 
-[Broader universe and prior-profitability state](reports/broad_pairs.md).
+Training commission is $0.65 per contract; execution uses $0.03 plus a 0.10 vol-point penalty per leg and 1 bp stock hedge cost. Financing, dividends and inventory use a shared cash ledger. Total account return includes cash interest; reported excess Sharpe removes the cash return.
 
-**Future research is RL-only.** Historical NN comparisons stay saved. [Training settings](config/research_training.json) · [RL-only runner](scripts/run_atm65_rl_transcripts.py). New runs use one worker, 50% of one CPU core and a 3 GiB memory stop.
+The earlier ATM result and your teammate's equity/Q-learning experiments remain in the history. Newer standalone one-year cheap-vega tests lost money after costs and are reported separately.
 
-[Research findings and comparisons](reports/research_findings.md) · [New alternative-data priorities](reports/vol_alternative_data.md) · [Original ATM-IV proxy dataset](data/current_dataset.csv).
-
-**Academic use only.** Third-party data remain subject to OptionMetrics, CRSP, Compustat, Revelio and other vendor/institutional license terms; this notice grants no additional data rights. Backward publication lags are enforced, but archived historical vendor versions are not fully verified.
+**Academic use only.** Third-party data remain subject to vendor and institutional licenses; this notice grants no additional data rights. This repository remains private. [Data-use notice](data/DATA_LICENSE.txt).

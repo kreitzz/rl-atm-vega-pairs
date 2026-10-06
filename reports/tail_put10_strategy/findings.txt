@@ -1,0 +1,123 @@
+Standalone 30D 10-delta put pairs: first strategy test, October 2, 2026
+
+The simple spread rule is positive; the current two-feature RL policy fails
+to improve it. Keep the frozen ATM checkpoint and this result separately.
+No strategy stacking, new NN fitting, feature grid, or parameter search.
+
+Annualized DAILY EXCESS-return Sharpe (sqrt(252), above cash):
+                          2018-Aug2025   2022-Aug2025   entries full/recent
+Frozen ATM RL reference       0.368          0.428            224/179
+Put10 simple rule             0.348          0.524             31/24
+Put10 RL with sizing         -0.348         -0.501             21/21
+
+Actual P&L above the cash benchmark, full/recent:
+Rule: +$36,922 / +$34,459. RL: -$13,352 / -$12,647.
+Full-period rule uses 15 active pairs; RL uses only two, AMD/MU and BAC/JPM.
+All 345 original $1m sleeves remain, including explicit cash sleeves;
+therefore percentage excess returns are small under this original allocation.
+Full-period excess return: rule +0.0107%; RL -0.00387%. This is not a proposed
+capital-efficient allocation or leverage estimate. Full-period largest excess
+P&L drawdown: rule $16,159, RL $22,104. Total NAV drawdown rounds to zero
+because cash interest dominates this mostly-cash aggregate book.
+
+Full-period annual Sharpe:
+year     rule       RL
+2018      n/a       n/a
+2019     -0.442     n/a
+2020      0.066     n/a
+2021     -0.408     n/a
+2022      1.359     0.394
+2023     -0.165    -1.299
+2024      n/a     -0.451
+2025      n/a       n/a
+N/a denotes no material daily excess-return variation, not a zero Sharpe.
+Entries_by_year.csv distinguishes entry dates from P&L runoff. Recent books
+start independently flat in 2022, so their P&L need not equal a slice of full.
+
+Concentration is substantial. The rule's leading full-period pairs are
+UAL/AAL +$23,591 (7 entries), AMD/MU +$17,055 (4), and AMD/NVDA +$10,660 (3).
+Replacing the largest winner with cash leaves +$13,331 and 0.160 Sharpe;
+replacing all three leaves -$14,383 and -0.224 Sharpe. The recent equivalents
+are 0.245 and -0.397. These replacements are ex-post diagnostics, not pair
+selection rules. Positive total P&L does not establish a broad tail effect.
+
+There are meaningful differences between the feature scan and this backtest.
+Labels in the scan were independent overlapping opportunities without a
+portfolio risk overlay. Here existing inventory, hedge leverage, stress loss,
+reserve, and gross-vega entry limits are enforced on each actual pair sleeve.
+The fixed full-size rule has 193 risk-limit entry rejections and 16 blocks
+while existing inventory is over limits, versus 31 entered cohorts. RL has
+39 and 14 respectively, versus 21 entered cohorts. Quotes also reject 29
+rule proposals and three RL proposals. Risk is assessed before each entry;
+the inherited hold-to-expiry mode blocks new entries during breaches and
+does not force existing positions out. Cross-sleeve shared-name exposures
+are not consolidated into a separate portfolio limit.
+
+RL training is sparse. Of 4,183 monthly fit logs, 3,546 have fewer than 504
+feature-complete training rows, 492 have no gated validation opportunity,
+101 fail validation, and only 44 enabled monthly refits remain across six
+pairs. Only two eventually get actual fills. The same 504-row minimum is
+much harder to satisfy for sparse put-tail observations than for ATM calls.
+The negative result is specific to this model and these controls; it does
+not show that every RL implementation would fail on tail options.
+
+Fixed design: actual approximately 30D puts near 0.10 absolute delta on both
+legs; native cached delta tolerance 0.075; same option type and target bucket,
+with independently closest expiries. Initial integer sizing matches leg vega
+within 10%; options are not dynamically rebalanced for vega. Both legs are
+delta hedged daily and each contract is held to its own expiry. No exits,
+other tenors, calls, or other tail buckets are in the action menu.
+
+RL sees exactly two inputs: A-minus-B put-wing IV and its rolling 252-session
+historical rank, at least 63 observed values. Ranks use the observable pair
+state calendar before eligibility or outcome filtering; absent states are
+not forward-filled. Signal-close decisions execute on the next session.
+RL uses the frozen reference eight-leaf tree partition and direct Sharpe
+action optimizer, seed 2026, with flat and signed 25/50/75/100% sizes. It
+refits monthly on five years of strictly completed outcomes; a prior-year
+actual-inventory validation must have positive Sharpe before deployment.
+Enabled monthly models and their thresholds/actions are saved as joblib.
+
+The simple rule uses the same two observed states, buys A against B at
+historical spread rank <=20%, sells A against B at rank >80%, and otherwise
+stays flat, at full size. Both rule and RL share the same beta 0.85-1.15,
+correlation, historical directional profitability gates and execution/risk
+settings. The simple rule has no fitted policy or prior-year validation
+gate. This comparison bundles RL sizing/learning/validation; it is not an
+isolated proof of the effect of reinforcement learning or sizing alone.
+
+Training/validation profitability hurdle: $0.65 per option contract, as in
+the ATM reference; historical memory and directional gates use that hurdle.
+Actual option commission: $0.03. Midpoint + 0.10 vol-point entry penalty,
+1bp stock hedge costs, and funding/borrow conventions are unchanged. Current
+option execution cost (including commission) is $3,366 rule / $716 RL over
+the full period; stock hedge cost is $3,506 / $669.
+
+Verification: seven tests passed for causal ranks, missing states, direction
+gates, unchanged optimizer/action mapping and prior tail features. All 6,040
+resolved scan cohorts in processed feature-observed sleeves reproduce
+exactly at actual costs. Both models have complete accounting on the full
+roster; no unresolved actual books were silently dropped. Strict outcome
+cutoffs are checked in monthly logs. Verified 311 main inputs, 4,964 market
+cache files and all 2,661 frozen reference files plus its archive unchanged.
+The full run finished in 231 seconds, one worker at 50% of one core, peak
+643 MiB RSS. The pilot used the same economics and was preserved on resume.
+
+This history was already inspected and the put10 idea was selected using it;
+none of these periods is an untouched confirmation sample. European BS
+marks and settlement are used; American early exercise/assignment is not
+modeled. The ATM reference has a different contract/state set and more
+trades. The comparison uses identical evaluation dates and capital/cost
+conventions, not matched individual trading opportunities.
+
+Practical conclusion: retain the positive simple tail rule as an exploratory
+standalone candidate, but do not promote or stack this RL policy. The first
+issue to resolve before drawing conclusions about the learner is training
+coverage; any smaller history minimum would be a new predeclared experiment,
+not a correction to these reported results. Concentration and 2022 dominance
+also need confirmation before calling the rule a reliable new trading stream.
+
+Files: comparison.csv, annual.csv, pairs.csv, concentration.csv, coverage.csv,
+fits.csv, decisions.csv, entries_by_year.csv, entered_cohorts.csv, audit.json,
+output_hashes.json. Original signals/contracts/models/ledgers live separately
+in artifacts/contracts/tail_put10_strategy. Nothing was pushed.

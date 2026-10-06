@@ -1,0 +1,8 @@
+{
+  "selected_using": "2018-2023 only",
+  "model": "cap040_quarter",
+  "full_sharpe": 0.9660876879252788,
+  "descriptive_best_full": "cap040_quarter",
+  "no_fresh_holdout": true,
+  "no_checkpoint_promotion": true
+}

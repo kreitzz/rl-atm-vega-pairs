@@ -1,0 +1,17 @@
+case,entries,mean_holding_calendar_days,median_holding_calendar_days
+matched_frozen_sized_q_managed_locked_v3,212,3.3867924528301887,1.0
+matched_frozen_sized_q_managed_locked_v3_risk0,212,22.36320754716981,28.0
+matched_frozen_sized_q_managed_v3,420,2.8190476190476192,1.0
+matched_frozen_sized_q_managed_v3_risk0,253,19.57707509881423,25.0
+matched_q_fixed_managed_v3,2,1.5,1.5
+matched_q_fixed_managed_v3_risk0,81,27.08641975308642,29.0
+matched_q_sized_managed_v3,15,12.333333333333334,7.0
+matched_q_sized_managed_v3_risk0,82,26.926829268292682,29.0
+universe_q_fixed_hold_v3,13,31.384615384615383,32.0
+universe_q_fixed_hold_v3_risk0,718,31.001392757660167,30.0
+universe_q_fixed_managed_v3,12,8.583333333333334,3.0
+universe_q_fixed_managed_v3_risk0,698,28.76790830945559,29.0
+universe_q_sized_hold_v3,92,30.293478260869566,30.0
+universe_q_sized_hold_v3_risk0,750,30.945333333333334,30.0
+universe_q_sized_managed_v3,97,12.195876288659793,8.0
+universe_q_sized_managed_v3_risk0,729,28.727023319615913,29.0

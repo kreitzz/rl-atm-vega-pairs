@@ -1,0 +1,72 @@
+{
+  "sampled_counterfactuals": 8,
+  "native_one_year_shadow_matches_actual_single_cohort": true,
+  "counts_locked_to_unit_label": true,
+  "training_costs": true,
+  "results": [
+    {
+      "date": "2014-01-02",
+      "pair": "101151__105316",
+      "direction": 1,
+      "sessions": 262,
+      "max_daily_normalized_error": 1.179758046809809e-07,
+      "independent_ledger_error": 3.1265869893104536e-09
+    },
+    {
+      "date": "2014-01-02",
+      "pair": "101151__105316",
+      "direction": -1,
+      "sessions": 262,
+      "max_daily_normalized_error": 1.0699033747840758e-07,
+      "independent_ledger_error": 3.871981846259587e-09
+    },
+    {
+      "date": "2014-01-02",
+      "pair": "101151__108130",
+      "direction": 1,
+      "sessions": 262,
+      "max_daily_normalized_error": 9.264383038498636e-08,
+      "independent_ledger_error": 4.085421778654563e-09
+    },
+    {
+      "date": "2014-01-02",
+      "pair": "101151__108130",
+      "direction": -1,
+      "sessions": 262,
+      "max_daily_normalized_error": 1.4375481338646523e-07,
+      "independent_ledger_error": 3.0104843062872533e-09
+    },
+    {
+      "date": "2018-01-02",
+      "pair": "101368__103979",
+      "direction": 1,
+      "sessions": 263,
+      "max_daily_normalized_error": 5.7038333611814096e-08,
+      "independent_ledger_error": 3.395932424155035e-09
+    },
+    {
+      "date": "2018-01-02",
+      "pair": "101368__103979",
+      "direction": -1,
+      "sessions": 263,
+      "max_daily_normalized_error": 3.231068457232311e-08,
+      "independent_ledger_error": 3.7198333302512765e-09
+    },
+    {
+      "date": "2018-01-02",
+      "pair": "101966__103049",
+      "direction": 1,
+      "sessions": 263,
+      "max_daily_normalized_error": 8.707245191530433e-08,
+      "independent_ledger_error": 3.2046045816969126e-09
+    },
+    {
+      "date": "2018-01-02",
+      "pair": "101966__103049",
+      "direction": -1,
+      "sessions": 263,
+      "max_daily_normalized_error": 1.957184734280304e-07,
+      "independent_ledger_error": 3.88115495297825e-09
+    }
+  ]
+}

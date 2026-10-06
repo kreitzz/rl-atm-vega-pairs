@@ -1,0 +1,50 @@
+    model  training_reward_commission  actual_commission  annualized_excess_sharpe  entries  active_pairs  net_excess_pnl  selection_2018_2023_sharpe  recent_2024_2025_sharpe  mean_entered_size  worst_daily_excess_pnl
+train_065                        0.65               0.03                  0.961745      208            44   304285.994757                    1.224369                -0.250337           0.646635           -21698.843211
+train_015                        0.15               0.03                  0.961700      207            43   304231.422296                    1.224347                -0.250337           0.652174           -21698.850752
+train_030                        0.30               0.03                  0.950610      207            43   301163.774337                    1.210457                -0.250337           0.649758           -21699.274655
+train_003                        0.03               0.03                  0.945966      208            43   299222.760170                    1.205180                -0.250337           0.652644           -21699.542873
+fixed_100                         NaN               0.03                  0.756932      134            40   266316.555691                    0.957162                -0.112832           1.000000           -25614.824017
+
+    model  year  annualized_excess_sharpe  entries  net_excess_pnl
+fixed_100  2018                  0.182250       11     3153.342507
+fixed_100  2019                 -0.516602       13    -8165.714990
+fixed_100  2020                  1.102225       20    76092.153103
+fixed_100  2021                  0.021360       14      446.103178
+fixed_100  2022                  2.199733       42   126414.354428
+fixed_100  2023                  1.118193       14    54049.621506
+fixed_100  2024                 -0.807132       10   -18751.307766
+fixed_100  2025                  1.110410       10    33078.003726
+train_003  2018                  0.054694       23      731.842015
+train_003  2019                 -0.593236       21    -8552.942946
+train_003  2020                  1.638916       31    71031.423839
+train_003  2021                 -0.569005       23    -9569.861767
+train_003  2022                  2.465962       66   176341.476546
+train_003  2023                  1.520833       18    58212.768582
+train_003  2024                 -0.918688       11   -16629.315687
+train_003  2025                  1.057756       15    27657.369587
+train_015  2018                  0.430273       22     5621.645463
+train_015  2019                 -0.593236       21    -8441.479596
+train_015  2020                  1.617155       31    70345.649500
+train_015  2021                 -0.569005       23    -9564.128939
+train_015  2022                  2.465962       66   176419.157174
+train_015  2023                  1.520833       18    58426.369036
+train_015  2024                 -0.918688       11   -16380.838432
+train_015  2025                  1.057756       15    27805.048089
+train_030  2018                  0.430273       22     5621.645463
+train_030  2019                 -0.593236       21    -8441.479596
+train_030  2020                  1.556414       31    68237.247939
+train_030  2021                 -0.569005       23    -9566.929801
+train_030  2022                  2.465962       66   176381.205084
+train_030  2023                  1.502966       18    57750.508527
+train_030  2024                 -0.918688       11   -16533.022932
+train_030  2025                  1.057756       15    27714.599653
+train_065  2018                  0.520077       22     6973.042915
+train_065  2019                 -0.544831       21    -7124.259789
+train_065  2020                  1.556414       31    68251.253059
+train_065  2021                 -0.569005       23    -9563.366126
+train_065  2022                  2.465962       66   176429.493383
+train_065  2023                  1.507347       19    57891.305297
+train_065  2024                 -0.918688       11   -16378.131120
+train_065  2025                  1.057756       15    27806.657138
+
+Four training reward commissions:.65/.30/.15/.03,18-month completed-outcome windows,monthly refits,50/75/100 sizing,same8leaf/minleaf tree andCEM 50x192seed2026/fullsize anchor/fallback. Rebuild standalone option cash flows and financing at each training commission;identical entry quantities, held paths and expiry. This is a reward-only ablation: all27 signal features,including original.65 commission feature and completed-shadow profitability memory,and original eligibility/formation calendars remain frozen. All608 signal proposals and direction/contracts unchanged;no learned skips. Training-target tree and Sharpe sizing objective are both rebuilt at the lower commission. Actual execution remains.03 commission, mid+.1volpoint perleg,1bp stock;financing/dividends/borrow,daily delta hedges,own expiry,entry vega matching and all risk limits unchanged. Lower rewards can alter sizing and risk-limit admission but cannot add signal proposals in this experiment. All required.65 label paths must reproduce original cached labels exactly;all90 baseline models and NAV/trades/decisions must reproduce18-month.9617449 candidate. Fixed100 control reproduced. Selection on2018-2023;report annuals, 2024-partial2025 and full history. Previously inspected history and retrospective roster/calendar conditioning;no fresh holdout. One worker, 50%of onecore,oneBLAS/Arrow thread,3GiB RSS stop. No automatic promotion.

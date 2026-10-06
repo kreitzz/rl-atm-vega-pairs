@@ -1,0 +1,12 @@
+ONE-YEAR SLEEVE REPLACEMENT
+
+Replace the older one-year fixed50 hold sleeve with the new native one-year forecast direction plus learned sizing/skips. Retain the same managed30D and conservative fitted-Q180D streams. The new one-year sleeve replaces the old sleeve; it is not added as a fourth component.
+
+First reproduce the prior1.099449945825 blend from its saved components/weights, then substitute the new one-year stream at those same weights. Separately optimize three nonnegative weights summing to one across the full evaluation history. Every calendar must match exactly; initialization rows are excluded. All Sharpes annualize daily cash-excess returns with sqrt252. 2018–August2025,2025 partial.
+
+These are saved-return blends after component costs. Joint inventory, integer scaling, shared cash, hedge netting, rebalancing costs and portfolio risk admission have not been replayed. Reoptimized weights and the one-year policy choice use already-researched history; this is an exploratory comparison with no fresh holdout. The original checkpoint and blend remain unchanged.
+
+                          case  annualized_excess_sharpe  weight_30D  weight_180D  weight_365D      start        end  sessions  replaces_one_year  full_history_weight_optimization
+         prior_blend_reference                  1.099450    0.578437     0.213054     0.208509 2018-01-03 2025-08-29      1925              False                             False
+      replace365D_keep_weights                  1.104464    0.578437     0.213054     0.208509 2018-01-03 2025-08-29      1925               True                             False
+replace365D_reoptimize_weights                  1.106738    0.589885     0.237073     0.173043 2018-01-03 2025-08-29      1925               True                              True

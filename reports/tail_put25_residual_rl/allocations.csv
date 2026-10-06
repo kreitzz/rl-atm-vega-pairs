@@ -1,0 +1,9 @@
+model,allocation,signals
+context_residual_rl,0.5,298
+context_residual_rl,0.75,17
+context_residual_rl,1.0,293
+residual_floor_rl,0.5,325
+residual_floor_rl,1.0,283
+robust_residual_rl,0.5,314
+robust_residual_rl,0.75,25
+robust_residual_rl,1.0,269

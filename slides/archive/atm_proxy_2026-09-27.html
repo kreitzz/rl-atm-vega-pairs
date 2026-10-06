@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Statistical Arbitrage with RL &mdash; From Price Spreads to Vega Pairs</title>
+<style>
+  :root {
+    --surface-1:      #fcfcfb;
+    --surface-2:      #f3f2ee;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+
+    --series-1: #2a78d6; /* blue    - proposed / RL / our method (hero) */
+    --series-2: #eb6834; /* orange  - simplest baseline (DM / NN)      */
+    --series-7: #4a3aa7; /* violet  - secondary baseline (OU / orig)   */
+    --series-8: #e34948; /* red     - negative / caution               */
+    --good:     #006300;
+    --critical: #d03b3b;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--page-plane);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  body { scroll-behavior: smooth; }
+
+  .deck {
+    width: 100%;
+    scroll-snap-type: y proximity;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 64px 88px 56px;
+    background: var(--surface-1);
+    border-bottom: 1px solid var(--gridline);
+    position: relative;
+  }
+  .slide:nth-of-type(even) { background: var(--surface-1); }
+
+  .slide .kicker {
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--series-1);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .slide h1 {
+    font-size: 38px;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .slide h2 {
+    font-size: 20px;
+    margin: 0 0 26px 0;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  .slide .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    min-height: 0;
+  }
+
+  ul.points { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 13px; }
+  ul.points li {
+    font-size: 19px; line-height: 1.5; color: var(--text-primary);
+    padding-left: 26px; position: relative;
+  }
+  ul.points li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 8px; height: 8px; border-radius: 2px; background: var(--series-1);
+  }
+  ul.points li b { color: var(--series-1); font-weight: 700; }
+  ul.points li .tag { color: var(--text-muted); font-size: 15px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 26px; align-items: stretch; }
+
+  .card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .card h3 {
+    margin: 0 0 12px 0; font-size: 16px; color: var(--series-1);
+    text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;
+  }
+  .card.baseline h3 { color: var(--series-2); }
+  .card.secondary h3 { color: var(--series-7); }
+  .card p, .card li { font-size: 16px; line-height: 1.55; color: var(--text-secondary); }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card ul li { margin-bottom: 8px; }
+
+  table.data {
+    width: 100%; border-collapse: collapse; font-size: 16px;
+  }
+  table.data th {
+    text-align: right; font-weight: 700; color: var(--text-muted);
+    padding: 8px 12px; border-bottom: 1px solid var(--baseline);
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  table.data th:first-child, table.data td:first-child { text-align: left; }
+  table.data td {
+    text-align: right; padding: 8px 12px; border-bottom: 1px solid var(--gridline);
+    font-variant-numeric: tabular-nums; color: var(--text-primary);
+  }
+  table.data tr.hero td { color: var(--series-1); font-weight: 700; }
+  table.data tr.total td { border-top: 2px solid var(--baseline); font-weight: 700; }
+  td.neg { color: var(--series-8); }
+  td.pos { color: var(--good); }
+  table.data.small { font-size: 14px; }
+  table.data.small th, table.data.small td { padding: 6px 10px; }
+
+  .barchart { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: grid; grid-template-columns: 140px 1fr 70px; align-items: center; gap: 12px; }
+  .bar-row .label { font-size: 14px; color: var(--text-secondary); text-align: right; }
+  .bar-track { background: var(--gridline); border-radius: 4px; height: 20px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .bar-row .value { font-size: 14px; font-variant-numeric: tabular-nums; color: var(--text-primary); }
+  .legend-row { display: flex; gap: 22px; margin-bottom: 6px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+
+  .mapping-table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  .mapping-table th { text-align: left; color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px 10px; border-bottom: 1px solid var(--baseline); }
+  .mapping-table td { padding: 11px 14px; border-bottom: 1px solid var(--gridline); vertical-align: top; color: var(--text-secondary); line-height: 1.4; }
+  .mapping-table td.dim { color: var(--text-primary); font-weight: 600; }
+  .mapping-table td.paper { color: var(--series-7); }
+  .mapping-table td.ours { color: var(--series-1); }
+
+  .flow { display: flex; align-items: stretch; gap: 0; }
+  .flow-step { flex: 1; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; position: relative; }
+  .flow-step + .flow-step { margin-left: 34px; }
+  .flow-step + .flow-step::before {
+    content: "\2192"; position: absolute; left: -30px; top: 50%; transform: translateY(-50%);
+    font-size: 22px; color: var(--text-muted);
+  }
+  .flow-step .num { font-size: 13px; color: var(--series-1); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .flow-step h4 { margin: 0 0 8px 0; font-size: 18px; }
+  .flow-step p { margin: 0; font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+
+  .eq {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 24px; font-size: 19px; text-align: center; color: var(--series-1);
+    font-family: "Cambria Math", Georgia, serif;
+  }
+  .eq .caption { display: block; font-family: system-ui, sans-serif; font-size: 13.5px; color: var(--text-muted); margin-top: 8px; }
+  .eq-stack { display: flex; flex-direction: column; gap: 10px; }
+  .eq-small { font-size: 16px; }
+
+  .stat-row { display: flex; gap: 22px; }
+  .stat-tile { flex: 1; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+  .stat-tile .num { font-size: 36px; font-weight: 700; color: var(--series-1); font-variant-numeric: tabular-nums; }
+  .stat-tile .lbl { font-size: 13.5px; color: var(--text-muted); margin-top: 6px; }
+
+  .footnote { font-size: 12.5px; color: var(--text-muted); margin-top: 12px; }
+
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--series-1); transition: width .1s linear; z-index: 20; }
+  .pageno { position: absolute; bottom: 18px; right: 28px; font-size: 12.5px; color: var(--text-muted); font-variant-numeric: tabular-nums; z-index: 20; background: rgba(252,252,251,0.85); padding: 3px 9px; border-radius: 12px; border: 1px solid var(--border); }
+
+  .title-slide { justify-content: center; align-items: flex-start; }
+  .title-slide h1 { font-size: 48px; max-width: 900px; }
+  .title-slide h2 { font-size: 22px; max-width: 780px; }
+  .title-slide .authors { margin-top: 36px; font-size: 16px; color: var(--text-secondary); }
+  .title-slide .authors b { color: var(--text-primary); }
+  .title-slide .source { margin-top: 8px; font-size: 14px; color: var(--text-muted); }
+  .title-slide .scrollhint { margin-top: 60px; font-size: 13px; color: var(--text-muted); }
+
+  .center-slide { justify-content: center; align-items: center; text-align: center; }
+  .center-slide h1 { font-size: 42px; }
+
+  svg text { font-family: system-ui, sans-serif; }
+  .diagram-wrap { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 24px; }
+  .diagram-wrap .cap { font-size: 13px; color: var(--text-muted); margin-top: 6px; text-align: center; }
+
+  .chip-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .chip { width: 62px; height: 62px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+  .chip .sym { font-size: 22px; line-height: 1; }
+  .chip .val { font-size: 12px; margin-top: 3px; opacity: 0.9; }
+  .chip-arrow { font-size: 22px; color: var(--text-muted); }
+  .chip-box { border: 2px solid var(--series-1); border-radius: 10px; padding: 10px 16px; font-size: 15px; color: var(--series-1); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide title-slide">
+    <div class="kicker">Deep Learning in Finance &middot; Course Project</div>
+    <h1>Advanced Statistical Arbitrage with Reinforcement Learning</h1>
+    <h2>From discretized price-spread trading to sizing vega-neutral IV-spread pairs</h2>
+    <div class="authors">Based on <b>Ning &amp; Lee (2024)</b>, <i>Advanced Statistical Arbitrage with Reinforcement Learning</i>, arXiv:2403.12180 &mdash; extended to our own ATM vega pairs project.</div>
+    <div class="source">rl-atm-vega-pairs</div>
+    <div class="scrollhint">Scroll down &darr;</div>
+  </section>
+
+  <!-- P1: paper in one slide -->
+  <section class="slide">
+    <div class="kicker">The Paper</div>
+    <h1>Ning &amp; Lee (2024): swap two hand-tuned pieces for two learned ones</h1>
+    <h2>Pairs trading has two phases &mdash; the paper replaces the traditional tool in each</h2>
+    <div class="body">
+      <table class="mapping-table">
+        <tr><th>Phase</th><th>Traditional approach</th><th>This paper</th></tr>
+        <tr>
+          <td class="dim">Part 1 &middot; Which spread to trade</td>
+          <td class="paper">Hand-fit B (Distance Method or OU)</td>
+          <td class="ours">EMRT &mdash; B chosen to minimize empirical reversion time</td>
+        </tr>
+        <tr>
+          <td class="dim">Part 2 &middot; When to trade it</td>
+          <td class="paper">Fixed threshold rule (e.g. trade at &plusmn;1&sigma;)</td>
+          <td class="ours">Q-learning &mdash; a policy learned from experience</td>
+        </tr>
+      </table>
+      <div class="stat-row" style="margin-top:8px;">
+        <div class="stat-tile">
+          <div class="num">10 pairs</div>
+          <div class="lbl">US sector pairs, formed 2022, traded 2023</div>
+        </div>
+        <div class="stat-tile">
+          <div class="num">2 benchmarks</div>
+          <div class="lbl">Distance Method &amp; OU trading</div>
+        </div>
+        <div class="stat-tile">
+          <div class="num">Daily Sharpe</div>
+          <div class="lbl">headline metric, next slides</div>
+        </div>
+      </div>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- P2/P3: spread + EMRT -->
+  <section class="slide">
+    <div class="kicker">Part 1 &middot; Formation</div>
+    <h1>EMRT: average time from a big swing back to the mean</h1>
+    <h2>Find the meaningful peaks and troughs, time each one back to the mean line, average the times</h2>
+    <div class="body">
+      <div class="eq">
+        X<sub>t</sub> = S<sub>1,t</sub> &minus; B&middot;S<sub>2,t</sub>
+        <span class="caption">The spread. Each B gives a different spread; some revert quickly, some drift.</span>
+      </div>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 760 210" width="100%" height="210">
+          <rect x="110" y="8" width="90" height="194" fill="var(--series-1)" opacity="0.08"/>
+          <rect x="290" y="8" width="90" height="194" fill="var(--series-1)" opacity="0.08"/>
+          <rect x="470" y="8" width="90" height="194" fill="var(--series-1)" opacity="0.08"/>
+          <line x1="20" y1="105" x2="740" y2="105" stroke="var(--baseline)" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <text x="744" y="109" font-size="13" fill="var(--text-muted)">&theta;&#770;</text>
+          <path d="M20,140 Q65,30 110,30 Q155,30 200,105 Q245,140 290,170 Q335,140 380,105 Q425,30 470,30 Q515,30 560,105 Q605,140 650,140"
+                fill="none" stroke="var(--series-1)" stroke-width="2.5"/>
+          <g font-size="13" font-weight="700">
+            <circle cx="110" cy="30" r="6" fill="var(--series-7)"/><text x="110" y="20" text-anchor="middle" fill="var(--series-7)">&tau;1 peak</text>
+            <circle cx="200" cy="105" r="6" fill="var(--series-1)"/><text x="200" y="128" text-anchor="middle" fill="var(--series-1)">&tau;2 cross</text>
+            <circle cx="290" cy="170" r="6" fill="var(--series-7)"/><text x="290" y="193" text-anchor="middle" fill="var(--series-7)">&tau;3 trough</text>
+            <circle cx="380" cy="105" r="6" fill="var(--series-1)"/><text x="380" y="92" text-anchor="middle" fill="var(--series-1)">&tau;4 cross</text>
+            <circle cx="470" cy="30" r="6" fill="var(--series-7)"/><text x="470" y="20" text-anchor="middle" fill="var(--series-7)">&tau;5 peak</text>
+            <circle cx="560" cy="105" r="6" fill="var(--series-1)"/><text x="560" y="128" text-anchor="middle" fill="var(--series-1)">&tau;6 cross</text>
+          </g>
+          <g font-size="12" fill="var(--text-secondary)">
+            <text x="155" y="60" text-anchor="middle">6 days</text>
+            <text x="335" y="60" text-anchor="middle">4 days</text>
+            <text x="515" y="60" text-anchor="middle">8 days</text>
+          </g>
+        </svg>
+        <div class="cap">Shaded = stopwatch running (extreme &rarr; next mean crossing). A swing counts only if it moves &ge; C&middot;s from the mean (C = 2, s = spread std dev). B is chosen to minimize this EMRT time.</div>
+      </div>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- P5: MDP -->
+  <section class="slide">
+    <div class="kicker">Part 2 &middot; Trading</div>
+    <h1>Trading as an MDP: state, action, reward</h1>
+    <h2>The agent trades the fixed spread X<sub>t</sub> = S<sub>1</sub> &minus; B*S<sub>2</sub>, one unit at a time</h2>
+    <div class="body">
+      <div class="diagram-wrap">
+        <div class="chip-row" style="justify-content:center;">
+          <span style="font-size:15px; font-weight:700; color:var(--text-secondary); margin-right:8px;">State S<sub>t</sub></span>
+          <div class="chip" style="background:var(--series-1);"><span class="sym">&uarr;</span><span class="val">+1</span></div>
+          <div class="chip" style="background:var(--series-1);"><span class="sym">&uarr;&uarr;</span><span class="val">+2</span></div>
+          <div class="chip" style="background:var(--series-2);"><span class="sym">&darr;</span><span class="val">&minus;1</span></div>
+          <div class="chip" style="background:var(--series-8);"><span class="sym">&darr;&darr;</span><span class="val">&minus;2</span></div>
+          <span class="chip-arrow">&rarr;</span>
+          <div class="chip-box">S<sub>t</sub> = [+1, +2, &minus;1, &minus;2]</div>
+        </div>
+        <div class="cap">Last l = 4 daily % moves of the spread, each bucketed at k = 3% (small / big, up / down) &rarr; 4<sup>4</sup> = 256 states</div>
+      </div>
+      <div class="two-col" style="gap:24px;">
+        <div class="card">
+          <h3>Action</h3>
+          <ul>
+            <li>{sell &minus;1, hold 0, buy +1}</li>
+            <li>Flat &rarr; buy or hold; long &rarr; sell or hold; never short</li>
+          </ul>
+        </div>
+        <div class="eq" style="align-self:stretch; padding-top:26px;">
+          R<sub>t+1</sub> = A<sub>t</sub>&middot;(&theta; &minus; X<sub>t</sub>) &minus; c&middot;|A<sub>t</sub>|
+          <span class="caption">Paid for trading <b>toward</b> the mean: buy below &theta;, sell above &theta;. Uses today's gap, not tomorrow's move.</span>
+        </div>
+      </div>
+      <ul class="points">
+        <li>The state carries <b>no level information</b> &mdash; only the shape of recent moves.</li>
+        <li>The agent is a <b>price-taker</b>: its trades don't move the spread.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- P6: Q-learning -->
+  <section class="slide">
+    <div class="kicker">Part 2 &middot; Trading</div>
+    <h1>Q-learning: from one-step rewards to a 256 &times; 3 table</h1>
+    <h2>Each reward only looks at today; the future enters through the next state's Q-value</h2>
+    <div class="body">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="num">One step</div>
+          <h4>R<sub>t+1</sub></h4>
+          <p>Reward for today's action</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">Discounted total</div>
+          <h4>G<sub>t</sub> = &Sigma;<sub>k</sub> &gamma;<sup>k</sup> R<sub>t+k+1</sub></h4>
+          <p>= R<sub>t+1</sub> + &gamma;G<sub>t+1</sub> &nbsp;(random)</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">Expected total</div>
+          <h4>Q(s,a) = E[G<sub>t</sub> | s, a]</h4>
+          <p>One fixed number per cell</p>
+        </div>
+      </div>
+      <div class="eq">
+        Q(S<sub>t</sub>,A<sub>t</sub>) &larr; Q(S<sub>t</sub>,A<sub>t</sub>) + &alpha;&middot;[ R<sub>t+1</sub> + &gamma;&middot;max<sub>a</sub> Q(S<sub>t+1</sub>,a) &minus; Q(S<sub>t</sub>,A<sub>t</sub>) ]
+        <span class="caption">The bracketed target R + &gamma;&middot;max Q(S<sub>t+1</sub>) is a one-step stand-in for G<sub>t</sub> (bootstrapping). Q converges; it doesn't accumulate.</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat-tile"><div class="num">&alpha; = 0.1</div><div class="lbl">learning rate</div></div>
+        <div class="stat-tile"><div class="num">&gamma; = 0.99</div><div class="lbl">discount factor</div></div>
+        <div class="stat-tile"><div class="num">&epsilon; = 0.1 &rarr; 0</div><div class="lbl">&epsilon;-greedy in training, greedy at test</div></div>
+      </div>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- P7: simulation (optional) -->
+  <section class="slide">
+    <div class="kicker">Part 2 &middot; Aside</div>
+    <h1>Why the agent trains on simulated spreads</h1>
+    <h2>The reward needs something you never observe in real markets</h2>
+    <div class="body">
+      <div class="two-col">
+        <div class="card baseline">
+          <h3>Problem</h3>
+          <ul>
+            <li>The reward uses the <b>true</b> mean &theta; &mdash; unknown on real data</li>
+            <li>One real price path is far too little data to fill 256 &times; 3 cells</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Fix</h3>
+          <ul>
+            <li>Simulate 10,000 one-year OU paths with known &theta; (&mu;=1, &theta;=1, &sigma;=0.1)</li>
+            <li>Train the Q-table there, then trade the <b>real</b> 2023 spread with it</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="points">
+        <li>All headline results that follow are on <b>real</b> stock data; only training is synthetic.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- P8: results -->
+  <section class="slide">
+    <div class="kicker">Results</div>
+    <h1>RL wins on daily Sharpe in every pair</h1>
+    <h2>10 US sector pairs &middot; B fit on 2022, traded in 2023 &middot; daily closes from Yahoo Finance</h2>
+    <div class="body">
+      <div class="two-col" style="gap:28px; align-items:start;">
+        <div>
+          <img src="../img/paper_table3.png" alt="Table 3: performance summary, MSFT-GOOGL / CVS-JNJ / CL-KMB / V-MA / GE-BA" style="width:100%; display:block; border:1px solid var(--border); border-radius:8px;">
+        </div>
+        <div>
+          <img src="../img/paper_table4.png" alt="Table 4: performance summary, OXY-XOM / WELL-VTR / PPG-SHW / VZ-TMUS / CSX-NSC" style="width:100%; display:block; border:1px solid var(--border); border-radius:8px;">
+        </div>
+      </div>
+      <ul class="points" style="margin-top:18px;">
+        <li><b>Benchmarks:</b> Distance Method (B=1, trade at &plusmn;1&sigma;) and OU trading (OU-fit B, trade at &plusmn;0.5&sigma;<sub>eq</sub>).</li>
+        <li>Best daily Sharpe (DailySR) in <b>10 / 10</b> pairs. Mean daily Sharpe: DM <b>0.024</b>, OU <b>0.047</b>, RL <b>0.100</b>.</li>
+        <li>Best or tied-best max drawdown in 9 / 10 pairs. Negative DailySR entries (e.g. V-MA, PPG-SHW under DM) are real &mdash; those benchmark strategies lost money on those pairs.</li>
+      </ul>
+    </div>
+    <div class="footnote">Tables 3&ndash;4, reproduced from Ning &amp; Lee (2024). Caveat: one train/test split, hand-picked pairs, no significance tests; CSX-NSC RL win is 0.0698 vs. OU's 0.0693.</div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- 16: bridge -->
+  <section class="slide">
+    <div class="kicker">The Bridge</div>
+    <h1>What we borrow, what we change</h1>
+    <h2>Same three-step skeleton, applied to vega-neutral implied-vol spreads instead of equity price spreads</h2>
+    <div class="body">
+      <table class="mapping-table">
+        <tr><th>Design dimension</th><th>Ning &amp; Lee (2024)</th><th>Our vega-pairs project</th></tr>
+        <tr>
+          <td class="dim">Underlying spread</td>
+          <td class="paper">Price spread S&#x2081; &minus; B&middot;S&#x2082; of two equities</td>
+          <td class="ours">IV spread between two ATM straddles, initially vega-neutral</td>
+        </tr>
+        <tr>
+          <td class="dim">Formation</td>
+          <td class="paper">Grid search over B to minimize EMRT</td>
+          <td class="ours">Fixed economically-motivated sector pairs (AMD/NVDA, XOM/CVX, JPM/BAC, HD/LOW)</td>
+        </tr>
+        <tr>
+          <td class="dim">State space</td>
+          <td class="paper">Discretized recent return direction, 4<sup>l</sup> buckets</td>
+          <td class="ours">Regression-tree leaves over IV spread + earnings + RV + VIX (4&ndash;16 states)</td>
+        </tr>
+        <tr>
+          <td class="dim">Action space</td>
+          <td class="paper">3 actions: sell / hold / buy (position-gated)</td>
+          <td class="ours">9-level signed sizing ladder: direction &times; 0/25/50/75/100%, per-pair fixed budget</td>
+        </tr>
+        <tr>
+          <td class="dim">Reward</td>
+          <td class="paper">A<sub>t</sub>&middot;(&theta;&minus;X<sub>t</sub>) &minus; c&middot;|A<sub>t</sub>|</td>
+          <td class="ours">size &times; forward relative-value payoff &minus; 2.5%&times;avg entry IV&times;size</td>
+        </tr>
+        <tr>
+          <td class="dim">Training</td>
+          <td class="paper">Sequential &mdash; tabular Q-learning on simulated OU paths</td>
+          <td class="ours">One-shot &mdash; contextual bandit, cross-entropy policy search, real data, expanding-window walk-forward</td>
+        </tr>
+        <tr>
+          <td class="dim">Benchmark story</td>
+          <td class="paper">RL vs. Distance Method vs. OU thresholding</td>
+          <td class="ours">Learned sizing vs. supervised NN full-size/flat vs. simpler feature set</td>
+        </tr>
+      </table>
+    </div>
+    <div class="pageno" data-n>16</div>
+  </section>
+
+  <!-- 17: setup -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>Vega-neutral ATM straddle pairs</h1>
+    <h2>Four independent policies, each trading its own implied-vol spread</h2>
+    <div class="body">
+      <div class="diagram-wrap">
+        <div class="chip-row" style="justify-content:center; flex-wrap:wrap;">
+          <div class="chip-box">AMD / NVDA</div>
+          <div class="chip-box">XOM / CVX</div>
+          <div class="chip-box">JPM / BAC</div>
+          <div class="chip-box">HD / LOW</div>
+        </div>
+        <div class="cap">Each pair starts vega-neutral; sector/economic logic picked these, not a formation search (see Future Work)</div>
+      </div>
+      <div class="stat-row" style="margin-top:8px;">
+        <div class="stat-tile">
+          <div class="num">Independent</div>
+          <div class="lbl">each policy trained &amp; evaluated on only its own pair's data</div>
+        </div>
+        <div class="stat-tile">
+          <div class="num">25% each</div>
+          <div class="lbl">fixed equal vega budget per pair; unused budget idle</div>
+        </div>
+        <div class="stat-tile">
+          <div class="num">Daily</div>
+          <div class="lbl">delta-hedged on the option-and-stock position</div>
+        </div>
+      </div>
+    </div>
+    <div class="pageno" data-n>17</div>
+  </section>
+
+  <!-- 18: state -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>State: let a regression tree pick the buckets</h1>
+    <h2>Fit a small tree to predict the reward from features &mdash; its leaves become the discrete states</h2>
+    <div class="body">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 700 220" width="100%" height="220">
+          <rect x="290" y="8" width="120" height="40" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+          <text x="350" y="32" text-anchor="middle" font-size="13" fill="var(--text-primary)">All training dates</text>
+          <text x="350" y="62" text-anchor="middle" font-size="11" fill="var(--text-muted)">split on IV spread</text>
+          <line x1="350" y1="48" x2="170" y2="88" stroke="var(--baseline)" stroke-width="1.5"/>
+          <line x1="350" y1="48" x2="530" y2="88" stroke="var(--baseline)" stroke-width="1.5"/>
+          <rect x="110" y="88" width="120" height="40" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+          <text x="170" y="112" text-anchor="middle" font-size="12">low spread</text>
+          <rect x="470" y="88" width="120" height="40" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+          <text x="530" y="112" text-anchor="middle" font-size="12">high spread</text>
+          <text x="170" y="140" text-anchor="middle" font-size="11" fill="var(--text-muted)">split on trailing RV</text>
+          <text x="530" y="140" text-anchor="middle" font-size="11" fill="var(--text-muted)">split on earnings countdown</text>
+          <line x1="170" y1="128" x2="70" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
+          <line x1="170" y1="128" x2="230" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
+          <line x1="530" y1="128" x2="470" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
+          <line x1="530" y1="128" x2="630" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
+          <g font-size="12" font-weight="700" fill="var(--series-1)">
+            <rect x="20" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
+            <text x="70" y="192" text-anchor="middle">state 1</text>
+            <rect x="180" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
+            <text x="230" y="192" text-anchor="middle">state 2</text>
+            <rect x="420" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
+            <text x="470" y="192" text-anchor="middle">state 3</text>
+            <rect x="580" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
+            <text x="630" y="192" text-anchor="middle">state 4</text>
+          </g>
+        </svg>
+        <div class="cap">Illustrative split (4 leaves shown). Real trees use 4, 8, or 16 leaves &mdash; whichever scores best on validation Sharpe &mdash; with a minimum of 126 or 252 dates per leaf.</div>
+      </div>
+      <ul class="points" style="margin-top:12px;">
+        <li>Inputs: IV spread, both legs' earnings countdown, both legs' trailing 30-day RV, and VIX.</li>
+        <li>The tree is fit once, on training data only, to predict the reward &mdash; it's never used to trade directly, only to draw the state boundaries.</li>
+        <li>Contrast with the paper: their buckets are four fixed thresholds on daily return, picked by hand; ours are chosen by what actually predicts the reward.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n>18</div>
+  </section>
+
+  <!-- 19: action + reward -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>Action and reward, adapted for options</h1>
+    <h2>Same spirit as the paper's reward &mdash; position &times; distance from favorable value, minus a cost term</h2>
+    <div class="body">
+      <div class="eq">
+        payoff = size &times; [(RV<sub>fwd,A</sub>&minus;IV<sub>A</sub>) &minus; (RV<sub>fwd,B</sub>&minus;IV<sub>B</sub>)] &minus; |size| &times; 0.025 &times; (IV<sub>A</sub>+IV<sub>B</sub>)/2
+        <span class="caption">size &isin; {0, &plusmn;0.25, &plusmn;0.50, &plusmn;0.75, &plusmn;1.00} &times; per-pair vega budget &mdash; a 9-level signed sizing ladder</span>
+      </div>
+      <ul class="points" style="margin-top:10px;">
+        <li>Paper's binary buy/sell becomes a <b>9-level sizing ladder</b> (0/25/50/75/100% &times; direction), no position gating.</li>
+        <li>Cost mirrors the paper's flat <i>c</i>&middot;|A<sub>t</sub>| but is <b>vega-scaled</b>: 2.5% of average entry IV, proportional to size.</li>
+        <li>The reward &mdash; forward 30-day RV minus IV &mdash; is something we actually observe 30 days later. Unlike the paper's &theta;, there's no unknown to estimate, so there's nothing to simulate: we train directly on real history.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n>19</div>
+  </section>
+
+  <!-- 20: training / contextual bandit -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>Training: a contextual bandit, not Q-learning</h1>
+    <h2>Every date is one independent decision &mdash; no persisted position, no next-state value to bootstrap</h2>
+    <div class="body">
+      <div class="flow">
+        <div class="flow-step"><div class="num">Sample</div><h4>256 policies</h4><p>one of 9 actions per state, drawn from that state's current action distribution</p></div>
+        <div class="flow-step"><div class="num">Score</div><h4>Sharpe(a)</h4><p>the whole candidate policy, scored at once &mdash; see formula below</p></div>
+        <div class="flow-step"><div class="num">Reshape</div><h4>Keep the elites</h4><p>nudge each state's action distribution toward the top ~10%'s choices</p></div>
+      </div>
+      <div class="eq">
+        mean(a) = (1/n) &Sigma;<sub>s</sub> [ a<sub>s</sub>&middot;R<sub>s</sub> &minus; |a<sub>s</sub>|&middot;C<sub>s</sub> ] &nbsp;&nbsp;&nbsp; Sharpe(a) = ANN &times; mean(a) / std(a)
+        <span class="caption">a = (a<sub>1</sub>,&hellip;,a<sub>S</sub>) is one candidate policy, one of the 9 sizes per state. R<sub>s</sub>, C<sub>s</sub> = total reward and total cost already summed over every training date in state s, computed once &mdash; so scoring any policy is just arithmetic over S numbers, not a scan over the data.</span>
+      </div>
+      <ul class="points" style="margin-top:14px;">
+        <li><b>Why this needs a search, not a per-state formula:</b> mean(a) is a plain sum across states, but Sharpe divides by the policy's standard deviation, which depends on mean(a)<sup>2</sup> &mdash; a square of a sum over <i>every</i> state. So the 9-way choice in one state changes the score of every other state's choice too; there's no independent "best action for this state" to just read off.</li>
+        <li>State &rarr; action &rarr; reward realized 30 days later, no transitions or bootstrapped next-state estimate &mdash; the population search (80 iterations &times; 5 seeds) is what stands in for Q-learning's update rule here.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n>20</div>
+  </section>
+
+  <!-- 20b: CEM one iteration, visually -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>One search iteration, visually</h1>
+    <h2>256 candidate policies sampled, scored by Sharpe, then the top ~10% reshape each state's distribution</h2>
+    <div class="body">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 900 230" width="100%" height="230">
+          <text x="86.0" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">Before</text>
+          <rect x="14" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.3"/>
+          <rect x="30" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.26"/>
+          <rect x="46" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.38"/>
+          <rect x="62" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
+          <rect x="78" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="94" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.31"/>
+          <rect x="110" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
+          <rect x="126" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.34"/>
+          <rect x="142" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
+          <rect x="14" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
+          <rect x="30" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
+          <rect x="46" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
+          <rect x="62" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
+          <rect x="78" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.42"/>
+          <rect x="94" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.25"/>
+          <rect x="110" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.27"/>
+          <rect x="126" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.37"/>
+          <rect x="142" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.45"/>
+          <rect x="14" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.36"/>
+          <rect x="30" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
+          <rect x="46" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.45"/>
+          <rect x="62" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
+          <rect x="78" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.43"/>
+          <rect x="94" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.29"/>
+          <rect x="110" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.25"/>
+          <rect x="126" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.25"/>
+          <rect x="142" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.29"/>
+          <rect x="14" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.42"/>
+          <rect x="30" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.26"/>
+          <rect x="46" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.36"/>
+          <rect x="62" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.37"/>
+          <rect x="78" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.31"/>
+          <rect x="94" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="110" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
+          <rect x="126" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
+          <rect x="142" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.27"/>
+          <rect x="14" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.38"/>
+          <rect x="30" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
+          <rect x="46" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.3"/>
+          <rect x="62" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.36"/>
+          <rect x="78" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.33"/>
+          <rect x="94" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.29"/>
+          <rect x="110" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.41"/>
+          <rect x="126" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.39"/>
+          <rect x="142" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.28"/>
+          <text x="86.0" y="220" text-anchor="middle" font-size="11" fill="var(--text-muted)">each state ~uniform over 9 actions</text>
+
+          <text x="380" y="20" text-anchor="middle" font-size="12" fill="var(--text-muted)">256 candidate policies, sorted by Sharpe(a)</text>
+          <rect x="200" y="36" width="190" height="12" rx="3" fill="var(--series-1)" opacity="0.9"/>
+          <rect x="200" y="55" width="168" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="200" y="74" width="148" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="200" y="93" width="128" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="200" y="112" width="111" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="200" y="131" width="96" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="200" y="150" width="82" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <rect x="200" y="169" width="70" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
+          <text x="200" y="200" font-size="11" fill="var(--series-1)" font-weight="700">&#8592; top ~10% = elites</text>
+          <text x="200" y="216" font-size="11" fill="var(--text-muted)">rest discarded each round</text>
+
+          <line x1="170" y1="110" x2="196" y2="110" stroke="var(--baseline)" stroke-width="1.5" marker-end="url(#arrowh)"/>
+          <text x="183" y="102" text-anchor="middle" font-size="16" fill="var(--text-muted)">&#8594;</text>
+          <text x="696" y="102" text-anchor="middle" font-size="16" fill="var(--text-muted)">&#8594;</text>
+
+          <text x="788.0" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">After</text>
+          <rect x="716" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
+          <rect x="732" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
+          <rect x="748" y="34" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
+          <rect x="764" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.17"/>
+          <rect x="780" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
+          <rect x="796" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.11"/>
+          <rect x="812" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.18"/>
+          <rect x="828" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
+          <rect x="844" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.12"/>
+          <rect x="716" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
+          <rect x="732" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.1"/>
+          <rect x="748" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
+          <rect x="764" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.08"/>
+          <rect x="780" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
+          <rect x="796" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
+          <rect x="812" y="64" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
+          <rect x="828" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
+          <rect x="844" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.17"/>
+          <rect x="716" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.11"/>
+          <rect x="732" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
+          <rect x="748" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
+          <rect x="764" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
+          <rect x="780" y="94" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
+          <rect x="796" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
+          <rect x="812" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
+          <rect x="828" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.17"/>
+          <rect x="844" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
+          <rect x="716" y="124" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
+          <rect x="732" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
+          <rect x="748" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
+          <rect x="764" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
+          <rect x="780" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
+          <rect x="796" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.18"/>
+          <rect x="812" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
+          <rect x="828" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.11"/>
+          <rect x="844" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.12"/>
+          <rect x="716" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
+          <rect x="732" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.08"/>
+          <rect x="748" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
+          <rect x="764" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.1"/>
+          <rect x="780" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
+          <rect x="796" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
+          <rect x="812" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
+          <rect x="828" y="154" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
+          <rect x="844" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
+          <text x="788.0" y="220" text-anchor="middle" font-size="11" fill="var(--text-muted)">sharpened toward the elites' choices</text>
+        </svg>
+        <div class="cap">Illustrative: 5 of the 16 states shown, one row per state, 9 columns = the 9 sizes. Shading = how likely that action is to be sampled for that state right now.</div>
+      </div>
+      <ul class="points" style="margin-top:10px;">
+        <li>Each of the 256 candidates is a full length-16 vector &mdash; one action drawn per state &mdash; not a single state-action pair.</li>
+        <li>The elites don't have to agree with each other on every state; each state's distribution only shifts toward whatever <b>that state's</b> winners picked.</li>
+        <li>Repeat 80 times: distributions start flat, and sharpen round by round until each state settles on essentially one dominant action.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- 20c: train/val/test walk-forward -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>Train / validation / test &mdash; and why we retrain</h1>
+    <h2>The paper fits once on a fixed formation year; we re-fit on an expanding window as new data arrives</h2>
+    <div class="body">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 900 300" width="100%" height="300">
+          <text x="20" y="18" font-size="13" font-weight="700" fill="var(--text-primary)">Paper (Ning &amp; Lee 2024) &mdash; single fixed split</text>
+          <rect x="20" y="32" width="410" height="46" fill="var(--series-7)" opacity="0.20" stroke="var(--series-7)" stroke-width="1"/>
+          <rect x="430" y="32" width="430" height="46" fill="var(--series-7)" opacity="0.5" stroke="var(--series-7)" stroke-width="1"/>
+          <line x1="430" y1="24" x2="430" y2="86" stroke="var(--baseline)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text x="225" y="59" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">2022 &mdash; formation</text>
+          <text x="645" y="59" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">2023 &mdash; trading (frozen)</text>
+          <text x="225" y="100" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">fit &theta;, B + train Q-table on simulated OU paths</text>
+          <text x="645" y="100" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">frozen Q-table, real 2023 data, no updates</text>
+          <text x="20" y="140" font-size="13" font-weight="700" fill="var(--series-1)">Ours &mdash; expanding-window walk-forward</text>
+          <text x="15" y="173" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-muted)">F1</text>
+          <rect x="55" y="158" width="220" height="22" rx="2" fill="var(--series-1)" opacity="0.18"/>
+          <rect x="275" y="158" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.5"/>
+          <rect x="345" y="158" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.95"/>
+          <text x="15" y="207" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-muted)">F2</text>
+          <rect x="55" y="192" width="360" height="22" rx="2" fill="var(--series-1)" opacity="0.18"/>
+          <rect x="415" y="192" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.5"/>
+          <rect x="485" y="192" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.95"/>
+          <text x="15" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-muted)">F3</text>
+          <rect x="55" y="226" width="500" height="22" rx="2" fill="var(--series-1)" opacity="0.18"/>
+          <rect x="555" y="226" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.5"/>
+          <rect x="625" y="226" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.95"/>
+          <text x="713" y="242" font-size="16" fill="var(--text-muted)">&hellip;</text>
+          <text x="740" y="242" font-size="11" fill="var(--text-muted)">&rarr; continues to Aug 2025</text>
+          <line x1="415" y1="180" x2="415" y2="192" stroke="var(--baseline)" stroke-width="1" stroke-dasharray="2 3"/>
+          <line x1="555" y1="214" x2="555" y2="226" stroke="var(--baseline)" stroke-width="1" stroke-dasharray="2 3"/>
+        </svg>
+        <div class="legend-row" style="margin-top:4px; justify-content:center;">
+          <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1); opacity:.18;"></span>train &mdash; fit tree + CEM policy</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1); opacity:.5;"></span>validation &mdash; pick leaf-count / min-leaf</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1); opacity:.95;"></span>test &mdash; scored once, out-of-sample</div>
+        </div>
+        <div class="cap">Illustrative: 3 of the folds shown. Test windows are fixed-length and never overlap; the training window keeps expanding, sliding forward through Aug 2025.</div>
+      </div>
+      <ul class="points" style="margin-top:6px;">
+        <li><b>Paper:</b> one formation year (2022) &mdash; fits &theta;, the reversion speed, and hedge ratio B from real prices, then trains the Q-table on 10,000 simulated OU paths. The table is frozen for all of 2023; nothing is re-estimated mid-year. Chronologically clean (no future data touches the fit), but if the true dynamics drift during 2023, the frozen table has no way to notice.</li>
+        <li><b>Ours:</b> every fold re-fits the tree and re-runs the cross-entropy search from scratch on an expanding training window, picks the leaf-count / min-leaf combo by validation Sharpe, then scores that one frozen policy once on the next untouched test slice before sliding forward.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+  <!-- 21: results I -->
+  <section class="slide">
+    <div class="kicker">Our Results (I)</div>
+    <h1>Independent-pair Sharpe, 2010&ndash;Aug 2025</h1>
+    <h2>One pair carries most of the standalone edge; the equal-budget portfolio still nets a positive combined Sharpe</h2>
+    <div class="body">
+      <table class="data">
+        <tr><th>Policy</th><th>Annualized payoff Sharpe</th></tr>
+        <tr><td>AMD / NVDA</td><td>0.635</td></tr>
+        <tr><td>XOM / CVX</td><td class="neg">&minus;0.070</td></tr>
+        <tr><td>JPM / BAC</td><td class="neg">&minus;0.012</td></tr>
+        <tr><td>HD / LOW</td><td class="neg">&minus;0.105</td></tr>
+        <tr class="hero total"><td>Combined, fixed equal budgets</td><td>0.499</td></tr>
+      </table>
+      <ul class="points" style="margin-top:14px;">
+        <li>The 0/25/50/75/100% sizing ladder lifts combined Sharpe from <b>0.405</b> (retrained full-size/flat policies) to <b>0.499</b> &mdash; the same qualitative lesson as the paper: <b>a learned, graded decision beats a fixed-threshold one</b>.</li>
+      </ul>
+    </div>
+    <div class="footnote">Sharpe uses an annualized 30-day proxy-payoff convention, not daily marked option-and-hedge P&amp;L. Source: reports/independent_pairs.md, reports/independent_sizing.md.</div>
+    <div class="pageno" data-n>25</div>
+  </section>
+
+  <!-- 21b: NN baseline architecture -->
+  <section class="slide">
+    <div class="kicker">Our Extension</div>
+    <h1>The baseline: a small neural network</h1>
+    <h2>Same 7 features as the tree, but one fixed-size in/out signal instead of 9 graded sizes</h2>
+    <div class="body">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 900 240" width="100%" height="240">
+          <text x="56" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="var(--series-2)">Inputs (7 features)</text>
+          <text x="330" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="var(--series-2)">Hidden (16 tanh units)</text>
+          <text x="520" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="var(--series-2)">Output</text>
+          <line x1="64" y1="40" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="40" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="40" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="40" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="40" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="40" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="68" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="68" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="68" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="68" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="68" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="68" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="96" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="96" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="96" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="96" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="96" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="96" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="124" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="124" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="124" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="124" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="124" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="124" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="152" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="152" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="152" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="152" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="152" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="152" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="180" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="180" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="180" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="180" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="180" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="180" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="208" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="208" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="208" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="208" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="208" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="64" y1="208" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
+          <line x1="338" y1="40" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
+          <line x1="338" y1="73.6" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
+          <line x1="338" y1="107.2" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
+          <line x1="338" y1="140.8" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
+          <line x1="338" y1="174.4" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
+          <line x1="338" y1="208" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="56" cy="40" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="43.5" font-size="10" fill="var(--text-secondary)">IV spread</text>
+          <circle cx="56" cy="68" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="71.5" font-size="10" fill="var(--text-secondary)">AMD earnings d.</text>
+          <circle cx="56" cy="96" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="99.5" font-size="10" fill="var(--text-secondary)">NVDA earnings d.</text>
+          <circle cx="56" cy="124" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="127.5" font-size="10" fill="var(--text-secondary)">Trail. RV (AMD)</text>
+          <circle cx="56" cy="152" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="155.5" font-size="10" fill="var(--text-secondary)">Trail. RV (NVDA)</text>
+          <circle cx="56" cy="180" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="183.5" font-size="10" fill="var(--text-secondary)">RV&minus;IV proxy</text>
+          <circle cx="56" cy="208" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
+          <text x="72" y="211.5" font-size="10" fill="var(--text-secondary)">Reversion z-score</text>
+          <circle cx="330" cy="40" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
+          <circle cx="330" cy="73.6" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
+          <circle cx="330" cy="107.2" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
+          <circle cx="330" cy="140.8" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
+          <circle cx="330" cy="174.4" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
+          <circle cx="330" cy="208" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
+          <circle cx="520" cy="124" r="10" fill="var(--series-2)" opacity="0.9" stroke="var(--series-2)" stroke-width="1.5"/>
+          <text x="520" y="150" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">&#375; = predicted long_reward</text>
+          <line x1="531" y1="124" x2="586" y2="124.0" stroke="var(--baseline)" stroke-width="1.5"/>
+          <text x="555.0" y="116" text-anchor="middle" font-size="14" fill="var(--text-muted)">&rarr;</text>
+          <rect x="590" y="104" width="90" height="40" rx="6" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.2"/>
+          <text x="635.0" y="120.0" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">|&#375;| &gt; k&middot;cost ?</text>
+          <text x="635.0" y="136.0" text-anchor="middle" font-size="9.5" fill="var(--text-muted)">k &isin; {1,2,4}</text>
+          <line x1="680" y1="114" x2="735" y2="70" stroke="var(--baseline)" stroke-width="1.3"/>
+          <line x1="680" y1="134" x2="735" y2="178" stroke="var(--baseline)" stroke-width="1.3"/>
+          <text x="682" y="90" font-size="10" fill="var(--text-muted)">Y</text>
+          <text x="682" y="160" font-size="10" fill="var(--text-muted)">N</text>
+          <text x="740" y="66" font-size="11" font-weight="700" fill="var(--text-primary)">&plusmn;1 (enter)</text>
+          <text x="740" y="182" font-size="11" font-weight="700" fill="var(--text-primary)">0 (flat)</text>
+        </svg>
+        <div class="cap">Fixed unit size or nothing &mdash; never the 9-level ladder the RL policy gets to use.</div>
+      </div>
+      <div class="eq">
+        L(w) = (1/n) &Sigma;<sub>i</sub> (&#375;<sub>i</sub> &minus; y<sub>i</sub>)&sup2; &nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp; &alpha;&middot;&#8214;w&#8214;&sup2;
+        <span class="caption">y<sub>i</sub> = standardized long_reward label, &#375;<sub>i</sub> = network output. Minimized directly by lbfgs &mdash; Sharpe never enters training; it only picks &alpha; &isin; {0.01, 1} and the threshold k afterward, on validation.</span>
+      </div>
+      <ul class="points" style="margin-top:6px;">
+        <li>7 standardized features &rarr; 1 hidden layer, 16 tanh units &rarr; 1 output &mdash; regressing the forward reward directly, not classifying among 9 sizes.</li>
+        <li>A separate rule, not the network, turns that number into a trade: above a cost-scaled threshold, take a fixed &plusmn;1 position; below it, stay flat.</li>
+        <li>Same model-selection discipline as the tree: 2 weight-decay strengths &times; 3 thresholds = 6 candidates, best one chosen by validation Sharpe, applied once to test.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+  <!-- 22: results II -->
+  <section class="slide">
+    <div class="kicker">Our Results (II)</div>
+    <h1>Learned sizing vs. a supervised NN baseline</h1>
+    <h2>Same features, same costs, same walk-forward folds &mdash; only the policy differs</h2>
+    <div class="body">
+      <div class="legend-row">
+        <div class="legend-item"><span class="legend-swatch" style="background:var(--series-2);"></span>NN full-size/flat</div>
+        <div class="legend-item"><span class="legend-swatch" style="background:var(--series-7);"></span>RL, original state set, sized</div>
+        <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1);"></span>RL, both features, sized</div>
+      </div>
+      <div class="barchart" id="ours-chart"></div>
+      <ul class="points" style="margin-top:10px;">
+        <li>Combined 25-pair basket: RL sizing beats the NN baseline in <b>18 / 25</b> individual pairs.</li>
+        <li>Paired-difference test (block bootstrap): RL sizing vs. NN, combined basket, Sharpe gap <b>+0.424</b> (95% CI [0.123, 0.771]) &mdash; a real, if noisy, edge.</li>
+      </ul>
+    </div>
+    <div class="footnote">Basket Sharpes are annualized 30-day proxy-payoff, expanding-window walk-forward with purged boundaries. Source: reports/nn_rl_benchmark.md.</div>
+    <div class="pageno" data-n>26</div>
+  </section>
+
+  <!-- 23: synthesis -->
+  <section class="slide">
+    <div class="kicker">Synthesis</div>
+    <h1>Two experiments, one story</h1>
+    <h2>Replacing a fixed rule with a policy that learns from the shape of recent state beats the fixed rule</h2>
+    <div class="body">
+      <div class="stat-row">
+        <div class="stat-tile">
+          <div class="num">10 / 10</div>
+          <div class="lbl">Paper: pairs where RL's daily Sharpe beats both DM and OU</div>
+        </div>
+        <div class="stat-tile">
+          <div class="num">18 / 25</div>
+          <div class="lbl">Ours: pairs where RL sizing beats the supervised NN</div>
+        </div>
+        <div class="stat-tile">
+          <div class="num">0.405 &rarr; 0.499</div>
+          <div class="lbl">Ours: combined Sharpe, full-size/flat &rarr; graded sizing ladder</div>
+        </div>
+      </div>
+      <ul class="points" style="margin-top:24px;">
+        <li>Both results support the paper's central claim: <b>model-free, learned decision rules adapt better than fixed thresholds</b> estimated once in a formation window.</li>
+        <li>The gain is <b>consistent but not huge</b> in either setting &mdash; this is a real edge over a reasonable baseline, not a free lunch.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n>21</div>
+  </section>
+
+  <!-- 24: limitations -->
+  <section class="slide">
+    <div class="kicker">Honest Limitations</div>
+    <h1>Caveats on both sides</h1>
+    <h2>Neither result should be over-read</h2>
+    <div class="body">
+      <div class="two-col">
+        <div class="card baseline">
+          <h3>Paper</h3>
+          <ul>
+            <li>Single formation/trading split (2022 &rarr; 2023) &mdash; one market regime, no walk-forward</li>
+            <li>10 hand-picked sector pairs, no significance testing across pairs</li>
+            <li>Reward needs the true &theta;, only available via simulation transfer &mdash; a sim-to-real gap</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Ours</h3>
+          <ul>
+            <li>Sharpe is a <b>30-day proxy payoff</b>, not daily marked option-and-hedge P&amp;L (the contract pilot addresses this separately for AMD/NVDA only)</li>
+            <li>Only AMD/NVDA shows a robust standalone edge; the other three pairs are individually negative</li>
+            <li><b>Training-window sensitivity is material</b>: adding features shrank the training window and changed AMD/NVDA's own Sharpe from 0.635 to 0.369 in a like-for-like refit</li>
+            <li>Broader universe, ex-silver, loses in 4 of the last 4 years despite a positive full-period score</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pageno" data-n>22</div>
+  </section>
+
+  <!-- Sequential Q extension: state and action -->
+  <section class="slide">
+    <div class="kicker">Sequential Q Extension &middot; 1/2</div>
+    <h1>What the agent sees, and what it can do</h1>
+    <h2>The bandit re-decides fresh every day; this agent manages an open trade over time, so it has to remember more</h2>
+    <div class="body">
+      <div class="two-col">
+        <div class="card">
+          <h3>State</h3>
+          <ul>
+            <li>Same tree as the bandit sorts today's market &mdash; spread, vol, earnings &mdash; into a handful of buckets.</li>
+            <li>Plus, if a trade is already open: which direction, how many days it's been held, and whether it's currently working out or not.</li>
+            <li>Being flat is its own simple situation, with none of that extra baggage.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Action</h3>
+          <ul>
+            <li>Flat: stay out, or enter long or short.</li>
+            <li>Holding: keep holding, or exit.</li>
+            <li>Never both at once &mdash; you can't add to a position you're already in.</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="points" style="margin-top:6px;">
+        <li>Every (state, action) pair gets one entry in the Q-table &mdash; the model's job is to fill in which action looks best from each state.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- Sequential Q extension: reward and solving the table -->
+  <section class="slide">
+    <div class="kicker">Sequential Q Extension &middot; 2/2</div>
+    <h1>How the table gets filled in</h1>
+    <h2>Not learned by trial and error &mdash; solved directly, because the whole history is already on hand</h2>
+    <div class="body">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="num">Today's outcome</div>
+          <h4>The reward</h4>
+          <p>Entering or exiting costs a small fee; holding earns or loses that day's P&amp;L; staying flat costs nothing.</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">Averaged across history</div>
+          <h4>One stable estimate</h4>
+          <p>Every past day that shared this exact state and action is pooled together, so one noisy day becomes a dependable average.</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">Solved, not learned</div>
+          <h4>The whole table at once</h4>
+          <p>Repeatedly updated from itself until nothing moves &mdash; not nudged forward one lived experience at a time.</p>
+        </div>
+      </div>
+      <div class="eq">
+        R&#770;(s,a) = <span style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; line-height:1.15; margin:0 3px; font-size:0.72em;"><span style="padding:0 3px 2px; border-bottom:1.3px solid currentColor;">1</span><span style="padding:2px 3px 0;">N</span></span>&thinsp;&Sigma;<sub>i</sub> r<sub>i</sub> &nbsp;&nbsp;&nbsp;&nbsp; Q(s,a) = R&#770;(s,a) + &gamma;&middot;max<sub>a&prime;</sub> Q(s&prime;,a&prime;)
+        <span class="caption">R&#770;(s,a) pools the one-day reward across every historical instance of this exact state and action into a single average. Q(s,a) then adds the discounted value of whatever the best action leads to next &mdash; solved by sweeping this equation across the whole table until it stops changing, no learning rate involved.</span>
+      </div>
+      <ul class="points" style="margin-top:6px;">
+        <li>Still walk-forward safe: training only ever sees data from before validation and test. Reusing the same historical days under different hypothetical trades adds coverage &mdash; it doesn't add new independent market days.</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n></div>
+  </section>
+
+  <!-- 25: future work -->
+  <section class="slide">
+    <div class="kicker">Future Work</div>
+    <h1>Where the paper's other ideas could still plug in</h1>
+    <h2>We've borrowed the trading-phase philosophy; the formation-phase machinery is still on the table</h2>
+    <div class="body">
+      <ul class="points">
+        <li><b>EMRT-style pair/weight search</b> for vol spreads: instead of a fixed 1:1 vega-neutral pairing, grid-search relative option notional to minimize the IV spread's empirical reversion time.</li>
+        <li><b>Sequential Q extension</b>: the preceding two slides show our implemented batch Q learner. Next: jointly forecast both legs&rsquo; realized variance and test a risk-adjusted reward. These remain proposals, separate from the main bandit results.</li>
+        <li><b>Daily marked P&amp;L for all four pairs</b>, extending the AMD/NVDA contract pilot, to replace the proxy-payoff Sharpe with realized, cost-inclusive returns.</li>
+        <li><b>Cross-pair capital allocation</b>: today each pair is independent with a fixed budget; a joint policy across pairs is the natural next step (already partially explored, see independent_diagnostics.md).</li>
+      </ul>
+    </div>
+    <div class="pageno" data-n>23</div>
+  </section>
+
+  <!-- 26: thank you -->
+  <section class="slide center-slide">
+    <h1>Thank you</h1>
+    <h2 style="max-width:700px;">Questions?</h2>
+    <div class="footnote" style="margin-top:40px;">Ning, B. &amp; Lee, K. (2024). <i>Advanced Statistical Arbitrage with Reinforcement Learning.</i> arXiv:2403.12180. &nbsp;&middot;&nbsp; rl-atm-vega-pairs project reports.</div>
+    <div class="pageno" data-n>24</div>
+  </section>
+
+</div>
+
+<div class="progress" id="progress"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  slides.forEach((sl, i) => { const el = sl.querySelector('[data-n]'); if (el) el.textContent = (i + 1) + ' / ' + total; });
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress').style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) {
+      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }); e.preventDefault();
+    }
+    if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) {
+      window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' }); e.preventDefault();
+    }
+    if (e.key === 'Home') { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    if (e.key === 'End') { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
+  });
+
+  function bar(container, rows, maxAbs) {
+    const el = document.getElementById(container);
+    el.innerHTML = '';
+    rows.forEach(r => {
+      const row = document.createElement('div');
+      row.className = 'bar-row';
+      const pct = Math.max(2, Math.abs(r.v) / maxAbs * 100);
+      const neg = r.v < 0;
+      row.innerHTML =
+        '<div class="label">' + r.l + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%; background:' + r.c + ';' + (neg ? 'margin-left:auto;' : '') + '"></div></div>' +
+        '<div class="value">' + r.v.toFixed(3) + '</div>';
+      el.appendChild(row);
+    });
+  }
+
+  // Ours: combined-basket Sharpe, NN vs original-state RL vs both-feature RL sizing
+  bar('ours-chart', [
+    { l: 'combined · NN', v: 1.036, c: 'var(--series-2)' },
+    { l: 'combined · orig RL', v: 1.110, c: 'var(--series-7)' },
+    { l: 'combined · RL sizing', v: 1.461, c: 'var(--series-1)' },
+    { l: 'etf_stock · NN', v: 1.313, c: 'var(--series-2)' },
+    { l: 'etf_stock · orig RL', v: 1.134, c: 'var(--series-7)' },
+    { l: 'etf_stock · RL sizing', v: 1.608, c: 'var(--series-1)' },
+    { l: 'stocks · NN', v: -0.356, c: 'var(--series-2)' },
+    { l: 'stocks · orig RL', v: 0.145, c: 'var(--series-7)' },
+    { l: 'stocks · RL sizing', v: 0.191, c: 'var(--series-1)' },
+  ], 1.7);
+</script>
+</body>
+</html>

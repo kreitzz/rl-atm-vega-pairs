@@ -1,0 +1,75 @@
+SLIDE CHART INPUTS — WORKING SPECIFICATION FOR SLIDES 8–15
+
+Use the retained approximately 30-day 25-delta PUT strategy. Main comparison:
+$10m equity, own-expiry holding, daily delta hedge, initial integer entry-vega
+matching within 10%, same 608 qualified proposals, same actual costs/risk rules.
+Actual option commission $0.03; training commission $0.65; option penalty
+0.1 vol point per leg; stock hedge execution 1 bp. No new fit or replay here.
+
+FILE MAP
+sources/p25_capital_sensitivity_comparison.csv: first cited CSV, copied exactly.
+sources/initial_train_walk_forward.csv: second cited CSV, copied exactly.
+main_sizing_comparison_10m.csv: curated fixed50/fixed100/learned rows for slide12.
+daily_pnl_and_returns_10m.csv: daily NAV, cash benchmark, funded and cash-excess
+returns, daily/cumulative P&L in USD; one row per case/date.
+cumulative_performance_10m.csv: convenient wide-form curves for all three cases.
+yearly_results_10m.csv: funded percentage returns, above-cash percentage points,
+annualized excess Sharpe and net above-cash dollars for each year/case.
+common_proposals_and_decisions_10m.csv: all 608 proposals per case, including
+risk/quote rejections, chosen size and execution status. Executed fills differ.
+example_amd_nvda_iv_spread_daily.csv: daily signal-day selected P25 implied
+volatility for AMD/NVDA, raw spread in vol points, trailing252 rank and context
+levels, qualified proposal dates, directions and actual entry flags.
+example_amd_nvda_proposals_and_entries.csv: exact signal/entry dates, sizes,
+direction and entered/rejected status for each of the three policies.
+development_progression_original_reference.csv: slide13 development path;
+original $345m funding reference, not the controlled $10m sizing comparison.
+sources/retained_strategy_configuration.json: entry rules, state, actions,
+costs, algorithm and research-selection caveats.
+teammate_paper_slides.pdf: original slides1–7, if present in the local export.
+
+CHARTS
+Slide9/10: AMD/NVDA IV spread or rank; mark qualified SIGNAL dates separately
+from ACTUAL entry dates. Direction +1 means long AMD puts/short NVDA puts;
+-1 means short AMD puts/long NVDA puts. Negative size is not the convention.
+Suggested compact illustration: calendar2019, including Aug12/13 signals
+and Aug13/14 executions; AMD/NVDA was the original project seed pair and
+was not selected here by its P&L. Full2018–Aug2025 history is supplied.
+The IV curve rolls signal-day selected contracts; it is not the held-cohort
+daily mark series. Do not fill missing quotes with zero or invent entries.
+Rolling quantile spread levels are visual context; the exact rule uses rank
+<=.2 or >.8 with at least63 observations in a252-session window. Other
+pair/memory/formation/quote/risk checks also apply. Not every extreme trades.
+
+Slide12: Sharpe bars plus cumulative ABOVE-CASH dollars or cash-relative
+wealth percentage for all three $10m policies. These are existing results
+after execution/hedging/financing, not a newly simulated comparison.
+Slide13: original development progression on its original funding reference.
+Slide14: compare policies WITHIN training/evaluation rows; training uses
+aggregated P&L paths and $0.65 commissions, evaluation the actual shared ledger
+and $0.03 commissions. The initial training fit has74 examples, July2016–Dec2017.
+Slide15: yearly excess Sharpe or yearly funded/above-cash returns; show losing
+years. 2025 is partial through Aug29, with June30 final signals and runoff.
+
+METRIC DEFINITIONS
+annualized excess Sharpe = sqrt(252)*mean(daily_cash_excess_return)/sampleSD.
+Exclude the explicitly flagged initialization row (Jan2,2018) from Sharpe.
+daily_cash_excess_return is a DECIMAL, not a percentage; use the supplied
+series. Daily cash-excess return is not cumulative dollar P&L divided by NAV.
+cumulative_pnl_above_cash_usd = funded NAV - same-equity cash benchmark.
+cash_relative_wealth_pct = 100*(funded NAV / cash benchmark -1).
+Yearly funded_return_pct is a calendar-period percentage, not annualized.
+return_above_cash_pp = funded calendar return minus cash calendar return,
+in percentage points. It differs from cash-relative wealth percentage.
+
+INTERPRETATION
+Our main method is contextual tree states + direct-Sharpe CEM allocation,
+not Q-learning, and not a new matched supervised-NN comparison. Main learned
+sizing Sharpe is1.002988. The1.029 managed checkpoint is a DIFFERENT experiment
+and is deliberately excluded from these main curves and yearly tables.
+Retrospective component/universe and repeated strategy research remain;
+walk-forward fitting is causal but this is not an untouched holdout.
+Closing sentence: Our strongest finding is that adaptive sizing improved the
+historical risk-adjusted performance of the retained options strategy relative
+to constant exposure.
+Vendor-derived data remain subject to the existing data-access terms.

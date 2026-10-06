@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "pairs_requested": 345,
+  "models_trained": 0,
+  "source_files_verified": 21272,
+  "elapsed_seconds": 428.4199425840052,
+  "peak_rss_bytes": 1354153984
+}

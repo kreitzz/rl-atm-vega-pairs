@@ -1,0 +1,20 @@
+Secondary signal-quote availability control for p25_maturity_transfer. For each wing, keep pair/date proposals only where both selected30D and90D contract pairs are present on the signal date. This is a point-in-time coverage predicate; no next-session execution quote, future holding path or outcome enters sample selection. Keep both maturities exact same pair/date/direction/frozenP25 sizing decisions and original contract IDs. No selection replacement or retraining. Retain primary full-proposal experiment separately; do not silently substitute this smaller sample. All costs, risk, daily hedging, expiry/corporate exits and common110day runoff unchanged. 16 independent shared-cash replays: fixed100/frozenfloor,threewings and combined,each at30D/90D. Calendar slices2018-2020,2021-2023, 2024-Aug2025 carry inventory across boundaries. No freshholdout. One worker,50%of onecore,3GiB RSS stop.
+
+period                    2018_2020  2021_2023  2024_2025_partial      full
+tenor wing     variant                                                     
+30    ATM      fixed_100  -0.113026   0.255246          -0.674624 -0.071268
+               floor      -0.439080   0.526871          -0.573930 -0.033298
+      P25      fixed_100   0.066963   0.607212          -0.507272  0.178000
+               floor       0.369051   0.750339          -0.526139  0.284693
+      P75      fixed_100  -0.002087   0.177922          -0.692220 -0.028156
+               floor      -0.131446   0.124244          -0.700700 -0.048132
+      combined fixed_100  -0.000933   0.554187          -0.786323  0.066079
+               floor      -0.099568   0.737763          -0.669021  0.136740
+90    ATM      fixed_100  -0.254808  -0.049697          -1.202398 -0.288648
+               floor      -0.317722   0.033312          -1.152843 -0.302070
+      P25      fixed_100  -0.137810  -0.418575          -0.783025 -0.399224
+               floor      -0.017050  -0.420153          -0.767830 -0.362968
+      P75      fixed_100  -0.148881  -0.100574          -0.777556 -0.230061
+               floor      -0.148959  -0.016718          -0.813392 -0.147113
+      combined fixed_100  -0.234203  -0.201175          -1.343597 -0.390095
+               floor      -0.208038  -0.127851          -1.232564 -0.353816

@@ -1,0 +1,4 @@
+model,annualized_excess_sharpe,funded_sleeve_sets
+ATM_plus_put25,0.7680988740681395,2
+whole_smile_P75_floor,0.689161631920738,3
+whole_smile_P75_flex,0.7615323654676546,3

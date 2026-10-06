@@ -1,0 +1,9 @@
+{
+  "status": "verified",
+  "same_signal_dates": true,
+  "same_directions": true,
+  "same_cash_decisions": true,
+  "same_state_inputs": true,
+  "nonzero_proposals": 2812,
+  "only_difference": "positive allocation forced to100%; integer feasibility and risk admission can consequently differ"
+}

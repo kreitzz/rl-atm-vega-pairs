@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "models": 90,
+  "pairs": 345,
+  "actual_commission": 0.03,
+  "shared_inventory": true,
+  "sequential_inventory_training": false,
+  "source_files": 4466,
+  "frozen_sources_verified": 4466,
+  "phase": "finalize",
+  "elapsed_seconds": 182.64231929197558,
+  "peak_rss_bytes": 919764992,
+  "finalization_elapsed_seconds": 7.18835520799621,
+  "tests_passed": 8,
+  "max_independent_ledger_error": 1.6800913726910949e-06,
+  "primary_control": "shared_frozen_native_limits",
+  "primary_candidate": "shared_joint_native_limits"
+}

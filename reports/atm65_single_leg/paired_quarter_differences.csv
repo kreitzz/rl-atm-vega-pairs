@@ -1,0 +1,7 @@
+universe,model,control,period,sharpe_change,paired_quarter_ci90_low,paired_quarter_ci90_high
+common_complete_344,rl_pair_vrp,rl_baseline,full,-0.11226805710483975,-0.40526082666417457,0.11724815284268432
+common_complete_344,rl_single_historical,rl_pair_vrp,full,-0.44141775190616594,-0.9215927571180907,0.10083085971445825
+common_complete_344,rl_single_absolute,rl_pair_vrp,full,-0.5614533805370261,-1.0845182694797764,-0.023570826037388387
+common_complete_344,rl_pair_vrp,rl_baseline,recent,-0.1682606200231697,-0.6122340659762172,0.16964898711329282
+common_complete_344,rl_single_historical,rl_pair_vrp,recent,-0.441035122329856,-1.1593267504951434,0.4864366143722772
+common_complete_344,rl_single_absolute,rl_pair_vrp,recent,-0.6009228691999152,-1.4009769791095368,0.302105335206182

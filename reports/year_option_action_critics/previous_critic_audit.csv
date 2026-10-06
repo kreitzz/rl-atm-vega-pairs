@@ -1,0 +1,4 @@
+fit,sampled_completed_states,action_feature_importance,fraction_feature_importance,all_action_values_identical_fraction,hold_trim_identical_fraction,per_tree_hold_trim_identical_fraction,selected_hold_fraction,unpenalized_hold_fraction,selected_trim_fraction,selected_exit_fraction
+2020-01-01,2048,0.04665960840556736,0.0123045821387101,0.0283203125,0.3212890625,0.936181640625,1.0,0.10693359375,0.0,0.0
+2023-01-01,2048,0.012770074356981357,0.017118127794574126,0.0009765625,0.0087890625,0.754248046875,1.0,0.98583984375,0.0,0.0
+2024-01-01,2048,0.11889089190943829,0.013763612303317524,0.0,0.0,0.61181640625,1.0,0.86279296875,0.0,0.0

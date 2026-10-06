@@ -1,0 +1,110 @@
+{
+  "best_uniform_variant": "spread_flex",
+  "annualized_excess_sharpe": 0.29476817832063495,
+  "uniform_rule_fixed_size_sharpe": 0.23105269176110446,
+  "matched_sizing_evidence": [
+    {
+      "candidate": "spread_floor",
+      "baseline": "spread_full",
+      "sharpe_uplift": 0.024950799783009,
+      "bootstrap_95_low": -0.106951476358352,
+      "bootstrap_95_high": 0.1669274590338597,
+      "bootstrap_fraction_uplift_positive": 0.668,
+      "block_sessions": 60,
+      "draws": 1000
+    },
+    {
+      "candidate": "spread_flex",
+      "baseline": "spread_full",
+      "sharpe_uplift": 0.0637154865595305,
+      "bootstrap_95_low": -0.3060582406624124,
+      "bootstrap_95_high": 0.6167540752571783,
+      "bootstrap_fraction_uplift_positive": 0.673,
+      "block_sessions": 60,
+      "draws": 1000
+    },
+    {
+      "candidate": "memory_floor",
+      "baseline": "memory_full",
+      "sharpe_uplift": 0.036354346459958,
+      "bootstrap_95_low": -0.1333075670006296,
+      "bootstrap_95_high": 0.2320994294991945,
+      "bootstrap_fraction_uplift_positive": 0.612,
+      "block_sessions": 60,
+      "draws": 1000
+    },
+    {
+      "candidate": "memory_flex",
+      "baseline": "memory_full",
+      "sharpe_uplift": -0.0436790544959888,
+      "bootstrap_95_low": -0.410041402599091,
+      "bootstrap_95_high": 0.3105492513048419,
+      "bootstrap_fraction_uplift_positive": 0.399,
+      "block_sessions": 60,
+      "draws": 1000
+    },
+    {
+      "candidate": "rl_entry_sized",
+      "baseline": "rl_entry_fixed",
+      "sharpe_uplift": -0.088386109901513,
+      "bootstrap_95_low": -0.337161357899908,
+      "bootstrap_95_high": 0.1300750923882016,
+      "bootstrap_fraction_uplift_positive": 0.211,
+      "block_sessions": 60,
+      "draws": 1000
+    },
+    {
+      "candidate": "rl_entry_sized",
+      "baseline": "rl_entry_sized_full",
+      "sharpe_uplift": 0.0136061780271592,
+      "bootstrap_95_low": -0.181719670125429,
+      "bootstrap_95_high": 0.1707928696347833,
+      "bootstrap_fraction_uplift_positive": 0.556,
+      "block_sessions": 60,
+      "draws": 1000
+    },
+    {
+      "candidate": "spread_flex",
+      "baseline": "spread_flex_selected_full",
+      "sharpe_uplift": 0.0602553258312056,
+      "bootstrap_95_low": -0.0665700054849489,
+      "bootstrap_95_high": 0.2576028946226828,
+      "bootstrap_fraction_uplift_positive": 0.816,
+      "block_sessions": 60,
+      "draws": 1000
+    }
+  ],
+  "archived_same_signal_sizing_comparison": [
+    {
+      "model": "individual_sizing",
+      "entries": 678,
+      "active_pairs": 69,
+      "net_excess_pnl": 574007.5000092983,
+      "commission": 3732.78,
+      "option_cost": 39732.568759053625,
+      "hedge_cost": 72823.38561948559,
+      "total_return": 0.2187227921381935,
+      "excess_return": 0.0005545966183664,
+      "annualized_excess_sharpe": 0.7782445992546072,
+      "max_drawdown": -1.1821832026082111e-05
+    },
+    {
+      "model": "fixed_full_vega",
+      "entries": 390,
+      "active_pairs": 69,
+      "net_excess_pnl": 608383.8682160378,
+      "commission": 3832.71,
+      "option_cost": 41167.39499152303,
+      "hedge_cost": 77147.06628290986,
+      "total_return": 0.2187560060205189,
+      "excess_return": 0.0005878105006918,
+      "annualized_excess_sharpe": 0.7440530439708346,
+      "max_drawdown": -1.1421925404264677e-05
+    }
+  ],
+  "archived_comparability": "Archived sizing controls share the same frozen wing-specific entry/direction policies with each other. The new uniform study changes feature definitions, entry policy and pooled learner scope, so its maximum is not a rerun of the0.778 checkpoint.",
+  "pure_sizing_control": "spread_flex_selected_full preserves every spread-flex cash decision, signal date, direction and feature; only positive sizes become100%. Risk admission may consequently differ.",
+  "sizing_control_timing": "One post-selection diagnostic added after the nine predeclared variants; no model retraining or parameter search.",
+  "interpretation": "A spread rule plus learned allocation beats the uniform fixed-size control modestly. The common positive-history veto and RL entry/direction are weaker. The older0.778 portfolio remains the strongest archived combined portfolio. These are exploratory sizing gains, not conclusive evidence of general RL superiority.",
+  "tests": "11 uniform policy, risk, corporate lifecycle and accounting tests pass"
+}

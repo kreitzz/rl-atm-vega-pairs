@@ -1,0 +1,97 @@
+Independent short-term tail pair ideas — feature exploration, October 2, 2026
+
+Use separate research silos and eventually separate policies: 30D 25-delta
+put/put pairs, 25-delta call/call pairs, 10-delta put/put pairs, and 10-delta
+call/call pairs. Keep the frozen ATM reference unchanged. Combining accepted
+trading streams is a later portfolio experiment; expanding one policy's action
+menu is not this experiment. We have tested many ATM variants, which does not
+prove that every possible ATM signal has been exhausted.
+
+This scan has no RL or NN fits and produces no portfolio Sharpe. It explores
+18 feature gaps against actual terminal option-pair P&L on the existing pair
+roster. All 345 roster members were accounted for; 139 had state panels and
+206 had no state panels. Resolved screened opportunities: calls ATM 25,872,
+25-delta 10,834, 10-delta 4,465; puts ATM 10,222, 25-delta 10,688,
+10-delta 6,125. These are overlapping entry opportunities, not independent
+trades. Missing quotes and entry filters substantially reduce tail coverage.
+
+Strongest candidate: 10-delta put pairs and the relative wing-IV spread.
+Within-pair, equal-pair-weighted rank correlations with long-A/short-B P&L
+relative to the inverse direction:
+                            pre-2022 outcomes       2022+ entries
+all available                     -0.166                  -0.177
+tighter delta matching            -0.151                  -0.127
+nonoverlapping schedule           -0.206                  -0.117
+controlled rank association       -0.172                  -0.185
+
+The negative direction favors buying A against B when A's wing-IV spread is
+relatively lower within the pair's history. Annual rank correlations also
+remain negative in each observed year, although the eligible pair count falls
+to five in 2024 and two in 2025. On dates shared with ATM puts, the same wing
+feature has correlations of -0.162/-0.140 against tail outcomes and
+-0.001/-0.083 against ATM outcomes. This suggests a tail-specific lead; it is
+not a formal test that tail trading outperforms ATM.
+
+A descriptive entry rule using the bottom/top rolling historical spread
+quintiles, long A in the bottom and short A in the top, has mean net terminal
+P&L per actual mean initial leg vega of +0.257 before 2022 and +1.641 from
+2022. Tight-delta means are +1.320/+1.401. Nonoverlapping means are
+-1.434/+4.407: direction prediction is more consistent than profitability.
+These are dollar P&L per dollar/vol-point vega, not percentage returns,
+annualized returns, trade confidence forecasts, or a portfolio backtest.
+The rule was inspected after this feature scan and has no untouched holdout.
+
+Concentration is material. Of pairs with at least eight extreme-quintile
+observations, 16/27 have positive mean labels early and 14/23 later. Removing
+the three largest positive sums of normalized cohort labels makes the early
+mean negative and leaves the later mean only slightly positive. Those sums
+describe this opportunity sample, not actual capital-weighted portfolio
+profit contributions. The leading later pairs are AMD/MU, SNAP/UBER, and
+UPST/COIN. The first prospective test should measure allocation, overlapping
+inventory, name limits, and drawdowns rather than infer Sharpe from these labels.
+
+Other leads are weaker. For 10-delta calls, prior 63-day jump fraction and
+realized excess kurtosis gaps have raw correlations of -0.064/-0.115 and
+-0.063/-0.103, respectively, and survive several controls. Their signs do
+not persist across both nonoverlapping samples. For 25-delta calls, wing
+steepness has weak negative associations; butterfly historical z-scores lose
+most of their association after controls and also relate to ATM outcomes.
+For 25-delta puts, downside semivariance and trailing VRP deserve inspection,
+but several matched-date or nonoverlapping checks weaken or reverse the raw
+relationship. There is no compelling new skew/curvature-only strategy yet.
+
+Feature design: actual OTM puts and calls at same-name, same-expiry anchors;
+wing premiums, 25-delta risk reversal and butterfly, 10-to-25 wing steepness,
+historical z-scores, 14-to-45 wing term slope, physical return skewness and
+excess kurtosis, directional semivariance, jump share, and tail-move magnitude.
+Sparse smile curvature is a proxy, not model-free implied skewness/kurtosis.
+14/45D observations are features only; each traded silo targets 30D expiry.
+
+Economic labels: same-type/same-target-delta pairs; integer entry sizing,
+initial vega mismatch at most 10%, daily delta hedging, each contract held
+to its own expiry. Vega is neutral at entry, not rebalanced daily. Costs use
+$0.03 option commission, 0.1 vol-point midpoint penalty, stock hedge costs,
+and the existing funding/borrow conventions. Labels use the actual ledger
+economics, without portfolio reserve/stress/capacity overlays. An ATM exact
+recovery control and eight isolated tail-ledger comparisons passed.
+
+All states use signal-close information with next-session execution; ranks
+are built before eligibility or future-payoff filtering. Pre-2022 labels must
+finish before 2022. Nonoverlap schedules use known expiries, not realized
+payoffs. Evaluation remains conditional on resolved histories. Partial rank
+regressions are descriptive controls, not trading models. Quarter-block
+intervals are exploratory, with no correction for the many feature tests;
+shared names and overlapping cohorts remain dependent.
+
+Recommended sequence: test 10-delta put pairs first as a standalone policy
+with a small fixed feature set and the existing portfolio risk controls;
+then independently test the call-tail jump/kurtosis hypothesis. Compare each
+against its simple rule and ATM reference on the same dates. Only then test
+whether combining accepted, sufficiently distinct streams improves Sharpe.
+
+Completed guarded run: 517 seconds, peak 840 MiB, one worker at the requested
+50% of one core. Verified 167 main inputs, 10,031 market-cache files, all
+2,661 frozen checkpoint files and its archive. Frozen reference untouched.
+
+Details: feature_comparison.csv, correlations.csv, by_pair.csv, by_year.csv,
+quintiles.csv, coverage.csv, put10_spread_illustration*.csv, audit.json.

@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "pairs": 345,
+  "proposals": 2133,
+  "no_retraining": true,
+  "signal_dates_and_directions_preserved": true,
+  "inherited_cash_signals_preserved": true,
+  "actual_commission": 0.03,
+  "frozen_sources_verified": 4486,
+  "elapsed_seconds": 25.21656262499164,
+  "peak_rss_bytes": 420970496
+}

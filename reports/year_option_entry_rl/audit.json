@@ -1,0 +1,11 @@
+{
+  "past_only_entry_labels": true,
+  "all529_proposals_explicit": true,
+  "costs_and_capital_limits_unchanged": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 825360384,
+  "no_fresh_holdout": true,
+  "training_shadow": "Same fractional local cohort rewards; actual evaluation shared-cash integer book",
+  "cold_start": "Keep original fixed50 entry until16 completed first-week labels and fitted parent Q are available"
+}

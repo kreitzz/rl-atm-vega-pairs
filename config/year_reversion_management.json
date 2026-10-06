@@ -1,0 +1,21 @@
+{
+  "status": "predeclared_research_experiment",
+  "entry_baselines": ["forecast_rl_sized", "forecast_variance_fixed50"],
+  "option": "approximately365D P25 puts; existing actual contracts",
+  "management_states": ["carry", "paper", "combined"],
+  "actions": ["hold", "halve both legs", "close both legs"],
+  "decision_frequency_sessions": 5,
+  "execution": "next session actual executable quotes, both legs surviving",
+  "training_window_months": 48,
+  "earliest_management_training": "2018-01-01; pre2018 reconstruction has unsupported corporate-action adjustment; cold start holds",
+  "refit": "quarterly",
+  "bellman_iterations": 24,
+  "discount_per_5_sessions": 0.98,
+  "reward": "actual training PnL per initial vega; no oracle mean reward",
+  "training_commission": 0.65,
+  "evaluation_commission": 0.03,
+  "new_entry_gates": false,
+  "prior_checkpoints_preserved": true,
+  "fresh_holdout": false,
+  "resources": {"workers": 1, "cpu_core_fraction": 0.5, "rss_stop_gib": 3}
+}

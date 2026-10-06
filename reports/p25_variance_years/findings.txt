@@ -1,0 +1,44 @@
+Annual diagnosis of the retained1.0063 P25 research candidate
+
+All3 actual saved books reconciled to their observed option marks, shared stock hedges, costs, dividends and cash financing; maximum daily difference<$0.000001. No retraining, new trades, quote deletion, pair exclusion or performance revision. Pair and cohort contributions below exclude shared financing; annual book P&L includes it. Calendar years include inventory carried from prior years.
+
+2019:23 entries; net cash-excess loss$7663.73. Gross hedged loss$3391.01, execution/borrow$3342.83, financing-$929.89. AMD/NVDA accounts for-$8878.70 before financing across2 overlapping positions, long AMD/short NVDA entered August13/14. Both straddled NVDA August15 earnings, publicly announced in advance. On August19 NVDA rose7.03% versus AMD0.96%; the two cohorts lost$4389 combined that day. Across one full cohort, long AMD IV50.95 versus forward RV45.20 lost$3175; short NVDA IV50.96 versus forward RV50.82 lost$984. Relative IV rank admitted long vol that was not cheap on realized outcome. Forward RV is retrospective context, not a complete gamma P&L model.
+
+2021:23 entries; loss$9565.26. OIH/HAL lost$14294.91 across7 trades; HAL/SLB another$3114.98. Largest OIH/HAL cohort lost$8580.74, mainly long HAL-$6740.35 rather than short OIH-$1840.38. Both expired July16: HAL20-strike put finished with stock20.06, worthless; OIH200-strike short put finished with ETF189.35, in the money. Forward RVs44.46/43.99 look similar, but strike-crossing, timing and discrete hedging matter. July16 alone cost that cohort$5220.86. This was high observed return correlation (.910) and beta(.879), not a low-correlation admission failure. Execution-day absolute deltas were.086/.122, despite prior-close selection of25-delta contracts. Subsequent price moves change strike exposure; vega is matched at entry, not maintained continuously.
+
+2022:67 entries; profit$176776.85. Leading pair contributions: SNAP/UBER+$56202.95, GPS/TJX+$43551.32, AMD/MU+$34927.70, AEO/TJX+$25582.00, OIH/SLB+$23247.40, offset by losing pairs. May24 alone added$46479.20 to the portfolio after SNAP guidance warning on May23. SNAP fell43.08%, UBER9.38%; long SNAP puts captured large convex gains. The remainder of2022 still added$130297.65; this is a descriptive contribution, not a new backtest omitting a day. Several other winners monetize short-leg IV above subsequent RV: GPS sold near 90.78 IV versus50.59 realized in one TJX/GPS cohort, and MU sold near 52.37 IV versus32.00 realized in one AMD/MU cohort. Three of the four SNAP/UBER entries overlap the same May event, so cohort count does not represent four independent event successes.
+
+2024:13 entries; loss$10720.09. Gross delta-hedged loss$22707.71; charges$2473.86; financing versus cash+$14461.48. UAL/AAL-$22184.12 and UPST/COIN-$21031.08 dominate losses. The UAL/AAL cohort held long UAL/short AAL through the AAL guidance reduction reported May28. On May29 AAL fell13.54% while UAL rose2.35%; short AAL put delta went from-.0555 to-.9398 and the pair lost$21166.63 that day. Full trade short AAL lost$20915.23: IV38.40 versus forward RV61.71. UPST/COIN differs: long UPST lost$17565.88, short COIN$3465.19. UPST entry IV86.12 versus subsequent RV57.09 was expensive long carry. COIN rose16.85% on February26; the pair lost$8718.50 that day. No external cause of that COIN move is asserted.
+
+Why the new policy improves2024: it did not avoid the two main losing cohorts; they are identical to the previous18-month policy. Most improvement comes from avoiding MGM/WYNN-$3388 and gaining an additional$4365 in UAL/DAL, partly offset by$2615 less TRV/CB profit. Those are actual proposal-size/risk-admission differences, not evidence of predicting the AAL/COIN shocks. Fixed50 admitted3 overlapping UPST/COIN trades versus1 learned, and2 UAL/AAL trades versus1 learned. Their combined loss was$70.2k under fixed50 versus$43.2k learned. The shared inventory effect arises from size and inherited caps; the learner was not trained as a sequential inventory controller.
+
+Quote nuance: PENN/CZR made+$4761.87 overall, but near-expiry midpoint marks generated approximately+$11030 on September18 and-$10531 on September20. PENN bid/ask changed from.01/.04 to.01/.93 with a stock move of-.81%; inferred IV rose from80%to230%. These are wide observed quote midpoints, not proof of executable value or verified vendor error. Held marks pass the current observed-mark convention; entry quote screens do not guarantee later liquidity. This can distort daily Sharpe even when a cohort ultimately profits. A common causal mark/Greek quality sensitivity across all years and controls is warranted; selectively deleting bad-looking days would be invalid. No mark changes are included in these saved performance results.
+
+Research implications: the weaker years merit targeted work rather than automatic rejection of the checkpoint. Examine earnings asymmetry and execution delta/moneyness drift (absent from current33 feature state), time-varying relative gamma/strike risk, overlapping event/name inventory and historical jump asymmetry. Correlation alone is inadequate: profitable SNAP/UBER near.52 resembles losing UPST/COIN near.51, while losing OIH/HAL was near.91. Do not select name bans or event vetoes using these future outcomes. Any new input must be available before trading; historical earnings columns here are diagnostic, not newly established point-in-time features. The same asymmetric jump mechanism generates winners and losers; manage size with observable risk rather than remove only the losses.
+
+2025 is partial toAugust29. This is historical attribution, not fresh validation of the selected Sharpe. Resource peak0.72GB, one worker at50%of onecore with3GiB stop. Source hashes and exact financial reconciliation checks are in audit.json.
+
+ year  entries  annualized_cash_excess_sharpe  gross_delta_hedged_pnl  execution_and_borrow  financing_vs_cash  net_excess_pnl  worst_3_days_pnl  other_days_pnl
+ 2018       23                       0.393785             8766.674862           3756.584717         581.635678     5591.725823     -10846.546170    16438.271992
+ 2019       23                      -0.580442            -3391.012597           3342.828540        -929.892278    -7663.733414     -10087.147297     2423.413882
+ 2020       32                       1.584218            73547.013959           5108.190615         309.754047    68748.577392     -32680.500746   101429.078138
+ 2021       23                      -0.569005            -5869.051578           3740.524540          44.319016    -9565.257101     -12306.875704     2741.618603
+ 2022       67                       2.470225           186753.740638          12227.479469        2250.590877   176776.852046     -28471.080375   205247.932421
+ 2023       17                       1.620856            53548.485457           4273.342136       12894.551178    62169.694499     -23353.057024    85522.751523
+ 2024       13                      -0.783037           -22707.713666           2473.857160       14461.479746   -10720.091079     -40847.070009    30126.978930
+ 2025       15                       1.211255            29727.944454           3257.393757        8477.351823    34947.902520     -20108.264628    55056.167148
+
+model        control         fixed2  variance_premium  new_minus_previous  new_minus_fixed50
+year                                                                                        
+2018     6973.042915       9.671357       5591.725823        -1381.317092        5582.054466
+2019    -7124.259789   -5295.637340      -7663.733414         -539.473626       -2368.096074
+2020    68251.253059   57596.327187      68748.577392          497.324333       11152.250205
+2021    -9563.366126   -8289.314280      -9565.257101           -1.890975       -1275.942821
+2022   176429.493383  183920.213213     176776.852046          347.358662       -7143.361167
+2023    57891.305297   46633.310797      62169.694499         4278.389202       15536.383702
+2024   -16378.131120  -45216.081008     -10720.091079         5658.040040       34495.989929
+2025    27806.657138   19706.079797      34947.902520         7141.245382       15241.822724
+
+NVDA_earnings_announcement: https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-second-quarter-financial-results-6769669
+SNAP_guidance_warning: https://www.sec.gov/Archives/edgar/data/1564408/000119312522157565/d516472d8k.htm
+AAL_guidance_cut: https://www.sec.gov/Archives/edgar/data/4515/000119312524148138/d800477d8k.htm

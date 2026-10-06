@@ -1,0 +1,95 @@
+Standalone 30D 25-delta put pairs — October 2, 2026
+
+Moving from 10-delta to cached 25-delta puts improves the simple spread rule
+substantially. The existing free-direction RL policy remains negative.
+Everything except the contract bucket is held fixed: two spread inputs,
+entry thresholds, optimizer, sizing ladder, gates, refit schedule, costs,
+and capital/risk limits. The code/action-mapping comparison is tested.
+
+Annualized daily EXCESS-return Sharpe (sqrt(252), above cash):
+                        2018-Aug2025   2022-Aug2025    entries full/recent
+Put10 rule                  0.348          0.524              31/24
+Put25 rule                  0.711          0.748             129/76
+Put10 RL sizing            -0.348         -0.501              21/21
+Put25 RL sizing            -0.116         -0.264              43/22
+Frozen ATM RL               0.368          0.428             224/179
+
+Put25 rule P&L above cash is +$246,969 full / +$123,375 recent. It trades
+41/27 pairs, versus 15/10 for the put10 rule. Full-period excess P&L drawdown
+is $67,322. RL P&L is -$12,910 / -$14,501 across six/four active pairs.
+All 345 original $1m sleeves remain, including cash. Full-period put25 rule
+excess return is 0.0716%; actual capital/leverage allocation is not optimized.
+The recent book starts independently flat in 2022, so is not a full-book slice.
+
+Rule annual Sharpe, full book:
+2018 +0.181; 2019 -0.515; 2020 +1.101; 2021 +1.049;
+2022 +2.100; 2023 +0.428; 2024 -0.806; 2025 +1.109 (through August).
+Unlike put10, this book has meaningful P&L in 2024/2025. Annual returns,
+entry counts and RL annual results are also saved, with cash years marked n/a.
+
+Quote/state coverage improves: 96,580 usable spread/rank observations versus
+60,028 for put10. 122/139 panels have any valid feature history, versus 90;
+74 have at least 504 valid states over their whole history, versus 45.
+Enabled monthly RL refits rise from 44 to 132. Insufficient training still
+accounts for 3,841/5,153 monthly logs (74.5%), down from 84.8% for put10.
+The rest are 872 no-validation-opportunity months, 308 failed validations,
+and 132 enabled refits. A five-year purged window can have fewer valid states
+than the whole-history coverage count suggests.
+
+The larger rule result remains concentrated. Full-period leaders are GPS/TJX
+$41,789, MAR/HLT $41,157, SNAP/UBER $36,474, and AMD/MU $36,366. Removing the
+largest winner leaves 0.617 Sharpe; removing the three largest leaves 0.455
+and +$127,550. Recent Sharpe falls to 0.107 after removing its top three
+winners. These are ex-post diagnostics, not pair-selection instructions.
+
+RL did not implement the rule as an overlay. Of its 43 full-book entries,
+19 are in the rule's middle-rank flat region, nine go opposite to the raw
+extreme-spread direction, and 15 agree. All nine opposite cases would fail
+the profitability gate in the rule's intended direction; thus the gated
+rule would skip them rather than automatically take the other side. Actual
+rule eligibility agrees with only 15/43 RL signal dates. The RL fits trade
+only AMD/MU, AMD/NVDA, BAC/JPM, BAC/C, BAC/WFC and C/WFC. Coverage improvement
+helps trainability, but does not by itself make this learned policy profitable.
+A fixed-direction skip/size overlay would be a different, untested design.
+
+Rule execution: 129 accepted cohorts, 351 risk-limit entry rejections,
+47 blocks while existing inventory is over limits, 46 unavailable entry
+quotes, and one integer vega mismatch. RL: 43 entered, 85 risk-limit entry
+rejections, 34 inventory-deleveraging blocks and six unavailable entry quotes.
+Both include all transaction/funding costs. Rule option execution cost is
+$13,406 (including $1,028 commissions); stock hedge costs are $19,887.
+
+Exact design: same-side put/put pairs near 25% absolute delta and 30D expiry,
+native delta tolerance 0.075, independently closest expiry on each name.
+Initial vega mismatch at most 10%, daily delta hedging, own-expiry hold;
+option vega is not rebalanced afterward. States are A-minus-B wing IV and its
+252-session trailing rank, requiring 63 observed values. Missing pair states
+are not forward-filled. Signal-close decisions execute next session.
+Rule buys A against B at spread rank <=20%, sells it at rank >80%, otherwise
+flat, at full size. Both use the same stock beta 0.85-1.15/correlation and
+completed-outcome directional profitability gates. The rule has no fitted
+validation gate. RL has a prior-year positive actual-inventory Sharpe gate,
+monthly five-year completed-outcome refits, eight-leaf reference kernel,
+seed 2026, and signed 25/50/75/100% sizing. No NN or larger action menu.
+Training/validation commission hurdle is $0.65; actual execution is $0.03
+per contract, midpoint +0.1 vol-point entry penalty, 1bp stock hedge costs,
+and unchanged funding/borrow conventions. Limits are per pair sleeve, not
+shared-name portfolio limits. Hold-to-expiry blocks additional risk during
+breaches but does not force existing positions out.
+
+Verified: nine relevant tests passed; 10,639 resolved scan cohorts in
+feature-observed sleeves reproduce exactly before fitting. Both policies
+have complete actual book accounting; none was dropped for unresolved P&L.
+313 main inputs, 4,975 market files, all 2,661 frozen reference files and its
+archive verified unchanged. Full run: 328 seconds, peak 713 MiB, one worker
+at 50% of one core. Models/actions/ledgers are saved separately; no promotion.
+
+This is inspected historical data, not untouched confirmation. Changing delta
+also changes gamma/tail and execution economics; improved performance cannot
+be attributed to quote coverage alone. European BS marks/settlement are used;
+American early exercise/assignment is not modeled. No leverage conclusion.
+
+The frozen ATM combination is in reports/atm_put25_stack. Individual results
+are in comparison.csv, annual.csv, concentration.csv, pairs.csv, coverage.csv,
+fits.csv, entries_by_year.csv, decisions.csv, entered_cohorts.csv,
+rl_entry_rule_alignment.csv, audit.json and output_hashes.json.

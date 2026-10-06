@@ -1,0 +1,6 @@
+experiment,policy,sharpe
+30D: direct policy search,Hold,1.002988184369126
+30D: direct policy search,18M manage,0.9625309864292024
+30D: direct policy search,36M manage,1.0294933742667658
+180D: fitted-Q management,Hold,0.5917752144111404
+180D: fitted-Q management,Conservative Q,0.6100278907230208

@@ -1,0 +1,44 @@
+{
+  "source": "reports/aligned_contract_learning/manifest.json",
+  "authority": "Implementation assumptions;not user-specified numeric limits",
+  "settings": {
+    "capital": 1000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 20000,
+    "max_hedge_leverage": 2.0,
+    "max_reserve_fraction": 0.8,
+    "stock_reserve_fraction": 0.5,
+    "max_stress_loss_fraction": 0.05,
+    "spot_stress": 0.2,
+    "vol_stress": 0.1
+  },
+  "actual_shared_capital": 345000000,
+  "pair_and_wing_reference_capital": 1000000,
+  "current_caps": [
+    "gross_vega",
+    "gross_hedge_notional",
+    "capital_reserve",
+    "stress_loss"
+  ],
+  "no_stress_caps": [
+    "gross_vega",
+    "gross_hedge_notional",
+    "capital_reserve"
+  ],
+  "no_caps_caps": [],
+  "remaining_in_all_cases": [
+    "nonpositiveNAV check",
+    "valid contracts and quotes",
+    "matched puts",
+    "integer entry-vega mismatch<=10%",
+    "daily underlying delta hedge",
+    "original costs and financing"
+  ],
+  "stress_method": "Each underlying independently takes its worst of9 spot/IV shocks;sum losses across underlyings;no credit for pair correlation",
+  "reserve_method": "Gross option premium plus50%of gross delta-hedge notional;research accounting constraint,not broker margin",
+  "all_caps_apply_at_portfolio_pair_and_wing_levels": true,
+  "shocks": "Spot-20/0/+20%;IV-10/0/+10 volatility points",
+  "baseline_gross_vega_reference": "20,000dollars per volatility point per pair;portfolio scales by345",
+  "sizing_policy_reused_across_risk_modes_within_each_boundary": true,
+  "inventory_aware_retraining": false
+}

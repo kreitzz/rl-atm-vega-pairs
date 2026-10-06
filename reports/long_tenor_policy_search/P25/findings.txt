@@ -1,0 +1,28 @@
+NATIVE 180D / 365D P25 SIZING AND MANAGEMENT
+
+Same 529 frozen pair/date/direction proposals, native selected contracts, costs and risk limits. Entry ladder 50/75/100%; no learned entry veto or leverage increase. Cold start keeps original entry sizes and holds. Quarterly refits require original scheduled expiry before the fit, with minimum 16 completed episodes. 24/48-month fits use original baseline-executed episodes. Inputs include native IV, RV20/60 carry, term spread, relative delta, beta/correlation and VIX. Direct episodic policy search uses up to 4 tree leaves and exhaustive discrete action-map optimization. Management observes current features every five sessions from age five; irreversible hold/half/close of both legs, filled at the next observed session. 
+This extends the checkpoint policy-search method, not neural Q-learning. Shadow training uses fractional quantities and isolated stock hedge/borrow costs; option/hedge/dividend gross paths independently reconcile the unchanged baseline. All final results use the executable integer shared-cash ledger with original admission/risk limits and independently checked cash flows. Training commission .65; actual .03, 0.1 vol point options, 1bp stocks. All 529 proposals remain explicit.
+C75 uses actual same-strike/expiry call counterparts of P25 selections, approximately 75-delta at entry; calls use their native fitted Greeks with integer vega matching. Same 529 proposals, not the previously accepted-put-only locked parity subset. Call training and baselines separate.
+Missing history, American exercise, future dividend forecasts and financing approximation limitations remain. No new entry universe, untouched holdout or guaranteed improvement. All variants and loss periods retained.
+
+ tenor              case  annualized_excess_sharpe  entries  net_excess_pnl
+   180         180D_hold                  0.485755      177   170816.696568
+   180   180D_manage_36M                  0.500640      181   168742.598919
+   180    fixed_100_hold                  0.427375      144   180999.932441
+   180     fixed_50_hold                  0.591775      204   150660.026366
+   180  native_joint_24M                  0.506660      187   190302.104355
+   180  native_joint_48M                  0.371522      177   129767.680948
+   180 native_manage_24M                  0.454722      183   148371.698641
+   180 native_manage_48M                  0.294598      179    81551.805832
+   180   native_size_24M                  0.507181      173   207092.908934
+   180   native_size_48M                  0.468213      170   192313.265924
+   365         365D_hold                  0.359071      142   133453.635413
+   365   365D_manage_36M                  0.296745      146   106449.315446
+   365    fixed_100_hold                  0.281315      120   119623.335568
+   365     fixed_50_hold                  0.396012      167   102842.468074
+   365  native_joint_24M                  0.279050      154    66046.461216
+   365  native_joint_48M                  0.309343      158    79133.653505
+   365 native_manage_24M                  0.279087      161    66352.115603
+   365 native_manage_48M                  0.317617      154    78518.209556
+   365   native_size_24M                  0.356649      137   134961.570871
+   365   native_size_48M                  0.322841      144   124808.199142

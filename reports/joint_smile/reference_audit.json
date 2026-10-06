@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "annualized_excess_sharpe": 0.7723634057993916,
+  "pairs": 345,
+  "coverage_rows": 1035,
+  "proposals": 2133,
+  "observed_states": 350115
+}

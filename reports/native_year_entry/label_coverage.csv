@@ -1,0 +1,7 @@
+signal_eligible,label_status,rows
+False,complete,4611
+False,no_entry,41622
+False,unresolved,349
+True,complete,891
+True,no_entry,107
+True,unresolved,30

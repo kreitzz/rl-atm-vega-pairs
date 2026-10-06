@@ -1,0 +1,245 @@
+Single-leg RL trial: historical and absolute variance-premium definitions
+PRIMARY RESULTS: primary_comparison.csv and primary_annual.csv use all 345 original sleeves.
+Historical rule full period is incomplete: RCL/NCLH holds option 132591447 with no 2020-03-13 quote in the local cache or a fresh bounded WRDS query. No price was imputed and the sleeve was not silently removed.
+All other model-period paths are complete, including the historical rule recent-period book starting flat in 2022.
+The supplementary comparison.csv/annual.csv and all_* portfolio files are the 344-sleeve common-complete subset. Its baseline differs from the frozen 345-sleeve reference; do not mix them.
+Original frozen baseline is reproduced: annualized excess Sharpe 0.368 full / 0.428 recent.
+Same six new per-leg variance-premium states, matched purged training rows, monthly refits and eight-leaf relative-value partition across the three new RL policies. Pair-only control permits the original paired ladder; flexible menus additionally permit a single selected leg.
+Historical longs/shorts require both names below/above their own past 252-session premium mean. Absolute longs/shorts require trailing RV above/below IV for both names. Trailing RV is a forecast proxy, not a new calibrated RV forecast.
+Both flexible menus retain pair actions and flat. Own-leg completed-profitability gates apply to singles; original paired gates, beta/correlation eligibility and employee inputs are unchanged.
+ATM30 calls, daily delta hedging, own expiry settlement, $450 maximum entry vega per selected leg, $900 entry net-vega cap per sleeve, original other risk limits. Training commission $0.65, evaluated commission $0.03 and 0.1-vol-point option entry penalty. No NN refits.
+Standalone actions deliberately add outright volatility exposure. The reference checkpoint and market caches remain unchanged.
+
+               model period  requested_pairs  complete_pairs     status  available_entries  entries  active_pairs  annualized_excess_sharpe  net_excess_pnl  total_return  excess_return  max_drawdown
+         rl_baseline   full              345             345   complete                224    224.0          29.0                  0.368039   145778.177100      0.218591       0.000423     -0.000025
+         rl_pair_vrp   full              345             345   complete                248    248.0          30.0                  0.307167   139052.054383      0.218571       0.000403     -0.000023
+rl_single_historical   full              345             344 incomplete                421      NaN           NaN                       NaN             NaN           NaN            NaN           NaN
+  rl_single_absolute   full              345             345   complete                518    518.0          44.0                 -0.254287  -119677.379515      0.217821      -0.000347     -0.000053
+         rl_baseline recent              345             345   complete                179    179.0          22.0                  0.427591   103398.127664      0.159333       0.000300     -0.000024
+         rl_pair_vrp recent              345             345   complete                190    190.0          24.0                  0.339567    90576.035710      0.159296       0.000263     -0.000023
+rl_single_historical recent              345             345   complete                313    313.0          26.0                 -0.101468   -24014.736583      0.158964      -0.000070     -0.000026
+  rl_single_absolute recent              345             345   complete                356    356.0          32.0                 -0.261356   -65850.186709      0.158842      -0.000191     -0.000030
+
+Verification:
+{
+  "source_files_verified": 584,
+  "frozen_files_verified": 2661,
+  "archive_hash_verified": true,
+  "monthly_baseline_controls_verified": 5249,
+  "original_states_unchanged": true,
+  "strict_completed_outcome_purge_verified": true,
+  "every_completed_single_entry_rule_verified": true,
+  "completed_inventory_and_cash_ledgers_verified": true,
+  "full_historical_rule_has_unresolved_path": true,
+  "missing_mark_confirmed_at_vendor": true,
+  "no_nn_retrained": true,
+  "accounting": {
+    "requested_pairs": 345,
+    "common_complete_pairs": 344,
+    "unresolved": [
+      {
+        "pair": "112463__161182",
+        "model": "rl_single_historical",
+        "period": "full",
+        "error": "2020-03-13: missing held option 132591447"
+      }
+    ]
+  },
+  "refits": {
+    "rl_pair_vrp": {
+      "enabled_refits": 550,
+      "enabled_refits_using_vrp_value": 229
+    },
+    "rl_single_historical": {
+      "enabled_refits": 683,
+      "enabled_refits_using_vrp_value": 284
+    },
+    "rl_single_absolute": {
+      "enabled_refits": 759,
+      "enabled_refits_using_vrp_value": 319
+    }
+  },
+  "exposures": [
+    {
+      "model": "rl_baseline",
+      "period": "full",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 224,
+      "single_long_entries": 0,
+      "single_short_entries": 0,
+      "mean_net_vega": -15.388893491772723,
+      "maximum_absolute_net_vega": 993.8246507800181,
+      "mean_gross_vega": 706.6908522654136,
+      "mean_single_net_vega": 0.0,
+      "mean_single_gross_vega": 0.0,
+      "days_with_standalone_exposure": 0
+    },
+    {
+      "model": "rl_pair_vrp",
+      "period": "full",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 248,
+      "single_long_entries": 0,
+      "single_short_entries": 0,
+      "mean_net_vega": -12.165362421727814,
+      "maximum_absolute_net_vega": 913.0179596536617,
+      "mean_gross_vega": 789.4855223386874,
+      "mean_single_net_vega": 0.0,
+      "mean_single_gross_vega": 0.0,
+      "days_with_standalone_exposure": 0
+    },
+    {
+      "model": "rl_single_historical",
+      "period": "full",
+      "complete_pairs": 344,
+      "requested_pairs": 345,
+      "paired_entries": 271,
+      "single_long_entries": 28,
+      "single_short_entries": 122,
+      "mean_net_vega": -158.853405432004,
+      "maximum_absolute_net_vega": 2331.80009903236,
+      "mean_gross_vega": 864.4857959222861,
+      "mean_single_net_vega": -148.12337094518924,
+      "mean_single_gross_vega": 220.47845278327472,
+      "days_with_standalone_exposure": 862
+    },
+    {
+      "model": "rl_single_absolute",
+      "period": "full",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 255,
+      "single_long_entries": 45,
+      "single_short_entries": 218,
+      "mean_net_vega": -257.5483151266294,
+      "maximum_absolute_net_vega": 3599.2726902085715,
+      "mean_gross_vega": 970.8128652855542,
+      "mean_single_net_vega": -247.48106939684823,
+      "mean_single_gross_vega": 351.057540557763,
+      "days_with_standalone_exposure": 1083
+    },
+    {
+      "model": "rl_baseline",
+      "period": "recent",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 179,
+      "single_long_entries": 0,
+      "single_short_entries": 0,
+      "mean_net_vega": -27.67675725623004,
+      "maximum_absolute_net_vega": 743.136000320888,
+      "mean_gross_vega": 1163.4009079442135,
+      "mean_single_net_vega": 0.0,
+      "mean_single_gross_vega": 0.0,
+      "days_with_standalone_exposure": 0
+    },
+    {
+      "model": "rl_pair_vrp",
+      "period": "recent",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 190,
+      "single_long_entries": 0,
+      "single_short_entries": 0,
+      "mean_net_vega": -22.307643887297598,
+      "maximum_absolute_net_vega": 870.8684221870607,
+      "mean_gross_vega": 1250.907757320595,
+      "mean_single_net_vega": 0.0,
+      "mean_single_gross_vega": 0.0,
+      "days_with_standalone_exposure": 0
+    },
+    {
+      "model": "rl_single_historical",
+      "period": "recent",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 214,
+      "single_long_entries": 10,
+      "single_short_entries": 89,
+      "mean_net_vega": -276.8403474740503,
+      "maximum_absolute_net_vega": 2087.816109290658,
+      "mean_gross_vega": 1357.5053317513812,
+      "mean_single_net_vega": -268.8653035405146,
+      "mean_single_gross_vega": 309.6621147469141,
+      "days_with_standalone_exposure": 533
+    },
+    {
+      "model": "rl_single_absolute",
+      "period": "recent",
+      "complete_pairs": 345,
+      "requested_pairs": 345,
+      "paired_entries": 202,
+      "single_long_entries": 5,
+      "single_short_entries": 149,
+      "mean_net_vega": -416.9647411299823,
+      "maximum_absolute_net_vega": 2073.478273944874,
+      "mean_gross_vega": 1479.7843171977795,
+      "mean_single_net_vega": -408.40909931362364,
+      "mean_single_gross_vega": 448.07677721713526,
+      "days_with_standalone_exposure": 608
+    }
+  ],
+  "paired_quarter_differences": [
+    {
+      "universe": "common_complete_344",
+      "model": "rl_pair_vrp",
+      "control": "rl_baseline",
+      "period": "full",
+      "sharpe_change": -0.11226805710483975,
+      "paired_quarter_ci90_low": -0.40526082666417457,
+      "paired_quarter_ci90_high": 0.11724815284268432
+    },
+    {
+      "universe": "common_complete_344",
+      "model": "rl_single_historical",
+      "control": "rl_pair_vrp",
+      "period": "full",
+      "sharpe_change": -0.44141775190616594,
+      "paired_quarter_ci90_low": -0.9215927571180907,
+      "paired_quarter_ci90_high": 0.10083085971445825
+    },
+    {
+      "universe": "common_complete_344",
+      "model": "rl_single_absolute",
+      "control": "rl_pair_vrp",
+      "period": "full",
+      "sharpe_change": -0.5614533805370261,
+      "paired_quarter_ci90_low": -1.0845182694797764,
+      "paired_quarter_ci90_high": -0.023570826037388387
+    },
+    {
+      "universe": "common_complete_344",
+      "model": "rl_pair_vrp",
+      "control": "rl_baseline",
+      "period": "recent",
+      "sharpe_change": -0.1682606200231697,
+      "paired_quarter_ci90_low": -0.6122340659762172,
+      "paired_quarter_ci90_high": 0.16964898711329282
+    },
+    {
+      "universe": "common_complete_344",
+      "model": "rl_single_historical",
+      "control": "rl_pair_vrp",
+      "period": "recent",
+      "sharpe_change": -0.441035122329856,
+      "paired_quarter_ci90_low": -1.1593267504951434,
+      "paired_quarter_ci90_high": 0.4864366143722772
+    },
+    {
+      "universe": "common_complete_344",
+      "model": "rl_single_absolute",
+      "control": "rl_pair_vrp",
+      "period": "recent",
+      "sharpe_change": -0.6009228691999152,
+      "paired_quarter_ci90_low": -1.4009769791095368,
+      "paired_quarter_ci90_high": 0.302105335206182
+    }
+  ],
+  "uncertainty_note": "Descriptive paired calendar-quarter resampling of inspected portfolio paths; no refitting or correction for model selection."
+}
+
+Recent concentration:
+rl_single_historical: recent P&L change versus paired new-state control $-114,591; CENX/AA contributes $-70,818 (61.8% of the net decline). This is a sleeve-policy comparison, not isolated single-trade causal attribution.
+rl_single_absolute: recent P&L change versus paired new-state control $-156,426; CENX/AA contributes $-92,416 (59.1% of the net decline). This is a sleeve-policy comparison, not isolated single-trade causal attribution.

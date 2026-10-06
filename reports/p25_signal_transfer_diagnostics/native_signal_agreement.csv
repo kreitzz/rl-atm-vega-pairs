@@ -1,0 +1,4 @@
+wing,matched_observations,native_same_direction,native_opposite_direction,native_no_rank_signal,own_memory_pass_for_p25_direction
+ATM,608,373,30,205,341
+P25,608,608,0,0,608
+P75,206,49,1,156,21

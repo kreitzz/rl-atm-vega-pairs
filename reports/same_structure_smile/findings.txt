@@ -1,0 +1,29 @@
+             model   status            variant wing  proposals  qualified_candidates  learned_skips  net_excess_pnl  elapsed_seconds  entries  active_pairs  independent_ledger_error  commission  all_inventory_closed  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+         fixed_100 complete          fixed_100 None       3989                  3989              0  -194678.116568        42.252738      832           102              1.034292e-06     6719.97                  True      0.217980      -0.000188                 -0.130707     -0.000096
+          fixed_50 complete           fixed_50 None       3989                  3989              0     9639.780701        48.478892     1613           103              1.432541e-06     6319.77                  True      0.218178       0.000009                  0.007933     -0.000060
+          fixed_75 complete           fixed_75 None       3989                  3989              0   -59774.345733        47.071408     1123           103              1.276363e-06     6642.99                  True      0.218110      -0.000058                 -0.044249     -0.000074
+              flex complete               flex None       1491                  3989           2498   -61623.949903        33.161115      711            82              1.089211e-06     2400.57                  True      0.218109      -0.000060                 -0.085693     -0.000046
+          flex_ATM complete               flex  ATM        996                  3040           2044   -86759.234863        24.428103      480            68              1.932640e-07     1512.87                  True      0.217917      -0.000251                 -0.138279     -0.000203
+          flex_P25 complete               flex  P25        432                   877            445    31944.549351        19.065071      200            40              1.912995e-07      763.38                  True      0.218261       0.000093                  0.106355     -0.000015
+          flex_P75 complete               flex  P75         63                    72              9    -4095.640755         5.881236       32            13              1.437038e-07      125.88                  True      0.218156      -0.000012                 -0.035581     -0.000039
+flex_selected_full complete flex_selected_full None       1491                  3989           2498  -117059.353268        31.060225      349            81              1.035034e-06     2841.12                  True      0.218055      -0.000113                 -0.138552     -0.000066
+             floor complete              floor None       3989                  3989              0  -123131.904378        43.914402     1255           102              1.310291e-06     6431.55                  True      0.218049      -0.000119                 -0.095415     -0.000070
+         floor_ATM complete              floor  ATM       3040                  3040              0  -267152.104438        39.382729      946            96              2.927809e-07     4752.33                  True      0.217394      -0.000774                 -0.230161     -0.000252
+         floor_P25 complete              floor  P25        877                   877              0   124348.234805        25.058332      286            54              1.699518e-07     1503.21                  True      0.218529       0.000360                  0.292772     -0.000041
+         floor_P75 complete              floor  P75         72                    72              0     8547.607145         6.086062       23            14              1.573644e-07      175.44                  True      0.218193       0.000025                  0.064222     -0.000039
+
+All345 roster pairs; independent wing policies using one identical P25-based architecture for ATM calls,25-delta puts,75-delta puts at approximately30D. Same 252-session IV-spread rank quintile entry/direction rule,27 oriented features and availability flags, beta0.85-1.15/correlation>=0.5 screen, original common pair formation/context calendar, positive91/365-day completed directional-profit gates with minimum21/63 observations. Same monthly pooled five-year completed-outcome training, max8-leaf tree, adaptive minleaf max(8,min(63,n//8)), direct-Sharpe CEM50x192 seed2026, full-size anchor, and global full-size fallback below16 pooled training rows. No per-pair validation, employee-only input or activation rule. Two declared common ladders: floor50/75/100% and flex0/25/50/75/100%. Each ladder applies unchanged to all three wings. Fixed50/75/100 controls receive identical qualified spread proposals. Flex can additionally skip on its allocation output; a same-skip full-size diagnostic isolates sizing. Training commission0.65 and actual0.03 percontract on everywing; mid plus 0.1 vol-point perleg, stock hedge1bp, financing/borrow/dividends unchanged. Same $1m/20k per pair-wing and $3m/60k pair budgets; shared cash and net stock hedge, matched initial integer vega within10%, daily deltahedge, hold own expiry with previously audited causal corporate exits. Per-wing-only replays use identical scaled funding/risk settings. Reuse frozen standardized cached features and labels without any future-label filter on evaluation candidates. Only finite completed outcomes enter training. All proposals/decisions retained. Previously inspected history and retrospective roster/calendar conditioning are preserved; no new holdout. Not sequential inventory-trained RL. One worker,50% of one core,one BLAS/Arrow thread,3GiB RSS stop.
+
+{
+  "status": "complete",
+  "common_structure_across_all_wings": true,
+  "pairs": 345,
+  "monthly_models": 540,
+  "variants": 5,
+  "same_skip_diagnostic": 1,
+  "separate_wing_replays": 6,
+  "frozen_source_files": 5210,
+  "elapsed_seconds": 443.86339279200183,
+  "peak_rss_bytes": 993624064,
+  "no_new_holdout": true
+}

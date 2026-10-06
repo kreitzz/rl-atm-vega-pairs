@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "refits": 0,
+  "sources": {
+    "artifacts/contracts/tail_put25_strategy/101966__103049/rl_sized/full/status.json": "f58f9881f930765834de27ac3e9725bb755c2f1e037acc85f20ee8ad9c5a3824",
+    "artifacts/contracts/tail_put25_strategy/101966__103049/rl_sized/full/daily_nav.parquet": "59292a7222c4ed829bc61e930ac1fe2080041ff600653f9df0623a8979e0c6a6",
+    "artifacts/contracts/tail_put25_strategy/101121__108321/rl_sized/full/status.json": "1f85a5d3a1d04b9052002d6e95d1792bc030683221c65b2f562d7bfeab073f0d",
+    "artifacts/contracts/tail_put25_strategy/101121__108321/rl_sized/full/daily_nav.parquet": "142b2d24df703866dbcf17862daf1bdb99e3c0573dd3a37f8198405aa1425d7f",
+    "artifacts/contracts/tail_put25_strategy/101966__102936/rl_sized/full/status.json": "da90a3a3c133ae4b360511d6e977c1b333161139f6ae9bad872073b276bedd55",
+    "artifacts/contracts/tail_put25_strategy/101966__102936/rl_sized/full/daily_nav.parquet": "d358c8a7ec4aeaa64b1fafe33d59e9248145c0410a79da8663b1ae24a5cea176",
+    "artifacts/contracts/tail_put25_strategy/103049__111953/rl_sized/full/status.json": "55f744c1fc7c6685d298ffddb9ba1a04a58a4aa987785cbeda312a51fb81b59b",
+    "artifacts/contracts/tail_put25_strategy/103049__111953/rl_sized/full/daily_nav.parquet": "1f2b21f844012cf2ca333e9b7df16ab1c84065ff00ca74babbd2c5b048242b8e",
+    "artifacts/contracts/tail_put25_strategy/101966__111953/rl_sized/full/status.json": "d5f266820f204594f50726205d954776d41adc8111285c382ca2f9d04b923ef6",
+    "artifacts/contracts/tail_put25_strategy/101966__111953/rl_sized/full/daily_nav.parquet": "9b2dfc789c8d59f04dea739a17199647c32c8230583d55a5de9fc4fe28dad1b6",
+    "artifacts/contracts/tail_put25_strategy/101121__107544/rl_sized/full/status.json": "9b4502fa4cef10b056f03d1ddca81893e50c884b23f3a7f3e7a7f71cbb2f9798",
+    "artifacts/contracts/tail_put25_strategy/101121__107544/rl_sized/full/daily_nav.parquet": "770c9d4e1ff244cfb9aed500c84082be86fd4c6b55e3c51a0e30a4d2d40508c8",
+    "reports/tail_put25_strategy/fits.csv": "dfdd7e033bc2b6966ed32e694efaed701903b1143f277006f933553b06632e2a"
+  },
+  "source_ledgers_verified": true,
+  "output_sha256": {
+    "reports/tail_put25_rl_diagnosis/enabled_fit_statistics.csv": "11290c664177fe4647cc0159fdc29d13c5d3a2891fc3acfcf9e2c789813ab5a2",
+    "reports/tail_put25_rl_diagnosis/pair_ledger_breakdown.csv": "b8b80b7b76831313fc841cdfff666d00e0df4e03221f41b6fb571e2b93a7867c",
+    "reports/tail_put25_rl_diagnosis/findings.txt": "d61ccc26105965b3eb6e14ac413c8fec9b21dbafbe49228d8070745ac21a17a2"
+  }
+}

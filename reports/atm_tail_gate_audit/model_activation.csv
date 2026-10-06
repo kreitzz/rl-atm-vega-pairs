@@ -1,0 +1,13 @@
+strategy,status,months,pairs
+atm_rl,enabled,522,67
+atm_rl,flat_no_validation_opportunities,2628,106
+atm_rl,flat_validation_gate,1531,95
+atm_rl,insufficient_training,605,41
+tail_free_rl,enabled,132,16
+tail_free_rl,flat_no_validation_opportunities,872,34
+tail_free_rl,flat_validation_gate,308,23
+tail_free_rl,insufficient_training,3841,109
+tail_sizing_rl,enabled,64,5
+tail_sizing_rl,fallback_insufficient_training,3841,109
+tail_sizing_rl,fallback_no_validation_opportunities,1017,36
+tail_sizing_rl,fallback_validation_no_improvement,231,19

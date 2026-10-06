@@ -1,0 +1,16 @@
+{
+  "CHART_GUIDE.txt": "2d4667955974fd035ea2812c263af810911b2e68ef7f6100d83afcf1acba51f2",
+  "audit.json": "f31edfc66fc0be09beb74575dfe2a00687db03603ba37d92456a571822b4e021",
+  "common_proposals_and_decisions_10m.csv": "79bd1dc4e48ae997679d79b3105e6decebfa14315d166ee45439748b73c2feb1",
+  "cumulative_performance_10m.csv": "1cf1e24a27263d63c39225a7d1d6be67ad03cdc78da8f23727aeef2e58fa0e94",
+  "daily_pnl_and_returns_10m.csv": "cba4083ca0bc65f3463b3daae2e936b0a4036b5faf4211563f00b2b7c3321c7c",
+  "development_progression_original_reference.csv": "11e816303f82e9a2e0aab2e793e4e5adbcaf974227406e1a5236f0fa33b5779c",
+  "example_amd_nvda_iv_spread_daily.csv": "4811e286d43ce8fc22ac997a291deb90184fe608e6e06d8e2930fa3708dfe88c",
+  "example_amd_nvda_proposals_and_entries.csv": "3c34366e58aca22ed829393ddd9a456a90491f23bc01de1ff22e13d3b1283b8e",
+  "main_sizing_comparison_10m.csv": "932862e41dfb9797a68f725d3a51321640cd7a7bb01f25e8286e69bf11d1891e",
+  "sources/initial_train_walk_forward.csv": "e56002f4820cc957448ad5c084a78ab8c16a39e522321eee5a34e931135ba1aa",
+  "sources/p25_capital_sensitivity_comparison.csv": "3aabf0133886aff15f0bfeadb54da455d73168c840f614b9572003f57d914332",
+  "sources/retained_strategy_configuration.json": "5ae66336de59b5e8f18cf51a0ec051d2ee53d510cfa66cd80302d2360f268b6d",
+  "teammate_paper_slides.pdf": "093f87943c509606a2bf0c47932d9bb0a165781fba29fa7f1903fd3818ddaef6",
+  "yearly_results_10m.csv": "5ccae502c6a26a8e9eaa7b137bc27f28ce3e36b4849f0c1cbeb9b37c1cde2929"
+}

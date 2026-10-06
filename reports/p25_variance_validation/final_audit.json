@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "output_hashes_verified": 4515,
+  "tests_run": 19,
+  "tests_passed": true,
+  "candidate_sharpe": 1.0063047056719723,
+  "all_seeds_same_cash_book": true,
+  "original_checkpoint_hash_preserved": "46f4ff6c57a86267e37579d058c16427c6f8b18186d2fac23d50c8961b93b9b0",
+  "peak_rss_bytes": 301989888,
+  "input_rows": 36327,
+  "model_fields": 33,
+  "changed_proposal_levels": 52,
+  "changed_decision_statuses": 29,
+  "worst_daily_cash_excess_pnl": -21698.36298263073,
+  "max_excess_drawdown": -46012.450035095215,
+  "methodology": "Annualized daily cash-excess; previously explored history; no selection correction"
+}

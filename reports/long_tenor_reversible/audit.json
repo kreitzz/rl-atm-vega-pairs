@@ -1,0 +1,16 @@
+{
+  "all_original_checkpoints_unchanged": true,
+  "full_history_fork_hold_controls_reproduced": true,
+  "restored_inventory_at_most_original_half_size": true,
+  "restores_risk_checked_atomically": true,
+  "restore_increment_vega_tolerance": 0.1,
+  "costs_and_risk_limits_unchanged": true,
+  "all_529_proposals_explicit": true,
+  "completed_weekly_steps_purged": true,
+  "shared_activation_minimum": "16 cohorts and 128 unique observed weekly transitions, independent of action augmentation",
+  "training_global_context": "Historical fixed50 reference book; inference uses live book. Counterfactual training does not jointly resimulate other cohorts.",
+  "training_shadow": "Fractional isolated hedges; actual evaluation integer shared cash",
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 675987456
+}

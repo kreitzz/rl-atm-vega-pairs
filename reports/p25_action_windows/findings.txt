@@ -1,0 +1,81 @@
+                 model      kind  annualized_excess_sharpe  selection_2018_2023_sharpe  recent_2024_2025_sharpe  entries  active_pairs  learned_skips  mean_entered_size  net_excess_pnl  worst_daily_excess_pnl
+              1Y_floor     model                  0.855190                    1.162824                -0.327885      211            42              0           0.636256   283336.468388           -23812.588603
+             1Y_binary     model                  0.847052                    1.152077                -0.327885      213            42              0           0.631455   281006.244639           -23812.910605
+              5Y_floor     model                  0.825623                    1.108878                -0.366274      200            42              0           0.646250   262872.856615           -24857.941165
+             5Y_binary     model                  0.816247                    1.127619                -0.366274      199            42              0           0.648241   237717.035362           -24861.417317
+            1Y_quarter     model                  0.816234                    1.062866                -0.056197      279            42              0           0.407706   223406.498703           -24070.134369
+             fixed_100     fixed                  0.756932                    0.957162                -0.112832      134            40              0           1.000000   266316.555691           -25614.824017
+            3Y_quarter     model                  0.718599                    1.008990                -0.325333      289            43              0           0.410035   208507.588793           -33223.793103
+              3Y_floor     model                  0.707116                    1.033354                -0.460162      207            43              0           0.648551   224804.599633           -25617.031437
+             3Y_binary     model                  0.705680                    1.031417                -0.460162      207            43              0           0.647343   224399.216735           -25617.084315
+            5Y_quarter     model                  0.618941                    1.040652                -0.638369      261            44              0           0.427203   157271.888635           -24591.355653
+               3Y_flex     model                  0.550721                    0.733744                 0.116264      124            27            330           0.491935   109048.089894           -25637.135180
+3Y_flex_same_skip_full same_skip                  0.461922                    0.569280                 0.074857       70            26            330           1.000000   111368.650603           -25636.500938
+               5Y_flex     model                  0.429584                    0.798333                -0.679540      134            32            312           0.486940    94192.878441           -32416.547111
+5Y_flex_same_skip_full same_skip                  0.399934                    0.860523                -0.806694       72            30            312           1.000000    82430.055338           -24308.471613
+1Y_flex_same_skip_full same_skip                  0.388938                    0.513039                 0.029591       69            27            318           1.000000    86961.305624           -24311.123328
+               1Y_flex     model                  0.328738                    0.633578                -0.313593      129            28            318           0.434109    58449.137381           -31993.014197
+
+                 model     period  annualized_excess_sharpe
+             1Y_binary 2018to2020                  0.665494
+             1Y_binary 2021to2023                  1.532580
+             1Y_binary 2024to2025                 -0.327885
+               1Y_flex 2018to2020                  0.101739
+               1Y_flex 2021to2023                  0.995804
+               1Y_flex 2024to2025                 -0.313593
+1Y_flex_same_skip_full 2018to2020                 -0.053307
+1Y_flex_same_skip_full 2021to2023                  1.079361
+1Y_flex_same_skip_full 2024to2025                  0.029591
+              1Y_floor 2018to2020                  0.681758
+              1Y_floor 2021to2023                  1.538738
+              1Y_floor 2024to2025                 -0.327885
+            1Y_quarter 2018to2020                  0.448312
+            1Y_quarter 2021to2023                  1.522721
+            1Y_quarter 2024to2025                 -0.056197
+             3Y_binary 2018to2020                  0.603285
+             3Y_binary 2021to2023                  1.357309
+             3Y_binary 2024to2025                 -0.460162
+               3Y_flex 2018to2020                  0.091469
+               3Y_flex 2021to2023                  1.118657
+               3Y_flex 2024to2025                  0.116264
+3Y_flex_same_skip_full 2018to2020                  0.063081
+3Y_flex_same_skip_full 2021to2023                  0.846608
+3Y_flex_same_skip_full 2024to2025                  0.074857
+              3Y_floor 2018to2020                  0.607890
+              3Y_floor 2021to2023                  1.357309
+              3Y_floor 2024to2025                 -0.460162
+            3Y_quarter 2018to2020                  0.519396
+            3Y_quarter 2021to2023                  1.332836
+            3Y_quarter 2024to2025                 -0.325333
+             5Y_binary 2018to2020                  0.678724
+             5Y_binary 2021to2023                  1.475022
+             5Y_binary 2024to2025                 -0.366274
+               5Y_flex 2018to2020                  0.290400
+               5Y_flex 2021to2023                  1.100416
+               5Y_flex 2024to2025                 -0.679540
+5Y_flex_same_skip_full 2018to2020                  0.161504
+5Y_flex_same_skip_full 2021to2023                  1.273291
+5Y_flex_same_skip_full 2024to2025                 -0.806694
+              5Y_floor 2018to2020                  0.678724
+              5Y_floor 2021to2023                  1.423917
+              5Y_floor 2024to2025                 -0.366274
+            5Y_quarter 2018to2020                  0.452794
+            5Y_quarter 2021to2023                  1.422758
+            5Y_quarter 2024to2025                 -0.638369
+             fixed_100 2018to2020                  0.562541
+             fixed_100 2021to2023                  1.373761
+             fixed_100 2024to2025                 -0.112832
+
+{
+  "predeclared_selection_period": "2018-2023",
+  "selected_model": "1Y_floor",
+  "selected_early_sharpe": 1.1628240856989378,
+  "selected_recent_sharpe": -0.32788504548983455,
+  "selected_full_sharpe": 0.8551898240238078,
+  "descriptive_full_history_best": "1Y_floor",
+  "descriptive_full_best_sharpe": 0.8551898240238078,
+  "no_checkpoint_promotion": true,
+  "no_fresh_holdout": true
+}
+
+Freeze the .8256229208692676 approximately30D25-delta put strategy: same608 pair/date/contract/direction proposals,original formation calendar, beta0.85-1.15/correlation>=0.5 and directional-profit screens,same27 features,monthly refits and8-leaf tree with same adaptive minleaf. Declared1/3/5-year completed-outcome windows x50/100,50/75/100, 25/50/75/100,and0/25/50/75/100 action menus. Same direct-Sharpe CEM 50x192 seed2026,full-size anchor,and full-size global fallback under16 training rows. Window cutoff uses signal date and outcomes must end strictly before fit. All5Y floor monthly trees/choices must reproduce frozen models;5Y floor NAV,trades,decisions must reproduce checkpoint. Learned zero actions are explicit decisions among all608 proposals, never silently removed. Saved0.65 training labels;actual0.03 commission, mid+.1volpoint,stockhedge1bp,financing/borrow/dividends,matched entry vega,daily deltahedges,own expiry,and all original risk budgets unchanged. Fixed100 control and one fixed100 same-learned-skip control for each flex window distinguish skip selection from sizing;entry risk eligibility can still differ by size. No new signals,pairs,wing,expiry,exit policy, inventory overlay,NN,or seed search. Predeclare selection on2018-2023 cash-excess Sharpe among the12 variants,then report2024-partial2025 and full history separately. All are previously inspected history, retrospective roster/calendar conditioning;no fresh holdout. One worker,50%of onecore,oneBLAS/Arrow thread,3GiB RSS stop.

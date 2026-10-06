@@ -1,0 +1,42 @@
+{
+  "status": "complete",
+  "unit_tests": 10,
+  "cases": [
+    {
+      "case": "capital_policy",
+      "decisions": 608,
+      "all_prior_states_verified": true,
+      "maximum_state_error": 1.862645149230957e-09
+    },
+    {
+      "case": "constant0.5",
+      "decisions": 608,
+      "all_prior_states_verified": true,
+      "maximum_state_error": 1.862645149230957e-09
+    },
+    {
+      "case": "constant1",
+      "decisions": 608,
+      "all_prior_states_verified": true,
+      "maximum_state_error": 1.862645149230957e-09
+    },
+    {
+      "case": "constant2",
+      "decisions": 608,
+      "all_prior_states_verified": true,
+      "maximum_state_error": 1.862645149230957e-09
+    },
+    {
+      "case": "constant4",
+      "decisions": 608,
+      "all_prior_states_verified": true,
+      "maximum_state_error": 1.862645149230957e-09
+    }
+  ],
+  "all_five_books_states_match_previous_close": true,
+  "all_608_learned_actions_recomputed": true,
+  "capital_state_changes_proposed_actions": 83,
+  "capital_state_changes_entered_actions": 24,
+  "latest_training_outcome_precedes_each_fit": true,
+  "earliest_trained_fit": "2019-07-01"
+}

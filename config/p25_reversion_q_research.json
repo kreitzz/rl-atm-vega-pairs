@@ -1,0 +1,22 @@
+{
+  "experiment": "paper-inspired actual-contract entry and exit timing",
+  "checkpoint_promotion": false,
+  "option_configuration": "approximately 30D 25-delta puts, paired type, entry-vega matched, daily delta hedges",
+  "evaluation": "2018-01-02 through 2025-08-29; all history previously researched",
+  "entry_candidate_universe": "all 17967 cached evaluation candidates, 125 pairs; original formation context and beta/correlation requirements retained; rank and profitability vetoes removed",
+  "matched_comparison": "all 608 original proposals; learned entry directions and skips may differ",
+  "entry_actions": "flat or either orientation, fixed100 versus sized50/75/100",
+  "management_actions": "hold or close both surviving legs; decide after close, fill next session",
+  "retraining": "monthly 18M scheduled-expiry-completed cohorts; minimum32 cohorts",
+  "learner": "pooled categorical batch fitted-Q, 40 Bellman iterations, daily gamma0.99",
+  "reward": "actual historical marginal daily cash-excess option and hedge PnL; utility r-0.25*r^2/(2*training-only std)",
+  "state": "four recent IV-spread moves, prior126-session spread valuation, prior excursion reversion reliability, inventory orientation, initial size, age",
+  "training_commission": 0.65,
+  "evaluation_commission": 0.03,
+  "execution_vol_points_per_leg": 0.1,
+  "stock_hedge_cost_bps": 1,
+  "equity": 10000000,
+  "risk_limits": "unchanged retained account and pair budgets",
+  "cases": ["matched_q_fixed_managed", "matched_q_sized_managed", "universe_q_fixed_managed", "universe_q_sized_managed", "universe_q_fixed_hold", "universe_q_sized_hold"],
+  "resources": {"workers": 1, "cpu_core_fraction": 0.5, "rss_limit_gib": 3}
+}

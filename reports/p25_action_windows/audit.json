@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "declared_variants": 12,
+  "replays": 16,
+  "monthly_models": 1080,
+  "original90_floor_models_reproduced": true,
+  "original_NAV_trades_decisions_reproduced": true,
+  "fixed100_control_reproduced": true,
+  "all608_signal_decisions_preserved": true,
+  "learned_skips_explicit": true,
+  "all_training_outcomes_before_fit": true,
+  "no_checkpoint_promotion": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 482689024
+}

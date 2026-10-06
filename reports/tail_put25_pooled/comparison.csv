@@ -1,0 +1,3 @@
+model,period,status
+ungated_spread,full,incomplete
+pooled_rl_sized,full,incomplete

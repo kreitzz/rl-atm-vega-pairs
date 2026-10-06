@@ -1,0 +1,10 @@
+Academic use only.
+
+The datasets in this repository contain derived research inputs and selected
+licensed market data. OptionMetrics, CRSP, Compustat, Revelio and other source
+data remain subject to their vendor and institutional agreements. This notice
+does not grant additional redistribution or commercial-use rights.
+
+Keep this repository private. Recipients must have the applicable institutional
+permissions to use the underlying data. No third-party data license is replaced
+by the academic-use notice in the README.

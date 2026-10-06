@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "models": 720,
+  "replays": 12,
+  "all608_proposals_preserved": true,
+  "all_ledgers_verified": true,
+  "outcomes_strictly_before_fit": true,
+  "peak_rss_bytes": 211091456,
+  "original90_candidate_allocations_and_cash_book_exact": true
+}

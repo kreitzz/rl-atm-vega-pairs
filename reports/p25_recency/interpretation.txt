@@ -1,0 +1,36 @@
+Selected 18M_floor: annualized cash-excess Sharpe 0.961745, 208 entries, 44 active pairs and $304,285.99 above cash.
+Ranked first using2018-2023 only: 1.224369. 2024-partial2025 remains negative: -0.250337.
+
+The18-month50/75/100 policy improves full-history Sharpe versus12-month and5-year. Other lookbacks,75% minimum size and recency weighting did not improve the12-month reference. Versus12-month,18-month earns about$21k more above cash; gains in2018/2019/2022/2023 and smaller2024 losses offset worse2020/2021/partial2025 dollar P&L.2024 loss falls from$31.5k to$16.4k but its Sharpe is still-.919;2021 Sharpe deteriorates from-.161 to-.569. Worst daily excess loss falls from$23.8k to$21.7k. No consistent improvement in every year.
+
+Identical proposals,features,costs and risk budgets. Sizes change both individual exposure and subsequent risk-limit admission:208 versus211 entries,44 versus42 active pairs. Thus this is the executable sizing policy comparison,not identical accepted-trade sets. Both learn only50/75/100 sizes;no learned skips.
+
+Paired126-session block-bootstrap95% uplift interval versus12-month spans zero. The interval versus5-year excludes zero,but neither interval adjusts for repeated research/model selection. This is a new best research candidate,not fresh holdout confirmation;original checkpoints and the previous12-month candidate remain intact. The allocator is the existing contextual tree/direct-Sharpe sizing optimizer,not a newly trained sequential inventory policy.
+
+         model      kind  annualized_excess_sharpe  selection_2018_2023_sharpe  recent_2024_2025_sharpe  entries  active_pairs  net_excess_pnl  mean_entered_size  worst_daily_excess_pnl
+     18M_floor     model                  0.961745                    1.224369                -0.250337      208            44   304285.994757           0.646635           -21698.843211
+     12M_floor     model                  0.855190                    1.162824                -0.327885      211            42   283336.468388           0.636256           -23812.588603
+  5Y_reference reference                  0.825623                    1.108878                -0.366274      200            42   262872.856615           0.646250           -24857.941165
+       36M_hl6     model                  0.794904                    1.110922                -0.443761      201            41   263198.014616           0.650498           -23770.887305
+       12M_hl6     model                  0.789608                    1.143290                -0.517107      209            41   267903.691380           0.630383           -33867.565267
+      6M_floor     model                  0.785523                    0.986969                -0.104906      200            43   285082.583577           0.667500           -28506.756583
+12M_high_floor     model                  0.784684                    1.023959                -0.193308      158            42   273781.858807           0.851266           -23157.205674
+      9M_floor     model                  0.770670                    1.115494                -0.522096      202            43   260338.486073           0.655941           -30744.326568
+     24M_floor     model                  0.757383                    1.043991                -0.347223      201            42   252464.639374           0.659204           -33869.517857
+     fixed_100     fixed                  0.756932                    0.957162                -0.112832      134            40   266316.555691           1.000000           -25614.824017
+      36M_hl12     model                  0.667979                    0.990938                -0.666630      194            42   225642.132924           0.676546           -25615.398811
+
+model  12M_floor  18M_floor  5Y_reference  fixed_100
+year                                                
+2018   -0.008776   0.520077      0.240564   0.182250
+2019   -0.640178  -0.544831     -0.554727  -0.516602
+2020    1.464515   1.556414      1.381517   1.102225
+2021   -0.161350  -0.569005     -0.592064   0.021360
+2022    2.368391   2.465962      2.274119   2.199733
+2023    1.504995   1.507347      1.501287   1.118193
+2024   -1.064448  -0.918688     -0.833752  -0.807132
+2025    1.149858   1.057756      0.736250   1.110410
+
+2025 is partial through August29;last signal June30;own-expiry runoff.
+
+Nine declared policies (eight new plus exact12M floor control):6/9/12/18/24 month windows with50/75/100 sizing;12month75/100;12month6month half-life; 36month6/12month half-life. Recency weighting applies to tree signal-date weights and daily training-book mean/covariance. Same8leaf tree,minleaf, CEM50x192 seed2026,full-size anchor/fallback and monthly refits. Completed outcomes strictly before fit,signal date within lookback. Preserve original 608P25 proposals,27features,approximately30D25delta puts,entry vega matching,daily delta hedging,own expiry,costs(.65 training,.03 actual commission,mid+.1volpoint,1bp stock),financing and original risk budgets. No learned skips,new risk features,seed search,exits or wings. Sizes can change which overlapping entries pass risk limits. Exact12M baseline model/NAV/trades/decisions reproduction required;fixed100 also reproduced. Ranking specified before fitting uses2018-2023 cash-excess Sharpe;report 2024-partial2025,annuals and full-history separately. Previously inspected history and retrospective roster/calendar conditioning;no fresh holdout or automatic checkpoint promotion. One worker,50%one core,3GiB RSS stop.

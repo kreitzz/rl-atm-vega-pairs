@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "sources_verified": 723,
+  "protected_files_verified": 9061,
+  "elapsed_seconds": 55.50539474998368,
+  "peak_rss_bytes": 609075200,
+  "attribution_limit": "Unpaired-session P&L is a diagnostic bucket at pair-book level, not isolated single-leg or Greek P&L; paired cohorts can overlap those dates. Entry neutrality and daily net-vega statistics do not establish market-vol-factor neutrality. No retraining; the new replay restores only the historical completed-profit/count filter on the same broad signal calendar, quotes, initial vega sizing, costs and lifecycle handling."
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "config/p25_reversion_q_research.json",
+  "reward_followup": "Also test risk_penalty0 (plain actual PnL), since initial risk_penalty0.25 admits very few new entries",
+  "management_only_control": "Retain frozen original entry directions and 50/75/100 sizing; learn paired exits only",
+  "training_correction": "Model version2 learns attempted exits including failed next-session fills; failed fills retain inventory, held PnL and continuation value",
+  "prior_runs": "Preserved in initial models/replays; excluded from final comparison and retained in preliminary_comparison.csv",
+  "no_checkpoint_change": true,
+  "all_other_costs_and_risk_limits_unchanged": true,
+  "no_fresh_holdout": true
+}

@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "roster": 345,
+  "unresolved": [],
+  "fitting_features": "47 adapted ATM state definitions, plus put spread rank and a reversion-availability flag; original employee features on original 28 sleeves",
+  "nn_refits": 0,
+  "monthly_fits_logged": 5153,
+  "enabled_monthly_refits": 64,
+  "main_sources_verified": 325,
+  "market_sources_verified": 4975,
+  "frozen_files_verified": 2661,
+  "prior_tail_files_verified": 2881,
+  "reference_archive_verified": true,
+  "elapsed_seconds": 376.41314533300465,
+  "peak_rss_bytes": 646840320,
+  "allocation": "Separate $1m sleeves for each original pair, matching ATM reference. Risk limits applied per sleeve, not cross-sleeve netting. No strategy stacking.",
+  "limitations": "Inspected history; sample correlations were not portfolio Sharpe. RL optimizer uses additive standalone shadow labels, validated and evaluated with actual capped inventory. No new holdout. Puts use existing European BS marks; early-exercise/assignment is not modeled. Initial vega neutrality, daily delta hedging, own-expiry hold; no ongoing option-vega rebalance or forced risk exit.",
+  "control_daily_portfolios_reproduced": true,
+  "control_entries_pnl_sharpe_reproduced": true,
+  "all_actions_keep_rule_direction": true,
+  "all_actions_no_larger_than_rule": true
+}

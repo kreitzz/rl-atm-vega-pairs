@@ -1,0 +1,168 @@
+{
+  "source_files_verified": 457,
+  "frozen_source_files_verified": 2661,
+  "baseline_archive_sha256_verified": true,
+  "reconstructed_signal_panels": 139,
+  "retrained_pairs": 110,
+  "monthly_controls_verified": 4867,
+  "original_state_columns_unchanged": true,
+  "training_outcomes_strictly_purged": true,
+  "feature_universe_independent_of_future_payoffs": true,
+  "fixed_seed": 2026,
+  "nn_refits": 0,
+  "accounting": {
+    "requested_pairs": 345,
+    "unresolved": [],
+    "complete_by_model_period": {
+      "rl_baseline": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_downside": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_iv_factor": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_both": {
+        "full": 345,
+        "recent": 345
+      }
+    }
+  },
+  "entry_coverage": {
+    "rl_both": {
+      "entries_all_inputs": 69,
+      "entries_missing_inputs": 162
+    },
+    "rl_downside": {
+      "entries_all_inputs": 240,
+      "entries_missing_inputs": 0
+    },
+    "rl_iv_factor": {
+      "entries_all_inputs": 63,
+      "entries_missing_inputs": 152
+    }
+  },
+  "feature_usage": [
+    {
+      "model": "rl_downside",
+      "signal": "downside_fraction",
+      "enabled_refits": 527,
+      "enabled_refits_using_value": 89,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_downside",
+      "signal": "iv_factor_reversion",
+      "enabled_refits": 527,
+      "enabled_refits_using_value": 0,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_downside",
+      "signal": "any_new_value",
+      "enabled_refits": 527,
+      "enabled_refits_using_value": 89
+    },
+    {
+      "model": "rl_iv_factor",
+      "signal": "downside_fraction",
+      "enabled_refits": 388,
+      "enabled_refits_using_value": 0,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_iv_factor",
+      "signal": "iv_factor_reversion",
+      "enabled_refits": 388,
+      "enabled_refits_using_value": 9,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_iv_factor",
+      "signal": "any_new_value",
+      "enabled_refits": 388,
+      "enabled_refits_using_value": 9
+    },
+    {
+      "model": "rl_both",
+      "signal": "downside_fraction",
+      "enabled_refits": 534,
+      "enabled_refits_using_value": 93,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_both",
+      "signal": "iv_factor_reversion",
+      "enabled_refits": 534,
+      "enabled_refits_using_value": 9,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_both",
+      "signal": "any_new_value",
+      "enabled_refits": 534,
+      "enabled_refits_using_value": 100
+    }
+  ],
+  "paired_quarter_differences": [
+    {
+      "universe": "all",
+      "model": "rl_downside",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.13899920715647288,
+      "difference_ci90_low": -0.2735832736269786,
+      "difference_ci90_high": 0.010406340164695257
+    },
+    {
+      "universe": "all",
+      "model": "rl_iv_factor",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.026363264630157385,
+      "difference_ci90_low": -0.07617044181575164,
+      "difference_ci90_high": 0.01949299491310558
+    },
+    {
+      "universe": "all",
+      "model": "rl_both",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.11142853851374966,
+      "difference_ci90_low": -0.24860541489092214,
+      "difference_ci90_high": 0.06802790151044392
+    },
+    {
+      "universe": "all",
+      "model": "rl_downside",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.07093163426351942,
+      "difference_ci90_low": -0.2148858611901224,
+      "difference_ci90_high": 0.12053436807667249
+    },
+    {
+      "universe": "all",
+      "model": "rl_iv_factor",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.04628162226040099,
+      "difference_ci90_low": -0.10904767821058015,
+      "difference_ci90_high": 0.010422989688034762
+    },
+    {
+      "universe": "all",
+      "model": "rl_both",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.04868250118788672,
+      "difference_ci90_low": -0.23815352076901528,
+      "difference_ci90_high": 0.22139888326568263
+    }
+  ],
+  "uncertainty_note": "Paired quarter resampling of inspected portfolio paths; descriptive, no policy refits or correction for signal selection."
+}

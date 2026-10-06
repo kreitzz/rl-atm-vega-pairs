@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "identical_structure_across_all_wings": true,
+  "no_retraining": true,
+  "fixed_common_model_and_gates": true,
+  "original_date_index_applied_identically": true,
+  "original_action_values_not_used": true,
+  "pairs": 345,
+  "retrospective_coverage_diagnostic": true,
+  "source_files_verified": 670,
+  "elapsed_seconds": 106.18368066701805,
+  "peak_rss_bytes": 1001979904
+}

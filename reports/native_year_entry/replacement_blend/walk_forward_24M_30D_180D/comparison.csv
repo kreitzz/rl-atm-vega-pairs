@@ -1,0 +1,9 @@
+case,period,annualized_excess_sharpe,start,end,sessions
+rolling24M_quarterly,full_including_equal_warmup,0.9899347218728807,2018-01-03,2025-08-29,1925
+rolling24M_quarterly,after_allocation_warmup,1.1867010169760472,2020-01-02,2025-08-29,1423
+equal_weights,full_including_equal_warmup,1.0285712856289915,2018-01-03,2025-08-29,1925
+equal_weights,after_allocation_warmup,1.2432388807080326,2020-01-02,2025-08-29,1423
+30D_only,full_including_equal_warmup,1.029493374266753,2018-01-03,2025-08-29,1925
+30D_only,after_allocation_warmup,1.231966708809364,2020-01-02,2025-08-29,1423
+180D_only,full_including_equal_warmup,0.6100278907229726,2018-01-03,2025-08-29,1925
+180D_only,after_allocation_warmup,0.7481445964481402,2020-01-02,2025-08-29,1423

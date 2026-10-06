@@ -1,0 +1,30 @@
+{
+  "status": "research_candidate",
+  "model": "18M_floor",
+  "reference_checkpoint": "config/p25_frozen_strategy_checkpoint.json",
+  "previous_candidate": "config/p25_action_window_candidate.json",
+  "models": "artifacts/contracts/p25_recency/models/18M_floor",
+  "replay": "artifacts/contracts/p25_recency/replays/18M_floor",
+  "training_window_months": 18,
+  "half_life_months": null,
+  "sizing_actions": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "retrain_frequency": "monthly",
+  "signals_features_costs_and_holding": "Unchanged from frozen reference",
+  "annualized_cash_excess_sharpe": 0.9617449126497056,
+  "net_excess_pnl": 304285.99475723505,
+  "entries": 208,
+  "active_pairs": 44,
+  "selected_using": "Predeclared2018-2023 cash-excess Sharpe across nine declared policies",
+  "selection_period_sharpe": 1.2243690291370952,
+  "recent2024_2025_sharpe": -0.25033748391195965,
+  "no_fresh_holdout": true,
+  "original_and_one_year_checkpoints_preserved": true,
+  "paired126_session_bootstrap95pct_interval_vs_one_year": [
+    -0.056444216313289636,
+    0.2851708651891992
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "scripts/diagnose_p25_transfer.py": "10bb2a3bcc0ccd0c808762f0f428d81421c0b66ceeb0f1faa4c3d448751490f4",
+  "reports/p25_signal_transfer_diagnostics/shadow_matched_outcomes.csv": "371a05cdd822a8a84e87c9cfd779c9b1c31fc5f99834dab201abd2c183674b3c",
+  "reports/p25_signal_transfer_diagnostics/P75_matched_pair_shadow_pnl.csv": "7eafc1636e8bdf8b7f78e139c5e6297bfa39a7506edcf822562c9accf0731191",
+  "reports/p25_signal_transfer_diagnostics/audit.json": "124682893d74f507fd32b4e9984dc60ef5289843447aaf816a939863e82f34dd",
+  "reports/p25_signal_transfer_diagnostics/ATM_matched_pair_shadow_pnl.csv": "5af31cae37bb934ccd15c2726074381349b8e0d65330f51e12e86959f6c241a0",
+  "reports/p25_signal_transfer_diagnostics/exposures.csv": "1d152606d313d9319339ae6bcb9606eafcaec2a20300ad3da00f29a82793ae91",
+  "reports/p25_signal_transfer_diagnostics/decisions.csv": "16e61fc2b5ac34364a4190c02ed2a1c68241f384a80b593158b3b02d0821b065",
+  "reports/p25_signal_transfer_diagnostics/pnl_components.csv": "87e009a0da9e09be50a818e9cbbd71a59035c09b0a3c07d6316864f518df2170",
+  "reports/p25_signal_transfer_diagnostics/native_signal_agreement.csv": "5d3b111ca7f95eafecdfb88acedb6f2d6973f707b1d32e22ce2b4f267834e2b8",
+  "reports/p25_signal_transfer_diagnostics/matched_outcome_summary.csv": "818a62fb91865fd1f7b5553e637bca80fb1f77ac47918ea2fe4cf6f3746a2bf2",
+  "reports/p25_signal_transfer_diagnostics/findings.txt": "548a96efaca79e323c88ac77eff7b92b79e8575e01bfd0541eb3f3c5415ca0aa",
+  "reports/p25_signal_transfer_diagnostics/annual_pnl_components.csv": "52fc73a9bd2b32d3bf769237174da65e55623aff5e424434a24972f0e53eb629"
+}

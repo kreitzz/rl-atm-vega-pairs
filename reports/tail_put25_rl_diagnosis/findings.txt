@@ -1,0 +1,15 @@
+25-delta RL loss diagnosis — October 2, 2026
+
+Full actual P&L above cash: -$12,909.84 from 43 entries across six pairs.
+Gross option + stock hedge + dividend P&L before transaction costs, stock borrow and excess financing: -$5,987.59.
+Option execution costs: $1,811.04; stock execution costs: $2,642.96; stock borrow: $562.37; interest below cash: $1,905.87.
+Option and stock hedge P&L after execution costs sum to +$2,539.68, but omit stock dividend cash of -$12,981.28. Including dividends is necessary for correct total hedged P&L; this is not a new fee.
+Largest pair losses: AMD/NVDA -$8,338.76, BAC/C -$7,500.11, C/WFC -$3,865.53. Positive AMD/MU and BAC/WFC partially offset them.
+C/WFC includes a $13,309 stock-hedge dividend payment on May 7, 2020, while short roughly 26,000 WFC shares. Price changes, option marks and dividend cash must be evaluated together; subtracting the payment alone does not establish dividend avoidance alpha.
+Enabled proposal training shadow Sharpe median 0.885; prior-year actual validation median 0.536; final refit training shadow median 0.914. These are repeated pair-month fit scores, not an aggregate portfolio training/validation Sharpe or independent observations.
+The fit optimizes additive overlapping standalone cohort paths. It does not train inside the full inventory engine or apply the profitability gate inside its objective. Those gates and risk/inventory limits are applied at validation and deployment. This is an objective mismatch; its causal effect has not been isolated.
+After successful validation, a new model is fitted on more recent data before deployment. The validated and deployed policy can differ; this is the inherited walk-forward procedure.
+RL entries: 19 where the rule is flat, nine opposite the raw extreme-spread direction, 15 agreeing. Opposite raw-rule directions also fail its shared profitability gate, so the gated rule skips those dates.
+3,841/5,153 monthly logs lack 504 valid training rows. 132 enabled refits, but only six actually filled pairs; the rule filled 41.
+The profitable 0.711 rule also uses historical profitability gates. Current results do not establish that removing gates improves Sharpe.
+No refits, counterfactual trades or changes to existing result snapshots were performed for this diagnosis. Saved source ledgers are hash-verified; P&L components reconcile to actual final excess P&L.

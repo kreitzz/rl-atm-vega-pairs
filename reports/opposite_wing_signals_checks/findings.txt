@@ -1,0 +1,42 @@
+Opposite-wing signal exploration, 2018 through August2025. All Sharpes are annualized daily excess over cash.
+
+                   model  entries  active_pairs  annualized_excess_sharpe  net_excess_pnl
+              P75_spread      278            47                  0.130719    90660.134380
+P75_spread_native_memory       21            14                  0.039255     5256.412913
+              C25_spread     1385            90                 -0.002686    -7500.253518
+C25_spread_native_memory      153            44                  0.038188    21996.390096
+
+Directional correlations are equal-pair within-pair rank associations with completed, standalone delta-hedged contract outcomes; negative means the lower signal favors long A / short B. These are descriptive associations, not incremental strategy returns.
+silo            period                 feature       rho   partial  pairs    ci_low   ci_high
+ P75 pre2022_completed             wing_iv_gap -0.088938 -0.072614     54 -0.136860 -0.040848
+ P75 pre2022_completed     right_steepness_gap -0.021099 -0.087409     26 -0.090511  0.047827
+ P75 pre2022_completed           wing_term_gap  0.134281  0.206039      2 -0.083008  0.322192
+ P75 pre2022_completed       risk_reversal_gap -0.031083  0.023167     34 -0.112095  0.058923
+ P75 pre2022_completed             har_vrp_gap -0.001176  0.010274     54 -0.073348  0.061223
+ P75 pre2022_completed vol_factor_residual_gap -0.238603       NaN      4 -0.807320 -0.173055
+ P75  2022plus_entries             wing_iv_gap -0.123799 -0.098106     70 -0.166248 -0.091589
+ P75  2022plus_entries     right_steepness_gap -0.099742 -0.098728     30 -0.158299 -0.042247
+ P75  2022plus_entries           wing_term_gap  0.268901       NaN      2 -0.068373  0.625721
+ P75  2022plus_entries       risk_reversal_gap -0.081957 -0.054546     45 -0.140753 -0.024096
+ P75  2022plus_entries             har_vrp_gap -0.068503 -0.053540     70 -0.103873 -0.034567
+ P75  2022plus_entries vol_factor_residual_gap -0.104878 -0.254172     16 -0.165497 -0.050182
+ C25 pre2022_completed             wing_iv_gap -0.119887 -0.119911     73 -0.144600 -0.092715
+ C25 pre2022_completed     right_steepness_gap -0.054094 -0.050651     40 -0.110082  0.001864
+ C25 pre2022_completed           wing_term_gap  0.053346  0.082211     23 -0.028724  0.125954
+ C25 pre2022_completed       risk_reversal_gap -0.093477 -0.061295     56 -0.144126 -0.026808
+ C25 pre2022_completed             har_vrp_gap -0.009082 -0.030444     73 -0.058210  0.034306
+ C25 pre2022_completed vol_factor_residual_gap -0.134438 -0.136814     50 -0.192349 -0.080522
+ C25  2022plus_entries             wing_iv_gap -0.124282 -0.146037     80 -0.180788 -0.076791
+ C25  2022plus_entries     right_steepness_gap -0.088588 -0.108515     40 -0.138046 -0.030296
+ C25  2022plus_entries           wing_term_gap  0.042713  0.069865     21 -0.000682  0.091717
+ C25  2022plus_entries       risk_reversal_gap -0.071607 -0.055490     61 -0.107279 -0.030255
+ C25  2022plus_entries             har_vrp_gap -0.043074 -0.040320     80 -0.105558  0.011186
+ C25  2022plus_entries vol_factor_residual_gap -0.108679 -0.130158     58 -0.165577 -0.068451
+
+Candidate priorities: C25 absolute wing-IV gap and market-vol-adjusted gap; risk reversal and right-wing steepness as small additions. Oriented absolute IV gap also has a consistent relationship to profitability conditional on the existing spread-rule direction. HAR-RV adds little stable evidence here; realized skew/kurtosis are unstable. Large P75 term correlations have only two qualifying pairs in each broad period and are unsuitable as a general sizing signal.
+
+The strongest P75 fixed-rule result turns negative after excluding its three biggest winning pairs. Both wings remain weak after native profitability memory. Low daily correlations with the .792 put25 policy are useful for investigation but do not establish a profitable combination. P75 and C25 are alternative implementations of the same upside wing, not independent smile sleeves. No new RL was fitted and no strategy combination was selected.
+
+Next experiment: a separate sizing-only learner per wing, with pair-level allocations and shared training where pair histories are short; a bounded ladder around the fixed rule, all observed states scored, optional-feature missing indicators and no model-availability activation veto. Evaluate whether smile/factor features add beyond absolute IV gap. Combine with ATM/put25 only after standalone sizing succeeds, replaying one common inventory book with shared-name risk limits.
+
+Limitations: inspected history, multiple comparisons and overlapping cohorts; chronological subsamples are not a new holdout. Frozen pair/calendar conditioning, initial vega neutrality only, daily delta hedging, no early assignment, no shared-name risk consolidation between current pair sleeves. Canadian dividends use a declaration-time fixed-FX approximation. Quote coverage is substantially thinner for P75. Corporate-action identifier correction is documented in artifacts/contracts/opposite_wing_signals/corporate_accounting.json; frozen .756/.792 references were flat in all affected pairs at that close.

@@ -1,0 +1,16 @@
+                      model period   status  pairs  entries  active_pairs  net_excess_pnl  max_excess_drawdown_dollars  commission   option_cost    hedge_cost  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+                frozen_rule   full complete  345.0    129.0          41.0   246969.223927                -67321.792757     1027.95  13405.523070  19887.480439      0.218884       0.000716                  0.711325     -0.000080
+             ungated_spread   full complete  345.0   1485.0         106.0   528209.952732                          NaN    12772.56 155913.162696 197875.331203      0.219699       0.001531                  0.347829     -0.000571
+            pooled_rl_sized   full complete  345.0   1015.0          87.0   274037.625495                          NaN     4657.53  41776.693203  51577.054254      0.218963       0.000794                  0.257615     -0.000336
+broad_rule_with_memory_only    NaN      NaN    NaN    202.0          57.0   149152.587998                          NaN         NaN  20897.690914  30260.358784      0.218601       0.000432                  0.333729     -0.000080
+    legacy_calendar_ungated    NaN      NaN    NaN    952.0          75.0   812297.504820                          NaN         NaN           NaN           NaN      0.220523       0.002354                  0.744043     -0.000121
+     legacy_calendar_memory    NaN      NaN    NaN    135.0          41.0   267264.695491                          NaN         NaN           NaN           NaN      0.218943       0.000775                  0.756451     -0.000080
+
+{
+  "status": "complete",
+  "no_training": true,
+  "sources_verified": 8991,
+  "elapsed_seconds": 160.9147875829949,
+  "peak_rss_bytes": 590561280,
+  "protocol": "Restrict the unchanged broad spread/rank signals to the saved legacy rule action-date index for each pair, with and without the completed-profit/count filter. Preserve broad rank history, broad profitability histories, beta screen, sizing, quotes, costs and repaired lifecycle accounting. This isolates the legacy pair/date coverage restriction, not an untouched out-of-sample selection test."
+}

@@ -1,0 +1,29 @@
+{
+  "status": "research_candidate",
+  "model": "1Y_floor",
+  "reference_checkpoint": "config/p25_frozen_strategy_checkpoint.json",
+  "models": "artifacts/contracts/p25_action_windows/models/1Y_floor",
+  "replay": "artifacts/contracts/p25_action_windows/replays/1Y_floor",
+  "training_window_years": 1,
+  "sizing_actions": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "retrain_frequency": "monthly",
+  "signals_features_costs_and_holding": "Unchanged from frozen reference",
+  "annualized_cash_excess_sharpe": 0.8551898240238078,
+  "net_excess_pnl": 283336.4683882594,
+  "entries": 211,
+  "active_pairs": 42,
+  "selected_using": "Predeclared2018-2023 cash-excess Sharpe across12 action/window variants",
+  "selection_period_sharpe": 1.1628240856989378,
+  "recent2024_2025_sharpe": -0.32788504548983455,
+  "sharpe_difference_vs_reference": 0.029566903154540247,
+  "paired126_session_bootstrap95pct_interval": [
+    -0.15297925492502515,
+    0.1835127782475781
+  ],
+  "no_fresh_holdout": true,
+  "original_checkpoint_preserved": true
+}

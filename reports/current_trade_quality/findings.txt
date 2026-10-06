@@ -1,0 +1,153 @@
+Executed-trade diagnostics of the frozen best RL checkpoint
+==========================================================
+
+Scope and accounting
+The primary sample is the saved continuous 2018-August 2025 reference path:
+224 entry cohorts, 29 traded pairs, 448 option legs. The reference annualized
+excess Sharpe remains 0.368 full period and 0.428 for the separately restarted
+recent period. This diagnostic does not refit a policy or modify the checkpoint.
+The three latest feature variants are analyzed separately, not pooled as
+independent observations. The full 345-pair roster remains intact.
+
+Leg and cohort figures below include actual option execution fees/slippage,
+allocated actual netted stock hedge execution costs and stock borrow. Shared
+sleeve financing is kept separate. These are contributions to the actual paired
+portfolio, not standalone executable strategies. pairs.csv and annual_pairs.csv
+include shared financing. Idle-year dollar interest on prior profits is not a
+new trade or a repeated successful signal.
+
+Actual delta hedges, splits, option marks and expiry cash settlements are
+reconstructed. Maximum daily portfolio accounting error is below $0.000001;
+maximum cohort accounting error is below $0.000000001. The reference archive
+and 2,661 checkpoint files were verified unchanged. The main pass took 46
+seconds and peaked at about 643 MiB, under the one-worker resource guard.
+
+What worked and failed
+1. GES/TJX: short GES contributed +$69,916 across 19 legs (all profitable);
+   long TJX contributed -$27,834. The paired trading contribution was +$42,082.
+   These entries belong to only two overlapping episodes. TJX longs against
+   AEO were profitable, so this is not evidence for a blanket TJX blacklist.
+
+2. RCL/NCLH: three February 2023 entries, one episode, contributed -$17,965:
+   long RCL -$13,905 and short NCLH -$4,060. Entry RCL IV was roughly 50-51
+   versus subsequent RV of 39-43; NCLH IV was 55-60 versus RV of 59-61.
+   Stock-return correlation was approximately 0.94. A comparatively lower-IV
+   long can still be expensive, and high stock correlation did not rescue it.
+
+3. THC/HCA: ten short-THC/long-HCA entries contributed -$17,606. Short THC
+   lost $26,109 while long HCA gained $8,503. Losses clustered in May and
+   October 2022; short THC IV of 45-57 was followed by RV of 62-77.
+   In October THC's own-history VRP z-score was strongly negative despite
+   its higher IV than HCA. However, negative own-history z also appeared in
+   successful trades, so that observation does not validate a simple cutoff.
+
+4. CENX/AA: long AA/short CENX earned +$14,979 in six entries across two
+   episodes; the reverse direction lost $8,929 in four March 2025 entries
+   in one episode. Each short CENX leg won; each reversed pair entry lost.
+   In the losing direction the signal dollar-gamma-per-vega long/short ratio
+   was approximately 0.70-0.73. Some long CENX legs lost despite forward RV
+   exceeding entry IV. Exact contract path and hedge exposure matter.
+
+5. HL/AG: the same direction gained $19,898 in a May-July 2022 episode and
+   lost $12,645 in a January-March 2023 episode. Name identity alone does
+   not define a permanently good or bad pair.
+
+Across all legs, shorts contributed +$191,527 and longs -$64,056 before shared
+financing. The profitable paired strategy depends heavily on short-vol income;
+the long legs often impose a hedging cost. This does not establish that removing
+the long hedges would improve risk-adjusted returns. Earlier single-leg policy
+experiments underperformed the reference.
+
+Concentration and reliability of memory
+The 224 cohorts collapse into 59 connected within-pair holding episodes.
+Episodes are still correlated across shared names and market events, not 59
+fully independent samples. The top three pairs account for 42.3% of positive
+pair net excess P&L. Nineteen winning short-GES entries are two episodes of
+evidence, not nineteen independent confirmations.
+
+Raw profitability memory was not monotonically helpful within the same pair.
+For later entries its within-pair rank association with P&L per initial vega was
+-0.07 for 91-day memory and -0.13 for 365-day memory in the follow-up analysis.
+These associations are conditional on executed trades, not causal effects.
+Overlapping outcomes and stale regimes are hypotheses to test, not proven
+explanations. Full-size entries averaged $1.52 net P&L per initial vega versus
+$2.95 at half size. The action ladder optimizes an objective; it is not a
+calibrated probability of a winning trade. These groups have different trades
+and regimes, so they do not establish that imposing a half-size cap helps.
+
+Entry signals with more interesting descriptive evidence
+The following correlations rank signal and realized net P&L/initial vega within
+each pair, then combine pairs with equal weight. No new policy is fitted.
+
+                                      pre-2022 completed     later entries
+Short IV minus long IV                      +0.203                +0.223
+Long/short dollar-gamma per vega ratio       +0.237                +0.210
+IV-change correlation versus own history    +0.092                +0.188
+IV/stock-correlation wedge versus history   +0.095                +0.117
+
+The early sample contains only 45 completed entries; the later sample has 178
+entries, with one boundary-spanning cohort in neither split. Six pairs qualify
+for the early within-pair correlations above and fourteen for the later ones.
+The history-normalized correlation variants were proposed after examining this
+history. These are exploratory associations, not fresh holdout validation or
+evidence of improved portfolio Sharpe. Gamma geometry is mechanically related
+to IV and tenor, so its incremental information also remains unproven.
+
+Stock beta closeness alone barely distinguished winners from losers: median
+absolute distance from one was 0.083 versus 0.086, within the already selected
+0.85-1.15 range. The promising IV-change result describes a pair becoming more
+correlated than usual; it does not say that the highest absolute-correlation
+pairs are best. No clear general entry filter emerged from earnings-inside-
+contract, short RV above IV, or short own-history VRP z alone. The previous
+downside-direction mining rule also did not carry over to the actual reference
+RL entries: later agreeing trades had lower mean per-vega outcomes than
+disagreeing trades. A new downside filter is therefore not supported here.
+
+RV proxy versus actual option outcomes
+Using holding trading sessions and quoted calendar tenor to align cumulative
+realized variance and implied variance, their simple profit-sign proxy disagrees
+with actual gross option-plus-stock-hedge-and-dividend P&L on 73 of 448 legs
+(16.3%). This comparison is before execution costs or shared financing.
+Changing gamma/moneyness, jumps, discrete hedging and rate/dividend effects can
+contribute; this test does not isolate their individual contributions. Forward
+RV and holding price jumps here are retrospective explanations, never inputs.
+The existing RL reward already uses actual simulated contract P&L.
+
+Signal-close contract IV matched the policy states exactly for all 224 entries.
+Mean signal-to-next-session change in short-minus-long IV spread was -0.07
+volatility points. Some individual changes were large, but broad systematic
+erosion of the entry spread is not established as the main explanation.
+
+Why the recent variants lost performance
+Relative to baseline executed trades, adding both mined states dropped 40
+entries that had earned $36,109 and added 47 that lost $9,559. The retained
+184 entries contributed $91,362 in baseline and $95,280 in the variant.
+Downside alone dropped 35 entries worth $49,439 and added 51 worth only $6,278.
+This points mainly to changed trade selection, not universally worse outcomes
+on the retained entries. It is retrospective attribution, not permission to
+select winners using their realized payoffs.
+
+Prioritized next experiments, not implemented in this diagnostic
+1. Add separate long/short name profitability histories, built only from
+   previously completed outcomes and deduplicated asset/date/contract records,
+   with availability and effective-history/uncertainty states. Measure distinct
+   episodes and recent deterioration rather than treating overlapping entries
+   as repeated independent confirmation. Preserve the paired risk limits.
+2. Test the history-normalized IV-change-correlation state and dollar-gamma-
+   per-vega geometry separately, against existing IV and tenor features, with
+   fixed costs and walk-forward settings. Do not infer thresholds from these
+   executed winners and losers or add all candidate states simultaneously.
+
+These ideas require new walk-forward validation. This report does not establish
+fundamental economic causes for the named stocks, blacklist names, select a new
+winner, change costs, or modify the frozen reference.
+
+Companion files
+legs.csv: exact role/name attribution for all four models.
+cohorts.csv: executed pair outcomes and entry diagnostics.
+directions.csv: reference outcomes by pair and long/short direction.
+episodes.csv: overlapping holding episodes.
+relative_regime_rank.csv: follow-up within-pair descriptive correlations.
+rv_proxy_agreement.csv: per-leg proxy/outcome comparison.
+changed_trades.csv: added, dropped and retained variant attribution.
+audit.json and followup_audit.json: provenance, checks and limitations.

@@ -1,0 +1,4 @@
+wing,months,minimum_training_rows,median_training_rows,maximum_training_rows
+ATM,90,976,1294.0,2066
+P25,90,363,435.5,598
+P75,90,10,39.5,64

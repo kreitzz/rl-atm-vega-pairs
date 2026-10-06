@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "replays": 16,
+  "no_retraining": true,
+  "no_fresh_holdout": true,
+  "same_pair_date_direction_and_sizing_across_maturities": true,
+  "same_control_proposals": true,
+  "no_forward_path_selection": true,
+  "all_ledgers_reconciled": true,
+  "all_inventory_closed": true,
+  "calendar_periods_include_carried_inventory": true,
+  "peak_rss_bytes": 510509056
+}

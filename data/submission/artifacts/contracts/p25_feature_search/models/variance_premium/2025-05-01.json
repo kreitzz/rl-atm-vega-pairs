@@ -1,0 +1,19 @@
+{
+  "model": "variance_premium",
+  "fit": "2025-05-01",
+  "training_rows": 85,
+  "last_training_outcome": "2025-04-17",
+  "choices": [
+    2,
+    4,
+    2,
+    4,
+    4,
+    2,
+    2
+  ],
+  "training_shadow_daily_sharpe": 0.10620080367751174,
+  "baseline_shadow_daily_sharpe": -0.519080828294239,
+  "training_objective": 0.10620080367751174,
+  "objective": "daily_sharpe"
+}

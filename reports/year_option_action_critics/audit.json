@@ -1,0 +1,54 @@
+{
+  "fixed_control_reproduced": true,
+  "past_only_completed_weekly_steps": true,
+  "original_reference_hashes_unchanged": true,
+  "capital_and_cost_limits_unchanged": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 858734592,
+  "shadow_training": "Local fractional cohort hedges and logged reference-book state; evaluation is actual shared-cash integer inventory",
+  "no_fresh_holdout": true,
+  "variants": {
+    "action_outputs_16": {
+      "iterations": 16,
+      "discount": 0.98,
+      "risk": false
+    },
+    "long_horizon_64": {
+      "iterations": 64,
+      "discount": 0.995,
+      "risk": false
+    },
+    "long_horizon_risk_64": {
+      "iterations": 64,
+      "discount": 0.995,
+      "risk": true
+    }
+  },
+  "replay_cases": {
+    "action_outputs_16": {
+      "model": "action_outputs_16",
+      "penalty": 1.0
+    },
+    "long_horizon_64": {
+      "model": "long_horizon_64",
+      "penalty": 1.0
+    },
+    "long_horizon_risk_64": {
+      "model": "long_horizon_risk_64",
+      "penalty": 1.0
+    },
+    "action_outputs_16_greedy": {
+      "model": "action_outputs_16",
+      "penalty": 0.0
+    },
+    "long_horizon_64_greedy": {
+      "model": "long_horizon_64",
+      "penalty": 0.0
+    },
+    "long_horizon_risk_64_greedy": {
+      "model": "long_horizon_risk_64",
+      "penalty": 0.0
+    }
+  }
+}

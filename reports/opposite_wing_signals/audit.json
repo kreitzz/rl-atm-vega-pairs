@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "roster_pairs": 345,
+  "strategy_books": 1380,
+  "source_files_verified": 16184,
+  "rl_models_trained": 0,
+  "strategies_combined": false,
+  "elapsed_seconds": 247.47228562500095,
+  "peak_rss_bytes": 878952448
+}

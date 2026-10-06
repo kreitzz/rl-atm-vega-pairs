@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "reconciled_pair_wings": 690,
+  "exact_iv_coverage": true,
+  "exact_pilot_current_selector_coverage": true,
+  "peak_rss_bytes": 632586240
+}

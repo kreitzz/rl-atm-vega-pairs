@@ -1,0 +1,40 @@
+The latest transfer holds the P25 proposal dates, directions and frozen sizing
+decisions fixed. It does not fit wing-native sizing models. P25 standalone NAV,
+trades and decisions reproduce the frozen reference exactly.
+
+Same-date diagnostic, using original selected contracts and common completed
+shadow paths at fixed 450 vega, with the 0.65 training commission convention:
+ATM versus P25: 547 paired completed outcomes. Average shadow P&L is $111.52
+for ATM and $810.52 for P25; medians $219.56 versus $660.21. Payout correlation
+is 0.609. Profitable fractions are 53.4% versus 58.1%.
+P75 versus P25: 190 paired completed outcomes. Average shadow P&L is -$126.33
+for P75 and +$893.48 for P25; medians -$233.46 versus +$341.83. Payout correlation
+is 0.103. Profitable fractions are 47.9% versus 56.3%.
+These are overlapping hypothetical completed trades without portfolio inventory
+limits, at training costs. They are not executed trade returns, independent
+observations, or fresh validation. Matching uses future completion only for
+retrospective diagnosis, never to construct executable proposals.
+
+Actual frozen-sizing cash-ledger decomposition, rounded USD:
+ATM: gross delta-hedged P&L 106,306; option execution 16,061; stock hedging
+32,008; stock borrow 8,820; financing relative to cash +9,001; net 58,419.
+P25: gross delta-hedged P&L 265,251; option execution 13,321; stock hedging
+19,627; stock borrow 3,940; financing relative to cash +34,510; net 262,873.
+P75: gross delta-hedged P&L 26,890; option execution 6,682; stock hedging
+17,535; stock borrow 6,175; financing relative to cash +3,490; net -12.
+Every component reconciles to its actual backtest ledger.
+
+Year concentration: frozen-sizing ATM earned 92,130 in 2022 and 34,926 in 2023,
+then lost 66,518 in 2024. P25 earned 164,076 in 2022, 59,768 in 2020, and 52,668
+in 2023; it lost 19,769 in 2024. The strong P25 result is itself concentrated
+in favorable regimes. P75 earned 26,712 in 2023 but lost 15,940 in 2020 and
+9,777 in partial 2025, with other years offsetting.
+
+Interpretation: evidence supports concentration of the inherited decision
+stream's edge in the downside put wing. Vega matching and daily delta hedging
+do not enforce identical strike-dependent realized payoffs or hedge turnover.
+Coverage remains a substantial confound for P75 (223 of 608 proposals have
+both mapped quotes), but a performance difference also appears on shared
+completed dates. Frozen P25 sizing transfers poorly; independent per-wing
+sizing under a preserved common entry stream has not been tested here.
+No precise skew/jump/gamma causal attribution is established by this diagnostic.

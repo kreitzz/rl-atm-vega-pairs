@@ -1,0 +1,4 @@
+configuration,training_months,sharpe,funded_equity,controlled_sizing_only_comparison,previously_researched_history
+Five-year learned sizing,60,0.8256229208692676,345000000,False,True
+18-month learned sizing,18,0.9617449126497056,345000000,False,True
+18-month sizing + variance-premium features,18,1.0063047056719723,345000000,False,True

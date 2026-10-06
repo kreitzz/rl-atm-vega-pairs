@@ -1,0 +1,4 @@
+wing,entry_and_direction,profitability_memory,prior_year_validation,positive_size_ladder,training_commission,actual_commission,features
+ATM,RL,hard directional filter,yes,25/50/75/100,0.65,0.03,47 or49 including employee sentiment on covered pairs
+P25,IV spread rule,hard directional filter,no,50/75/100,0.65,0.03,27 pooled tail features
+P75,IV spread rule plus learned skip,input only,no,25/50/75/100,0.50,0.03,23 wing sizing features

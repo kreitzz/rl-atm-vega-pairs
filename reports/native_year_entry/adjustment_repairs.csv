@@ -1,0 +1,4 @@
+date,secid,source_ratio,source_daily_return,raw_price_return,interpretation,source,announced,effective
+2019-05-31,106899,1.02,-0.01292,-0.012919896640826933,Factor reset without adjusted-return evidence of a share-count change; no future data used,,,
+2022-07-26,111450,0.1,-0.886963,0.13036809815950923,McEwen reverse split: premature vendor application/withdrawal; public memo already available,https://infomemo.theocc.com/infomemos?number=50780,2022-07-26,2022-07-28
+2022-07-27,111450,10.0,-0.023066,-0.023066485753052923,Factor reset without adjusted-return evidence of a share-count change; no future data used,,,

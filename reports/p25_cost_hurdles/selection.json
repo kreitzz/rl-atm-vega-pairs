@@ -1,0 +1,7 @@
+{
+  "selected_using": "2018-2023 only",
+  "model": "train_065",
+  "annualized_excess_sharpe": 0.9617449126497056,
+  "no_fresh_holdout": true,
+  "no_checkpoint_promotion": true
+}

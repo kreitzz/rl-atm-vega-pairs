@@ -1,0 +1,11 @@
+wing,stage,pair_days
+P25,oi100_same_expiry,1712
+P25,oi10_same_expiry,1832
+P25,oi1_same_expiry,1833
+P25,oi100_any21_45,1882
+P25,oi10_any21_45,1882
+P75,oi100_same_expiry,713
+P75,oi10_same_expiry,1382
+P75,oi1_same_expiry,1742
+P75,oi100_any21_45,1594
+P75,oi10_any21_45,1860

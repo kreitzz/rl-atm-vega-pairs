@@ -1,0 +1,33 @@
+{
+  "method": "50/50 and 80/20 two-strategy; equal-thirds and 80/10/10 three-strategy daily-rebalanced saved funded-equity return blends, less common cash return",
+  "annualization": "sqrt(252), sample daily standard deviation, first initial-account row excluded",
+  "fifty_fifty_chosen_before_calculation": true,
+  "eighty_twenty": "Additional descriptive allocation after initial equal-weight calculation; not a validated selected allocation",
+  "weight_optimization": false,
+  "retraining": false,
+  "three_strategy_weights_fixed_before_calculation": true,
+  "three_strategy_covariance_identity_verified": true,
+  "source_sharpes_reproduced": true,
+  "identical_calendar_and_cash_benchmark": true,
+  "shared_portfolio_replayed": false,
+  "limitations": "Existing costs retained; no combined hedge netting, shared admission/risk limits, allocation trading costs, or integer sizing replay. Previously explored history, not a fresh holdout.",
+  "source_sha256": {
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned/daily_nav.parquet": "00bc8a21193f7582373ab6b6dae52de8751ede39800ae2f02fc02d0ac40febb1",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned/status.json": "01f53ab1df29f3b05690ece066747ba43655c45a07332dffd7f547cc1ad1e3a5",
+    "artifacts/contracts/p25_long_management/replays/30D_manage_36M/daily_nav.parquet": "64b23ec1db3a9337ae1ccea4b8428a6982f09e3220fcd7f463198f45319f1eb1",
+    "artifacts/contracts/p25_long_management/replays/30D_manage_36M/status.json": "95a607c87501eccf9150a9a8994c4be8c9cbb2889d5c8ae9750fa494708562da",
+    "artifacts/contracts/p25_long_expiries/P/replays/30D_hold/daily_nav.parquet": "3e52dd06f6062e508df5450c15e526fe91339d27659be8ce7b290a81eec8715a",
+    "artifacts/contracts/p25_long_expiries/P/replays/30D_hold/status.json": "b8a82568290c452b1c207080e3c20f4db0140d740527b814b87be24e270df614",
+    "artifacts/contracts/p25_long_expiries/P/replays/30D_manage_36M/daily_nav.parquet": "3f0c3259daea26aa5d5c4de5c0522e83b7dc350b094e5a14eb4623212fb0ac52",
+    "artifacts/contracts/p25_long_expiries/P/replays/30D_manage_36M/status.json": "5c720d243481acbeeb9192fd83275046ec22e9e6f09f104deeb36b90ea6d8870",
+    "artifacts/contracts/p25_long_expiries/P/replays/180D_hold/daily_nav.parquet": "8b2b24e7dc597dc9432d52e81f533c2f93ecc02c9531e2b980019add2295550b",
+    "artifacts/contracts/p25_long_expiries/P/replays/180D_hold/status.json": "791c50bf2855a8d37b9ac3d17f121493598aabd34f36c86ce0b59227e8c9ae8f",
+    "artifacts/contracts/p25_long_expiries/P/replays/180D_manage_36M/daily_nav.parquet": "ed2c685633712012367544aa4e3187610bd936d5b70ac4a12ec9aabb7d070075",
+    "artifacts/contracts/p25_long_expiries/P/replays/180D_manage_36M/status.json": "8f9cd0c2536e9e281881ce1977e91da213c47f92d400e37d2911bb0a53094a8b",
+    "artifacts/contracts/p25_long_expiries/P/replays/365D_hold/daily_nav.parquet": "204263cfa86747919f0be8e3ff0f1a178cbd214abeef4cdd4ae2f57061d521b3",
+    "artifacts/contracts/p25_long_expiries/P/replays/365D_hold/status.json": "30dc0692e443437d11a9d1976139dce4455fce3a6a5dc4953c860b72f4b15943",
+    "artifacts/contracts/p25_long_expiries/P/replays/365D_manage_36M/daily_nav.parquet": "31093a529c747a3479c30b080b7657cad90a9f2fb24d466391a5472335dc7f1c",
+    "artifacts/contracts/p25_long_expiries/P/replays/365D_manage_36M/status.json": "61266f487213ad28461f3858e07fb7f42941a4d5c767ff41bec20c5687f7dfce",
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/report_p25_tenor_blends.py": "c4b7df7098fbc3b1d99503d30617e1bed4175c51d1abc9eaa814d456ad8c630d"
+  }
+}

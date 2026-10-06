@@ -1,0 +1,28 @@
+Signal-mining decision, 2026-10-02
+
+The frozen RL reference remains unchanged: annualized excess Sharpe 0.368 full history / 0.428 recent history. This study did not retrain policies or produce a new portfolio Sharpe.
+
+Scope: 15 signal families, 25,872 resolved actual-contract pair cohorts across 126 pairs, with original current execution, hedge, borrow and financing costs. All 345 roster sleeves appear in coverage. Quarterly forecasts use completed historical outcomes; extreme thresholds use completed 2018-2021 observations. Later diagnostics cover 2022-Aug2025, an already-inspected period, not a fresh holdout.
+
+The simple RV forecasts did not beat IV on MSE or QLIKE. Historical VRP normalization and market/industry residual VRP did not produce convincing trade signals. IV-factor reversion is the most consistent new rank-correlation lead across early and later periods, but later partial correlation controlling for existing states is only 0.031, 2025 was weak, and its positive tail payoff is concentrated.
+
+Downside fraction (the proportion of trailing 21-session squared returns occurring on down days) has later partial rank correlation 0.047, but its standalone early-period relationship is weakly negative. It is more promising as a filter for the existing IV-spread direction than as a standalone trade signal.
+
+Follow-up filter: use the original economic IV direction and a fixed absolute spread threshold of 15.177221 vol points; retain trades only when the cheaper-IV long leg also has the higher downside fraction. Compare on identical signal availability. No new threshold tuning or sign reversal.
+
+Vega-normalized terminal net payoff per selected cohort:
+  Period          IV spread only   Downside agreement   Cohorts before/after
+  2018-2021       1.411619         1.755729             1198 / 670
+  2022-Aug2025    2.675793         8.165767             1439 / 615
+  2022           0.389179         0.104748              726 / 226
+  2023           7.592281        12.313026              236 / 135
+  2024           5.948765        15.633292              376 / 211
+  2025          -4.560313         0.869545              101 / 43
+
+The later nonoverlap diagnostic rises from 2.947474 over 91 cohorts to 7.614460 over 38. The earlier nonoverlap diagnostic declines from 3.119220 over 83 cohorts to 1.317371 over 47. These samples are small and still share names. Top three pairs account for 48.8% of positive normalized payoff in the later agreement filter; the worst leave-one-pair-out later average remains positive at 6.868711.
+
+These are standalone cohort payoffs normalized by initial mean leg vega, not capital returns, additive portfolio dollars, or annualized Sharpe. Overlap, risk limits, cash allocation and policy selection can change results materially. The agreement hypothesis was proposed after inspecting the screen and is exploratory.
+
+Next justified policy experiment: a fixed, matched RL ablation adding downside fraction alone, IV-factor reversion alone, and both, with identical seeds, training costs, risk limits and current reference. Do not promote any diagnostic result to the reference before evaluating the executable daily portfolio.
+
+Validation: six causality/sampling tests passed; audit verified 139 source state inputs, 53 purged quarterly forecast fits, and all 2,661 frozen checkpoint files. Unavailable future option payoffs remain in the signal/factor universe and are excluded only from resolved-payoff evaluation. Guarded one-worker run used 50% of one CPU core and peaked near 1.25 GiB RSS. All runs have finished.

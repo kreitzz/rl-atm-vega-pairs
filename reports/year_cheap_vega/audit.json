@@ -1,0 +1,44 @@
+{
+  "completed_cases": [
+    "absolute_carry_q",
+    "absolute_hold",
+    "both_carry_q",
+    "both_hold",
+    "historical_carry_q",
+    "historical_hold"
+  ],
+  "independent_ledger_errors": {
+    "absolute_carry_q": 1.606349542271346e-08,
+    "absolute_hold": 1.3438693713396788e-08,
+    "both_carry_q": 1.1834345059469342e-08,
+    "both_hold": 1.310399966314435e-08,
+    "historical_carry_q": 1.507305569248274e-08,
+    "historical_hold": 1.2714735930785537e-08
+  },
+  "net_long_vega": true,
+  "fresh_holdout": false,
+  "portfolio_risk_flags": {
+    "absolute_carry_q": 40,
+    "absolute_hold": 56,
+    "both_carry_q": 12,
+    "both_hold": 26,
+    "historical_carry_q": 18,
+    "historical_hold": 34
+  },
+  "own_name_risk_flags": {
+    "absolute_carry_q": 0,
+    "absolute_hold": 0,
+    "both_carry_q": 0,
+    "both_hold": 0,
+    "historical_carry_q": 0,
+    "historical_hold": 0
+  },
+  "modeled_corporate_exit_counts": {
+    "absolute_carry_q": 0,
+    "absolute_hold": 1,
+    "both_carry_q": 0,
+    "both_hold": 2,
+    "historical_carry_q": 0,
+    "historical_hold": 1
+  }
+}

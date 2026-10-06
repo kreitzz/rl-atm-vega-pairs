@@ -1,0 +1,32 @@
+ATM-state RL transfer to 30D 25-delta puts
+
+Two predeclared variants; no NN retraining. Actual costs, risk limits, optimizer, monthly validation, quarter sizing ladder, and full 345-sleeve roster match the frozen ATM checkpoint.
+Contract IV, IV/RV value, shifted 252-session reversion, DTE, moneyness, commission and completed-outcome native profitability memory are recomputed for puts. Other context is frozen. Employee features remain active only on the original 28 review-covered sleeves.
+Native state memory uses the original 21-45D bounds with OTM strikes allowed; independent action gates use the original curve 7-55D execution bounds. Both histories exclude outcomes completing on or after the signal date.
+The second variant adds only the known put-spread percentile. Both variants use identical finite input masks. Original ATM momentum is not present in this checkpoint; no new momentum feature was introduced.
+Policies may choose direction, entry and size, matching ATM; this is not a fixed-rule sizing overlay or an inventory-aware sequential agent.
+
+            source             model period  entries  active_pairs  net_excess_pnl  annualized_excess_sharpe
+frozen_two_feature              rule   full      129            41   246969.223927                  0.711325
+frozen_two_feature              rule recent       76            27   123374.540884                  0.747752
+frozen_two_feature          rl_sized   full       43             6   -12909.836882                 -0.115930
+frozen_two_feature          rl_sized recent       22             4   -14500.881037                 -0.263625
+atm_state_transfer      rl_atm_state   full       11             3    -6500.760121                 -0.232939
+atm_state_transfer      rl_atm_state recent        6             2   -13088.482403                 -0.806513
+atm_state_transfer rl_atm_state_rank   full       11             3    -6500.760121                 -0.232939
+atm_state_transfer rl_atm_state_rank recent        6             2   -13088.482403                 -0.806513
+
+All Sharpe ratios use daily cash-excess returns and sqrt(252). 2025 ends August 29. Full 2018-2025 and recent 2022-2025 books use separate identical cash starts.
+Previously inspected history; neither signal selection nor this comparison is an untouched holdout. Baseline rule has no learned validation gate, so comparison with rule is not a pure sizing ablation.
+Actual quote-close selection executes next session, initial integer vega neutrality, daily delta hedging, hold each option to its expiry. Dividend cash on the hedge, financing and borrow remain included. European put approximation; American assignment not modeled.
+Risk caps apply within independent $1m pair sleeves; portfolio is their sum with cash-only sleeves retained. No shared-name netting or cross-sleeve inventory optimization.
+
+model              status                          
+rl_atm_state       enabled                               84
+                   flat_no_validation_opportunities     540
+                   flat_validation_gate                 125
+                   insufficient_training               4404
+rl_atm_state_rank  enabled                               84
+                   flat_no_validation_opportunities     540
+                   flat_validation_gate                 125
+                   insufficient_training               4404

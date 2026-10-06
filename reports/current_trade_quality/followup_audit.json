@@ -1,0 +1,56 @@
+{
+  "reference_unchanged": true,
+  "new_refits": 0,
+  "source_sha256": {
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/followup_trade_quality.py": "f8c56214519596af133cfb5291214d2dec41a65c39d93241878c21c6c65db8c0",
+    "reports/current_trade_quality/cohorts.csv": "142cdeab7def44575e8db0a84d067cdd43bccd6f3e8a910c9fd3172cf91136aa",
+    "reports/current_trade_quality/legs.csv": "1da88829df3f8ec7ac28dc99254dcb2893d5eeff0cf1276bfa0666aa0f62de48",
+    "reports/current_trade_quality/audit.json": "396f24995ffdafa077a059b30237cc59a2afc72613091ac6aae483d259d40f38",
+    "config/atm30_fee065_employee_2026-10-01_checkpoint.json": "dd38c8fb235c0eaddc7dc1abdb908a0f06422929ec4c1df2e204ba4fc040387b",
+    "artifacts/contracts/atm65_employee_sentiment/101322__102968/states.parquet": "e37f7639699ad3cd4b1ae3882ac8d08c14a8007a41826a0e66e1b3f00d35e885",
+    "artifacts/contracts/atm65_employee_sentiment/101369__110752/states.parquet": "3bcb4b542cfedf8900a58a36580f9d7ac5f5625e3026e2d076215fc2f7cb290f",
+    "artifacts/contracts/atm65_employee_sentiment/101397__105581/states.parquet": "a27cd622348c52c08eb0effc87969876f7bbf9d84d766e42287bfa9d5eba9fb0",
+    "artifacts/contracts/atm65_employee_sentiment/101397__109869/states.parquet": "78aba3cc0c7837f08d070b88988e1bc7a1ea668968b310c6dd580c09632605fb",
+    "artifacts/contracts/atm65_employee_sentiment/101397__112254/states.parquet": "914956a2f188060c7b126ae472b28388304d07157fcc29321a95a606e3cf866f",
+    "artifacts/contracts/atm65_employee_sentiment/101556__108130/states.parquet": "613c37cc346d4a73558e0f9ab50a2d1fddb8c79f3805ddb3d9399d07941154f8",
+    "artifacts/contracts/atm65_employee_sentiment/101966__102936/states.parquet": "b31ad6ff829f6001a8be6954447143764c1bd4ad05e3ed672abaee3427209961",
+    "artifacts/contracts/atm65_employee_sentiment/101966__103049/states.parquet": "fa89782895b815cd39bc4ab748b06e5b9aadad61207abde86a8a3bc456ea2e3d",
+    "artifacts/contracts/atm65_employee_sentiment/102571__111394/states.parquet": "44c87af5af294ffadc9735914c6cfb49c23fcfab746cc8e18cb3db385e404358",
+    "artifacts/contracts/atm65_employee_sentiment/102873__210354/states.parquet": "30b7576f8685d395c335246b53f331b503853e916b5aad40d8363cbf9ebcbce8",
+    "artifacts/contracts/atm65_employee_sentiment/102936__103049/states.parquet": "7cc0eeab481cc51e86d425802c8fa9853d345c5c454d5dfa48dea813b1fa523d",
+    "artifacts/contracts/atm65_employee_sentiment/103049__111953/states.parquet": "fca39580845ce98de29e15fa9960c9473633f9d190b807ebe2adcfb296928d29",
+    "artifacts/contracts/atm65_employee_sentiment/103651__111071/states.parquet": "4f4fa744e2d1ac9bb435e05f258fa8ddb05486f10bc5a784476b82d5492dec5b",
+    "artifacts/contracts/atm65_employee_sentiment/105316__108130/states.parquet": "17ac673111e46fa1c226b8e1bb20c9dbf78d6684607c868c8df6ac64ff17ca6d",
+    "artifacts/contracts/atm65_employee_sentiment/105450__110752/states.parquet": "4312d02acd8fb51503d112cb405e77698ae5c2bf0a4aee0b98bdb7994140231a",
+    "artifacts/contracts/atm65_employee_sentiment/105512__114726/states.parquet": "96abfb019c2f967e7f13033f151c58d7186c95cfc461c73f3b956a563ea4399f",
+    "artifacts/contracts/atm65_employee_sentiment/105581__109869/states.parquet": "a7d750c925143c1210acb756128965e02536476342ccbe11183bba3acd7f0a54",
+    "artifacts/contracts/atm65_employee_sentiment/105663__145681/states.parquet": "28e554b52dde04704b6b52367a7920addc55f057e4b70f10515df1392ee2e896",
+    "artifacts/contracts/atm65_employee_sentiment/106629__111071/states.parquet": "9cf08cc19a4af195611d9a3035559f4e6eea4aa06a13c1c843b83e6dfca41b23",
+    "artifacts/contracts/atm65_employee_sentiment/107484__113437/states.parquet": "3f87ee5d3eda0d017041f530187e7905379ab8067283a36f4d152b8f66c6b28f",
+    "artifacts/contracts/atm65_employee_sentiment/108463__112042/states.parquet": "f9a8ca5f4beff991da1bdbd8d1684665e2091d95ce499ae355e81f80b6fc02d2",
+    "artifacts/contracts/atm65_employee_sentiment/108463__146036/states.parquet": "f378cee34c0935682581e81de87b5135ab17822e75d5abda14935a6f655a01eb",
+    "artifacts/contracts/atm65_employee_sentiment/109476__109956/states.parquet": "e1c97a78159481194ec372c5ba7ef73a0c03584203c50d3564adfc3f777ba743",
+    "artifacts/contracts/atm65_employee_sentiment/109869__112254/states.parquet": "024ec9907ae0a13ed514833426d33a51991df22fe80ea05faa3e8ed83232a229",
+    "artifacts/contracts/atm65_employee_sentiment/109956__114726/states.parquet": "df72d62932b408d24076a34f6aba38c24a753c691c8d4ce33617c6be8e7f9d79",
+    "artifacts/contracts/atm65_employee_sentiment/110945__146286/states.parquet": "7e3892d8fa171bf503cebedb14dce990f565094035d2eeaf6f7ce02e202a0674",
+    "artifacts/contracts/atm65_employee_sentiment/111436__128233/states.parquet": "a2683f6287aa2c044f6f0adcbf1839f7eb25f364dad3c82e15701503322c59e2",
+    "artifacts/contracts/atm65_employee_sentiment/112463__161182/states.parquet": "6566feebee91aa8167e964216d531db53cf69196f5256fe1ed7f8a4fb510fdd3",
+    "artifacts/contracts/atm65_employee_sentiment/125179__128133/states.parquet": "57492296531a64bf5d3fc1b112e85e492f5a64455bfa5a7d7cfc7964e3970d54"
+  },
+  "proxy_agreement_by_role": {
+    "long": {
+      "size": 224,
+      "sum": 184,
+      "mean": 0.8214285714285714
+    },
+    "short": {
+      "size": 224,
+      "sum": 191,
+      "mean": 0.8526785714285714
+    }
+  },
+  "proxy_mismatches": 73,
+  "total_legs": 448,
+  "method": "RV proxy uses actual holding trading sessions and quoted calendar tenor; sign compared with actual gross option + stock hedge + dividends, before costs/funding.",
+  "limitations": "Gamma/moneyness changes, discrete hedges, price jumps, and dividend/rate approximations can affect proxy agreement. This check does not isolate their individual contributions. New relative-regime variants were proposed after inspecting this history; no fresh holdout."
+}

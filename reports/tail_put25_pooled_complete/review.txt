@@ -1,0 +1,54 @@
+Pooled tail sizing: completed first pass
+
+Coverage
+All 345 original candidate pairs were assessed from cached option data. All
+136,459 observed evaluation states across 332 quote-covered pairs received
+the pooled model, including 193 pairs absent from inherited ATM state panels.
+The other 13 pairs lack usable overlapping evaluation quotes. All 90 monthly
+models were enabled; there were no pair validation or profitability vetoes.
+The core spread signal still defines direction and the requested monthly beta
+0.85-1.15/correlation >=0.5 screen still determines executable pair candidates.
+The model uses 15 numeric signals plus 12 missing-value flags and can size
+0/25/50/75/100%. Optional feature availability never excludes a quoted state.
+
+Results, 2018 through August 2025
+Ungated spread rule: annualized cash-excess Sharpe 0.347829, 1,485 accepted
+entries across 106 pairs, $528,209.95 net excess P&L.
+Pooled RL sizing: annualized cash-excess Sharpe 0.257615, 1,015 accepted
+entries across 87 pairs, $274,037.63 net excess P&L.
+For the continuing book from 2022, Sharpe is -0.220771 and -0.169506,
+respectively. This is not the reset-2022 test used by older studies.
+The frozen gated put25 rule remains 0.711325 and was not altered. It has a
+different opportunity set and is a historical reference, not the matched control.
+
+Interpretation
+Coverage is repaired; this first pooled sizing model does not improve Sharpe.
+Both new books rely heavily on 2020. Removing the RL book's three largest
+winners leaves Sharpe 0.026219. This is previously inspected history, not a
+fresh holdout or proof of a stable broad-universe effect.
+
+Accounting and risk
+All 690 pair/model books reconcile and finish flat, including repaired books.
+Known nonstandard corporate events are closed as complete pairs before the
+event at observed quotes, with execution costs and commissions. Other trades
+hold to their own expiry. The two models have five modeled held marks in total
+(three control, two RL), using strictly causal inputs; these never supply
+synthetic entry quotes. COP declared supplemental USD cash dividends enter
+both option dividend PV and stock-hedge cash accounting. LEN's 2019 stock
+adjustment-factor anomaly is repaired in a working copy; raw prices and all
+original cached data remain unchanged. The policies were frozen before repair.
+These assumptions and their primary source links are in protocol.json.
+
+Limits apply at entry. Holding to expiry can subsequently breach them; this
+occurred on 5,261 pair-sessions for the control and 726 for RL, summed across
+independent pair books. Thus this is not a portfolio with enforced continuous
+risk limits. Pair capital/risks remain separate; cross-pair inventory is not
+netted. Early exercise and assignment are not modeled.
+
+Verification
+Nine focused tests passed, including ordinary-book parity with the reference
+engine, paid whole-pair corporate-action exits, causal missing held marks,
+no synthetic entry quotes, missing-feature coverage, training purging and
+shared daily P&L aggregation. Frozen checkpoint hashes were verified.
+The main run took 720 seconds at 50% of one core and peaked at 568 MiB.
+The final accounting pass took 42 seconds and peaked at 471 MiB.

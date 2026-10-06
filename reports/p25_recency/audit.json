@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "declared_policies": 9,
+  "new_variants": 8,
+  "monthly_models": 810,
+  "one_year90_models_and_NAV_trades_decisions_reproduced": true,
+  "fixed100_reproduced": true,
+  "original_checkpoint_unchanged": true,
+  "all608_decisions_preserved": true,
+  "no_learned_skips": true,
+  "completed_outcome_and_lookback_audits_passed": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 453459968
+}

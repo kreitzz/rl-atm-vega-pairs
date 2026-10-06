@@ -1,0 +1,25 @@
+{
+  "source_states_verified": 139,
+  "frozen_files_verified": 2661,
+  "frozen_archive_verified": true,
+  "purged_quarterly_fits": 53,
+  "unique_signal_ready_legs": 364954,
+  "signal_ready_legs_with_unavailable_payoff": 18280,
+  "unavailable_payoffs_retained_in_forecast_factor_universe": true,
+  "resolved_pair_cohorts": 25872,
+  "pairs_with_evaluable_cohorts": 126,
+  "requested_sleeves": 345,
+  "sleeves_with_state_inputs": 139,
+  "unresolved_pair_outcomes": 88,
+  "current_cost_commission": 0.03,
+  "rl_refits": 0,
+  "nn_refits": 0,
+  "source_and_output_sha256": {
+    "artifacts/contracts/atm_variance_mining/legs.parquet": "13e20719ebc4df0a0a453922684f1bb8d3c9bd3251e5b238d697858a0839b493",
+    "artifacts/contracts/atm_variance_mining/outcomes.parquet": "7b0e8097b510e7821b4358f9dd8c05810a83f355273027ab2a907d3c07b87587",
+    "artifacts/contracts/atm_variance_mining/forecasts.parquet": "e85ae3fb85f313d57b1e1e24168c5217fbedc4712429bfe5a13470927accca18",
+    "artifacts/contracts/atm_variance_mining/pair_signals.parquet": "1a15223146e9470ebb95541388911d0b43ea809a783fc027fd83884fd1ef38ca",
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/audit_atm_variance_mining.py": "ff05edf73876b954ae423a0449c4f183ed26cd2c49891f681c87f41b3741bbfc"
+  },
+  "diagnostic_note": "Partial rank correlations regress within-pair ranks on the 47 existing common numeric states, in the evaluation sample. This is conditional association, not an executable residual forecast or a policy backtest."
+}

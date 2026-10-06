@@ -1,0 +1,17 @@
+PAST-ONLY TENOR ALLOCATION
+
+Freeze the components: 30D, 180D. Use equal weights in 2018-2019, then reestimate nonnegative weights summing to one on the first trading session of each quarter, using only the preceding 24 calendar months through the prior session. The quarter-start return is never in the fit. No window or rebalance-frequency search was performed. Weights multiply saved component returns from that session onward.
+
+Report all cases over matching calendars, both including the equal-weight warmup and after historical allocation begins. Daily cash-excess Sharpes annualize with sqrt252; 2025 is partial.
+
+This removes future-return use in allocation, not retrospective selection of the researched components. This is not a fresh holdout. Component costs are included; additional reallocation costs, shared inventory, integer scaling and joint risk admission require a joint portfolio replay. Daily weights are a return-stream allocation, not executable trading orders.
+
+                case                      period  annualized_excess_sharpe      start        end  sessions
+rolling24M_quarterly full_including_equal_warmup                  0.989935 2018-01-03 2025-08-29      1925
+rolling24M_quarterly     after_allocation_warmup                  1.186701 2020-01-02 2025-08-29      1423
+       equal_weights full_including_equal_warmup                  1.028571 2018-01-03 2025-08-29      1925
+       equal_weights     after_allocation_warmup                  1.243239 2020-01-02 2025-08-29      1423
+            30D_only full_including_equal_warmup                  1.029493 2018-01-03 2025-08-29      1925
+            30D_only     after_allocation_warmup                  1.231967 2020-01-02 2025-08-29      1423
+           180D_only full_including_equal_warmup                  0.610028 2018-01-03 2025-08-29      1925
+           180D_only     after_allocation_warmup                  0.748145 2020-01-02 2025-08-29      1423

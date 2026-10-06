@@ -1,0 +1,4 @@
+wing,previous_min,previous_median,previous_max,recovered_min,recovered_median,recovered_max
+ATM,976,1294.0,2066,1074,1318.5,2118
+P25,363,435.5,598,934,1099.0,1450
+P75,10,39.5,64,544,698.5,1010

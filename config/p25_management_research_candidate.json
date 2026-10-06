@@ -1,0 +1,26 @@
+{
+  "status": "exploratory_management_candidate",
+  "base": "config/p25_variance_premium_candidate.json",
+  "replay": "artifacts/contracts/p25_long_management/replays/30D_manage_36M",
+  "management_models": "artifacts/contracts/p25_long_management/management_models/30D_36M",
+  "annualized_cash_excess_sharpe": 1.0294933742667658,
+  "entries": 212,
+  "locked_initial_inventory_sharpe": 1.0287804912702556,
+  "locked_cohort_risk_rejections": 0,
+  "management_training_months": 36,
+  "refit_months": 6,
+  "actions_remaining": [
+    1.0,
+    0.5,
+    0.0
+  ],
+  "learner": "Finite state-dependent policy bank selected on completed shared-ledger trajectories",
+  "signal_half_life": 20,
+  "entry_training_months": 18,
+  "exit_training_commission": 0.65,
+  "observed_quote_next_session_exits": true,
+  "continuously_vega_neutral": false,
+  "no_fresh_holdout": true,
+  "original_candidate_preserved": true,
+  "findings": "reports/p25_long_management/findings.txt"
+}

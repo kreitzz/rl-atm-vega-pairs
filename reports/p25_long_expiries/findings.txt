@@ -1,0 +1,28 @@
+180D AND 365D CALLS AND PUTS WITH MANAGEMENT
+
+Actual 25-delta calls and puts selected from signal-close WRDS option chains; closest eligible expiry first, then fitted absolute delta nearest .25 within .075. No subsequent quote-path or payoff filter. 180D accepts 150–210 days; 365D accepts 300–400. Calls matched with calls and puts with puts, integer vega matched at entry, daily delta hedge, shared cash and original risk limits.
+
+First controlled maturity/type transfer: freeze the retained 30D P25 pair/date/direction/initial-size signal stream. This is not native call or long-expiry entry-signal retraining. Current actual held-contract IV, variance-carry estimates and delta drift feed the management policy. Compare hold with the same six-rule management bank trained separately for each option type/tenor on completed 36M shared-ledger episodes, semiannual refits and hold fallback. Prior original-expiry purge retained even for early exits. Same $10m equity, $0.65 training commission, $0.03 actual commission, 0.1 vol point per entry/elective close per leg, and 1bp stock hedging. Closing instructions use prior close and next-session actual executable quotes only. Both legs trim proportionally; no continuous vega rebalance.
+
+Common entry cutoff 410 calendar days before 2025-08-29 gives all expiries runoff, with 30D matched-calendar call/put controls. Missing selected contracts remain explicit decisions. Raw licensed data streamed in 4096-row batches; only signal-day chains and selected-contract histories downloaded. Black–Scholes Greeks/IV retain the established declared-dividend approximations and corporate exit handling. American exercise/assignment, undeclared dividend forecasts and broker margin remain unmodeled, particularly relevant for long maturities. The calendar and entry signals were previously researched; these new contract paths do not provide a fresh calendar holdout. One worker, 50% of one core and 3GiB RSS stop.
+
+option_type  tenor  proposals  signal_contract_pair_available  selected_contracts
+          P    180        529                             304                 325
+          P    365        529                             250                 197
+          C     30        529                             507                 699
+          C    180        529                             301                 325
+          C    365        529                             227                 203
+
+option_type            case  annualized_excess_sharpe  entries  trimmed_cohorts  closed_cohorts  relative_to_cash_cagr_pct
+          C       180D_hold                  0.042287      154                0               0                   0.010754
+          C 180D_manage_36M                 -0.047115      158               41              78                  -0.011263
+          C        30D_hold                 -0.285016      169                0               0                  -0.082496
+          C  30D_manage_36M                 -0.335731      170               26              27                  -0.092228
+          C       365D_hold                  0.019960      115                0               0                   0.008402
+          C 365D_manage_36M                 -0.463145      120               41              65                  -0.098976
+          P       180D_hold                  0.485755      177                0               0                   0.182072
+          P 180D_manage_36M                  0.500640      181               59              69                   0.179875
+          P        30D_hold                  0.885554      188                0               0                   0.287609
+          P  30D_manage_36M                  0.912743      188                5               3                   0.295867
+          P       365D_hold                  0.359071      142                0               0                   0.142435
+          P 365D_manage_36M                  0.296745      146               29              28                   0.113722

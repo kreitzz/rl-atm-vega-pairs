@@ -1,0 +1,49 @@
+Saved ATM versus tail gating audit
+
+Counts use the saved evaluation calendars per pair, with the original roster and causal inputs. Pair-days are not independent trades.
+ATM and original free-direction tails share monthly positive prior-year validation, 504-row minimum and completed-outcome directional memory gates.
+The latest sizing overlay additionally requires outperforming the fixed rule during prior-year validation. A failed sizing activation retains the full-size rule; it prevents RL intervention rather than blocking that rule trade.
+Directional memory gate requires positive aggregate modeled completed-cohort P&L and at least 21 observations within91 calendar days and63 within365 days at the $0.65 training hurdle. This can block a quote-valid trade; it is not an exchange or risk requirement.
+
+      strategy                               status  months  pairs
+        atm_rl                              enabled     522     67
+        atm_rl     flat_no_validation_opportunities    2628    106
+        atm_rl                 flat_validation_gate    1531     95
+        atm_rl                insufficient_training     605     41
+  tail_free_rl                              enabled     132     16
+  tail_free_rl     flat_no_validation_opportunities     872     34
+  tail_free_rl                 flat_validation_gate     308     23
+  tail_free_rl                insufficient_training    3841    109
+tail_sizing_rl                              enabled      64      5
+tail_sizing_rl       fallback_insufficient_training    3841    109
+tail_sizing_rl fallback_no_validation_opportunities    1017     36
+tail_sizing_rl   fallback_validation_no_improvement     231     19
+
+      strategy  evaluation_dates  observed_pair_states  beta_eligible_states  memory_permitted_states  memory_blocked_states
+        atm_rl             94155                 94155                 28374                    10890                  17484
+  tail_free_rl             92423                 33544                  9463                     3264                   6199
+tail_sizing_rl             92423                 33544                  9463                     3264                   6199
+
+      strategy                  status  proposals
+        atm_rl                 entered        224
+        atm_rl entry_quote_unavailable         72
+        atm_rl   integer_vega_mismatch         62
+        atm_rl       risk_deleveraging        256
+        atm_rl        risk_limit_entry        459
+  tail_free_rl                 entered         43
+  tail_free_rl entry_quote_unavailable          6
+  tail_free_rl       risk_deleveraging         34
+  tail_free_rl        risk_limit_entry         85
+     tail_rule                 entered        129
+     tail_rule entry_quote_unavailable         46
+     tail_rule   integer_vega_mismatch          1
+     tail_rule       risk_deleveraging         47
+     tail_rule        risk_limit_entry        351
+tail_sizing_rl                 entered        131
+tail_sizing_rl entry_quote_unavailable         45
+tail_sizing_rl   integer_vega_mismatch          1
+tail_sizing_rl       risk_deleveraging         36
+tail_sizing_rl        risk_limit_entry        318
+
+Positive validation candidate months rejected only by the newly added outperform-rule comparison: 36 across 9 pairs.
+These counts demonstrate restrictions and unequal RL activation. They do not estimate the P&L from removing those restrictions. No new training or policy replay was performed.

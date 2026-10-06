@@ -1,0 +1,7 @@
+{
+  "retained_nav_trades_decisions_reproduced": true,
+  "max_ledger_error": 4.826233634958044e-09,
+  "shared_cash": true,
+  "shared_stock_hedges": true,
+  "independent_ledger_error": 4.826233634958044e-09
+}

@@ -1,0 +1,18 @@
+           model    kind   sharpe  entries  net_excess_pnl  early_sharpe  recent_sharpe  max_excess_drawdown fixed_control  sharpe_difference_vs_control
+variance_premium learned 1.006305      213   320285.670685      1.236357      -0.021153        -46012.450035        fixed2                      0.236629
+         control learned 0.961745      208   304285.994757      1.224369      -0.250337        -46105.126867        fixed2                      0.192070
+       iv_factor learned 0.961745      208   304285.994757      1.224369      -0.250337        -46105.126867        fixed2                      0.192070
+  term_structure learned 0.959444      208   303651.792764      1.221485      -0.250337        -46122.039493        fixed2                      0.189768
+       volume_oi learned 0.955495      210   302309.542497      1.216745      -0.250337        -46157.834046        fixed2                      0.185820
+     smile_shape learned 0.949333      208   300619.077414      1.203258      -0.221069        -44660.447458        fixed2                      0.179658
+     smile_price learned 0.940798      208   297073.485113      1.197277      -0.240976        -47341.413821        fixed2                      0.171123
+        employee learned 0.893335      209   281985.480712      1.141482      -0.250337        -46699.827390        fixed2                      0.123660
+         rv_risk learned 0.892203      205   284464.493167      1.160369      -0.238731        -56307.899952        fixed2                      0.122528
+   physical_tail learned 0.882475      204   283961.330911      1.182975      -0.414187        -56047.533489        fixed2                      0.112800
+          fixed2   fixed 0.769675      263   249064.569721      1.180895      -0.693227        -75891.834959        fixed2                      0.000000
+          fixed4   fixed 0.756932      134   266316.555691      0.957162      -0.112832        -66229.514226        fixed2                     -0.012744
+     transcripts learned 0.752283      214   246956.810792      1.146689      -0.693749        -76789.890252        fixed2                     -0.017393
+          fixed1   fixed 0.728683      381   169183.144605      1.125834      -0.387296        -61273.853699        fixed2                     -0.040992
+          fixed3   fixed 0.728236      180   249571.262170      1.037662      -0.583529        -74280.538125        fixed2                     -0.041439
+
+Eleven declared feature blocks including exact control. Frozen608 P25 proposals, same entry direction, beta/correlation/memory/formation screens, costs, funded capital, original5% stress and other caps. 18-month monthly completed-outcome fits,8-leaf tree,CEM50x192 seed2026,50/75/100 sizing and full-size fallback. New signals use signal-close options/prices or cached lagged vendor states; long-minus-short gaps, zero fill plus availability flag, never gate proposals. Physical tails use backward windows; EWMA variance uses20-session half-life; VRP z-score uses strictly prior252 sessions. IV factor is leave-one-name-out median changes with lagged rolling beta. Options smile uses cached selected 14/30/45-day surfaces, a context surface that can differ from audited traded contract. No future payoff field is a feature. Vendor historical revisions are not independently archived/PIT verified. Compare four constant sizes and select the constant control on2018-2023. Report full/recent/annual and negative results; previously explored history, no fresh holdout. One worker,50%of one core,3GiB RSS stop. Original checkpoint unchanged.

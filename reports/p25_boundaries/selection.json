@@ -1,0 +1,8 @@
+{
+  "selected_using": "2018-2023 only",
+  "model": "20_current_learned",
+  "full_sharpe": 0.9617449126497056,
+  "recent_sharpe": -0.25033748391195965,
+  "no_fresh_holdout": true,
+  "no_checkpoint_promotion": true
+}

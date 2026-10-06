@@ -1,0 +1,25 @@
+{
+  "causal_completed_transition_purge": true,
+  "original_checkpoints_unchanged": true,
+  "entry_sizes_fixed_50": true,
+  "original_costs_and_risk_limits": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "each_leg_natural_runoff_matches_training_and_fixed_control": true,
+  "peak_rss_bytes": 711655424,
+  "model": "ExtraTrees fitted Q iteration, 16 Bellman updates, gamma .98 per five sessions",
+  "states": [
+    "carry_forecast",
+    "carry252",
+    "carry252_available",
+    "gap_convergence",
+    "age_fraction",
+    "delta_gap",
+    "retained_fraction",
+    "requested_action"
+  ],
+  "training_commission": 0.65,
+  "actual_commission": 0.03,
+  "training_additional_exit_cost_multiplier": 1,
+  "full_universe_native_labels": true
+}

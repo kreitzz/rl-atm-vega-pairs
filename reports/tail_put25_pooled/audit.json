@@ -1,0 +1,87 @@
+{
+  "status": "accounting_incomplete",
+  "unresolved": [
+    {
+      "model": "ungated_spread",
+      "pair": "103676__110991",
+      "error": "2023-10-02: invalid held quote 155905267"
+    },
+    {
+      "model": "ungated_spread",
+      "pair": "106629__106899",
+      "error": "2025-01-21: invalid held quote 162578612"
+    },
+    {
+      "model": "ungated_spread",
+      "pair": "106899__111071",
+      "error": "2019-05-31: held underlying corporate action 106899"
+    },
+    {
+      "model": "ungated_spread",
+      "pair": "112463__161182",
+      "error": "2020-03-13: missing held option 129807680"
+    },
+    {
+      "model": "ungated_spread",
+      "pair": "109956__114726",
+      "error": "2020-04-15: invalid held quote 130191660"
+    },
+    {
+      "model": "ungated_spread",
+      "pair": "114726__127107",
+      "error": "2020-03-30: invalid held quote 132628362"
+    },
+    {
+      "model": "ungated_spread",
+      "pair": "108969__127107",
+      "error": "2020-03-30: invalid held quote 132899731"
+    },
+    {
+      "model": "pooled_rl_sized",
+      "pair": "106629__106899",
+      "error": "2025-01-21: invalid held quote 162578612"
+    },
+    {
+      "model": "pooled_rl_sized",
+      "pair": "106899__111071",
+      "error": "2019-05-31: held underlying corporate action 106899"
+    },
+    {
+      "model": "pooled_rl_sized",
+      "pair": "112463__161182",
+      "error": "2020-03-13: missing held option 129807694"
+    },
+    {
+      "model": "pooled_rl_sized",
+      "pair": "109956__114726",
+      "error": "2020-04-15: invalid held quote 130191660"
+    },
+    {
+      "model": "pooled_rl_sized",
+      "pair": "114726__127107",
+      "error": "2020-03-30: invalid held quote 132628362"
+    },
+    {
+      "model": "pooled_rl_sized",
+      "pair": "108969__127107",
+      "error": "2020-03-30: invalid held quote 132899731"
+    }
+  ],
+  "requested_pairs": 345,
+  "observed_pairs": 332,
+  "scored_pairs": 332,
+  "observed_rows": 136459,
+  "scored_rows": 136459,
+  "enabled_monthly_fits": 90,
+  "pair_validation_vetoes": 0,
+  "profitability_vetoes": 0,
+  "frozen_atm_files_verified": 2661,
+  "previous_study_files_verified": {
+    "tail_put25_strategy": 2881,
+    "tail_put25_rule_sizing": 3367,
+    "tail_put25_atm_transfer": 3184
+  },
+  "elapsed_seconds": 719.7370912079932,
+  "peak_rss_bytes": 595869696,
+  "limitations": "Shared direct-Sharpe allocation policy using additive training trajectories, actual capped inventory on evaluation. Initial vega neutrality; daily delta hedge; hold each leg to expiry; American early exercise/assignment not modeled. Separate pair risk sleeves; no global inventory optimization. Candidate roster historically selected, not all listed options. Previously inspected sample, no new holdout."
+}

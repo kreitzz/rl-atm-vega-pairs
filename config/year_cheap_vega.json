@@ -1,0 +1,36 @@
+{
+  "status": "predeclared_exploratory_research",
+  "instrument": "existing independently selected approximately 365D, 25-delta puts",
+  "universe": "unique names in the cached one-year universe; one proposal per name/month; no pair beta/correlation cutoff",
+  "direction": "long-only standalone options, daily stock delta hedging; net long vega is intentional",
+  "rules": {
+    "absolute": "forecast variance exceeds implied variance",
+    "historical": "forecast-based long carry exceeds its previous 24 observed monthly premiums; minimum12 observations",
+    "both": "absolute and historical conditions both hold"
+  },
+  "priority": "descending same-close long carry; historical-only uses its same-close carry z-score",
+  "size": "fixed50: half the existing450 dollars per volatility-point entry budget, integer contracts; existing global risk controls and $1m per-name research risk reference",
+  "management": "hold control, then pooled carry-based fitted Q trained on standalone absolute-rule holdings; no transfer of pair-Q tables",
+  "actions": [
+    "hold",
+    "halve",
+    "close"
+  ],
+  "execution": "next observed session, existing .1 volatility-point penalty and .03 commission per contract; same financing and stock hedge costs",
+  "evaluation": "2018-01-01 through2025-08-29, monthly proposals stopJune2024 to allow runoff",
+  "training": "quarterly48-month past-prefix fits; cold start holds; training commissions .65; actual PnL per initial vega utility",
+  "fresh_holdout": false,
+  "data_quality": "Stop if a held option lacks observed quotes for more than5 trading sessions; retain the trade and restore verified vendor identity/history before replaying",
+  "resources": {
+    "workers": 1,
+    "cpu_duty_cycle": 0.2,
+    "worker_tree_rss_limit_mib": 384,
+    "minimum_system_memory_available_percent": 35,
+    "stop_on_macos_memory_warning": false,
+    "warning_mode": "At most384 MiB, critical pressure always stops",
+    "max_system_swap_growth_mib": 64,
+    "transient_low_headroom_pause_seconds": 60,
+    "paused_worker_hard_headroom_stop_percent": 25
+  },
+  "storage": "stream cached quote batches into a disk-backed indexed SQLite store; bounded day caches and streamed holding observations; exact float64 read-only mapped stock/EWMA caches; replay loads frozen settings without old training modules"
+}

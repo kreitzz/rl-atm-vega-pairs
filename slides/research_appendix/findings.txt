@@ -1,0 +1,5 @@
+CURRENT PRESENTATION
+
+Kept the original paper discussion (slides 2–7) byte-for-byte. Updated the title to current contract-level results. Replaced 16 old extension/conclusion slides with 13 current research slides, starting at slide 8. Removed the obsolete ATM proxy result-chart script. The original speaker script is preserved as the prefix, followed by current research notes. All previous deck versions are archived by content hash. No models, backtests, or paper were changed.
+
+slides/index.html is the complete updated deck. slides/options_research_appendix.pdf contains the current options section.

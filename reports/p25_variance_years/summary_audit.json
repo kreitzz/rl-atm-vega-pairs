@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "verified_previous_output_hashes": 18,
+  "unchanged_candidate_cash_book_hash": "4cba48ae12b557fe15073a9d728487bb61bb36cb60ab8c228b4f592079d26913",
+  "no_strategy_changes": true,
+  "year_attribution_reconciled": true,
+  "figure": "reports/p25_variance_years/yearly_pnl.png",
+  "source_script_hash": "55393c16653122b5feddac7b79b18f81ac2131ee2ac1235503dd724aad8e3af7"
+}

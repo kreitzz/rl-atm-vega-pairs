@@ -1,0 +1,35 @@
+{
+  "components": [
+    "30D",
+    "180D",
+    "365D"
+  ],
+  "allocation_rule": "sharpe_proportional",
+  "sharpe_weight_formula": "max(trailing_sharpe,0) / sum(max(trailing_sharpe,0)); equal if all nonpositive",
+  "latest_allocation": {
+    "30D": 0.6312261228103483,
+    "180D": 0.08043282428261683,
+    "365D": 0.28834105290703504
+  },
+  "latest_allocation_date": "2025-07-01",
+  "window_months": 24,
+  "rebalance": "quarterly",
+  "warmup": "Equal weights during 2018-2019",
+  "first_historical_allocation": "2020-01-02",
+  "weights_use_strictly_prior_sessions": true,
+  "future_perturbation_and_truncation_audit_dates": [
+    "2020-01-02",
+    "2022-10-03",
+    "2025-07-01"
+  ],
+  "full_history_weight_optimization": false,
+  "window_search": false,
+  "retrospective_component_selection": true,
+  "no_fresh_holdout": true,
+  "after_component_costs": true,
+  "additional_reallocation_costs_included": false,
+  "shared_portfolio_replayed": false,
+  "one_year_replaces_old_component": true,
+  "one_year_component_excluded": false,
+  "peak_rss_bytes": 195411968
+}

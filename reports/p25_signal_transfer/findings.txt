@@ -1,0 +1,18 @@
+Preserve all 608 frozen P25 qualified signal dates/pairs, directions and monthly learned floor-size decisions from same_structure_calendar. Transfer exactly the same decision stream to ATM calls and P75 puts; there is no second wing-native rank or profitability veto. Original selected contracts always take precedence. Missing wing choices can use already cached alternative selections only when signal OI>=100; fallback never replaces an existing contract. This fallback cache is not an exhaustive OI100 expiry search. Missing IDs reach execution explicitly and cannot disappear through future-path filtering. P25 selections are unchanged. Original 7-55D replay eligibility, costs (.03 commission, mid+.1 volpoint,1bp hedge), financing, dividends, vega matching, daily hedging and risk budgets are unchanged. Compare fixed50,fixed100,frozen RL50/75/100 at identical proposals, with separate wing and combined shared-book accounting. Additional existing-only floor replays isolate the fill-missing effect. Reproduce standalone frozen P25 fixed100 and floor daily NAV, trades and decisions before accepting other wing results. No retraining. This is a cross-wing transfer of the P25 model decisions, not independently trained wing RL. Previously inspected history and retrospective formation conditioning, no fresh holdout. One worker, 50% of one core,one BLAS/Arrow thread,3GiB RSS stop.
+
+             model  annualized_excess_sharpe  entries  net_excess_pnl
+         fixed_100                  0.544807      367   410468.377728
+     fixed_100_ATM                  0.191872      166    77975.780095
+     fixed_100_P25                  0.756932      134   266316.555691
+     fixed_100_P75                  0.097206       66    37367.512754
+          fixed_50                  0.464954      685   299178.883224
+      fixed_50_ATM                  0.131977      303    42471.493758
+      fixed_50_P25                  0.769675      263   249064.569721
+      fixed_50_P75                 -0.056532      119   -18565.131926
+             floor                  0.524844      536   349172.138652
+         floor_ATM                  0.168664      242    58418.912872
+floor_ATM_existing                  0.168664      242    58418.912872
+         floor_P25                  0.825623      200   262872.856615
+         floor_P75                  0.000047       94      -12.138724
+floor_P75_existing                 -0.028244       91    -9900.886856
+    floor_existing                  0.511832      533   338631.572384

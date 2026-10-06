@@ -1,0 +1,21 @@
+{
+  "status": "accounting_incomplete",
+  "unresolved": [
+    {
+      "model": "ungated_spread",
+      "pair": "108969__127107",
+      "error": "2024-02-08: unsupported distribution for 155094894"
+    }
+  ],
+  "requested_pairs": 345,
+  "observed_pairs": 332,
+  "scored_pairs": 332,
+  "observed_rows": 136459,
+  "scored_rows": 136459,
+  "corporate_action_exit_legs": 51,
+  "modeled_held_marks": 5,
+  "learned_actions_and_prior_outputs_verified": 3849,
+  "elapsed_seconds": 38.889642582973465,
+  "peak_rss_bytes": 467976192,
+  "limitations": "Inspected sample. Original policies/labels frozen before accounting repair. Known nonstandard corporate actions are exceptions to hold-to-expiry. Missing held marks modeled causally; no synthetic entry quotes. LEN adjustment-factor correction is metadata-only; quoted prices unchanged. Separate capped pair sleeves, not globally netted inventory."
+}

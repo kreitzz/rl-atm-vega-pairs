@@ -1,0 +1,12 @@
+{
+  "past_prefix_rewards_only": true,
+  "all529_proposals_explicit": true,
+  "original_controls_unchanged": true,
+  "costs_and_capital_limits_unchanged": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 836829184,
+  "no_fresh_holdout": true,
+  "algorithm": "Episodic contextual allocation policy optimization, not sequential Q learning",
+  "shadow": "Fractional independent cohort sizes; actual evaluation includes integer matching and shared cash/risk"
+}

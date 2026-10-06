@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "replays": 16,
+  "signal_date_availability_only": true,
+  "no_future_path_or_outcome_selection": true,
+  "all_ledgers_verified": true,
+  "same_decisions_across_maturities": true,
+  "no_retraining": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 495812608
+}

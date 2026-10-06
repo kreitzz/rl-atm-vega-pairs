@@ -1,0 +1,19 @@
+                   model period  entries  active_pairs  net_excess_pnl  risk_breach_pair_sessions  commission  option_cost   hedge_cost  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+          rule_full_size   full      135            41   267264.695491                        401     1086.30 14030.280713 20877.364833      0.218943       0.000775                  0.756451     -0.000080
+       residual_floor_rl   full      202            44   211500.327242                        396     1043.79 13307.630819 19223.784285      0.218781       0.000613                  0.710986     -0.000025
+      robust_residual_rl   full      202            44   213807.832165                        425     1037.04 13325.621343 19345.859204      0.218788       0.000620                  0.717599     -0.000025
+     context_residual_rl   full      202            43   256944.329850                        422     1040.91 13586.162114 20026.642584      0.218913       0.000745                  0.792041     -0.000025
+memory_trained_pooled_rl   full      117            30   103461.780381                        124      452.79  5821.368268  8801.727942      0.218468       0.000300                  0.637893     -0.000003
+
+{
+  "status": "complete",
+  "baseline_reproduced": true,
+  "source_files_verified": 22716,
+  "scored_rows_per_model": 136459,
+  "scored_pairs": 332,
+  "models_per_variant": 90,
+  "per_pair_activation_vetoes": 0,
+  "elapsed_seconds": 384.18395758300903,
+  "peak_rss_bytes": 584302592,
+  "limitations": "Three predeclared bounded tests; no new signal, horizon, direction or cost search. All share exact .756 rule proposals. Floor RL and robust floor RL reuse the prior memory-trained monthly state partitions and pool. Robust objective is mean minus one sample standard deviation of leave-calendar-year-out Sharpe improvement over full-size, evaluated only on completed training outcomes. Context floor RL uses historical original put-state dates before 2018 and exact saved legacy evaluation dates thereafter, and adaptively fits up to 8 pooled leaves (min leaf max(8,min(63,n//8))). No per-pair activation, no cold-start fallback, all observed states scored. Every eligible signal remains at least half size; actual risk/quote controls still apply. Training remains additive standalone cohorts; no claim of sequential inventory-aware RL. Inspected history, not new holdout. Pre-2018 panel availability and candidate roster remain retrospective dataset conditioning."
+}

@@ -1,0 +1,100 @@
+RL volume/open-interest ablation on the current 0.368 reference
+One added signal: first-leg minus second-leg aggregate call+put volume/open interest, with an availability flag.
+Daily observations lag one business day and carry for at most seven calendar days. Missing values are zero-filled and flagged.
+All original states remain unchanged. Employee leadership signals remain on the original 28 sleeves.
+Same monthly prior-year validation, five-year refits, strict completed-outcome purging, beta/correlation and profitability gates, and 25/50/75/100% sizing ladder.
+ATM30 calls, daily delta hedging, hold to expiry. Training commission $0.65; execution $0.03. Spread, funding and risk limits unchanged.
+RL only; no new NN training. Enabled baseline refits are recovered and checked against saved actions.
+Full history starts flat in 2018; recent history independently starts flat in 2022; both end August 2025.
+Annualized Sharpe is based on daily returns above cash and sqrt(252). Full original 345-sleeve roster retained.
+This signal was chosen after examining this history. The comparison is not untouched confirmation.
+The current best checkpoint is preserved; no automatic promotion.
+
+         universe        model period  pairs  entries  active_pairs  net_excess_pnl  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+              all  rl_baseline   full    345      224            29   145778.177100      0.218591       0.000423                  0.368039     -0.000025
+              all  rl_baseline recent    345      179            22   103398.127664      0.159333       0.000300                  0.427591     -0.000024
+              all rl_volume_oi   full    345      216            29    99481.957385      0.218457       0.000288                  0.222343     -0.000022
+              all rl_volume_oi recent    345      162            21    57758.094165      0.159201       0.000167                  0.227222     -0.000022
+volume_oi_covered  rl_baseline   full    110      224            29   145778.177100      0.219493       0.001325                  0.368209     -0.000179
+volume_oi_covered  rl_baseline recent    110      179            22   103398.127664      0.159973       0.000940                  0.427805     -0.000178
+volume_oi_covered rl_volume_oi   full    110      216            29    99481.957386      0.219073       0.000904                  0.222506     -0.000143
+volume_oi_covered rl_volume_oi recent    110      162            21    57758.094165      0.159558       0.000525                  0.227430     -0.000145
+
+Files: comparison.csv, annual.csv, pairs.csv, coverage.csv, fits.csv, accounting_coverage.json
+
+Verification:
+{
+  "source_files_verified": 453,
+  "frozen_source_files_verified": 2661,
+  "baseline_archive_sha256_verified": true,
+  "retrained_pairs": 110,
+  "monthly_controls_verified": 4867,
+  "original_state_columns_unchanged": true,
+  "training_outcomes_strictly_purged": true,
+  "accounting": {
+    "requested_pairs": 345,
+    "common_complete_pairs": 345,
+    "unresolved": []
+  },
+  "entry_coverage": {
+    "rl_volume_oi": {
+      "entries_with_signal": 216,
+      "entries_without_signal": 0
+    }
+  },
+  "enabled_rl_refits": 519,
+  "enabled_refits_using_value": 21,
+  "enabled_refits_using_availability": 0,
+  "paired_quarter_differences": [
+    {
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.14569599522031415,
+      "difference_ci90_low": -0.24797918685006398,
+      "difference_ci90_high": -0.03295611981193117
+    },
+    {
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.20036879421429546,
+      "difference_ci90_low": -0.3309872077134053,
+      "difference_ci90_high": -0.05008995063466852
+    }
+  ],
+  "uncertainty_note": "Paired calendar-quarter resampling of the inspected realized portfolio paths; descriptive, no policy refitting or model-selection correction."
+}
+
+Assessment:
+{
+  "result": "No improvement; retain the current employee-sentiment reference.",
+  "full_sharpe_baseline": 0.3680386150089804,
+  "full_sharpe_candidate": 0.2223426197886663,
+  "net_excess_pnl_change": -46296.219714820385,
+  "largest_deteriorations": [
+    {
+      "pair": "105450__110752",
+      "label": "GES/TJX",
+      "pnl_change": -18169.722018135944,
+      "entry_change": -9
+    },
+    {
+      "pair": "102873__210354",
+      "label": "CENX/AA",
+      "pnl_change": -16279.925382709362,
+      "entry_change": 0
+    },
+    {
+      "pair": "101369__110752",
+      "label": "AEO/TJX",
+      "pnl_change": -10015.483946102206,
+      "entry_change": -2
+    }
+  ],
+  "largest_three_combined_change": -44465.13134694751,
+  "changed_pairs": 10,
+  "enabled_refits_using_value": 21,
+  "enabled_refits": 519,
+  "interpretation": "The stable but small rank association did not improve this unchanged RL workflow. Feature effects include validation gates, partitioning and sizing; adding a feature can change original-feature partitions even if a final refit does not split on it.",
+  "runtime_seconds": 669.731840042019,
+  "baseline_promoted": false
+}

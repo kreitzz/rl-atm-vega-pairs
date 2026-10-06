@@ -1,0 +1,43 @@
+Matched RL state ablations, 2026-10-02
+
+No variant beats the frozen reference. Annualized daily excess-return Sharpe, above cash:
+  Model                         2018-Aug2025   2022-Aug2025
+  Frozen employee reference     0.368039       0.427591
+  Add downside variance share   0.229039       0.356659
+  Add IV-factor reversion       0.341675       0.381309
+  Add both                      0.256610       0.378908
+
+All 345 original sleeves completed for every model and period. There were no unresolved accounting gaps and no exclusions from the primary comparison. Full and recent portfolios independently start flat. Source checkpoint and current reference remain unchanged.
+
+Same ATM30 calls, hold-to-expiry accounting, daily delta hedges, initial pair vega matching, sizing ladder, beta/correlation and profitability gates, inventory limits, financing and stock execution costs. Training commission remains $0.65/contract and execution commission $0.03; entry spread penalty remains 0.1 vol points.
+
+New inputs are first-minus-second-leg gaps, with separate availability flags. Downside share is the trailing 21-session fraction of squared split-adjusted stock log returns on down days. IV-factor reversion is the negative trailing 21-session IV-change residual, standardized by own IV-change volatility; the leave-one-name-out broad IV factor and 252-session beta use original observable IV states and historical observations. Signal-close inputs execute next session. No payoff-based membership filtering.
+
+110 pairs had usable downside observations on permitted trading dates; 63 had usable IV-factor observations. Uncovered variants retain the original policy. The combined variant was fitted on 110 pairs, with missing inputs zero-filled and flagged. All original employee inputs remain on their original sleeves. No NN was refitted.
+
+Downside improves 2025 full-path Sharpe from -0.976114 to +0.465897, but worsens other periods, especially 2020 (1.145841 to -0.035045) and 2022 (0.906999 to 0.666438). The complete annual table is annual.csv. These are annual results from the continuous full path; the independently restarted recent path has different annual values.
+
+Full-history net excess P&L changes relative to reference:
+  Downside: -$51,675.01 overall; HAL/SLB -$22,610.71, GES/TJX -$18,169.72, OKE/KMI -$11,019.38. CENX/AA improves $14,380.98.
+  IV factor: -$10,402.87 overall; AEO/TJX -$10,015.48 and OIH/SLB -$4,770.44; GES/TJX improves $3,071.16.
+  Both: -$50,013.38 overall; GES/TJX -$30,750.68 and HAL/SLB -$22,610.71; CENX/AA improves $14,380.98 and THC/HCA $12,826.86.
+These are accounting differences between fitted policies, not causal attribution to individual signals or trades.
+
+Value usage in enabled refits:
+  Downside-only: 89/527 use the downside value.
+  IV-factor-only: 9/388 use the IV-factor value.
+  Both: 93/534 use downside, 9/534 use IV factor, 100/534 use at least one new value.
+  No enabled refit splits on either new availability flag.
+Adding columns can also change tied tree partitions, so changes in fits that do not select a new value are not direct evidence of that value's effect.
+
+The earlier mining result came from a fixed IV-spread direction-agreement filter, applied to standalone resolved cohorts. This experiment adds states to RL and lets the same existing tree/policy optimizer decide whether to use them; it does not impose that filter. In addition, some strong mining pairs such as SNAP/UBER and PLUG/BE frequently lack sufficient completed training observations for live policy fitting under the reference rules. The portfolio results therefore do not directly estimate the screened filter's portfolio Sharpe.
+
+Next direct hypothesis, not executed in this experiment: specify a fixed downside direction-agreement rule for frozen reference recommendations and replay the same daily portfolio. Keep its costs, gates and sizing fixed. This would isolate the trade-filter idea before another model search.
+
+All results remain exploratory because the signals were selected after inspecting this historical period. Paired calendar-quarter resampling gives 90% Sharpe-difference intervals including zero for all three variants, in both periods. This is descriptive uncertainty and does not correct for signal selection.
+
+Validation: four new feature tests passed. Audit reconstructed all 139 state panels, verified 457 input/code files, checked the archive and all 2,661 frozen checkpoint files, and verified 4,867 recovered monthly controls and strict completed-outcome training cutoffs. Actual replay accounting audits passed for all models and periods.
+
+One heavy worker, 50% of one CPU core, single math/Arrow threads, nice15, guarded 3 GiB RSS stop. Training/replay peak RSS was 665,829,376 bytes, about 635 MiB. All runs finished. No reference promotion, commit or push was performed.
+
+Files: comparison.csv, annual.csv, pairs.csv, pair_changes.csv, coverage.csv, fits.csv, feature_usage.csv, policy_changes.csv, paired_quarter_differences.csv, accounting_coverage.json, audit.json and summary.txt. Atomic monthly actions/fit checkpoints and daily ledgers are under artifacts/contracts/atm65_rl_mined_signals/.

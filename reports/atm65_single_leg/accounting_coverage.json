@@ -1,0 +1,12 @@
+{
+  "requested_pairs": 345,
+  "common_complete_pairs": 344,
+  "unresolved": [
+    {
+      "pair": "112463__161182",
+      "model": "rl_single_historical",
+      "period": "full",
+      "error": "2020-03-13: missing held option 132591447"
+    }
+  ]
+}

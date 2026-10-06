@@ -1,0 +1,50 @@
+Current best model: executed-trade and name diagnostics
+Main reference: frozen 0.368 full-period RL model, 2018-Aug2025. Latest three state ablations are secondary comparisons, not independent repetitions.
+No policy retraining, new trades, changed fills, excluded losing names or new selection rules.
+Actual option/stock hedge ledger reconstructed by cohort and underlying, with original Greeks and causal fallback. Initial quantities, splits, dividends and own expiries are preserved.
+Netted stock execution/borrow costs allocated pro rata by absolute hedge changes/short hedges. Cohort and leg P&L exclude shared sleeve financing; pair and calendar-year net excess include it.
+Cohort labels use complete lifecycles and entry years. Calendar-year pair P&L includes positions crossing year boundaries. Do not mix these definitions.
+Forward realized volatility, largest holding-period moves, next-session IV changes and vega drift are retrospective explanations, not available trading states.
+Signal features use original signal-close information, prior-only market IV betas/historical premium statistics and observable daily closes. Entries are next session.
+Episodes connect overlapping holding periods within each pair. They still share names and market events across pairs and are not independent samples.
+Early bins use completed pre-2022 executed trades; boundaries remain fixed later. Fixed rule groups are descriptive. All history has already been inspected; no winner-based roster is promoted.
+
+       model  trades  episodes  win_rate  mean_net_per_vega  profitable_pairs  losing_pairs largest_pair  top_3_pair_share_positive_pnl  top_3_trade_share_positive_pnl  top_3_episode_share_positive_pnl
+ rl_baseline     224        59  0.638393           2.423518                19            10      GES/TJX                       0.423204                        0.113593                          0.276475
+     rl_both     231        64  0.588745           1.381728                19            12       AU/NEM                       0.331585                        0.118327                          0.282579
+ rl_downside     240        63  0.600000           1.806994                18            11      GES/TJX                       0.373223                        0.116325                          0.270548
+rl_iv_factor     215        60  0.623256           2.480626                20            10      GES/TJX                       0.460149                        0.117269                          0.285998
+
+Reference pair ranking:
+    label  entries  gross_hedged_pnl  net_before_shared_financing  financing_vs_cash  net_excess_pnl
+ RCL/NCLH        3     -17442.629559                -17964.807491       -2456.369305   -20421.176795
+  THC/HCA       13     -15340.361476                -17193.937236       -2344.781217   -19538.718453
+   GG/NEM        5      -4817.548472                 -5303.956458        -449.573949    -5753.530407
+  RRC/SLB        1      -3520.298992                 -3762.357159       -1059.631837    -4821.988996
+  CSX/UNP        9      -3313.986247                 -3826.320718        -604.376520    -4430.697239
+  AIG/HIG        5      -2483.600127                 -3675.715195         597.851320    -3077.863875
+   TRV/CB        1      -1603.160425                 -1948.148962        -187.034417    -2135.183379
+  MET/PRU        1      -1105.293669                 -1494.180161        -239.412618    -1733.592779
+  HES/CVX        8        565.182711                  -504.059014         120.188302     -383.870712
+    BAC/C        6        676.952618                   -20.093959        -316.035116     -336.129075
+    JPM/C        4        554.129675                   275.179679        -219.153219       56.026460
+    C/WFC        5       1641.287423                   566.600665        -168.954205      397.646460
+   AIG/CB        1       2107.923727                  1800.444706       -1017.697054      782.747652
+  OIH/HAL       13       3873.752847                  1701.603232         102.907989     1804.511221
+  AIG/TRV        3       2374.808862                  1736.672072         372.194526     2108.866598
+  HIG/TRV        5       5506.602658                  5251.201030        -448.645729     4802.555301
+  CENX/AA       10       7945.255651                  6049.528113        -770.316887     5279.211225
+  KBH/TOL        8       9091.625384                  7538.905792         164.783699     7703.689492
+  DHI/TOL        3       9459.809456                  8488.063648        1409.475879     9897.539527
+  OKE/WMB        9       9704.132750                  7383.358569        2555.042707     9938.401276
+  AEO/TJX        2       9311.114663                  8622.750296        1392.733650    10015.483946
+  OIH/SLB       22      16149.063553                 12004.605556       -1033.775311    10970.830244
+  URI/AER        7      11303.059958                  9943.772730        1291.274035    11235.046764
+  BAC/JPM       14      12726.306624                 10329.446169        2299.952967    12629.399136
+    HL/AG       24      14630.843628                  9605.229750        4021.255853    13626.485602
+  OKE/KMI       12      17308.364624                 14966.809820        3995.334733    18962.144553
+SPWR/CSIQ        5      17984.999263                 16827.518370        2708.404269    19535.922639
+   AU/NEM        6      19422.778761                 17990.984537        2878.795673    20869.780211
+  GES/TJX       19      44992.039672                 42081.512797        5713.127706    47794.640503
+
+Files: cohorts.csv, legs.csv, names.csv, pairs.csv, annual_pairs.csv, episodes.csv, concentration.csv, changed_trades.csv, signal_rank.csv, conditional_groups.csv, winner_loser_features.csv, audit.json

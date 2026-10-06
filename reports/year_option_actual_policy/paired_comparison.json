@@ -1,0 +1,7 @@
+{
+  "case": "actual_book_2state_48M",
+  "control": "fixed25_hold",
+  "sharpe_gain": -0.11477389282851674,
+  "unadjusted_gain_95_low": -0.3477472137844673,
+  "unadjusted_gain_95_high": 0.08404518988510375
+}

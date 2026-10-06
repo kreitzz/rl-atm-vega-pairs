@@ -1,0 +1,7 @@
+tenor,case,diagnosed_exit_cohorts,fraction_followed_by_hold_loss,mean_remaining_hold_pnl_per_entry_vega
+180,fixed50_fitted_q_conservative_aligned_runoff,14,0.5714285714285714,-0.5251154007846629
+180,fixed50_fitted_q_risk0.5_aligned_runoff,257,0.32684824902723736,2.558823995031027
+180,fixed50_fitted_q_risk0_aligned_runoff,95,0.3894736842105263,3.725022464137492
+365,fixed50_fitted_q_conservative_aligned_runoff,19,0.5789473684210527,0.4236899275623059
+365,fixed50_fitted_q_risk0.5_aligned_runoff,184,0.358695652173913,1.8593596555034175
+365,fixed50_fitted_q_risk0_aligned_runoff,115,0.4956521739130435,0.7615512152526965

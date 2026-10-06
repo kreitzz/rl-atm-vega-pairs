@@ -1,0 +1,27 @@
+                      model  entries  active_pairs  total_return  excess_return  annualized_excess_sharpe  max_drawdown   status                     variant  proposals  commission  option_cost    hedge_cost  max_ledger_error shared_cash shared_stock_hedges  wing_risk_reservation
+   frozen_separate_accounts      676            69      0.218721       0.000552                  0.772363     -0.000005      NaN                         NaN        NaN         NaN          NaN           NaN               NaN         NaN                 NaN                    NaN
+        shared_frozen_sizes     1250            69      0.218779       0.000611                  0.429546     -0.000029 complete         shared_frozen_sizes     2133.0     7638.81 81607.393111 144984.414330      1.680091e-06        True                True                    NaN
+         shared_joint_sizes      681            58      0.218229       0.000061                  0.057284     -0.000022 complete          shared_joint_sizes     2133.0     3722.67 38980.685791  71696.127488      8.555216e-07        True                True                    NaN
+shared_frozen_native_limits      678            69      0.218723       0.000555                  0.778245     -0.000012 complete shared_frozen_native_limits     2133.0     3732.78 39732.568759  72823.385619      1.145774e-06        True                True              1000000.0
+ shared_joint_native_limits      416            58      0.218311       0.000143                  0.290692     -0.000012 complete  shared_joint_native_limits     2133.0     1997.97 20573.307734  39249.107222      1.034496e-06        True                True              1000000.0
+
+{
+  "status": "complete",
+  "models": 90,
+  "pairs": 345,
+  "actual_commission": 0.03,
+  "shared_inventory": true,
+  "sequential_inventory_training": false,
+  "source_files": 4466,
+  "frozen_sources_verified": 4466,
+  "phase": "finalize",
+  "elapsed_seconds": 182.64231929197558,
+  "peak_rss_bytes": 919764992,
+  "finalization_elapsed_seconds": 7.18835520799621,
+  "tests_passed": 8,
+  "max_independent_ledger_error": 1.6800913726910949e-06,
+  "primary_control": "shared_frozen_native_limits",
+  "primary_candidate": "shared_joint_native_limits"
+}
+
+One joint direct-Sharpe sizing policy across frozen ATM/P25/P75 proposals and all 345 roster pairs. Keep each frozen proposal date, direction, option type and selected contracts; entry sizes 0/25/50/75/100%. Monthly five-year rolling fits use only completed pre-cutoff outcomes. Insufficient global history or unseen groups retain frozen sizes. One partition per wing/base-size group, at most two leaves each; cross-entropy search optimizes their combined daily cash-path Sharpe. This is the existing direct-Sharpe policy-search family, not sequential inventory-trained RL. Training paths sum standalone trades, with frozen-reference lag inventory; replay uses actual previous-close shared inventory and joint risk checks. One shared cash account and net stock hedge across wings/pairs; $3m pair capital, $450 full entry vega per leg, $60k gross vega pair cap; global limits are their sums and identical fractional hedge/reserve/stress limits. Primary matched replay also retains original $1m/20k gross-vega pair-wing risk reservations; pooled-only trials retained separately. Daily delta hedges and paired initial vega matching, hold each leg to own expiry, announced paired corporate exits unchanged. Actual commission $0.03; training hurdles ATM/P25 $0.65 and P75 $0.50; execution mid plus 0.1 vol point per leg, stock costs 1bp. No independent new pair/feature/validation gates. Frozen flat signals stay flat; unavailable selected contracts cannot execute. 2018-01-01 through 2025-08-29; inspected history and prior selected hurdle make this exploratory, not an untouched holdout. One worker, 50% of one core, one BLAS/Arrow thread, 3 GiB RSS stop.

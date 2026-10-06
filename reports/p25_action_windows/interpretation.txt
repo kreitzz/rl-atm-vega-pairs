@@ -1,0 +1,79 @@
+P25 action and training-window study completed
+
+Freeze the meaningful signal: approximately30D25-delta puts, same608
+qualified pair/date/contract/direction proposals and27 existing features.
+Keep monthly training,8-leaf state partition, same direct-Sharpe optimizer,
+execution costs, integer entry-vega matching, daily hedges, own-expiry holds,
+financing and risk budgets. Only training lookback and sizing menu change.
+
+Annualized cash-excess Sharpe,2018 through August29,2025:
+Action menu                   1-year    3-year    5-year
+50/100%                         .847      .706      .816
+50/75/100%                      .855      .707      .826
+25/50/75/100%                   .816      .719      .619
+0/25/50/75/100%                  .329      .551      .430
+
+Full fixed-vega100% control: .756932,134 accepted trades.
+Original5-year50/75/100: .825623,200 accepted trades,$262,873 above cash.
+Best candidate1-year50/75/100: .855190,211 accepted trades,$283,336 above cash.
+The candidate adds about$20,464 net excess P&L in this history, with mean
+accepted size63.6% versus64.6% for the reference. Worst daily excess loss
+is about$23,813 versus$24,858. Different sizes can change which proposals
+pass the unchanged actual risk controls; these are not identical fill sets.
+
+The candidate ranks first using the predeclared2018-2023 selection period,
+not only full-history ranking. That period's Sharpe is1.163 vs1.109 for
+the reference. However, all periods have already been inspected in this
+research. Selection does not create a fresh holdout. The candidate's full
+Sharpe difference is+.0296; paired126-session block-bootstrap95% interval
+[-.153,+.184]. This is a modest exploratory improvement, not strong evidence
+of a reliable superiority. The12-case comparison and inherited roster/
+formation-calendar conditioning add research-selection uncertainty.
+
+Year-by-year reference versus candidate:
+Year     5Y50/75/100    1Y50/75/100
+2018           .241          -.009
+2019          -.555          -.640
+2020          1.382          1.465
+2021          -.592          -.161
+2022          2.274          2.368
+2023          1.501          1.505
+2024          -.834         -1.064
+2025           .736          1.150
+2025 is partial throughAugust29,with common June30 entry cutoff and runoff.
+The candidate did not fix2024. Recent2024-25 Sharpe remains negative:
+-.328 for candidate versus-.366 for reference. Earlier calendar slices
+are2018-2020 .682 vs.679 and2021-2023 1.539 vs1.424.
+
+Allowing25% size does not improve overall Sharpe in this grid. The1-year
+25-100 variant is nevertheless a descriptive recent-period alternative:
+full Sharpe.816,recent2024-25 -.056;2024 -.749,2025 1.284. It was not selected
+by the predeclared early-period ranking and is not promoted on that basis.
+
+Learned skips consistently underperform their corresponding positive-floor
+menus on full history. All608 signal decisions remain in each replay;
+1/3/5-year flex policies explicitly skip318/330/312 proposals. They execute
+129/124/134 trades across28/27/32 pairs. This is a learned action, not a new
+data or feature-availability veto. Fixed100% on the exact same proposed
+skip masks produces Sharpes.389/.462/.400 with69/70/72 accepted trades.
+Thus sizing versus skipping is not uniformly beneficial:1Y flex underperforms
+its same-skip full-size control, while3Y and5Y flex outperform theirs. Actual
+accepted trades differ because risk and integer sizing differ by size.
+
+Validation
+All1080 monthly fits use completed outcomes ending strictly before fit;
+the lookback boundary is also enforced. All90 original5-year floor trees
+and choices reproduce exactly. Original floor NAV,trades,decisions and the
+fixed100 NAV/trades reproduce. Three focused tests verify the original
+optimizer kernel, legal menus and exclusion of future/unfinished outcomes.
+All16 actual-option replay ledgers reconcile, integer vega matching remains
+within10%, and runoff closes all inventory. Single worker,50%of one core,
+one BLAS/Arrow thread,3GiB stop; recorded peak RSS about460MiB. Jobs finished.
+
+Saved references
+config/p25_frozen_strategy_checkpoint.json preserves the original strategy.
+config/p25_action_window_candidate.json points to the1-year research candidate.
+No frozen checkpoint was overwritten or promoted. comparison.csv contains
+all variants and controls;annual.csv and annual_sharpe.csv contain years;
+periods.csv contains calendar slices;selection.json and uplift.csv retain
+the declared selection and uncertainty. Source/output hashes are preserved.

@@ -1,0 +1,1259 @@
+[
+  {
+    "fit": "2022-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 64,
+    "training_last_outcome": "2022-06-17",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.39764920257838127
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.2063889105133899
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.27140762608688307
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.3099548207904145
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.20039075725981584
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.5070876417404789
+      }
+    ]
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 82,
+    "training_last_outcome": "2022-12-16",
+    "selected": "carry_exit",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.263949749229266
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.14897027183124117
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.17150662612549109
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.12178076033428548
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.10322810048649134
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.276172992608743
+      }
+    ]
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 13,
+    "training_last_outcome": "2018-06-15",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 25,
+    "training_last_outcome": "2018-09-21",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 73,
+    "training_last_outcome": "2020-09-18",
+    "selected": "carry_exit",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.06046763534323129
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.033015977184017026
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.04374837542296193
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.018937269767943514
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.03325423875565073
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.08143097884019176
+      }
+    ]
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 45,
+    "training_last_outcome": "2020-04-17",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 117,
+    "training_last_outcome": "2023-12-15",
+    "selected": "carry_exit",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.4588151173021556
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.05390037289007954
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.18731636438515117
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.15701944650637434
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.15620801216975364
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.4965227756013711
+      }
+    ]
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 99,
+    "training_last_outcome": "2025-06-20",
+    "selected": "spread_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.4594151359003317
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.2400653766882217
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.07329053854902932
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.13445787073716112
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.1433754509024238
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.47670345505646167
+      }
+    ]
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 95,
+    "training_last_outcome": "2023-06-16",
+    "selected": "carry_exit",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.38001728240926325
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.015006019898075965
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.14579748670470744
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.06969398411386518
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.05864479319731497
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.49244171048613194
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 49,
+    "training_last_outcome": "2021-07-16",
+    "selected": "spread_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.05555625978085521
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.03488956043731078
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.011650582433539182
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.008799389846529981
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.0847095141079567
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.10994200780595956
+      }
+    ]
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 36,
+    "training_last_outcome": "2019-06-21",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 0,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 107,
+    "training_last_outcome": "2024-12-20",
+    "selected": "spread_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.47820523507067103
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.0044381518294785306
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.019029168179823596
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.05496359866193729
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.01033493058619982
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.4569642044265768
+      }
+    ]
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 119,
+    "training_last_outcome": "2024-03-15",
+    "selected": "carry_exit",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.4482510372177807
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.11485351637157908
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.17645929449831566
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.16531882058529027
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.16696981751298096
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.48444098907483835
+      }
+    ]
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 39,
+    "training_last_outcome": "2019-12-20",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 90,
+    "window_months": 36,
+    "training_proposals": 49,
+    "training_last_outcome": "2020-09-18",
+    "selected": "spread_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.053735747771392096
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.029490257289632046
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.0013035560472597289
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.025392783575655324
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.07843881108126693
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.11073416466724338
+      }
+    ]
+  },
+  {
+    "fit": "2022-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 105,
+    "training_last_outcome": "2022-06-17",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.7906655126460108
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.8802700858660764
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.7733895297037379
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.8879910045850508
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.748471239602955
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.7157433275352377
+      }
+    ]
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 167,
+    "training_last_outcome": "2022-12-30",
+    "selected": "delta_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.9164017210027693
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 1.8189172352676637
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.7851952222253975
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.847910780790325
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.7280905609842259
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.999794446591989
+      }
+    ]
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 46,
+    "training_last_outcome": "2018-06-29",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 85,
+    "training_last_outcome": "2018-12-21",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 94,
+    "training_last_outcome": "2020-08-21",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.0288245091216885
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.7001920905831477
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.7222961913851397
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.6759163283043037
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.1857070826973193
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.8924804159505537
+      }
+    ]
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 109,
+    "training_last_outcome": "2020-06-26",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.6913493529171651
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.413993082404758
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.40879528370289225
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.40494610225322775
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.7712052932116177
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.6398800308150225
+      }
+    ]
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 165,
+    "training_last_outcome": "2023-12-15",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 2.1674595215175163
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 1.995865639876614
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 2.298327878017412
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 2.3379633469032863
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 2.276215465364336
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 2.12446526564929
+      }
+    ]
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 80,
+    "training_last_outcome": "2025-06-20",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.031960834796578824
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.958284238919845
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.263532270382181
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.41522460771345193
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.1433178762735074
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.36794934739664387
+      }
+    ]
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 192,
+    "training_last_outcome": "2023-06-30",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.9363647668623705
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 1.9360132209449317
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.9394947679565637
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.99053111920089
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.8997461666192073
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.9884979335401471
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 60,
+    "training_last_outcome": "2021-12-23",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.8043847641085214
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.6830160023064294
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.99954147902176
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.581596960972207
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -1.0188560398100055
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -1.101968627818988
+      }
+    ]
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 131,
+    "training_last_outcome": "2019-06-21",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.11733236868243414
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.20915293931988743
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.45531202677553534
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.45841137346828736
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.09571090644757978
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.018509819169973275
+      }
+    ]
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 0,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 54,
+    "training_last_outcome": "2024-12-20",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.3073499065156716
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.5196966527882604
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.027775516531500066
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.0060592641249162665
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.12866537776355064
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.1910946796403
+      }
+    ]
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 94,
+    "training_last_outcome": "2024-06-21",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.030018184612192887
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.5621433390918834
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.032906554963560694
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.030204858086511802
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.04028111970065191
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.10588208091005973
+      }
+    ]
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 92,
+    "training_last_outcome": "2019-11-15",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": -0.6154753644875023
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": -0.2552272107003241
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": -0.2811359311246152
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": -0.2513917359216889
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": -0.667137938400249
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": -0.45333323269781417
+      }
+    ]
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 30,
+    "window_months": 18,
+    "training_proposals": 97,
+    "training_last_outcome": "2021-06-18",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.0367799496362256
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.5374201570067008
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.7016737335212386
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.6565035486554651
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.184938625335417
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.783541047962501
+      }
+    ]
+  },
+  {
+    "fit": "2022-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 199,
+    "training_last_outcome": "2022-06-17",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.8900585278670626
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.7903889360670556
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.7203846016677378
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.7741894871963256
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.8514138375935507
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.8052445216517188
+      }
+    ]
+  },
+  {
+    "fit": "2023-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 280,
+    "training_last_outcome": "2022-12-30",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.4789945735990153
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 1.325903748596056
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.3310039810717194
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.389938044479283
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.4337047914667393
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.337748495170122
+      }
+    ]
+  },
+  {
+    "fit": "2018-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 46,
+    "training_last_outcome": "2018-06-29",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2019-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 85,
+    "training_last_outcome": "2018-12-21",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2021-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 225,
+    "training_last_outcome": "2020-08-21",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.7204897977127174
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.4931895771072289
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.6098665962862535
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.5770941356169775
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.7722305870842033
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.5996421776708245
+      }
+    ]
+  },
+  {
+    "fit": "2020-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 203,
+    "training_last_outcome": "2020-06-26",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2024-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 283,
+    "training_last_outcome": "2023-12-15",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.4382482278016535
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 1.3917858020655596
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.4176663136934218
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.4867144741437033
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.3872722753835527
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.413422792189627
+      }
+    ]
+  },
+  {
+    "fit": "2025-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 247,
+    "training_last_outcome": "2025-06-20",
+    "selected": "slow_carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.2849096496632664
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.807608396309494
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.306392196386299
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.2978090081441114
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.3268585653519684
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.0740051203903918
+      }
+    ]
+  },
+  {
+    "fit": "2023-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 266,
+    "training_last_outcome": "2023-06-30",
+    "selected": "carry_trim",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.2182694159969343
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 1.201149204213605
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.2211300265513663
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.296608934853886
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.1932576873246907
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.1502418304463373
+      }
+    ]
+  },
+  {
+    "fit": "2022-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 188,
+    "training_last_outcome": "2021-12-23",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.5242265839549216
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.2266295742650709
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.2349340859808316
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.3144407664951424
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.5138262469932636
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.3738307894515829
+      }
+    ]
+  },
+  {
+    "fit": "2019-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 131,
+    "training_last_outcome": "2019-06-21",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2018-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 0,
+    "training_last_outcome": null,
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2025-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 251,
+    "training_last_outcome": "2024-12-20",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.3003037779941544
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.931036614798869
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.2331865242363147
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.2537772794541193
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.2313168898909455
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.236385260518847
+      }
+    ]
+  },
+  {
+    "fit": "2024-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 265,
+    "training_last_outcome": "2024-06-21",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 1.2027006997507725
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.8352305246690602
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 1.1271800304873114
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 1.1645903880729287
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 1.0939621686789842
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 1.1615410122239218
+      }
+    ]
+  },
+  {
+    "fit": "2020-01-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 147,
+    "training_last_outcome": "2019-11-15",
+    "selected": "hold",
+    "candidates": []
+  },
+  {
+    "fit": "2021-07-01",
+    "tenor": 30,
+    "window_months": 36,
+    "training_proposals": 189,
+    "training_last_outcome": "2021-06-18",
+    "selected": "hold",
+    "candidates": [
+      {
+        "rule": "hold",
+        "train_sharpe": 0.5204751831639371
+      },
+      {
+        "rule": "spread_trim",
+        "train_sharpe": 0.2508959462646402
+      },
+      {
+        "rule": "carry_exit",
+        "train_sharpe": 0.33600678825801633
+      },
+      {
+        "rule": "carry_trim",
+        "train_sharpe": 0.3158322836910977
+      },
+      {
+        "rule": "slow_carry_trim",
+        "train_sharpe": 0.48072173617261277
+      },
+      {
+        "rule": "delta_trim",
+        "train_sharpe": 0.4069041752426581
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "frozen_p25_standalone_nav_trades_decisions_reproduced": true,
+  "same_signal_dates_directions_sizes_across_wings": true,
+  "no_wing_specific_signal_veto": true,
+  "existing_contracts_never_replaced": true,
+  "unchanged_oi100_and_7_55d": true,
+  "identical_sizing_control_proposals": true,
+  "all_ledgers_verified": true,
+  "replays": 15,
+  "no_retraining": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 479035392
+}

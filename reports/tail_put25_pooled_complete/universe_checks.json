@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "quote_covered_pairs": 332,
+  "every_observed_state_scored": true,
+  "scored_rows": 136459,
+  "monthly_pooled_models": 90,
+  "all_training_outcomes_before_fit": true,
+  "pair_model_activation_vetoes": 0,
+  "memory_profitability_vetoes": 0,
+  "completed_books": 690,
+  "risk_breach_sessions": 5987,
+  "quote_covered_pairs_outside_inherited_atm_panels": 193
+}

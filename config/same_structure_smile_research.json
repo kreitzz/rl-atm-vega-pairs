@@ -1,0 +1,73 @@
+{
+  "status": "complete",
+  "same_structure_across_all_wings": true,
+  "shared_policy": {
+    "entry_and_direction": "252-session IV-spread rank, minimum 63 observations; bottom 20% long first leg, top 20% short first leg",
+    "features": "The identical 27 directional fields and definitions in scripts.tail_put25_pooled.FEATURES, mapped by scripts.same_structure_smile.oriented_states",
+    "beta_range": [0.85, 1.15],
+    "minimum_correlation": 0.5,
+    "profitability_gate": "Both 91-day and 365-day completed directional profits positive, with at least 21 and 63 observations respectively",
+    "optional_features": "Neutral fill plus availability flag; missing optional inputs do not veto an entry",
+    "training": "Independent pooled wing policies, five years of finite completed outcomes, monthly refits, eight-leaf tree and direct-Sharpe policy search",
+    "minimum_leaf": "max(8, min(63, training_rows // 8))",
+    "seed": 2026,
+    "optimizer_iterations": 50,
+    "optimizer_population": 192,
+    "minimum_pooled_rows": 16,
+    "cold_start": "Common global full-size fallback below 16 pooled rows",
+    "per_pair_activation_or_validation": false,
+    "training_commission_per_contract": 0.65,
+    "actual_commission_per_contract": 0.03,
+    "execution_penalty_vol_points_per_leg": 0.1,
+    "stock_hedge_cost_bps": 1,
+    "risk_reservations": "Same $1m/20k gross vega per pair-wing and $3m/60k per pair, shared cash and net stock hedges",
+    "integer_entry_vega_mismatch_maximum": 0.1,
+    "delta_hedge_frequency": "daily",
+    "holding_policy": "Each leg to its own expiry, with audited corporate exits"
+  },
+  "only_wing_specific_settings": {
+    "ATM": {"tenor_days": 30, "option_type": "C", "delta_bucket": "atm"},
+    "P25": {"tenor_days": 30, "option_type": "P", "delta_bucket": 25},
+    "P75": {"tenor_days": 30, "option_type": "P", "delta_bucket": 75}
+  },
+  "common_ladders": {
+    "floor": [0.5, 0.75, 1.0],
+    "flex": [0.0, 0.25, 0.5, 0.75, 1.0]
+  },
+  "ladder_policy": "Each ladder is applied to all three wings unchanged; no mixture of a different winning ladder per wing",
+  "monthly_model_fits": 540,
+  "roster_pairs": 345,
+  "evaluation_start": "2018-01-01",
+  "evaluation_end": "2025-08-29",
+  "broad_calendar_results": {
+    "fixed_50_annualized_excess_sharpe": 0.007933490443392316,
+    "fixed_100_annualized_excess_sharpe": -0.1307072676471918,
+    "floor_annualized_excess_sharpe": -0.0954153463797172,
+    "flex_annualized_excess_sharpe": -0.08569265145883348,
+    "results": "reports/same_structure_smile/comparison.csv"
+  },
+  "original_calendar_coverage_control": {
+    "selection": "Original rule action-date index for each pair, applied equally to all wings; original action values and allocations are ignored",
+    "retrospective_dataset_conditioning": true,
+    "pairs_with_original_calendar": 122,
+    "pairs_without_original_calendar": 223,
+    "p25_original_proposals_exactly_matched": 608,
+    "p25_extra_reconstruction_dates_removed": 269,
+    "fixed_100_annualized_excess_sharpe": 0.16516223566345598,
+    "floor_annualized_excess_sharpe": 0.26506118032246867,
+    "flex_annualized_excess_sharpe": 0.32889480966074053,
+    "p25_floor_standalone_annualized_excess_sharpe": 0.8256229208692676,
+    "p25_fixed_100_standalone_annualized_excess_sharpe": 0.756931810129242,
+    "results": "reports/same_structure_calendar/comparison.csv",
+    "calendar_audit": "reports/same_structure_calendar/calendar_audit.json"
+  },
+  "interpretation": "The identical structure retains approximately 0.8 Sharpe in 25-delta puts on original coverage, but does not recover 0.8 for the combined portfolio. ATM and 75-delta puts have weaker signals under these shared rules. Broader-calendar results remain poor.",
+  "evidence_limit": "Previously inspected data, no new holdout; all paired 95% block-bootstrap intervals for sizing uplift include zero",
+  "archived_0_778": "Preserved heterogeneous checkpoint; it is not an identical-structure result",
+  "structure_audit": "reports/same_structure_smile/structure_audit.json",
+  "script": "scripts/run_same_structure_smile.py",
+  "calendar_control_script": "scripts/run_same_structure_calendar.py",
+  "workers": 1,
+  "cpu_duty_cycle": 0.5,
+  "memory_stop_gib": 3
+}

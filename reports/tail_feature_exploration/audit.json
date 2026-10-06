@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "roster": 345,
+  "pairs_with_state_inputs": 139,
+  "source_files_verified": 167,
+  "market_files_verified": 10031,
+  "frozen_files_verified": 2661,
+  "reference_archive_verified": true,
+  "no_policy_refits": true,
+  "elapsed_seconds": 516.8811734589981,
+  "peak_rss_bytes": 881065984,
+  "outcome_label": "Terminal standalone excess P&L / actual mean initial leg vega; not daily portfolio returns or Sharpe.",
+  "sample_limitations": "Inspected history; missing labels condition evaluation only; overlapping cohorts/shared names; quarter resampling is descriptive and unadjusted for multiple feature tests.",
+  "risk_limits": "Same entry quote/initial-vega controls, costs and financing; standalone labels do not impose portfolio reserve/stress/capacity overlays.",
+  "curvature": "Smile butterfly and wing steepness are proxies, not model-free risk-neutral skewness or kurtosis."
+}

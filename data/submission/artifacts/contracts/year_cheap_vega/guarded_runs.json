@@ -1,0 +1,512 @@
+[
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2018,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 323.3,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2019,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 328.2,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2020,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 330.5,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2021,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 323.9,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 328.4,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2023,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 344.3,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2024,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 325.4,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "absolute",
+    "management": "carry_q",
+    "year": 2025,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 320.5,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2018,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 324.8,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2018,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 323.9,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2019,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 330.9,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2019,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 312.4,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2020,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 317.5,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2021,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 307.9,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2021,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 152,
+    "headroom_pause_count": 0,
+    "failure": "MemoryError: System memory availability 34% below 35%; stopped safely"
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2021,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 332.8,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2022,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 328.4,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2023,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 340.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2024,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 314.4,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2023,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 314.6,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2023,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 324.7,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2024,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 336.3,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "hold",
+    "year": 2025,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 319.5,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2018,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 323,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2019,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 320.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2020,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 324.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2021,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 324.1,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 0,
+    "peak_worker_rss_mib": 327.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2023,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 315.6,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 311.9,
+    "headroom_pause_count": 0,
+    "failure": "subprocess.CalledProcessError: Command 'scripts.run_year_cheap_vega' returned non-zero exit status 1."
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 1,
+    "peak_worker_rss_mib": 304.6,
+    "headroom_pause_count": 0,
+    "failure": "MemoryError: System memory availability 34% below 35%; stopped safely"
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 1,
+    "elapsed_seconds": 20.78,
+    "optimized": true,
+    "peak_worker_rss_mib": 148.3,
+    "headroom_pause_count": 0,
+    "failure": "MemoryError: System memory availability 34% below 35%; stopped safely"
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 0,
+    "elapsed_seconds": 44.187,
+    "optimized": true,
+    "peak_worker_rss_mib": 164.3,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2023,
+    "exit_code": 0,
+    "elapsed_seconds": 45.116,
+    "optimized": true,
+    "peak_worker_rss_mib": 155.4,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2024,
+    "exit_code": 0,
+    "elapsed_seconds": 24.027,
+    "optimized": true,
+    "peak_worker_rss_mib": 159.2,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "historical",
+    "management": "carry_q",
+    "year": 2025,
+    "exit_code": 0,
+    "elapsed_seconds": 10.462,
+    "optimized": true,
+    "peak_worker_rss_mib": 149.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2018,
+    "exit_code": 0,
+    "elapsed_seconds": 31.698,
+    "optimized": true,
+    "peak_worker_rss_mib": 149.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2019,
+    "exit_code": 0,
+    "elapsed_seconds": 58.522,
+    "optimized": true,
+    "peak_worker_rss_mib": 158.7,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2020,
+    "exit_code": 0,
+    "elapsed_seconds": 42.678,
+    "optimized": true,
+    "peak_worker_rss_mib": 154.9,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2021,
+    "exit_code": 0,
+    "elapsed_seconds": 81.981,
+    "optimized": true,
+    "peak_worker_rss_mib": 161.4,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2022,
+    "exit_code": 0,
+    "elapsed_seconds": 94.206,
+    "optimized": true,
+    "peak_worker_rss_mib": 160.1,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2023,
+    "exit_code": 0,
+    "elapsed_seconds": 95.024,
+    "optimized": true,
+    "peak_worker_rss_mib": 161.2,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2024,
+    "exit_code": 0,
+    "elapsed_seconds": 84.127,
+    "optimized": true,
+    "peak_worker_rss_mib": 156.3,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "hold",
+    "year": 2025,
+    "exit_code": 0,
+    "elapsed_seconds": 18.075,
+    "optimized": true,
+    "peak_worker_rss_mib": 156.5,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2018,
+    "exit_code": 0,
+    "elapsed_seconds": 25.837,
+    "optimized": true,
+    "peak_worker_rss_mib": 149.3,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2019,
+    "exit_code": 0,
+    "elapsed_seconds": 30.364,
+    "optimized": true,
+    "peak_worker_rss_mib": 147,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2020,
+    "exit_code": 0,
+    "elapsed_seconds": 44.576,
+    "optimized": true,
+    "peak_worker_rss_mib": 153.5,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2021,
+    "exit_code": 0,
+    "elapsed_seconds": 42.368,
+    "optimized": true,
+    "peak_worker_rss_mib": 159.6,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2022,
+    "exit_code": 0,
+    "elapsed_seconds": 88.772,
+    "optimized": true,
+    "peak_worker_rss_mib": 161.2,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2023,
+    "exit_code": 0,
+    "elapsed_seconds": 50.498,
+    "optimized": true,
+    "peak_worker_rss_mib": 163,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2024,
+    "exit_code": 0,
+    "elapsed_seconds": 29.501,
+    "optimized": true,
+    "peak_worker_rss_mib": 158.7,
+    "headroom_pause_count": 0,
+    "failure": null
+  },
+  {
+    "rule": "both",
+    "management": "carry_q",
+    "year": 2025,
+    "exit_code": 0,
+    "elapsed_seconds": 10.671,
+    "optimized": true,
+    "peak_worker_rss_mib": 142,
+    "headroom_pause_count": 0,
+    "failure": null
+  }
+]

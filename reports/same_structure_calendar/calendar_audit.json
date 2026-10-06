@@ -1,0 +1,12 @@
+{
+  "pairs": 345,
+  "pairs_with_original_calendar": 122,
+  "pairs_without_original_calendar": 223,
+  "old_p25_proposals": 608,
+  "common_p25_original_calendar_proposals": 608,
+  "matching_p25_proposals": 608,
+  "added_p25_proposals": 0,
+  "omitted_p25_proposals": 0,
+  "original_actions_values_not_used": true,
+  "same_calendar_function_for_every_wing": true
+}

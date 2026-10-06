@@ -1,0 +1,8 @@
+{
+  "old_short_policy_proposals": 529,
+  "native_evaluation_opportunities": 763,
+  "coincident_pair_dates": 13,
+  "selection_inputs": "Regular monthly calendar + contemporaneous native365D chains + underlying history",
+  "old_short_policy_used_for_selection_or_direction": false,
+  "existing_roster_is_retrospective": true
+}

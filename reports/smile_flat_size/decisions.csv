@@ -1,0 +1,13 @@
+model,status,proposals
+individual_sizing,risk_limit_entry,883
+individual_sizing,entered,678
+individual_sizing,wing_risk_deleveraging,371
+individual_sizing,no_eligible_contract,127
+individual_sizing,integer_vega_mismatch,72
+individual_sizing,risk_deleveraging,2
+fixed_full_vega,risk_limit_entry,1236
+fixed_full_vega,entered,390
+fixed_full_vega,wing_risk_deleveraging,367
+fixed_full_vega,no_eligible_contract,127
+fixed_full_vega,integer_vega_mismatch,11
+fixed_full_vega,risk_deleveraging,2

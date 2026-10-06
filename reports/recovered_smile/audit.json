@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "same_structure_across_all_wings": true,
+  "replays": 15,
+  "models": 540,
+  "selection_changes_only": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 664485888
+}

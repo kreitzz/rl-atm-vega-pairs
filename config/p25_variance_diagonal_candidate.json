@@ -1,0 +1,11 @@
+{
+  "status": "diagnostic_variant",
+  "base_candidate": "config/p25_variance_premium_candidate.json",
+  "replay": "artifacts/contracts/p25_variance_validation/replays/diagonal_sharpe",
+  "models": "artifacts/contracts/p25_variance_validation/models/diagonal_sharpe",
+  "algorithm": "Same contextual tree and direct-Sharpe CEM, covariance diagonalized during fitting",
+  "annualized_cash_excess_sharpe": 1.007097994011799,
+  "entries": 211,
+  "net_excess_pnl": 320538.1678041816,
+  "no_fresh_holdout": true
+}

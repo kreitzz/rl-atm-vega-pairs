@@ -1,0 +1,24 @@
+            model  entries  active_pairs  net_excess_pnl  commission  option_cost   hedge_cost  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+individual_sizing      678            69   574007.500009     3732.78 39732.568759 72823.385619      0.218723       0.000555                  0.778245     -0.000012
+         fixed_50      780            69   551578.121073     3833.28 40942.543432 75672.899594      0.218701       0.000533                  0.729343     -0.000008
+         fixed_75      534            69   523045.205836     3960.75 42215.036408 78940.789183      0.218674       0.000505                  0.637124     -0.000009
+        fixed_100      390            69   608383.868216     3832.71 41167.394992 77147.066283      0.218756       0.000588                  0.744053     -0.000011
+     joint_sizing      416            58   147580.522454     1997.97 20573.307734 39249.107222      0.218311       0.000143                  0.290692     -0.000012
+
+Sizing-only comparison on the exact 2,133 nonzero frozen proposals from the 0.7782445992546072 shared-book checkpoint. Preserve proposal dates, selected contracts, directions, wing-specific causal entry models and original cash decisions. Fixed allocations 50%, 75%, 100%, original individual sizing and original joint sizing all use the same original shared cash account, net stock hedges, per-pair/per-wing $1m capital and 20k gross-vega reservation, $3m/60k pair budget and summed global limits. No retraining or new signals. Actual option commission $0.03 per contract, original mid plus 0.1 vol-point per leg, daily delta hedge, integer vega matching within 10%, original financing, stock borrow, dividends and corporate exits. Hold to own expiry. Different allocations can change risk admissions and accepted trade counts. Joint sizing may choose additional cash; this is explicitly an allocation decision on the same proposal universe. Training methods and feature sets remain wing-specific: this does not claim identical entry models across ATM, P25 and P75. Same already inspected 2018-August 2025 history; exploratory comparisons, no untouched holdout and no supervised-NN comparison. One worker, 50% of one core, one BLAS/Arrow thread, 3 GiB RSS stop.
+
+{
+  "status": "complete",
+  "pairs": 345,
+  "proposals": 2133,
+  "no_retraining": true,
+  "signal_dates_and_directions_preserved": true,
+  "original_cash_preserved": true,
+  "original_checkpoint_reproduced": true,
+  "scope": "same rules across sizing benchmarks",
+  "wing_specific_entry_models_preserved": true,
+  "actual_commission": 0.03,
+  "frozen_sources_verified": 4489,
+  "elapsed_seconds": 68.26701004098868,
+  "peak_rss_bytes": 418906112
+}

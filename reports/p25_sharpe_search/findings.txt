@@ -1,0 +1,65 @@
+            model   cap       menu    kind  annualized_excess_sharpe  entries  active_pairs  net_excess_pnl  selection_2018_2023_sharpe  recent_2024_2025_sharpe  worst_daily_excess_pnl  max_excess_drawdown_dollars
+   cap040_quarter 0.040    quarter learned                  0.966088      238            44   218219.327593                    1.335921                -0.454915           -15607.486095                -44444.830970
+    cap040_binary 0.040     binary learned                  0.964710      164            44   277211.194475                    1.220647                -0.171772           -21131.784407                -43589.788454
+     cap040_floor 0.040      floor learned                  0.962726      164            44   276303.656729                    1.218520                -0.171772           -21131.909815                -43613.864518
+     cap050_floor 0.050      floor learned                  0.961745      208            44   304285.994757                    1.224369                -0.250337           -21698.843211                -46105.126867
+    cap050_binary 0.050     binary learned                  0.954173      208            44   302326.214741                    1.214774                -0.250337           -21699.114023                -46157.389438
+   cap050_quarter 0.050    quarter learned                  0.952081      271            44   236055.368579                    1.278127                -0.290606           -17203.184171                -45747.766555
+cap040_high_floor 0.040 high_floor learned                  0.929477      121            43   280879.518888                    1.045243                 0.363538           -19149.394728                -31455.314882
+    cap040_fixed4 0.040     fixed4   fixed                  0.901839       98            35   249773.559094                    1.003997                 0.405480           -25620.142964                -33718.968032
+     cap100_floor 0.100      floor learned                  0.846840      328            44   421253.734550                    1.333690                -0.608466           -44532.598357               -126948.394912
+    cap100_binary 0.100     binary learned                  0.843892      327            44   421101.822228                    1.327465                -0.608466           -44532.619349               -126950.534113
+    cap025_fixed2 0.025     fixed2   fixed                  0.792347      136            41   138673.162386                    0.999836                -0.108772           -12641.542016                -32652.099095
+cap050_high_floor 0.050 high_floor learned                  0.774587      160            44   267622.868255                    1.039084                -0.332744           -32318.008793                -63926.425210
+    cap050_fixed2 0.050     fixed2   fixed                  0.769675      263            44   249064.569721                    1.180895                -0.693227           -32823.473345                -75891.834959
+     cap075_floor 0.075      floor learned                  0.766300      275            44   345038.675348                    1.171899                -0.499262           -43970.668171                -98590.933149
+    cap075_binary 0.075     binary learned                  0.764550      273            44   344700.053535                    1.168817                -0.499262           -43970.714964                -98595.701558
+    cap050_fixed4 0.050     fixed4   fixed                  0.756932      134            40   266316.555691                    0.957162                -0.112832           -25614.824017                -66229.514226
+    cap100_fixed2 0.100     fixed2   fixed                  0.756796      392            44   355095.072978                    1.173394                -0.405380           -48458.404051               -123933.073316
+cap075_high_floor 0.075 high_floor learned                  0.746634      231            44   382656.522334                    1.136504                -0.379028           -45624.993601               -128990.156099
+   cap075_quarter 0.075    quarter learned                  0.736509      331            44   247667.422287                    1.296930                -0.549003           -33321.654036                -96541.410781
+    cap075_fixed2 0.075     fixed2   fixed                  0.734360      335            44   306612.334907                    1.100594                -0.560725           -40742.910824                -98903.576189
+    cap100_fixed4 0.100     fixed4   fixed                  0.729135      256            44   467703.893757                    1.137080                -0.694540           -65768.360598               -154169.043015
+    cap050_fixed1 0.050     fixed1   fixed                  0.728683      381            44   169183.144605                    1.125834                -0.387296           -24093.349686                -61273.853699
+    cap050_fixed3 0.050     fixed3   fixed                  0.728236      180            44   249571.262170                    1.037662                -0.583529           -30632.258863                -74280.538125
+    cap040_fixed1 0.040     fixed1   fixed                  0.727102      346            44   152025.313309                    1.074485                -0.475670           -20376.178089                -49264.067950
+    cap075_fixed3 0.075     fixed3   fixed                  0.723096      258            44   348881.802347                    1.126137                -0.692976           -49255.376778               -115380.355416
+    cap040_fixed2 0.040     fixed2   fixed                  0.712753      210            44   211763.402471                    1.079559                -0.509752           -28063.497804                -70936.447282
+    cap025_fixed1 0.025     fixed1   fixed                  0.712094      260            44   114265.004081                    1.105776                -0.725626           -16394.462109                -37795.558737
+cap100_high_floor 0.100 high_floor learned                  0.703456      282            44   427002.070647                    1.094047                -0.658898           -55145.124547               -141349.959136
+    cap040_fixed3 0.040     fixed3   fixed                  0.693632      141            43   211593.917276                    0.977320                -0.550053           -19152.128126                -68385.095771
+    cap100_fixed3 0.100     fixed3   fixed                  0.691416      310            44   416160.108660                    1.076346                -0.589033           -61158.273553               -150308.279475
+    cap075_fixed4 0.075     fixed4   fixed                  0.689360      194            44   338209.738793                    1.012130                -0.529712           -40816.829533                -98983.051001
+    cap075_fixed1 0.075     fixed1   fixed                  0.677238      442            44   177434.097672                    1.108478                -0.327923           -27807.145901                -73475.372727
+   cap100_quarter 0.100    quarter learned                  0.651157      371            44   274388.746393                    1.250955                -0.393376           -49304.192634               -148158.315491
+    cap100_fixed1 0.100     fixed1   fixed                  0.645602      470            44   172511.904097                    1.045339                -0.318019           -27807.922766                -73630.284069
+   cap025_quarter 0.025    quarter learned                  0.569276      166            41    85823.260257                    0.930221                -1.451956           -10538.862928                -30613.057265
+     cap025_floor 0.025      floor learned                  0.534598       86            36    85362.367970                    0.772918                -1.064423           -12646.103996                -28603.901660
+    cap025_binary 0.025     binary learned                  0.534598       86            36    85362.367970                    0.772918                -1.064423           -12646.103996                -28603.901660
+    cap025_fixed3 0.025     fixed3   fixed                  0.487620       59            24    86038.367001                    0.530050                 0.287846           -12522.079162                -34251.158495
+    cap025_fixed4 0.025     fixed4   fixed                  0.446425       15            10    79233.647655                    0.663017                -1.479431           -16588.366744                -28977.224291
+cap025_high_floor 0.025 high_floor learned                  0.367118       44            22    63903.301268                    0.531473                -0.824053           -12522.071681                -30919.041707
+
+            model   cap       control  learned_sharpe  control_sharpe  sharpe_difference
+   cap025_quarter 0.025 cap025_fixed1        0.569276        0.712094          -0.142818
+     cap025_floor 0.025 cap025_fixed1        0.534598        0.712094          -0.177496
+    cap025_binary 0.025 cap025_fixed1        0.534598        0.712094          -0.177496
+cap025_high_floor 0.025 cap025_fixed1        0.367118        0.712094          -0.344976
+   cap040_quarter 0.040 cap040_fixed2        0.966088        0.712753           0.253334
+    cap040_binary 0.040 cap040_fixed2        0.964710        0.712753           0.251957
+     cap040_floor 0.040 cap040_fixed2        0.962726        0.712753           0.249973
+cap040_high_floor 0.040 cap040_fixed2        0.929477        0.712753           0.216724
+     cap050_floor 0.050 cap050_fixed2        0.961745        0.769675           0.192070
+    cap050_binary 0.050 cap050_fixed2        0.954173        0.769675           0.184497
+   cap050_quarter 0.050 cap050_fixed2        0.952081        0.769675           0.182406
+cap050_high_floor 0.050 cap050_fixed2        0.774587        0.769675           0.004912
+     cap075_floor 0.075 cap075_fixed3        0.766300        0.723096           0.043204
+    cap075_binary 0.075 cap075_fixed3        0.764550        0.723096           0.041455
+cap075_high_floor 0.075 cap075_fixed3        0.746634        0.723096           0.023538
+   cap075_quarter 0.075 cap075_fixed3        0.736509        0.723096           0.013413
+     cap100_floor 0.100 cap100_fixed2        0.846840        0.756796           0.090044
+    cap100_binary 0.100 cap100_fixed2        0.843892        0.756796           0.087096
+cap100_high_floor 0.100 cap100_fixed2        0.703456        0.756796          -0.053341
+   cap100_quarter 0.100 cap100_fixed2        0.651157        0.756796          -0.105640
+
+Declared four18-month monthly learned menus50/75/100,50/100,25/50/75/100, 75/100 and fixed25/50/75/100 controls x fiveexplicitstresscaps2.5/4/5/7.5/10% of fundedNAV,40replays. Same608 frozenP25 proposals,direction/contracts, 27features,profit/beta/correlation/formation screens,8leaf adaptive minleaf tree,CEM50x192 seed2026/fullsizeanchor/fallback. .65training labels,.03actualcommission,.1volpoint perleg,1bp stock,funding/dividend/ borrow/daily deltahedge/ownexpiry/riskreserve80%/hedge2x/grossvega unchanged. Capital$345m,pair/wing$1m and450fullvega perpoint perleg fixed;caps explicit research parameters,not user numerical requirements. No newdata/seed/ signal/exit change. Floor5% andfixed1005% reproduce original checkpoint. Rank all arms by2018-2023 first;report recent/annual/full separately. Best constant-size control at eachcap is selected on2018-2023,not full period. No learned skipping. Previously inspected history,no freshholdout or automaticcheckpoint promotion. One worker50%of onecore,3GiB stop.

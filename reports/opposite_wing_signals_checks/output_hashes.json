@@ -1,0 +1,8 @@
+{
+  "reports/opposite_wing_signals_checks/audit.json": "bb088426a9a1f1ed13c582078092cd3fcf950e260fe9aef1d610d9998632abeb",
+  "reports/opposite_wing_signals_checks/signal_shortlist.csv": "1684b747780426a6ccd48a3f2c3cae6deeb3524330b197963114067d7dbd2088",
+  "reports/opposite_wing_signals_checks/coverage_totals.csv": "7cdcef7e13f74cd766bc823ba5285d782e9128d3fbab9e7cabbad3bd71e459b8",
+  "reports/opposite_wing_signals_checks/findings.txt": "48e93408a6b799bd9776dd8ff5aeef9b93fae85f8af586addc3524b4bbd4258b",
+  "scripts/audit_opposite_wing_signals.py": "2976af963c81859bff7127a2039c854708fded354dc5b554c75ebc76b15fda06",
+  "tests/test_opposite_wing_signals.py": "0e38ced186baea36c93c8dc993cfb253cb9d3a18543b876d20708c0a4d0f4c2f"
+}

@@ -1,0 +1,7 @@
+population,wing,old_count,retained,retained_same_direction,retained_opposite_direction,first_excluded_current_observed,first_excluded_current_beta_eligible,first_excluded_current_context,first_excluded_formation_calendar,first_excluded_current_rank_active,first_excluded_current_memory_pass
+all_old_proposals,ATM,1073,242,242,0,0,0,81,0,551,199
+all_old_proposals,P25,608,608,608,0,0,0,0,0,0,0
+all_old_proposals,P75,452,14,14,0,0,0,0,157,0,281
+old_actual_entries,ATM,224,49,49,0,0,0,24,0,116,35
+old_actual_entries,P25,203,203,203,0,0,0,0,0,0,0
+old_actual_entries,P75,251,11,11,0,0,0,0,78,0,162

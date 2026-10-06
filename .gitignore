@@ -27,7 +27,10 @@ data/*
 !data/current_rl_inputs.csv.gz
 !data/current_rl_pairs.csv
 !data/current_rl_data_manifest.json
-artifacts/
+!data/p25_variance_premium_inputs.csv
+!data/submission/
+!data/DATA_LICENSE.txt
+/artifacts/
 checkpoints/
 runs/
 wandb/

@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "purpose": "Calendar-period stability and 30D-to-90D transfer of the working P25 signal and monthly sizing decisions",
+  "no_retraining": true,
+  "frozen_signal_source": "artifacts/contracts/p25_signal_transfer/P25_rows.parquet",
+  "wings": {"ATM": "Calls closest to ATM", "P25": "25-delta puts", "P75": "75-delta puts"},
+  "common_signal_cutoff": "2025-05-11",
+  "common_proposals_per_wing": 577,
+  "holding_runoff_calendar_days": 110,
+  "entry_dte": {"30D": [7, 55], "90D": [75, 105]},
+  "calendar_periods": ["2018-2020", "2021-2023", "2024-August2025"],
+  "period_accounting": "Continuous daily books sliced by calendar period; inventory is carried across boundaries. These are not independently reset tests or new holdouts.",
+  "sample_controls": {
+    "full_proposal": "Same 577 decision proposals per wing at both maturities; missing contracts reach explicit execution rejection",
+    "matched_signal_quotes": "For each wing, same pair/date proposals with both contract pairs selected on the signal day at 30D and 90D; no future-path filter",
+    "matched_signal_quote_proposals": {"ATM": 222, "P25": 213, "P75": 55}
+  },
+  "controls": ["Fixed full vega budget", "Frozen P25 50/75/100 percent sizing"],
+  "unchanged": ["OI100", "Execution and commission costs", "Stock hedge, funding, borrow and dividend assumptions", "Initial integer vega matching", "Shared-book and per-wing risk limits", "Daily delta hedging", "Hold each leg to its expiry and existing causal corporate exits"],
+  "full_proposal_P25_sizing_sharpe": {
+    "30D": {"2018_2020": 0.6787243464728315, "2021_2023": 1.4239169987883864, "2024_2025_partial": -0.30066304872990296, "full": 0.8416655939930333},
+    "90D": {"2018_2020": -0.017050088599000677, "2021_2023": -0.4201527206360757, "2024_2025_partial": -0.7678301084687923, "full": -0.36296843636748055}
+  },
+  "matched_signal_quotes_P25_sizing_sharpe": {"30D": 0.28469250849575956, "90D": -0.36296843636748055},
+  "interpretation": "The 30D P25 result is strongest in 2021-2023 and weak in 2024-partial2025. The existing decision stream does not transfer profitably to 90D. Quote availability changes the sample materially, but 90D also underperforms on matched signal dates. This is not a test of newly trained 90D-native signals or sizing. The 30D full-period 0.842 uses an earlier common entry cutoff and must not replace the unchanged 0.826 checkpoint as a purported new model best.",
+  "evidence_limits": ["Inspected history and no fresh holdout", "Inherited retrospective pair/calendar conditioning", "Sparse recent-period entries", "Longer holdings can change execution eligibility, inventory and risk rejections", "Matched signal availability is per wing, not a single common sample across all three wings"],
+  "completed_replays": 32,
+  "original_checkpoints_unchanged": true,
+  "30D_reference_prefix_reproduced": true,
+  "resources": {"workers": 1, "cpu_duty_cycle": 0.5, "memory_stop_gib": 3, "maximum_observed_rss_bytes": 510509056},
+  "results": "reports/p25_maturity_transfer/all_sample_periods.csv",
+  "primary_annual": "reports/p25_maturity_transfer/annual_comparison.csv",
+  "matched_annual": "reports/p25_maturity_matched/annual_comparison.csv",
+  "paired_uncertainty": "reports/p25_maturity_matched/maturity_uplift.csv"
+}

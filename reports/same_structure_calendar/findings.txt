@@ -1,0 +1,29 @@
+        model   status  proposals  net_excess_pnl  entries  active_pairs  independent_ledger_error  commission  all_inventory_closed  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+    fixed_100 complete       2629   177830.610921      550            85              1.024935e-06     4311.87                  True      0.218340       0.000172                  0.165162     -0.000083
+        floor complete       2629   239502.141699      844            86              9.946525e-07     4094.22                  True      0.218400       0.000231                  0.265061     -0.000044
+         flex complete        930   134500.070471      446            62              7.950875e-07     1453.77                  True      0.218298       0.000130                  0.328895     -0.000011
+fixed_100_ATM complete       1980  -100545.432870      401            81              2.744928e-07     3115.74                  True      0.217877      -0.000291                 -0.101436     -0.000336
+fixed_100_P25 complete        608   266316.555691      134            40              1.514054e-07     1073.49                  True      0.218940       0.000772                  0.756932     -0.000080
+fixed_100_P75 complete         41     2690.612142       14             8              9.600899e-08      113.82                  True      0.218176       0.000008                  0.025778     -0.000039
+    floor_ATM complete       1980   -36416.472530      629            81              2.549205e-07     2956.53                  True      0.218063      -0.000106                 -0.044271     -0.000172
+    floor_P25 complete        608   262872.856615      200            42              2.025481e-07     1015.02                  True      0.218930       0.000762                  0.825623     -0.000025
+    floor_P75 complete         41     4310.598530       14             8              9.567520e-08      114.06                  True      0.218181       0.000012                  0.041522     -0.000039
+     flex_ATM complete        596    42250.867791      291            48              1.906737e-07      870.12                  True      0.218291       0.000122                  0.127279     -0.000039
+     flex_P25 complete        296    94192.878441      134            32              1.599692e-07      502.59                  True      0.218441       0.000273                  0.429584     -0.000005
+     flex_P75 complete         38    -2767.763667       21             8              1.237458e-07       81.03                  True      0.218160      -0.000008                 -0.031535     -0.000039
+
+One identical IV-spread/oriented27-feature/monthly pooled sizing model structure across ATM/P25/P75, preserving all settings and all540 models from same_structure_smile. Apply one identical calendar predicate to all three wings: date belongs to the original rule-action DATE INDEX for that pair. Ignore original action values, allocations and realized profitability; this retains original formation/observable-pair coverage without copying the original wing-specific signals. All345 roster pairs remain; missing original calendar means no admitted date in this coverage-control arm and is explicitly counted. No retraining. Report broad and original-calendar results separately; do not mix the best sizing method or calendar independently by wing. Actual0.03 commissions and all common execution, shared-book accounting, risk budgets and corporate exits unchanged. Fixed100% control receives the same qualified proposals. Old formation/calendar membership is retrospective dataset conditioning, not a newly verified causal pair selection rule. This is an audit-driven diagnostic after implementation of the common model, on already inspected 2018-Aug2025 history. One worker,50% of one core,one BLAS/Arrow thread,3GiB RSS stop.
+
+{
+  "status": "complete",
+  "identical_structure_across_all_wings": true,
+  "no_retraining": true,
+  "fixed_common_model_and_gates": true,
+  "original_date_index_applied_identically": true,
+  "original_action_values_not_used": true,
+  "pairs": 345,
+  "retrospective_coverage_diagnostic": true,
+  "source_files_verified": 670,
+  "elapsed_seconds": 106.18368066701805,
+  "peak_rss_bytes": 1001979904
+}

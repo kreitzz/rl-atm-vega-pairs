@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "new_replays": 12,
+  "original_sources_unchanged": true,
+  "protected_sources": 610,
+  "completed_original_expiry_purge": true,
+  "causal_next_session_fills": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "rss_limit_bytes": 3221225472,
+  "peak_rss_bytes": 225558528,
+  "algorithm": "Episodic direct policy search over at most 2-leaf controllers, exhaustive action optimization; not neural Q-learning",
+  "shadow_training": "Fractional isolated hedges; actual evaluation integer shared ledger"
+}

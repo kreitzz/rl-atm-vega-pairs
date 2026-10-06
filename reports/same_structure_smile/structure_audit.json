@@ -1,0 +1,17 @@
+{
+  "identical_entry_rules": true,
+  "identical_27_feature_definitions": true,
+  "identical_training_method": true,
+  "identical_monthly_schedule": true,
+  "identical_gates": true,
+  "identical_costs": true,
+  "identical_risk_limits": true,
+  "identical_action_ladders_within_each_variant": true,
+  "wing_specific_knobs": [
+    "contract_type_and_delta_bucket"
+  ],
+  "model_fits": 540,
+  "latest_training_labels_strictly_before_each_fit": true,
+  "same_signal_sizing_controls_verified": true,
+  "flex_same_skip_control_verified": true
+}

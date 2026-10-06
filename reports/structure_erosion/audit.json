@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "no_retraining": true,
+  "no_backtest": true,
+  "classification_uses_forward_outcomes": false,
+  "waterfall_order": [
+    "current_observed",
+    "current_beta_eligible",
+    "current_context",
+    "formation_calendar",
+    "current_rank_active",
+    "current_memory_pass"
+  ],
+  "pnl_scope": "Old standalone ATM executed-cohort ledger, before shared financing. Eligibility counts use old shared smile entries; three execution decisions differ between books.",
+  "note": "Exclusions overlap; first-exclusion counts depend on displayed order. A direction flip is a replacement, not a rejection.",
+  "peak_rss_bytes": 155648000
+}

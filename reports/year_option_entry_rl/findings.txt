@@ -1,0 +1,22 @@
+NATIVE ONE-YEAR BOOTSTRAPPED ENTRY Q
+
+After management-only variants failed to improve the fixed hold baseline, allow RL to choose no entry or the original50 allocation using native long-tenor inputs. Candidate pairs/dates/directions remain the529 short-policy proposals; this is not a complete new one-year opportunity universe.
+Entry Q target is observed first5-session block utility including .65 training opening commissions and unchanged spreads, plus discounted optimal weekly-management Q. Parent full-year64-fit critic is trained only on completed past weekly transitions. Entry label needs only its first weekly decision completed strictly before the refit, not future maturity payoff. Quarterly48-month entry fits;20 trees, depth3, leaf6. Fewer than16 completed entry labels or no parent critic keeps the original fixed50 entry.
+Entry state is signal-close long-tenor carry forecast, slow carry/availability, long-versus-short term gap, native signed IV gap/level, return correlation and VIX. Greedy entry compares learned opening utility to the zero-reward no-position action. Greedy management uses the matching parent critic. No extra confidence rule, leverage, or changes to real .03 commission,0.1-vol-point option penalties and1bp stock costs.
+Replay learned entries both with weekly management and fixed holding to separate entry selection from management. Entry proposal scores are identical within each pair of replays; realized fills can differ through shared risk limits and account equity. Local fractional shadow training approximates integer global book interactions.
+This follow-up was chosen after earlier failures. All history is explored; confidence intervals are unadjusted for search, and2024–partial2025 is not an untouched holdout.
+
+                       case  annualized_excess_sharpe  entries  trims  exits  restore_fills  recent_2024_partial2025_sharpe
+       fixed50_hold_control                  0.396012      167      0      0              0                        0.279675
+     long_horizon_64_greedy                  0.333693      177    138    132             96                        0.210109
+long_horizon_risk_64_greedy                  0.350563      180    134    174             84                        0.227827
+          native_mean_entry                  0.278432      140    108     82             76                        0.014702
+     native_mean_entry_hold                  0.349050      139      0      0              0                        0.149812
+          native_risk_entry                  0.172122      105     86     94             62                        0.082116
+     native_risk_entry_hold                  0.263883      102      0      0              0                       -0.041660
+
+             case                control  sharpe_gain  unadjusted_gain_95_low  unadjusted_gain_95_high
+native_mean_entry   fixed50_hold_control    -0.117580               -0.380052                 0.085256
+native_mean_entry native_mean_entry_hold    -0.070619               -0.321110                 0.103047
+native_risk_entry   fixed50_hold_control    -0.223890               -0.460365                 0.045865
+native_risk_entry native_risk_entry_hold    -0.091761               -0.335743                 0.122955

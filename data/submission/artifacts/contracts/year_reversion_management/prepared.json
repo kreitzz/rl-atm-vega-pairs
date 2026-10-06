@@ -1,0 +1,12 @@
+{
+  "training_portfolio": "Audited2018-forward forecast fixed50, all eligible monthly proposals; actual execution/risk acceptance only",
+  "candidate_dates": 26910,
+  "episodes": 580,
+  "action_transitions": 132520,
+  "gross_components_reconciled": true,
+  "training_commission": 0.65,
+  "actual_commission": 0.03,
+  "earliest_management_training": "2018-01-01; pre2018 unsupported corporate-action adjustment; cold start holds",
+  "training_shadow": "Fractional marginal hedge/borrow labels; integer trim feasibility retained; shared netting evaluated in final account",
+  "no_future_filter_on_evaluation": true
+}

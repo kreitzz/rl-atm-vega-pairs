@@ -1,0 +1,171 @@
+{
+  "status": "complete",
+  "entry_logic": "test both common spread-rule sizing and common RL entry/direction/sizing",
+  "entry_logic_choices": [
+    "spread_rule_rl_sizes",
+    "rl_entry_direction_and_size"
+  ],
+  "wings": {
+    "ATM": {
+      "tenor": 30,
+      "cp": "C",
+      "delta_bucket": "atm"
+    },
+    "P25": {
+      "tenor": 30,
+      "cp": "P",
+      "delta_bucket": 25
+    },
+    "P75": {
+      "tenor": 30,
+      "cp": "P",
+      "delta_bucket": 75
+    }
+  },
+  "universe": "all 345 frozen roster pairs",
+  "common_pair_calendar": true,
+  "beta_range": [
+    0.85,
+    1.15
+  ],
+  "minimum_correlation": 0.5,
+  "shared_feature_definition": "scripts.uniform_smile_policy.FEATURES: same35 fields and definitions, evaluated on each wing's own selected contracts",
+  "optional_features": "neutral fill plus availability flag; no entry veto",
+  "profitability_memory": "state input in primary variants; common positive91/365day and minimum21/63count filter tested as a separate matched variant on all three wings",
+  "independent_policy_per_wing": true,
+  "same_model_family": "eight-leaf pooled direct-Sharpe policy search",
+  "size_ladders": {
+    "floor": [
+      0.5,
+      0.75,
+      1.0
+    ],
+    "flex": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "cash_choice": "spread flex and RL entry variants; identical within each variant across all three wings",
+  "variants": [
+    "spread_full",
+    "spread_floor",
+    "spread_flex",
+    "memory_full",
+    "memory_floor",
+    "memory_flex",
+    "rl_entry_fixed",
+    "rl_entry_sized",
+    "rl_entry_sized_full"
+  ],
+  "spread_rule_if_selected": "252-session IV-spread rank, minimum63 observations; bottom20% long first leg, top20% short first leg",
+  "training_years": 5,
+  "retrain_frequency": "monthly",
+  "completed_outcomes_strictly_before_fit": true,
+  "training_commission_per_contract": 0.65,
+  "actual_commission_per_contract": 0.03,
+  "execution_penalty_vol_points_per_leg": 0.1,
+  "stock_hedge_cost_bps": 1,
+  "base_full_size_vega_per_leg": 450,
+  "pair_wing_capital": 1000000,
+  "pair_wing_max_gross_vega": 20000,
+  "same_financing_and_risk_limits": true,
+  "initial_integer_vega_imbalance_max": 0.1,
+  "daily_delta_hedge": true,
+  "hold_each_leg_to_own_expiry": true,
+  "announced_paired_corporate_exits": true,
+  "fixed_size_control": "100% size on common signals with identical execution/risk accounting",
+  "preserve_existing_checkpoints": true,
+  "workers": 1,
+  "cpu_duty_cycle": 0.5,
+  "memory_stop_gib": 3,
+  "evaluation_start": "2018-01-01",
+  "evaluation_end": "2025-08-29",
+  "results_status": "All1620 model fits and10 matched portfolio replays complete",
+  "best_uniform_variant": "spread_flex",
+  "best_uniform_annualized_excess_sharpe": 0.29476817832063495,
+  "results": "reports/uniform_smile/comparison.csv",
+  "audit": "reports/uniform_smile/audit.json",
+  "causal_corporate_exits": [
+    {
+      "secid": 103676,
+      "announced": "2023-08-25",
+      "effective": "2023-10-02",
+      "source": "https://investors.danaher.com/2023-08-25-Danaher-Declares-pro-Rata-Dividend-of-Veralto-Common-Stock-and-Announces-Expected-When-issued-Trading-of-Veralto-Common-Stock"
+    },
+    {
+      "secid": 106899,
+      "announced": "2025-01-17",
+      "effective": "2025-01-21",
+      "source": "https://www.miaxglobal.com/alert/2025/01/17/miax-exchange-group-options-markets-corporate-action-alert-lennar"
+    },
+    {
+      "secid": 114726,
+      "announced": "2020-04-01",
+      "effective": "2020-04-15",
+      "source": "https://www.vaneck.com/globalassets/home/us/insights/media-coverage/press-releases/vaneck-announces-reverse-share-split-of-five-etfs.pdf"
+    },
+    {
+      "secid": 127107,
+      "announced": "2020-03-23",
+      "effective": "2020-03-30",
+      "source": "https://www.nasdaq.com/press-release/state-street-global-advisors-announces-reverse-splits-of-two-etfs-2020-03-23"
+    },
+    {
+      "secid": 111459,
+      "announced": "2020-03-30",
+      "effective": "2020-04-03",
+      "reason": "UTX Carrier/Otis separation and RTX merger",
+      "source": "https://investors.rtx.com/news-releases/news-release-details/raytheon-and-united-technologies-obtain-all-regulatory-approvals"
+    },
+    {
+      "secid": 106625,
+      "announced": "2021-12-10",
+      "effective": "2021-12-14",
+      "reason": "KSU acquisition by Canadian Pacific",
+      "source": "https://www.sec.gov/Archives/edgar/data/54480/000119312521354084/d151013dex991.htm"
+    },
+    {
+      "secid": 110962,
+      "announced": "2018-09-24",
+      "effective": "2018-10-01",
+      "reason": "Andeavor acquisition by Marathon Petroleum",
+      "source": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2018/Shareholders-of-Marathon-Petroleum-Corp-and-Andeavor-approve-strategic-combination/default.aspx"
+    },
+    {
+      "secid": 106905,
+      "announced": "2023-01-05",
+      "effective": "2023-01-17",
+      "reason": "Jefferies Vitesse distribution after January13 close",
+      "source": "https://www.sec.gov/Archives/edgar/data/96223/000119312523002005/d398713dex991.htm"
+    },
+    {
+      "secid": 125179,
+      "announced": "2020-08-04",
+      "effective": "2020-08-27",
+      "reason": "SunPower Maxeon distribution after August26 close",
+      "source": "https://mediaroom.maxeon.com/2020-08-04-Maxeon-Solar-Technologies-Form-20-F-Registration-Statement-Declared-Effective-by-SEC"
+    },
+    {
+      "secid": 101556,
+      "announced": "2023-09-12",
+      "effective": "2023-09-25",
+      "reason": "AngloGold ADS termination and primary listing reorganisation",
+      "source": "https://www.sec.gov/Archives/edgar/data/1067428/000162828023032020/finalisationannouncementin.htm"
+    },
+    {
+      "secid": 101322,
+      "announced": "2025-07-18",
+      "effective": "2025-07-18",
+      "exit_same_day": true,
+      "reason": "Hess conversion to Chevron before the open; close paired inventory at that close",
+      "source": "https://infomemo.theocc.com/infomemos?number=56907",
+      "missing_option_exit_mark": "existing last-known-IV causal mark on published1.025CVX deliverable"
+    }
+  ],
+  "evidence_limit": "Previously inspected history; selected maximum across nine variants. All paired95% block-bootstrap Sharpe-uplift intervals include zero. No supervised NN comparator in this experiment.",
+  "additional_sizing_control": "spread_flex_selected_full",
+  "additional_sizing_control_status": "Post-selection diagnostic: frozen spread-flex cash/direction decisions forced to100% size; no retraining"
+}

@@ -1,0 +1,20 @@
+{
+  "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/audit_long_expiry_parity.py": "4f9e4e8cef4a38e3a0dc212dff171522f561b6137a86486eab1a8dd95f8d684b",
+  "artifacts/contracts/long_expiry_parity/put_references.parquet": "875a21b89786d48023694cc5acd4011a2a6605692fdf8d58da13e04e7bf59b87",
+  "artifacts/contracts/long_expiry_parity/same_strike_quotes.parquet": "3aa11d502b5050cf18d4275d6afec9bd2df1264ed61c520a0f6fd64937d0d861",
+  "artifacts/contracts/long_expiry_parity/replays/180D_actual_call_same_strike_locked/status.json": "82b8f2308e8d905c09649a45e1aafb41c14b33cc46c6aae208b559c924f0fab4",
+  "artifacts/contracts/long_expiry_parity/replays/180D_reference_put_locked/status.json": "666b90e5bf453060624b9c1b539692d9bf5f093f05fb9f8caf03a5fb593122ce",
+  "artifacts/contracts/long_expiry_parity/replays/30D_put_common_parity_greeks_entries_locked/status.json": "9930ad8768bd320ab0c1dff326f4d982e427e21b761879400e8694594b6d667f",
+  "artifacts/contracts/long_expiry_parity/replays/180D_actual_call_parity_greeks_locked/status.json": "78d132fda926bf889a38a77215aeb4f16edd4be4bf8c67cf2a7fc5feae040fea",
+  "artifacts/contracts/long_expiry_parity/replays/30D_actual_call_same_strike_locked/status.json": "1b2493b7542fe16a0f26c442ee0be485a2c1f231a3bb68bfcfee93affa9753f8",
+  "artifacts/contracts/long_expiry_parity/replays/365D_reference_put_locked/status.json": "ca47233fcdfc3ea76e3e87a7f2710c288e97982d5c44c6e39af18dbec986a514",
+  "artifacts/contracts/long_expiry_parity/replays/365D_put_common_call_entries_locked/status.json": "d12f4a63c7d54207f435631f58aa2f6b30f6f8109cac14f49bfea481ff0dd43b",
+  "artifacts/contracts/long_expiry_parity/replays/365D_put_common_parity_greeks_entries_locked/status.json": "b5571c93b719a37866870443764322215a25afc4937a3e134c9c434e0001c1a4",
+  "artifacts/contracts/long_expiry_parity/replays/30D_reference_put_locked/status.json": "5161bc503e70112220f66845b0f0145a24883ae51b9cbcc4d77a75e0af9aebf3",
+  "artifacts/contracts/long_expiry_parity/replays/30D_actual_call_parity_greeks_locked/status.json": "4e57dcf530a92350ba4718687e5b5668b3c06da61651455eb39e890841d81f36",
+  "artifacts/contracts/long_expiry_parity/replays/180D_put_common_parity_greeks_entries_locked/status.json": "97272dab5fb24683bc72ad9da3f8bd4c3146b392e3793d93a3d31895a4c6542b",
+  "artifacts/contracts/long_expiry_parity/replays/180D_put_common_call_entries_locked/status.json": "1a0d42a5f93364a716a84ffb43b76adf08be72afbbbddefe9d81a79aa33da098",
+  "artifacts/contracts/long_expiry_parity/replays/30D_put_common_call_entries_locked/status.json": "37abcab55be4bb3cb0f3511db6210b26b74eb63f18a70f4ff7ccd9698cfcfcc8",
+  "artifacts/contracts/long_expiry_parity/replays/365D_actual_call_parity_greeks_locked/status.json": "8d89643142a82cbd257f742ae684aa4ce5815667fc84aa4aaf22334ae254ba3e",
+  "artifacts/contracts/long_expiry_parity/replays/365D_actual_call_same_strike_locked/status.json": "e3d038930e1970fe4947b8c8cb1b28a73988f3bee33da60c5a0a7d6429bd2c49"
+}

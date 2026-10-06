@@ -1,0 +1,228 @@
+{
+  "audit_source_sha256": "3c5bd7f2ce7c4d693fc9425d1693356166b96ec5fa6d740c85b0d81d5cfd5751",
+  "source_files_verified": 465,
+  "frozen_source_files_verified": 2661,
+  "baseline_archive_sha256_verified": true,
+  "reconstructed_signal_panels": 139,
+  "retrained_pairs": 110,
+  "monthly_controls_verified": 4867,
+  "original_state_columns_unchanged": true,
+  "training_outcomes_strictly_purged": true,
+  "feature_universe_independent_of_future_payoffs": true,
+  "fixed_seed": 2026,
+  "nn_refits": 0,
+  "accounting": {
+    "requested_pairs": 345,
+    "unresolved": [],
+    "complete_by_model_period": {
+      "rl_baseline": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_name_memory": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_iv_corr_regime": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_gamma_geometry": {
+        "full": 345,
+        "recent": 345
+      }
+    }
+  },
+  "entry_coverage": {
+    "rl_gamma_geometry": {
+      "entries_all_inputs": 226,
+      "entries_missing_inputs": 0
+    },
+    "rl_iv_corr_regime": {
+      "entries_all_inputs": 209,
+      "entries_missing_inputs": 0
+    },
+    "rl_name_memory": {
+      "entries_all_inputs": 215,
+      "entries_missing_inputs": 0
+    }
+  },
+  "feature_usage": [
+    {
+      "model": "rl_name_memory",
+      "signal": "name_long_mean365_a",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 53
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_long_uncertainty365_a",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 75
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_short_mean365_a",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 68
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_short_uncertainty365_a",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 90
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_long_mean365_b",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 80
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_long_uncertainty365_b",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 41
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_short_mean365_b",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 70
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_short_uncertainty365_b",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 62
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_blocks365_a",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 17
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_blocks365_b",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 12
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_memory_a_available",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 0
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "name_memory_b_available",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 8
+    },
+    {
+      "model": "rl_name_memory",
+      "signal": "any_new_value",
+      "enabled_refits": 493,
+      "enabled_refits_using_value": 352
+    },
+    {
+      "model": "rl_iv_corr_regime",
+      "signal": "iv_change_corr_history_z",
+      "enabled_refits": 520,
+      "enabled_refits_using_value": 208
+    },
+    {
+      "model": "rl_iv_corr_regime",
+      "signal": "iv_change_corr_history_available",
+      "enabled_refits": 520,
+      "enabled_refits_using_value": 0
+    },
+    {
+      "model": "rl_iv_corr_regime",
+      "signal": "any_new_value",
+      "enabled_refits": 520,
+      "enabled_refits_using_value": 208
+    },
+    {
+      "model": "rl_gamma_geometry",
+      "signal": "gamma_log_ratio_a_b",
+      "enabled_refits": 532,
+      "enabled_refits_using_value": 54
+    },
+    {
+      "model": "rl_gamma_geometry",
+      "signal": "gamma_geometry_available",
+      "enabled_refits": 532,
+      "enabled_refits_using_value": 0
+    },
+    {
+      "model": "rl_gamma_geometry",
+      "signal": "any_new_value",
+      "enabled_refits": 532,
+      "enabled_refits_using_value": 54
+    }
+  ],
+  "paired_quarter_differences": [
+    {
+      "universe": "all",
+      "model": "rl_name_memory",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.3574607710178001,
+      "difference_ci90_low": -0.6281368400481644,
+      "difference_ci90_high": -0.07466324017963918
+    },
+    {
+      "universe": "all",
+      "model": "rl_iv_corr_regime",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.10559599198013583,
+      "difference_ci90_low": -0.34608612316136644,
+      "difference_ci90_high": 0.11626539873726628
+    },
+    {
+      "universe": "all",
+      "model": "rl_gamma_geometry",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.019901540217995485,
+      "difference_ci90_low": -0.12614659249819787,
+      "difference_ci90_high": 0.08479967104127285
+    },
+    {
+      "universe": "all",
+      "model": "rl_name_memory",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.4653566059663882,
+      "difference_ci90_low": -0.838309975566829,
+      "difference_ci90_high": -0.08078745240720275
+    },
+    {
+      "universe": "all",
+      "model": "rl_iv_corr_regime",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.14143739848963385,
+      "difference_ci90_low": -0.466238072744884,
+      "difference_ci90_high": 0.16226618712135063
+    },
+    {
+      "universe": "all",
+      "model": "rl_gamma_geometry",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.0047205140452833754,
+      "difference_ci90_low": -0.17395172718207327,
+      "difference_ci90_high": 0.14392705816895687
+    }
+  ],
+  "memory_nonoverlapping_samples": 19929,
+  "memory_resolved_samples": 18727,
+  "memory_sampling_independent_of_outcome_values": true,
+  "memory_intervals_verified_nonoverlapping": true,
+  "name_memory_note": "Prior completed standalone ATM30 per-vega outcomes at actual $0.03 costs; nonoverlapping samples selected by known schedules before inspecting outcomes; min four resolved blocks in 365 days. Dispersion/sqrt(count) is only a descriptive uncertainty proxy.",
+  "uncertainty_note": "Paired quarter resampling of inspected portfolio paths; descriptive, no policy refits or correction for signal selection."
+}

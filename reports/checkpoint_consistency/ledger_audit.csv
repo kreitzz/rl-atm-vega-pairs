@@ -1,0 +1,6 @@
+model,independent_ledger_error,inventory_closed,identical_proposals,contracts_and_directions_preserved,entry_vega_matching_verified
+individual_sizing,1.1457595974206924e-06,True,True,True,True
+fixed_50,1.1666238037832954e-06,True,True,True,True
+fixed_75,1.303182216361165e-06,True,True,True,True
+fixed_100,1.2401142157614231e-06,True,True,True,True
+joint_sizing,1.0344956535845995e-06,True,True,True,True

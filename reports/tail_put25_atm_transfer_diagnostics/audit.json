@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "finished_output_files_verified": 3184,
+  "inherited_context_panels_verified": 122,
+  "identical_actions_all_full_state_pairs": false,
+  "previous_spread_state_rows": 96580,
+  "full_state_rows": 55161,
+  "previous_evaluation_memory_permitted_rows": 3264,
+  "full_state_evaluation_memory_permitted_rows": 1949,
+  "fixed_rule_entries": 129,
+  "fixed_rule_entries_with_full_state": 68,
+  "full_state_fits": {
+    "rl_atm_state": {
+      "insufficient_training": 4404,
+      "flat_no_validation_opportunities": 540,
+      "flat_validation_gate": 125,
+      "enabled": 84
+    },
+    "rl_atm_state_rank": {
+      "insufficient_training": 4404,
+      "flat_no_validation_opportunities": 540,
+      "flat_validation_gate": 125,
+      "enabled": 84
+    }
+  },
+  "outcome_reconciliation_cohorts": 10639,
+  "maximum_old_outcome_error": 0.0
+}

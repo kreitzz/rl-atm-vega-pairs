@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "source_and_output_files_verified": 41080,
+  "books_checked": 1380,
+  "entries": 1837,
+  "contract_types_and_buckets_matched": true,
+  "native_rule_is_subset": true,
+  "elapsed_seconds": 23.743992000003345,
+  "peak_rss_bytes": 230490112
+}

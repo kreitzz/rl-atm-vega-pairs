@@ -208,9 +208,9 @@
   <section class="slide title-slide">
     <div class="kicker">Deep Learning in Finance &middot; Course Project</div>
     <h1>Advanced Statistical Arbitrage with Reinforcement Learning</h1>
-    <h2>From discretized price-spread trading to sizing vega-neutral IV-spread pairs</h2>
-    <div class="authors">Based on <b>Ning &amp; Lee (2024)</b>, <i>Advanced Statistical Arbitrage with Reinforcement Learning</i>, arXiv:2403.12180 &mdash; extended to our own ATM vega pairs project.</div>
-    <div class="source">rl-atm-vega-pairs</div>
+    <h2>From equity pairs to learned sizing and management of actual option contracts</h2>
+    <div class="authors">Based on <b>Ning &amp; Lee (2024)</b>, <i>Advanced Statistical Arbitrage with Reinforcement Learning</i>, arXiv:2403.12180 &mdash; extended to our contract-level options relative-value research.</div>
+    <div class="source">$10m funded equity · 2018–29 August 2025 · Annualized cash-excess Sharpe</div><div class="stat-row" style="margin-top:24px;width:100%;max-width:1000px"><div class="stat-tile"><div class="num">1.029</div><div class="lbl">30-day managed puts</div></div><div class="stat-tile"><div class="num">0.610</div><div class="lbl">Six-month managed puts</div></div><div class="stat-tile"><div class="num">0.313</div><div class="lbl">Native one-year sized puts</div></div></div>
     <div class="scrollhint">Scroll down &darr;</div>
   </section>
 
@@ -419,647 +419,77 @@
   </section>
 
   <!-- 16: bridge -->
-  <section class="slide">
-    <div class="kicker">The Bridge</div>
-    <h1>What we borrow, what we change</h1>
-    <h2>Same three-step skeleton, applied to vega-neutral implied-vol spreads instead of equity price spreads</h2>
-    <div class="body">
-      <table class="mapping-table">
-        <tr><th>Design dimension</th><th>Ning &amp; Lee (2024)</th><th>Our vega-pairs project</th></tr>
-        <tr>
-          <td class="dim">Underlying spread</td>
-          <td class="paper">Price spread S&#x2081; &minus; B&middot;S&#x2082; of two equities</td>
-          <td class="ours">IV spread between two ATM straddles, initially vega-neutral</td>
-        </tr>
-        <tr>
-          <td class="dim">Formation</td>
-          <td class="paper">Grid search over B to minimize EMRT</td>
-          <td class="ours">Fixed economically-motivated sector pairs (AMD/NVDA, XOM/CVX, JPM/BAC, HD/LOW)</td>
-        </tr>
-        <tr>
-          <td class="dim">State space</td>
-          <td class="paper">Discretized recent return direction, 4<sup>l</sup> buckets</td>
-          <td class="ours">Regression-tree leaves over IV spread + earnings + RV + VIX (4&ndash;16 states)</td>
-        </tr>
-        <tr>
-          <td class="dim">Action space</td>
-          <td class="paper">3 actions: sell / hold / buy (position-gated)</td>
-          <td class="ours">9-level signed sizing ladder: direction &times; 0/25/50/75/100%, per-pair fixed budget</td>
-        </tr>
-        <tr>
-          <td class="dim">Reward</td>
-          <td class="paper">A<sub>t</sub>&middot;(&theta;&minus;X<sub>t</sub>) &minus; c&middot;|A<sub>t</sub>|</td>
-          <td class="ours">size &times; forward relative-value payoff &minus; 2.5%&times;avg entry IV&times;size</td>
-        </tr>
-        <tr>
-          <td class="dim">Training</td>
-          <td class="paper">Sequential &mdash; tabular Q-learning on simulated OU paths</td>
-          <td class="ours">One-shot &mdash; contextual bandit, cross-entropy policy search, real data, expanding-window walk-forward</td>
-        </tr>
-        <tr>
-          <td class="dim">Benchmark story</td>
-          <td class="paper">RL vs. Distance Method vs. OU thresholding</td>
-          <td class="ours">Learned sizing vs. supervised NN full-size/flat vs. simpler feature set</td>
-        </tr>
-      </table>
-    </div>
-    <div class="pageno" data-n>16</div>
-  </section>
+
 
   <!-- 17: setup -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>Vega-neutral ATM straddle pairs</h1>
-    <h2>Four independent policies, each trading its own implied-vol spread</h2>
-    <div class="body">
-      <div class="diagram-wrap">
-        <div class="chip-row" style="justify-content:center; flex-wrap:wrap;">
-          <div class="chip-box">AMD / NVDA</div>
-          <div class="chip-box">XOM / CVX</div>
-          <div class="chip-box">JPM / BAC</div>
-          <div class="chip-box">HD / LOW</div>
-        </div>
-        <div class="cap">Each pair starts vega-neutral; sector/economic logic picked these, not a formation search (see Future Work)</div>
-      </div>
-      <div class="stat-row" style="margin-top:8px;">
-        <div class="stat-tile">
-          <div class="num">Independent</div>
-          <div class="lbl">each policy trained &amp; evaluated on only its own pair's data</div>
-        </div>
-        <div class="stat-tile">
-          <div class="num">25% each</div>
-          <div class="lbl">fixed equal vega budget per pair; unused budget idle</div>
-        </div>
-        <div class="stat-tile">
-          <div class="num">Daily</div>
-          <div class="lbl">delta-hedged on the option-and-stock position</div>
-        </div>
-      </div>
-    </div>
-    <div class="pageno" data-n>17</div>
-  </section>
+
 
   <!-- 18: state -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>State: let a regression tree pick the buckets</h1>
-    <h2>Fit a small tree to predict the reward from features &mdash; its leaves become the discrete states</h2>
-    <div class="body">
-      <div class="diagram-wrap">
-        <svg viewBox="0 0 700 220" width="100%" height="220">
-          <rect x="290" y="8" width="120" height="40" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
-          <text x="350" y="32" text-anchor="middle" font-size="13" fill="var(--text-primary)">All training dates</text>
-          <text x="350" y="62" text-anchor="middle" font-size="11" fill="var(--text-muted)">split on IV spread</text>
-          <line x1="350" y1="48" x2="170" y2="88" stroke="var(--baseline)" stroke-width="1.5"/>
-          <line x1="350" y1="48" x2="530" y2="88" stroke="var(--baseline)" stroke-width="1.5"/>
-          <rect x="110" y="88" width="120" height="40" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
-          <text x="170" y="112" text-anchor="middle" font-size="12">low spread</text>
-          <rect x="470" y="88" width="120" height="40" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
-          <text x="530" y="112" text-anchor="middle" font-size="12">high spread</text>
-          <text x="170" y="140" text-anchor="middle" font-size="11" fill="var(--text-muted)">split on trailing RV</text>
-          <text x="530" y="140" text-anchor="middle" font-size="11" fill="var(--text-muted)">split on earnings countdown</text>
-          <line x1="170" y1="128" x2="70" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
-          <line x1="170" y1="128" x2="230" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
-          <line x1="530" y1="128" x2="470" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
-          <line x1="530" y1="128" x2="630" y2="168" stroke="var(--baseline)" stroke-width="1.5"/>
-          <g font-size="12" font-weight="700" fill="var(--series-1)">
-            <rect x="20" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
-            <text x="70" y="192" text-anchor="middle">state 1</text>
-            <rect x="180" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
-            <text x="230" y="192" text-anchor="middle">state 2</text>
-            <rect x="420" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
-            <text x="470" y="192" text-anchor="middle">state 3</text>
-            <rect x="580" y="168" width="100" height="40" rx="8" fill="var(--series-1)" opacity="0.12" stroke="var(--series-1)"/>
-            <text x="630" y="192" text-anchor="middle">state 4</text>
-          </g>
-        </svg>
-        <div class="cap">Illustrative split (4 leaves shown). Real trees use 4, 8, or 16 leaves &mdash; whichever scores best on validation Sharpe &mdash; with a minimum of 126 or 252 dates per leaf.</div>
-      </div>
-      <ul class="points" style="margin-top:12px;">
-        <li>Inputs: IV spread, both legs' earnings countdown, both legs' trailing 30-day RV, and VIX.</li>
-        <li>The tree is fit once, on training data only, to predict the reward &mdash; it's never used to trade directly, only to draw the state boundaries.</li>
-        <li>Contrast with the paper: their buckets are four fixed thresholds on daily return, picked by hand; ours are chosen by what actually predicts the reward.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n>18</div>
-  </section>
+
 
   <!-- 19: action + reward -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>Action and reward, adapted for options</h1>
-    <h2>Same spirit as the paper's reward &mdash; position &times; distance from favorable value, minus a cost term</h2>
-    <div class="body">
-      <div class="eq">
-        payoff = size &times; [(RV<sub>fwd,A</sub>&minus;IV<sub>A</sub>) &minus; (RV<sub>fwd,B</sub>&minus;IV<sub>B</sub>)] &minus; |size| &times; 0.025 &times; (IV<sub>A</sub>+IV<sub>B</sub>)/2
-        <span class="caption">size &isin; {0, &plusmn;0.25, &plusmn;0.50, &plusmn;0.75, &plusmn;1.00} &times; per-pair vega budget &mdash; a 9-level signed sizing ladder</span>
-      </div>
-      <ul class="points" style="margin-top:10px;">
-        <li>Paper's binary buy/sell becomes a <b>9-level sizing ladder</b> (0/25/50/75/100% &times; direction), no position gating.</li>
-        <li>Cost mirrors the paper's flat <i>c</i>&middot;|A<sub>t</sub>| but is <b>vega-scaled</b>: 2.5% of average entry IV, proportional to size.</li>
-        <li>The reward &mdash; forward 30-day RV minus IV &mdash; is something we actually observe 30 days later. Unlike the paper's &theta;, there's no unknown to estimate, so there's nothing to simulate: we train directly on real history.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n>19</div>
-  </section>
+
 
   <!-- 20: training / contextual bandit -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>Training: a contextual bandit, not Q-learning</h1>
-    <h2>Every date is one independent decision &mdash; no persisted position, no next-state value to bootstrap</h2>
-    <div class="body">
-      <div class="flow">
-        <div class="flow-step"><div class="num">Sample</div><h4>256 policies</h4><p>one of 9 actions per state, drawn from that state's current action distribution</p></div>
-        <div class="flow-step"><div class="num">Score</div><h4>Sharpe(a)</h4><p>the whole candidate policy, scored at once &mdash; see formula below</p></div>
-        <div class="flow-step"><div class="num">Reshape</div><h4>Keep the elites</h4><p>nudge each state's action distribution toward the top ~10%'s choices</p></div>
-      </div>
-      <div class="eq">
-        mean(a) = (1/n) &Sigma;<sub>s</sub> [ a<sub>s</sub>&middot;R<sub>s</sub> &minus; |a<sub>s</sub>|&middot;C<sub>s</sub> ] &nbsp;&nbsp;&nbsp; Sharpe(a) = ANN &times; mean(a) / std(a)
-        <span class="caption">a = (a<sub>1</sub>,&hellip;,a<sub>S</sub>) is one candidate policy, one of the 9 sizes per state. R<sub>s</sub>, C<sub>s</sub> = total reward and total cost already summed over every training date in state s, computed once &mdash; so scoring any policy is just arithmetic over S numbers, not a scan over the data.</span>
-      </div>
-      <ul class="points" style="margin-top:14px;">
-        <li><b>Why this needs a search, not a per-state formula:</b> mean(a) is a plain sum across states, but Sharpe divides by the policy's standard deviation, which depends on mean(a)<sup>2</sup> &mdash; a square of a sum over <i>every</i> state. So the 9-way choice in one state changes the score of every other state's choice too; there's no independent "best action for this state" to just read off.</li>
-        <li>State &rarr; action &rarr; reward realized 30 days later, no transitions or bootstrapped next-state estimate &mdash; the population search (80 iterations &times; 5 seeds) is what stands in for Q-learning's update rule here.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n>20</div>
-  </section>
+
 
   <!-- 20b: CEM one iteration, visually -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>One search iteration, visually</h1>
-    <h2>256 candidate policies sampled, scored by Sharpe, then the top ~10% reshape each state's distribution</h2>
-    <div class="body">
-      <div class="diagram-wrap">
-        <svg viewBox="0 0 900 230" width="100%" height="230">
-          <text x="86.0" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">Before</text>
-          <rect x="14" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.3"/>
-          <rect x="30" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.26"/>
-          <rect x="46" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.38"/>
-          <rect x="62" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
-          <rect x="78" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="94" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.31"/>
-          <rect x="110" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
-          <rect x="126" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.34"/>
-          <rect x="142" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
-          <rect x="14" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
-          <rect x="30" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
-          <rect x="46" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
-          <rect x="62" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
-          <rect x="78" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.42"/>
-          <rect x="94" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.25"/>
-          <rect x="110" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.27"/>
-          <rect x="126" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.37"/>
-          <rect x="142" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.45"/>
-          <rect x="14" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.36"/>
-          <rect x="30" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
-          <rect x="46" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.45"/>
-          <rect x="62" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
-          <rect x="78" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.43"/>
-          <rect x="94" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.29"/>
-          <rect x="110" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.25"/>
-          <rect x="126" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.25"/>
-          <rect x="142" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.29"/>
-          <rect x="14" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.42"/>
-          <rect x="30" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.26"/>
-          <rect x="46" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.36"/>
-          <rect x="62" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.37"/>
-          <rect x="78" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.31"/>
-          <rect x="94" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="110" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.24"/>
-          <rect x="126" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.23"/>
-          <rect x="142" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.27"/>
-          <rect x="14" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.38"/>
-          <rect x="30" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.32"/>
-          <rect x="46" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.3"/>
-          <rect x="62" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.36"/>
-          <rect x="78" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.33"/>
-          <rect x="94" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.29"/>
-          <rect x="110" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.41"/>
-          <rect x="126" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.39"/>
-          <rect x="142" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.28"/>
-          <text x="86.0" y="220" text-anchor="middle" font-size="11" fill="var(--text-muted)">each state ~uniform over 9 actions</text>
 
-          <text x="380" y="20" text-anchor="middle" font-size="12" fill="var(--text-muted)">256 candidate policies, sorted by Sharpe(a)</text>
-          <rect x="200" y="36" width="190" height="12" rx="3" fill="var(--series-1)" opacity="0.9"/>
-          <rect x="200" y="55" width="168" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="200" y="74" width="148" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="200" y="93" width="128" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="200" y="112" width="111" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="200" y="131" width="96" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="200" y="150" width="82" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <rect x="200" y="169" width="70" height="12" rx="3" fill="var(--text-muted)" opacity="0.35"/>
-          <text x="200" y="200" font-size="11" fill="var(--series-1)" font-weight="700">&#8592; top ~10% = elites</text>
-          <text x="200" y="216" font-size="11" fill="var(--text-muted)">rest discarded each round</text>
-
-          <line x1="170" y1="110" x2="196" y2="110" stroke="var(--baseline)" stroke-width="1.5" marker-end="url(#arrowh)"/>
-          <text x="183" y="102" text-anchor="middle" font-size="16" fill="var(--text-muted)">&#8594;</text>
-          <text x="696" y="102" text-anchor="middle" font-size="16" fill="var(--text-muted)">&#8594;</text>
-
-          <text x="788.0" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">After</text>
-          <rect x="716" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
-          <rect x="732" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
-          <rect x="748" y="34" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
-          <rect x="764" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.17"/>
-          <rect x="780" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
-          <rect x="796" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.11"/>
-          <rect x="812" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.18"/>
-          <rect x="828" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
-          <rect x="844" y="34" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.12"/>
-          <rect x="716" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
-          <rect x="732" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.1"/>
-          <rect x="748" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
-          <rect x="764" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.08"/>
-          <rect x="780" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
-          <rect x="796" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
-          <rect x="812" y="64" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
-          <rect x="828" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
-          <rect x="844" y="64" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.17"/>
-          <rect x="716" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.11"/>
-          <rect x="732" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
-          <rect x="748" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
-          <rect x="764" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
-          <rect x="780" y="94" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
-          <rect x="796" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
-          <rect x="812" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
-          <rect x="828" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.17"/>
-          <rect x="844" y="94" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
-          <rect x="716" y="124" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
-          <rect x="732" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
-          <rect x="748" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
-          <rect x="764" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
-          <rect x="780" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.14"/>
-          <rect x="796" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.18"/>
-          <rect x="812" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
-          <rect x="828" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.11"/>
-          <rect x="844" y="124" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.12"/>
-          <rect x="716" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.15"/>
-          <rect x="732" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.08"/>
-          <rect x="748" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.13"/>
-          <rect x="764" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.1"/>
-          <rect x="780" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
-          <rect x="796" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
-          <rect x="812" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.16"/>
-          <rect x="828" y="154" width="14" height="24" rx="2" fill="var(--series-1)" opacity="0.92"/>
-          <rect x="844" y="154" width="14" height="24" rx="2" fill="var(--text-muted)" opacity="0.09"/>
-          <text x="788.0" y="220" text-anchor="middle" font-size="11" fill="var(--text-muted)">sharpened toward the elites' choices</text>
-        </svg>
-        <div class="cap">Illustrative: 5 of the 16 states shown, one row per state, 9 columns = the 9 sizes. Shading = how likely that action is to be sampled for that state right now.</div>
-      </div>
-      <ul class="points" style="margin-top:10px;">
-        <li>Each of the 256 candidates is a full length-16 vector &mdash; one action drawn per state &mdash; not a single state-action pair.</li>
-        <li>The elites don't have to agree with each other on every state; each state's distribution only shifts toward whatever <b>that state's</b> winners picked.</li>
-        <li>Repeat 80 times: distributions start flat, and sharpen round by round until each state settles on essentially one dominant action.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n></div>
-  </section>
 
   <!-- 20c: train/val/test walk-forward -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>Train / validation / test &mdash; and why we retrain</h1>
-    <h2>The paper fits once on a fixed formation year; we re-fit on an expanding window as new data arrives</h2>
-    <div class="body">
-      <div class="diagram-wrap">
-        <svg viewBox="0 0 900 300" width="100%" height="300">
-          <text x="20" y="18" font-size="13" font-weight="700" fill="var(--text-primary)">Paper (Ning &amp; Lee 2024) &mdash; single fixed split</text>
-          <rect x="20" y="32" width="410" height="46" fill="var(--series-7)" opacity="0.20" stroke="var(--series-7)" stroke-width="1"/>
-          <rect x="430" y="32" width="430" height="46" fill="var(--series-7)" opacity="0.5" stroke="var(--series-7)" stroke-width="1"/>
-          <line x1="430" y1="24" x2="430" y2="86" stroke="var(--baseline)" stroke-width="1.5" stroke-dasharray="4 4"/>
-          <text x="225" y="59" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">2022 &mdash; formation</text>
-          <text x="645" y="59" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">2023 &mdash; trading (frozen)</text>
-          <text x="225" y="100" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">fit &theta;, B + train Q-table on simulated OU paths</text>
-          <text x="645" y="100" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">frozen Q-table, real 2023 data, no updates</text>
-          <text x="20" y="140" font-size="13" font-weight="700" fill="var(--series-1)">Ours &mdash; expanding-window walk-forward</text>
-          <text x="15" y="173" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-muted)">F1</text>
-          <rect x="55" y="158" width="220" height="22" rx="2" fill="var(--series-1)" opacity="0.18"/>
-          <rect x="275" y="158" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.5"/>
-          <rect x="345" y="158" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.95"/>
-          <text x="15" y="207" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-muted)">F2</text>
-          <rect x="55" y="192" width="360" height="22" rx="2" fill="var(--series-1)" opacity="0.18"/>
-          <rect x="415" y="192" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.5"/>
-          <rect x="485" y="192" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.95"/>
-          <text x="15" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-muted)">F3</text>
-          <rect x="55" y="226" width="500" height="22" rx="2" fill="var(--series-1)" opacity="0.18"/>
-          <rect x="555" y="226" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.5"/>
-          <rect x="625" y="226" width="70" height="22" rx="2" fill="var(--series-1)" opacity="0.95"/>
-          <text x="713" y="242" font-size="16" fill="var(--text-muted)">&hellip;</text>
-          <text x="740" y="242" font-size="11" fill="var(--text-muted)">&rarr; continues to Aug 2025</text>
-          <line x1="415" y1="180" x2="415" y2="192" stroke="var(--baseline)" stroke-width="1" stroke-dasharray="2 3"/>
-          <line x1="555" y1="214" x2="555" y2="226" stroke="var(--baseline)" stroke-width="1" stroke-dasharray="2 3"/>
-        </svg>
-        <div class="legend-row" style="margin-top:4px; justify-content:center;">
-          <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1); opacity:.18;"></span>train &mdash; fit tree + CEM policy</div>
-          <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1); opacity:.5;"></span>validation &mdash; pick leaf-count / min-leaf</div>
-          <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1); opacity:.95;"></span>test &mdash; scored once, out-of-sample</div>
-        </div>
-        <div class="cap">Illustrative: 3 of the folds shown. Test windows are fixed-length and never overlap; the training window keeps expanding, sliding forward through Aug 2025.</div>
-      </div>
-      <ul class="points" style="margin-top:6px;">
-        <li><b>Paper:</b> one formation year (2022) &mdash; fits &theta;, the reversion speed, and hedge ratio B from real prices, then trains the Q-table on 10,000 simulated OU paths. The table is frozen for all of 2023; nothing is re-estimated mid-year. Chronologically clean (no future data touches the fit), but if the true dynamics drift during 2023, the frozen table has no way to notice.</li>
-        <li><b>Ours:</b> every fold re-fits the tree and re-runs the cross-entropy search from scratch on an expanding training window, picks the leaf-count / min-leaf combo by validation Sharpe, then scores that one frozen policy once on the next untouched test slice before sliding forward.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n></div>
-  </section>
+
   <!-- 21: results I -->
-  <section class="slide">
-    <div class="kicker">Our Results (I)</div>
-    <h1>Independent-pair Sharpe, 2010&ndash;Aug 2025</h1>
-    <h2>One pair carries most of the standalone edge; the equal-budget portfolio still nets a positive combined Sharpe</h2>
-    <div class="body">
-      <table class="data">
-        <tr><th>Policy</th><th>Annualized payoff Sharpe</th></tr>
-        <tr><td>AMD / NVDA</td><td>0.635</td></tr>
-        <tr><td>XOM / CVX</td><td class="neg">&minus;0.070</td></tr>
-        <tr><td>JPM / BAC</td><td class="neg">&minus;0.012</td></tr>
-        <tr><td>HD / LOW</td><td class="neg">&minus;0.105</td></tr>
-        <tr class="hero total"><td>Combined, fixed equal budgets</td><td>0.499</td></tr>
-      </table>
-      <ul class="points" style="margin-top:14px;">
-        <li>The 0/25/50/75/100% sizing ladder lifts combined Sharpe from <b>0.405</b> (retrained full-size/flat policies) to <b>0.499</b> &mdash; the same qualitative lesson as the paper: <b>a learned, graded decision beats a fixed-threshold one</b>.</li>
-      </ul>
-    </div>
-    <div class="footnote">Sharpe uses an annualized 30-day proxy-payoff convention, not daily marked option-and-hedge P&amp;L. Source: reports/independent_pairs.md, reports/independent_sizing.md.</div>
-    <div class="pageno" data-n>25</div>
-  </section>
+
 
   <!-- 21b: NN baseline architecture -->
-  <section class="slide">
-    <div class="kicker">Our Extension</div>
-    <h1>The baseline: a small neural network</h1>
-    <h2>Same 7 features as the tree, but one fixed-size in/out signal instead of 9 graded sizes</h2>
-    <div class="body">
-      <div class="diagram-wrap">
-        <svg viewBox="0 0 900 240" width="100%" height="240">
-          <text x="56" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="var(--series-2)">Inputs (7 features)</text>
-          <text x="330" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="var(--series-2)">Hidden (16 tanh units)</text>
-          <text x="520" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="var(--series-2)">Output</text>
-          <line x1="64" y1="40" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="40" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="40" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="40" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="40" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="40" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="68" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="68" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="68" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="68" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="68" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="68" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="96" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="96" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="96" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="96" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="96" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="96" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="124" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="124" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="124" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="124" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="124" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="124" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="152" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="152" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="152" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="152" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="152" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="152" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="180" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="180" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="180" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="180" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="180" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="180" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="208" x2="322" y2="40" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="208" x2="322" y2="73.6" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="208" x2="322" y2="107.2" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="208" x2="322" y2="140.8" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="208" x2="322" y2="174.4" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="64" y1="208" x2="322" y2="208" stroke="var(--series-2)" stroke-width="0.6" opacity="0.18"/>
-          <line x1="338" y1="40" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
-          <line x1="338" y1="73.6" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
-          <line x1="338" y1="107.2" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
-          <line x1="338" y1="140.8" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
-          <line x1="338" y1="174.4" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
-          <line x1="338" y1="208" x2="510" y2="124" stroke="var(--series-2)" stroke-width="0.8" opacity="0.35"/>
-          <circle cx="56" cy="40" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="43.5" font-size="10" fill="var(--text-secondary)">IV spread</text>
-          <circle cx="56" cy="68" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="71.5" font-size="10" fill="var(--text-secondary)">AMD earnings d.</text>
-          <circle cx="56" cy="96" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="99.5" font-size="10" fill="var(--text-secondary)">NVDA earnings d.</text>
-          <circle cx="56" cy="124" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="127.5" font-size="10" fill="var(--text-secondary)">Trail. RV (AMD)</text>
-          <circle cx="56" cy="152" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="155.5" font-size="10" fill="var(--text-secondary)">Trail. RV (NVDA)</text>
-          <circle cx="56" cy="180" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="183.5" font-size="10" fill="var(--text-secondary)">RV&minus;IV proxy</text>
-          <circle cx="56" cy="208" r="7" fill="var(--series-2)" opacity="0.22" stroke="var(--series-2)" stroke-width="1.2"/>
-          <text x="72" y="211.5" font-size="10" fill="var(--text-secondary)">Reversion z-score</text>
-          <circle cx="330" cy="40" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
-          <circle cx="330" cy="73.6" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
-          <circle cx="330" cy="107.2" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
-          <circle cx="330" cy="140.8" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
-          <circle cx="330" cy="174.4" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
-          <circle cx="330" cy="208" r="7" fill="var(--series-2)" opacity="0.4" stroke="var(--series-2)" stroke-width="1.2"/>
-          <circle cx="520" cy="124" r="10" fill="var(--series-2)" opacity="0.9" stroke="var(--series-2)" stroke-width="1.5"/>
-          <text x="520" y="150" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">&#375; = predicted long_reward</text>
-          <line x1="531" y1="124" x2="586" y2="124.0" stroke="var(--baseline)" stroke-width="1.5"/>
-          <text x="555.0" y="116" text-anchor="middle" font-size="14" fill="var(--text-muted)">&rarr;</text>
-          <rect x="590" y="104" width="90" height="40" rx="6" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.2"/>
-          <text x="635.0" y="120.0" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)">|&#375;| &gt; k&middot;cost ?</text>
-          <text x="635.0" y="136.0" text-anchor="middle" font-size="9.5" fill="var(--text-muted)">k &isin; {1,2,4}</text>
-          <line x1="680" y1="114" x2="735" y2="70" stroke="var(--baseline)" stroke-width="1.3"/>
-          <line x1="680" y1="134" x2="735" y2="178" stroke="var(--baseline)" stroke-width="1.3"/>
-          <text x="682" y="90" font-size="10" fill="var(--text-muted)">Y</text>
-          <text x="682" y="160" font-size="10" fill="var(--text-muted)">N</text>
-          <text x="740" y="66" font-size="11" font-weight="700" fill="var(--text-primary)">&plusmn;1 (enter)</text>
-          <text x="740" y="182" font-size="11" font-weight="700" fill="var(--text-primary)">0 (flat)</text>
-        </svg>
-        <div class="cap">Fixed unit size or nothing &mdash; never the 9-level ladder the RL policy gets to use.</div>
-      </div>
-      <div class="eq">
-        L(w) = (1/n) &Sigma;<sub>i</sub> (&#375;<sub>i</sub> &minus; y<sub>i</sub>)&sup2; &nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp; &alpha;&middot;&#8214;w&#8214;&sup2;
-        <span class="caption">y<sub>i</sub> = standardized long_reward label, &#375;<sub>i</sub> = network output. Minimized directly by lbfgs &mdash; Sharpe never enters training; it only picks &alpha; &isin; {0.01, 1} and the threshold k afterward, on validation.</span>
-      </div>
-      <ul class="points" style="margin-top:6px;">
-        <li>7 standardized features &rarr; 1 hidden layer, 16 tanh units &rarr; 1 output &mdash; regressing the forward reward directly, not classifying among 9 sizes.</li>
-        <li>A separate rule, not the network, turns that number into a trade: above a cost-scaled threshold, take a fixed &plusmn;1 position; below it, stay flat.</li>
-        <li>Same model-selection discipline as the tree: 2 weight-decay strengths &times; 3 thresholds = 6 candidates, best one chosen by validation Sharpe, applied once to test.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n></div>
-  </section>
+
   <!-- 22: results II -->
-  <section class="slide">
-    <div class="kicker">Our Results (II)</div>
-    <h1>Learned sizing vs. a supervised NN baseline</h1>
-    <h2>Same features, same costs, same walk-forward folds &mdash; only the policy differs</h2>
-    <div class="body">
-      <div class="legend-row">
-        <div class="legend-item"><span class="legend-swatch" style="background:var(--series-2);"></span>NN full-size/flat</div>
-        <div class="legend-item"><span class="legend-swatch" style="background:var(--series-7);"></span>RL, original state set, sized</div>
-        <div class="legend-item"><span class="legend-swatch" style="background:var(--series-1);"></span>RL, both features, sized</div>
-      </div>
-      <div class="barchart" id="ours-chart"></div>
-      <ul class="points" style="margin-top:10px;">
-        <li>Combined 25-pair basket: RL sizing beats the NN baseline in <b>18 / 25</b> individual pairs.</li>
-        <li>Paired-difference test (block bootstrap): RL sizing vs. NN, combined basket, Sharpe gap <b>+0.424</b> (95% CI [0.123, 0.771]) &mdash; a real, if noisy, edge.</li>
-      </ul>
-    </div>
-    <div class="footnote">Basket Sharpes are annualized 30-day proxy-payoff, expanding-window walk-forward with purged boundaries. Source: reports/nn_rl_benchmark.md.</div>
-    <div class="pageno" data-n>26</div>
-  </section>
+
 
   <!-- 23: synthesis -->
-  <section class="slide">
-    <div class="kicker">Synthesis</div>
-    <h1>Two experiments, one story</h1>
-    <h2>Replacing a fixed rule with a policy that learns from the shape of recent state beats the fixed rule</h2>
-    <div class="body">
-      <div class="stat-row">
-        <div class="stat-tile">
-          <div class="num">10 / 10</div>
-          <div class="lbl">Paper: pairs where RL's daily Sharpe beats both DM and OU</div>
-        </div>
-        <div class="stat-tile">
-          <div class="num">18 / 25</div>
-          <div class="lbl">Ours: pairs where RL sizing beats the supervised NN</div>
-        </div>
-        <div class="stat-tile">
-          <div class="num">0.405 &rarr; 0.499</div>
-          <div class="lbl">Ours: combined Sharpe, full-size/flat &rarr; graded sizing ladder</div>
-        </div>
-      </div>
-      <ul class="points" style="margin-top:24px;">
-        <li>Both results support the paper's central claim: <b>model-free, learned decision rules adapt better than fixed thresholds</b> estimated once in a formation window.</li>
-        <li>The gain is <b>consistent but not huge</b> in either setting &mdash; this is a real edge over a reasonable baseline, not a free lunch.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n>21</div>
-  </section>
+
 
   <!-- 24: limitations -->
-  <section class="slide">
-    <div class="kicker">Honest Limitations</div>
-    <h1>Caveats on both sides</h1>
-    <h2>Neither result should be over-read</h2>
-    <div class="body">
-      <div class="two-col">
-        <div class="card baseline">
-          <h3>Paper</h3>
-          <ul>
-            <li>Single formation/trading split (2022 &rarr; 2023) &mdash; one market regime, no walk-forward</li>
-            <li>10 hand-picked sector pairs, no significance testing across pairs</li>
-            <li>Reward needs the true &theta;, only available via simulation transfer &mdash; a sim-to-real gap</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Ours</h3>
-          <ul>
-            <li>Sharpe is a <b>30-day proxy payoff</b>, not daily marked option-and-hedge P&amp;L (the contract pilot addresses this separately for AMD/NVDA only)</li>
-            <li>Only AMD/NVDA shows a robust standalone edge; the other three pairs are individually negative</li>
-            <li><b>Training-window sensitivity is material</b>: adding features shrank the training window and changed AMD/NVDA's own Sharpe from 0.635 to 0.369 in a like-for-like refit</li>
-            <li>Broader universe, ex-silver, loses in 4 of the last 4 years despite a positive full-period score</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="pageno" data-n>22</div>
-  </section>
+
 
   <!-- Sequential Q extension: state and action -->
-  <section class="slide">
-    <div class="kicker">Sequential Q Extension &middot; 1/2</div>
-    <h1>What the agent sees, and what it can do</h1>
-    <h2>The bandit re-decides fresh every day; this agent manages an open trade over time, so it has to remember more</h2>
-    <div class="body">
-      <div class="two-col">
-        <div class="card">
-          <h3>State</h3>
-          <ul>
-            <li>Same tree as the bandit sorts today's market &mdash; spread, vol, earnings &mdash; into a handful of buckets.</li>
-            <li>Plus, if a trade is already open: which direction, how many days it's been held, and whether it's currently working out or not.</li>
-            <li>Being flat is its own simple situation, with none of that extra baggage.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Action</h3>
-          <ul>
-            <li>Flat: stay out, or enter long or short.</li>
-            <li>Holding: keep holding, or exit.</li>
-            <li>Never both at once &mdash; you can't add to a position you're already in.</li>
-          </ul>
-        </div>
-      </div>
-      <ul class="points" style="margin-top:6px;">
-        <li>Every (state, action) pair gets one entry in the Q-table &mdash; the model's job is to fill in which action looks best from each state.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n></div>
-  </section>
+
 
   <!-- Sequential Q extension: reward and solving the table -->
-  <section class="slide">
-    <div class="kicker">Sequential Q Extension &middot; 2/2</div>
-    <h1>How the table gets filled in</h1>
-    <h2>Not learned by trial and error &mdash; solved directly, because the whole history is already on hand</h2>
-    <div class="body">
-      <div class="flow">
-        <div class="flow-step">
-          <div class="num">Today's outcome</div>
-          <h4>The reward</h4>
-          <p>Entering or exiting costs a small fee; holding earns or loses that day's P&amp;L; staying flat costs nothing.</p>
-        </div>
-        <div class="flow-step">
-          <div class="num">Averaged across history</div>
-          <h4>One stable estimate</h4>
-          <p>Every past day that shared this exact state and action is pooled together, so one noisy day becomes a dependable average.</p>
-        </div>
-        <div class="flow-step">
-          <div class="num">Solved, not learned</div>
-          <h4>The whole table at once</h4>
-          <p>Repeatedly updated from itself until nothing moves &mdash; not nudged forward one lived experience at a time.</p>
-        </div>
-      </div>
-      <div class="eq">
-        R&#770;(s,a) = <span style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; line-height:1.15; margin:0 3px; font-size:0.72em;"><span style="padding:0 3px 2px; border-bottom:1.3px solid currentColor;">1</span><span style="padding:2px 3px 0;">N</span></span>&thinsp;&Sigma;<sub>i</sub> r<sub>i</sub> &nbsp;&nbsp;&nbsp;&nbsp; Q(s,a) = R&#770;(s,a) + &gamma;&middot;max<sub>a&prime;</sub> Q(s&prime;,a&prime;)
-        <span class="caption">R&#770;(s,a) pools the one-day reward across every historical instance of this exact state and action into a single average. Q(s,a) then adds the discounted value of whatever the best action leads to next &mdash; solved by sweeping this equation across the whole table until it stops changing, no learning rate involved.</span>
-      </div>
-      <ul class="points" style="margin-top:6px;">
-        <li>Still walk-forward safe: training only ever sees data from before validation and test. Reusing the same historical days under different hypothetical trades adds coverage &mdash; it doesn't add new independent market days.</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n></div>
-  </section>
+
 
   <!-- 25: future work -->
-  <section class="slide">
-    <div class="kicker">Future Work</div>
-    <h1>Where the paper's other ideas could still plug in</h1>
-    <h2>We've borrowed the trading-phase philosophy; the formation-phase machinery is still on the table</h2>
-    <div class="body">
-      <ul class="points">
-        <li><b>EMRT-style pair/weight search</b> for vol spreads: instead of a fixed 1:1 vega-neutral pairing, grid-search relative option notional to minimize the IV spread's empirical reversion time.</li>
-        <li><b>Sequential Q extension</b>: the preceding two slides show our implemented batch Q learner. Next: jointly forecast both legs&rsquo; realized variance and test a risk-adjusted reward. These remain proposals, separate from the main bandit results.</li>
-        <li><b>Daily marked P&amp;L for all four pairs</b>, extending the AMD/NVDA contract pilot, to replace the proxy-payoff Sharpe with realized, cost-inclusive returns.</li>
-        <li><b>Cross-pair capital allocation</b>: today each pair is independent with a fixed budget; a joint policy across pairs is the natural next step (already partially explored, see independent_diagnostics.md).</li>
-      </ul>
-    </div>
-    <div class="pageno" data-n>23</div>
-  </section>
+
 
   <!-- 26: thank you -->
-  <section class="slide center-slide">
-    <h1>Thank you</h1>
-    <h2 style="max-width:700px;">Questions?</h2>
-    <div class="footnote" style="margin-top:40px;">Ning, B. &amp; Lee, K. (2024). <i>Advanced Statistical Arbitrage with Reinforcement Learning.</i> arXiv:2403.12180. &nbsp;&middot;&nbsp; rl-atm-vega-pairs project reports.</div>
-    <div class="pageno" data-n>24</div>
-  </section>
+
+
+<!-- BEGIN APPENDED OPTIONS RESEARCH -->
+<style>
+    .research-update .body{gap:12px}.research-update figure{margin:0;text-align:center}
+    .research-update figure img{width:100%;max-width:1050px;max-height:34vh;object-fit:contain}
+    .research-update figcaption{font-size:12px;color:var(--text-muted);margin-top:6px}
+    .research-update .data{font-size:16px}.research-update .data th{font-size:12px}
+    .research-update .points li{font-size:19px}.research-update a{color:var(--series-1)}
+    .research-update .research-notes{display:none;font-size:15px;line-height:1.5;padding:16px;background:#fff8e9}
+    body.show-research-notes .research-update .research-notes{display:block}
+    .research-update .notes-button{position:absolute;top:18px;right:28px;font:13px system-ui;color:var(--series-1);background:white;border:1px solid var(--border);border-radius:6px;padding:6px 10px;cursor:pointer}
+    @media(max-width:800px){.research-update{padding:40px 24px 50px}.research-update .data{font-size:12px}.research-update .data th{font-size:10px}.research-update .points li{font-size:17px}}
+    </style>
+<section class="slide research-update" id="research-slide-8"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Research update</div><h1>Our extension: contract-level option relative value</h1><h2>Three current P25 strategies, reported separately with their own controls</h2><div class="body"><table class="data"><thead><tr><th>Current strategy</th><th>Annualized excess Sharpe</th><th>Entries</th></tr></thead><tbody><tr><td>30-day learned sizing + management</td><td>1.029</td><td>212</td></tr><tr><td>Six-month conservative fitted-Q management</td><td>0.610</td><td>207</td></tr><tr><td>Native one-year forecast + learned sizing</td><td>0.313</td><td>276</td></tr></tbody></table><p class="footnote">2018–29 August 2025; actual contract accounting at $10m. These are separate researched strategies, not maturity-only ablations.</p></div><aside class="research-notes">The paper discussion is preserved. The outdated ATM proxy extension is replaced by current actual-contract research. Each checkpoint is compared with its own matched control; the same economic entry signal is not assumed across maturities.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-9"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Trade and accounting</div><h1>Trade the contracts; measure returns against cash</h1><h2>Actual puts selected by expiry and delta, with a shared cash-and-stock ledger</h2><div class="body"><table class="data"><thead><tr><th>Item</th><th>Contract-level convention</th></tr></thead><tbody><tr><td>Instrument</td><td>Same option type; target absolute delta 0.25</td></tr><tr><td>Initial neutrality</td><td>Integer contract vega matched within 10%; daily stock delta hedge</td></tr><tr><td>Actual costs</td><td>$0.03 / option contract + 0.1 vol point per leg; stock execution 1 bp</td></tr><tr><td>Financing</td><td>Floating cash return; stock borrow spread 0.5%</td></tr><tr><td>Metric</td><td>Daily cash-excess Sharpe × sqrt(252), sample standard deviation</td></tr></tbody></table><p class="footnote">$10m funded equity. Vega is matched at entry, not continuously. Management pays additional costs when it trades.</p></div><aside class="research-notes">The hedge, option positions, dividends and financing are reconciled in the actual ledger. Cash interest can make funded returns positive even in a negative excess-return year. Vega neutrality does not remove gamma, jump or changing volatility-factor exposure. Training commissions remain stricter at 65 cents; actual replay commissions are 3 cents.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-10"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Signal before sizing</div><h1>Separate the trading signal from the allocation decision</h1><h2>Broad research universe; each maturity keeps its own economic entry definition</h2><div class="body"><ul class="points"><li>Short-dated P25 state adds expected variance premium, historical normalization and RV / IV ratios.</li><li>Relative-value, profitability memory and observable pair-risk inputs determine the qualified proposals.</li><li>Compare fixed and learned sizes on common signals, contracts, costs and risk limits.</li><li>The new one-year entry study independently forecasts next-year variance and generates monthly opportunities.</li></ul></div><aside class="research-notes">The short strategy retains 345 candidate pair sleeves, 608 qualified proposals, and 33 model inputs. Its monthly fits use completed prior outcomes. The one-year study uses the same researched roster, but does not copy short-dated entry dates, directions, sizes or gates. Pair calendars and the research universe are retrospective.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-11"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">What the learner does</div><h1>Learn size within a focused strategy</h1><h2>Use precise algorithm labels: contextual allocation and sequential management are distinct</h2><div class="body"><ul class="points"><li><b>30-day sizing:</b> tree states plus direct policy search; actions are 50%, 75% or 100%.</li><li><b>Six-month management:</b> fitted Q learns weekly hold, half-size or close decisions.</li><li><b>New one-year sizing:</b> quarterly completed-history fits choose 0%, 25%, 50% or 100%.</li><li>Execution remains subject to quotes, integer contracts and common account risk checks.</li></ul></div><aside class="research-notes">The successful short-dated method is a contextual tree plus CEM optimized for portfolio Sharpe, not a neural sequential Q learner. The new native one-year method is a small-state contextual episodic direct policy optimization. The six-month fitted-Q experiment uses Bellman updates and is sequential. Claim adaptive policy value where the matched benchmark improves, rather than treating every method as the same RL algorithm.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-12"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">30-day sizing</div><h1>Adaptive sizing improves the fixed-vega controls</h1><h2>Same qualified proposals; 2018–29 August 2025 at $10m</h2><div class="body"><figure><img src="research_appendix/figures/contract_sizing.svg" alt="Common proposal set and risk limits. Size changes integer contracts, overlap and which entries fit in the account."><figcaption>Common proposal set and risk limits. Size changes integer contracts, overlap and which entries fit in the account.</figcaption></figure><table class="data"><thead><tr><th>Sizing</th><th>Entries</th><th>Above-cash dollars</th></tr></thead><tbody><tr><td>Fixed 50%</td><td>263</td><td>$248,315</td></tr><tr><td>Fixed 100%</td><td>133</td><td>$272,338</td></tr><tr><td>Learned sizing</td><td>212</td><td>$322,637</td></tr></tbody></table></div><aside class="research-notes">The learned hold-to-expiry policy improves Sharpe from 0.769 to 1.003. In the initial 74-example pre-2018 training fit, fixed-full and learned Sharpes are 1.573 and 2.015. Training uses aggregated paths and stricter costs, so compare policies within each period; do not compare absolute train and funded-test levels. Sizing changes admission and overlapping inventory.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-13"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Managing open positions</div><h1>Exit decisions help some maturities more than others</h1><h2>Hold versus learned management, using the controls defined within each study</h2><div class="body"><table class="data"><thead><tr><th>Maturity</th><th>Hold Sharpe</th><th>Managed Sharpe</th><th>Intervention</th></tr></thead><tbody><tr><td>30-day</td><td>1.003</td><td>1.029</td><td>Trim / paired exit</td></tr><tr><td>90-day</td><td>-0.324</td><td>0.025</td><td>Trim / paired exit</td></tr><tr><td>Six-month</td><td>0.592</td><td>0.610</td><td>Conservative fitted Q</td></tr></tbody></table><ul class="points"><li>The 90-day locked comparison keeps the original 116 entries.</li><li>Six-month entry is fixed 50%; learned management adds a modest improvement.</li></ul></div><aside class="research-notes">These are separate within-study controls, not a single common entry policy across maturities. The 30-day managed checkpoint reaches 1.029. The locked 90-day management improves a negative hold strategy to about zero. Six-month conservative fitted Q improves .592 to .610; the 95% interval for that improvement includes zero. Aggressive management variants performed worse and remain in the reports.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-14"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Independent one-year entry</div><h1>A native long-horizon signal supports a small sizing gain</h1><h2>Forecast next-year variance; do not reuse short-dated entries</h2><div class="body"><table class="data"><thead><tr><th>One-year policy</th><th>Sharpe</th><th>Entries</th></tr></thead><tbody><tr><td>Forecast direction; fixed 50%</td><td>0.254</td><td>580</td></tr><tr><td>Forecast direction; learned size / skip</td><td>0.313</td><td>276</td></tr><tr><td>Same learned skips; fixed 50%</td><td>0.273</td><td>281</td></tr><tr><td>Learn direction and size together</td><td>-0.050</td><td>316</td></tr></tbody></table><p class="footnote">The sizing-only gain versus matched fixed 50% is +0.040; its 252-session bootstrap 95% interval is approximately [-0.099, +0.203].</p></div><aside class="research-notes">The independent study includes all 47,610 pair/month states and 26,910 evaluation states, with 763 eligible opportunities. It uses a quarterly pooled ridge variance forecast trained only on completed 252-session targets. Learning direction as well as size failed; freezing forecast direction and learning size was better. This replaces the legacy one-year component in the blend. The improvement is exploratory and statistically uncertain.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-15"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Smile exploration</div><h1>The downside-put signal does not transfer uniformly</h1><h2>Earlier smile experiment: separate strike regions, not extra actions in one policy</h2><div class="body"><table class="data"><thead><tr><th>Instrument / policy</th><th>Annualized excess Sharpe</th></tr></thead><tbody><tr><td>25-delta puts, downside</td><td>0.792</td></tr><tr><td>75-delta puts, upside strike</td><td>0.289</td></tr><tr><td>25-delta calls, upside strike</td><td>0.018</td></tr></tbody></table><ul class="points"><li>The opposite wing was weaker under the tested signals and quote screens.</li><li>The current 30-day, six-month and one-year strategies all target 25-delta puts.</li></ul></div><aside class="research-notes">These figures belong to the earlier smile-sizing report and its original funding and eligibility conventions. They are exploratory strategy comparisons, not common-universe strike ablations and not the current $10m maturity checkpoints. A 25-delta put is the downside wing; its comparable-strike call is approximately 75 delta. Higher-delta puts and lower-delta calls describe the opposite wing. Preserve the negative findings without claiming universal call/put asymmetry.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-16"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Year-by-year evidence</div><h1>Profits and Sharpe vary materially across years</h1><h2>Current managed 30-day, conservative six-month, and native one-year checkpoints</h2><div class="body"><table class="data"><thead><tr><th>Year</th><th>30D return</th><th>30D above cash (pp)</th><th>30D Sharpe</th><th>6M Sharpe</th><th>1Y Sharpe</th></tr></thead><tbody><tr><td>2018</td><td>2.14%</td><td>+0.06</td><td>0.40</td><td>-0.35</td><td>-0.58</td></tr><tr><td>2019</td><td>2.20%</td><td>-0.08</td><td>-0.58</td><td>0.06</td><td>0.73</td></tr><tr><td>2020</td><td>1.18%</td><td>+0.66</td><td>1.58</td><td>1.00</td><td>0.04</td></tr><tr><td>2021</td><td>0.15%</td><td>+0.01</td><td>0.09</td><td>-0.02</td><td>0.26</td></tr><tr><td>2022</td><td>3.47%</td><td>+1.67</td><td>2.46</td><td>1.49</td><td>0.76</td></tr><tr><td>2023</td><td>5.29%</td><td>+0.43</td><td>1.47</td><td>0.34</td><td>-0.11</td></tr><tr><td>2024</td><td>5.14%</td><td>-0.24</td><td>-0.80</td><td>0.42</td><td>0.61</td></tr><tr><td>2025*</td><td>3.27%</td><td>+0.23</td><td>1.24</td><td>0.00</td><td>0.29</td></tr></tbody></table><p class="footnote">*2025 through 29 August. Percentage returns are calendar-period returns, not annualized. Sharpes are annualized; funded returns include interest on cash.</p></div><aside class="research-notes">Do not suppress losing years. The 30-day managed policy is negative in 2019 and 2024 on a cash-excess basis; its 2022 gains are large. The native one-year policy has different weak years. These are separate researched strategies, so differences across columns are not a controlled maturity-only effect. Return percentage points above cash distinguish the trade signal from idle-cash yield.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-17"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Feature research</div><h1>More features usually failed to improve the retained signal</h1><h2>Same short-dated feature experiment; include successful and unsuccessful additions</h2><div class="body"><figure><img src="research_appendix/figures/feature_research.svg" alt="Original funding reference and matched short-dated proposals. These are researched configurations, not new held-out tests."><figcaption>Original funding reference and matched short-dated proposals. These are researched configurations, not new held-out tests.</figcaption></figure></div><aside class="research-notes">Only the expected-variance-premium addition improves the prior learned state in this experiment. Term structure, smile, volume/open-interest, employee sentiment and transcripts generally do not add Sharpe to this checkpoint. The .961745 to 1.006305 gain has an interval that includes zero. Do not confuse the feature study funding reference with the later $10m strategy, whose retained sizing Sharpe is 1.003.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-18"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Portfolio allocation</div><h1>Past-performance weighting trails simple equal weights</h1><h2>Quarterly fits on prior 24 months; equal weights during the 2018–2019 warmup</h2><div class="body"><table class="data"><thead><tr><th>Allocation</th><th>2018–Aug 2025</th><th>2020–Aug 2025</th></tr></thead><tbody><tr><td>All three: equal weights</td><td>1.006</td><td>1.185</td></tr><tr><td>All three: positive-Sharpe weights</td><td>0.923</td><td>1.077</td></tr><tr><td>All three: covariance optimizer</td><td>0.865</td><td>1.005</td></tr><tr><td>30D + 6M: equal weights</td><td>1.029</td><td>1.243</td></tr><tr><td>30D + 6M: covariance optimizer</td><td>0.990</td><td>1.187</td></tr></tbody></table><p class="footnote">Annualized excess Sharpes. The retrospective full-period optimized blend reaches 1.107; it is a hindsight benchmark, not the historical allocation result.</p></div><aside class="research-notes">Positive-Sharpe weights normalize each sleeve’s positive trailing Sharpe and assign zero to nonpositive ones; all-nonpositive fits use equal weights. Quarter-start returns are excluded from all allocation fits, verified with future perturbation and truncation checks. These are blends of saved after-cost returns; shared positions, joint risk admission and additional reallocation costs are not replayed. Component selection is still retrospective.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-19"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Interpretation</div><h1>Adaptive decisions help within specific strategies</h1><h2>Separate economic signal, learned sizing, sequential management, and portfolio allocation</h2><div class="body"><ul class="points"><li><b>Strongest evidence:</b> P25 short-dated sizing improves common fixed-vega controls.</li><li><b>Smaller gains:</b> six-month management and native one-year sizing; uncertainty remains broad.</li><li><b>Limits:</b> weak opposite-wing results, failed direction learning, and weaker historical portfolio optimization.</li><li><b>Next test:</b> freeze the design and evaluate new dates with prospective pair formation.</li></ul></div><aside class="research-notes">The report should not claim that RL always wins, that all smile regions have the same signal, or that the contract strategy has a newly matched neural-network comparison. Price and Greek quality, American assignment, execution impact, jump risk, margin and retrospective research selection remain limitations. Vendor data remain subject to their existing licenses.</aside><div class="pageno" data-n></div></section>
+<section class="slide research-update" id="research-slide-20"><button class="notes-button" onclick="document.body.classList.toggle('show-research-notes')">Research notes</button><div class="kicker">Reproducibility</div><h1>Keep the original study and the extension together</h1><h2>Current metrics linked to saved reports and the updated research slides</h2><div class="body"><ul class="points"><li><a href="../paper/options_relative_value.pdf">Ten-page paper</a> · <a href="options_research_appendix.pdf">Current options research (PDF)</a></li><li><a href="../reports/p25_capital_sensitivity/comparison.csv">Fixed versus learned sizing</a> · <a href="../reports/p25_long_management/comparison.csv">Short / 90-day management</a></li><li><a href="../reports/long_tenor_fitted_q/findings.txt">Six-month management</a> · <a href="../reports/native_year_entry/findings.txt">Native one-year entry and sizing</a></li><li><a href="../reports/native_year_entry/replacement_blend/walk_forward_24M_sharpe_proportional/comparison.csv">Past-only allocation results</a> · <a href="research_appendix/append_audit.json">Presentation update audit</a></li></ul></div><aside class="research-notes">The current deck preserves the teammate paper discussion and replaces the obsolete proxy strategy section. Sources record all reported metrics. The existing ten-page paper covers the short-dated study and has not been rewritten by this presentation update. No models or backtests were rerun.</aside><div class="pageno" data-n></div></section>
+<!-- END APPENDED OPTIONS RESEARCH -->
 
 </div>
 
@@ -1106,18 +536,6 @@
     });
   }
 
-  // Ours: combined-basket Sharpe, NN vs original-state RL vs both-feature RL sizing
-  bar('ours-chart', [
-    { l: 'combined · NN', v: 1.036, c: 'var(--series-2)' },
-    { l: 'combined · orig RL', v: 1.110, c: 'var(--series-7)' },
-    { l: 'combined · RL sizing', v: 1.461, c: 'var(--series-1)' },
-    { l: 'etf_stock · NN', v: 1.313, c: 'var(--series-2)' },
-    { l: 'etf_stock · orig RL', v: 1.134, c: 'var(--series-7)' },
-    { l: 'etf_stock · RL sizing', v: 1.608, c: 'var(--series-1)' },
-    { l: 'stocks · NN', v: -0.356, c: 'var(--series-2)' },
-    { l: 'stocks · orig RL', v: 0.145, c: 'var(--series-7)' },
-    { l: 'stocks · RL sizing', v: 0.191, c: 'var(--series-1)' },
-  ], 1.7);
 </script>
 </body>
 </html>

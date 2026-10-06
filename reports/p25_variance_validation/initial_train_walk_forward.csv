@@ -1,0 +1,6 @@
+period,start,end,policy,annualized_sharpe,training_examples,funded_equity,accounting,option_commission,source
+initial_training,2016-07-01,2017-12-29,fixed100,1.5733202774880433,74,,aggregated_training_PnL_paths,0.65,artifacts/contracts/p25_feature_search/models/variance_premium/2018-01-01.json
+initial_training,2016-07-01,2017-12-29,learned,2.015193518245364,74,,aggregated_training_PnL_paths,0.65,artifacts/contracts/p25_feature_search/models/variance_premium/2018-01-01.json
+walk_forward,2018-01-01,2025-08-29,fixed50,0.7606904495943553,,10000000,shared_funded_portfolio_ledger,0.03,reports/p25_capital_sensitivity/comparison.csv
+walk_forward,2018-01-01,2025-08-29,fixed100,0.7685145843286715,,10000000,shared_funded_portfolio_ledger,0.03,reports/p25_capital_sensitivity/comparison.csv
+walk_forward,2018-01-01,2025-08-29,learned,1.002988184369126,,10000000,shared_funded_portfolio_ledger,0.03,reports/p25_capital_sensitivity/comparison.csv

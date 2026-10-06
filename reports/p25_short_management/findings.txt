@@ -1,0 +1,37 @@
+6- AND 12-MONTH MANAGEMENT TRAINING
+
+The windows are management training history, not option maturity. Keep the original 18M monthly entry-size learner, frozen directions and 608 (30D) / 577 (90D) proposals. Same six hold/trim/close policies, semiannual refits, next-session observed-quote execution, financing, costs and risk limits as the prior 18M/36M management study. Actual option commission $0.03 plus 0.1 vol point per leg per entry/elective exit; training commission $0.65. Both legs trim proportionally; no continuous vega rebalance.
+
+Training outcomes must finish before each fit, purged to original scheduled expiries. Require at least 16 completed proposals. The history minimum is 100 sessions for 6M and 250 for 12M; using the inherited 250-session floor for 6M would prevent all training. Require a full calendar window in the cached 2018+ market. Otherwise hold fallback; all entry proposals remain executable. Sparse training and early warmup differ by window. The 2021–partial2025 comparison reports a common post-warmup interval. Selection uses actual shared-ledger episodes; this remains finite policy search, not a neural sequential learner.
+
+Locked controls use the original 212 (30D) / 116 (90D) accepted dates and initial integer counts, with risk checks retained. They are counterfactual attribution controls, not live fixed-count forecasts. Dynamic entry admission and NAV-scaled counts can change in the unrestricted strategy.
+
+Evaluation 2018-01-02 to 2025-08-29 at $10m equity. Sharpe is annualized daily excess over the same-equity cash benchmark, sqrt(252). 2025 partial. All dates previously researched; no fresh holdout. The 90D entry signals/sizes are transfers from 30D; only 213 of 577 dates have both selected contracts cached. Do not infer a pure maturity effect from different coverage. Prior code, data, models and checkpoint results verified unchanged. One worker, 50% of one core, 3GiB RSS stop.
+
+ tenor  management_months  annualized_excess_sharpe  entries  trimmed_cohorts  closed_cohorts  net_excess_pnl  relative_to_cash_cagr_pct  locked_initial_counts_sharpe  locked_entries
+    30                  6                  0.972616      216               57              47   272761.711234                   0.289694                      1.009070             211
+    30                 12                  0.941315      219               48              41   295345.119045                   0.313432                      0.989082             211
+    30                 18                  0.962531      224               49              70   282024.458501                   0.299435                      1.039801             211
+    30                 36                  1.029493      212                5               4   330719.828836                   0.350539                      1.028780             212
+    90                  6                 -0.265662      116                0               4   -54128.845556                  -0.058159                     -0.265698             116
+    90                 12                 -0.157932      120               15              32   -28373.607792                  -0.030458                     -0.172100             116
+    90                 36                  0.046452      126               32              57     6873.699346                   0.007369                      0.024702             116
+
+TRAINING COVERAGE
+ tenor  window_months  fit_count  total_cutoffs  nonhold_selections
+    30              6         12             16                  12
+    30             12         14             16                  12
+    90              6          1             16                   1
+    90             12          6             16                   6
+
+ANNUAL EXCESS SHARPE
+case  30D_current_hold  30D_locked_manage_12M  30D_locked_manage_18M  30D_locked_manage_36M  30D_locked_manage_6M  30D_manage_12M  30D_manage_18M  30D_manage_36M  30D_manage_6M  90D_hold  90D_locked_manage_12M  90D_locked_manage_36M  90D_locked_manage_6M  90D_manage_12M  90D_manage_36M  90D_manage_6M
+year                                                                                                                                                                                                                                                                                                         
+2018             0.396                  0.396                  0.396                  0.396                 0.291           0.396           0.396           0.396          0.291    -0.013                 -0.013                 -0.013                -0.013          -0.013          -0.013         -0.013
+2019            -0.577                 -0.378                 -0.428                 -0.577                -0.440          -0.378          -0.428          -0.577         -0.440    -0.107                 -0.148                 -0.107                -0.107          -0.148          -0.107         -0.107
+2020             1.581                  1.610                  2.063                  1.581                 1.610           1.353           1.541           1.581          1.353     0.003                  0.003                  0.003                 0.003           0.003           0.003          0.003
+2021            -0.580                 -0.492                 -0.655                  0.071                -0.615          -0.442          -0.599           0.094         -0.613     0.365                  0.258                 -0.181                 0.365           0.261          -0.173          0.365
+2022             2.462                  2.317                  2.482                  2.462                 2.608           2.343           2.477           2.460          2.622    -0.623                 -0.228                  0.636                -0.623          -0.230           0.556         -0.623
+2023             1.604                  1.776                  1.776                  1.474                 1.737           1.490           1.491           1.474          1.730    -0.497                 -0.005                 -0.005                -0.076           0.130           0.128         -0.076
+2024            -0.785                 -0.937                 -1.175                 -0.803                -0.918          -0.807          -1.106          -0.803         -0.788    -0.679                 -0.754                 -0.792                -0.679          -0.756          -0.772         -0.678
+2025             1.231                  1.234                  1.259                  1.234                 1.287           1.234           1.260           1.237          1.132    -0.325                 -0.325                  0.941                -0.325          -0.325           1.103         -0.325

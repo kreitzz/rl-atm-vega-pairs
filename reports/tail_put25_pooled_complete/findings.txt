@@ -1,0 +1,54 @@
+          model            period   status  pairs  entries  active_pairs  net_excess_pnl  commission   option_cost    hedge_cost  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+ ungated_spread              full complete    345   1485.0         106.0   528209.952732    12772.56 155913.162696 197875.331203      0.219699       0.001531                  0.347829     -0.000571
+ ungated_spread recent_continuing complete    345      NaN           NaN   -88713.433140         NaN           NaN           NaN           NaN            NaN                 -0.220771           NaN
+pooled_rl_sized              full complete    345   1015.0          87.0   274037.625495     4657.53  41776.693203  51577.054254      0.218963       0.000794                  0.257615     -0.000336
+pooled_rl_sized recent_continuing complete    345      NaN           NaN   -44845.164185         NaN           NaN           NaN           NaN            NaN                 -0.169506           NaN
+
+{
+  "status": "complete",
+  "unresolved": [],
+  "requested_pairs": 345,
+  "observed_pairs": 332,
+  "scored_pairs": 332,
+  "observed_rows": 136459,
+  "scored_rows": 136459,
+  "corporate_action_exit_legs": 51,
+  "modeled_held_marks": 5,
+  "learned_actions_and_prior_outputs_verified": 3849,
+  "elapsed_seconds": 41.6217426249932,
+  "peak_rss_bytes": 493748224,
+  "limitations": "Inspected sample. Original policies/labels frozen before accounting repair. Known nonstandard corporate actions are exceptions to hold-to-expiry. Missing held marks modeled causally; no synthetic entry quotes. LEN adjustment-factor correction is metadata-only; quoted prices unchanged. Separate capped pair sleeves, not globally netted inventory."
+}
+
+{
+  "events": [
+    {
+      "secid": 103676,
+      "announced": "2023-08-25",
+      "effective": "2023-10-02",
+      "source": "https://investors.danaher.com/2023-08-25-Danaher-Declares-pro-Rata-Dividend-of-Veralto-Common-Stock-and-Announces-Expected-When-issued-Trading-of-Veralto-Common-Stock"
+    },
+    {
+      "secid": 106899,
+      "announced": "2025-01-17",
+      "effective": "2025-01-21",
+      "source": "https://www.miaxglobal.com/alert/2025/01/17/miax-exchange-group-options-markets-corporate-action-alert-lennar"
+    },
+    {
+      "secid": 109956,
+      "announced": "2020-04-01",
+      "effective": "2020-04-15",
+      "source": "https://www.vaneck.com/globalassets/home/us/insights/media-coverage/press-releases/vaneck-announces-reverse-share-split-of-five-etfs.pdf"
+    },
+    {
+      "secid": 127107,
+      "announced": "2020-03-23",
+      "effective": "2020-03-30",
+      "source": "https://www.nasdaq.com/press-release/state-street-global-advisors-announces-reverse-splits-of-two-etfs-2020-03-23"
+    }
+  ],
+  "models_frozen": true,
+  "prior_experiment": "reports/tail_put25_pooled/audit.json",
+  "note": "All pair books retained. Freeze learned actions, repair evaluation lifecycle equally for both models. Pre-announced adjusted-deliverable events close both legs at preceding session close, with unchanged costs including exit costs; no new entry on that close. Otherwise hold to own expiry. A missing held mark uses last known IV/current spot/current rate/declared dividends for valuation and hedging only; never fabricated entry liquidity. LEN stock cfadj has a 2% metadata jump on 2019-05-31 despite unchanged option strike/deliverable and unchanged reported share count; remove this jump in a working copy without changing raw stock prices. Issuer 2019 10-K reports no 2019 stock dividend. COP declared supplemental cash dividends (distribution type5, USD, unadjusted, noncancelled, nonliquidating, exact) enter known dividend PV and stock cash accounting, like ordinary cash. Refitted Greeks use observed quote midpoint and only already declared dividends; observed bid/ask remain unchanged. Training/actions are not refit after these evaluation repairs.",
+  "len_evidence": "https://www.sec.gov/Archives/edgar/data/920760/000162828020000559/len-20191130x10k.htm"
+}

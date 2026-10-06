@@ -1,0 +1,12 @@
+{
+  "actual_training_shared_cash": true,
+  "actual_training_integer_risk_admissions": true,
+  "no_future_quote_calls": true,
+  "open_training_inventory_marked": true,
+  "fixed_control_reproduced": true,
+  "costs_and_capital_limits_unchanged": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 827064320,
+  "no_fresh_holdout": true
+}

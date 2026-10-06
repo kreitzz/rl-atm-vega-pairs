@@ -1,0 +1,60 @@
+Descriptive risk-context check: actual frozen30D P25 trades
+
+194 accepted cohorts from2018 through partial2025 in the latest maturity
+study, with actual realized trading costs. Complete cohort P&L before shared
+financing. Values are not calendar portfolio returns or annualized Sharpes.
+No new trades, filtering, retraining, threshold search or checkpoint changes.
+All states are from the signal date, before the next-session fill.
+
+Illustrative diagnostic thresholds: correlation<0.60; mean selected-put
+IV>=60%; mean20-session RV / mean IV>=1.25. These are fixed round buckets,
+not validated optimal entry or sizing thresholds.
+
+Return correlation:
+Below0.60:17 trades,5 pairs,15 winners; net+$108,049.
+0.60-0.75:22 trades,12 pairs,11 winners; net+$19,196.
+At least0.75:155 trades,32 pairs,91 winners; net+$105,200.
+Thus a higher correlation cutoff would remove historically profitable
+accepted opportunities as well as the losing UPST/COIN trade. This is an
+observed-P&L attribution, not a simulated counterfactual NAV/Sharpe; altered
+entry rules could change later risk eligibility, netting and financing.
+
+Low correlation plus high IV:
+7 trades,4 pairs,6 winners; net+$59,544. Six pre2024 trades made+$80,575;
+the only2024-25 trade in that bucket was UPST/COIN, which lost$21,031.
+This combination may indicate substantial risk but is not shown to lack
+edge. Tiny, overlapping sample; the recent bucket is one known losing trade.
+
+Elevated RV against IV:
+RV/IV<1:133 trades,35 pairs; net+$222,441;62.4% winners.
+1<=RV/IV<1.25:35 trades,17 pairs; net+$17,975;60.0% winners.
+RV/IV>=1.25:26 trades,13 pairs; net-$7,971;50.0% winners.
+Normalized by average initial per-leg vega, mean cohort P&L was+$5.68,
++$1.66 and-$0.42 per dollar of vol-point vega, respectively. Means are
+equal weight across trades, not independent observations. The most elevated
+bucket made+$4,109 before2024 and lost$12,081 in2024-25; this does not
+establish stable out-of-sample predictiveness.
+
+Interpretation
+The results support examining risk context in sizing. They do not justify
+hard exclusion based on these thresholds from an already inspected history.
+In particular, beta and correlation are not substitutes for jump exposure,
+gamma exposure or shared underlying concentration across wings/cohorts.
+
+RV greater than IV is direction-dependent: it can support a long-vol trade
+and threaten a short-vol trade if recent RV persists. Mean pair RV/IV is a
+blunt risk proxy, not a sign-correct relative-value forecast. A useful causal
+state should retain long-leg and short-leg RV/IV separately, correlation x
+IV, volatility mismatch and existing same-name inventory. The sizing learner
+can distinguish expected return from downside-risk cost. Compare any later
+change to the frozen policy using causal rolling training and unchanged
+execution assumptions; report return, tail losses and trade coverage.
+
+Limitations: accepted trades only, existing screen/calendar/entry selection;
+historical cohort sizes learned by the frozen policy; overlapping holdings;
+short recent period; inherited retrospective roster conditioning; no fresh
+holdout. The RV/IV outcome comparison is exploratory signal diagnosis.
+
+trade_context.csv and bucket_summary.csv contain all joined observations,
+sample counts and normalized outcome distributions. Source hashes and
+explicit limitations are preserved in audit.json.

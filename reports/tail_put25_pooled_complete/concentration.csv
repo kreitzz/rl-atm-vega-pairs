@@ -1,0 +1,7 @@
+model,winners_removed,winner_names,annualized_excess_sharpe
+ungated_spread,1,PLUG/BE,0.26279253585675527
+ungated_spread,2,PLUG/BE; MAR/HLT,0.20164771935295236
+ungated_spread,3,PLUG/BE; MAR/HLT; CAR/HTZ,0.14500412757448383
+pooled_rl_sized,1,SNAP/UBER,0.16192081318587098
+pooled_rl_sized,2,SNAP/UBER; CAR/HTZ,0.07925884724269737
+pooled_rl_sized,3,SNAP/UBER; CAR/HTZ; MGM/WYNN,0.026219258125426418

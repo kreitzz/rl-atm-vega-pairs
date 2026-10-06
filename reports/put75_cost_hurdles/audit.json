@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "models_retrained": 180,
+  "models_frozen": 90,
+  "roster_pairs": 345,
+  "all_states_scored": true,
+  "actual_commission": 0.03,
+  "frozen_source_files_verified": 5132,
+  "combined_shared_inventory": false,
+  "elapsed_seconds": 8.756562416994711,
+  "peak_rss_bytes": 344047616,
+  "finalization_only": true,
+  "research_run_elapsed_seconds": 251.6831255829893,
+  "research_run_peak_rss_bytes": 490258432,
+  "reporting_keyword_repaired": true
+}

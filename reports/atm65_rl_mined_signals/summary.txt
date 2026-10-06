@@ -1,0 +1,201 @@
+Three fixed RL signal ablations against the frozen 0.368 reference
+Downside variance share alone, IV-factor reversion alone, and both. Each signal is first leg minus second leg, plus an availability flag.
+Signal-close inputs; next-session execution. Features recomputed from all observable original states and stock bars, independent of future payoff resolution.
+All original states unchanged. Employee leadership states remain on original 28 sleeves.
+Same monthly prior-year validation, five-year completed-outcome refits, 8-leaf partition, fixed seed 2026, Sharpe policy optimizer and 25/50/75/100% ladder.
+Same beta/correlation, profitability and inventory risk gates. ATM30 calls held to expiry with daily delta hedging.
+Training commission $0.65, actual commission $0.03. Mid + 0.1-vol-point entry penalty; stock costs, funding and risk unchanged.
+All 345 sleeves retained. Unavailable/unfitted sleeves retain original actions/cash; any unresolved accounting is explicit, never silently dropped.
+Full history starts flat in 2018; recent independently starts flat in 2022; both end August 2025.
+Sharpe is annualized daily excess-return Sharpe, sqrt(252), above the cash benchmark.
+RL only; no NN refits. Enabled baseline fits recovered and compared with saved historical actions.
+Signals were chosen after examining this history; this comparison is exploratory, not untouched confirmation.
+Reference checkpoint preserved, no automatic promotion.
+
+       universe        model period  pairs   status  entries  active_pairs  net_excess_pnl  total_return  excess_return  annualized_excess_sharpe  max_drawdown
+            all  rl_baseline   full    345 complete      224            29   145778.177100      0.218591       0.000423                  0.368039     -0.000025
+            all  rl_downside   full    345 complete      240            29    94103.164629      0.218441       0.000273                  0.229039     -0.000022
+            all rl_iv_factor   full    345 complete      215            30   135375.304162      0.218561       0.000392                  0.341675     -0.000022
+            all      rl_both   full    345 complete      231            31    95764.796217      0.218446       0.000278                  0.256610     -0.000021
+            all  rl_baseline recent    345 complete      179            22   103398.127664      0.159333       0.000300                  0.427591     -0.000024
+            all  rl_downside recent    345 complete      170            20    80108.251337      0.159265       0.000232                  0.356659     -0.000022
+            all rl_iv_factor recent    345 complete      164            22    91459.935670      0.159298       0.000265                  0.381309     -0.000022
+            all      rl_both recent    345 complete      165            22    84145.892690      0.159277       0.000244                  0.378908      0.000000
+common_complete  rl_baseline   full    345 complete      224            29   145778.177100      0.218591       0.000423                  0.368039     -0.000025
+common_complete  rl_downside   full    345 complete      240            29    94103.164629      0.218441       0.000273                  0.229039     -0.000022
+common_complete rl_iv_factor   full    345 complete      215            30   135375.304162      0.218561       0.000392                  0.341675     -0.000022
+common_complete      rl_both   full    345 complete      231            31    95764.796217      0.218446       0.000278                  0.256610     -0.000021
+common_complete  rl_baseline recent    345 complete      179            22   103398.127664      0.159333       0.000300                  0.427591     -0.000024
+common_complete  rl_downside recent    345 complete      170            20    80108.251337      0.159265       0.000232                  0.356659     -0.000022
+common_complete rl_iv_factor recent    345 complete      164            22    91459.935670      0.159298       0.000265                  0.381309     -0.000022
+common_complete      rl_both recent    345 complete      165            22    84145.892690      0.159277       0.000244                  0.378908      0.000000
+
+Verification:
+{
+  "source_files_verified": 457,
+  "frozen_source_files_verified": 2661,
+  "baseline_archive_sha256_verified": true,
+  "reconstructed_signal_panels": 139,
+  "retrained_pairs": 110,
+  "monthly_controls_verified": 4867,
+  "original_state_columns_unchanged": true,
+  "training_outcomes_strictly_purged": true,
+  "feature_universe_independent_of_future_payoffs": true,
+  "fixed_seed": 2026,
+  "nn_refits": 0,
+  "accounting": {
+    "requested_pairs": 345,
+    "unresolved": [],
+    "complete_by_model_period": {
+      "rl_baseline": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_downside": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_iv_factor": {
+        "full": 345,
+        "recent": 345
+      },
+      "rl_both": {
+        "full": 345,
+        "recent": 345
+      }
+    }
+  },
+  "entry_coverage": {
+    "rl_both": {
+      "entries_all_inputs": 69,
+      "entries_missing_inputs": 162
+    },
+    "rl_downside": {
+      "entries_all_inputs": 240,
+      "entries_missing_inputs": 0
+    },
+    "rl_iv_factor": {
+      "entries_all_inputs": 63,
+      "entries_missing_inputs": 152
+    }
+  },
+  "feature_usage": [
+    {
+      "model": "rl_downside",
+      "signal": "downside_fraction",
+      "enabled_refits": 527,
+      "enabled_refits_using_value": 89,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_downside",
+      "signal": "iv_factor_reversion",
+      "enabled_refits": 527,
+      "enabled_refits_using_value": 0,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_downside",
+      "signal": "any_new_value",
+      "enabled_refits": 527,
+      "enabled_refits_using_value": 89
+    },
+    {
+      "model": "rl_iv_factor",
+      "signal": "downside_fraction",
+      "enabled_refits": 388,
+      "enabled_refits_using_value": 0,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_iv_factor",
+      "signal": "iv_factor_reversion",
+      "enabled_refits": 388,
+      "enabled_refits_using_value": 9,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_iv_factor",
+      "signal": "any_new_value",
+      "enabled_refits": 388,
+      "enabled_refits_using_value": 9
+    },
+    {
+      "model": "rl_both",
+      "signal": "downside_fraction",
+      "enabled_refits": 534,
+      "enabled_refits_using_value": 93,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_both",
+      "signal": "iv_factor_reversion",
+      "enabled_refits": 534,
+      "enabled_refits_using_value": 9,
+      "enabled_refits_using_availability": 0
+    },
+    {
+      "model": "rl_both",
+      "signal": "any_new_value",
+      "enabled_refits": 534,
+      "enabled_refits_using_value": 100
+    }
+  ],
+  "paired_quarter_differences": [
+    {
+      "universe": "all",
+      "model": "rl_downside",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.13899920715647288,
+      "difference_ci90_low": -0.2735832736269786,
+      "difference_ci90_high": 0.010406340164695257
+    },
+    {
+      "universe": "all",
+      "model": "rl_iv_factor",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.026363264630157385,
+      "difference_ci90_low": -0.07617044181575164,
+      "difference_ci90_high": 0.01949299491310558
+    },
+    {
+      "universe": "all",
+      "model": "rl_both",
+      "period": "full",
+      "resamples": 2000,
+      "sharpe_difference": -0.11142853851374966,
+      "difference_ci90_low": -0.24860541489092214,
+      "difference_ci90_high": 0.06802790151044392
+    },
+    {
+      "universe": "all",
+      "model": "rl_downside",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.07093163426351942,
+      "difference_ci90_low": -0.2148858611901224,
+      "difference_ci90_high": 0.12053436807667249
+    },
+    {
+      "universe": "all",
+      "model": "rl_iv_factor",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.04628162226040099,
+      "difference_ci90_low": -0.10904767821058015,
+      "difference_ci90_high": 0.010422989688034762
+    },
+    {
+      "universe": "all",
+      "model": "rl_both",
+      "period": "recent",
+      "resamples": 2000,
+      "sharpe_difference": -0.04868250118788672,
+      "difference_ci90_low": -0.23815352076901528,
+      "difference_ci90_high": 0.22139888326568263
+    }
+  ],
+  "uncertainty_note": "Paired quarter resampling of inspected portfolio paths; descriptive, no policy refits or correction for signal selection."
+}

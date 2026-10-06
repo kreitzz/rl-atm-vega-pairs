@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "replays": 18,
+  "monthly_models": 270,
+  "baseline90_models_and_two_replays_reproduced": true,
+  "no_future_outcome_filter_on_proposals": true,
+  "all_proposals_have_decisions": true,
+  "all_cash_ledgers_verified": true,
+  "all_inventory_closed": true,
+  "costs_and_capital_fixed": true,
+  "original_checkpoints_unchanged": true,
+  "no_fresh_holdout": true,
+  "peak_rss_bytes": 482279424
+}

@@ -1,0 +1,684 @@
+[
+  {
+    "fit": "2013-01-01",
+    "training_rows": 0,
+    "last_label_end": null,
+    "fitted": false,
+    "fallback": "EWMA252 variance, no entry veto"
+  },
+  {
+    "fit": "2013-04-01",
+    "training_rows": 0,
+    "last_label_end": null,
+    "fitted": false,
+    "fallback": "EWMA252 variance, no entry veto"
+  },
+  {
+    "fit": "2013-07-01",
+    "training_rows": 0,
+    "last_label_end": null,
+    "fitted": false,
+    "fallback": "EWMA252 variance, no entry veto"
+  },
+  {
+    "fit": "2013-10-01",
+    "training_rows": 0,
+    "last_label_end": null,
+    "fitted": false,
+    "fallback": "EWMA252 variance, no entry veto"
+  },
+  {
+    "fit": "2014-01-01",
+    "training_rows": 0,
+    "last_label_end": null,
+    "fitted": false,
+    "fallback": "EWMA252 variance, no entry veto"
+  },
+  {
+    "fit": "2014-04-01",
+    "training_rows": 0,
+    "last_label_end": null,
+    "fitted": false,
+    "fallback": "EWMA252 variance, no entry veto"
+  },
+  {
+    "fit": "2014-07-01",
+    "training_rows": 247,
+    "last_label_end": "2014-06-03",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.12591084358373658,
+    "coefficients": [
+      -0.07323799906480029,
+      0.1471296022578063,
+      0.1206053676626839,
+      0.061887011246183496,
+      -0.08636669055889007
+    ],
+    "intercept": -0.4319683799888012
+  },
+  {
+    "fit": "2014-10-01",
+    "training_rows": 990,
+    "last_label_end": "2014-09-03",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.13980388914881406,
+    "coefficients": [
+      -0.0734953708469053,
+      0.10858239955157178,
+      0.14955254022133752,
+      0.05515734483137415,
+      -0.06041283653491899
+    ],
+    "intercept": -0.477080511814816
+  },
+  {
+    "fit": "2015-01-01",
+    "training_rows": 1734,
+    "last_label_end": "2014-12-02",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1447551973740875,
+    "coefficients": [
+      -0.08934560887822587,
+      0.09317181777182579,
+      0.1383713820039447,
+      0.040780344318306246,
+      -0.036793655188301896
+    ],
+    "intercept": -0.4548649045921862
+  },
+  {
+    "fit": "2015-04-01",
+    "training_rows": 2478,
+    "last_label_end": "2015-03-03",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.14853656003068436,
+    "coefficients": [
+      -0.10257479908528887,
+      0.11008831013582647,
+      0.12513690282366574,
+      0.02331524733728897,
+      -0.05873730560847647
+    ],
+    "intercept": -0.40160709603919065
+  },
+  {
+    "fit": "2015-07-01",
+    "training_rows": 3230,
+    "last_label_end": "2015-06-02",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.15313697196401788,
+    "coefficients": [
+      -0.1195690018011406,
+      0.10040752301096413,
+      0.16162634377813156,
+      -0.008207474397212568,
+      -0.10738677870401284
+    ],
+    "intercept": -0.3697877606325611
+  },
+  {
+    "fit": "2015-10-01",
+    "training_rows": 3992,
+    "last_label_end": "2015-09-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1619132369267938,
+    "coefficients": [
+      -0.1401416789681297,
+      0.09854886976350291,
+      0.18624169660236656,
+      -0.04025513780839713,
+      -0.12365981794011481
+    ],
+    "intercept": -0.3205077043408793
+  },
+  {
+    "fit": "2016-01-01",
+    "training_rows": 4757,
+    "last_label_end": "2015-12-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16194010504511164,
+    "coefficients": [
+      -0.14197869483762796,
+      0.16777223518890688,
+      0.18672621206020237,
+      -0.08090366394206715,
+      -0.12357360129496946
+    ],
+    "intercept": -0.2556739670142789
+  },
+  {
+    "fit": "2016-04-01",
+    "training_rows": 5523,
+    "last_label_end": "2016-03-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.15707038556677197,
+    "coefficients": [
+      -0.1288427484360724,
+      0.17280877196652744,
+      0.263648421555267,
+      -0.12323261415792026,
+      -0.12909865566238365
+    ],
+    "intercept": -0.19332078661912394
+  },
+  {
+    "fit": "2016-07-01",
+    "training_rows": 6553,
+    "last_label_end": "2016-06-30",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1677185619424779,
+    "coefficients": [
+      -0.11308718821831502,
+      0.0349161646410654,
+      0.4821660246305023,
+      -0.19771121053904037,
+      -0.13759337574348374
+    ],
+    "intercept": -0.1027907638587189
+  },
+  {
+    "fit": "2016-10-01",
+    "training_rows": 7335,
+    "last_label_end": "2016-09-30",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16772624000269765,
+    "coefficients": [
+      -0.09593500553723411,
+      0.04597160648232056,
+      0.48273055516874425,
+      -0.1934111076218525,
+      -0.1363033530024488
+    ],
+    "intercept": -0.055916764970398505
+  },
+  {
+    "fit": "2017-01-01",
+    "training_rows": 7862,
+    "last_label_end": "2016-11-30",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1641297194109852,
+    "coefficients": [
+      -0.08808533422444015,
+      0.048797385587554434,
+      0.47840554060924767,
+      -0.18505974646097564,
+      -0.13672368834335058
+    ],
+    "intercept": -0.03949738607487798
+  },
+  {
+    "fit": "2017-04-01",
+    "training_rows": 8925,
+    "last_label_end": "2017-03-31",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16819927352812178,
+    "coefficients": [
+      -0.10171189989240186,
+      0.05147653025662241,
+      0.4064090293445042,
+      -0.155002633534773,
+      -0.10464964546374153
+    ],
+    "intercept": -0.04991078279911057
+  },
+  {
+    "fit": "2017-07-01",
+    "training_rows": 9464,
+    "last_label_end": "2017-06-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16952300113506194,
+    "coefficients": [
+      -0.10834003388425767,
+      0.10550066609536664,
+      0.32449727459895633,
+      -0.1381742263545944,
+      -0.09145072905884112
+    ],
+    "intercept": -0.06643131314772886
+  },
+  {
+    "fit": "2017-10-01",
+    "training_rows": 10276,
+    "last_label_end": "2017-09-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1709601949398735,
+    "coefficients": [
+      -0.11435913591812429,
+      0.13707748584663493,
+      0.2839519961210271,
+      -0.14098003574631687,
+      -0.0848961946484098
+    ],
+    "intercept": -0.09546727847115863
+  },
+  {
+    "fit": "2018-01-01",
+    "training_rows": 11089,
+    "last_label_end": "2017-12-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1703131147599133,
+    "coefficients": [
+      -0.11228555751522681,
+      0.1354725713189992,
+      0.30852394235820657,
+      -0.16823017710271762,
+      -0.09030405774950581
+    ],
+    "intercept": -0.1234496541995966
+  },
+  {
+    "fit": "2018-04-01",
+    "training_rows": 11905,
+    "last_label_end": "2018-03-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16818602432096788,
+    "coefficients": [
+      -0.11157885099520538,
+      0.1369921220262419,
+      0.3271649000807337,
+      -0.18628186595051002,
+      -0.09506699883632487
+    ],
+    "intercept": -0.1480717047023075
+  },
+  {
+    "fit": "2018-07-01",
+    "training_rows": 12720,
+    "last_label_end": "2018-06-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16394746600530172,
+    "coefficients": [
+      -0.12007028109610236,
+      0.12865557506151382,
+      0.3232625600629072,
+      -0.17634969668065092,
+      -0.09032699153158584
+    ],
+    "intercept": -0.15663351470031223
+  },
+  {
+    "fit": "2018-10-01",
+    "training_rows": 13548,
+    "last_label_end": "2018-09-04",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.16039290913145532,
+    "coefficients": [
+      -0.12835485155355544,
+      0.12473027994572772,
+      0.3176452888529713,
+      -0.16901399121026833,
+      -0.08771119808107351
+    ],
+    "intercept": -0.16040944111491498
+  },
+  {
+    "fit": "2019-01-01",
+    "training_rows": 14382,
+    "last_label_end": "2018-12-03",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1575651840062185,
+    "coefficients": [
+      -0.13360195130436053,
+      0.1310931333105868,
+      0.295734708640027,
+      -0.156540762485657,
+      -0.08457603974002517
+    ],
+    "intercept": -0.15556372869669438
+  },
+  {
+    "fit": "2019-04-01",
+    "training_rows": 15221,
+    "last_label_end": "2019-03-04",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1572583874281136,
+    "coefficients": [
+      -0.1361773782392665,
+      0.13974605563269257,
+      0.27564825274440813,
+      -0.1505565347070035,
+      -0.07912558775488551
+    ],
+    "intercept": -0.14036010589705536
+  },
+  {
+    "fit": "2019-07-01",
+    "training_rows": 16059,
+    "last_label_end": "2019-06-04",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.15487376535652253,
+    "coefficients": [
+      -0.13202724328423662,
+      0.13649892881299835,
+      0.2773416004626757,
+      -0.14967730075298807,
+      -0.08053482004054588
+    ],
+    "intercept": -0.13091361013006933
+  },
+  {
+    "fit": "2019-10-01",
+    "training_rows": 16898,
+    "last_label_end": "2019-09-05",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.15369383361184777,
+    "coefficients": [
+      -0.13160738799388744,
+      0.12148521815261663,
+      0.2962043080543958,
+      -0.15748647297469737,
+      -0.08302015241519174
+    ],
+    "intercept": -0.11892568675555419
+  },
+  {
+    "fit": "2020-01-01",
+    "training_rows": 17732,
+    "last_label_end": "2019-12-04",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.15311248285634807,
+    "coefficients": [
+      -0.13076138611068416,
+      0.11544162274387154,
+      0.2982982325992109,
+      -0.15543532239271238,
+      -0.08272256175458541
+    ],
+    "intercept": -0.10755647418295387
+  },
+  {
+    "fit": "2020-04-01",
+    "training_rows": 18846,
+    "last_label_end": "2020-03-31",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.1605894938153638,
+    "coefficients": [
+      -0.12811506934479389,
+      0.08346983182941312,
+      0.33292050296281867,
+      -0.16175829512365597,
+      -0.08458338491786736
+    ],
+    "intercept": -0.09234577011997985
+  },
+  {
+    "fit": "2020-07-01",
+    "training_rows": 19681,
+    "last_label_end": "2020-06-30",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.19545870675488827,
+    "coefficients": [
+      -0.13245600587431833,
+      0.012354543351445549,
+      0.43882200991927295,
+      -0.1940289897754265,
+      -0.09166235095477307
+    ],
+    "intercept": -0.03648303310206933
+  },
+  {
+    "fit": "2020-10-01",
+    "training_rows": 20512,
+    "last_label_end": "2020-09-30",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.22766126237726106,
+    "coefficients": [
+      -0.13623227272889676,
+      0.023320233682387607,
+      0.4212275297247871,
+      -0.17267838352930934,
+      -0.09854606697814867
+    ],
+    "intercept": 0.01792511606810668
+  },
+  {
+    "fit": "2021-01-01",
+    "training_rows": 21333,
+    "last_label_end": "2020-12-31",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2600085864659995,
+    "coefficients": [
+      -0.14737002736363689,
+      -0.030862430212135986,
+      0.47316011557286725,
+      -0.1748975978117155,
+      -0.10358253038610092
+    ],
+    "intercept": 0.06877825706208412
+  },
+  {
+    "fit": "2021-04-01",
+    "training_rows": 21881,
+    "last_label_end": "2021-03-02",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.27860771963113967,
+    "coefficients": [
+      -0.1516758180537106,
+      0.018552740211819487,
+      0.39965152759425926,
+      -0.13720972541436094,
+      -0.10211202957469691
+    ],
+    "intercept": 0.10140502581801068
+  },
+  {
+    "fit": "2021-07-01",
+    "training_rows": 22459,
+    "last_label_end": "2021-06-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2831346127236414,
+    "coefficients": [
+      -0.18233642764075528,
+      -0.0037813418083819006,
+      0.37337521796451323,
+      -0.130513725330604,
+      -0.09362652750781246
+    ],
+    "intercept": 0.09685923920618889
+  },
+  {
+    "fit": "2021-10-01",
+    "training_rows": 22542,
+    "last_label_end": "2021-09-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.28585786319774686,
+    "coefficients": [
+      -0.20992528340747701,
+      0.13332397932150136,
+      0.15032743260656628,
+      -0.07228183521336004,
+      -0.08147049661073218
+    ],
+    "intercept": 0.09255452182842513
+  },
+  {
+    "fit": "2022-01-01",
+    "training_rows": 22626,
+    "last_label_end": "2021-12-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.28556367170151353,
+    "coefficients": [
+      -0.2265861148987927,
+      0.19723844975553806,
+      0.08642864459579011,
+      -0.0913237159833358,
+      -0.07239033698523094
+    ],
+    "intercept": 0.08217033524553191
+  },
+  {
+    "fit": "2022-04-01",
+    "training_rows": 22995,
+    "last_label_end": "2022-03-31",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2832775718217307,
+    "coefficients": [
+      -0.24219129328405675,
+      0.20979613380660825,
+      0.15181147397642938,
+      -0.18179188241163102,
+      -0.06474248832293697
+    ],
+    "intercept": 0.055724051270061255
+  },
+  {
+    "fit": "2022-07-01",
+    "training_rows": 22804,
+    "last_label_end": "2022-05-31",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2808611907191193,
+    "coefficients": [
+      -0.247010296838437,
+      0.2114841339030468,
+      0.17693901325784572,
+      -0.2124629632799737,
+      -0.06028087792876938
+    ],
+    "intercept": 0.05055148422541665
+  },
+  {
+    "fit": "2022-10-01",
+    "training_rows": 22887,
+    "last_label_end": "2022-09-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2772885359865352,
+    "coefficients": [
+      -0.24563364115237532,
+      0.19828569120555686,
+      0.19603578113816567,
+      -0.22182300375203579,
+      -0.057594841060055975
+    ],
+    "intercept": 0.04301905753199787
+  },
+  {
+    "fit": "2023-01-01",
+    "training_rows": 22967,
+    "last_label_end": "2022-12-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2760128028088852,
+    "coefficients": [
+      -0.2423898458658709,
+      0.2087478318136155,
+      0.16265074295335588,
+      -0.203110320724217,
+      -0.05368966488189146
+    ],
+    "intercept": 0.03709187439430712
+  },
+  {
+    "fit": "2023-04-01",
+    "training_rows": 23046,
+    "last_label_end": "2023-03-02",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.27404773457862597,
+    "coefficients": [
+      -0.2399454346343039,
+      0.21628478176890634,
+      0.14893168263716083,
+      -0.20177646507260902,
+      -0.05348635546727134
+    ],
+    "intercept": 0.029938667364792247
+  },
+  {
+    "fit": "2023-07-01",
+    "training_rows": 23117,
+    "last_label_end": "2023-06-02",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.27009748437882847,
+    "coefficients": [
+      -0.2399774661430996,
+      0.2223640439830902,
+      0.12632054954661945,
+      -0.18525739311453912,
+      -0.05145663758849268
+    ],
+    "intercept": 0.013505571350804475
+  },
+  {
+    "fit": "2023-10-01",
+    "training_rows": 23180,
+    "last_label_end": "2023-09-05",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.26735350655625073,
+    "coefficients": [
+      -0.24562664651191007,
+      0.2267402914147246,
+      0.09151224857595942,
+      -0.15509853854739167,
+      -0.04337986110535323
+    ],
+    "intercept": -0.012321462355185397
+  },
+  {
+    "fit": "2024-01-01",
+    "training_rows": 23227,
+    "last_label_end": "2023-12-04",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.2692750700963676,
+    "coefficients": [
+      -0.2555496402502494,
+      0.22167935305591865,
+      0.06856967163462657,
+      -0.13421477756322897,
+      -0.03341922050290527
+    ],
+    "intercept": -0.03833415712296847
+  },
+  {
+    "fit": "2024-04-01",
+    "training_rows": 23256,
+    "last_label_end": "2024-03-01",
+    "fitted": true,
+    "fallback": "EWMA252 variance, no entry veto",
+    "residual_log_variance_correction": 0.26966688715528503,
+    "coefficients": [
+      -0.26199738267258643,
+      0.25050843186777166,
+      0.031947757986428044,
+      -0.11677883759976902,
+      -0.03387964744540124
+    ],
+    "intercept": -0.05708344492444491
+  }
+]

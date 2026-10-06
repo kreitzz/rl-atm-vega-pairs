@@ -1,0 +1,91 @@
+fit,training_rows,training_pairs,status,last_training_outcome,leaves,leaf_size_aliases,split_features,training_shadow_daily_sharpe
+2018-01-01,538,41,enabled,2017-12-29,7.0,"[581, 577, 577, 577, 583, 577, 584]","['oriented_vrp_gap', 'count_365d', 'profit_91d', 'rv_mean', 'count_91d', 'profit_365d']",1.2876651768620488
+2018-02-01,526,41,enabled,2018-01-26,7.0,"[577, 581, 577, 577, 584, 583, 577]","['oriented_vrp_gap', 'dte_mean', 'profit_91d', 'profit_365d', 'rv_mean', 'profit_365d']",1.1844235442417241
+2018-03-01,505,40,enabled,2018-02-23,7.0,"[577, 581, 577, 577, 584, 577, 584]","['oriented_vrp_gap', 'count_365d', 'profit_91d', 'count_91d', 'rv_mean', 'profit_365d']",1.2822544128004185
+2018-04-01,491,38,global_full_size_fallback,,,,,
+2018-05-01,492,38,global_full_size_fallback,,,,,
+2018-06-01,489,37,global_full_size_fallback,,,,,
+2018-07-01,503,37,global_full_size_fallback,,,,,
+2018-08-01,512,36,enabled,2018-07-20,7.0,"[581, 577, 577, 584, 581, 577, 582]","['oriented_iv_gap', 'dte_mean', 'profit_365d', 'count_91d', 'commission_vol_points', 'profit_365d']",0.7932882116842448
+2018-09-01,488,35,global_full_size_fallback,,,,,
+2018-10-01,476,34,global_full_size_fallback,,,,,
+2018-11-01,462,36,global_full_size_fallback,,,,,
+2018-12-01,417,34,global_full_size_fallback,,,,,
+2019-01-01,422,34,global_full_size_fallback,,,,,
+2019-02-01,436,34,global_full_size_fallback,,,,,
+2019-03-01,439,35,global_full_size_fallback,,,,,
+2019-04-01,446,35,global_full_size_fallback,,,,,
+2019-05-01,463,35,global_full_size_fallback,,,,,
+2019-06-01,463,34,global_full_size_fallback,,,,,
+2019-07-01,467,36,global_full_size_fallback,,,,,
+2019-08-01,460,35,global_full_size_fallback,,,,,
+2019-09-01,466,36,global_full_size_fallback,,,,,
+2019-10-01,470,37,global_full_size_fallback,,,,,
+2019-11-01,476,37,global_full_size_fallback,,,,,
+2019-12-01,474,38,global_full_size_fallback,,,,,
+2020-01-01,474,38,global_full_size_fallback,,,,,
+2020-02-01,468,36,global_full_size_fallback,,,,,
+2020-03-01,464,35,global_full_size_fallback,,,,,
+2020-04-01,458,36,global_full_size_fallback,,,,,
+2020-05-01,466,38,global_full_size_fallback,,,,,
+2020-06-01,485,40,global_full_size_fallback,,,,,
+2020-07-01,494,42,global_full_size_fallback,,,,,
+2020-08-01,507,43,enabled,2020-07-31,6.0,"[577, 582, 577, 583, 582, 577]","['beta', 'profit_365d', 'correlation', 'correlation', 'profit_365d']",0.9183428211239544
+2020-09-01,512,44,enabled,2020-08-28,7.0,"[577, 583, 577, 584, 582, 583, 577]","['beta', 'profit_365d', 'correlation', 'correlation', 'profit_365d', 'iv_mean']",0.9360321595472642
+2020-10-01,507,44,enabled,2020-08-28,7.0,"[577, 583, 577, 584, 582, 583, 577]","['beta', 'profit_365d', 'correlation', 'correlation', 'profit_365d', 'iv_mean']",0.9420972578604562
+2020-11-01,501,43,global_full_size_fallback,,,,,
+2020-12-01,481,42,global_full_size_fallback,,,,,
+2021-01-01,468,41,global_full_size_fallback,,,,,
+2021-02-01,456,40,global_full_size_fallback,,,,,
+2021-03-01,444,40,global_full_size_fallback,,,,,
+2021-04-01,434,39,global_full_size_fallback,,,,,
+2021-05-01,430,39,global_full_size_fallback,,,,,
+2021-06-01,423,39,global_full_size_fallback,,,,,
+2021-07-01,424,38,global_full_size_fallback,,,,,
+2021-08-01,426,37,global_full_size_fallback,,,,,
+2021-09-01,432,37,global_full_size_fallback,,,,,
+2021-10-01,421,37,global_full_size_fallback,,,,,
+2021-11-01,420,39,global_full_size_fallback,,,,,
+2021-12-01,426,40,global_full_size_fallback,,,,,
+2022-01-01,430,40,global_full_size_fallback,,,,,
+2022-02-01,442,40,global_full_size_fallback,,,,,
+2022-03-01,442,39,global_full_size_fallback,,,,,
+2022-04-01,449,39,global_full_size_fallback,,,,,
+2022-05-01,451,39,global_full_size_fallback,,,,,
+2022-06-01,449,39,global_full_size_fallback,,,,,
+2022-07-01,455,40,global_full_size_fallback,,,,,
+2022-08-01,483,42,global_full_size_fallback,,,,,
+2022-09-01,500,42,global_full_size_fallback,,,,,
+2022-10-01,536,43,enabled,2022-09-30,7.0,"[582, 577, 582, 577, 584, 577, 582]","['commission_vol_points', 'correlation', 'count_91d', 'rv_mean', 'iv_mean', 'count_365d']",1.2815419722366828
+2022-11-01,552,46,enabled,2022-10-28,7.0,"[582, 577, 582, 577, 584, 577, 581]","['commission_vol_points', 'correlation', 'count_91d', 'rv_mean', 'iv_mean', 'count_365d']",1.3140731458174657
+2022-12-01,561,48,enabled,2022-11-25,8.0,"[582, 577, 577, 584, 577, 583, 582, 577]","['commission_vol_points', 'correlation', 'count_91d', 'rv_mean', 'rv_mean', 'rank_strength', 'rank_strength']",1.4021321799094222
+2023-01-01,592,49,enabled,2022-12-30,7.0,"[581, 577, 584, 577, 577, 577, 582]","['commission_vol_points', 'correlation', 'count_91d', 'rv_mean', 'iv_mean', 'rank_strength']",1.529554418289248
+2023-02-01,599,50,enabled,2023-01-27,7.0,"[582, 577, 584, 582, 577, 577, 583]","['commission_vol_points', 'correlation', 'count_91d', 'rv_mean', 'rv_mean', 'rank_strength']",1.5015978504539713
+2023-03-01,596,50,enabled,2023-02-17,7.0,"[582, 577, 584, 582, 577, 577, 584]","['commission_vol_points', 'correlation', 'count_91d', 'rv_mean', 'iv_mean', 'rank_strength']",1.5417658493584778
+2023-04-01,610,50,enabled,2023-03-31,7.0,"[581, 577, 583, 577, 577, 577, 584]","['commission_vol_points', 'correlation', 'count_91d', 'beta', 'iv_mean', 'rank_strength']",1.7159262383247416
+2023-05-01,647,53,enabled,2023-04-28,8.0,"[581, 577, 581, 584, 582, 577, 577, 577]","['commission_vol_points', 'profit_365d', 'profit_91d', 'beta', 'rank_strength', 'beta', 'correlation']",1.6764358840869829
+2023-06-01,653,54,enabled,2023-05-26,8.0,"[581, 577, 581, 584, 581, 577, 577, 581]","['commission_vol_points', 'profit_365d', 'profit_91d', 'beta', 'count_91d', 'count_365d', 'oriented_vrp_gap']",1.6492422138726917
+2023-07-01,674,54,enabled,2023-06-30,8.0,"[582, 577, 582, 584, 577, 577, 577, 583]","['correlation', 'profit_365d', 'profit_91d', 'iv_mean', 'profit_91d', 'count_91d', 'correlation']",1.378769761149066
+2023-08-01,683,55,enabled,2023-07-28,8.0,"[581, 577, 577, 583, 577, 584, 577, 582]","['correlation', 'profit_365d', 'count_91d', 'beta', 'iv_mean', 'profit_91d', 'correlation']",1.4847838164412344
+2023-09-01,688,55,enabled,2023-08-21,8.0,"[581, 577, 577, 581, 584, 582, 577, 582]","['correlation', 'correlation', 'beta', 'commission_vol_points', 'iv_mean', 'profit_365d', 'count_365d']",1.6811337129784403
+2023-10-01,689,57,enabled,2023-09-22,8.0,"[581, 577, 577, 581, 584, 582, 577, 582]","['correlation', 'correlation', 'beta', 'commission_vol_points', 'iv_mean', 'profit_365d', 'count_365d']",1.7192400633548017
+2023-11-01,695,57,enabled,2023-10-20,8.0,"[581, 581, 577, 577, 581, 583, 582, 577]","['correlation', 'correlation', 'iv_mean', 'beta', 'commission_vol_points', 'iv_mean', 'profit_365d']",1.597009066160171
+2023-12-01,687,57,enabled,2023-11-17,8.0,"[581, 581, 577, 581, 581, 584, 577, 577]","['correlation', 'correlation', 'iv_mean', 'beta', 'beta', 'commission_vol_points', 'iv_mean']",1.5940193027259262
+2024-01-01,673,57,enabled,2023-12-27,8.0,"[581, 581, 577, 577, 582, 584, 582, 577]","['correlation', 'correlation', 'iv_mean', 'beta', 'commission_vol_points', 'iv_mean', 'profit_365d']",1.7170504414013454
+2024-02-01,664,57,enabled,2024-01-12,8.0,"[581, 581, 577, 577, 582, 584, 582, 577]","['correlation', 'correlation', 'iv_mean', 'beta', 'commission_vol_points', 'iv_mean', 'profit_365d']",1.7137792175189397
+2024-03-01,656,56,enabled,2024-02-16,7.0,"[581, 577, 581, 584, 577, 583, 581]","['correlation', 'correlation', 'commission_vol_points', 'iv_mean', 'count_91d', 'count_365d']",1.782412903046461
+2024-04-01,642,55,enabled,2024-03-22,8.0,"[577, 581, 582, 577, 584, 584, 581, 577]","['rank_strength', 'rv_mean', 'correlation', 'vix', 'profit_91d', 'beta', 'oriented_iv_gap']",1.3455217561167288
+2024-05-01,637,55,enabled,2024-03-22,8.0,"[577, 581, 582, 577, 584, 584, 581, 577]","['rank_strength', 'rv_mean', 'correlation', 'vix', 'profit_91d', 'beta', 'oriented_iv_gap']",1.350504855701204
+2024-06-01,632,56,enabled,2024-05-31,8.0,"[577, 581, 582, 577, 583, 584, 581, 577]","['rank_strength', 'rv_mean', 'correlation', 'vix', 'profit_91d', 'beta', 'oriented_iv_gap']",1.350677239519783
+2024-07-01,634,56,enabled,2024-06-21,8.0,"[581, 577, 577, 581, 584, 577, 582, 581]","['correlation', 'profit_91d', 'correlation', 'commission_vol_points', 'iv_mean', 'count_91d', 'oriented_iv_gap']",1.7774916840686483
+2024-08-01,637,56,enabled,2024-07-19,8.0,"[581, 577, 577, 581, 584, 577, 582, 581]","['correlation', 'profit_91d', 'correlation', 'commission_vol_points', 'iv_mean', 'count_91d', 'oriented_iv_gap']",1.75253553798118
+2024-09-01,632,56,enabled,2024-08-30,8.0,"[581, 577, 577, 581, 584, 577, 582, 581]","['correlation', 'profit_91d', 'correlation', 'commission_vol_points', 'iv_mean', 'count_91d', 'oriented_iv_gap']",1.7585985172767742
+2024-10-01,625,57,enabled,2024-09-20,8.0,"[581, 577, 577, 581, 584, 583, 577, 581]","['correlation', 'profit_91d', 'correlation', 'commission_vol_points', 'iv_mean', 'profit_365d', 'count_91d']",1.8303676896650436
+2024-11-01,621,57,enabled,2024-10-18,8.0,"[582, 577, 577, 577, 584, 583, 577, 584]","['correlation', 'profit_91d', 'profit_91d', 'commission_vol_points', 'correlation', 'profit_91d', 'oriented_iv_gap']",1.6544363697213187
+2024-12-01,623,57,enabled,2024-11-27,8.0,"[582, 577, 577, 577, 584, 582, 577, 584]","['correlation', 'profit_91d', 'profit_91d', 'commission_vol_points', 'correlation', 'profit_91d', 'oriented_iv_gap']",1.6607830423455012
+2025-01-01,640,57,enabled,2024-12-24,8.0,"[581, 577, 577, 577, 582, 577, 583, 577]","['correlation', 'profit_91d', 'correlation', 'beta', 'correlation', 'rv_mean', 'commission_vol_points']",1.7903072913766667
+2025-02-01,647,56,enabled,2025-01-17,8.0,"[582, 577, 577, 577, 584, 577, 584, 581]","['correlation', 'profit_91d', 'correlation', 'beta', 'correlation', 'rv_mean', 'rv_mean']",1.6769613814346858
+2025-03-01,653,56,enabled,2025-02-21,8.0,"[581, 577, 577, 581, 584, 583, 577, 577]","['correlation', 'profit_91d', 'correlation', 'commission_vol_points', 'rv_mean', 'profit_365d', 'vix']",1.8837745007879625
+2025-04-01,653,56,enabled,2025-03-21,8.0,"[581, 577, 577, 583, 577, 582, 581, 577]","['correlation', 'profit_91d', 'correlation', 'profit_365d', 'beta', 'profit_365d', 'commission_vol_points']",1.6338459980503943
+2025-05-01,629,54,enabled,2025-04-23,8.0,"[581, 577, 577, 583, 583, 577, 583, 577]","['correlation', 'profit_91d', 'correlation', 'profit_365d', 'profit_365d', 'rv_mean', 'profit_91d']",1.7120448909706647
+2025-06-01,602,52,enabled,2025-05-16,8.0,"[581, 577, 577, 583, 583, 577, 583, 577]","['correlation', 'profit_91d', 'correlation', 'profit_365d', 'profit_365d', 'rv_mean', 'profit_91d']",1.7685776862287856

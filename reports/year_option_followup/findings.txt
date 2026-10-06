@@ -1,0 +1,53 @@
+ONE-YEAR OPTION RESEARCH FOLLOW-UP
+
+Result: fixed 25% sizing improves annualized cash-excess Sharpe from 0.396012 at fixed 50% to 0.470775. None of the new learned variants beats the fixed 50% reference, much less fixed 25%. This improvement comes from a fixed sizing control; there is no demonstrated one-year RL advantage. Lower size produces less dollar profit.
+
+The same 529 frozen short-dated-policy pair/date/direction proposals are used throughout. Native one-year puts target absolute delta 0.25 and 300–400 days to expiry. There are 230 native training episodes; the old fixed 50% book admits 167 cohorts. Different sizes and management policies change integer contract eligibility and shared risk admissions. These are not proportional leverage transformations of an identical return series. Smaller sizing can fail the unchanged 10% integer-vega matching tolerance; admissions.csv records these exclusions separately from risk-limit exclusions. The fixed 50% book last enters 2024-05-28 and then runs off through 2025-08-29; recent-year results have limited new entries.
+
+Process changes tested: explicit action-output critics; 64 weekly Bellman iterations spanning a year; past-calibrated risk utility; greedy versus uncertainty-penalized inference; native-feature entry Q; quarterly contextual allocation search maximizing shadow-book daily Sharpe; and annual allocation search in the executable shared portfolio. The latter is episodic contextual policy optimization, not sequential fitted-Q/neural RL.
+
+The actual-book learner reaches 0.356002 versus 0.265155 for a matched shadow-trained control using exactly the same state trees, annual cadence, 48-month prefixes and 25/50/100% action menu. Its unadjusted block-bootstrap 95% Sharpe-gain interval contains zero. Actual-book training respects integer fills, shared hedges/cash and original risk admissions, retains true expiry dates, and marks open inventory at the last historical close. A runtime guard rejects future contract price requests. Its improved training objective does not produce an advantage over fixed sizing in evaluation.
+
+A separate fixed-rule holding scan exits the same one-year contracts after 30, 90 or 180 observed trading sessions; fills occur at the next close with observed quotes and normal execution costs. All three underperform.
+
+Evaluation: 2018-01-02 through 2025-08-29; 2025 partial. Sharpe is sqrt(252)*mean(daily cash-excess return)/sample standard deviation; exclude initialization row. $10m account. Actual option commission $0.03/contract, 0.1 vol point per leg execution penalty, 1 bp stock execution, floating cash interest and 0.5% stock borrow. Training commissions $0.65. Original global/pair/wing risk limits retained. Entry vega matching tolerance 10%; daily delta hedging; no continuous vega rebalance; different leg expiries have natural runoff. European pricing/no early assignment.
+
+All history is repeatedly explored. Past-only walk-forward fits are enforced, but this is not a fresh holdout; reported intervals are not adjusted for adaptive research. No existing checkpoint is overwritten.
+
+Remaining research bottleneck: one-year entries and directions are inherited from short-dated signals. Build and validate native long-tenor opportunities/forecasts before additional action tuning. The existing isolated-label pair diagnostics show that positive carry forecasts can coincide with negative outcomes; those are small-sample retrospective diagnostics, not investable pair exclusions.
+
+                                        case                               category  annualized_excess_sharpe  entries  net_excess_pnl  post_warmup_2020_partial2025_sharpe  recent_2024_partial2025_sharpe
+                                fixed25_hold               Fixed allocation control                  0.470775      141    57208.295912                             0.574777                        0.532545
+                               fixed_50_hold               Fixed allocation control                  0.396012      167   102842.468074                             0.507199                        0.279675
+fixed50_fitted_q_conservative_aligned_runoff            Previous fitted-Q reference                  0.374410      173    95260.687838                             0.505756                        0.280819
+                           action_outputs_16           Fitted-Q entry or management                  0.367170      174    88811.339915                             0.512044                        0.280307
+          enriched_reversible_aligned_warmup            Previous fitted-Q reference                  0.357650      171    91049.338501                             0.500233                        0.280820
+                      actual_book_2state_48M Contextual portfolio allocation search                  0.356002      152    71814.391338                             0.485905                        0.117608
+                 long_horizon_risk_64_greedy           Fitted-Q entry or management                  0.350563      180    57422.469468                             0.482804                        0.227827
+                      native_mean_entry_hold  Learned-entry / no-management control                  0.349050      139    79896.419227                             0.394468                        0.149812
+                             long_horizon_64           Fitted-Q entry or management                  0.343636      173    84833.365375                             0.503660                        0.272332
+                        long_horizon_risk_64           Fitted-Q entry or management                  0.337795      173    85632.248437                             0.491899                        0.255104
+                      long_horizon_64_greedy           Fitted-Q entry or management                  0.333693      177    60710.642263                             0.464951                        0.210109
+                    action_outputs_16_greedy           Fitted-Q entry or management                  0.324192      181    52930.798323                             0.428506                        0.220556
+                                fixed75_hold               Fixed allocation control                  0.321192      135   107583.504688                             0.444237                        0.327017
+                           hold_180_sessions              Fixed holding-period rule                  0.300439      170    68560.864521                             0.442298                       -0.004233
+                                native_3_48M Contextual portfolio allocation search                  0.292536      156   101775.830340                             0.396745                        0.168087
+                                native_2_48M Contextual portfolio allocation search                  0.281476      147    96067.827276                             0.384771                        0.124281
+                              fixed_100_hold               Fixed allocation control                  0.281315      120   119623.335568                             0.405688                        0.367533
+                           native_mean_entry           Fitted-Q entry or management                  0.278432      140    46448.442541                             0.372257                        0.014702
+                                native_3_24M Contextual portfolio allocation search                  0.273578      161    89370.003735                             0.378663                        0.287369
+                           pair_native_3_48M Contextual portfolio allocation search                  0.272047      161    94575.183535                             0.371884                        0.171282
+                   matched_shadow_2state_48M Contextual portfolio allocation search                  0.265155      144    65263.003354                             0.347174                       -0.002099
+                      native_risk_entry_hold  Learned-entry / no-management control                  0.263883      102    43231.142096                             0.294381                       -0.041660
+                           native_risk_entry           Fitted-Q entry or management                  0.172122      105    17732.814787                             0.271382                        0.082116
+                            hold_30_sessions              Fixed holding-period rule                  0.111908      191    13260.350963                             0.166221                       -0.673016
+                            hold_90_sessions              Fixed holding-period rule                  0.107914      178    18553.934787                             0.230872                       -0.311700
+
+Matched actual/shadow comparison:
+{
+  "case": "actual_book_2state_48M",
+  "control": "matched_shadow_2state_48M",
+  "sharpe_gain": 0.09084613703903183,
+  "unadjusted_gain_95_low": -0.03086293280656623,
+  "unadjusted_gain_95_high": 0.21686386746395514
+}

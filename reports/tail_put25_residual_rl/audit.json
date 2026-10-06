@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "baseline_reproduced": true,
+  "source_files_verified": 22716,
+  "scored_rows_per_model": 136459,
+  "scored_pairs": 332,
+  "models_per_variant": 90,
+  "per_pair_activation_vetoes": 0,
+  "elapsed_seconds": 384.18395758300903,
+  "peak_rss_bytes": 584302592,
+  "limitations": "Three predeclared bounded tests; no new signal, horizon, direction or cost search. All share exact .756 rule proposals. Floor RL and robust floor RL reuse the prior memory-trained monthly state partitions and pool. Robust objective is mean minus one sample standard deviation of leave-calendar-year-out Sharpe improvement over full-size, evaluated only on completed training outcomes. Context floor RL uses historical original put-state dates before 2018 and exact saved legacy evaluation dates thereafter, and adaptively fits up to 8 pooled leaves (min leaf max(8,min(63,n//8))). No per-pair activation, no cold-start fallback, all observed states scored. Every eligible signal remains at least half size; actual risk/quote controls still apply. Training remains additive standalone cohorts; no claim of sequential inventory-aware RL. Inspected history, not new holdout. Pre-2018 panel availability and candidate roster remain retrospective dataset conditioning."
+}

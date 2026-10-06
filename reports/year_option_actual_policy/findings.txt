@@ -1,0 +1,29 @@
+ACTUAL-PORTFOLIO ONE-YEAR POLICY SEARCH
+
+Adaptive follow-up after14 learned variants failed. Two native entry states, allocations25/50/100%, annual48-month past-only refits2019–2024. Enumerate at most9 policies per fit in the actual executable shared portfolio at .65 training commissions. Select daily cash-excess Sharpe. This is episodic contextual allocation policy optimization, not sequential/neural RL.
+Same529 frozen pair/date/direction opportunities, unchanged real .03 commissions,0.1-vol-point execution penalty,1bp stock hedges, and original global/pair/wing limits. Hold to original leg expiries in evaluation. Integer eligibility and portfolio admission occur during training as well as evaluation.
+Training admits long contracts that mature after the cutoff, retains their true scheduled expiry dates, and marks them at the last observed close. It neither forces an artificial cutoff liquidation nor accesses future contract marks/maturity PnL. Runtime guard rejects contract quote requests after the last training close. Prefix cash flows reconcile independently. Frozen engine default behavior and full-history fixed50 control are reproduced.
+No fresh holdout; all histories have been explored. Intervals are unadjusted for adaptive model selection.
+
+Matched shadow control uses exactly the same annual native state trees,25/50/100 action menu and48-month past prefixes, but optimizes summed independent fractional rewards. This isolates executable portfolio training from the earlier changes in action space and cadence.
+
+Additional30/90/180-observed-session holding scan keeps the same365D entry contracts and fixed50 entry size; close instructions occur at the session threshold and fill next session with observed executable quotes and the original penalties. These are fixed rules, not learned RL exits.
+
+                     case  annualized_excess_sharpe  entries  net_excess_pnl  recent_2024_partial2025_sharpe  post_warmup_2020_partial2025_sharpe
+   fixed50_engine_control                  0.396012      167   102842.468074                        0.279675                             0.507199
+             fixed25_hold                  0.470775      141    57208.295912                        0.532545                             0.574777
+   actual_book_2state_48M                  0.356002      152    71814.391338                        0.117608                             0.485905
+matched_shadow_2state_48M                  0.265155      144    65263.003354                       -0.002099                             0.347174
+        hold_180_sessions                  0.300439      170    68560.864521                       -0.004233                             0.442298
+         hold_30_sessions                  0.111908      191    13260.350963                       -0.673016                             0.166221
+         hold_90_sessions                  0.107914      178    18553.934787                       -0.311700                             0.230872
+           fixed_100_hold                  0.281315      120   119623.335568                        0.367533                             0.405688
+             fixed75_hold                  0.321192      135   107583.504688                        0.327017                             0.444237
+
+{
+  "case": "actual_book_2state_48M",
+  "control": "fixed25_hold",
+  "sharpe_gain": -0.11477389282851674,
+  "unadjusted_gain_95_low": -0.3477472137844673,
+  "unadjusted_gain_95_high": 0.08404518988510375
+}

@@ -1,0 +1,22 @@
+{
+  "requested_pairs": 345,
+  "unresolved": [],
+  "complete_by_model_period": {
+    "rl_baseline": {
+      "full": 345,
+      "recent": 345
+    },
+    "rl_name_memory": {
+      "full": 345,
+      "recent": 345
+    },
+    "rl_iv_corr_regime": {
+      "full": 345,
+      "recent": 345
+    },
+    "rl_gamma_geometry": {
+      "full": 345,
+      "recent": 345
+    }
+  }
+}

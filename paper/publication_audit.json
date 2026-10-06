@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "paper_pages": 10,
+  "paper_word_count": 2732,
+  "figures": 15,
+  "source_hashes_verified": true,
+  "all_layout_checks_pass": true,
+  "prior_report_archived": true,
+  "presentation_unchanged": true,
+  "checkpoints_unchanged": true,
+  "main_values_verified": true,
+  "models_or_backtests_rerun": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "roster_pairs": 345,
+  "variants": 10,
+  "predeclared_variants": 9,
+  "post_selection_sizing_controls": 1,
+  "monthly_models": 1620,
+  "common_features": 35,
+  "actual_commission": 0.03,
+  "training_commission": 0.65,
+  "frozen_sources_verified": 20775,
+  "causal_completed_training_verified": true,
+  "full_roster_retained": true,
+  "sequential_inventory_training": false,
+  "elapsed_seconds": 1964.5810281670128,
+  "peak_rss_bytes": 1083719680,
+  "phase": "summarize",
+  "sizing_control_signal_identity_verified": true
+}

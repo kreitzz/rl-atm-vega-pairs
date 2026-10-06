@@ -1,0 +1,129 @@
+Trade-quality RL feature tests on the frozen reference
+=====================================================
+
+None of the three separately tested additions improved annualized excess Sharpe.
+
+                             Full 2018-Aug2025   Recent 2022-Aug2025
+Frozen reference                   0.368039             0.427591
+Blocked name profitability         0.010578            -0.037766
+IV-correlation history regime      0.262443             0.286153
+Dollar-gamma/vega geometry          0.348137             0.422870
+
+Both periods use sqrt(252) daily excess-return Sharpe above the cash benchmark.
+Recent is a separate flat-start replay, not a slice of the continuous full path.
+All 345 fixed sleeves are retained, with no unresolved accounting or exclusions.
+Full-period entries: reference 224; name memory 215; IV regime 209; gamma 226.
+Full-period active pairs: reference 29; name memory 31; IV regime 30; gamma 29.
+
+Experiment specification
+Each variant adds only its own group to the existing reference inputs. Employee
+leadership inputs remain on the original 28 covered sleeves. Costs, inventory
+limits, historical pair screens, beta/correlation and profitability gates,
+monthly refits, completed-outcome purging, prior-year validation, 8-leaf tree,
+seed 2026 and Sharpe sizing optimizer are identical to the reference. Training
+commission is $0.65; actual commission is $0.03, plus the same 0.1-vol-point
+midpoint entry penalty and stock hedge/borrow/funding costs. ATM30 calls remain
+held to their own expiries and delta hedged daily, with initial vega matching.
+No NN training, joint variant, threshold search or reference promotion.
+
+Name memory: distinct hypothetical asset/date/contract outcomes from the cached
+single-name ATM30 simulations at actual $0.03 costs, including standalone
+financing. These are historical predictors, not attribution of actual paired
+positions. Nonoverlapping intervals are selected by their known entry/expiry
+schedules before inspecting payoff values; a missing payoff still occupies its
+interval. Only outcomes strictly completed before the signal session enter the
+preceding 365-calendar-day window. Separate long and short means, dispersion
+divided by sqrt(count), block count and availability are provided for each name.
+Means/uncertainty require at least four resolved blocks. That dispersion measure
+is an uncertainty proxy, not a formal independent-sample standard error.
+There are 19,929 sampled intervals and 18,727 resolved samples across the history.
+
+IV regime: 126-session correlation of daily changes in the two IV series,
+normalized against its own preceding 252-session mean and standard deviation,
+with minimum 63/126 observations and a separate availability flag.
+
+Gamma geometry: log ratio of the signal contracts' BS dollar gamma per quoted
+vega, using observed spot, IV, tenor, strike, rate and known dividend adjustment,
+plus availability. No new Black-Scholes fit. A/B ordering is fixed; the policy
+still chooses direction and size. Existing IV and tenor inputs are retained.
+
+What changed in the trades
+The name-memory variant improved several known losing pairs but damaged larger
+winners. All following figures are full-book net excess dollars, including
+shared financing, rather than allocated leg contributions:
+
+Pair             Reference P&L     Name-memory P&L      Reference/new entries
+GES/TJX             +47,795              +2,473                 19 / 8
+HL/AG               +13,626             -21,429                 24 / 28
+AU/NEM              +20,870                   0                  6 / 0
+KBH/TOL              +7,704              -8,729                  8 / 7
+THC/HCA             -19,539              -6,475                 13 / 7
+OIH/HAL              +1,805             +16,565                 13 / 7
+
+GES/TJX lost all its 2022 entries in the memory variant. Two retained March
+2023 entries were reduced from full to quarter size; the other entries changed.
+HL/AG retained the long-HL/short-AG direction but added more January-February
+2023 entries, despite reducing size on some retained entries. This does not
+identify an individual memory column as the causal source of the deterioration.
+The whole feature group was added together within this variant.
+
+Memory's 2023 annual Sharpe fell from +0.815 to -0.939. Its 2025 Sharpe improved
+from -0.976 to -0.121, but that did not offset the lost performance elsewhere.
+The overall result is not explained by simply avoiding trades: 215 versus 224
+entries is a modest count change, while directions, dates and sizes changed.
+
+The IV-regime variant improved CENX/AA from +$5,279 to +$26,782 and avoided all
+four March 2025 long-CENX/short-AA entries. It also changed earlier 2024 entries,
+so the entire pair improvement cannot be attributed solely to the avoided loss.
+However, OKE/KMI fell from +$18,962 to -$1,626; the variant added nine losing
+HAL/SLB entries worth -$12,218 and lost the two profitable AEO/TJX entries.
+Annual 2025 Sharpe improved to -0.376, while 2023 fell from +0.815 to +0.093.
+
+Gamma geometry increased full-book net excess P&L from $145,778 to $156,459,
+but annualized excess-return volatility rose about 13.5%, versus about 7.3%
+growth in mean excess return. Therefore Sharpe fell slightly. A newly traded
+PENN/CZR cluster of four October 2024 entries contributed +$28,443; other pairs
+gave up profits. CENX/AA entries and 2025 annual Sharpe were essentially unchanged.
+This did not solve the identified 2025 loss regime.
+
+Actual new-feature usage in enabled refits
+Name memory: new values used in 352/493 enabled refits (71.4%).
+IV regime: new value used in 208/520 enabled refits (40.0%).
+Gamma geometry: new value used in 54/532 enabled refits (10.2%).
+Column addition can also change tied tree partitions. A changed recommendation
+does not alone prove that a new value drove the decision in that specific fit.
+
+Verification and interpretation
+Eight relevant unit tests passed. The audit reconstructed all 139 panels,
+verified 465 source files, recovered 4,867 monthly baseline controls and verified
+the frozen archive plus 2,661 checkpoint files. Original input columns and
+training costs/risk rules remain unchanged. Every executed variant entry had
+the new inputs available. Sampling stayed identical with all payoff labels
+erased; selected within-name holding intervals were verified nonoverlapping.
+Training/replay took about 25 minutes; peak RSS was 668 MiB, under the single-
+worker 50%-of-one-core duty cycle and 3 GiB memory stop.
+
+Paired quarter-block resampling gives these descriptive 90% intervals for
+full-period Sharpe differences versus reference:
+  Name memory: -0.357, interval [-0.628, -0.075].
+  IV regime:   -0.106, interval [-0.346, +0.116].
+  Gamma:       -0.020, interval [-0.126, +0.085].
+These do not correct for choosing hypotheses after inspecting this history.
+The early/late descriptive rank correlations motivated experiments, but they
+did not demonstrate incremental entry-policy value. The current implementation
+of name memory is clearly unsuccessful in this comparison. The other two
+variants do not provide evidence to replace the existing reference.
+
+The frozen 0.368/0.428 reference remains unchanged. Candidate actions, trade
+ledgers, daily NAVs and monthly fits are saved for inspection. No commit/push
+or new checkpoint promotion was performed in this experiment.
+
+Files
+comparison.csv: full/recent portfolio results for the complete original roster.
+annual.csv: annual percentage returns and annualized excess Sharpe.
+pair_changes.csv: exact pair P&L/entry differences versus reference.
+policy_changes.csv: changed recommendations and actual entry-input coverage.
+feature_usage.csv: per-feature use in enabled monthly fits.
+paired_quarter_differences.csv: descriptive uncertainty comparison.
+audit.json: provenance and validation counts.
+artifacts/contracts/atm65_rl_trade_quality: states, policies and detailed replays.

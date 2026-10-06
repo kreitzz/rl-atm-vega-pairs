@@ -1,0 +1,117 @@
+Recent-loss attribution: frozen P25 decisions transferred across wings and maturities
+
+Scope
+Eight existing frozen-sizing books, 30D/90D x P25/ATM/P75/combined.
+No retraining, changed trades, revised costs, or new backtests. 2025 ends
+August 29; common entry cutoff is May 11. Calendar attribution includes
+inventory carried from the previous year. P&L is dollars above the funded
+cash benchmark; reported Sharpe is annualized daily cash-excess return Sharpe.
+Those definitions are preserved from the replay and are not interchangeable.
+
+                          2024 P&L   Sharpe   2025 partial P&L   Sharpe
+30D P25                    -19,769   -0.834            +24,438   +1.083
+30D ATM                    -66,518   -1.355             +7,813   +0.372
+30D P75                     -7,332   -0.098            -12,730   -0.516
+30D combined               -90,340   -0.976            +21,708   +0.299
+90D P25                    -25,046   -0.866            -10,692   -0.593
+90D combined               -72,544   -1.396            -33,440   -0.979
+
+2024 concentration
+The combined 30D book lost $41,102 on February 26 and $49,943 on May 29.
+Together these two days lost $91,045, against a calendar-year loss of $90,340.
+All other sessions sum to +$705. This is attribution, not a proposal to exclude
+losing days or a counterfactual strategy performance claim.
+
+Calendar pair P&L, before shared financing, in the combined 30D book:
+UPST/COIN -$65,073; UAL/AAL -$50,624; MGM/WYNN -$24,264.
+Other pairs and financing offset part of these losses. These are netted shared
+book contributions, not a sum of independently funded standalone sleeves.
+
+UAL/AAL: long UAL options, short AAL options
+The P25 position entered May 13 with 149 long UAL puts and 472 short AAL puts;
+initial vegas were $512.86 and $514.44 per volatility point, respectively.
+Entry IV was 35.21% UAL and 38.51% AAL. Realized close-to-close volatility
+over each actual entry-to-exit path was 22.95% and 53.56%, respectively.
+The UAL leg lost $4,445 and AAL $22,551 after attributed trading costs, before
+shared financing. Total -$26,997; May 29 alone -$24,326 in the standalone book.
+
+AAL fell from $13.44 to $11.62 (-13.54%) on May 29, while UAL rose from
+$50.64 to $51.83 (+2.35%). Held AAL put midpoint rose from $0.460 to $1.895;
+bid/ask were $0.45/$0.47 and $1.87/$1.92. These are tight observed quotes,
+not a synthetic mark. For the whole P25 pair that day, option P&L was
+-$73,692 and stock hedge P&L +$49,402, leaving a large hedged loss.
+ATM UAL/AAL also lost about $23,422 that day, through the short-call stock
+hedge. Daily delta hedging does not remove a large move between hedge times.
+
+American Airlines lowered its quarterly guidance on May 28, confirmed in its
+8-K: https://www.sec.gov/Archives/edgar/data/4515/000119312524148138/d800477d8k.htm
+The timing supports an event interpretation for the next-session loss.
+This event was not known at the earlier position entry; it cannot be used as
+a retrospective trading veto. Vega matching at entry is not jump protection
+or continuous vega/gamma neutrality throughout the holding period.
+
+UPST/COIN: long UPST options, short COIN options
+The P25 cohort entered February 15: long 251 UPST puts, short 37 COIN puts.
+Initial vegas $507.36/$506.00. Entry IV 86.12%/93.54%; subsequent realized
+volatility 57.09%/98.07%. Long UPST lost $17,566; short COIN lost $3,465;
+total -$21,031 before shared financing. Expensive long-vol carry contributed
+more than the short leg over the entire holding period.
+
+COIN rose from $165.98 to $193.94 (+16.85%) on February 26. The P25 pair lost
+$8,719 that day. Two overlapping ATM cohorts lost $17,727 and $14,685 that
+same day; they lost $25,647 and $18,491 over their complete lifecycles.
+No particular external cause of the COIN move is asserted here.
+
+Why the screens and sizing did not protect the book
+Signal-date snapshots from the actual common P25 feature cache are saved in
+key_entry_signals.csv. UAL/AAL beta 0.858, correlation 0.796; UPST/COIN beta
+0.862, correlation 0.511. Both met beta 0.85-1.15 and correlation >=0.5.
+Their directed IV-spread ranks were in the lower quintile, and both had
+positive 91-day and 365-day completed-trade profitability memory. RL selected
+100% for these proposals. Several passed actual entry risk controls across
+wings or adjacent dates. These observations establish that the existing
+screens and allocation outputs admitted the losing exposures; they do not
+prove a particular feature was causally responsible for the losses.
+
+The reused P25 stream makes ATM and P25 entries related. Several losses are
+the same underlying shock expressed in multiple wing/cohort positions.
+The frozen sizing learner was not trained on sequential combined inventory.
+Existing risk limits bounded exposure but did not eliminate shared jump risk.
+
+Costs and 90D
+Combined 30D 2024 gross delta-hedged loss was $99,807; option commissions
+$193, option execution penalty $3,255, stock execution $4,520, borrow $1,087.
+Total modeled execution/borrow charges were $9,055; financing relative to
+cash added $18,521. Removing costs alone would not explain the weak year.
+
+90D combined 2025: $19,485 loss before shared financing came from carried
+2024 positions; new 2025 cohorts lost $13,197. UAL/DAL contributed -$14,712,
+all carried; KBH/TOL contributed -$13,197 from 2025 entries. There were only
+10 new wing/cohort entries. This is a frozen 30D-to-90D transfer, not evidence
+about a newly trained 90D-native model.
+
+Audit and limits
+All eight option, stock, Greek exposure, netted execution/borrow and total
+cash ledgers reconcile; largest daily reconstruction difference <$0.000001.
+No modeled held option marks were used in these years. No crossed-quote
+repairs occurred in the 30D books. Some observed quotes have no valid
+European Black-Scholes fit and use prior-IV causal Greek fallback for
+hedging; this matters especially near expiry and for American ITM options.
+The dominant P25 jump-day quotes have valid fits. The accounting audit does
+not independently certify vendor quote correctness or validate American
+exercise/assignment treatment. The inspected top-loss quotes are saved in
+worst_day_quotes.csv; fit flags are retained, not silently discarded.
+
+Forward RV is retrospective diagnosis only, never a trading input. Its
+legs.csv max_move_pct field is a percentage log return; the event moves
+quoted above are ordinary close-to-close percentage returns. Simple RV is
+not a full gamma-weighted options P&L decomposition.
+
+The experiment uses already inspected history and inherited retrospective
+roster/calendar conditioning, not a fresh holdout. No loss-based exclusions
+were introduced. A justified next experiment would test shared underlying
+jump/concentration sizing and better horizon-specific RV forecasts with
+causal rolling evaluation, preserving the frozen benchmark.
+
+Resources: one worker, guard capped at 50% of one core, peak RSS 0.91 GiB,
+under the 3 GiB stop. Frozen input hashes are recorded in audit.json.

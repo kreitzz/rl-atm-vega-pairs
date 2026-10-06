@@ -1,0 +1,210 @@
+{
+  "settings": {
+    "capital": 10000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 200000,
+    "max_entry_vega_imbalance": 0.1,
+    "option_commission": 0.03,
+    "stock_cost_bps": 1,
+    "borrowing_spread": 0.01,
+    "stock_borrow_rate": 0.003,
+    "min_open_interest": 100,
+    "max_relative_spread": 0.25,
+    "max_moneyness_distance": 1000000.0,
+    "min_dte": 300,
+    "max_dte": 400,
+    "target_dte": 365,
+    "holding_days": 30,
+    "hold_to_expiry": true,
+    "repair_crossed_held_quotes": true,
+    "support_integer_splits": true,
+    "option_spread_fraction": 0,
+    "option_penalty_vol_points": 0.1,
+    "allow_missing_flat_underlying": true,
+    "risk_controls": true,
+    "max_hedge_leverage": 2.0,
+    "max_reserve_fraction": 0.8,
+    "stock_reserve_fraction": 0.5,
+    "max_stress_loss_fraction": 0.05,
+    "spot_stress": 0.2,
+    "vol_stress": 0.1
+  },
+  "corporate_events": [
+    {
+      "secid": 103676,
+      "announced": "2023-08-25",
+      "effective": "2023-10-02",
+      "source": "https://investors.danaher.com/2023-08-25-Danaher-Declares-pro-Rata-Dividend-of-Veralto-Common-Stock-and-Announces-Expected-When-issued-Trading-of-Veralto-Common-Stock"
+    },
+    {
+      "secid": 106899,
+      "announced": "2025-01-17",
+      "effective": "2025-01-21",
+      "source": "https://www.miaxglobal.com/alert/2025/01/17/miax-exchange-group-options-markets-corporate-action-alert-lennar"
+    },
+    {
+      "secid": 114726,
+      "announced": "2020-04-01",
+      "effective": "2020-04-15",
+      "source": "https://www.vaneck.com/globalassets/home/us/insights/media-coverage/press-releases/vaneck-announces-reverse-share-split-of-five-etfs.pdf"
+    },
+    {
+      "secid": 127107,
+      "announced": "2020-03-23",
+      "effective": "2020-03-30",
+      "source": "https://www.nasdaq.com/press-release/state-street-global-advisors-announces-reverse-splits-of-two-etfs-2020-03-23"
+    },
+    {
+      "secid": 111459,
+      "announced": "2020-03-30",
+      "effective": "2020-04-03",
+      "reason": "UTX Carrier/Otis separation and RTX merger",
+      "source": "https://investors.rtx.com/news-releases/news-release-details/raytheon-and-united-technologies-obtain-all-regulatory-approvals"
+    },
+    {
+      "secid": 106625,
+      "announced": "2021-12-10",
+      "effective": "2021-12-14",
+      "reason": "KSU acquisition by Canadian Pacific",
+      "source": "https://www.sec.gov/Archives/edgar/data/54480/000119312521354084/d151013dex991.htm"
+    },
+    {
+      "secid": 110962,
+      "announced": "2018-09-24",
+      "effective": "2018-10-01",
+      "reason": "Andeavor acquisition by Marathon Petroleum",
+      "source": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2018/Shareholders-of-Marathon-Petroleum-Corp-and-Andeavor-approve-strategic-combination/default.aspx"
+    },
+    {
+      "secid": 106905,
+      "announced": "2023-01-05",
+      "effective": "2023-01-17",
+      "reason": "Jefferies Vitesse distribution after January13 close",
+      "source": "https://www.sec.gov/Archives/edgar/data/96223/000119312523002005/d398713dex991.htm"
+    },
+    {
+      "secid": 125179,
+      "announced": "2020-08-04",
+      "effective": "2020-08-27",
+      "reason": "SunPower Maxeon distribution after August26 close",
+      "source": "https://mediaroom.maxeon.com/2020-08-04-Maxeon-Solar-Technologies-Form-20-F-Registration-Statement-Declared-Effective-by-SEC"
+    },
+    {
+      "secid": 101556,
+      "announced": "2023-09-12",
+      "effective": "2023-09-25",
+      "reason": "AngloGold ADS termination and primary listing reorganisation",
+      "source": "https://www.sec.gov/Archives/edgar/data/1067428/000162828023032020/finalisationannouncementin.htm"
+    },
+    {
+      "secid": 101322,
+      "announced": "2025-07-18",
+      "effective": "2025-07-18",
+      "exit_same_day": true,
+      "reason": "Hess conversion to Chevron before the open; close paired inventory at that close",
+      "source": "https://infomemo.theocc.com/infomemos?number=56907",
+      "missing_option_exit_mark": "existing last-known-IV causal mark on published1.025CVX deliverable"
+    },
+    {
+      "secid": 105169,
+      "announced": "2022-11-30",
+      "effective": "2023-01-04",
+      "reason": "GE HealthCare spin-off after January 3 close changes option deliverable",
+      "source": "https://www.ge.com/news/press-releases/ge-board-of-directors-approves-separation-of-ge-healthcare"
+    },
+    {
+      "secid": 102963,
+      "announced": "2020-04-13",
+      "effective": "2020-04-15",
+      "reason": "Chesapeake announced 1-for-200 reverse split",
+      "source": "https://www.sec.gov/Archives/edgar/data/895126/000089512620000096/ex9912020-04x13prreres.htm"
+    },
+    {
+      "secid": 114726,
+      "announced": "2020-04-01",
+      "effective": "2020-04-15",
+      "reason": "VanEck OIH announced 1-for-20 reverse split",
+      "source": "https://www.vaneck.com/globalassets/home/us/insights/media-coverage/press-releases/vaneck-announces-reverse-share-split-of-five-etfs.pdf"
+    },
+    {
+      "secid": 127107,
+      "announced": "2020-03-24",
+      "effective": "2020-03-30",
+      "reason": "State Street XOP announced 1-for-4 reverse split (release March23)",
+      "source": "https://www.nasdaq.com/press-release/state-street-global-advisors-announces-reverse-splits-of-two-etfs-2020-03-23"
+    },
+    {
+      "secid": 104081,
+      "announced": "2020-09-30",
+      "effective": "2020-10-02",
+      "reason": "ETrade merger with Morgan Stanley, expected closing announced",
+      "source": "https://www.morganstanley.com/press-releases/morgan-stanley-receives-regulatory-approval-to-acquire-e-trade"
+    },
+    {
+      "secid": 101477,
+      "announced": "2020-09-30",
+      "effective": "2020-10-06",
+      "reason": "TD Ameritrade merger with Schwab, expected closing announced",
+      "source": "https://www.sec.gov/Archives/edgar/data/316709/000095010320019329/dp137329_8k.htm"
+    },
+    {
+      "secid": 105316,
+      "announced": "2019-04-12",
+      "effective": "2019-04-18",
+      "reason": "Goldcorp merger with Newmont, expected closing announced",
+      "source": "https://www.sec.gov/Archives/edgar/data/1164727/000110465919021342/a19-7870_5ex99d1.htm"
+    },
+    {
+      "secid": 151404,
+      "announced": "2020-12-30",
+      "effective": "2021-01-07",
+      "reason": "WPX merger with Devon, expected closing announced",
+      "source": "https://investors.devonenergy.com/investors/press-releases/press-release-details/2020/Devon-Energy-and-WPX-Energy-Shareholders-Approve-Merger-of-Equals/default.aspx"
+    },
+    {
+      "secid": 125179,
+      "announced": "2024-08-12",
+      "effective": "2024-08-16",
+      "reason": "SunPower announced Nasdaq delisting after bankruptcy",
+      "source": "https://www.sec.gov/Archives/edgar/data/867773/000086777324000093/ex991_2024812pressrelease.htm"
+    },
+    {
+      "secid": 205711,
+      "announced": "2021-12-28",
+      "effective": "2021-12-29",
+      "reason": "ARKK announced capital-gains distribution adjusts option strikes",
+      "source": "https://www.miaxglobal.com/sites/default/files/alert-files/ARKK_Capital_Gains_49856.pdf"
+    },
+    {
+      "secid": 104939,
+      "announced": "2023-02-03",
+      "effective": "2023-02-10",
+      "reason": "Ford supplemental dividend adjusts option strikes",
+      "source": "https://infomemo.theocc.com/infomemos?number=51906"
+    },
+    {
+      "secid": 102833,
+      "announced": "2023-12-06",
+      "effective": "2023-12-14",
+      "reason": "Avis December5 after-close special-dividend announcement",
+      "source": "https://ir.avisbudgetgroup.com/news-releases/news-release-details/avis-budget-group-announces-special-cash-dividend"
+    },
+    {
+      "secid": 106790,
+      "announced": "2023-06-12",
+      "effective": "2023-07-03",
+      "reason": "Labcorp Fortrea spinoff changes option deliverable",
+      "source": "https://ir.labcorp.com/node/34911"
+    }
+  ],
+  "source_hashes": {
+    "scripts/run_native_year_entry.py": "183b07228e83eee623321ee48c9c2ac9a70ce07fa13fbc7390b8b43072a82a85",
+    "scripts/run_long_tenor_policy_search.py": "ed7a5423a5947086ad8a4575ceade3093acaeb4e353b3918fa446d9f90535c2f",
+    "scripts/run_p25_long_expiries.py": "a62cda74d68f7868f6166e0eec557beee5df050c787937614bf6421d110ef1bd",
+    "scripts/run_p25_long_management.py": "c9ba02831e7419e2468498ba66fdfedd2766333eb2962c05b749e712ae9e5408",
+    "scripts/run_p25_action_windows.py": "4f054d04185c71dc0f4f2470c16380b91d9311e715554a8fb7a6aa0f14697ea4",
+    "scripts/run_uniform_smile.py": "d9abe3282fd741e66487ecaeed7e02e75501b7a7cf882237d107bc928aee6309",
+    "scripts/option_flex/contract_engine.py": "c17ef15da86630a71441ffb98ac90760274015ad8fef77ffe49d6fc0c0504c0b"
+  },
+  "accounting_equivalence": "exact on completed absolute hold ledger"
+}

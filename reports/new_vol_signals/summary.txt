@@ -1,0 +1,51 @@
+New signal screen — 2026-10-01
+
+26,334 saved ATM30 call-pair outcomes across 128 pairs, 2018–2025.
+This is a descriptive signal screen. No RL or NN was retrained. The 0.368 checkpoint remains the reference.
+Labels use the older $0.65 commission, rather than the current $0.03 evaluation; these are standalone terminal trade outcomes, not current portfolio returns.
+Ranks are calculated within each pair and pairs are equally weighted. Full-quarter resampling retains shared-name and calendar dependence, but the intervals do not adjust for screening many features.
+Early observations finish before 2022; later observations enter from 2022. Neither period is an untouched confirmation set.
+
+volume_oi_gap
+Highest priority: relative option turnover. Negative relationship favors long vega in the leg with lower volume/open interest. Same negative sign in all eight calendar years. This does not identify signed buying or selling.
+  full: rank correlation -0.0368; partial IV/RV/VIX -0.0248; 26141 rows / 111 pairs
+  early: rank correlation -0.0522; partial IV/RV/VIX -0.0314; 11838 rows / 62 pairs
+  later: rank correlation -0.0312; partial IV/RV/VIX -0.0260; 13924 rows / 76 pairs
+  nonoverlap: rank correlation -0.0268; partial IV/RV/VIX -0.0153; 822 rows / 26 pairs
+
+volume_oi_mean
+Secondary sizing/trade filter. Early/later association agrees, but 2019, 2024 and 2025 reverse sign, and nonoverlapping loss prediction reverses.
+  full: rank correlation 0.0281; partial IV/RV/VIX 0.0329; 26141 rows / 111 pairs
+  early: rank correlation 0.0493; partial IV/RV/VIX 0.0526; 11838 rows / 62 pairs
+  later: rank correlation 0.0245; partial IV/RV/VIX 0.0282; 13924 rows / 76 pairs
+  nonoverlap: rank correlation 0.0141; partial IV/RV/VIX 0.0119; 822 rows / 26 pairs
+
+monetary_news_monthly
+Provisional secondary lead. Modest association with the existing RV-value direction payoff and loss rate. Current-vintage news data need historical publication/vintage verification before claiming executable value.
+  full: rank correlation 0.0435; partial IV/RV/VIX 0.0442; 26141 rows / 111 pairs
+  early: rank correlation 0.0389; partial IV/RV/VIX 0.0375; 11838 rows / 62 pairs
+  later: rank correlation 0.0282; partial IV/RV/VIX 0.0285; 13924 rows / 76 pairs
+  nonoverlap: rank correlation 0.0107; partial IV/RV/VIX 0.0092; 822 rows / 26 pairs
+
+vix9d_ratio
+Weak additional candidate. Association largely disappears after controlling IV, trailing RV value and VIX.
+  full: rank correlation -0.0376; partial IV/RV/VIX -0.0116; 26141 rows / 111 pairs
+  early: rank correlation -0.0165; partial IV/RV/VIX -0.0060; 11838 rows / 62 pairs
+  later: rank correlation -0.0487; partial IV/RV/VIX -0.0145; 13924 rows / 76 pairs
+  nonoverlap: rank correlation -0.0106; partial IV/RV/VIX -0.0232; 822 rows / 26 pairs
+
+Deprioritize: put/call volume, open-interest changes, implied borrow, VVIX, equity news, trade news and litigation lack clear stable incremental relationships.
+Late-filing apparent association rests on 53 overlapping entries in one pair, only 3 nonoverlapping observations, all in 2024. Restatements also have sparse, inconsistent outcomes.
+Borrow: apparent -99.99 missing sentinel removed before the final screen; coverage falls substantially. Option-implied carry is not an actual stock-loan fee, and vendor methodology/historical vintages remain unverified.
+
+Timing: daily market/activity data lag one business day; nearest-30D borrow lags one business day; events use the latest relevant record/filing timestamp plus one business day; public daily news has an extra 30-day lag; monthly news has a 45-day lag after month end. Extra lags do not certify historical data vintages.
+Missing vendor event records are provisionally zero counts for linked issuers; absence does not prove comprehensive coverage.
+
+Next candidate: add volume/open-interest gap and an availability flag to the unchanged RL baseline, with all costs and risk limits fixed. Keep pair selection unchanged so performance is attributable to the signal. No such fit has been run in this screen.
+
+Verified source references:
+https://www.cboe.com/tradable-products/vix/vix-historical-data
+https://optionmetrics.com/data-products/
+https://optionmetrics.com/news/optionmetrics-releases-ivydb-us-6-0-and-ivydb-etf-4-0-with-proprietary-methodologies-for-faster-more-precise-options-implied-volatilities/
+https://www.policyuncertainty.com/equity_uncert.html
+https://www.policyuncertainty.com/EMV_monthly.html

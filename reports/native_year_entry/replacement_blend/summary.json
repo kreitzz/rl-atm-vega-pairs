@@ -1,0 +1,29 @@
+{
+  "best_replacement_case": "replace365D_reoptimize_weights",
+  "annualized_excess_sharpe": 1.1067375079502144,
+  "weights": {
+    "30D": 0.5898845277448045,
+    "180D": 0.23707266254655104,
+    "365D": 0.1730428097086445
+  },
+  "old_blend_sharpe": 1.0994499458252018,
+  "replacement_at_original_weights_sharpe": 1.1044644449190073,
+  "native_one_year_policy": "forecast_rl_sized",
+  "native_one_year_standalone_sharpe": 0.31303461240275193,
+  "replacement_not_additional_sleeve": true,
+  "old_reference_preserved": true,
+  "same_calendar": true,
+  "after_component_costs": true,
+  "shared_portfolio_replayed": false,
+  "full_history_optimized": true,
+  "no_fresh_holdout": true,
+  "one_worker": true,
+  "cpu_core_fraction": 0.5,
+  "peak_rss_bytes": 211681280,
+  "sources": {
+    "30D": "artifacts/contracts/p25_long_management/replays/30D_manage_36M/daily_nav.parquet",
+    "180D": "artifacts/contracts/long_tenor_fitted_q/P25/180D/replays/fixed50_fitted_q_conservative_aligned_runoff/daily_nav.parquet",
+    "365D": "artifacts/contracts/long_tenor_reversible/P25/365D/replays/fixed50_hold_fork_control/daily_nav.parquet",
+    "native365D": "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/daily_nav.parquet"
+  }
+}

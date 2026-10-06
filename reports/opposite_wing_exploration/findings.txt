@@ -1,0 +1,30 @@
+silo            period            sample     feature  observations       rho   partial  pairs    ci_low   ci_high
+ P25 pre2022_completed            legacy wing_iv_gap          6855 -0.078091 -0.120965     70 -0.118833 -0.028915
+ P25 pre2022_completed    matched_legacy wing_iv_gap          1697 -0.056043 -0.074755     30 -0.115817  0.013595
+ P25 pre2022_completed nonoverlap_legacy wing_iv_gap           667 -0.312847       NaN      3 -0.463479 -0.123907
+ P25  2022plus_entries            legacy wing_iv_gap          8559 -0.115344 -0.126209     74 -0.184530 -0.026497
+ P25  2022plus_entries    matched_legacy wing_iv_gap          2214 -0.128161 -0.143110     34 -0.206458 -0.027963
+ P25  2022plus_entries nonoverlap_legacy wing_iv_gap           816 -0.107771       NaN      8 -0.246193  0.036768
+ P75 pre2022_completed            legacy wing_iv_gap          3276 -0.077460 -0.070409     51 -0.132868 -0.025617
+ P75 pre2022_completed    matched_legacy wing_iv_gap          1697 -0.081199 -0.082226     30 -0.156975  0.001209
+ P75 pre2022_completed nonoverlap_legacy wing_iv_gap           532 -0.034255       NaN      2 -0.321317  0.260755
+ P75  2022plus_entries            legacy wing_iv_gap          4110 -0.102920 -0.085878     59 -0.147823 -0.068119
+ P75  2022plus_entries    matched_legacy wing_iv_gap          2214 -0.120989 -0.079052     34 -0.190613 -0.065573
+ P75  2022plus_entries nonoverlap_legacy wing_iv_gap           637 -0.236973       NaN      3 -0.368285 -0.120220
+ C25 pre2022_completed            legacy wing_iv_gap          6867 -0.114647 -0.103177     65 -0.148030 -0.076879
+ C25 pre2022_completed    matched_legacy wing_iv_gap          1697 -0.129369 -0.017980     30 -0.181395 -0.079815
+ C25 pre2022_completed nonoverlap_legacy wing_iv_gap           613 -0.087415       NaN      4 -0.245447  0.094881
+ C25  2022plus_entries            legacy wing_iv_gap          8434 -0.108400 -0.139002     71 -0.165493 -0.055092
+ C25  2022plus_entries    matched_legacy wing_iv_gap          2214 -0.189850 -0.126184     34 -0.253004 -0.141826
+ C25  2022plus_entries nonoverlap_legacy wing_iv_gap           742 -0.100716       NaN      7 -0.240183  0.046835
+
+{
+  "status": "complete",
+  "pairs_requested": 345,
+  "models_trained": 0,
+  "source_files_verified": 21272,
+  "elapsed_seconds": 428.4199425840052,
+  "peak_rss_bytes": 1354153984
+}
+
+Feature exploration only, no fitted trading policy or portfolio Sharpe. Three separate 30D silos: put25 control, put75, call25. All 345 cached roster pairs; no inherited ATM-panel prerequisite. Same .03 commission/.1-vol-point execution penalty, daily delta hedge, initial vega match, own-expiry standalone outcomes. Prior monthly beta 0.85-1.15/correlation >=0.5. Features formed on observable full history before eligibility and payoff resolution. Report broad, original-calendar, common-three-bucket, nonoverlapping original-calendar, and exact-call25/put75-strike-expiry samples. No put25 profitability gate transferred to the opposite wing. No American early exercise/assignment. Corporate-action-unresolved standalone histories remain explicit exclusions. Inspected history, overlapping dependent cohorts, conditional quote/outcome coverage, no multiplicity-adjusted hypothesis test or untouched holdout.

@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "monthly_models": 360,
+  "replays": 40,
+  "baseline90_models_and_two_replays_exact": true,
+  "all608_decisions_preserved": true,
+  "completed_outcomes_before_fit": true,
+  "all_ledgers_and_inventory_verified": true,
+  "no_fresh_holdout": true,
+  "original_checkpoint_preserved": true,
+  "peak_rss_bytes": 497696768
+}

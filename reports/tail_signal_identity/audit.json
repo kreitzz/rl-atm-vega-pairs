@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "old_actual_entries": 129,
+  "broad_signal_status": {
+    "same": 121,
+    "flat": 8
+  },
+  "sources_verified": 165
+}

@@ -42,3 +42,60 @@ These are the paper's actual published tables — ten pairs, comparing Distance 
 - At 130–150 words/minute: **2.6–3.0 minutes**, midpoint ~2.8 min at 140 wpm.
 - Down from the full version's ~9.5 minutes — frees up roughly 6–7 minutes of a 10-minute talk for your own extension (slides 8+).
 - What got cut: the full Q-learning derivation (one-step reward → G_t → bootstrapping) down to one sentence; the EMRT stopwatch walkthrough down to one sentence; the two MDP design-choice asides merged into a single clause; the Results slide's explanation of negative Sharpe values and the exact CSX-NSC tie-break numbers (both still visible on the slide/footnote for Q&A, just not spoken).
+
+
+---
+
+# Current contract-level extension
+
+## Slide 8 — Our extension: contract-level option relative value
+
+The paper discussion is preserved. The outdated ATM proxy extension is replaced by current actual-contract research. Each checkpoint is compared with its own matched control; the same economic entry signal is not assumed across maturities.
+
+## Slide 9 — Trade the contracts; measure returns against cash
+
+The hedge, option positions, dividends and financing are reconciled in the actual ledger. Cash interest can make funded returns positive even in a negative excess-return year. Vega neutrality does not remove gamma, jump or changing volatility-factor exposure. Training commissions remain stricter at 65 cents; actual replay commissions are 3 cents.
+
+## Slide 10 — Separate the trading signal from the allocation decision
+
+The short strategy retains 345 candidate pair sleeves, 608 qualified proposals, and 33 model inputs. Its monthly fits use completed prior outcomes. The one-year study uses the same researched roster, but does not copy short-dated entry dates, directions, sizes or gates. Pair calendars and the research universe are retrospective.
+
+## Slide 11 — Learn size within a focused strategy
+
+The successful short-dated method is a contextual tree plus CEM optimized for portfolio Sharpe, not a neural sequential Q learner. The new native one-year method is a small-state contextual episodic direct policy optimization. The six-month fitted-Q experiment uses Bellman updates and is sequential. Claim adaptive policy value where the matched benchmark improves, rather than treating every method as the same RL algorithm.
+
+## Slide 12 — Adaptive sizing improves the fixed-vega controls
+
+The learned hold-to-expiry policy improves Sharpe from 0.769 to 1.003. In the initial 74-example pre-2018 training fit, fixed-full and learned Sharpes are 1.573 and 2.015. Training uses aggregated paths and stricter costs, so compare policies within each period; do not compare absolute train and funded-test levels. Sizing changes admission and overlapping inventory.
+
+## Slide 13 — Exit decisions help some maturities more than others
+
+These are separate within-study controls, not a single common entry policy across maturities. The 30-day managed checkpoint reaches 1.029. The locked 90-day management improves a negative hold strategy to about zero. Six-month conservative fitted Q improves .592 to .610; the 95% interval for that improvement includes zero. Aggressive management variants performed worse and remain in the reports.
+
+## Slide 14 — A native long-horizon signal supports a small sizing gain
+
+The independent study includes all 47,610 pair/month states and 26,910 evaluation states, with 763 eligible opportunities. It uses a quarterly pooled ridge variance forecast trained only on completed 252-session targets. Learning direction as well as size failed; freezing forecast direction and learning size was better. This replaces the legacy one-year component in the blend. The improvement is exploratory and statistically uncertain.
+
+## Slide 15 — The downside-put signal does not transfer uniformly
+
+These figures belong to the earlier smile-sizing report and its original funding and eligibility conventions. They are exploratory strategy comparisons, not common-universe strike ablations and not the current $10m maturity checkpoints. A 25-delta put is the downside wing; its comparable-strike call is approximately 75 delta. Higher-delta puts and lower-delta calls describe the opposite wing. Preserve the negative findings without claiming universal call/put asymmetry.
+
+## Slide 16 — Profits and Sharpe vary materially across years
+
+Do not suppress losing years. The 30-day managed policy is negative in 2019 and 2024 on a cash-excess basis; its 2022 gains are large. The native one-year policy has different weak years. These are separate researched strategies, so differences across columns are not a controlled maturity-only effect. Return percentage points above cash distinguish the trade signal from idle-cash yield.
+
+## Slide 17 — More features usually failed to improve the retained signal
+
+Only the expected-variance-premium addition improves the prior learned state in this experiment. Term structure, smile, volume/open-interest, employee sentiment and transcripts generally do not add Sharpe to this checkpoint. The .961745 to 1.006305 gain has an interval that includes zero. Do not confuse the feature study funding reference with the later $10m strategy, whose retained sizing Sharpe is 1.003.
+
+## Slide 18 — Past-performance weighting trails simple equal weights
+
+Positive-Sharpe weights normalize each sleeve’s positive trailing Sharpe and assign zero to nonpositive ones; all-nonpositive fits use equal weights. Quarter-start returns are excluded from all allocation fits, verified with future perturbation and truncation checks. These are blends of saved after-cost returns; shared positions, joint risk admission and additional reallocation costs are not replayed. Component selection is still retrospective.
+
+## Slide 19 — Adaptive decisions help within specific strategies
+
+The report should not claim that RL always wins, that all smile regions have the same signal, or that the contract strategy has a newly matched neural-network comparison. Price and Greek quality, American assignment, execution impact, jump risk, margin and retrospective research selection remain limitations. Vendor data remain subject to their existing licenses.
+
+## Slide 20 — Keep the original study and the extension together
+
+The current deck preserves the teammate paper discussion and replaces the obsolete proxy strategy section. Sources record all reported metrics. The existing ten-page paper covers the short-dated study and has not been rewritten by this presentation update. No models or backtests were rerun.

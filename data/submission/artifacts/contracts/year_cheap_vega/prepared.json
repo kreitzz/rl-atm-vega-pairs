@@ -1,0 +1,28 @@
+{
+  "monthly_names": 24024,
+  "assets": 308,
+  "rules": [
+    {
+      "rule": "absolute",
+      "proposals": 4045,
+      "names": 265,
+      "negative_absolute_carry": 0
+    },
+    {
+      "rule": "historical",
+      "proposals": 3116,
+      "names": 205,
+      "negative_absolute_carry": 366
+    },
+    {
+      "rule": "both",
+      "proposals": 2750,
+      "names": 201,
+      "negative_absolute_carry": 0
+    }
+  ],
+  "quote_rows": 1608381,
+  "source": "existing licensed cache; no download",
+  "no_pair_beta_cutoff": true,
+  "no_future_candidate_filter": true
+}

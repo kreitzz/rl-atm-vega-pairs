@@ -1,0 +1,33 @@
+{
+  "result": "No improvement; retain the current employee-sentiment reference.",
+  "full_sharpe_baseline": 0.3680386150089804,
+  "full_sharpe_candidate": 0.2223426197886663,
+  "net_excess_pnl_change": -46296.219714820385,
+  "largest_deteriorations": [
+    {
+      "pair": "105450__110752",
+      "label": "GES/TJX",
+      "pnl_change": -18169.722018135944,
+      "entry_change": -9
+    },
+    {
+      "pair": "102873__210354",
+      "label": "CENX/AA",
+      "pnl_change": -16279.925382709362,
+      "entry_change": 0
+    },
+    {
+      "pair": "101369__110752",
+      "label": "AEO/TJX",
+      "pnl_change": -10015.483946102206,
+      "entry_change": -2
+    }
+  ],
+  "largest_three_combined_change": -44465.13134694751,
+  "changed_pairs": 10,
+  "enabled_refits_using_value": 21,
+  "enabled_refits": 519,
+  "interpretation": "The stable but small rank association did not improve this unchanged RL workflow. Feature effects include validation gates, partitioning and sizing; adding a feature can change original-feature partitions even if a final refit does not split on it.",
+  "runtime_seconds": 669.731840042019,
+  "baseline_promoted": false
+}

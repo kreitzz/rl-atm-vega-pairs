@@ -1,0 +1,5 @@
+model,independent_ledger_error,directions_and_contracts_preserved,all_inventory_closed,actual_commission
+shared_frozen_sizes,1.6800913726910949e-06,True,True,0.03
+shared_joint_sizes,8.555216481909156e-07,True,True,0.03
+shared_frozen_native_limits,1.1457595974206924e-06,True,True,0.03
+shared_joint_native_limits,1.0344956535845995e-06,True,True,0.03

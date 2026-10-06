@@ -1,0 +1,18 @@
+{
+  "reports/native_year_entry/comparison.csv": "ed1c1aa720996e6b5b86303adc5165a92becc2a2b800485305a9e21287d7b5b0",
+  "config/p25_variance_premium_candidate.json": "5ae66336de59b5e8f18cf51a0ec051d2ee53d510cfa66cd80302d2360f268b6d",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/decisions.csv": "3a2dbb10525e0390e87477f3012c16848d5792388140572af864c62ad5b21672",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/trades.csv": "88a426151fde954c9b5d4bff4654091ecc32cfd2ddb1fb94bd24fe6f210cf769",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/annual.csv": "7ae9ec32bb0a92b0285996061b75877e596a4bda26fe11bbfd4d9d40cdef6c49",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/scored_allocations.parquet": "43970dcf3de6ee753a8217255aabd209f566646c30a92781770e2713fa74ce0b",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/daily_nav.parquet": "9210bd43d42647b6480fc087c05988e6ed0dab540021be318cca3c9d306e483f",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized/status.json": "014c1cebf48cb662b9dc3b0f0ed5b3c35c6c1118289416813e14a6043aa6c7e3",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_variance_fixed50/decisions.csv": "6eed76b85e6bafdbd004d12d93906e555d85cf71ec99f1850ffd70c27a44ba75",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_variance_fixed50/trades.csv": "e3021e22957107abd30593d776f75ce9096b2c5de11c3f64aae75738da4ed290",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_variance_fixed50/annual.csv": "9554ad638355d13e19b39f3356de7111d9a64e49ab385b2cced0b1c21f824747",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_variance_fixed50/scored_allocations.parquet": "b7395de05a41b0fc51722850ce189df09b0290d0763e032ca1bab2d961228f60",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_variance_fixed50/daily_nav.parquet": "93ec38977ff6cc5f751eb0ec9f45859c6bb900ba05b27410e67e185a63f63cd5",
+  "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_variance_fixed50/status.json": "e668edc321f0d8432b0f580ed9c5a326f0da3c70b5399b0bd8acd5aafa40b855",
+  "slides/230ZB_volatility_spreads.pptx": "f85d2462a7904eeddad40c71990409d284902e78953d9ea1d1d26d9a2810c478",
+  "slides/230ZB_volatility_spreads (1).pptx": "257317fa6a034a64f206df64ed93801ffd5f894ba6a7ee5af199b0ea73d994bf"
+}

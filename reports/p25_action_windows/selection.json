@@ -1,0 +1,11 @@
+{
+  "predeclared_selection_period": "2018-2023",
+  "selected_model": "1Y_floor",
+  "selected_early_sharpe": 1.1628240856989378,
+  "selected_recent_sharpe": -0.32788504548983455,
+  "selected_full_sharpe": 0.8551898240238078,
+  "descriptive_full_history_best": "1Y_floor",
+  "descriptive_full_best_sharpe": 0.8551898240238078,
+  "no_checkpoint_promotion": true,
+  "no_fresh_holdout": true
+}
