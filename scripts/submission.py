@@ -324,11 +324,17 @@ def replay(policy):
         gc.collect()
 
 
-def tests(pattern):
+def tests(pattern, start_after=None):
     # Separate modules release imports between tests and avoid global fixture
     # leakage. The supervisor still bounds the whole child process tree.
     failures = []
-    for path in sorted((ROOT / 'tests').glob(pattern)):
+    paths = sorted((ROOT / 'tests').glob(pattern))
+    if start_after:
+        names = [p.name for p in paths]
+        if start_after not in names:
+            raise ValueError('The resume boundary must be a test module in the selected pattern')
+        paths = paths[names.index(start_after) + 1:]
+    for path in paths:
         print(f'Test module: {path.name}', flush=True)
         result = subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', path.name], cwd=ROOT)
         if result.returncode:
@@ -344,6 +350,7 @@ def main():
         commands.add_argument('--' + name, action='store_true')
     parser.add_argument('--policy', choices=['all', 'learned', 'fixed50', 'fixed100'], default='all')
     parser.add_argument('--test-pattern', default='test_*.py')
+    parser.add_argument('--test-start-after', help='Resume after a module already verified in an earlier serial run')
     args = parser.parse_args()
     os.chdir(ROOT)
     if args.package:
@@ -359,7 +366,7 @@ def main():
         elif args.replay:
             replay(args.policy)
         else:
-            tests(args.test_pattern)
+            tests(args.test_pattern, args.test_start_after)
     else:
         verify()
 
