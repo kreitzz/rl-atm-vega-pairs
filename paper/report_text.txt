@@ -7,7 +7,7 @@ Adam Kreitzman and Soo Xin Yang | MFE230Z | 6 October 2026
 
 Abstract
 
-Pairs trading starts with a simple idea: two related securities can become unusually expensive or cheap relative to each other. We apply that idea to options, where the price of uncertainty can differ across related stocks. We first search for a trading signal and then ask whether a learning algorithm can improve the amount of risk taken on each trade. We study approximately 30-day, 25-delta out-of-the-money puts. We select a sizing configuration using 2018–2021 validation and evaluate it over January 2022–August 2025. In a simulated $10 million account, the screened learner achieves annualized excess Sharpe of 1.263, versus 1.055 for constant full exposure. RL raises Sharpe by about 20% over full sizing in both periods.
+Pairs trading starts with a simple idea: two related securities can become unusually expensive or cheap relative to each other. We apply that idea to options, where the price of uncertainty can differ across related stocks. We first search for a trading signal and then ask whether a learning algorithm can improve the amount of risk taken on each trade. We study approximately 30-day, 25-delta out-of-the-money puts. We select a sizing configuration using 2018–2021 validation and evaluate it over January 2022–August 2025. In a simulated $10 million account, the screened learner achieves an annualized excess Sharpe ratio of 1.263, versus 1.055 for constant full exposure. Learned sizing raises Sharpe by about 20% over full sizing in both validation and evaluation.
 
 1. Why trade volatility rather than stock prices?
 
@@ -82,7 +82,7 @@ Execution and capital assumptions
 
 Option fills use the quoted midpoint with an adverse penalty equivalent to 0.10 IV percentage point on each leg. This is a volatility unit, not ten cents or 10% of the option price. Evaluation also charges $0.03 per contract and one basis point of stock-hedge turnover. Training outcomes retain a higher $0.65 commission. The assumed fills are not verified live executions.
 
-Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and wing. These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons.
+Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and per “wing” (option type and delta bucket; here, 25-delta puts). These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons.
 
 PAGE 5: 5. Finding a signal before learning its size
 
@@ -92,7 +92,7 @@ The direction rule
 
 For each pair, we compare the IV difference with its preceding 252 trading sessions. A current difference in the lowest or highest fifth of that history can propose a trade. At the high extreme, the rule buys the put on the relatively low-IV name and sells the richer name’s put. Historical ranking matters because related companies can have persistently different volatility. An IV difference of ten points means something different for a pair usually five points apart than for a pair usually fifteen points apart.
 
-Figure 4. AMD minus NVDA put IV, 2019, with boundaries calculated from prior observations. Green markers show earlier-checkpoint entries in the following session, as an illustration of the signal. Gaps indicate unavailable quotes.
+Figure 4. AMD minus NVDA put IV, 2019, with boundaries calculated from prior observations. Green markers show entries from an earlier policy configuration in the following session, as an illustration of the signal. Gaps indicate unavailable quotes.
 Figure file: figures/signal_example.png
 
 Figure 4 illustrates the observable spread and its changing historical boundaries. Each day’s series uses the contract selected for that day. It is therefore a signal series, not the mark of one option held throughout the year. After an entry, the backtest follows the purchased and sold contracts without replacing them as the daily selection changes.
@@ -101,7 +101,7 @@ Why an extreme is not enough
 
 We require a return beta between 0.85 and 1.15 and return correlation of at least 0.5. Beta measures the scale of one name’s return response to the other; correlation measures how consistently they move together. Neither guarantees that their option prices will behave alike. These screens keep the comparison among reasonably related names without treating relatedness as the trading signal itself.
 
-The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; supporting results examine the participation ablation.
+The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations, respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; supporting results examine the participation ablation.
 
 PAGE 6: 6. Selecting information and training history
 
@@ -118,9 +118,9 @@ IV of 40% and forecast RV of 30% give 0.40² − 0.30² = 0.07, a variance diffe
 Figure 5. 2018–2021 validation Sharpe for feature additions at the 18-month baseline. These archived scores use the $345 million research account; final funded evaluation uses $10 million.
 Figure file: figures/feature_ablations.png
 
-A dated selection rule
+Selection using the validation period
 
-Within the inherited 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. This grid combines feature additions, training windows and action menus from earlier experiments; it is not an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. Validation therefore selects the original 27 inputs, an 18-month training window and 50/75/100% sizes.
+Within the previously established 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. The grid covers saved feature, window and action-menu experiments, rather than an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. The baseline, IV-factor and term-structure scores tie exactly. The predeclared candidate-name tie-break selects the baseline: 27 inputs, 18 months and 50/75/100% sizes.
 
 These screened validation scores use the archived $345 million research account. The selected policy is then replayed at $10 million for evaluation and controls. The positive-profitability and completed-observation screens remain part of the main strategy. Removing them is a separate participation ablation, rather than a reason to enlarge the learner’s task.
 
@@ -132,14 +132,16 @@ We use direct policy search to learn a contextual sizing policy that maximizes h
 
 States, actions and economic reward
 
-A regression tree partitions available trade information into at most eight states. Its target is the proposed direction’s cumulative full-size profit above cash. The minimum leaf size is max(8, min(63, n/8 rounded down)), where n is the number of completed training examples. Each state receives a sizing action. Fits with fewer than 16 examples fall back to full size; the initial fit has 74 examples.
+A regression tree partitions available trade information into at most eight states. Its target is the proposed direction’s cumulative full-size profit above cash. Here, n is the number of completed training examples. Each state receives a sizing action. Fits with fewer than 16 examples fall back to full size; the initial fit has 74 examples.
+
+Minimum leaf size = max(8, min(63, ⌊n/8⌋))
 
 Figure 6. The monthly fit groups current conditions and searches for a size assignment with a better combined historical Sharpe. Only completed outcomes enter training.
 Figure file: figures/allocation_model.png
 
 For each action, historical trade paths are simulated separately with integer contracts and action-specific costs. Daily profit above cash is divided by the full $450 vega budget and aggregated by date, tree state and action. Candidate assignments are scored on the combined daily paths, including zero-profit sessions between completed trades. Sharpe is annualized with √252 and the sample standard deviation.
 
-The cross-entropy method starts with equal action probabilities and a full-size incumbent. Each of 50 rounds evaluates 192 assignments, including the incumbent and constant-size policies. The best 19 guide an update that blends 30% prior probabilities with 70% elite frequencies, followed by 3% uniform exploration. The seed is 2026. With eight states and three actions there are at most 6,561 assignments; stochastic search is the retained implementation, not evidence that exhaustive search is infeasible.
+The cross-entropy method starts with equal action probabilities and a full-size incumbent. Each of 50 rounds evaluates 192 assignments, including the incumbent and constant-size policies. The best 19 update action probabilities: 30% prior probabilities and 70% elite frequencies, followed by 3% uniform exploration. The seed is 2026. Eight states and three actions allow at most 6,561 assignments; we use stochastic search.
 
 This is contextual reinforcement learning through direct policy search: economic rewards train a state-to-action policy. Unlike Q-learning, it does not estimate continuation values. The training objective aggregates completed paths without joint funded admission; replay then applies shared inventory, cash and account constraints. The learned action can consequently affect which later trades enter.
 
@@ -147,7 +149,7 @@ What remains frozen during evaluation?
 
 The selected inputs, window, tree settings and action menu remain fixed. The tree and size assignments are refitted monthly using only trades whose outcomes finished before the cutoff and whose signal dates fall within the preceding 18 months. Earlier evaluation trades may train later fits after they finish. This causal updating is part of the frozen procedure, rather than a frozen set of model weights.
 
-Selection uses January 2018–December 2021; reported evaluation uses January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit precedes the decisions it controls; the later-period comparison measures how the selected sizing procedure performs beyond its validation dates.
+Selection uses 2018–2021; evaluation covers January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit precedes its decisions.
 
 PAGE 8: 8. Results: what adaptive sizing adds
 
@@ -174,11 +176,9 @@ During evaluation, RL earns $248,673 above cash, approximately $47,800 more than
 
 A smaller position can leave capacity for a later trade that full-size inventory would block. The gain therefore combines state-dependent exposure with changes in the executed portfolio. Shared proposals make this a controlled comparison of complete sizing policies, while randomized sizing would help isolate predictive allocation from the capacity effect.
 
-The earlier 2018–2025 checkpoint increased excess Sharpe by 0.234 and cumulative profit above cash by approximately $50,000 relative to full sizing. We preserve that result as research history. The main evidence here uses the newly validation-selected 27-input policy and reports the two periods separately.
-
 PAGE 9: 8. Results continued: returns and uncertainty
 
-The screened learner’s annualized total account return is 4.667%; annualized growth relative to the cash benchmark is 0.530%. The former includes interest, while the latter measures compounded wealth beyond holding cash. Dollar profit above cash is the period change in NAV minus benchmark wealth. These quantities use the preceding close as their starting point, including inventory carried into 2022.
+The screened learner’s annualized total account return is 4.667%; annualized growth relative to the cash benchmark is 0.530%. The former includes interest, while the latter measures compounded wealth beyond holding cash. Dollar profit above cash is the increase in account NAV minus the increase in benchmark wealth over the same period. These quantities use the preceding close as their starting point, including inventory carried into 2022.
 
 Figure 8. 2022–2025 screened policies at $10 million, rebased at the preceding close. Growth is NAV relative to the continuing cash benchmark; carried inventory contributes to profits.
 Figure file: figures/cash_relative_wealth.png
@@ -198,18 +198,22 @@ The screened comparison supports a historical benefit from contextual sizing, bu
 
 PAGE 10: 9. Extension: learning across trading signals
 
-The retained learner answers a focused question: how much exposure should one qualified trade receive? A broader extension would ask how to weave several trading signals into one portfolio. A good signal can still be unattractive when existing positions already carry the same risk.
+The retained learner answers a focused question: how much exposure should one qualified trade receive? A broader extension would ask how to allocate exposure across several trading signals. A good signal can still be unattractive when existing positions already carry the same risk.
 
 Figure 10. Proposed next study: freeze independently validated signal proposals, then learn allocation using their interaction with the existing portfolio.
 Figure file: figures/portfolio_extension.png
 
-Each signal would first be developed and evaluated separately, then its trade proposals frozen. Candidate families could target different parts of the smile, maturities or pricing relationships. Matched puts and calls at the same strike would not count as independent signals merely because the contracts differ.
+Each signal would first be developed and evaluated separately, after which its trade proposals would be frozen. Candidate families could target different parts of the smile, maturities or pricing relationships. Matched puts and calls at the same strike would not count as independent signals merely because the contracts differ.
 
 The portfolio state would combine signal strength and completed profitability with current positions, committed capital, stress exposure and estimated dependence between signals. The action would allocate vega budgets across qualified proposals, including zero additional exposure. Both legs of an admitted pair would retain the same delta-hedging and initial vega-matching rules.
 
 The objective would be portfolio excess Sharpe, measured from one shared cash and inventory ledger after costs and financing. Today’s allocation changes tomorrow’s capacity and exposure, making this a sequential portfolio problem. We would compare it with fixed budgets and independently sized signals under identical limits, then evaluate the frozen allocation procedure on later dates.
 
 The revised management and longer-tenor comparisons remain in the supporting results. They do not yet establish that portfolio RL improves diversification. The proposed contribution is learning interactions among separately useful signals.
+
+Conclusion
+
+The screened sizing policy improves historical excess Sharpe over fixed exposure in both validation and later evaluation, while the estimated improvement remains uncertain. The next question is whether learning exposure across separately validated signals can turn this local sizing benefit into better portfolio construction.
 
 References and supporting material
 
@@ -222,7 +226,3 @@ References and supporting material
 [4] Options Industry Council. Volatility & the Greeks. https://www.optionseducation.org/advancedconcepts/volatility-the-greeks
 
 Repository: github.com/kreitzz/rl-atm-vega-pairs. Selection and extension tables: reports/p25_validation_split. Sources: paper/source_manifest.json. Academic use only; vendor data retain their institutional license restrictions.
-
-Conclusion
-
-Learning entry size was more promising than learning exits. The filtered policy improves historical excess Sharpe over fixed exposure in both validation and later evaluation, while uncertainty remains. The next question is whether learning exposure across separately validated signals can turn this local sizing benefit into better portfolio construction.

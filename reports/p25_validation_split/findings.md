@@ -14,3 +14,7 @@ The screened policy makes110 new entries and adds$248,673 above cash, versus75 e
 Books continue across2022; carried inventory contributes to holdout P&L. Monthly refits use completed outcomes, including earlier holdout outcomes once completed. Only configuration choice is frozen.2025 is partial.
 
 [Locked selection](selection.json) · [All validation candidates](validation_candidates.csv) · [Period results](periods.csv) · [Yearly results](annual.csv) · [Intervals](holdout_intervals.csv) · [Reproduction](reproduction.txt)
+
+## Earlier full-history reference
+
+The earlier 2018–2025 checkpoint increased excess Sharpe by 0.234 and cumulative profit above cash by approximately $50,000 relative to full sizing. This is research history, separate from the new validation-selected policy. See [original controlled results](../p25_capital_sensitivity/comparison.csv) and [original configuration](../../config/p25_submission.json).

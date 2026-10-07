@@ -119,11 +119,11 @@ def split_feature_chart():
             'smile_shape':'Smile shape','term_structure':'Term structure','physical_tail':'Physical tails',
             'variance_premium':'Variance spread','iv_factor':'IV factors','volume_oi':'Volume / open interest',
             'employee':'Employee sentiment','transcripts':'Transcripts'}
-    fig,ax=plt.subplots(figsize=(8.1,2.65))
+    fig,ax=plt.subplots(figsize=(8.1,2.85))
     ax.barh(range(len(data)),data.validation_sharpe,
             color=[GREEN if n=='control' else BLUE for n in data.name],height=.63)
-    ax.set_yticks(range(len(data)),[labels[n] for n in data.name],fontsize=9)
-    for i,value in enumerate(data.validation_sharpe):ax.text(value+.01,i,f'{value:.3f}',va='center',fontsize=8)
+    ax.set_yticks(range(len(data)),[labels[n] for n in data.name],fontsize=10.5)
+    for i,value in enumerate(data.validation_sharpe):ax.text(value+.01,i,f'{value:.3f}',va='center',fontsize=9)
     ax.set_xlim(0,max(data.validation_sharpe)*1.2)
     pub.style(ax,'Annualized excess Sharpe,2018–2021 validation')
     fig.tight_layout()
@@ -247,6 +247,8 @@ def main():
         split_feature_chart()
         split_wealth_chart()
         annual_chart(annual)
+    if '--refresh-feature-chart' in sys.argv and '--reuse-charts' in sys.argv:
+        split_feature_chart()
     for name, caption in CAPTIONS.items():
         pub.CHARTS[name]['caption'] = caption
     for path in ['reports/atm65_employee_sentiment.md','reports/p25_variance_validation/research_summary.txt',
@@ -306,7 +308,7 @@ def main():
     sheet.save(PAPER/'contact_sheet.png')
     reader=PdfReader(PAPER/'options_relative_value.pdf')
     extracted='\n'.join(p.extract_text() for p in reader.pages)
-    for expected in ['1.263','1.055','0.573','0.478','1.007','0.944','0.234']:
+    for expected in ['1.263','1.055','0.573','0.478','1.007','0.944']:
         assert expected in extracted,expected
     assert len(reader.pages)==10
     for path,digest in before.items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,path
@@ -341,7 +343,7 @@ def main():
                source_hashes_verified=True,all_layout_checks_pass=True,
                prior_report_archived=True,presentation_unchanged=True,checkpoints_unchanged=True,
                main_values_verified=True,models_or_backtests_rerun=False,
-               reader_revision='Retrospective2018–2021 selection and2022–2025 evaluation; filtered strategy primary; both-period fixed sizing controls; portfolio allocation proposed as next extension; updated management results supplemental',
+               reader_revision='Retrospective2018–2021 selection and2022–2025 evaluation; filtered strategy primary; both-period fixed sizing controls; portfolio allocation proposed as next extension; final editorial cleanup and exact tie-break explanation',
                archived_report=str(archive.relative_to(PAPER)))
     (PAPER/'publication_audit.json').write_text(json.dumps(audit,indent=2))
     (PAPER/'reproduction.txt').write_text('Rebuild only the report from saved results:\n'

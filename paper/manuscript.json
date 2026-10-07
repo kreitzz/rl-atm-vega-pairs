@@ -13,7 +13,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Pairs trading starts with a simple idea: two related securities can become unusually expensive or cheap relative to each other. We apply that idea to options, where the price of uncertainty can differ across related stocks. We first search for a trading signal and then ask whether a learning algorithm can improve the amount of risk taken on each trade. We study approximately 30-day, 25-delta out-of-the-money puts. We select a sizing configuration using 2018–2021 validation and evaluate it over January 2022–August 2025. In a simulated $10 million account, the screened learner achieves annualized excess Sharpe of 1.263, versus 1.055 for constant full exposure. RL raises Sharpe by about 20% over full sizing in both periods."
+        "text": "Pairs trading starts with a simple idea: two related securities can become unusually expensive or cheap relative to each other. We apply that idea to options, where the price of uncertainty can differ across related stocks. We first search for a trading signal and then ask whether a learning algorithm can improve the amount of risk taken on each trade. We study approximately 30-day, 25-delta out-of-the-money puts. We select a sizing configuration using 2018–2021 validation and evaluate it over January 2022–August 2025. In a simulated $10 million account, the screened learner achieves an annualized excess Sharpe ratio of 1.263, versus 1.055 for constant full exposure. Learned sizing raises Sharpe by about 20% over full sizing in both validation and evaluation."
       },
       {
         "type": "heading",
@@ -184,7 +184,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and wing. These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons."
+        "text": "Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and per “wing” (option type and delta bucket; here, 25-delta puts). These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons."
       }
     ]
   },
@@ -222,7 +222,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; supporting results examine the participation ablation."
+        "text": "The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations, respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; supporting results examine the participation ablation."
       }
     ]
   },
@@ -252,15 +252,15 @@
       {
         "type": "chart",
         "name": "feature_ablations",
-        "height": 150
+        "height": 160
       },
       {
         "type": "heading",
-        "text": "A dated selection rule"
+        "text": "Selection using the validation period"
       },
       {
         "type": "paragraph",
-        "text": "Within the inherited 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. This grid combines feature additions, training windows and action menus from earlier experiments; it is not an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. Validation therefore selects the original 27 inputs, an 18-month training window and 50/75/100% sizes."
+        "text": "Within the previously established 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. The grid covers saved feature, window and action-menu experiments, rather than an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. The baseline, IV-factor and term-structure scores tie exactly. The predeclared candidate-name tie-break selects the baseline: 27 inputs, 18 months and 50/75/100% sizes."
       },
       {
         "type": "paragraph",
@@ -285,7 +285,11 @@
       },
       {
         "type": "paragraph",
-        "text": "A regression tree partitions available trade information into at most eight states. Its target is the proposed direction’s cumulative full-size profit above cash. The minimum leaf size is max(8, min(63, n/8 rounded down)), where n is the number of completed training examples. Each state receives a sizing action. Fits with fewer than 16 examples fall back to full size; the initial fit has 74 examples."
+        "text": "A regression tree partitions available trade information into at most eight states. Its target is the proposed direction’s cumulative full-size profit above cash. Here, n is the number of completed training examples. Each state receives a sizing action. Fits with fewer than 16 examples fall back to full size; the initial fit has 74 examples."
+      },
+      {
+        "type": "equation",
+        "text": "Minimum leaf size = max(8, min(63, ⌊n/8⌋))"
       },
       {
         "type": "chart",
@@ -298,7 +302,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The cross-entropy method starts with equal action probabilities and a full-size incumbent. Each of 50 rounds evaluates 192 assignments, including the incumbent and constant-size policies. The best 19 guide an update that blends 30% prior probabilities with 70% elite frequencies, followed by 3% uniform exploration. The seed is 2026. With eight states and three actions there are at most 6,561 assignments; stochastic search is the retained implementation, not evidence that exhaustive search is infeasible."
+        "text": "The cross-entropy method starts with equal action probabilities and a full-size incumbent. Each of 50 rounds evaluates 192 assignments, including the incumbent and constant-size policies. The best 19 update action probabilities: 30% prior probabilities and 70% elite frequencies, followed by 3% uniform exploration. The seed is 2026. Eight states and three actions allow at most 6,561 assignments; we use stochastic search."
       },
       {
         "type": "paragraph",
@@ -314,7 +318,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Selection uses January 2018–December 2021; reported evaluation uses January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit precedes the decisions it controls; the later-period comparison measures how the selected sizing procedure performs beyond its validation dates."
+        "text": "Selection uses 2018–2021; evaluation covers January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit precedes its decisions."
       }
     ]
   },
@@ -400,10 +404,6 @@
       {
         "type": "paragraph",
         "text": "A smaller position can leave capacity for a later trade that full-size inventory would block. The gain therefore combines state-dependent exposure with changes in the executed portfolio. Shared proposals make this a controlled comparison of complete sizing policies, while randomized sizing would help isolate predictive allocation from the capacity effect."
-      },
-      {
-        "type": "paragraph",
-        "text": "The earlier 2018–2025 checkpoint increased excess Sharpe by 0.234 and cumulative profit above cash by approximately $50,000 relative to full sizing. We preserve that result as research history. The main evidence here uses the newly validation-selected 27-input policy and reports the two periods separately."
       }
     ]
   },
@@ -412,7 +412,7 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "The screened learner’s annualized total account return is 4.667%; annualized growth relative to the cash benchmark is 0.530%. The former includes interest, while the latter measures compounded wealth beyond holding cash. Dollar profit above cash is the period change in NAV minus benchmark wealth. These quantities use the preceding close as their starting point, including inventory carried into 2022."
+        "text": "The screened learner’s annualized total account return is 4.667%; annualized growth relative to the cash benchmark is 0.530%. The former includes interest, while the latter measures compounded wealth beyond holding cash. Dollar profit above cash is the increase in account NAV minus the increase in benchmark wealth over the same period. These quantities use the preceding close as their starting point, including inventory carried into 2022."
       },
       {
         "type": "chart",
@@ -451,7 +451,7 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "The retained learner answers a focused question: how much exposure should one qualified trade receive? A broader extension would ask how to weave several trading signals into one portfolio. A good signal can still be unattractive when existing positions already carry the same risk."
+        "text": "The retained learner answers a focused question: how much exposure should one qualified trade receive? A broader extension would ask how to allocate exposure across several trading signals. A good signal can still be unattractive when existing positions already carry the same risk."
       },
       {
         "type": "chart",
@@ -460,7 +460,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Each signal would first be developed and evaluated separately, then its trade proposals frozen. Candidate families could target different parts of the smile, maturities or pricing relationships. Matched puts and calls at the same strike would not count as independent signals merely because the contracts differ."
+        "text": "Each signal would first be developed and evaluated separately, after which its trade proposals would be frozen. Candidate families could target different parts of the smile, maturities or pricing relationships. Matched puts and calls at the same strike would not count as independent signals merely because the contracts differ."
       },
       {
         "type": "paragraph",
@@ -473,6 +473,14 @@
       {
         "type": "paragraph",
         "text": "The revised management and longer-tenor comparisons remain in the supporting results. They do not yet establish that portfolio RL improves diversification. The proposed contribution is learning interactions among separately useful signals."
+      },
+      {
+        "type": "heading",
+        "text": "Conclusion"
+      },
+      {
+        "type": "paragraph",
+        "text": "The screened sizing policy improves historical excess Sharpe over fixed exposure in both validation and later evaluation, while the estimated improvement remains uncertain. The next question is whether learning exposure across separately validated signals can turn this local sizing benefit into better portfolio construction."
       },
       {
         "type": "heading",
@@ -497,14 +505,6 @@
       {
         "type": "paragraph",
         "text": "Repository: github.com/kreitzz/rl-atm-vega-pairs. Selection and extension tables: reports/p25_validation_split. Sources: paper/source_manifest.json. Academic use only; vendor data retain their institutional license restrictions."
-      },
-      {
-        "type": "heading",
-        "text": "Conclusion"
-      },
-      {
-        "type": "paragraph",
-        "text": "Learning entry size was more promising than learning exits. The filtered policy improves historical excess Sharpe over fixed exposure in both validation and later evaluation, while uncertainty remains. The next question is whether learning exposure across separately validated signals can turn this local sizing benefit into better portfolio construction."
       }
     ]
   }
