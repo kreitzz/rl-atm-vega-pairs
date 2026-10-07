@@ -222,7 +222,7 @@
       },
       {
         "type": "paragraph",
-        "text": "We also require positive directional profitability over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. The policy learns size only after these screens qualify a proposal."
+        "text": "The retained strategy also requires positive directional profitability over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 9 tests removing both requirements while keeping memory as an input to learned sizing."
       }
     ]
   },
@@ -303,6 +303,10 @@
       {
         "type": "paragraph",
         "text": "The first fit contains 74 completed examples. Its optimized historical score is 2.015 versus 1.573 at constant full size. That is an in-sample score on aggregated training paths, not the Sharpe of a funded account before 2018. It shows that the optimizer improves its training objective. Whether that improvement carries forward must be judged from subsequent trading, while remembering that the research team has inspected those subsequent dates repeatedly."
+      },
+      {
+        "type": "paragraph",
+        "text": "Walk-forward fitting prevents a monthly model from using unfinished future outcomes. It does not remove research selection: we chose signals, windows, strikes and policies after inspecting these dates, and pair formation is retrospective. A prospective universe and an untouched later period remain necessary to test whether the measured improvement survives."
       }
     ]
   },
@@ -380,40 +384,37 @@
     ]
   },
   {
-    "title": "9. When the strategy works—and when it does not",
+    "title": "9. Participation, capital use and uneven returns",
     "blocks": [
       {
         "type": "paragraph",
-        "text": "The aggregate Sharpe hides important differences across years. Figure 8 separates total account returns from trading returns above cash, and reports each year’s annualized excess Sharpe. The negative trading years remain visible even when interest keeps the account’s total return positive."
+        "text": "Figure 8 separates total returns from returns above cash. The retained strategy’s strongest year is 2022: 1.676 percentage points above cash and Sharpe 2.462. In 2024, total return is 5.149%, but the account trails cash by 0.238 percentage point: Sharpe −0.785. Trading also trails cash in 2019 and 2021."
       },
       {
         "type": "chart",
         "name": "annual_results",
-        "height": 211
-      },
-      {
-        "type": "paragraph",
-        "text": "The strongest year is 2022, with 1.676 percentage points of return above cash and Sharpe 2.462. By contrast, 2024 earns 5.149% on the funded account but trails cash by 0.238 percentage point, producing excess Sharpe −0.785. Trading also loses relative to cash in 2019 and 2021. The rule is useful in some conditions, not a steady return source in every market. Results for 2025 end on 29 August and do not represent a full year."
+        "height": 180
       },
       {
         "type": "heading",
-        "text": "Interpreting the downside-option result"
+        "text": "What happens if the profitability screens are removed?"
       },
       {
         "type": "paragraph",
-        "text": "Twenty-five-delta puts sit below the stock price, so this is a downside-volatility strategy. We should not expect 25-delta calls, which sit above the stock price, to reproduce it. A more comparable call is near 75 delta at the same strike and expiry. Our matched-contract parity check found closely related pre-cost profits; net results differed with quotes, execution and hedge financing. A large put-versus-call difference should prompt an accounting and data check before being presented as a new source of alpha."
+        "text": "Removing both memory requirements from page 5 expands proposals from 608 to 4,744. Memory remains a sizing input; spread, beta and correlation screens, contract selection, hedges, costs and account limits remain unchanged. Monthly fits use the broader set of completed outcomes. This expands eligible trades rather than simply enlarging existing positions."
       },
       {
-        "type": "heading",
-        "text": "How far should we trust the result?"
-      },
-      {
-        "type": "paragraph",
-        "text": "A total of 212 entries across 42 pairs provides useful observations, but trades overlap and share names and market shocks. The profit is not evenly distributed across pairs or years. It would overstate the evidence to treat every entry as an independent test of the same effect."
+        "type": "chart",
+        "name": "participation_capital",
+        "height": 135
       },
       {
         "type": "paragraph",
-        "text": "The largest limitation is research selection. We inspected many signals, windows, strikes and policies on the same dates, and pair formation is retrospectively conditioned. Walk-forward fitting prevents a given monthly model from using unfinished future outcomes; it does not undo those choices. A prospective pair universe and a later, untouched evaluation period are needed to establish whether the measured improvement survives beyond this research sample."
+        "text": "Ungated sizing enters 1,334 trades across 77 pairs and earns $786,690 above cash, versus 212 trades across 42 pairs and $322,637 retained. Sharpe falls from 1.003 to 0.835; peak reserve rises from 18.0% to 79.1%, and maximum drawdown relative to cash rises from 0.49% to 1.03%. Broader participation increases profit and capital use at lower risk-adjusted performance."
+      },
+      {
+        "type": "paragraph",
+        "text": "A 25% sizing action gives 0.830 Sharpe and 1,938 trades, with lower profit and reserve. Ungated constant full sizing scores 0.713. Alternative action menus, state counts and training windows do not improve 0.835. Ungated Sharpe is roughly zero in 2024–2025: more trades do not establish steadier performance or independent evidence."
       }
     ]
   },
@@ -422,7 +423,7 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "We also tested whether learning should decide when to reduce or close positions, and whether the idea carries to longer options. An exit can avoid a loss, but it can also surrender future hedging gains and pay another spread. Its value cannot be inferred from entry quality alone."
+        "text": "Longer-dated experiments also test when to reduce or close positions. Exiting can avoid losses, surrender future hedging gains and incur another spread. Good entry selection alone does not establish good management."
       },
       {
         "type": "table",
@@ -465,11 +466,15 @@
       },
       {
         "type": "paragraph",
-        "text": "Combining saved 30-, 180- and 365-day return streams gives Sharpe 1.006 at equal weights. Weights chosen from the preceding two years give 0.865. This is a combination of saved returns, not a new shared-account execution test. Individually useful policies do not automatically become a better portfolio, especially when their losses occur together. Tests of buying structurally cheap one-year vega without an offsetting short also remain negative; management reduces some losses without turning that idea profitable."
+        "text": "Combining saved 30-, 180- and 365-day returns gives Sharpe 1.006 at equal weights, and 0.865 with weights based on the preceding two years. This combines saved returns without a new shared-account replay. Losses occurring together can erase individual policy benefits. Buying cheap one-year vega without an offsetting short remains unprofitable after costs; management reduces losses without making it profitable."
       },
       {
         "type": "paragraph",
-        "text": "Our strongest finding is consequently specific: conditional sizing improves the historical risk-adjusted performance of a researched downside-option pairs strategy. The signal supplies the opportunity, and the learner changes how much of it the account takes. A useful next study would freeze the proposals prospectively, compare constant and learned allocation on new dates, and then learn exposure across several independently validated signals. Better forecasts of remaining realized variance would also give a management policy a clearer economic target."
+        "text": "The strongest finding is specific: conditional sizing improves this researched downside-option strategy relative to constant exposure. Removing profitability screens increases participation and total profit at a lower Sharpe. Neither variant offers steady returns in every year, and overlapping trades share names and market shocks. The broader sizing gain over full size has an unadjusted bootstrap interval crossing zero. Prospective proposals and an untouched evaluation period would provide stronger evidence; learning exposure across separately validated signals is a further portfolio question."
+      },
+      {
+        "type": "paragraph",
+        "text": "A 25-delta put trades downside volatility, like a 75-delta call at the same strike and expiry. Matched-contract checks found similar pre-cost profits; quotes, execution and hedge financing affect net differences. These effects should be checked before claiming a separate signal."
       },
       {
         "type": "heading",

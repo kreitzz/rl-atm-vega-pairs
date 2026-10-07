@@ -86,6 +86,43 @@ def annual_chart(annual):
          ['reports/p25_capital_sensitivity/10m_learned_annual.csv'], annual)
 
 
+def participation_chart(cap, ungated):
+    """Compare participation and peak reserve without implying broker margin."""
+    retained = cap.loc['10m_learned']
+    rows = []
+    for label, result in [('Gated sizing', retained),
+                          ('Ungated 50–100%', ungated.loc['ungated_baseline']),
+                          ('Ungated 25–100%', ungated.loc['quarter_floor'])]:
+        rows.append(dict(policy=label, entries=int(result.entries),
+                         annualized_excess_sharpe=float(result.annualized_excess_sharpe),
+                         net_excess_pnl=float(result.net_excess_pnl),
+                         peak_reserve_pct=100*float(result.peak_reserve_fraction),
+                         maximum_cash_relative_drawdown_pct=-float(result.maximum_relative_to_cash_drawdown_pct)))
+    data = pub.pd.DataFrame(rows)
+    fig, axes = plt.subplots(1, 3, figsize=(8.1, 2.25), sharey=True)
+    colors = [BLUE, GREEN, ORANGE]
+    metrics = [('annualized_excess_sharpe', 'Excess Sharpe', 1.22, lambda v: f'{v:.3f}'),
+               ('net_excess_pnl', 'Profit above cash', 930000, lambda v: f'${v/1000:.0f}k'),
+               ('peak_reserve_pct', 'Peak reserve', 98, lambda v: f'{v:.1f}%')]
+    for ax, (field, title, limit, label) in zip(axes, metrics):
+        ax.barh(range(3), data[field], color=colors, height=.53)
+        ax.set_xlim(0, limit)
+        ax.set_title(title, fontsize=11, weight='bold')
+        ax.set_xticks([])
+        ax.spines[['top', 'right', 'bottom']].set_visible(False)
+        ax.spines['left'].set_color('#d0d6dc')
+        ax.tick_params(axis='y', length=0, labelsize=10)
+        for i, value in enumerate(data[field]):
+            ax.text(value+limit*.025, i, label(value), va='center', fontsize=10)
+    axes[0].set_yticks(range(3), [f'{r.policy}\n{r.entries:,} trades' for r in data.itertuples()])
+    axes[0].invert_yaxis()
+    fig.tight_layout(pad=.7, w_pad=1.2)
+    save('participation_capital', fig, CAPTIONS['participation_capital'],
+         ['reports/p25_capital_sensitivity/comparison.csv',
+          'reports/p25_ungated_search/comparison.csv'], data)
+    return data
+
+
 class ReportPage(pub.PaperPage):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -127,7 +164,7 @@ def main():
     protected=['reports/p25_capital_sensitivity/comparison.csv',
                'reports/p25_reversion_q/comparison.csv']
     before.update({k:hashlib.sha256((ROOT/k).read_bytes()).hexdigest() for k in protected})
-    archive=PAPER/'archive'/'report_before_2026-10-06_rewrite.zip'
+    archive=PAPER/'archive'/'report_before_ungated_extension_2026-10-06.zip'
     archive.parent.mkdir(exist_ok=True)
     if not archive.exists():
         with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
@@ -143,6 +180,7 @@ def main():
     for path in previous['sources']:
         pub.source(path)
     cap = pub.frame('reports/p25_capital_sensitivity/comparison.csv').set_index('case')
+    ungated = pub.frame('reports/p25_ungated_search/comparison.csv').set_index('case')
     fit = None
     annual = pub.frame('reports/p25_capital_sensitivity/10m_learned_annual.csv')
     boxes('research_map', ['Find a trade', 'Choose its size', 'Test further decisions'],
@@ -154,6 +192,7 @@ def main():
     boxes('allocation_model', ['Past completed trades', 'Group similar conditions', 'Choose exposure'],
           ['Most recent 18 months\nRefit each month', 'A small regression tree\nAt most eight groups', 'Search size assignments\nMaximize historical Sharpe'],
           CAPTIONS['allocation_model'], ['config/p25_submission.json'])
+    participation_chart(cap, ungated)
     for name, caption in CAPTIONS.items():
         pub.CHARTS[name]['caption'] = caption
     annual_chart(annual)
@@ -166,7 +205,7 @@ def main():
                  'scripts/report_long_tenor_search.py','scripts/research_report_text.py',
                  'config/p25_submission.json', 'reports/year_cheap_vega/comparison.csv']:
         pub.source(path)
-    pages=manuscript(cap,fit,annual)
+    pages=manuscript(cap,fit,annual,ungated)
     figure_order=[b['name'] for page in pages for b in page['blocks'] if b['type']=='chart']
     assert len(figure_order)==len(set(figure_order))
     pub.PAPER_FIGURES={k:i+1 for i,k in enumerate(figure_order)}
@@ -210,7 +249,8 @@ def main():
     sheet.save(PAPER/'contact_sheet.png')
     reader=PdfReader(PAPER/'options_relative_value.pdf')
     extracted='\n'.join(p.extract_text() for p in reader.pages)
-    for expected in ['1.003','0.769','0.598','0.313','0.610','1.029','0.865']:
+    for expected in ['1.003','0.769','0.598','0.313','0.610','1.029','0.865',
+                     '0.835','0.830','0.713','4,744','1,334','1,938']:
         assert expected in extracted,expected
     assert len(reader.pages)==10
     for path,digest in before.items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,path
@@ -229,7 +269,12 @@ def main():
                   'reports/native_year_entry/replacement_blend/walk_forward_24M/comparison.csv',
                   'reports/native_year_entry/replacement_blend/walk_forward_24M_30D_180D/comparison.csv',
                   'reports/long_tenor_search_summary/core_comparison.csv',
-                  'reports/year_cheap_vega/comparison.csv']
+                  'reports/year_cheap_vega/comparison.csv',
+                  'reports/p25_memory_ablation/comparison.csv',
+                  'reports/p25_ungated_search/comparison.csv',
+                  'reports/p25_ungated_search/annual.csv',
+                  'reports/p25_ungated_search/sharpe_change_intervals.csv',
+                  'reports/p25_ungated_search/findings.md']
     for path in supplemental:pub.source(path)
     manifest['sources']=pub.SOURCES
     manifest['supplemental_results']=supplemental
@@ -239,8 +284,8 @@ def main():
                source_hashes_verified=True,all_layout_checks_pass=True,
                prior_report_archived=True,presentation_unchanged=True,checkpoints_unchanged=True,
                main_values_verified=True,models_or_backtests_rerun=False,
-               reader_revision='Foundations, worked hedge example, chronological methodology and interpretation',
-               archived_report='archive/submitted_report_2026-10-06.zip')
+               reader_revision='Participation, capital use and ungated sizing experiments added to the reader-focused report',
+               archived_report=str(archive.relative_to(PAPER)))
     (PAPER/'publication_audit.json').write_text(json.dumps(audit,indent=2))
     (PAPER/'reproduction.txt').write_text('Rebuild only the report from saved results:\n'
        '.venv/bin/python -m scripts.run_signal_discovery_guarded --module scripts.rewrite_research_report --stop-file artifacts/submission/STOP --timeout 600 --duty-cycle 0.2 --rss-limit-mib 384 --min-free-percent 35 --warning-rss-limit-mib 384 --max-swap-growth-mib 64 --pause-low-headroom-seconds 60\n'
