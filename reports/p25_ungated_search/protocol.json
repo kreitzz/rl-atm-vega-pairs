@@ -1,0 +1,143 @@
+{
+  "cases": {
+    "quarter_floor": {
+      "menu": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 8,
+      "earnings": null
+    },
+    "skip_floor": {
+      "menu": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 8,
+      "earnings": null
+    },
+    "flexible": {
+      "menu": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 8,
+      "earnings": null
+    },
+    "tree16": {
+      "menu": [
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 16,
+      "earnings": null
+    },
+    "window36": {
+      "menu": [
+        2,
+        3,
+        4
+      ],
+      "months": 36,
+      "leaves": 8,
+      "earnings": null
+    },
+    "earnings_prior": {
+      "menu": [
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 8,
+      "earnings": "prior_reports_only"
+    },
+    "earnings_prior_skip": {
+      "menu": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 8,
+      "earnings": "prior_reports_only"
+    },
+    "earnings_calendar": {
+      "menu": [
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 8,
+      "earnings": "historical_calendar"
+    },
+    "tree4": {
+      "menu": [
+        2,
+        3,
+        4
+      ],
+      "months": 18,
+      "leaves": 4,
+      "earnings": null
+    },
+    "window12": {
+      "menu": [
+        2,
+        3,
+        4
+      ],
+      "months": 12,
+      "leaves": 8,
+      "earnings": null
+    }
+  },
+  "initial_cases": [
+    "quarter_floor",
+    "skip_floor",
+    "flexible",
+    "tree16",
+    "window36",
+    "earnings_prior",
+    "earnings_prior_skip",
+    "earnings_calendar"
+  ],
+  "followups": {
+    "cases": [
+      "tree4",
+      "window12"
+    ],
+    "reason": "Added after16-state0.6723 and36-month0.7174 results; smaller state model and shorter window to test reduced estimation complexity and quicker adaptation"
+  },
+  "constant_controls": {
+    "fixed25": 1,
+    "fixed50": 2,
+    "fixed75": 3
+  },
+  "source": "Ungated0.8346021868;4744proposals",
+  "ranking": "Report all variants and full/2018-2023/2024-2025; retrospective research comparison; no fresh holdout or automatic promotion",
+  "code_sha256": {
+    "scripts/run_p25_ungated_search.py": "7ef80a9a99f39766916548dbb828936e2270b6c281e1e280f9e5a193cae07547",
+    "scripts/run_p25_memory_ablation.py": "58a37bef3d6e12ed2bbdfd18cb7ba64c5d3e270789fc1955884a8aadcae2c6aa",
+    "scripts/run_p25_earnings.py": "0c51b536f9fcde10de0a6346db091ce82d966a0cc94deeb075231966c7a725b6",
+    "scripts/p25_earnings_features.py": "b0670ffa564d874e9750edefc1fb0d88790cb94b743f987347c837b431e0d7a8",
+    "scripts/uniform_smile_engine.py": "d4a4996d1f966f78104d4eb5f402de3ab6ff93be2676069b2a316c386196c74a",
+    "scripts/uniform_smile_risk.py": "29462843c4716920ea39e5b99d0fe032343ba42a4229f41b8a710ad959fa80b1"
+  },
+  "resources": "One worker20%of onecore,384MiB RSSstop,35%headroom,64MiB swapgrowth",
+  "unchanged": "33 original features, direction, contracts, formation/calendar,beta/corr, costs/financing, expiry/dailyhedges,10m capital and risk caps"
+}

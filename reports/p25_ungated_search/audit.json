@@ -1,0 +1,11 @@
+{
+  "monthly_models": 900,
+  "all4744_proposals_preserved": true,
+  "original33_inputs_exact": true,
+  "baseline90_fits_exact": true,
+  "baseline_full_ledger_exact": true,
+  "completed_outcomes_only": true,
+  "no_earnings_gate": true,
+  "no_checkpoint_promotion": true,
+  "original_checkpoint_unchanged": true
+}

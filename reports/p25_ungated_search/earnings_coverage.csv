@@ -1,0 +1,9 @@
+mode,feature,available,proposals
+prior_reports_only,long_earnings_days,4744,4744
+prior_reports_only,short_earnings_days,4744,4744
+prior_reports_only,long_earnings_before_expiry,4744,4744
+prior_reports_only,short_earnings_before_expiry,4744,4744
+historical_calendar,long_earnings_days,4744,4744
+historical_calendar,short_earnings_days,4744,4744
+historical_calendar,long_earnings_before_expiry,4744,4744
+historical_calendar,short_earnings_before_expiry,4744,4744

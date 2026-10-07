@@ -18,4 +18,6 @@ The earlier ATM result and your teammate's equity/Q-learning experiments remain 
 
 [Profitability-memory gate test](reports/p25_memory_ablation/findings.md): removing profit requirements gave 0.626 Sharpe; removing those and count minimums gave 0.835, with 1,334 trades and $787k above cash versus 212 trades and $323k retained. The ungated fixed-size control scored 0.713. [Reproduction archive](data/p25_memory_ablation_experiment.zip).
 
+[Ungated sizing and earnings tests](reports/p25_ungated_search/findings.md): ten variants leave 0.835 best; adding a 25% size gives 0.830 with 1,938 trades, while prior-report earnings inputs give 0.768. All four constant-size controls score lower. [Chart](reports/p25_ungated_search/comparison.png) · [Reproduction archive](data/p25_ungated_search_experiment.zip).
+
 **Academic use only.** Third-party data remain subject to vendor and institutional licenses; this notice grants no additional data rights. This repository remains private. [Data-use notice](data/DATA_LICENSE.txt).
