@@ -2,5 +2,5 @@ Rebuild only the report from saved results:
 .venv/bin/python -m scripts.run_signal_discovery_guarded --module scripts.rewrite_research_report --stop-file artifacts/submission/STOP --timeout 600 --duty-cycle 0.2 --rss-limit-mib 384 --min-free-percent 35 --warning-rss-limit-mib 384 --max-swap-growth-mib 64 --pause-low-headroom-seconds 60
 Install requirements-report.txt; restore submission caches first (see SUBMISSION.md).
 One worker;20% of one core; BLAS/Arrow threads1;384 MiB RSS stop. No fitting, backtest or deck editing.
-Main PDF: options_relative_value.pdf; editable HTML: options_relative_value.html; prose: report_text.txt.
+Main PDF: options_relative_value.pdf; editable Word: options_relative_value.docx; HTML: options_relative_value.html; prose: report_text.txt.
 Every chart: figures/*.svg and *.png; numeric figure tables: figure_data/*.csv.

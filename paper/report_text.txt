@@ -82,7 +82,7 @@ Execution and capital assumptions
 
 Option fills use the quoted midpoint with an adverse penalty equivalent to 0.10 IV percentage point on each leg. This is a volatility unit, not ten cents or 10% of the option price. Evaluation also charges $0.03 per contract and one basis point of stock-hedge turnover. Training outcomes retain a higher $0.65 commission. The assumed fills are not verified live executions.
 
-Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and per “wing” (option type and delta bucket; here, 25-delta puts). These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons.
+Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget for each pair and option-type/delta bucket (here, 25-delta puts). These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons.
 
 PAGE 5: 5. Finding a signal before learning its size
 
@@ -120,7 +120,7 @@ Figure file: figures/feature_ablations.png
 
 Selection using the validation period
 
-Within the previously established 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. The grid covers saved feature, window and action-menu experiments, rather than an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. The baseline, IV-factor and term-structure scores tie exactly. The predeclared candidate-name tie-break selects the baseline: 27 inputs, 18 months and 50/75/100% sizes.
+Within the previously established 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. The grid covers saved feature, window and action-menu experiments, rather than an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. The baseline, IV-factor and term-structure scores tie exactly. Ties are resolved using a predetermined alphabetical ordering of configuration names. This selects the baseline: 27 inputs, 18 months and 50/75/100% sizes.
 
 These screened validation scores use the archived $345 million research account. The selected policy is then replayed at $10 million for evaluation and controls. The positive-profitability and completed-observation screens remain part of the main strategy. Removing them is a separate participation ablation, rather than a reason to enlarge the learner’s task.
 
@@ -149,7 +149,7 @@ What remains frozen during evaluation?
 
 The selected inputs, window, tree settings and action menu remain fixed. The tree and size assignments are refitted monthly using only trades whose outcomes finished before the cutoff and whose signal dates fall within the preceding 18 months. Earlier evaluation trades may train later fits after they finish. This causal updating is part of the frozen procedure, rather than a frozen set of model weights.
 
-Selection uses 2018–2021; evaluation covers January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit precedes its decisions.
+Selection uses 2018–2021; evaluation covers January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit uses only information available before the decisions it controls.
 
 PAGE 8: 8. Results: what adaptive sizing adds
 

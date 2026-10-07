@@ -184,7 +184,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and per “wing” (option type and delta bucket; here, 25-delta puts). These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons."
+        "text": "Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget for each pair and option-type/delta bucket (here, 25-delta puts). These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons."
       }
     ]
   },
@@ -260,7 +260,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Within the previously established 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. The grid covers saved feature, window and action-menu experiments, rather than an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. The baseline, IV-factor and term-structure scores tie exactly. The predeclared candidate-name tie-break selects the baseline: 27 inputs, 18 months and 50/75/100% sizes."
+        "text": "Within the previously established 30-day, 25-delta design, we rank 33 saved screened configurations by 2018–2021 validation excess Sharpe. The grid covers saved feature, window and action-menu experiments, rather than an exhaustive joint search. Figure 5 shows the feature comparisons. The baseline scores 0.575, versus 0.563 with the variance-spread block. The baseline, IV-factor and term-structure scores tie exactly. Ties are resolved using a predetermined alphabetical ordering of configuration names. This selects the baseline: 27 inputs, 18 months and 50/75/100% sizes."
       },
       {
         "type": "paragraph",
@@ -318,7 +318,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Selection uses 2018–2021; evaluation covers January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit precedes its decisions."
+        "text": "Selection uses 2018–2021; evaluation covers January 2022–29 August 2025. Books continue across the boundary, including open positions. Each monthly fit uses only information available before the decisions it controls."
       }
     ]
   },

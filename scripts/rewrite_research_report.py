@@ -13,6 +13,7 @@ from PIL import Image
 from pypdf import PdfReader
 
 from scripts import build_research_publication as pub
+from scripts.export_research_docx import export as export_docx
 from scripts.research_report_text import CAPTIONS, manuscript
 
 ROOT, PAPER, FIG = pub.ROOT, pub.PAPER, pub.FIG
@@ -257,6 +258,7 @@ def main():
                  'reports/p25_reversion_q/audit.json', 'data/p25_variance_premium_inputs.csv']:
         pub.source(path)
     for path in ['scripts/rewrite_research_report.py','scripts/build_research_publication.py',
+                 'scripts/export_research_docx.py',
                  'scripts/report_long_tenor_search.py','scripts/research_report_text.py',
                  'config/p25_submission.json', 'config/p25_validation_2018_2021.json',
                  'scripts/run_p25_validation_split.py', 'reports/p25_validation_split/selection.json',
@@ -300,6 +302,7 @@ def main():
         content=content.replace(url, f'<a href="{url}">{url}</a>')
     file.write_text(content)
     editable_text(pages)
+    export_docx(pages, pub.CHARTS, pub.PAPER_FIGURES, PAPER/'options_relative_value.docx')
     previews=[]
     for i in range(1,11):
         im=Image.open(PAPER/f'page_{i:02d}.png').convert('RGB'); im.thumbnail((306,396)); previews.append(im)
@@ -342,7 +345,7 @@ def main():
     audit=dict(status='complete',paper_pages=10,paper_word_count=words,figures=len(figure_order),
                source_hashes_verified=True,all_layout_checks_pass=True,
                prior_report_archived=True,presentation_unchanged=True,checkpoints_unchanged=True,
-               main_values_verified=True,models_or_backtests_rerun=False,
+               main_values_verified=True,editable_docx_verified=True,models_or_backtests_rerun=False,
                reader_revision='Retrospective2018–2021 selection and2022–2025 evaluation; filtered strategy primary; both-period fixed sizing controls; portfolio allocation proposed as next extension; final editorial cleanup and exact tie-break explanation',
                archived_report=str(archive.relative_to(PAPER)))
     (PAPER/'publication_audit.json').write_text(json.dumps(audit,indent=2))
@@ -350,10 +353,10 @@ def main():
        '.venv/bin/python -m scripts.run_signal_discovery_guarded --module scripts.rewrite_research_report --stop-file artifacts/submission/STOP --timeout 600 --duty-cycle 0.2 --rss-limit-mib 384 --min-free-percent 35 --warning-rss-limit-mib 384 --max-swap-growth-mib 64 --pause-low-headroom-seconds 60\n'
        'Install requirements-report.txt; restore submission caches first (see SUBMISSION.md).\n'
        'One worker;20% of one core; BLAS/Arrow threads1;384 MiB RSS stop. No fitting, backtest or deck editing.\n'
-       'Main PDF: options_relative_value.pdf; editable HTML: options_relative_value.html; prose: report_text.txt.\n'
+       'Main PDF: options_relative_value.pdf; editable Word: options_relative_value.docx; HTML: options_relative_value.html; prose: report_text.txt.\n'
        'Every chart: figures/*.svg and *.png; numeric figure tables: figure_data/*.csv.\n')
     with zipfile.ZipFile(PAPER/'report_and_visuals.zip','w',zipfile.ZIP_DEFLATED) as z:
-        for name in ['options_relative_value.pdf','options_relative_value.html','report_text.txt','manuscript.json',
+        for name in ['options_relative_value.pdf','options_relative_value.docx','options_relative_value.html','report_text.txt','manuscript.json',
                      'source_manifest.json','publication_audit.json','reproduction.txt']:
             z.write(PAPER/name,name)
         for k in figure_order:
