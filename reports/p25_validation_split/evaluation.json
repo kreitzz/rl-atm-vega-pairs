@@ -1,0 +1,20 @@
+{
+  "selection_sha256": "1d40c0838c64fc9ab6ba1609e23352589487557d334f2181d8609bd463da0058",
+  "arms": {
+    "screened_selected": "artifacts/contracts/p25_validation_split/replays/screened_selected",
+    "screened_fixed50": "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50",
+    "screened_fixed75": "artifacts/contracts/p25_validation_split/replays/screened_fixed75",
+    "screened_fixed100": "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100",
+    "ungated_selected": "artifacts/contracts/p25_ungated_search/replays/quarter_floor",
+    "ungated_fixed25": "artifacts/contracts/p25_ungated_search/replays/fixed25",
+    "ungated_fixed50": "artifacts/contracts/p25_ungated_search/replays/fixed50",
+    "ungated_fixed75": "artifacts/contracts/p25_ungated_search/replays/fixed75",
+    "ungated_fixed100": "artifacts/contracts/p25_memory_ablation/replays/no_memory_gate_fixed100",
+    "legacy_screened": "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_learned",
+    "legacy_ungated": "artifacts/contracts/p25_memory_ablation/replays/no_memory_gate"
+  },
+  "metrics": "Continuing cash books; period dollar profit is change in NAV-minus-cash-benchmark; relative growth rebases NAV/cash benchmark at preceding close",
+  "inherited_universe_and_instruments": true,
+  "retrospective_holdout": true,
+  "untouched_holdout": false
+}

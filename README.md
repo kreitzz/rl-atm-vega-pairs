@@ -2,7 +2,11 @@
 
 Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A frozen spread signal proposes trades; a contextual learner selects 50%, 75% or 100% vega exposure using monthly fits on completed past outcomes. The retained learner uses direct Sharpe optimization, not Q-learning.
 
-**Retained result: 1.003 annualized excess Sharpe**, versus **0.769** for fixed full sizing and **0.761** for fixed half sizing. These are actual-contract, $10m funded replays from January 2018 through August 2025, with the same 608 proposals and risk limits. Sizing changes inventory and admission, so executed portfolios differ. This is a selected historical research result with no fresh holdout.
+**Validation-selected filtered strategy:** RL achieves **0.573 versus 0.478** excess Sharpe at fixed full sizing in 2018–2021 validation, and **1.263 versus 1.055** in January 2022–August 2025 evaluation. All these comparisons use $10m funded accounts. Evaluation profit above cash is $248,673 versus $200,853. Selection ranks 33 archived screened configurations using only validation scores; the selected 27-input, 18-month, 50/75/100% policy keeps the profitability filter. Archived selection scores use the original $345m research account. This is a retrospective split within an inherited strategy and universe, not an untouched holdout.
+
+[New selection and findings](reports/p25_validation_split/findings.md) · [Both-period results](reports/p25_validation_split/periods.csv) · [Yearly results](reports/p25_validation_split/annual.csv) · [New configuration](config/p25_validation_2018_2021.json) · [Models and selection evidence](data/p25_validation_split_experiment.zip)
+
+The original **1.003 versus 0.769** full-history checkpoint remains preserved. Sizing changes inventory and admission, so portfolios differ; the new evaluation Sharpe-gain interval includes zero. The broader-pool validation winner did not beat fixed full sizing in the later period.
 
 [10-page paper](paper/options_relative_value.pdf) · [Latest saved presentation](slides/230ZB_volatility_spreads%20%281%29.pptx) · [Browser slides](slides/index.html) · [Submission and reproduction guide](SUBMISSION.md)
 

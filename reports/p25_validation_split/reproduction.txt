@@ -1,0 +1,6 @@
+Restore data/submission using scripts.submission --restore-cache. Then unzip -n the memory, ungated and validation-split experiment archives under data/.
+Run scripts.run_signal_discovery_guarded with module scripts.run_p25_validation_split and -- --phase PHASE. Phases: select,replay,evaluate,package,test.
+Use one worker, duty-cycle0.2, RSS limit384MiB,35%free headroom,64MiB maximum swap growth and60s low-headroom pause. No WRDS download needed.
+Selection already locked: select refuses replacement; replay resumes completed statuses. A fresh replay requires a separate checkout without the two restored new replay status files.
+The grid is a union of saved experiments, not a Cartesian search. Screened validation ranks original345m research books; funded evaluation uses10m. Ungated validation and evaluation both use10m.
+Monthly saved causal models are reused. This split did not refit models or change original checkpoints; only screened selected and fixed75 funded books are new.

@@ -99,6 +99,7 @@ def run(module,args,stop_file,timeout=1800,duty_cycle=DUTY_CYCLE,rss_limit_mib=1
     allowed.add('scripts.audit_p25_capital_policy')
     allowed.add('scripts.build_research_publication')
     allowed.add('scripts.rewrite_research_report')
+    allowed.add('scripts.run_p25_validation_split')
     allowed.add('scripts.run_year_reversion_management')
     allowed.add('scripts.run_year_cheap_vega')
     allowed.add('scripts.export_teammate_slides')

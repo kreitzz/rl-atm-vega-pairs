@@ -33,6 +33,7 @@ data/*
 !data/p25_earnings_experiment.zip
 !data/p25_memory_ablation_experiment.zip
 !data/p25_ungated_search_experiment.zip
+!data/p25_validation_split_experiment.zip
 !data/submission/
 !data/DATA_LICENSE.txt
 /artifacts/

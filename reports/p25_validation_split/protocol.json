@@ -1,0 +1,345 @@
+{
+  "validation": "2018-01-02 to2021-12-31",
+  "evaluation": "2022-01-03 to2025-08-29;2025 partial",
+  "ranking": "Highest validation annualized daily excess Sharpe; lexical candidate ID breaks ties",
+  "screened_validation_equity": 345000000,
+  "ungated_validation_equity": 10000000,
+  "candidate_grid": [
+    {
+      "candidate": "windows/6M_floor",
+      "pool": "screened",
+      "family": "windows",
+      "name": "6M_floor",
+      "folder": "artifacts/contracts/p25_recency/replays/6M_floor",
+      "allocation": "artifacts/contracts/p25_recency/replays/6M_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/9M_floor",
+      "pool": "screened",
+      "family": "windows",
+      "name": "9M_floor",
+      "folder": "artifacts/contracts/p25_recency/replays/9M_floor",
+      "allocation": "artifacts/contracts/p25_recency/replays/9M_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/12M_floor",
+      "pool": "screened",
+      "family": "windows",
+      "name": "12M_floor",
+      "folder": "artifacts/contracts/p25_recency/replays/12M_floor",
+      "allocation": "artifacts/contracts/p25_recency/replays/12M_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/18M_floor",
+      "pool": "screened",
+      "family": "windows",
+      "name": "18M_floor",
+      "folder": "artifacts/contracts/p25_recency/replays/18M_floor",
+      "allocation": "artifacts/contracts/p25_recency/replays/18M_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/24M_floor",
+      "pool": "screened",
+      "family": "windows",
+      "name": "24M_floor",
+      "folder": "artifacts/contracts/p25_recency/replays/24M_floor",
+      "allocation": "artifacts/contracts/p25_recency/replays/24M_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/12M_high_floor",
+      "pool": "screened",
+      "family": "windows",
+      "name": "12M_high_floor",
+      "folder": "artifacts/contracts/p25_recency/replays/12M_high_floor",
+      "allocation": "artifacts/contracts/p25_recency/replays/12M_high_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/12M_hl6",
+      "pool": "screened",
+      "family": "windows",
+      "name": "12M_hl6",
+      "folder": "artifacts/contracts/p25_recency/replays/12M_hl6",
+      "allocation": "artifacts/contracts/p25_recency/replays/12M_hl6/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/36M_hl6",
+      "pool": "screened",
+      "family": "windows",
+      "name": "36M_hl6",
+      "folder": "artifacts/contracts/p25_recency/replays/36M_hl6",
+      "allocation": "artifacts/contracts/p25_recency/replays/36M_hl6/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/36M_hl12",
+      "pool": "screened",
+      "family": "windows",
+      "name": "36M_hl12",
+      "folder": "artifacts/contracts/p25_recency/replays/36M_hl12",
+      "allocation": "artifacts/contracts/p25_recency/replays/36M_hl12/scored_allocations.parquet"
+    },
+    {
+      "candidate": "windows/5Y_reference",
+      "pool": "screened",
+      "family": "windows",
+      "name": "5Y_reference",
+      "folder": "artifacts/contracts/p25_recency/replays/5Y_reference",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/5Y_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/control",
+      "pool": "screened",
+      "family": "features",
+      "name": "control",
+      "folder": "artifacts/contracts/p25_feature_search/replays/control",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/control/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/rv_risk",
+      "pool": "screened",
+      "family": "features",
+      "name": "rv_risk",
+      "folder": "artifacts/contracts/p25_feature_search/replays/rv_risk",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/rv_risk/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/smile_price",
+      "pool": "screened",
+      "family": "features",
+      "name": "smile_price",
+      "folder": "artifacts/contracts/p25_feature_search/replays/smile_price",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/smile_price/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/smile_shape",
+      "pool": "screened",
+      "family": "features",
+      "name": "smile_shape",
+      "folder": "artifacts/contracts/p25_feature_search/replays/smile_shape",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/smile_shape/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/term_structure",
+      "pool": "screened",
+      "family": "features",
+      "name": "term_structure",
+      "folder": "artifacts/contracts/p25_feature_search/replays/term_structure",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/term_structure/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/physical_tail",
+      "pool": "screened",
+      "family": "features",
+      "name": "physical_tail",
+      "folder": "artifacts/contracts/p25_feature_search/replays/physical_tail",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/physical_tail/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/variance_premium",
+      "pool": "screened",
+      "family": "features",
+      "name": "variance_premium",
+      "folder": "artifacts/contracts/p25_feature_search/replays/variance_premium",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/variance_premium/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/iv_factor",
+      "pool": "screened",
+      "family": "features",
+      "name": "iv_factor",
+      "folder": "artifacts/contracts/p25_feature_search/replays/iv_factor",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/iv_factor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/volume_oi",
+      "pool": "screened",
+      "family": "features",
+      "name": "volume_oi",
+      "folder": "artifacts/contracts/p25_feature_search/replays/volume_oi",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/volume_oi/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/employee",
+      "pool": "screened",
+      "family": "features",
+      "name": "employee",
+      "folder": "artifacts/contracts/p25_feature_search/replays/employee",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/employee/scored_allocations.parquet"
+    },
+    {
+      "candidate": "features/transcripts",
+      "pool": "screened",
+      "family": "features",
+      "name": "transcripts",
+      "folder": "artifacts/contracts/p25_feature_search/replays/transcripts",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/transcripts/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/1Y_binary",
+      "pool": "screened",
+      "family": "actions",
+      "name": "1Y_binary",
+      "folder": "artifacts/contracts/p25_action_windows/replays/1Y_binary",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/1Y_binary/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/1Y_floor",
+      "pool": "screened",
+      "family": "actions",
+      "name": "1Y_floor",
+      "folder": "artifacts/contracts/p25_action_windows/replays/1Y_floor",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/1Y_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/1Y_quarter",
+      "pool": "screened",
+      "family": "actions",
+      "name": "1Y_quarter",
+      "folder": "artifacts/contracts/p25_action_windows/replays/1Y_quarter",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/1Y_quarter/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/1Y_flex",
+      "pool": "screened",
+      "family": "actions",
+      "name": "1Y_flex",
+      "folder": "artifacts/contracts/p25_action_windows/replays/1Y_flex",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/1Y_flex/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/3Y_binary",
+      "pool": "screened",
+      "family": "actions",
+      "name": "3Y_binary",
+      "folder": "artifacts/contracts/p25_action_windows/replays/3Y_binary",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/3Y_binary/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/3Y_floor",
+      "pool": "screened",
+      "family": "actions",
+      "name": "3Y_floor",
+      "folder": "artifacts/contracts/p25_action_windows/replays/3Y_floor",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/3Y_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/3Y_quarter",
+      "pool": "screened",
+      "family": "actions",
+      "name": "3Y_quarter",
+      "folder": "artifacts/contracts/p25_action_windows/replays/3Y_quarter",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/3Y_quarter/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/3Y_flex",
+      "pool": "screened",
+      "family": "actions",
+      "name": "3Y_flex",
+      "folder": "artifacts/contracts/p25_action_windows/replays/3Y_flex",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/3Y_flex/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/5Y_binary",
+      "pool": "screened",
+      "family": "actions",
+      "name": "5Y_binary",
+      "folder": "artifacts/contracts/p25_action_windows/replays/5Y_binary",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/5Y_binary/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/5Y_floor",
+      "pool": "screened",
+      "family": "actions",
+      "name": "5Y_floor",
+      "folder": "artifacts/contracts/p25_action_windows/replays/5Y_floor",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/5Y_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/5Y_quarter",
+      "pool": "screened",
+      "family": "actions",
+      "name": "5Y_quarter",
+      "folder": "artifacts/contracts/p25_action_windows/replays/5Y_quarter",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/5Y_quarter/scored_allocations.parquet"
+    },
+    {
+      "candidate": "actions/5Y_flex",
+      "pool": "screened",
+      "family": "actions",
+      "name": "5Y_flex",
+      "folder": "artifacts/contracts/p25_action_windows/replays/5Y_flex",
+      "allocation": "artifacts/contracts/p25_action_windows/replays/5Y_flex/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/ungated_baseline",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "ungated_baseline",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/ungated_baseline",
+      "allocation": "artifacts/contracts/p25_memory_ablation/replays/no_memory_gate/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/quarter_floor",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "quarter_floor",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/quarter_floor",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/quarter_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/skip_floor",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "skip_floor",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/skip_floor",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/skip_floor/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/flexible",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "flexible",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/flexible",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/flexible/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/tree16",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "tree16",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/tree16",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/tree16/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/window36",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "window36",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/window36",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/window36/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/tree4",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "tree4",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/tree4",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/tree4/scored_allocations.parquet"
+    },
+    {
+      "candidate": "ungated/window12",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "window12",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/window12",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/window12/scored_allocations.parquet"
+    }
+  ],
+  "previously_inspected_history": true,
+  "untouched_holdout": false,
+  "inherited_choices": "30D25-delta puts, roster/formation, direction screens and cost model fixed from prior research; not reselected here",
+  "training": "Monthly completed-outcome fits remain causal; later completed evaluation outcomes may train subsequent fits",
+  "evaluation_boundary": "Continuing books; carried inventory included; no reset at2022; no future-PnL filtering",
+  "original_checkpoints_preserved": true,
+  "automatic_promotion": false,
+  "resources": "One worker20%onecore,384MiB RSSstop,35%headroom,64MiB swapgrowth"
+}

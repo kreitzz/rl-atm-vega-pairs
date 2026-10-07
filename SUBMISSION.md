@@ -72,6 +72,10 @@ For paper generation, also install `requirements-report.txt`. The existing rebui
 
 ## Results and research history
 
+The revised paper uses **2018–2021 validation selection and 2022–29 August 2025 retrospective evaluation**, retaining the profitability filter. See [locked choices](reports/p25_validation_split/selection.json), [both-period metrics](reports/p25_validation_split/periods.csv), [yearly results](reports/p25_validation_split/annual.csv), and [reproduction](reports/p25_validation_split/reproduction.txt). The selected screened policy has 27 inputs and improves funded excess Sharpe from 0.478 to 0.573 in validation and from 1.055 to 1.263 in evaluation. Original checkpoints and all earlier research results remain intact. The separate broader-pool experiment underperforms its later fixed-full control.
+
+For this additional experiment, restore the existing memory and ungated archives, then extract [data/p25_validation_split_experiment.zip](data/p25_validation_split_experiment.zip) with `unzip -n`. Its [manifest](reports/p25_validation_split/bundle_manifest.json) records hashes for 273 files: archived candidate NAV/allocations, 90 selected screened monthly models, and the two new funded replay ledgers. Selection uses archived $345m screened validation accounts; the selected policy and all final controls use $10m. The grid and universe inherit prior research, and the later dates were previously inspected. Treat this as a retrospective evaluation, not fresh evidence unaffected by research selection.
+
 | Question | Saved evidence |
 |---|---|
 | Does adaptive sizing improve the retained signal? | [Capital comparison](reports/p25_capital_sensitivity/comparison.csv), [yearly results](reports/p25_capital_sensitivity/annual.csv), [audit](reports/p25_capital_sensitivity/audit.json) |

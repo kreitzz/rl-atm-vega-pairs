@@ -1,0 +1,31 @@
+{
+  "validation_end": "2021-12-31",
+  "evaluation_start": "2022-01-01",
+  "selected": {
+    "screened": {
+      "candidate": "features/control",
+      "pool": "screened",
+      "family": "features",
+      "name": "control",
+      "folder": "artifacts/contracts/p25_feature_search/replays/control",
+      "allocation": "artifacts/contracts/p25_feature_search/replays/control/scored_allocations.parquet",
+      "validation_sharpe": 0.5754357626978591,
+      "nav_sha256": "c5b3621886694d77c572d195fccbc6af570b2b056b86a0b2fc8bbca8eb24943b",
+      "allocations_sha256": "88066cc0be375cf07e7e337dfc4c653cfec8990180841f72e00bb7a79d43bd73"
+    },
+    "ungated": {
+      "candidate": "ungated/quarter_floor",
+      "pool": "ungated",
+      "family": "ungated",
+      "name": "quarter_floor",
+      "folder": "artifacts/contracts/p25_ungated_search/replays/quarter_floor",
+      "allocation": "artifacts/contracts/p25_ungated_search/replays/quarter_floor/scored_allocations.parquet",
+      "validation_sharpe": 1.309199919966225,
+      "nav_sha256": "e987aa6d70aa9c7cd9f75e6bdc55e009ad6820b06bc4aad52b69c42fed62740a",
+      "allocations_sha256": "b81c5f15118caffffc14e45e091d49a797a30437d3bffd8cdc3db7f91298f325"
+    }
+  },
+  "ranking_depends_only_on_validation": true,
+  "untouched_holdout": false,
+  "candidate_grid_sha256": "e8d607e8f7cfe78562e6aa9c7ba3fd7a7b957551386162052cae625d5a7299bd"
+}

@@ -351,7 +351,8 @@ class PaperPage:
 
 def render_paper(pages):
     checks=[]
-    with PdfPages(PAPER/'options_relative_value.pdf') as pdf:
+    partial=PAPER/'.options_relative_value.partial.pdf'
+    with PdfPages(partial) as pdf:
         pdf.infodict().update(Title='From Equity Pairs to Options Relative Value',Author='Adam Kreitzman and Soo Xin Yang',Subject='MFE230Z research report; ten pages')
         for i,page in enumerate(pages,1):
             canvas=PaperPage(i,page['title'],page.get('subtitle',''))
@@ -369,6 +370,7 @@ def render_paper(pages):
             gc.collect()
     if any(c['overflow'] for c in checks):
         raise ValueError(f'Page layout overflow: {checks}')
+    partial.replace(PAPER/'options_relative_value.pdf')
     css='''@page{size:letter;margin:0}body{margin:0;background:#e9edf2;color:#202832;font:10.1pt/1.30 Georgia,serif}.page{box-sizing:border-box;width:8.5in;height:11in;padding:.55in .69in;background:white;margin:20px auto;page-break-after:always;position:relative}h1,h2{font-family:Arial,sans-serif;color:#2463a6}h1{font-size:17pt}h2{font-size:12pt;margin:12px 0 6px}p{margin:0 0 7px}.meta,figcaption{font:8pt/1.3 Arial,sans-serif;color:#66717e}figure{margin:6px 0 10px}figure img{width:100%;object-fit:contain}table{width:100%;border-collapse:collapse;font:9pt Arial,sans-serif;margin:10px 0}td,th{padding:5px;text-align:left;border-bottom:1px solid #e2e7ec}th{background:#edf2f7;color:#2463a6}.eq{color:#2463a6}footer{position:absolute;bottom:.3in;font:8pt Arial,sans-serif;color:#66717e}@media print{body{background:white}.page{margin:0}}'''
     sections=[]
     for i,page in enumerate(pages,1):
