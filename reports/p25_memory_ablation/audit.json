@@ -1,0 +1,10 @@
+{
+  "monthly_models": 180,
+  "completed_outcomes_only": true,
+  "evaluation_not_filtered_by_future_labels": true,
+  "baseline_full_ledger_exact": true,
+  "memory_features_retained": true,
+  "original_proposal_inputs_exact": true,
+  "no_checkpoint_promotion": true,
+  "original_checkpoint_unchanged": true
+}

@@ -14,4 +14,8 @@ Training commission is $0.65 per contract; execution uses $0.03 plus a 0.10 vol-
 
 The earlier ATM result and your teammate's equity/Q-learning experiments remain in the history. Newer standalone one-year cheap-vega tests lost money after costs and are reported separately.
 
+[Earnings-state test](reports/p25_earnings/findings.md): adding earnings countdowns to sizing gave 0.977 Sharpe with historical dates assumed known and 0.956 with dates estimated from prior reports, versus 1.003 retained. [Inputs, fitted models and replay archive](data/p25_earnings_experiment.zip).
+
+[Profitability-memory gate test](reports/p25_memory_ablation/findings.md): removing profit requirements gave 0.626 Sharpe; removing those and count minimums gave 0.835, with 1,334 trades and $787k above cash versus 212 trades and $323k retained. The ungated fixed-size control scored 0.713. [Reproduction archive](data/p25_memory_ablation_experiment.zip).
+
 **Academic use only.** Third-party data remain subject to vendor and institutional licenses; this notice grants no additional data rights. This repository remains private. [Data-use notice](data/DATA_LICENSE.txt).

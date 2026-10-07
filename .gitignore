@@ -28,6 +28,10 @@ data/*
 !data/current_rl_pairs.csv
 !data/current_rl_data_manifest.json
 !data/p25_variance_premium_inputs.csv
+!data/p25_earnings_historical_calendar_inputs.csv
+!data/p25_earnings_prior_reports_only_inputs.csv
+!data/p25_earnings_experiment.zip
+!data/p25_memory_ablation_experiment.zip
 !data/submission/
 !data/DATA_LICENSE.txt
 /artifacts/

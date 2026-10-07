@@ -1,0 +1,22 @@
+{
+  "comparison": "Retained $10m 1.003 Sharpe policy versus two declared earnings-state additions",
+  "cases": [
+    "historical_calendar",
+    "prior_reports_only"
+  ],
+  "new_inputs": [
+    "long_earnings_days",
+    "long_earnings_days_available",
+    "short_earnings_days",
+    "short_earnings_days_available",
+    "long_earnings_before_expiry",
+    "long_earnings_before_expiry_available",
+    "short_earnings_before_expiry",
+    "short_earnings_before_expiry_available"
+  ],
+  "unchanged": "All 608 proposals, direction, contracts, 33 original inputs, monthly 18-month completed-outcome fits, 8-leaf tree, CEM50x192 seed2026, 50/75/100 sizing, costs, financing, expiry holding and risk limits",
+  "earnings": "Historical_calendar assumes final historical report dates known at signal close. Prior_reports_only uses strictly earlier reports and median of last eight observed inter-report gaps, clipped70-120days, fallback91days. Countdowns capped90days; missing inputs receive zero and explicit availability, never a proposal veto. ETF has no issuer earnings event.",
+  "timing": "Before-open versus after-close release time is unknown. Same-day reports are excluded from prior-report information; known-calendar mode counts same-day events as possibly inside the contract.",
+  "limitations": "Previously explored evaluation history, retrospective pair formation, revised vendor data and no fresh holdout. Earnings features change partition/sizing, not the directional entry rule. No automatic checkpoint promotion.",
+  "resources": "One worker,20%of one core,384MiB RSS stop,35%headroom,64MiB maximum swap growth"
+}

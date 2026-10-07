@@ -86,6 +86,8 @@ def run(module,args,stop_file,timeout=1800,duty_cycle=DUTY_CYCLE,rss_limit_mib=1
     allowed.update({'scripts.continue_atm_nn_cost_hurdles', 'scripts.audit_atm_nn_cost_hurdles_complete'})
     allowed.add('scripts.report_atm_nn_full_roster')
     allowed.add('scripts.run_p25_feature_search')
+    allowed.add('scripts.run_p25_earnings')
+    allowed.add('scripts.run_p25_memory_ablation')
     allowed.add('scripts.run_p25_variance_validation')
     allowed.add('scripts.finalize_p25_variance_candidate')
     allowed.add('scripts.diagnose_p25_variance_years')

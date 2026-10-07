@@ -1,0 +1,9 @@
+case,feature,rows_available,proposal_available
+historical_calendar,long_earnings_days,36327,608
+historical_calendar,short_earnings_days,36327,608
+historical_calendar,long_earnings_before_expiry,36327,608
+historical_calendar,short_earnings_before_expiry,36327,608
+prior_reports_only,long_earnings_days,36327,608
+prior_reports_only,short_earnings_days,36327,608
+prior_reports_only,long_earnings_before_expiry,36327,608
+prior_reports_only,short_earnings_before_expiry,36327,608

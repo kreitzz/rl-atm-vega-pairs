@@ -1,0 +1,4 @@
+case,proposals,pairs,all_historical_rows,completed_training_rows
+retained_baseline,608,46,1596,1482
+counts_only,3484,62,11604,10847
+no_memory_gate,4744,78,14868,13531

@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "monthly_models": 180,
+  "all_608_proposals_preserved": true,
+  "no_earnings_gate": true,
+  "baseline_initial_fit_exact": true,
+  "completed_outcomes_only": true,
+  "baseline_full_nav_trades_decisions_exact": true,
+  "original_checkpoint_unchanged": true,
+  "known_calendar_is_assumption": true,
+  "no_checkpoint_promotion": true,
+  "peak_worker_rss_mib": 198.578125
+}

@@ -1,0 +1,19 @@
+{
+  "cases": [
+    "counts_only",
+    "no_memory_gate"
+  ],
+  "base_checkpoint": "config/p25_submission.json",
+  "features": "All original 33, including memory",
+  "code_sha256": {
+    "scripts/run_p25_memory_ablation.py": "58a37bef3d6e12ed2bbdfd18cb7ba64c5d3e270789fc1955884a8aadcae2c6aa",
+    "scripts/run_p25_earnings.py": "0c51b536f9fcde10de0a6346db091ce82d966a0cc94deeb075231966c7a725b6",
+    "scripts/uniform_smile_engine.py": "d4a4996d1f966f78104d4eb5f402de3ab6ff93be2676069b2a316c386196c74a",
+    "scripts/uniform_smile_risk.py": "29462843c4716920ea39e5b99d0fe032343ba42a4229f41b8a710ad959fa80b1",
+    "scripts/submission_market.py": "eb6e34dab48f27175b18f05330ff44f79a221ea292a0ce3edd2b3593f906d306",
+    "scripts/cheap_vega_runtime.py": "586bd66b0998ea4a6c6c8e5cd1db1fb341abdc5307b96983ca81064502ff0b86"
+  },
+  "unchanged": "Spread rule, formation/context, contracts, costs, monthly18m completed-only fits,8leaf CEM50x192seed2026,50/75/100 sizing, expiry/dailyhedges,10m capital and inherited risk limits",
+  "changes": "counts_only removes two profit>0 tests; no_memory_gate also removes count91>=21/count365>=63. Both include fixed100 sizing controls.",
+  "evaluation": "2018-01-02 to2025-08-29;last_signal2025-06-30;never gate on finite_label/end or future coverage"
+}

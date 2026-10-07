@@ -1,0 +1,13 @@
+case,event_group,proposals,mean_requested_size
+retained_baseline,both,125,0.748
+retained_baseline,long_only,7,0.5714285714285714
+retained_baseline,short_only,132,0.6515151515151515
+retained_baseline,neither,344,0.7390988372093024
+historical_calendar,both,125,0.73
+historical_calendar,long_only,7,0.5714285714285714
+historical_calendar,short_only,132,0.6685606060606061
+historical_calendar,neither,344,0.7318313953488372
+prior_reports_only,both,125,0.734
+prior_reports_only,long_only,7,0.5714285714285714
+prior_reports_only,short_only,132,0.6912878787878788
+prior_reports_only,neither,344,0.7463662790697675

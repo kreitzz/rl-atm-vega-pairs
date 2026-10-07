@@ -1,0 +1,3 @@
+case,sharpe_change,lower,upper,block_sessions,draws,selection_adjusted
+historical_calendar,-0.025884521531809535,-0.14118854199023903,0.04266286051509715,126,1000,False
+prior_reports_only,-0.04710899659680745,-0.16435380114161685,0.01948604002363211,126,1000,False

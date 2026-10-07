@@ -1,0 +1,5 @@
+Use requirements.txt and the existing submission cache in data/submission.
+Restore saved earnings models and replay states: unzip -n data/p25_earnings_experiment.zip
+Run one phase at a time with .venv/bin/python -m scripts.run_signal_discovery_guarded --module scripts.run_p25_earnings --stop-file artifacts/contracts/p25_earnings/STOP --timeout 1800 --duty-cycle 0.2 --rss-limit-mib 384 --min-free-percent 35 --warning-rss-limit-mib 384 --max-swap-growth-mib 64 --pause-low-headroom-seconds 60 -- --phase PHASE
+Phases: test, prepare, train, score, replay, summarize, package. The saved models and completed statuses make these resumable. To refit from scratch, use a separate checkout and remove only its restored earnings models before train. To rerun a portfolio, preserve its status.json under a different name first.
+Calendar source: corrected Compustat quarterly report dates; the exported earnings_calendar.csv can rebuild the feature panel when the original WRDS path is unavailable. Historical_calendar assumes future event dates known; prior_reports_only uses earlier reports. Original checkpoints and paper are unchanged.
