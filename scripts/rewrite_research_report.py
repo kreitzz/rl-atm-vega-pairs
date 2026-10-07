@@ -221,21 +221,34 @@ def main():
     annual = pub.frame('reports/p25_validation_split/annual.csv')
     annual=annual.loc[annual.case.eq('screened_selected') & annual.year.ge(2022)]
     split=pub.frame('reports/p25_validation_split/periods.csv').set_index(['case','period'])
-    boxes('research_map', ['Find a trade', 'Choose its size', 'Test further decisions'],
-          ['Relative option pricing\nPast trading evidence', 'Half, three-quarter or full\nLearn from completed trades', 'When to exit\nHow to combine strategies'],
-          CAPTIONS['research_map'], ['config/p25_submission.json'])
-    boxes('workflow', ['Signal close', 'Next session', 'While holding', 'Expiry'],
-          ['Select contracts\nUse prior information', 'Choose size and fill\nCheck account limits', 'Adjust stock hedge\nTrack cash flows', 'Settle each option\nRecord total profit'],
-          CAPTIONS['workflow'], ['config/p25_submission.json'])
-    boxes('allocation_model', ['Past completed trades', 'Group similar conditions', 'Choose exposure'],
-          ['Most recent 18 months\nRefit each month', 'A small regression tree\nAt most eight groups', 'Search size assignments\nMaximize historical Sharpe'],
-          CAPTIONS['allocation_model'], ['config/p25_submission.json'])
-    participation_chart(split)
-    split_feature_chart()
-    split_wealth_chart()
+    extensions=pub.frame('reports/p25_validation_split/extensions_periods.csv').set_index(['group','arm','period'])
+    if '--reuse-charts' in sys.argv:
+        # Editorial rebuilds may reuse audited chart files only with unchanged sources.
+        for name in CAPTIONS:
+            assert name in previous['charts'], f'Missing cached chart: {name}'
+            for path in previous['charts'][name]['sources']:
+                assert pub.SOURCES[path]==previous['sources'][path], f'Changed chart source: {path}'
+            for ext in ['png','svg']:
+                assert (FIG/f'{name}.{ext}').exists()
+    else:
+        boxes('research_map', ['Find a trade', 'Choose its size', 'Test further decisions'],
+              ['Relative option pricing\nPast trading evidence', 'Half, three-quarter or full\nLearn from completed trades', 'When to exit\nHow to combine strategies'],
+              CAPTIONS['research_map'], ['config/p25_submission.json'])
+        boxes('workflow', ['Signal close', 'Next session', 'While holding', 'Expiry'],
+              ['Select contracts\nUse prior information', 'Choose size and fill\nCheck account limits', 'Adjust stock hedge\nTrack cash flows', 'Settle each option\nRecord total profit'],
+              CAPTIONS['workflow'], ['config/p25_submission.json'])
+        boxes('allocation_model', ['Past completed trades', 'Group similar conditions', 'Choose exposure'],
+              ['Most recent 18 months\nRefit each month', 'A small regression tree\nAt most eight groups', 'Search size assignments\nMaximize historical Sharpe'],
+              CAPTIONS['allocation_model'], ['config/p25_submission.json'])
+        boxes('portfolio_extension', ['Separate signals', 'Portfolio state', 'Joint allocation'],
+              ['Validate each separately\nFreeze trade proposals', 'Inventory, capital and stress\nDependence between signals', 'Allocate vega budgets\nReward from one shared ledger'],
+              CAPTIONS['portfolio_extension'], ['config/p25_validation_2018_2021.json'])
+        participation_chart(split)
+        split_feature_chart()
+        split_wealth_chart()
+        annual_chart(annual)
     for name, caption in CAPTIONS.items():
         pub.CHARTS[name]['caption'] = caption
-    annual_chart(annual)
     for path in ['reports/atm65_employee_sentiment.md','reports/p25_variance_validation/research_summary.txt',
                  'reports/long_tenor_search_summary/core_comparison.csv',
                  'reports/long_expiry_parity/findings.txt','reports/p25_reversion_q/findings.txt',
@@ -245,9 +258,11 @@ def main():
                  'scripts/report_long_tenor_search.py','scripts/research_report_text.py',
                  'config/p25_submission.json', 'config/p25_validation_2018_2021.json',
                  'scripts/run_p25_validation_split.py', 'reports/p25_validation_split/selection.json',
-                 'reports/p25_validation_split/protocol.json', 'reports/year_cheap_vega/comparison.csv']:
+                 'reports/p25_validation_split/protocol.json', 'reports/p25_validation_split/extensions_selection.json',
+                 'reports/p25_validation_split/extensions_protocol.json',
+                 'reports/p25_validation_split/extensions_periods.csv', 'reports/year_cheap_vega/comparison.csv']:
         pub.source(path)
-    pages=manuscript(cap,fit,annual,ungated,split)
+    pages=manuscript(cap,fit,annual,ungated,split,extensions)
     figure_order=[b['name'] for page in pages for b in page['blocks'] if b['type']=='chart']
     assert len(figure_order)==len(set(figure_order))
     pub.PAPER_FIGURES={k:i+1 for i,k in enumerate(figure_order)}
@@ -291,7 +306,7 @@ def main():
     sheet.save(PAPER/'contact_sheet.png')
     reader=PdfReader(PAPER/'options_relative_value.pdf')
     extracted='\n'.join(p.extract_text() for p in reader.pages)
-    for expected in ['1.263','1.055','0.573','0.478','0.456','0.567','0.598','0.313','0.610','1.029']:
+    for expected in ['1.263','1.055','0.573','0.478','1.007','0.944','0.234']:
         assert expected in extracted,expected
     assert len(reader.pages)==10
     for path,digest in before.items():assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,path
@@ -326,7 +341,7 @@ def main():
                source_hashes_verified=True,all_layout_checks_pass=True,
                prior_report_archived=True,presentation_unchanged=True,checkpoints_unchanged=True,
                main_values_verified=True,models_or_backtests_rerun=False,
-               reader_revision='Retrospective2018–2021 selection and2022–2025 evaluation; filtered strategy primary; both-period fixed sizing controls; earlier extensions separately scoped',
+               reader_revision='Retrospective2018–2021 selection and2022–2025 evaluation; filtered strategy primary; both-period fixed sizing controls; portfolio allocation proposed as next extension; updated management results supplemental',
                archived_report=str(archive.relative_to(PAPER)))
     (PAPER/'publication_audit.json').write_text(json.dumps(audit,indent=2))
     (PAPER/'reproduction.txt').write_text('Rebuild only the report from saved results:\n'

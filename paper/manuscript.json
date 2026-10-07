@@ -184,7 +184,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates potential losses under large moves; reserves approximate capital tied up by open positions. These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons."
+        "text": "Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and wing. These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons."
       }
     ]
   },
@@ -222,7 +222,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; page 10 discusses the separate participation ablation."
+        "text": "The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; supporting results examine the participation ablation."
       }
     ]
   },
@@ -340,21 +340,21 @@
         ],
         "rows": [
           [
-            "Always half size",
+            "Fixed half size",
             "0.437",
             "1.007",
             "151",
             "$204,913"
           ],
           [
-            "Always three-quarter size",
+            "Fixed three-quarter size",
             "0.449",
             "0.944",
             "104",
             "$195,021"
           ],
           [
-            "Always full size",
+            "Fixed full size",
             "0.478",
             "1.055",
             "75",
@@ -421,7 +421,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Average reserve is 2.44% of equity and peak reserve is 15.77% for the screened learner. Reserve equals gross option premium plus half of gross netted stock-hedge notional; it is not broker margin. Shared-account limits can block a proposal even when average deployment is low."
+        "text": "Average reserve is 2.44% of equity and peak reserve is 15.77%. Reserve equals gross option premium plus half of gross netted stock-hedge notional, rather than broker margin. Most entry rejections arise from the pair-level stress cap: low account-wide reserve does not ensure capacity within a pair."
       },
       {
         "type": "chart",
@@ -447,58 +447,32 @@
     ]
   },
   {
-    "title": "9. Extensions and what we learned",
+    "title": "9. Extension: learning across trading signals",
     "blocks": [
       {
         "type": "paragraph",
-        "text": "The earlier experiments below provide context for the retained approach. They use their original 2018–2025 research comparisons, not configurations newly selected by the 2018–2021 validation rule. Longer-dated experiments also test when to reduce or close positions: an exit can avoid losses, surrender future hedge gains and incur another spread."
+        "text": "The retained learner answers a focused question: how much exposure should one qualified trade receive? A broader extension would ask how to weave several trading signals into one portfolio. A good signal can still be unattractive when existing positions already carry the same risk."
       },
       {
-        "type": "table",
-        "headers": [
-          "Earlier exploratory experiment",
-          "Control Sharpe",
-          "Learned alternative"
-        ],
-        "rows": [
-          [
-            "30-day puts: optional management",
-            "1.003 hold",
-            "1.029, 36-month fit"
-          ],
-          [
-            "30-day puts: fitted-Q exits",
-            "1.003 hold",
-            "0.598, same 212 entries"
-          ],
-          [
-            "180-day puts: conservative Q",
-            "0.592 hold",
-            "0.610 managed"
-          ],
-          [
-            "365-day puts: new entry signal",
-            "0.254 fixed half",
-            "0.313 learned size"
-          ]
-        ],
-        "widths": [
-          234,
-          116,
-          162
-        ]
+        "type": "chart",
+        "name": "portfolio_extension",
+        "height": 80
       },
       {
         "type": "paragraph",
-        "text": "Compare policies within each row; maturities, signals and fitting procedures differ across rows. The short-dated fitted-Q experiment learns continuation values from actual profit rather than the motivating paper’s known-mean reward. It weakens performance despite keeping the original entries. Longer-dated options benefit modestly in selected tests, but sizing and management do not consistently reinforce each other."
+        "text": "Each signal would first be developed and evaluated separately, then its trade proposals frozen. Candidate families could target different parts of the smile, maturities or pricing relationships. Matched puts and calls at the same strike would not count as independent signals merely because the contracts differ."
       },
       {
         "type": "paragraph",
-        "text": "Relaxing the profitability and observation-count screens supplies more trades. A separate validation search selects a 25–100% ladder from eight broader-pool candidates. Its later Sharpe is 0.456 versus 0.567 at fixed full size; profit is $278,895 versus $330,791. More participation does not reproduce the sizing advantage, which supports keeping the filter in the main strategy."
+        "text": "The portfolio state would combine signal strength and completed profitability with current positions, committed capital, stress exposure and estimated dependence between signals. The action would allocate vega budgets across qualified proposals, including zero additional exposure. Both legs of an admitted pair would retain the same delta-hedging and initial vega-matching rules."
       },
       {
         "type": "paragraph",
-        "text": "A 25-delta put trades downside volatility, like a 75-delta call at the same strike and expiry. Matched-contract checks found similar profits before costs; quotes, execution and hedge financing affect net differences. These effects should be checked before claiming a separate signal."
+        "text": "The objective would be portfolio excess Sharpe, measured from one shared cash and inventory ledger after costs and financing. Today’s allocation changes tomorrow’s capacity and exposure, making this a sequential portfolio problem. We would compare it with fixed budgets and independently sized signals under identical limits, then evaluate the frozen allocation procedure on later dates."
+      },
+      {
+        "type": "paragraph",
+        "text": "The revised management and longer-tenor comparisons remain in the supporting results. They do not yet establish that portfolio RL improves diversification. The proposed contribution is learning interactions among separately useful signals."
       },
       {
         "type": "heading",
@@ -522,7 +496,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Repository: github.com/kreitzz/rl-atm-vega-pairs. New selection: config/p25_validation_2018_2021.json; original checkpoint: config/p25_submission.json. Sources, ledgers and selection records accompany the report. Academic use only; vendor data retain their institutional license restrictions."
+        "text": "Repository: github.com/kreitzz/rl-atm-vega-pairs. Selection and extension tables: reports/p25_validation_split. Sources: paper/source_manifest.json. Academic use only; vendor data retain their institutional license restrictions."
       },
       {
         "type": "heading",
@@ -530,7 +504,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Learning entry size was more promising than learning when to exit. The validation-selected screened policy achieved higher historical excess Sharpe than constant exposure in 2022–2025. The improvement appears in both validation and later evaluation, while the broader-pool ablation shows that it depends on the trading setup. The estimated improvements remain uncertain. These results support further study of adaptive exposure in options relative-value strategies, with a fresh evaluation needed before claiming a robust learning advantage."
+        "text": "Learning entry size was more promising than learning exits. The filtered policy improves historical excess Sharpe over fixed exposure in both validation and later evaluation, while uncertainty remains. The next question is whether learning exposure across separately validated signals can turn this local sizing benefit into better portfolio construction."
       }
     ]
   }

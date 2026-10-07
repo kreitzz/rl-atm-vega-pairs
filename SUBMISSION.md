@@ -76,6 +76,8 @@ The revised paper uses **2018–2021 validation selection and 2022–29 August 2
 
 For this additional experiment, restore the existing memory and ungated archives, then extract [data/p25_validation_split_experiment.zip](data/p25_validation_split_experiment.zip) with `unzip -n`. Its [manifest](reports/p25_validation_split/bundle_manifest.json) records hashes for 273 files: archived candidate NAV/allocations, 90 selected screened monthly models, and the two new funded replay ledgers. Selection uses archived $345m screened validation accounts; the selected policy and all final controls use $10m. The grid and universe inherit prior research, and the later dates were previously inspected. Treat this as a retrospective evaluation, not fresh evidence unaffected by research selection.
 
+[Extensions](reports/p25_validation_split/extensions_findings.md) also use the revised date split. The saved causal fits and funded ledgers cover 12 separate comparisons; the 30-day management rows retain their original 33-input entry policy. Extract [data/p25_validation_extensions.zip](data/p25_validation_extensions.zip) to restore declared candidate NAV and selected/control decisions. Under the same guarded runner, use `--phase extensions-select` followed by `--phase extensions-evaluate`; existing selection locks are preserved. No raw quotes or new fitting are needed. Native one-year rows use the corrected `return_reconciled_v2` histories, replacing the old figures.
+
 | Question | Saved evidence |
 |---|---|
 | Does adaptive sizing improve the retained signal? | [Capital comparison](reports/p25_capital_sensitivity/comparison.csv), [yearly results](reports/p25_capital_sensitivity/annual.csv), [audit](reports/p25_capital_sensitivity/audit.json) |

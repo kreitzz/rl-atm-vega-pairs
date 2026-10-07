@@ -6,6 +6,8 @@ Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A 
 
 [New selection and findings](reports/p25_validation_split/findings.md) · [Both-period results](reports/p25_validation_split/periods.csv) · [Yearly results](reports/p25_validation_split/annual.csv) · [New configuration](config/p25_validation_2018_2021.json) · [Models and selection evidence](data/p25_validation_split_experiment.zip)
 
+[Extensions on the same date split](reports/p25_validation_split/extensions_findings.md): saved management, longer-tenor put/call sizing and corrected one-year entry histories are re-evaluated separately. Validation chooses each learned variant; later results remain mixed. [Both-period table](reports/p25_validation_split/extensions_periods.csv) · [Ledger archive](data/p25_validation_extensions.zip).
+
 The original **1.003 versus 0.769** full-history checkpoint remains preserved. Sizing changes inventory and admission, so portfolios differ; the new evaluation Sharpe-gain interval includes zero. The broader-pool validation winner did not beat fixed full sizing in the later period.
 
 [10-page paper](paper/options_relative_value.pdf) · [Latest saved presentation](slides/230ZB_volatility_spreads%20%281%29.pptx) · [Browser slides](slides/index.html) · [Submission and reproduction guide](SUBMISSION.md)

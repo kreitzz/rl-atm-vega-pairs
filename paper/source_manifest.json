@@ -34,13 +34,13 @@
     "reports/p25_reversion_q/findings.txt": "0def9acf9be4180dd8ef1e89fa278ca43b381669a3a7ed47103a9ca72581bb58",
     "reports/p25_reversion_q/audit.json": "8c1b5f9c59030d1bd319caf4f46b2000a771b0abaeb66724e985b07fe133b9ae",
     "data/p25_variance_premium_inputs.csv": "8e99c2bb448e65e38a87d1e2410c5769d829c7797b5d698e2e8b496e28167ae9",
-    "scripts/rewrite_research_report.py": "0c9c321f6e53b9c80a74968e2cf05ce04afd266ca190195d277686a7a76eefa8",
+    "scripts/rewrite_research_report.py": "5427075966a55e4a369e3a3c88ec01033eba6f14ef9f728bb1e044ee78f951d8",
     "scripts/build_research_publication.py": "4db0360e0ed81e2eb7893d0aa79fd924cebe3d24e7e93a592de077eeb84ddbd2",
     "scripts/report_long_tenor_search.py": "81a058e18199ea473d5b710170b9f0ca2f3dc0e36d941d384e5a42f56248097f",
     "reports/native_year_entry/comparison.csv": "ed1c1aa720996e6b5b86303adc5165a92becc2a2b800485305a9e21287d7b5b0",
     "reports/p25_reversion_q/annual.csv": "534b2cda97efb858c2551fddd791f9fe348b50c076661656abfb56ba19f45b30",
     "config/p25_submission.json": "f1f1a20ba9fab6adfc78da053292ccd4073943adfab15391ef67f6b398a32659",
-    "scripts/research_report_text.py": "f4de73197b672e0f1c808676cea09e792d37d1e6e3aa6cfb06b5d22704bfcffd",
+    "scripts/research_report_text.py": "55851fd5ba1120969054d31dd96f603195cdfa41e2b42b5153e41762d4cf471e",
     "reports/year_cheap_vega/comparison.csv": "494c0bfca3de5908282204ea446768dd51415968b2ab7157ab08d822908a52f2",
     "reports/p25_ungated_search/comparison.csv": "fde1b377bcc0808236913c1dcc084cad4b3de9ac9ea626cdb1fe5a45d9052eae",
     "reports/p25_memory_ablation/comparison.csv": "4033bfb399eeeb0b5cd6dbeba7d49f4862f81c768ab3d704bd16d9d5cdc7c9b6",
@@ -52,7 +52,7 @@
     "reports/p25_validation_split/validation_candidates.csv": "960cc352202f455e3cc042fc3ec07d0e22136ec091af7b376942673f43c3b747",
     "reports/p25_validation_split/holdout_paths.csv": "bd43500aa83d04f67c00c9ba0183d5dfd876c15a03f543c8f351ca1fdf584173",
     "config/p25_validation_2018_2021.json": "370f913f9b944e79b7b707bfea0358fc4ef8a1257d3b59dedc7d491aa656ebaf",
-    "scripts/run_p25_validation_split.py": "d73b33b7ab696ade4925874875f0601d4a57fd6eab7a2127489665d230369230",
+    "scripts/run_p25_validation_split.py": "7b5933d40de3b1d99c7d1a5b68c32896e0521c9eebc2ae0419abe7b0cf9c683d",
     "reports/p25_validation_split/selection.json": "1d40c0838c64fc9ab6ba1609e23352589487557d334f2181d8609bd463da0058",
     "reports/p25_validation_split/protocol.json": "e8d607e8f7cfe78562e6aa9c7ba3fd7a7b957551386162052cae625d5a7299bd",
     "reports/p25_validation_split/reproduction.txt": "e34934b5c35338331ee03ce25397829a90301fd1d5421032a24ef2c113d5c4d0",
@@ -61,7 +61,14 @@
     "reports/p25_validation_split/admission.csv": "d967f601a611e114e2e3f96eac4e868cf19c9ca71c8d3f0a479fd00496962390",
     "reports/p25_validation_split/evaluation.json": "58324efa50cb9b2b1d8159898228968d4a273c870615012650ab74a1f309bd39",
     "reports/p25_validation_split/bundle_manifest.json": "619db3752f1d507f71ad495256ddc63a0f0f2f1eab9999d0f03042059b9c00e7",
-    "reports/p25_validation_split/holdout_intervals.csv": "35eecd9bea00bf42b7be6e7723c26c21994fa367d22687ff9fa3fc191dda6b31"
+    "reports/p25_validation_split/holdout_intervals.csv": "35eecd9bea00bf42b7be6e7723c26c21994fa367d22687ff9fa3fc191dda6b31",
+    "reports/p25_validation_split/extensions_periods.csv": "5f5a43d5651e40c2aa23913d076233ccd654e261e0710ec0f767929954b7a75e",
+    "reports/p25_validation_split/extensions_selection.json": "0754f313b72a24fe2f0dc95533d4de8aeb0466ec91eac37b16c64e44b69bcf3b",
+    "reports/p25_validation_split/extensions_protocol.json": "b8526c31913c6c25f918fca16a3420fef7eab095e95d654bf6f929410eba8795",
+    "reports/p25_validation_split/extensions_validation_candidates.csv": "813526a8d69745ee3b4edbc88fae0eae4ec9b5bedff0e989c2a65051e5b25d52",
+    "reports/p25_validation_split/extensions_findings.md": "d5f397fabba3ca9cc4ffe260c9a03c6cb1c8d98a60fb5db77cdd8bbe0119a3ff",
+    "reports/p25_validation_split/extensions_bundle_manifest.json": "cd1c5055872b6ece658b135e434b28da67a4135a21c9257cd60109e9192ec355",
+    "reports/p25_validation_split/extensions_sharpes.csv": "0bb9206bf86c31405a0723c6800fe4dde30d6e55a54d52644833242a47b2d640"
   },
   "charts": {
     "research_map": {
@@ -123,6 +130,12 @@
         "reports/p25_validation_split/annual.csv"
       ],
       "plotted_data": "figure_data/annual_results.csv"
+    },
+    "portfolio_extension": {
+      "caption": "Proposed next study: freeze independently validated signal proposals, then learn allocation using their interaction with the existing portfolio.",
+      "sources": [
+        "config/p25_validation_2018_2021.json"
+      ]
     }
   },
   "layout_checks": [
@@ -143,7 +156,7 @@
     },
     {
       "page": 4,
-      "bottom_content_points": 82.79999999999995,
+      "bottom_content_points": 69.54999999999995,
       "overflow": false
     },
     {
@@ -173,7 +186,7 @@
     },
     {
       "page": 10,
-      "bottom_content_points": 61.75000000000023,
+      "bottom_content_points": 65.29999999999995,
       "overflow": false
     }
   ],
@@ -188,7 +201,8 @@
     "allocation_model": 6,
     "participation_capital": 7,
     "cash_relative_wealth": 8,
-    "annual_results": 9
+    "annual_results": 9,
+    "portfolio_extension": 10
   },
   "protected_files": {
     "slides/230ZB_volatility_spreads.pptx": "f85d2462a7904eeddad40c71990409d284902e78953d9ea1d1d26d9a2810c478",
@@ -217,13 +231,20 @@
     "reports/p25_ungated_search/sharpe_change_intervals.csv",
     "reports/p25_ungated_search/findings.md",
     "reports/p25_validation_split/reproduction.txt",
+    "reports/p25_validation_split/extensions_validation_candidates.csv",
+    "reports/p25_validation_split/extensions_periods.csv",
     "reports/p25_validation_split/holdout_paths.csv",
+    "reports/p25_validation_split/extensions_findings.md",
+    "reports/p25_validation_split/extensions_bundle_manifest.json",
+    "reports/p25_validation_split/extensions_sharpes.csv",
     "reports/p25_validation_split/annual.csv",
     "reports/p25_validation_split/selection.json",
+    "reports/p25_validation_split/extensions_selection.json",
     "reports/p25_validation_split/protocol.json",
     "reports/p25_validation_split/findings.md",
     "reports/p25_validation_split/candidate_periods.csv",
     "reports/p25_validation_split/admission.csv",
+    "reports/p25_validation_split/extensions_protocol.json",
     "reports/p25_validation_split/periods.csv",
     "reports/p25_validation_split/evaluation.json",
     "reports/p25_validation_split/bundle_manifest.json",

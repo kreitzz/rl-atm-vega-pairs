@@ -1,8 +1,8 @@
 {
   "status": "complete",
   "paper_pages": 10,
-  "paper_word_count": 3752,
-  "figures": 9,
+  "paper_word_count": 3757,
+  "figures": 10,
   "source_hashes_verified": true,
   "all_layout_checks_pass": true,
   "prior_report_archived": true,
@@ -10,6 +10,6 @@
   "checkpoints_unchanged": true,
   "main_values_verified": true,
   "models_or_backtests_rerun": false,
-  "reader_revision": "Retrospective2018\u20132021 selection and2022\u20132025 evaluation; filtered strategy primary; both-period fixed sizing controls; earlier extensions separately scoped",
+  "reader_revision": "Retrospective2018\u20132021 selection and2022\u20132025 evaluation; filtered strategy primary; both-period fixed sizing controls; portfolio allocation proposed as next extension; updated management results supplemental",
   "archived_report": "archive/report_before_validation_split_2026-10-06.zip"
 }

@@ -2,10 +2,10 @@
 from scripts.build_research_publication import p, h, eq, chart, table
 
 
-def manuscript(cap, fit, annual, ungated, split):
+def manuscript(cap, fit, annual, ungated, split, extensions):
     sizing_results = []
-    for case, policy in [('fixed50', 'Always half size'), ('fixed75', 'Always three-quarter size'),
-                         ('fixed100', 'Always full size'), ('selected', 'Learned sizing')]:
+    for case, policy in [('fixed50', 'Fixed half size'), ('fixed75', 'Fixed three-quarter size'),
+                         ('fixed100', 'Fixed full size'), ('selected', 'Learned sizing')]:
         v = split.loc[('screened_'+case, 'validation')]
         t = split.loc[('screened_'+case, 'retrospective_holdout')]
         sizing_results.append([policy, f'{v.annualized_excess_sharpe:.3f}',
@@ -58,7 +58,7 @@ def manuscript(cap, fit, annual, ungated, split):
             p('Once entered, the stock hedge is adjusted daily. The retained strategy holds each option to its own expiry, except for audited corporate-event exits. The simulator tracks option and stock cash flows, dividends, cash interest and borrowing in one account. Stock hedges are netted when multiple trades use the same name. This shared ledger matters: overlapping trades consume capital and can affect whether a later proposal is admitted.'),
             h('Execution and capital assumptions'),
             p('Option fills use the quoted midpoint with an adverse penalty equivalent to 0.10 IV percentage point on each leg. This is a volatility unit, not ten cents or 10% of the option price. Evaluation also charges $0.03 per contract and one basis point of stock-hedge turnover. Training outcomes retain a higher $0.65 commission. The assumed fills are not verified live executions.'),
-            p('Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates potential losses under large moves; reserves approximate capital tied up by open positions. These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons.')
+            p('Cash earns the benchmark rate; negative cash incurs that rate plus 1%, and short stock has a 0.3% annual borrow charge. Entry checks impose a 5% stress limit, an 80% reserve limit and a gross stock-hedge limit of twice account equity. Stress estimates losses under large moves; reserves approximate committed capital. The same limits apply to a $1 million reference budget per pair and wing. These are inherited research assumptions, not broker margin requirements. Early assignment, market impact and forced liquidation are not fully modeled. We use the same $10 million account and limits for the main sizing comparisons.')
         ]},
         {'title': '5. Finding a signal before learning its size', 'blocks': [
             p('The early ATM proxy results gave us reason to investigate further, but they weakened when we simulated actual contracts. Strike-specific payoffs, daily hedge errors and costs were absent from the simple IV-versus-future-RV proxy. We then investigated maturity, location on the option curve and additional predictors. Roughly 30-day, 25-delta puts were the most useful retained configuration. We found this configuration through research; it was not a choice made before seeing the results.'),
@@ -68,7 +68,7 @@ def manuscript(cap, fit, annual, ungated, split):
             p('Figure 4 illustrates the observable spread and its changing historical boundaries. Each day’s series uses the contract selected for that day. It is therefore a signal series, not the mark of one option held throughout the year. After an entry, the backtest follows the purchased and sold contracts without replacing them as the daily selection changes.'),
             h('Why an extreme is not enough'),
             p('We require a return beta between 0.85 and 1.15 and return correlation of at least 0.5. Beta measures the scale of one name’s return response to the other; correlation measures how consistently they move together. Neither guarantees that their option prices will behave alike. These screens keep the comparison among reasonably related names without treating relatedness as the trading signal itself.'),
-            p('The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; page 10 discusses the separate participation ablation.')
+            p('The retained strategy also requires positive historical profitability for the proposed trade direction over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 compares sizing policies within this screened pool; supporting results examine the participation ablation.')
         ]},
         {'title': '6. Selecting information and training history', 'blocks': [
             p('A wide IV spread can reflect different future uncertainty rather than a pricing opportunity. Our 27 baseline inputs describe spread rank, IV and RV levels, beta and correlation, expiry, VIX, expected costs and completed profitability. Availability flags identify missing inputs. Every field is observable at the decision date; future trade profits are training outcomes, never current inputs.'),
@@ -110,37 +110,34 @@ def manuscript(cap, fit, annual, ungated, split):
         {'title': '8. Results continued: returns and uncertainty', 'blocks': [
             p('The screened learner’s annualized total account return is 4.667%; annualized growth relative to the cash benchmark is 0.530%. The former includes interest, while the latter measures compounded wealth beyond holding cash. Dollar profit above cash is the period change in NAV minus benchmark wealth. These quantities use the preceding close as their starting point, including inventory carried into 2022.'),
             chart('cash_relative_wealth', 135),
-            p('Average reserve is 2.44% of equity and peak reserve is 15.77% for the screened learner. Reserve equals gross option premium plus half of gross netted stock-hedge notional; it is not broker margin. Shared-account limits can block a proposal even when average deployment is low.'),
+            p('Average reserve is 2.44% of equity and peak reserve is 15.77%. Reserve equals gross option premium plus half of gross netted stock-hedge notional, rather than broker margin. Most entry rejections arise from the pair-level stress cap: low account-wide reserve does not ensure capacity within a pair.'),
             chart('annual_results', 140),
             p('Performance is uneven. The screened learner earns 3.470% total account return in 2022, beating cash by 1.673 percentage points, with Sharpe 2.458. In 2024 it earns 5.104% in total but trails cash by 0.283 percentage point, with Sharpe −0.907. The 2025 figures cover only the first eight months. Interest can leave the account profitable while the trading strategy loses against cash.'),
             h('What the comparison can establish'),
             p('The screened Sharpe gain is 0.208, with a 95% interval of −0.103 to +0.424. We resample paired daily returns in 126-session circular blocks, using 1,000 replications and seed 2026. The interval includes zero and omits correction for research selection. Overlapping trades create dependence; entry counts are not counts of independent observations.'),
             p('The screened comparison supports a historical benefit from contextual sizing, but does not establish a repeatable learning advantage. Randomized and shuffled-sizing controls, verified spread execution and an untouched future period would sharpen that assessment.')
         ]},
-        {'title': '9. Extensions and what we learned', 'blocks': [
-            p('The earlier experiments below provide context for the retained approach. They use their original 2018–2025 research comparisons, not configurations newly selected by the 2018–2021 validation rule. Longer-dated experiments also test when to reduce or close positions: an exit can avoid losses, surrender future hedge gains and incur another spread.'),
-            table(['Earlier exploratory experiment', 'Control Sharpe', 'Learned alternative'], [
-                ['30-day puts: optional management', '1.003 hold', '1.029, 36-month fit'],
-                ['30-day puts: fitted-Q exits', '1.003 hold', '0.598, same 212 entries'],
-                ['180-day puts: conservative Q', '0.592 hold', '0.610 managed'],
-                ['365-day puts: new entry signal', '0.254 fixed half', '0.313 learned size'],
-            ], [234, 116, 162]),
-            p('Compare policies within each row; maturities, signals and fitting procedures differ across rows. The short-dated fitted-Q experiment learns continuation values from actual profit rather than the motivating paper’s known-mean reward. It weakens performance despite keeping the original entries. Longer-dated options benefit modestly in selected tests, but sizing and management do not consistently reinforce each other.'),
-            p('Relaxing the profitability and observation-count screens supplies more trades. A separate validation search selects a 25–100% ladder from eight broader-pool candidates. Its later Sharpe is 0.456 versus 0.567 at fixed full size; profit is $278,895 versus $330,791. More participation does not reproduce the sizing advantage, which supports keeping the filter in the main strategy.'),
-            p('A 25-delta put trades downside volatility, like a 75-delta call at the same strike and expiry. Matched-contract checks found similar profits before costs; quotes, execution and hedge financing affect net differences. These effects should be checked before claiming a separate signal.'),
+        {'title': '9. Extension: learning across trading signals', 'blocks': [
+            p('The retained learner answers a focused question: how much exposure should one qualified trade receive? A broader extension would ask how to weave several trading signals into one portfolio. A good signal can still be unattractive when existing positions already carry the same risk.'),
+            chart('portfolio_extension', 80),
+            p('Each signal would first be developed and evaluated separately, then its trade proposals frozen. Candidate families could target different parts of the smile, maturities or pricing relationships. Matched puts and calls at the same strike would not count as independent signals merely because the contracts differ.'),
+            p('The portfolio state would combine signal strength and completed profitability with current positions, committed capital, stress exposure and estimated dependence between signals. The action would allocate vega budgets across qualified proposals, including zero additional exposure. Both legs of an admitted pair would retain the same delta-hedging and initial vega-matching rules.'),
+            p('The objective would be portfolio excess Sharpe, measured from one shared cash and inventory ledger after costs and financing. Today’s allocation changes tomorrow’s capacity and exposure, making this a sequential portfolio problem. We would compare it with fixed budgets and independently sized signals under identical limits, then evaluate the frozen allocation procedure on later dates.'),
+            p('The revised management and longer-tenor comparisons remain in the supporting results. They do not yet establish that portfolio RL improves diversification. The proposed contribution is learning interactions among separately useful signals.'),
             h('References and supporting material'),
             p('[1] Ning, B. and Lee, K. (2024). Advanced Statistical Arbitrage with Reinforcement Learning. arXiv:2403.12180. https://arxiv.org/abs/2403.12180'),
             p('[2] Options Industry Council. Delta. https://www.optionseducation.org/advancedconcepts/delta'),
             p('[3] Options Industry Council. Vega. https://www.optionseducation.org/advancedconcepts/vega'),
             p('[4] Options Industry Council. Volatility & the Greeks. https://www.optionseducation.org/advancedconcepts/volatility-the-greeks'),
-            p('Repository: github.com/kreitzz/rl-atm-vega-pairs. New selection: config/p25_validation_2018_2021.json; original checkpoint: config/p25_submission.json. Sources, ledgers and selection records accompany the report. Academic use only; vendor data retain their institutional license restrictions.'),
+            p('Repository: github.com/kreitzz/rl-atm-vega-pairs. Selection and extension tables: reports/p25_validation_split. Sources: paper/source_manifest.json. Academic use only; vendor data retain their institutional license restrictions.'),
             h('Conclusion'),
-            p('Learning entry size was more promising than learning when to exit. The validation-selected screened policy achieved higher historical excess Sharpe than constant exposure in 2022–2025. The improvement appears in both validation and later evaluation, while the broader-pool ablation shows that it depends on the trading setup. The estimated improvements remain uncertain. These results support further study of adaptive exposure in options relative-value strategies, with a fresh evaluation needed before claiming a robust learning advantage.')
+            p('Learning entry size was more promising than learning exits. The filtered policy improves historical excess Sharpe over fixed exposure in both validation and later evaluation, while uncertainty remains. The next question is whether learning exposure across separately validated signals can turn this local sizing benefit into better portfolio construction.')
         ]},
     ]
 
 
 CAPTIONS = {
+    'portfolio_extension': 'Proposed next study: freeze independently validated signal proposals, then learn allocation using their interaction with the existing portfolio.',
     'research_map': 'The two main decisions: identify a relative-price opportunity, then choose exposure. Management and portfolio allocation are tested separately.',
     'original_paper': 'Mean daily Sharpe across the motivating paper’s ten equity pairs. Their daily metric and equity setup differ from our annualized options results; the values should not be compared directly.',
     'workflow': 'A proposal uses the signal-date information and contract identities. Subsequent fills, stock hedges and settlement determine the actual profit.',

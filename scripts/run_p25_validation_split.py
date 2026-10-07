@@ -295,16 +295,99 @@ def package():
     print(f'Packaged{len(paths)} files; preserved original checkpoints',flush=True)
 
 
+def extension_grid():
+    legacy=Path('artifacts/contracts/p25_capital_sensitivity/replays/10m_learned')
+    long=Path('artifacts/contracts/p25_long_management/replays')
+    short=Path('artifacts/contracts/p25_short_management/replays')
+    q=Path('artifacts/contracts/p25_reversion_q/replays')
+    roots=Path('artifacts/contracts/long_tenor_policy_search')
+    groups={
+        '30D_exit_bank':dict(control=legacy,choices=[short/f'30D_manage_{n}M' for n in [6,12]]+[long/f'30D_manage_{n}M' for n in [18,36]],scope='Original33-input entry policy; exit policy bank; live admission'),
+        '30D_Q_exits':dict(control=legacy,choices=[q/'matched_frozen_sized_q_managed_locked_v3',q/'matched_frozen_sized_q_managed_locked_v3_risk0'],scope='Original33-input entry policy; counterfactual locked entries/counts; Q exits'),
+        '90D_exit_bank':dict(control=long/'90D_hold',choices=[short/f'90D_manage_{n}M' for n in [6,12]]+[long/'90D_manage_36M'],scope='Frozen90D proposals; exit policy bank; live admission'),
+    }
+    for tenor in [180,365]:
+        base=roots/'P25'/f'{tenor}D/replays'
+        fqi=Path('artifacts/contracts/long_tenor_fitted_q/P25')/f'{tenor}D/replays'
+        groups[f'{tenor}D_Q_exits']=dict(control=base/'fixed_50_hold',
+            choices=[fqi/f'fixed50_fitted_q_{name}_aligned_runoff' for name in ['conservative','risk0','risk0.5']],scope='Matched long-dated pair proposals; fixed50 entry; Q management')
+        for instrument in ['P25','C75']:
+            root=roots/instrument/f'{tenor}D/replays'
+            groups[f'{tenor}D_{instrument}_entry_size']=dict(control=root/'fixed_50_hold',choices=[root/f'native_size_{n}M' for n in [24,48]],scope='Original matched long-tenor proposals; contextual entry sizing;24/48month lookbacks')
+    native=Path('artifacts/contracts/native_year_entry/return_reconciled_v2/replays')
+    groups['365D_forecast_entry']=dict(control=native/'forecast_fixed50_same_sized_skips',choices=[native/'forecast_rl_sized'],scope='Corrected native365D forecast entry; fixed comparison with identical learned skips; no configuration search')
+    year=Path('artifacts/contracts/year_reversion_management/replays')
+    for entry in ['fixed50','learned']:
+        groups[f'365D_{entry}_Q_exits']=dict(control=year/f'{entry}_hold',choices=[year/f'{entry}_{state}' for state in ['carry','paper','combined']],scope='Native365D forecast entries; paper/carry/combined Q management; live admission')
+    return groups
+
+
+def extension_select():
+    target=REPORT/'extensions_selection.json'
+    if target.exists():
+        print('Extension choices already locked',flush=True);return
+    grid=extension_grid()
+    write(REPORT/'extensions_protocol.json',dict(validation='2018–2021',evaluation='2022–2025-08-29',
+        ranking='Highest validation Sharpe,lexical source folder breaks ties; controls are declared rather than selected',
+        grid={k:dict(control=str(v['control']),choices=[str(p) for p in v['choices']],scope=v['scope']) for k,v in grid.items()},
+        original_histories_preserved=True,no_models_refitted=True,untouched_holdout=False,
+        main27input_policy_not_replaced=True))
+    records=[];chosen={}
+    for group,setting in grid.items():
+        options=[]
+        for path in setting['choices']:
+            nav=pd.read_parquet(path/'daily_nav.parquet',columns=['excess_return'])
+            row=dict(group=group,case=path.name,folder=str(path),validation_sharpe=validation_score(nav),nav_sha256=digest(path/'daily_nav.parquet'))
+            records.append(row);options.append(row);del nav
+        chosen[group]=sorted(options,key=lambda r:(-r['validation_sharpe'],r['folder']))[0]
+    pd.DataFrame(records).to_csv(REPORT/'extensions_validation_candidates.csv',index=False)
+    write(target,dict(selected=chosen,protocol_sha256=digest(REPORT/'extensions_protocol.json'),
+        selection_depends_only_on_validation=True,untouched_holdout=False))
+    print(json.dumps({k:v['case'] for k,v in chosen.items()},indent=2),flush=True)
+
+
+def extension_evaluate():
+    import zipfile
+    chosen=json.loads((REPORT/'extensions_selection.json').read_text())
+    assert chosen['protocol_sha256']==digest(REPORT/'extensions_protocol.json')
+    rows=[];files=[]
+    for group,setting in extension_grid().items():
+        selected=chosen['selected'][group]
+        assert selected['nav_sha256']==digest(Path(selected['folder'])/'daily_nav.parquet')
+        for arm,path in [('control',setting['control']),('selected',Path(selected['folder']))]:
+            nav=pd.read_parquet(path/'daily_nav.parquet')
+            decisions=pd.read_csv(path/'decisions.csv',usecols=['status','entry_date','pair'],parse_dates=['entry_date'])
+            for period,start,end in [('validation','2018-01-01','2021-12-31'),('retrospective_holdout','2022-01-01','2025-08-29')]:
+                rows.append(dict(group=group,arm=arm,case=path.name,scope=setting['scope'],period=period,**period_metrics(nav,decisions,start,end)))
+            del nav,decisions;gc.collect()
+            files.extend([path/'daily_nav.parquet',path/'decisions.csv'])
+        for path in setting['choices']:files.append(path/'daily_nav.parquet')
+    frame=pd.DataFrame(rows);frame.to_csv(REPORT/'extensions_periods.csv',index=False)
+    table=frame.pivot(index='group',columns=['period','arm'],values='annualized_excess_sharpe')
+    table.to_csv(REPORT/'extensions_sharpes.csv')
+    files=sorted(set(files))
+    write(REPORT/'extensions_bundle_manifest.json',dict(files={str(p):digest(p) for p in files},
+        scope='Read-only archived daily NAV for declared extension candidates and control/selected decisions; original model histories unchanged'))
+    with zipfile.ZipFile('data/p25_validation_extensions.zip','w',zipfile.ZIP_DEFLATED,compresslevel=1) as archive:
+        for path in files:archive.write(path,str(path))
+    (REPORT/'extensions_findings.md').write_text('# Extensions on the revised date split\n\n'
+        'Choices use2018–2021 validation only, then frozen configurations are evaluated over2022–29August2025. Existing causal monthly fits and continuing books are reused; no new quote loading, refitting or ledger replay.2025 is partial.\n\n'
+        'These are separate strategy experiments: the30D exit studies retain the original33-input entries and do not manage the newly selected27-input policy. Locked Q entries are attribution controls. Longer-tenor signals and samples differ. The native365D comparison uses the corrected return-reconciled_v2 histories, replacing the stale original numbers.\n\n'
+        '[Protocol](extensions_protocol.json) · [Locked choices](extensions_selection.json) · [Both-period metrics](extensions_periods.csv) · [All validation candidates](extensions_validation_candidates.csv) · [Saved ledger archive](../../data/p25_validation_extensions.zip)\n\n'+'```text\n'+table.to_string()+'\n```'+'\n')
+    print(table.to_string(),flush=True)
+
 def main():
     require_supervisor()
     parser=argparse.ArgumentParser()
-    parser.add_argument('--phase',choices=['select','replay','evaluate','package','test'],required=True)
+    parser.add_argument('--phase',choices=['select','replay','evaluate','package','extensions-select','extensions-evaluate','test'],required=True)
     args=parser.parse_args()
     OUT.mkdir(parents=True,exist_ok=True);REPORT.mkdir(parents=True,exist_ok=True)
     if args.phase=='select':select()
     elif args.phase=='replay':replay()
     elif args.phase=='evaluate':evaluate()
     elif args.phase=='package':package()
+    elif args.phase=='extensions-select':extension_select()
+    elif args.phase=='extensions-evaluate':extension_evaluate()
     elif args.phase=='test':
         import unittest
         result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.discover('tests',pattern='test_p25_validation_split.py'))

@@ -1,0 +1,91 @@
+{
+  "selected": {
+    "30D_exit_bank": {
+      "group": "30D_exit_bank",
+      "case": "30D_manage_36M",
+      "folder": "artifacts/contracts/p25_long_management/replays/30D_manage_36M",
+      "validation_sharpe": 0.6754265607542728,
+      "nav_sha256": "64b23ec1db3a9337ae1ccea4b8428a6982f09e3220fcd7f463198f45319f1eb1"
+    },
+    "30D_Q_exits": {
+      "group": "30D_Q_exits",
+      "case": "matched_frozen_sized_q_managed_locked_v3",
+      "folder": "artifacts/contracts/p25_reversion_q/replays/matched_frozen_sized_q_managed_locked_v3",
+      "validation_sharpe": 0.5347403744275435,
+      "nav_sha256": "5268261d36240c7bdba7158f1be635630981a781082649c56e09c8818262897d"
+    },
+    "90D_exit_bank": {
+      "group": "90D_exit_bank",
+      "case": "90D_manage_6M",
+      "folder": "artifacts/contracts/p25_short_management/replays/90D_manage_6M",
+      "validation_sharpe": 0.03892583493773193,
+      "nav_sha256": "1f89176b808d7b7d9f09e420ef5defd90af82e737cfd50341982f656e6b273c2"
+    },
+    "180D_Q_exits": {
+      "group": "180D_Q_exits",
+      "case": "fixed50_fitted_q_conservative_aligned_runoff",
+      "folder": "artifacts/contracts/long_tenor_fitted_q/P25/180D/replays/fixed50_fitted_q_conservative_aligned_runoff",
+      "validation_sharpe": 0.42092753944713607,
+      "nav_sha256": "439acf74260a26fdfa91d23313bb89c54363b3569fa1d87bd7fd6670f82f58c2"
+    },
+    "180D_P25_entry_size": {
+      "group": "180D_P25_entry_size",
+      "case": "native_size_24M",
+      "folder": "artifacts/contracts/long_tenor_policy_search/P25/180D/replays/native_size_24M",
+      "validation_sharpe": 0.34546138572024226,
+      "nav_sha256": "2da7d483c16b0bb9cbae5cf52dfe1408760a8eaca5f5c8437a64e68279f5df7f"
+    },
+    "180D_C75_entry_size": {
+      "group": "180D_C75_entry_size",
+      "case": "native_size_24M",
+      "folder": "artifacts/contracts/long_tenor_policy_search/C75/180D/replays/native_size_24M",
+      "validation_sharpe": 0.03241355124175896,
+      "nav_sha256": "a2d5a419627f3ec3e99ab2ee8a76b256b2622600a7ae35651ec8ceb6c581c9a6"
+    },
+    "365D_Q_exits": {
+      "group": "365D_Q_exits",
+      "case": "fixed50_fitted_q_conservative_aligned_runoff",
+      "folder": "artifacts/contracts/long_tenor_fitted_q/P25/365D/replays/fixed50_fitted_q_conservative_aligned_runoff",
+      "validation_sharpe": 0.31014893559636403,
+      "nav_sha256": "5b6c1aa55139fc596691c4f25f46ddb92f9e6c28a57ee35b2af15b22d16d5915"
+    },
+    "365D_P25_entry_size": {
+      "group": "365D_P25_entry_size",
+      "case": "native_size_24M",
+      "folder": "artifacts/contracts/long_tenor_policy_search/P25/365D/replays/native_size_24M",
+      "validation_sharpe": 0.26241567117502007,
+      "nav_sha256": "d8217c04c6c93df6a3eae0d24398ffba1f9c932800541afa0ae6ee65f620d640"
+    },
+    "365D_C75_entry_size": {
+      "group": "365D_C75_entry_size",
+      "case": "native_size_24M",
+      "folder": "artifacts/contracts/long_tenor_policy_search/C75/365D/replays/native_size_24M",
+      "validation_sharpe": -0.1277459984780289,
+      "nav_sha256": "023f32458aa2eb05c7460c3b1006679e6695d9b2948a591a65dcfe0bfd06b2f8"
+    },
+    "365D_forecast_entry": {
+      "group": "365D_forecast_entry",
+      "case": "forecast_rl_sized",
+      "folder": "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized",
+      "validation_sharpe": 0.27247117224985606,
+      "nav_sha256": "9210bd43d42647b6480fc087c05988e6ed0dab540021be318cca3c9d306e483f"
+    },
+    "365D_fixed50_Q_exits": {
+      "group": "365D_fixed50_Q_exits",
+      "case": "fixed50_carry",
+      "folder": "artifacts/contracts/year_reversion_management/replays/fixed50_carry",
+      "validation_sharpe": 0.4395655340552824,
+      "nav_sha256": "80fe6bbb15a750ac50a9254f06cde8f13779b48109a184e80600ba33ee7af958"
+    },
+    "365D_learned_Q_exits": {
+      "group": "365D_learned_Q_exits",
+      "case": "learned_carry",
+      "folder": "artifacts/contracts/year_reversion_management/replays/learned_carry",
+      "validation_sharpe": 0.24468855706846024,
+      "nav_sha256": "01a00edfa0c21cc659aa78d4ff89fd020143f269f845b498fb47ad8bc4999d47"
+    }
+  },
+  "protocol_sha256": "b8526c31913c6c25f918fca16a3420fef7eab095e95d654bf6f929410eba8795",
+  "selection_depends_only_on_validation": true,
+  "untouched_holdout": false
+}

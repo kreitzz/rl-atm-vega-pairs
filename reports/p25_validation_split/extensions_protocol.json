@@ -1,0 +1,113 @@
+{
+  "validation": "2018\u20132021",
+  "evaluation": "2022\u20132025-08-29",
+  "ranking": "Highest validation Sharpe,lexical source folder breaks ties; controls are declared rather than selected",
+  "grid": {
+    "30D_exit_bank": {
+      "control": "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned",
+      "choices": [
+        "artifacts/contracts/p25_short_management/replays/30D_manage_6M",
+        "artifacts/contracts/p25_short_management/replays/30D_manage_12M",
+        "artifacts/contracts/p25_long_management/replays/30D_manage_18M",
+        "artifacts/contracts/p25_long_management/replays/30D_manage_36M"
+      ],
+      "scope": "Original33-input entry policy; exit policy bank; live admission"
+    },
+    "30D_Q_exits": {
+      "control": "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned",
+      "choices": [
+        "artifacts/contracts/p25_reversion_q/replays/matched_frozen_sized_q_managed_locked_v3",
+        "artifacts/contracts/p25_reversion_q/replays/matched_frozen_sized_q_managed_locked_v3_risk0"
+      ],
+      "scope": "Original33-input entry policy; counterfactual locked entries/counts; Q exits"
+    },
+    "90D_exit_bank": {
+      "control": "artifacts/contracts/p25_long_management/replays/90D_hold",
+      "choices": [
+        "artifacts/contracts/p25_short_management/replays/90D_manage_6M",
+        "artifacts/contracts/p25_short_management/replays/90D_manage_12M",
+        "artifacts/contracts/p25_long_management/replays/90D_manage_36M"
+      ],
+      "scope": "Frozen90D proposals; exit policy bank; live admission"
+    },
+    "180D_Q_exits": {
+      "control": "artifacts/contracts/long_tenor_policy_search/P25/180D/replays/fixed_50_hold",
+      "choices": [
+        "artifacts/contracts/long_tenor_fitted_q/P25/180D/replays/fixed50_fitted_q_conservative_aligned_runoff",
+        "artifacts/contracts/long_tenor_fitted_q/P25/180D/replays/fixed50_fitted_q_risk0_aligned_runoff",
+        "artifacts/contracts/long_tenor_fitted_q/P25/180D/replays/fixed50_fitted_q_risk0.5_aligned_runoff"
+      ],
+      "scope": "Matched long-dated pair proposals; fixed50 entry; Q management"
+    },
+    "180D_P25_entry_size": {
+      "control": "artifacts/contracts/long_tenor_policy_search/P25/180D/replays/fixed_50_hold",
+      "choices": [
+        "artifacts/contracts/long_tenor_policy_search/P25/180D/replays/native_size_24M",
+        "artifacts/contracts/long_tenor_policy_search/P25/180D/replays/native_size_48M"
+      ],
+      "scope": "Original matched long-tenor proposals; contextual entry sizing;24/48month lookbacks"
+    },
+    "180D_C75_entry_size": {
+      "control": "artifacts/contracts/long_tenor_policy_search/C75/180D/replays/fixed_50_hold",
+      "choices": [
+        "artifacts/contracts/long_tenor_policy_search/C75/180D/replays/native_size_24M",
+        "artifacts/contracts/long_tenor_policy_search/C75/180D/replays/native_size_48M"
+      ],
+      "scope": "Original matched long-tenor proposals; contextual entry sizing;24/48month lookbacks"
+    },
+    "365D_Q_exits": {
+      "control": "artifacts/contracts/long_tenor_policy_search/P25/365D/replays/fixed_50_hold",
+      "choices": [
+        "artifacts/contracts/long_tenor_fitted_q/P25/365D/replays/fixed50_fitted_q_conservative_aligned_runoff",
+        "artifacts/contracts/long_tenor_fitted_q/P25/365D/replays/fixed50_fitted_q_risk0_aligned_runoff",
+        "artifacts/contracts/long_tenor_fitted_q/P25/365D/replays/fixed50_fitted_q_risk0.5_aligned_runoff"
+      ],
+      "scope": "Matched long-dated pair proposals; fixed50 entry; Q management"
+    },
+    "365D_P25_entry_size": {
+      "control": "artifacts/contracts/long_tenor_policy_search/P25/365D/replays/fixed_50_hold",
+      "choices": [
+        "artifacts/contracts/long_tenor_policy_search/P25/365D/replays/native_size_24M",
+        "artifacts/contracts/long_tenor_policy_search/P25/365D/replays/native_size_48M"
+      ],
+      "scope": "Original matched long-tenor proposals; contextual entry sizing;24/48month lookbacks"
+    },
+    "365D_C75_entry_size": {
+      "control": "artifacts/contracts/long_tenor_policy_search/C75/365D/replays/fixed_50_hold",
+      "choices": [
+        "artifacts/contracts/long_tenor_policy_search/C75/365D/replays/native_size_24M",
+        "artifacts/contracts/long_tenor_policy_search/C75/365D/replays/native_size_48M"
+      ],
+      "scope": "Original matched long-tenor proposals; contextual entry sizing;24/48month lookbacks"
+    },
+    "365D_forecast_entry": {
+      "control": "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_fixed50_same_sized_skips",
+      "choices": [
+        "artifacts/contracts/native_year_entry/return_reconciled_v2/replays/forecast_rl_sized"
+      ],
+      "scope": "Corrected native365D forecast entry; fixed comparison with identical learned skips; no configuration search"
+    },
+    "365D_fixed50_Q_exits": {
+      "control": "artifacts/contracts/year_reversion_management/replays/fixed50_hold",
+      "choices": [
+        "artifacts/contracts/year_reversion_management/replays/fixed50_carry",
+        "artifacts/contracts/year_reversion_management/replays/fixed50_paper",
+        "artifacts/contracts/year_reversion_management/replays/fixed50_combined"
+      ],
+      "scope": "Native365D forecast entries; paper/carry/combined Q management; live admission"
+    },
+    "365D_learned_Q_exits": {
+      "control": "artifacts/contracts/year_reversion_management/replays/learned_hold",
+      "choices": [
+        "artifacts/contracts/year_reversion_management/replays/learned_carry",
+        "artifacts/contracts/year_reversion_management/replays/learned_paper",
+        "artifacts/contracts/year_reversion_management/replays/learned_combined"
+      ],
+      "scope": "Native365D forecast entries; paper/carry/combined Q management; live admission"
+    }
+  },
+  "original_histories_preserved": true,
+  "no_models_refitted": true,
+  "untouched_holdout": false,
+  "main27input_policy_not_replaced": true
+}
