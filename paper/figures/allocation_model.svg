@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-06T22:10:47.394898</dc:date>
+    <dc:date>2026-10-06T22:17:15.643591</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 7.7772 21.488 7.7772 26
 L 7.7772 104.96
 Q 7.7772 109.472 11.2404 109.472
 z
-" clip-path="url(#p6e49c1bb5d)" style="fill: #f1f5f9; stroke: #c8d6e3; stroke-linejoin: miter"/>
+" clip-path="url(#p395340216d)" style="fill: #f1f5f9; stroke: #c8d6e3; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 203.6404 109.472
@@ -53,7 +53,7 @@ Q 200.1772 21.488 200.1772 26
 L 200.1772 104.96
 Q 200.1772 109.472 203.6404 109.472
 z
-" clip-path="url(#p6e49c1bb5d)" style="fill: #f1f5f9; stroke: #c8d6e3; stroke-linejoin: miter"/>
+" clip-path="url(#p395340216d)" style="fill: #f1f5f9; stroke: #c8d6e3; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 396.0404 109.472
@@ -66,7 +66,7 @@ Q 392.5772 21.488 392.5772 26
 L 392.5772 104.96
 Q 392.5772 109.472 396.0404 109.472
 z
-" clip-path="url(#p6e49c1bb5d)" style="fill: #f1f5f9; stroke: #c8d6e3; stroke-linejoin: miter"/>
+" clip-path="url(#p395340216d)" style="fill: #f1f5f9; stroke: #c8d6e3; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- Past completed trades -->
@@ -1298,7 +1298,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p6e49c1bb5d">
+  <clipPath id="p395340216d">
    <rect x="7.2" y="7.2" width="577.2" height="112.8"/>
   </clipPath>
  </defs>

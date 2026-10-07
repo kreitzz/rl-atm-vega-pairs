@@ -3,13 +3,20 @@ from scripts.build_research_publication import p, h, eq, chart, table
 
 
 def manuscript(cap, fit, annual, ungated):
-    controls = []
+    sizing_results = []
     for key, label in [('10m_fixed50', 'Always half size'),
                        ('10m_fixed100', 'Always full size'),
                        ('10m_learned', 'Learned sizing')]:
         r = cap.loc[key]
-        controls.append([label, f'{r.annualized_excess_sharpe:.3f}',
-                         str(int(r.entries)), f'${r.net_excess_pnl:,.0f}'])
+        sizing_results.append(['On', label, '608', f'{r.annualized_excess_sharpe:.3f}',
+                               str(int(r.entries)), f'${r.net_excess_pnl:,.0f}'])
+    for key, label in [('fixed100', 'Always full size'),
+                       ('ungated_baseline', 'Learned 50–100%'),
+                       ('quarter_floor', 'Learned 25–100%')]:
+        r = ungated.loc[key]
+        sizing_results.append(['Off', label, str(int(r.proposals)),
+                               f'{r.annualized_excess_sharpe:.3f}',
+                               str(int(r.entries)), f'${r.net_excess_pnl:,.0f}'])
     return [
         {'title': 'From Equity Pairs to Options Relative Value',
          'subtitle': 'Can learning how much to trade improve a volatility strategy?',
@@ -67,7 +74,7 @@ def manuscript(cap, fit, annual, ungated):
             p('Figure 4 illustrates the observable spread and its changing historical boundaries. Each day’s series uses the contract selected for that day. It is therefore a signal series, not the mark of one option held throughout the year. After an entry, the backtest follows the purchased and sold contracts without replacing them as the daily selection changes.'),
             h('Why an extreme is not enough'),
             p('We require a return beta between 0.85 and 1.15 and return correlation of at least 0.5. Beta measures the scale of one name’s return response to the other; correlation measures how consistently they move together. Neither guarantees that their option prices will behave alike. These screens keep the comparison among reasonably related names without treating relatedness as the trading signal itself.'),
-            p('The retained strategy also requires positive directional profitability over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 9 tests removing both requirements while keeping memory as an input to learned sizing.')
+            p('The retained strategy also requires positive directional profitability over the preceding 91 and 365 days, with at least 21 and 63 completed observations respectively. This memory uses simulated prior candidate trades whose outcomes have already finished. An option entered yesterday with a month left cannot contribute its eventual profit today. The requirement seeks directions with recent evidence of profitability, but it is itself a selected rule. Page 8 tests removing both requirements while keeping memory as an input to learned sizing.')
         ]},
         {'title': '6. What information should determine exposure?', 'blocks': [
             p('A wide IV spread can reflect genuinely different future uncertainty. We therefore give the learner information about the spread, recent stock movements and the trading environment. Baseline inputs include historical spread rank, IV and RV levels, beta and correlation, days to expiry, VIX as a measure of broad market volatility, expected costs and completed profitability. They describe a trade at decision time; they do not include its future payoff.'),
@@ -91,28 +98,26 @@ def manuscript(cap, fit, annual, ungated):
             p('The first fit contains 74 completed examples. Its optimized historical score is 2.015 versus 1.573 at constant full size. That is an in-sample score on aggregated training paths, not the Sharpe of a funded account before 2018. It shows that the optimizer improves its training objective. Whether that improvement carries forward must be judged from subsequent trading, while remembering that the research team has inspected those subsequent dates repeatedly.'),
             p('Walk-forward fitting prevents a monthly model from using unfinished future outcomes. It does not remove research selection: we chose signals, windows, strikes and policies after inspecting these dates, and pair formation is retrospective. A prospective universe and an untouched later period remain necessary to test whether the measured improvement survives.')
         ]},
-        {'title': '8. The controlled sizing comparison', 'blocks': [
-            p('We replay three policies on the same 608 proposed trades from January 2018 through August 2025: constant half size, constant full size and learned sizing. Signal rules, proposed directions, contract identities, costs and account limits are shared. The question is whether conditioning size on the observed state improves the funded strategy relative to these constant-exposure controls.'),
-            table(['Policy', 'Excess Sharpe', 'Trades entered', 'Profit above cash'],
-                  controls, [150, 102, 103, 157]),
-            chart('cash_relative_wealth', 150),
-            h('What the comparison says'),
-            p('Learned sizing increases annualized excess Sharpe from 0.769 at full size to 1.003, a gain of 0.234. Profit above the cash benchmark rises from $272,338 to $322,637. Learned sizing enters 212 trades, compared with 133 at full size and 263 at half size. Smaller positions sometimes leave room for proposals that full-size inventory would block. The result therefore includes the effects of size on admission; it is not a comparison of identical executed trades multiplied by different constants.'),
-            h('Why cash must be separated from trading profit'),
-            p('Most of the $10 million account remains in cash. The learned policy’s funded annualized return is 2.963%, while its annualized growth relative to the cash benchmark is 0.342%. Reporting the funded return alone would give the options strategy credit for interest it could have earned without trading. We calculate Sharpe from daily portfolio returns minus daily cash-benchmark returns:'),
+        {'title': '8. Results: sizing and participation', 'blocks': [
+            p('We ask two connected questions: does learned sizing improve a given set of trade proposals, and what happens when the strategy can consider more trades? All policies below use the same $10 million account, January 2018–August 2025 dates, execution costs, hedging and risk limits. We measure profit and returns above cash, so the options strategy receives no credit for interest earned without trading.'),
             eq('Annualized excess Sharpe = √252 × mean(daily excess return) / standard deviation(daily excess return)'),
-            p('These figures support adaptive sizing within the retained strategy. They do not prove a general advantage over supervised learning, which is not the control here. A block bootstrap gives a 95% interval of roughly −0.031 to +0.416 for the Sharpe improvement over full size. The interval includes zero, and does not account for selecting this strategy after many research trials. The point estimate is encouraging; its uncertainty remains material.')
-        ]},
-        {'title': '9. Participation, capital use and uneven returns', 'blocks': [
-            p('Figure 8 separates total returns from returns above cash. The retained strategy’s strongest year is 2022: 1.676 percentage points above cash and Sharpe 2.462. In 2024, total return is 5.149%, but the account trails cash by 0.238 percentage point: Sharpe −0.785. Trading also trails cash in 2019 and 2021.'),
-            chart('annual_results', 180),
-            h('What happens if the profitability screens are removed?'),
-            p('Removing both memory requirements from page 5 expands proposals from 608 to 4,744. Memory remains a sizing input; spread, beta and correlation screens, contract selection, hedges, costs and account limits remain unchanged. Monthly fits use the broader set of completed outcomes. This expands eligible trades rather than simply enlarging existing positions.'),
+            table(['Memory screens', 'Sizing policy', 'Proposals', 'Excess Sharpe', 'Entries', 'Profit above cash'],
+                  sizing_results, [64, 133, 65, 66, 55, 129]),
+            p('With memory screens on, all policies share 608 proposals, directions and contracts. Learned sizing raises Sharpe from 0.769 at full size to 1.003 and profit from $272,338 to $322,637. It also admits 212 trades instead of 133. Smaller positions can leave room for later proposals that full-size inventory would block; sizing changes the executed portfolio, not just a multiplier on identical trades.'),
+            h('Broader participation trades some Sharpe for more profit'),
+            p('Turning off both the positive-profit and minimum-observation requirements expands proposals to 4,744. Memory remains a sizing input; spread, beta and correlation screens and contract selection remain unchanged. Monthly fits use the broader set of completed outcomes. Compare sizing policies within each proposal pool; comparisons across pools also include the change in eligibility and training examples.'),
             chart('participation_capital', 135),
-            p('Ungated sizing enters 1,334 trades across 77 pairs and earns $786,690 above cash, versus 212 trades across 42 pairs and $322,637 retained. Sharpe falls from 1.003 to 0.835; peak reserve rises from 18.0% to 79.1%, and maximum drawdown relative to cash rises from 0.49% to 1.03%. Broader participation increases profit and capital use at lower risk-adjusted performance.'),
-            p('A 25% sizing action gives 0.830 Sharpe and 1,938 trades, with lower profit and reserve. Ungated constant full sizing scores 0.713. Alternative action menus, state counts and training windows do not improve 0.835. Ungated Sharpe is roughly zero in 2024–2025: more trades do not establish steadier performance or independent evidence.')
+            p('The broader learned strategy enters 1,334 trades across 77 pairs and earns $786,690 above cash. Its 0.835 Sharpe remains above constant full sizing’s 0.713. Compared with the screened learner, peak reserve rises from 18.0% to 79.1% and maximum drawdown relative to cash from 0.49% to 1.03%. It captures more total profit while using more capital and accepting greater return risk.')
         ]},
-        {'title': '10. Extensions and what we learned', 'blocks': [
+        {'title': '8. Results continued: returns and risk', 'blocks': [
+            p('Adding a 25% sizing action admits 1,938 trades at 0.830 Sharpe, with lower profit and peak reserve. Alternative action menus, state counts and training windows do not improve 0.835. The screened policy remains the stronger Sharpe result; the broader policy is an alternative for greater participation, rather than an improvement on every objective.'),
+            p('The screened learner’s funded annualized return is 2.963%, but growth relative to cash is 0.342%; the broader learner’s figures are 3.454% and 0.821%. Interest accounts for much of total account growth. Figure 8 compares the screened sizing policies through time using returns relative to cash.'),
+            chart('cash_relative_wealth', 150),
+            p('Figure 9 shows why higher aggregate performance does not imply steady returns. The screened strategy’s strongest year is 2022: 1.676 percentage points above cash and Sharpe 2.462. In 2024, total return is 5.149%, but it trails cash by 0.238 percentage point: Sharpe −0.785. Trading also trails cash in 2019 and 2021. Broader-policy Sharpe is roughly zero over 2024–2025.'),
+            chart('annual_results', 180),
+            p('Sizing helps both proposal pools descriptively, but uncertainty remains. The screened Sharpe gain over full size is 0.234, with a block-bootstrap 95% interval of −0.031 to +0.416; the broader gain is 0.122, with an interval of −0.173 to +0.382. Both include zero and omit adjustment for the research search. Overlapping trades share risks, and more entries do not supply equally many independent observations. These controls test adaptive sizing, not a general advantage over supervised learning.')
+        ]},
+        {'title': '9. Extensions and what we learned', 'blocks': [
             p('Longer-dated experiments also test when to reduce or close positions. Exiting can avoid losses, surrender future hedging gains and incur another spread. Good entry selection alone does not establish good management.'),
             table(['Experiment', 'Control Sharpe', 'Learned alternative'], [
                 ['30-day puts: optional management', '1.003 hold', '1.029, 36-month fit'],

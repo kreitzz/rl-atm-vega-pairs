@@ -164,7 +164,7 @@ def main():
     protected=['reports/p25_capital_sensitivity/comparison.csv',
                'reports/p25_reversion_q/comparison.csv']
     before.update({k:hashlib.sha256((ROOT/k).read_bytes()).hexdigest() for k in protected})
-    archive=PAPER/'archive'/'report_before_ungated_extension_2026-10-06.zip'
+    archive=PAPER/'archive'/'report_before_results_integration_2026-10-06.zip'
     archive.parent.mkdir(exist_ok=True)
     if not archive.exists():
         with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
@@ -284,7 +284,7 @@ def main():
                source_hashes_verified=True,all_layout_checks_pass=True,
                prior_report_archived=True,presentation_unchanged=True,checkpoints_unchanged=True,
                main_values_verified=True,models_or_backtests_rerun=False,
-               reader_revision='Participation, capital use and ungated sizing experiments added to the reader-focused report',
+               reader_revision='Integrated sizing, participation and capital results across pages8–9 with a shared comparison table',
                archived_report=str(archive.relative_to(PAPER)))
     (PAPER/'publication_audit.json').write_text(json.dumps(audit,indent=2))
     (PAPER/'reproduction.txt').write_text('Rebuild only the report from saved results:\n'

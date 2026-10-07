@@ -34,13 +34,13 @@
     "reports/p25_reversion_q/findings.txt": "0def9acf9be4180dd8ef1e89fa278ca43b381669a3a7ed47103a9ca72581bb58",
     "reports/p25_reversion_q/audit.json": "8c1b5f9c59030d1bd319caf4f46b2000a771b0abaeb66724e985b07fe133b9ae",
     "data/p25_variance_premium_inputs.csv": "8e99c2bb448e65e38a87d1e2410c5769d829c7797b5d698e2e8b496e28167ae9",
-    "scripts/rewrite_research_report.py": "2d0add8347ecfdb05e94478f731ff3ef4184fd14dd73f5a23ca54a98e82469c3",
+    "scripts/rewrite_research_report.py": "c1ab1449b8ce3b7cc8ee84306c389960bb644b9d3dfde29fe9f46b0638aa9aa1",
     "scripts/build_research_publication.py": "6a3677ae070e55cf3b9383c8417e678255cf433c864da95d8dacbefeb5e50137",
     "scripts/report_long_tenor_search.py": "81a058e18199ea473d5b710170b9f0ca2f3dc0e36d941d384e5a42f56248097f",
     "reports/native_year_entry/comparison.csv": "ed1c1aa720996e6b5b86303adc5165a92becc2a2b800485305a9e21287d7b5b0",
     "reports/p25_reversion_q/annual.csv": "534b2cda97efb858c2551fddd791f9fe348b50c076661656abfb56ba19f45b30",
     "config/p25_submission.json": "f1f1a20ba9fab6adfc78da053292ccd4073943adfab15391ef67f6b398a32659",
-    "scripts/research_report_text.py": "29d6936f9e8aa9ef16adb197bd3027c848edc66d3eeee0b71efbc10de5529855",
+    "scripts/research_report_text.py": "86ac0786d13fbd400764012ec81ef9c2fcba4346b727a6608e61e7474e388ad3",
     "reports/year_cheap_vega/comparison.csv": "494c0bfca3de5908282204ea446768dd51415968b2ab7157ab08d822908a52f2",
     "reports/p25_ungated_search/comparison.csv": "fde1b377bcc0808236913c1dcc084cad4b3de9ac9ea626cdb1fe5a45d9052eae",
     "reports/p25_memory_ablation/comparison.csv": "4033bfb399eeeb0b5cd6dbeba7d49f4862f81c768ab3d704bd16d9d5cdc7c9b6",
@@ -87,6 +87,14 @@
         "config/p25_submission.json"
       ]
     },
+    "participation_capital": {
+      "caption": "Same $10 million account and dates; memory screens change eligibility. Reserve is gross option premium plus half of gross netted stock-hedge notional. Figures show peak share of equity, not average deployment or broker margin.",
+      "sources": [
+        "reports/p25_capital_sensitivity/comparison.csv",
+        "reports/p25_ungated_search/comparison.csv"
+      ],
+      "plotted_data": "figure_data/participation_capital.csv"
+    },
     "cash_relative_wealth": {
       "caption": "Cumulative growth relative to the cash benchmark in the $10 million account. Proposals are shared; position sizes and executed portfolios differ.",
       "sources": [
@@ -101,14 +109,6 @@
         "reports/p25_capital_sensitivity/10m_learned_annual.csv"
       ],
       "plotted_data": "figure_data/annual_results.csv"
-    },
-    "participation_capital": {
-      "caption": "Same $10 million account and dates; memory screens change eligibility. Reserve is gross option premium plus half of gross netted stock-hedge notional. Figures show peak share of equity, not average deployment or broker margin.",
-      "sources": [
-        "reports/p25_capital_sensitivity/comparison.csv",
-        "reports/p25_ungated_search/comparison.csv"
-      ],
-      "plotted_data": "figure_data/participation_capital.csv"
     }
   },
   "layout_checks": [
@@ -149,12 +149,12 @@
     },
     {
       "page": 8,
-      "bottom_content_points": 85.85000000000014,
+      "bottom_content_points": 57.650000000000034,
       "overflow": false
     },
     {
       "page": 9,
-      "bottom_content_points": 64.34999999999997,
+      "bottom_content_points": 75.34999999999997,
       "overflow": false
     },
     {
@@ -172,9 +172,9 @@
     "signal_example": 4,
     "feature_ablations": 5,
     "allocation_model": 6,
-    "cash_relative_wealth": 7,
-    "annual_results": 8,
-    "participation_capital": 9
+    "participation_capital": 7,
+    "cash_relative_wealth": 8,
+    "annual_results": 9
   },
   "protected_files": {
     "slides/230ZB_volatility_spreads.pptx": "f85d2462a7904eeddad40c71990409d284902e78953d9ea1d1d26d9a2810c478",

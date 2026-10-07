@@ -1,7 +1,7 @@
 {
   "status": "complete",
   "paper_pages": 10,
-  "paper_word_count": 3745,
+  "paper_word_count": 3736,
   "figures": 9,
   "source_hashes_verified": true,
   "all_layout_checks_pass": true,
@@ -10,6 +10,6 @@
   "checkpoints_unchanged": true,
   "main_values_verified": true,
   "models_or_backtests_rerun": false,
-  "reader_revision": "Participation, capital use and ungated sizing experiments added to the reader-focused report",
-  "archived_report": "archive/report_before_ungated_extension_2026-10-06.zip"
+  "reader_revision": "Integrated sizing, participation and capital results across pages8\u20139 with a shared comparison table",
+  "archived_report": "archive/report_before_results_integration_2026-10-06.zip"
 }
