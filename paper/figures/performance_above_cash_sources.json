@@ -1,0 +1,12 @@
+{
+  "selected": "data/p25_validation_split_experiment.zip!artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet",
+  "constant": "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet",
+  "reconciliation": "reports/p25_validation_split/periods.csv",
+  "start": "2022-01-03",
+  "stop": "2025-08-29",
+  "rebased_at": "2021-12-31",
+  "definition": "Change in NAV minus cash benchmark since the preceding close",
+  "account_reset": false,
+  "tree_cem_profit": 248673.30389638804,
+  "constant_full_profit": 200852.84091427177
+}
