@@ -182,54 +182,38 @@ stay fixed after entry, except for documented corporate-event exits. Profit
 includes premiums, settlement payoffs, stock-hedge gains and losses, dividends,
 interest and costs.
 
-\subsection{Data, execution and a shared account}
+\subsection{Simulating trades in a funded portfolio}
 \label{sec:execution}
-Historical option quotes, stocks, rates and dividends come through WRDS. Of
-345 candidate pairs, usable contracts narrow the prepared panel to 125 pairs,
-161 assets and 36,327 dated candidate observations. Screening produces
-608 proposals over 2018--2025, including 312 in the later period. Availability
-therefore narrows the original research universe. The \hyperref[app:universe]{pair-universe appendix}
-lists all 125 pairs in the prepared historical panel, their recorded candidate
-dates, and the number of screened proposals for each pair. It also distinguishes
-this panel from the original 345-pair roster and the 46 pairs that generate
-qualified proposals during 2018--2025.
+We evaluate each sizing policy in a single \money{10 million} account. The
+policies receive the same trading opportunities and follow the same execution,
+hedging and account rules. This comparison measures how their sizing decisions
+affect net portfolio performance.
 
-On the signal date, we select the specific put on each stock, including its
-strike and expiry. We attempt to trade those same contracts on the next trading
-day, rather than choosing different contracts after seeing the next day's prices.
-We round to whole contracts and require the initial long and short vega exposures
-to differ by no more than 10\%. A proposal is rejected if its quotes or account
-checks fail. All accepted trades use one \money{10 million} account. Stock hedges
-in the same name are combined into a single net position, and new entries must
-fit within the capital and risk limits already used by existing holdings.
+For each opportunity, we select the two put contracts---including their strikes
+and expiries---using information available on the signal date. We attempt to
+enter those same contracts on the next trading day. Quantities are rounded to
+whole contracts, with no more than a 10\% difference between the initial long
+and short vega exposures. A proposed trade is accepted only if usable quotes
+are available and it satisfies the account's capital and risk limits.
 
-We book option trades at quoted midpoint and deduct a cash execution penalty
-equal to 0.10 IV percentage point times the traded vega. For day $t$, the
-evaluation costs are
-\begin{align}
-C_t^{\mathrm{execution}}
- &= \sum_{j\in\mathcal F_t}|\Delta N_{j,t}|
-       \bigl(0.10\,V_{j,t}+0.03\bigr)
-    +0.0001\sum_s P_{s,t}|\Delta h_{s,t}|, \label{eq:cost}\\
-C_t^{\mathrm{funding}}
- &= \left[0.003\,H^-_{t-1}
-          +0.01\max(-B_{t-1},0)\right]\Delta\tau_t. \nonumber
-\end{align}
-Here $\mathcal F_t$ contains paid option fills, $\Delta N$ is the number of
-contracts traded, and $V$ is one contract's dollar vega per IV percentage point
-(100 times the per-share quote vega). Thus $0.03$ is the commission in dollars
-per contract. $P|\Delta h|$ is stock-hedge dollar turnover after netting, charged
-at one basis point. $H^-$ is the previous day's short-stock notional, $B$ is cash,
-and $\Delta\tau$ is elapsed calendar days divided by 365. The funding rates are
-0.3\% annual short-stock borrow and a 1\% surcharge on negative cash.
+Once accepted, the option positions are held to expiry and their stock delta
+hedges are adjusted daily, except for documented corporate-event exits. All
+positions share the account's cash and available capital. Stock hedges in the
+same company are combined into a net position. Consequently, an existing trade
+can reduce the account's ability to accept another opportunity.
 
-Benchmark-rate cash interest is recorded separately as
-$I_t=r_{t-1}B_{t-1}\Delta\tau_t$; negative cash therefore pays the benchmark
-rate as well as the surcharge above. Expiry settlement carries no option
-commission or execution penalty. Archived training paths use \money{0.65}
-instead of \money{0.03} per contract in evaluation. The conventions therefore
-differ (Appendix~\ref{app:implementation}). Entry admission limits stress
-exposure, reserves and stock hedges.
+Portfolio performance includes option premiums and settlement payoffs,
+stock-hedge gains and losses, dividends, transaction costs and financing.
+Option trades are recorded at the quoted midpoint, with an execution charge
+equivalent to 0.10 IV percentage point of traded vega and a commission of
+\money{0.03} per contract. Stock-hedge transactions cost one basis point of
+traded value. Cash earns the benchmark interest rate; negative cash pays that
+rate plus 1\% annually, and short stock incurs a 0.3\% annual borrowing charge.
+Appendix~\ref{app:implementation} gives the cost formula and account limits.
+
+Because unused cash earns interest, we measure the strategy's contribution
+relative to an account invested entirely at the benchmark cash rate. This
+separates the value added by trading from interest earned on the account balance.
 
 \clearpage
 \subsection{Training, selection and testing}
@@ -308,15 +292,17 @@ been examined in earlier strategy development before this split was imposed.
 The monthly fits respect time order, but the test is not independent of all
 earlier choices of contracts, screens and universe. We interpret the later
 comparison as historical evidence rather than independent validation.
-Selection-account and cost differences are documented
-in Appendix~\ref{app:implementation}; they are not additional fitting stages.
+The historical trade outcomes used to train the sizing model were calculated
+with a commission of \money{0.65} per contract. The final portfolio comparison
+uses \money{0.03} per contract for every policy. Thus, the model learns from
+outcomes calculated under higher commissions than those used to evaluate its
+performance. Appendix~\ref{app:implementation} also documents the account size
+used for configuration selection.
 
-Performance is measured above a cash benchmark because interest materially
-contributes to account growth. For daily excess returns $e_t$, annualized excess
-Sharpe is $\widehat S=\sqrt{252}\,\bar e/s_e$, with sample standard deviation
-$s_e$. Profit above cash, admitted entries and reserves complement Sharpe;
-drawdown is relative to cash. These distinguish trading performance from
-interest income and low capital deployment.
+For daily returns above cash $e_t$, annualized excess Sharpe is
+$\widehat S=\sqrt{252}\,\bar e/s_e$, where $s_e$ is the sample standard deviation.
+We also report profit above cash, admitted entries, reserves and cash-relative
+drawdown.
 
 \clearpage
 \subsection{Learning an entry size: decision tree and CEM}
@@ -573,12 +559,37 @@ a European exercise approximation for American equity options. Market impact,
 early assignment and forced liquidation are not fully modeled; the execution
 penalty is a simulation assumption rather than a measurement of live fills.
 
+We book option trades at quoted midpoint and deduct a cash execution penalty
+equal to 0.10 IV percentage point times the traded vega. For day $t$, the
+evaluation costs are
+\begin{align}
+C_t^{\mathrm{execution}}
+ &= \sum_{j\in\mathcal F_t}|\Delta N_{j,t}|
+       \bigl(0.10\,V_{j,t}+0.03\bigr)
+    +0.0001\sum_s P_{s,t}|\Delta h_{s,t}|, \label{eq:cost}\\
+C_t^{\mathrm{funding}}
+ &= \left[0.003\,H^-_{t-1}
+          +0.01\max(-B_{t-1},0)\right]\Delta\tau_t. \nonumber
+\end{align}
+Here $\mathcal F_t$ contains paid option fills, $\Delta N$ is the number of
+contracts traded, and $V$ is one contract's dollar vega per IV percentage point
+(100 times the per-share quote vega). Thus $0.03$ is the commission in dollars
+per contract. $P|\Delta h|$ is stock-hedge dollar turnover after netting, charged
+at one basis point. $H^-$ is the previous day's short-stock notional, $B$ is cash,
+and $\Delta\tau$ is elapsed calendar days divided by 365. The funding rates are
+0.3\% annual short-stock borrow and a 1\% surcharge on negative cash.
+
+Benchmark-rate cash interest is recorded separately as
+$I_t=r_{t-1}B_{t-1}\Delta\tau_t$; negative cash therefore pays the benchmark
+rate as well as the surcharge above. Expiry settlement carries no option
+commission or execution penalty.
+
 \subsection{Tree states and cross-entropy search}
 The 33-configuration selection uses a \money{345 million} research account;
 the selected method and constant controls are replayed at \money{10 million}
 for the final comparison. This transfers a configuration across capital levels.
-Archived training paths use \money{0.65} commission per contract versus
-\money{0.03} in funded evaluation. Neither convention is changed in this report.
+Training commissions are \money{0.65} per contract; funded evaluation uses
+\money{0.03}, as explained in Section 3.3.
 
 The 27 inputs describe spread rank, IV/RV levels, relatedness, expiry, VIX,
 expected costs, completed profitability and availability. The tree targets
@@ -600,8 +611,10 @@ Selection and deployment therefore have account-size and objective differences.
 \clearpage
 \section{Pair universe and date coverage}
 \label{app:universe}
+Historical option quotes, stocks, rates and dividends come through WRDS.
 The original retained roster contains 345 pairs. The prepared historical
-candidate panel used by the sizing study contains 125 pairs and 161 assets.
+candidate panel used by the sizing study contains 125 pairs, 161 assets and
+36,327 dated candidate observations.
 During the 2018--2025 signal calendar, 46 pairs pass all screens and generate
 608 proposals; the selected funded policy admits 207 entries, including 110
 in the later test. A proposal is a qualified request, not an executed trade.
