@@ -1,0 +1,26 @@
+{
+  "selected": "action_q_capacity",
+  "policy": "Action critics: capacity Q",
+  "selected_on": "2020-2021 only",
+  "role": "Earlier-selected research approach; selection does not establish reliable benchmark improvement",
+  "reason": "At least20validation entries, nonnegative profit in both2020/2021, and Sharpe > common fixed100+.01; choose highest earlier Sharpe, case-name tie break. Otherwise retain fixed100.",
+  "best_q_by_validation": "action_q_capacity",
+  "best_q_meets_selection_criteria": true,
+  "best_q_model": "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_action_q\\models\\2022-01-01\\action_q_capacity.joblib",
+  "later_descriptive_best_candidate": "q_risk",
+  "later_used_for_selection": false,
+  "incremental_sharpe_supported_63_126": false,
+  "continuation_supported_63_126": false,
+  "continuation_reference": "entry_myopic_capacity",
+  "evidence_definition": "True only when both 63/126-session paired conditional 95% Sharpe-difference lower bounds are strictly positive. Null means no applicable comparison. No research-selection adjustment or later promotion.",
+  "validation_selected_baseline": false,
+  "strategy_configuration_unchanged": true,
+  "strategy_configuration_hashes": {
+    "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+    "config\\p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00"
+  },
+  "candidates_supported_63_126": [],
+  "continuation_cases_supported_63_126": [],
+  "untouched_holdout": false,
+  "selected_model": "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_action_q\\models\\2022-01-01\\action_q_capacity.joblib"
+}

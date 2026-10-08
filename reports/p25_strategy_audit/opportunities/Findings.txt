@@ -1,0 +1,184 @@
+P25 OPPORTUNITY-SELECTION AUDIT
+
+Scope
+Current selected policy: 27 inputs, monthly 18-month training, 50/75/100% sizing,
+$10m continuous portfolio, 2018–August 2025. This audit distinguishes the 608
+qualified proposals from the 207 trades actually accepted. No tree, selection
+rule, model weight, portfolio or checkpoint was changed. Historical results
+are exploratory because this history was previously inspected.
+
+Conclusion
+The opportunity definition has an economic hypothesis: identify an unusual
+relative put-IV spread within a historically related equity pair, trade toward
+its usual spread, and require positive completed directional shadow outcomes.
+It is concrete and executable in code. That does not validate the exact pair
+roster, dates, thresholds, put delta, maturity, or profitability veto. Several
+choices are inherited research conventions with material selection limitations.
+The most consequential issues are the inherited ex-post complete roster, a
+directional beta test that depends on leg ordering, and highly restrictive
+profit-history gates whose relative performance changes across time periods.
+
+What determines an opportunity
+1. Historical candidate formation: previous 252 sessions; 200 complete input
+   observations, median aggregate CALL volume >= 100 and OI >= 500; historical
+   three-digit SIC; up to four liquid names per industry; pair return correlation >= 0.4;
+   up to 180 stock pairs per two-year screen, rotating industries. Specified ETF
+   comparisons are additional candidates. No profit ranking is used here.
+   This economically motivates related/liquid pairs, but the coverage measure
+   originates in an ATM-call universe rather than the actual P25 puts.
+2. The later current 345-pair roster is a subset inherited from older research.
+   It is NOT a fresh point-in-time P25 universe. See the lineage below.
+3. Inherited observable-pair/formation dates are required. Current code uses
+   the DATE INDEX of old rule actions, including zero-action days. It does
+   not require the old model to trade or pass a positive-validation gate.
+4. Monthly pair filter: preceding 126 return sessions, shifted one session;
+   stored first-leg-on-second-leg beta in [0.85, 1.15] and correlation >= 0.5. The
+   month-start estimate is frozen for that month. Beta is not market beta.
+5. For each leg choose an approximately 30-day 25-delta put. Signal-close selector
+   allows 21–45 intended-entry DTE and delta within 0.075 of 0.25. It chooses the
+   closest expiry first, then strike/delta distance, width, OI and option ID.
+   The two legs' expiries are selected independently. Selection allows OI >= 10;
+   final entry requires signal-date OI >= 100 and valid signal/entry quotes.
+6. Compute raw IV_A-IV_B percentile in its 252-session rolling history, with
+   at least 63 observed quotes. Bottom 20%: long A / short B; above 80%: short A / long B.
+   Direction is fixed before the sizing tree. This is relative-to-history
+   cheapness, not necessarily buying the lower absolute IV. It is not a fitted
+   mean-reversion or cointegration test, nor a causal expected-return estimate.
+7. Require positive mean completed shadow payoff for the proposed direction
+   over BOTH 91 and 365 calendar days, with at least 21 and 63 observations.
+   These are hypothetical daily cohorts, often overlapping, not independent
+   traded observations. Completion must be strictly before the signal date.
+   Memory retains $0.65/contract training costs; actual funded execution uses
+   $0.03/contract. Thus the gate is also an inherited conservative cost hurdle.
+8. The tree sizes the qualified proposal. Next-session quote, integer-vega,
+   corporate-action and shared risk checks determine whether it is accepted.
+   There is no zero-size action in the current selected sizing menu.
+
+Roster lineage and what is not established
+The broad preparation code initially requires 504 total IV observations and
+20 recorded earnings dates per stock, uses currently cached security-type
+metadata, and only covers locally downloaded securities. Even with causal
+industry/liquidity formation, these global availability constraints can condition
+the historical universe on later coverage. Historical names include acquired
+and delisted companies, so this is not simply a current-survivor-only roster.
+
+The original 2018+ actual-contract universe attempted 350 broad pairs plus eight
+legacy pairs = 358. The prior expiry/beta comparison retained 347 common-complete
+broad pairs. The VIX/momentum comparison retained 346 from that previous roster,
+excluding failures across all compared variants. Finally the ATM NN cost-hurdle
+comparison retained 345/346, dropping DVN/MRO because its $0.30 NN replay failed
+on an unsupported distribution on 2023-02-14. The employee-feature inputs and
+subsequent P25 pipeline inherited that 345 roster. Thus the exclusions are broader
+than just DVN/MRO and are based on ex-post path completeness in earlier strategies.
+This is documented by the original reports and executable roster construction;
+there is no evidence here that pairs were directly ranked by realized profit.
+The performance bias's direction or magnitude is not established by this audit.
+The 347-to-346 exclusion was F/GM: the VIX fixed-size NN could not handle an
+adjusted held contract on 2023-02-10. The final DVN/MRO exclusion is therefore
+the second directly traced inherited removal, after the earlier broad-roster
+completeness restrictions and omission of the eight legacy comparisons.
+
+Formation/context is another historical research choice. uniform_smile_data
+uses the index of a prior calendar-control series, and the final transfer
+explicitly intersects the old P25 rule-action date index. Old panel availability
+and historical membership remain embedded. The original calendar-control
+protocol itself calls this retrospective dataset conditioning. Optional current
+tree-feature flags are not additional entry vetoes. A full-universe date funnel
+cannot be reconstructed solely from the compact bundled training table, because
+it already excludes unobserved, beta-ineligible and out-of-context rows.
+
+Reconstructed opportunity funnel, 2018 through June 2025 signal dates
+Stage                                               Pair/date rows  Pairs
+Stored observed, beta-eligible, context candidates         17,967      120
+Also inherited formation dates                           11,977      112
+Also extreme IV spread rank                               4,744       78
+Also minimum memory counts                                3,484       62
+Also positive memory profits                                608       46
+Actually accepted by current selected sizing                 207       44
+
+The memory gate removes 87.2% of otherwise qualified extreme-rank opportunities.
+Its profit tests alone remove 82.5% after the count minimums. Of 608 proposals,
+279 hit entry risk limits, 69 are blocked while the existing book breaches a
+risk limit, 50 lack an eligible contract, and three fail integer vega matching.
+The risk_deleveraging label means reject a NEW entry; it does not mean forcibly
+sell an existing position. Pair counts differ across stages and overlap across
+rejection reasons. Source rows are not the full 345-by-calendar product.
+
+Controlled evidence: memory screen versus no screen
+Use the SAME 100% fixed sizing at $10m, so this comparison does not confound the
+screen change with the selected 27-input versus 33-input learners or their menus.
+                  2018–2021 Sharpe   2022–August 2025 Sharpe
+Memory screened          .478                    1.055
+No memory screen         .847                     .567
+
+Later-period new entries: 75 screened versus 459 ungated. Profit above cash:
+$200,853 screened versus $330,791 ungated. Average reserve: 2.49% versus 11.84%;
+maximum cash-relative drawdown magnitude: 0.65% versus 1.24%. Removing the gate
+expands exposure and dollar profit but worsens later risk-adjusted performance.
+In the earlier period the ungated policy has better Sharpe. These results do
+not establish a universally useful screen or optimal 21/63/91/365 cutoffs.
+
+The runners hold the settings, daily stock hedge, $0.03 option commission,
+0.1-volpoint fill penalty, 1 bp stock cost, borrowing/dividends, corporate events,
+$1m pair/wing reference, account risk limits, and continuous 2018 calendar fixed.
+Both preserve open inventory across 2022. The broader pool needs additional
+contract quotes; its disk market reads a larger native cache. The archived
+baseline check reproduces the original full NAV/trades/decisions. This supports
+consistency on original contracts; it does not prove additional contract data
+are equally complete or economically interchangeable. Expanded proposals also
+compete for the same portfolio risk budget, so this is a portfolio policy
+comparison rather than a matched-inventory causal decomposition.
+
+Interpretation of the structural diagnostic
+For the same return sample, beta(A|B)=rho*sigmaA/sigmaB and
+beta(B|A)=rho^2/beta(A|B). Reversing names can therefore fail the near-one beta
+gate even though the underlying pair is unchanged. This challenges using that
+gate as a symmetric definition of pair similarity. It does not mean every
+reverse-failing pair should be excluded: requiring both directional betas near
+one would also impose a substantially higher effective correlation threshold.
+A symmetric volatility-ratio feature plus correlation is more transparent to
+test, with limits declared before looking at P&L. proposal_structure.csv and
+structural_diagnostics.csv measure this issue without choosing winners/losers.
+Of the 608 current qualified proposals, 425 (69.9%) fail the near-one beta
+criterion when the names are reversed; 130 of 207 accepted entries (62.8%) do.
+Median reverse beta is 0.754 across proposals and 0.772 across accepted entries.
+The rule also buys the higher absolute-IV leg on 138 proposals (22.7%) and
+34 entries (16.4%). This is compatible with the historical-spread rule, but
+rules out describing every trade simply as buying low IV and selling high IV.
+
+Maturity is also substantive: saved current-policy diagnostics show 82/608
+proposals and 27/207 accepted pairs have different expirations, with up to 21
+days of unmatched single-leg exposure. Initial vega matching does not eliminate
+gamma, expiry or stock-specific event risk. This is a design assumption, not a
+finding that all unmatched trades lose.
+
+Recommendations
+1. Rebuild a documented point-in-time P25 candidate universe and replace the
+   inherited complete-path roster/date indices with explicit causal availability
+   rules. Report unavailable paths as unresolved coverage; do not silently keep
+   only full-history successful simulations. Quantify the missing-data effect
+   before claiming a robust universe-level result.
+2. Define the economic opportunity directly: relative IV/variance-premium
+   normalization, symmetric pair risk, actual put liquidity and expiry alignment.
+   The current rank rule is a reasonable baseline hypothesis, not demonstrated
+   optimal selection. Keep fixed sizing for initial opportunity tests.
+3. Retain screened and ungated fixed-size controls in every comparison. The
+   existing evidence shows a regime-dependent participation/risk tradeoff; do
+   not remove the gate simply because it suppresses many trades or retain it
+   simply because the later Sharpe is higher.
+4. Predeclare a SMALL, staged sensitivity: symmetric pair-risk definition;
+   threshold neighborhood; and expiry alignment, each separately. Refit only
+   after isolating opportunity changes; report all variants, pair coverage,
+   exposure, costs and P&L alongside Sharpe. A new uninspected time period is
+   needed for a confirmatory claim after these exploratory diagnostics.
+
+Outputs and checks
+funnel.csv: cumulative counts within the already available candidate table.
+admission.csv: actual 608 proposal dispositions.
+pair_coverage.csv: qualified/entered breadth and reverse-beta counts.
+proposal_structure.csv: signal-date structural variables, sizes, admissions.
+fixed_size_gate_control.csv: matched fixed-full-size results across periods.
+roster_history.csv: inherited common-complete roster stages.
+opportunity_audit.png: proposal funnel and fixed-size screen comparison.
+audit.json: source hashes, exact proposal reconciliation, config/book checks.
+protocol.json: declared scope, conventions, resource limit and limitations.

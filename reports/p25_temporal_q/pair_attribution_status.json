@@ -1,0 +1,26 @@
+{
+  "cases": [
+    {
+      "case": "entry_myopic_capacity",
+      "status": "complete",
+      "cohorts": 133,
+      "calendar_rows": 1926,
+      "current_rss_mib": 263.2109375,
+      "dense_array_allowance_mib": 70.35589599609375,
+      "quote_lookup_allowance_mib": 9.19036865234375,
+      "estimated_peak_rss_mib": 358.7572021484375,
+      "pairs": 39,
+      "max_daily_reconciliation_error": 5.364199751056731e-09
+    },
+    {
+      "case": "manage_myopic_capacity",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 171,
+      "calendar_rows": 1926,
+      "current_rss_mib": 265.19140625,
+      "dense_array_allowance_mib": 90.45758056640625,
+      "quote_lookup_allowance_mib": 7.7850341796875,
+      "estimated_peak_rss_mib": 379.43402099609375
+    }
+  ]
+}

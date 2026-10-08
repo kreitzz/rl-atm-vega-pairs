@@ -1,0 +1,9 @@
+{
+  "baseline": "screened_selected;27 inputs;18 months;10m;608 proposals",
+  "purpose": "Trace opportunity rules and reproduce saved screens; no optimization, refit or portfolio replay",
+  "comparisons": "Existing fixed100 screened versus fixed100 ungated at10m; retain2018-2021 and2022-2025 split",
+  "diagnostics": "Gate funnel and pair breadth; reverse-beta relabelling sensitivity without P&L filtering",
+  "untouched_holdout": false,
+  "resources": "One numerical worker,20% duty,384MiB RSS",
+  "limitation": "Bundled training rows already satisfy observed/beta/context. Full raw pair-day funnel unavailable locally."
+}

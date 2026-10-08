@@ -1,0 +1,108 @@
+{
+  "question": "Can daily held-position Q improve the original fixed-full IV/RV proposal portfolio?",
+  "features": [
+    "carry20",
+    "carry60",
+    "rv_available",
+    "iv_displacement",
+    "remaining_dte",
+    "release_7d",
+    "stress",
+    "reserve",
+    "pair_stress",
+    "name_concentration",
+    "liquidation_cost",
+    "drawdown",
+    "gross_vega",
+    "cohorts",
+    "retained_fraction"
+  ],
+  "experiments": {
+    "manage_q": {
+      "gamma": 0.99,
+      "penalty": 0.0
+    },
+    "manage_q_risk": {
+      "gamma": 0.99,
+      "penalty": 0.5
+    },
+    "manage_myopic_risk": {
+      "gamma": 0.0,
+      "penalty": 0.5
+    }
+  },
+  "behaviors": [
+    [
+      "hold",
+      2026
+    ],
+    [
+      "half_weekly",
+      2026
+    ],
+    [
+      "negative_carry",
+      2026
+    ],
+    [
+      "random_weekly",
+      2026
+    ]
+  ],
+  "source_code": {
+    "scripts\\p25_rl\\management.py": "472a3c467d485ed5a839e11ac5ac8cbe0c3af9a04f5546a870753a8768d526c7",
+    "scripts\\p25_rl\\managed_ledger.py": "70054e745949ba0a3e761cdfd38489a5fdef5dbce6cba06a17235002e635ac73",
+    "scripts\\p25_rl\\critic.py": "a2e4fe4e7e15c11088c01fef4bb72325a867183fd02f55736652d39c725cf9a0",
+    "scripts\\p25_rl\\provenance.py": "3aed5c6ad4454deaa6fe905205e7510547eea9c54af8829511d01fc9a9fba29f"
+  },
+  "algorithm": "Independent forest per action:24 ExtraTrees depth3,minleaf30,seed2026;24 Bellman iterations;one fit for gamma0. One-hot interface, state-only per-action critics. Equal decision-date weights across behavior paths; action support counts saved.",
+  "actions": {
+    "0": "hold",
+    "1": "retain_half",
+    "2": "close_book"
+  },
+  "entry": "All608 inherited proposals remain fixed100 entries; original risk and execution checks; no new signals,directions,maturities or re-expansion.",
+  "state": "15 current completed-close summaries. RV20/60 are annualized EWMA squared log returns of close*cfadj, min63 prior/current observations; no future fill or payoff class.",
+  "timing": "Observer at completed close BEFORE management requests; store global action; original next-session actual-quote execution with fees. Modeled causal held quotes may inform state, never elective fills.",
+  "reward": "Actual daily funded cash-excess return inbps; optional .5*squared_daily_bps/(2*training-onlyscale), floor .01bps. Utility is not Sharpe.",
+  "flat": "Only legal hold while flat; daily cash states retain value of subsequent fixed proposals. Terminal only actual end-of-history flat runoff; fit cutoff does not create terminals.",
+  "train": "Initial transitions end strictly before2020; final transitions end strictly before2022. Partial known transitions allowed, boundary continuation may extrapolate.",
+  "validation": "Continuous2018-2021 ledger, ordinary full hold before2020. IdenticalOct31 2021 proposal cutoff andDec31 runoff. Selection only2020-2021.",
+  "evaluation": "Continuous original2018-Aug2025 book, ordinary full hold before2022. Carry actual baseline Dec2021inventory/NAV. No later retuning.",
+  "selection": "Two Q arms only; >=20validation entries, nonnegative profit in2020and2021, Sharpe>fixed100+.01; otherwisefixed100. Root combined selection across frozen entry/management arms is authoritative.",
+  "limitations": "Only608 inherited proposals; four behaviors share market history. Aggregate partial state, midpoint/cost/universe/assignment assumptions inherited. All later years previously inspected; exploratory inference.",
+  "resources": {
+    "threads": 1,
+    "duty": 0.2,
+    "rss_limit_mib": 384
+  },
+  "instrumentation": {
+    "engine_source_sha256": "e00951f94c970dc36fa81c29e0dba1e1f470bdca45dbac82bafd5307bdacf3ed",
+    "accounting_ast_sha256": "43185e2556bb8b652f8e587b6ef56786146c092e2bd900e17d8cc5ecdfb21dd1",
+    "accounting_ast_unchanged": true,
+    "observer_timing": "completed close after lag book state, before management requests",
+    "day_snapshot": "original daily.append dictionary expression",
+    "positions_snapshot": "independent copies plus original current causal quote and spot",
+    "book_risk": "scripts.uniform_smile_risk.book_risk"
+  },
+  "protected_hashes": {
+    "scripts\\p25_rl\\run.py": "c16be177b2f28101b5bdbf9124a57976878cf12230bd93e1edc3dc1a6406019a",
+    "scripts\\p25_rl\\policy.py": "60b871a04298a91ee91b28af11414ea28bf16db64b66b8a6dfe905e6047982d7",
+    "scripts\\p25_rl\\ledger.py": "7acbdb048a37a17d1915290f91823dc0695b93113cc311b04d99693583958796",
+    "scripts\\p25_rl\\provenance.py": "3aed5c6ad4454deaa6fe905205e7510547eea9c54af8829511d01fc9a9fba29f",
+    "scripts\\uniform_smile_engine.py": "733fee09ba8e3311c70588bef548aea7bb6136c69e3c221e840fe163733d94f1",
+    "scripts\\uniform_smile_risk.py": "b5a95584d56f18503c006831517c3b0c2fac426d752907b2de2577e577adcfc0",
+    "scripts\\option_flex\\contract_engine.py": "363cd120e4503a7c34b02b8d0ecede19084e2b7951f819289e0103c2fc9d793e",
+    "data\\submission\\artifacts\\contracts\\p25_feature_search\\training_rows.parquet": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175",
+    "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+    "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+    "config\\p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00",
+    "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\stocks.parquet": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e",
+    "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\rates.parquet": "96346c87a5d71514f7e7378d2041ee116ca89f515fd5a76da74414ff9a40ddc3",
+    "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\dividends.parquet": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\trades.csv": "4fbb7bb8efe5f804819ccc1e34888b0b828c315a3d795b0545b17a19c22ea47c",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\decisions.csv": "17e2897c59e812e925b7f93c2ce10eebba3ff5a5d352828aac050ebe9e402576",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\scored_allocations.parquet": "60074212652ecdacde06c62da37afd4620ce061ee00aa0bf73ce1b15ca5900d8"
+  }
+}

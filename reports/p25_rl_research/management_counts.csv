@@ -1,0 +1,9 @@
+case,phase,filled_instructions,unavailable_exit_quote,integer_trim_unavailable,unbalanced_trim,trim_fills,close_fills
+fixed100,validation,0,0,0,0,0,0
+manage_q,validation,39,3,0,0,78,0
+manage_q_risk,validation,42,0,0,0,84,0
+manage_myopic_risk,validation,42,0,0,0,84,0
+fixed100,evaluation,0,0,0,0,0,0
+manage_q,evaluation,25,12,0,0,50,0
+manage_q_risk,evaluation,251,0,0,0,0,502
+manage_myopic_risk,evaluation,131,14,0,0,108,153

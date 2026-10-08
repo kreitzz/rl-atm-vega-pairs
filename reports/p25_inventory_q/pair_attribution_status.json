@@ -1,0 +1,128 @@
+{
+  "cases": [
+    {
+      "case": "fixed100",
+      "status": "complete",
+      "reused_saved_accounting": true,
+      "pairs": 40,
+      "reconciliation": "daily pair profit plus financing matches NAV"
+    },
+    {
+      "case": "q_capacity",
+      "status": "complete",
+      "cohorts": 129,
+      "calendar_rows": 1926,
+      "current_rss_mib": 240.8046875,
+      "dense_array_allowance_mib": 68.23992919921875,
+      "quote_lookup_allowance_mib": 8.86077880859375,
+      "estimated_peak_rss_mib": 333.9053955078125,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.166612027096562e-09
+    },
+    {
+      "case": "q_risk",
+      "status": "complete",
+      "cohorts": 157,
+      "calendar_rows": 1926,
+      "current_rss_mib": 247.41015625,
+      "dense_array_allowance_mib": 83.05169677734375,
+      "quote_lookup_allowance_mib": 10.42633056640625,
+      "estimated_peak_rss_mib": 356.88818359375,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.166612027096562e-09
+    },
+    {
+      "case": "q_conservative",
+      "status": "complete",
+      "cohorts": 133,
+      "calendar_rows": 1926,
+      "current_rss_mib": 248.13671875,
+      "dense_array_allowance_mib": 70.35589599609375,
+      "quote_lookup_allowance_mib": 9.11712646484375,
+      "estimated_peak_rss_mib": 343.6097412109375,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.706169758923352e-09
+    },
+    {
+      "case": "q_portfolio",
+      "status": "complete",
+      "cohorts": 133,
+      "calendar_rows": 1926,
+      "current_rss_mib": 250.95703125,
+      "dense_array_allowance_mib": 70.35589599609375,
+      "quote_lookup_allowance_mib": 9.11712646484375,
+      "estimated_peak_rss_mib": 346.4300537109375,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.706169758923352e-09
+    },
+    {
+      "case": "myopic_risk",
+      "status": "complete",
+      "cohorts": 84,
+      "calendar_rows": 1926,
+      "current_rss_mib": 257.79296875,
+      "dense_array_allowance_mib": 44.435302734375,
+      "quote_lookup_allowance_mib": 5.95245361328125,
+      "estimated_peak_rss_mib": 324.18072509765625,
+      "pairs": 28,
+      "max_daily_reconciliation_error": 5.2914401749148965e-09
+    },
+    {
+      "case": "q_no_inventory",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 173,
+      "calendar_rows": 1926,
+      "current_rss_mib": 255.140625,
+      "dense_array_allowance_mib": 91.51556396484375,
+      "quote_lookup_allowance_mib": 10.99853515625,
+      "estimated_peak_rss_mib": 373.65472412109375
+    },
+    {
+      "case": "fixed50",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 209,
+      "calendar_rows": 1926,
+      "current_rss_mib": 255.765625,
+      "dense_array_allowance_mib": 110.55926513671875,
+      "quote_lookup_allowance_mib": 32.0,
+      "estimated_peak_rss_mib": 414.32489013671875
+    },
+    {
+      "case": "diversified",
+      "status": "complete",
+      "cohorts": 125,
+      "calendar_rows": 1926,
+      "current_rss_mib": 254.734375,
+      "dense_array_allowance_mib": 66.12396240234375,
+      "quote_lookup_allowance_mib": 8.67462158203125,
+      "estimated_peak_rss_mib": 345.532958984375,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.166612027096562e-09
+    },
+    {
+      "case": "congestion",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 168,
+      "calendar_rows": 1926,
+      "current_rss_mib": 261.0390625,
+      "dense_array_allowance_mib": 88.87060546875,
+      "quote_lookup_allowance_mib": 10.76507568359375,
+      "estimated_peak_rss_mib": 376.67474365234375
+    },
+    {
+      "case": "tree_cem",
+      "status": "complete",
+      "reused_saved_accounting": true,
+      "pairs": 46,
+      "reconciliation": "daily pair profit plus financing matches NAV"
+    },
+    {
+      "case": "learned5",
+      "status": "complete",
+      "reused_saved_accounting": true,
+      "pairs": 32,
+      "reconciliation": "daily pair profit plus financing matches NAV"
+    }
+  ],
+  "accounting": "Actual option and stock hedge profit, costs and dividends; shared financing separate"
+}

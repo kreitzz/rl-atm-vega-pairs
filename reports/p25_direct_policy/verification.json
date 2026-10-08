@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "monthly_direct_models": 180,
+  "original_tree_models": 90,
+  "additional_seed_records": 24,
+  "full_searches_independently_repeated": 4,
+  "all_training_objectives_independently_reaggregated": true,
+  "training_only_transforms_and_completed_outcomes_verified": true,
+  "all_saved_predictions_and_contributions_reproduced": true,
+  "all_stability_metrics_reproduced": true,
+  "archived_controls_identical": true,
+  "all_six_funded_ledgers_reconciled": true,
+  "max_independent_ledger_error": 5.701622285414487e-09,
+  "peak_rss_mib": 195.8046875,
+  "protected_hashes_unchanged": true,
+  "protocol_sha256": "b56d3ec148f48d87c674010dde0d5f6f8fa87b1a2fa83cbb530a268370e96196"
+}

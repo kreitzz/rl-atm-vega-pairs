@@ -1,0 +1,11 @@
+case,status,entries,active_pairs,independent_ledger_error,all_inventory_closed,unique_proposal_identities,scored_levels_match_decisions,requested_direction_matches,policy_actions_match_requests
+fixed100,passed,54,22,5.1700226322282106e-09,True,True,True,True,True
+fixed50,passed,78,22,4.285539034754038e-09,True,True,True,True,True
+diversified,passed,48,22,5.4305928642861545e-09,True,True,True,True,True
+congestion,passed,67,22,5.052243068348616e-09,True,True,True,True,True
+q_capacity,passed,54,22,5.1700226322282106e-09,True,True,True,True,True
+q_risk,passed,54,22,5.1700226322282106e-09,True,True,True,True,True
+q_conservative,passed,54,22,5.1700226322282106e-09,True,True,True,True,True
+q_portfolio,passed,54,22,5.1700226322282106e-09,True,True,True,True,True
+myopic_risk,passed,44,20,5.1700226322282106e-09,True,True,True,True,True
+q_no_inventory,passed,54,22,5.1700226322282106e-09,True,True,True,True,True

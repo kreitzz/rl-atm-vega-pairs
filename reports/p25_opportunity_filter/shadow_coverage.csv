@@ -1,0 +1,7 @@
+case,selected,finite_paths,unresolved_paths,complete_training_labels,zero_finite_paths,selected_middle_rank,chosen_pairs
+current_fixed100,608,608,0,558,50,0,46
+rank_all_fixed100,4744,4719,25,4311,393,0,78
+broad_ridge,1261,1261,0,1114,146,735,77
+broad_spline,1670,1670,0,1464,198,928,80
+rank_ridge,768,768,0,689,77,0,56
+rank_spline,881,881,0,787,93,0,56

@@ -1,0 +1,138 @@
+{
+  "fit": "2025-06-01",
+  "features": [
+    "iv_mean",
+    "oriented_iv_gap",
+    "rank_strength",
+    "oriented_vrp_gap",
+    "rv_mean",
+    "beta",
+    "correlation",
+    "dte_mean",
+    "oriented_dte_gap",
+    "commission_vol_points",
+    "vix",
+    "profit_91d",
+    "count_91d",
+    "profit_365d",
+    "count_365d",
+    "oriented_vrp_gap_available",
+    "rv_mean_available",
+    "beta_available",
+    "correlation_available",
+    "dte_mean_available",
+    "oriented_dte_gap_available",
+    "commission_vol_points_available",
+    "vix_available",
+    "profit_91d_available",
+    "count_91d_available",
+    "profit_365d_available",
+    "count_365d_available"
+  ],
+  "metadata": {
+    "model": "control",
+    "fit": "2025-06-01",
+    "training_rows": 83,
+    "last_training_outcome": "2025-05-16",
+    "choices": [
+      2,
+      4,
+      4,
+      2,
+      2,
+      2,
+      4
+    ],
+    "training_shadow_daily_sharpe": -0.18085241137159494,
+    "baseline_shadow_daily_sharpe": -0.6822970163779286,
+    "training_objective": -0.18085241137159494,
+    "objective": "daily_sharpe"
+  },
+  "nodes": [
+    {
+      "node": 0,
+      "feature": "count_365d",
+      "threshold": 133.5,
+      "left": 1,
+      "right": 2,
+      "training_examples": 83
+    },
+    {
+      "node": 1,
+      "feature": "iv_mean",
+      "threshold": 0.3376367688179016,
+      "left": 3,
+      "right": 4,
+      "training_examples": 73
+    },
+    {
+      "node": 3,
+      "feature": "rank_strength",
+      "threshold": 0.8500842154026031,
+      "left": 7,
+      "right": 8,
+      "training_examples": 45
+    },
+    {
+      "node": 7,
+      "feature": "count_91d",
+      "threshold": 27.0,
+      "left": 9,
+      "right": 10,
+      "training_examples": 24
+    },
+    {
+      "node": 9,
+      "size_fraction": 0.5,
+      "training_examples": 10
+    },
+    {
+      "node": 10,
+      "size_fraction": 0.5,
+      "training_examples": 14
+    },
+    {
+      "node": 8,
+      "feature": "vix",
+      "threshold": 0.14434999972581863,
+      "left": 11,
+      "right": 12,
+      "training_examples": 21
+    },
+    {
+      "node": 11,
+      "size_fraction": 0.5,
+      "training_examples": 11
+    },
+    {
+      "node": 12,
+      "size_fraction": 1.0,
+      "training_examples": 10
+    },
+    {
+      "node": 4,
+      "feature": "count_91d",
+      "threshold": 24.5,
+      "left": 5,
+      "right": 6,
+      "training_examples": 28
+    },
+    {
+      "node": 5,
+      "size_fraction": 1.0,
+      "training_examples": 12
+    },
+    {
+      "node": 6,
+      "size_fraction": 1.0,
+      "training_examples": 16
+    },
+    {
+      "node": 2,
+      "size_fraction": 0.5,
+      "training_examples": 10
+    }
+  ],
+  "source_archive_member": "artifacts/contracts/p25_feature_search/models/control/2025-06-01.joblib",
+  "source_sha256": "b2d7814c8c97cc72196f9003f95e786b368e2d070781f22a30c831da7971caf8"
+}

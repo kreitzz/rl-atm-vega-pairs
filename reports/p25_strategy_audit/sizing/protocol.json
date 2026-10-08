@@ -1,0 +1,20 @@
+{
+  "status": "predeclared_before_new_scores",
+  "date": "2026-10-07",
+  "question": "Does the current tree/CEM entry-sizing pipeline outperform practical simpler alternatives on identical qualified opportunities?",
+  "baseline": "config/p25_validation_2018_2021.json screened, 27 inputs, 18 months, 50/75/100 percent, 10m capital",
+  "cases": ["tree_cem", "fixed50", "fixed75", "fixed100", "rank_terciles", "ridge_terciles"],
+  "controls": "Reuse hash-verified screened_selected and screened_fixed75 funded ledgers from data/p25_validation_split_experiment.zip; fixed50/100 come from data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50 and10m_fixed100, verified against submission manifest. Confirm selected equals exact reproduced representation raw_full. These are the same controls in validation_split periods.csv.",
+  "rank_terciles": "At each monthly cutoff, compute rank_strength 1/3 and 2/3 quantiles using eligible completed outcomes in prior 18 months. Map lower/middle/upper scores to 50/75/100 percent. Ties use upper interval. No target or optimizer enters this rule.",
+  "ridge_terciles": "Standardize same 27 input columns with training means and population SD; constants use SD 1. Fit Ridge with intercept, alpha=n_train, solver svd, to same full-size lifetime P&L target. This minimizes mean squared error plus unit L2 penalty. Map predictions using training-prediction terciles to 50/75/100 percent. No hyperparameter search, CEM, or later-period calibration.",
+  "action_space": "All six cases use original 50/75/100 ladder. Ridge has a continuous linear score but discretized sizes: retained engine only accepts its declared ladder. Fully continuous action sizes are not tested.",
+  "training": "90 monthly fits January 2018 through June 2025, prior 18 months, signal_eligible and finite_label, signal and completed outcome strictly before cutoff. Signal month selects policy.",
+  "replay": "Same 608 qualified proposals, contracts, directions, initial capital, risk checks, costs, delta hedging and hold-to-expiry policy. Continuous inventory through monthly and evaluation boundaries. Only entry sizes differ; admissions can consequently differ.",
+  "interpretation": "Comparison of complete practical sizing pipelines, not isolated tree topology: rank/ridge remove CEM and reduce flexibility. No claim that a losing ridge arm excludes all continuous sizing approaches. No zero action in any arm.",
+  "periods": {"validation": ["2018-01-01", "2021-12-31"], "evaluation": ["2022-01-01", "2025-08-29"]},
+  "selection": "Descriptive rankings in both periods; select constant comparator only by validation Sharpe. No automatic strategy promotion. New alternatives were designed after previous research on this history.",
+  "uncertainty": "Paired circular time-block bootstrap of daily excess returns, 2000 draws, blocks 21/63/126 sessions, seed 2026; report each candidate minus tree. No correction for multiple testing or prior research.",
+  "diagnostics": ["tree training and leaf sample counts", "distinct training dates and pairs", "monthly allocation instability on overlapping training examples", "same-proposal size distribution", "funded admissions and rejection reasons", "yearly and period profit above cash, Sharpe and drawdown"],
+  "runtime": {"numerical_threads": 1, "worker_duty": 0.2, "rss_limit_mib": 384, "aggregate_compute_slot_required": true},
+  "untouched_holdout": false
+}

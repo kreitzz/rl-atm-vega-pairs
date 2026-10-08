@@ -1,0 +1,11 @@
+We tested three Q-learning families: portfolio entry allocation with a shared critic, separate critics for each entry action, and daily hold/trim/exit management. Nine candidate models and their controls were evaluated.
+
+Validation selected Action critics: capacity Q: Sharpe 0.974 versus the baseline's 0.821. In 2022–August 2025, it achieved 0.802 versus 1.055. Validation selection did not establish a better strategy.
+
+The highest later Q point estimate was Q: risk utility at 1.072; it was not promoted. Its Sharpe gain was +0.017, with a conditional 95% interval [-0.266, +0.331] using 126-session blocks. None of the nine Q candidates establishes improvement at both block lengths. Matched myopic controls do not establish a reliable benefit from learning delayed rewards.
+
+The entry Q refit used 229 distinct entry decision dates. Counterfactual trajectories reuse those dates; they are not new independent data.
+
+The full-history baseline Sharpe was 0.769, with a positive conditional interval [0.054, 1.328] at 126-session blocks; both block lengths support positivity. Later-period significance depends on block length. These historical intervals do not adjust for accumulated research.
+
+This study manages the inherited 608 proposals; it does not discover new portfolio IV/RV alpha. Strategy configuration remains unchanged. Retain the baseline benchmark. The next distinct hypothesis is cost-aware stock delta hedging against daily hedging and a fixed no-trade band at matched risk; it remains untested.

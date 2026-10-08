@@ -1,0 +1,38 @@
+{
+  "status": "downloaded",
+  "quotes": [
+    {
+      "year": 2018,
+      "rows": 458
+    },
+    {
+      "year": 2019,
+      "rows": 662
+    },
+    {
+      "year": 2020,
+      "rows": 423
+    },
+    {
+      "year": 2021,
+      "rows": 629
+    },
+    {
+      "year": 2022,
+      "rows": 1813
+    },
+    {
+      "year": 2023,
+      "rows": 485
+    },
+    {
+      "year": 2024,
+      "rows": 262
+    },
+    {
+      "year": 2025,
+      "rows": 386
+    }
+  ],
+  "authentication": "Existing configured libpq store; no credentials saved"
+}

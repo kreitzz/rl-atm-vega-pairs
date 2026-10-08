@@ -1,0 +1,7 @@
+case,period,scope,both,tree_only,candidate_only,neither
+direct_linear,validation,signal dates,80,17,18,181
+direct_linear,evaluation,signal dates,81,29,15,187
+direct_linear,full,signal dates,161,46,33,368
+direct_additive,validation,signal dates,77,20,16,183
+direct_additive,evaluation,signal dates,87,23,10,192
+direct_additive,full,signal dates,164,43,26,375

@@ -1,0 +1,9 @@
+case,phase,decision_dates,median_action_value_range,maximum_action_value_range,different_action_values_fraction
+action_q_capacity,validation,97,0.23381720607131262,0.5135303465033783,1.0
+action_q_risk,validation,97,1.1785207834516367,1.4134731521858637,1.0
+action_q_conservative,validation,97,1.5107971052876357,2.9221846058290586,1.0
+action_myopic_risk,validation,97,0.6920218143014479,0.9090805530479205,1.0
+action_q_capacity,evaluation,251,0.9150710276184775,5.420024757690616,1.0
+action_q_risk,evaluation,251,1.1489697610977085,9.924257941838636,1.0
+action_q_conservative,evaluation,251,1.293277843113902,10.134615621751102,1.0
+action_myopic_risk,evaluation,251,0.978863797210989,12.175373166424217,1.0

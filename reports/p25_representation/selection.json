@@ -1,0 +1,63 @@
+{
+  "selected": "raw_full",
+  "ranking": [
+    {
+      "case": "raw_full",
+      "start": "2018-01-02",
+      "end": "2021-12-31",
+      "annualized_excess_sharpe": 0.5733293406021273,
+      "profit_above_cash": 58313.31118740328,
+      "entries": 97,
+      "average_reserve_pct": 1.542919602647778,
+      "max_cash_relative_drawdown_pct": -0.2695481314855308,
+      "post_entry_risk_breach_days": 0
+    },
+    {
+      "case": "pca_all",
+      "start": "2018-01-02",
+      "end": "2021-12-31",
+      "annualized_excess_sharpe": 0.46141741486096505,
+      "profit_above_cash": 47904.99685044959,
+      "entries": 98,
+      "average_reserve_pct": 1.6403418045126552,
+      "max_cash_relative_drawdown_pct": -0.27539873900762624,
+      "post_entry_risk_breach_days": 0
+    },
+    {
+      "case": "core3",
+      "start": "2018-01-02",
+      "end": "2021-12-31",
+      "annualized_excess_sharpe": 0.39026983833747364,
+      "profit_above_cash": 40236.55730653182,
+      "entries": 100,
+      "average_reserve_pct": 1.6123981723298393,
+      "max_cash_relative_drawdown_pct": -0.2839544803031502,
+      "post_entry_risk_breach_days": 0
+    },
+    {
+      "case": "pca80",
+      "start": "2018-01-02",
+      "end": "2021-12-31",
+      "annualized_excess_sharpe": 0.38921508045225806,
+      "profit_above_cash": 44511.406603138894,
+      "entries": 95,
+      "average_reserve_pct": 1.6447787839865353,
+      "max_cash_relative_drawdown_pct": -0.3357825133947778,
+      "post_entry_risk_breach_days": 0
+    },
+    {
+      "case": "pca3",
+      "start": "2018-01-02",
+      "end": "2021-12-31",
+      "annualized_excess_sharpe": 0.33544274498762316,
+      "profit_above_cash": 48406.25047997199,
+      "entries": 102,
+      "average_reserve_pct": 1.7177908340569452,
+      "max_cash_relative_drawdown_pct": -0.4478774211230441,
+      "post_entry_risk_breach_days": 0
+    }
+  ],
+  "selected_using": "2018-2021 funded excess Sharpe only",
+  "untouched_holdout": false,
+  "protocol_sha256": "481e23dda833ffd10748b6db2eef24e4dca705666a6db3f569eeba029aa75689"
+}

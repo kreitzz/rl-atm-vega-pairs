@@ -1,0 +1,12 @@
+{
+  "call_quotes": 8011,
+  "native_invalid_iv": 635,
+  "put_invalid_iv": 77,
+  "parity_inside_bid_ask_fraction": 0.7985270253401573,
+  "median_abs_parity_residual_dollars": 0.05526052798682857,
+  "median_abs_iv_gap_vol_points": 2.153584843944678,
+  "median_delta_parity_error": -0.0014464502896991416,
+  "median_vega_ratio": 1.0017022061501524,
+  "native_fit": "Call midpoint inverted independently; carry inputs copied from the same-day same-strike/expiry put",
+  "limitations": "European BS with declared-dividend escrow; actual options can be American and EOD quotes asynchronous"
+}

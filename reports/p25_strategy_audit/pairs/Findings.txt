@@ -1,0 +1,75 @@
+PAIR AUDIT: CURRENT 27-INPUT VALIDATION-SELECTED P25 POLICY
+Frozen archived 608 proposals, 207 accepted option-pair cohorts; 2018-01-02 through 2025-08-29. No model fitting or backtest rerun.
+
+Later evaluation: 110 new entries, $248,673.30 profit above cash, excess Sharpe 1.262524.
+Pair-trading attribution totals $211,262.18; shared cash financing versus the cash benchmark adds $37,411.12.
+21 profitable pairs, 11 losing pairs, 14 inactive/zero pairs in the later period, across 46 pairs with at least one qualified proposal over the full history.
+Largest contributor is SNAP/UBER: $56,628.31, 4 new entries, 2 overlapping-entry episodes.
+Top one/three/five positive pairs supply 20.7%/51.6%/70.8% of total positive pair profit. Top three equal 66.9% of net pair profit after losing pairs.
+3 of 12 pairs active in both periods are positive in both validation and later evaluation. The common-active denominator includes carried positions; CCL/NCLH contributes $14.60 in evaluation with no new entries. This does not establish a stable pair edge: sizes, dates, overlapping positions, opportunity selection and market regimes differ.
+Worst later cash-relative portfolio drawdown: -0.494906% from 2023-11-15 to 2024-10-07; drawdown_contributions.csv sums exactly to that decline including the separate shared term in reconciliation.csv.
+
+LATER PAIR RESULTS (calendar P&L after attributed costs, before shared financing):
+SNAP/UBER        proposals=  7 entries=  4 episodes=  2 net=$ 56,628.31 mean_size=62.5%
+GAP/TJX          proposals= 15 entries=  6 episodes=  2 net=$ 44,041.27 mean_size=66.7%
+AMD/MU           proposals= 23 entries=  9 episodes=  4 net=$ 40,736.77 mean_size=55.6%
+KSS/BURL         proposals=  8 entries=  3 episodes=  3 net=$ 26,578.67 mean_size=83.3%
+AEO/TJX          proposals=  9 entries=  4 episodes=  1 net=$ 25,816.95 mean_size=50.0%
+KBH/TOL          proposals= 16 entries=  7 episodes=  5 net=$ 23,202.95 mean_size=71.4%
+SLB/OIH          proposals= 25 entries= 12 episodes=  5 net=$ 22,199.42 mean_size=58.3%
+HAL/OIH          proposals= 20 entries=  7 episodes=  5 net=$  5,639.25 mean_size=71.4%
+TRV/CB           proposals=  1 entries=  1 episodes=  1 net=$  5,618.80 mean_size=100.0%
+PENN/CZR         proposals=  2 entries=  1 episodes=  1 net=$  4,860.76 mean_size=100.0%
+GE/RTX           proposals=  2 entries=  1 episodes=  1 net=$  4,431.73 mean_size=100.0%
+BLK/GS           proposals=  3 entries=  1 episodes=  1 net=$  4,054.18 mean_size=100.0%
+BAC/JPM          proposals= 43 entries=  4 episodes=  1 net=$  3,501.54 mean_size=75.0%
+AMD/NVDA         proposals=  3 entries=  2 episodes=  2 net=$  2,806.64 mean_size=100.0%
+DHI/KBH          proposals=  1 entries=  1 episodes=  1 net=$    938.96 mean_size=50.0%
+JPM/C            proposals=  1 entries=  1 episodes=  1 net=$    858.91 mean_size=50.0%
+HAL/SLB          proposals=  5 entries=  4 episodes=  3 net=$    770.56 mean_size=50.0%
+DHR/TMO          proposals= 23 entries=  2 episodes=  1 net=$    736.69 mean_size=75.0%
+UAL/DAL          proposals= 19 entries=  7 episodes=  5 net=$    239.64 mean_size=92.9%
+T/VZ             proposals=  1 entries=  1 episodes=  1 net=$    127.54 mean_size=50.0%
+CCL/NCLH         proposals=  0 entries=  0 episodes=  0 net=$     14.60 mean_size=nan%
+HES/XOM          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+COP/XOP          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+MSFT/V           proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+JPM/WFC          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+CVX/XOM          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+BAC/WFC          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+A/TMO            proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+MAR/HLT          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+M/KSS            proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+NOC/RTN         proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+LHX/NOC          proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+RCL/NCLH         proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+TER/QRVO         proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+MSFT/META        proposals=  0 entries=  0 episodes=  0 net=$      0.00 mean_size=nan%
+KBH/LEN          proposals=  2 entries=  2 episodes=  1 net=$   -604.52 mean_size=50.0%
+DHI/TOL          proposals=  2 entries=  1 episodes=  1 net=$ -1,853.80 mean_size=50.0%
+MET/PRU          proposals=  6 entries=  2 episodes=  1 net=$ -1,961.58 mean_size=50.0%
+KKR/APO          proposals=  3 entries=  2 episodes=  1 net=$ -2,515.97 mean_size=50.0%
+BAC/C            proposals=  7 entries=  4 episodes=  3 net=$ -2,845.10 mean_size=68.8%
+MGM/WYNN         proposals=  2 entries=  1 episodes=  1 net=$ -3,482.43 mean_size=50.0%
+THC/HCA          proposals= 14 entries=  2 episodes=  2 net=$ -3,656.77 mean_size=100.0%
+C/WFC            proposals= 14 entries=  3 episodes=  2 net=$ -5,321.36 mean_size=66.7%
+HD/LOW           proposals=  5 entries=  4 episodes=  2 net=$ -6,921.12 mean_size=50.0%
+UAL/AAL          proposals= 27 entries= 10 episodes=  6 net=$-11,764.67 mean_size=95.0%
+UPST/COIN        proposals=  3 entries=  1 episodes=  1 net=$-21,614.61 mean_size=100.0%
+
+ACCOUNTING AND INTERPRETATION
+P&L is attributed on the calendar day it occurs. Open positions at 2022/year boundaries are carried in; entry-year lifecycle outcomes are a separate column and must not replace calendar P&L.
+Each option leg uses its actual saved fills and observed daily marks/Greeks. All option values, stock values, gross hedge notional, gross/net vega, dividends, option costs, netted stock execution costs, borrow costs and daily funded P&L reconcile.
+Stock execution costs are allocated among cohorts pro rata to absolute hedge changes for each underlying; actual shared short-stock borrow costs are allocated by short-hedge amounts. These allocations are additive conventions, not uniquely identifiable standalone pair costs. Fees and penalties are positive cost columns; option, stock and dividend columns are signed P&L.
+Shared cash interest minus benchmark interest remains separate; it is not arbitrarily assigned to pairs. It reflects actual option/stock cash flows and interest on accumulated strategy profits, including pre-2022 profits carried into evaluation; it is not independent pair alpha. For additive return-variance contributions, pair dollars use actual prior total NAV; the shared residual also includes differing funded-versus-benchmark return denominators. Variance contribution is covariance(pair contribution, portfolio return)/portfolio variance and may be negative.
+Drawdown contributions allocate the change in NAV/cash benchmark over the actual portfolio peak-to-trough interval; they are percentage points of that drawdown. Pair-specific dollar drawdowns are accounting paths without allocated financing/capital.
+Leave-one-pair-out is accounting subtraction only: original portfolio excess returns minus that pair's daily P&L divided by actual prior NAV. It does not re-run admission, contract sizing, cash, costs, hedges or financing. It is a concentration diagnostic, not the Sharpe of a tradable strategy without the pair.
+An entry can overlap another entry in the same pair. Episode counts merge overlapping holding intervals; they remain dependent across pairs and market regimes. Small trade/episode counts limit confidence; no independent-trade significance claims are made.
+Gross initial vega sums both legs in dollars per volatility point; mean initial leg vega measures actual integer-filled entry exposure. Mean daily exposure includes flat sessions. Requested size is the tree's fraction of the entry budget, not a portfolio weight.
+Pair labels use bundled identifier-to-ticker metadata and are display labels; the missing ticker for SECID 109497 is filled from the bundled pair roster as RTN (Raytheon). SECIDs remain the stable keys. The census contains 46 pairs with qualified proposals, 44 with accepted entries, not every upstream candidate pair. The chart shows 32 pairs active in evaluation; all 46 are included in the tables.
+All history has already been inspected. Results are descriptive/exploratory and do not constitute a fresh holdout or establish causality. A true pair-removal test requires a newly declared funded replay.
+
+Daily reconstruction maximum absolute error: $0.000000005062.
+Files: pair_periods.csv; reconciliation.csv; concentration.csv; accounting_leave_one_pair_out.csv; drawdown_contributions.csv; proposals_and_admission.csv; admission_status.csv; cohorts.csv; legs.csv; pair_performance.png; protocol.json.
+
+Annual pair net P&L: 2022 $175,530.17; 2023 $45,777.19; 2024 -$30,868.97; 2025 through August $20,823.80. Thus 2022 generated 83.1% of later net pair profit and 66 of 110 later entries; performance is concentrated in time as well as pairs.

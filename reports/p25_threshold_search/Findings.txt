@@ -1,0 +1,218 @@
+Direct threshold search: completed funded experiment
+
+Question: can a cutoff learned from prior funded returns improve opportunity selection?
+This experiment changes the volatility-rank entry threshold and holds position sizing at 100%.
+It preserves the historical profitability/count screens; it does not replace the entire proposal pipeline.
+
+Choices made using 2018-2021 only:
+  Learned fixed cutoff: q05: long at rank <= 5%; short at rank > 95%.
+  Selection status: selected; last available return: 2021-12-31T00:00:00; candidate validation Sharpe: 0.695.
+  VIX-dependent cutoff: vix20_30: below prior VIX 20, use 20%/80% rank boundaries; at prior VIX >= 20, use 30%/70% boundaries.
+  Selection status: selected; last available return: 2021-12-31T00:00:00; candidate validation Sharpe: 0.570.
+
+Funded results
+                  Policy  2018-21 Sharpe  2022-25 Sharpe  Later profit above cash ($)  Later entries  Later entry pairs  Later average reserve (%)  Later maximum drawdown (%)
+       Original 20% rule           0.478           1.055                  200,852.841             75                 28                      2.486                      -0.646
+    Learned fixed cutoff           0.478           1.290                  161,611.360             25                 18                      0.917                      -0.141
+Monthly cutoff selection           0.446           1.037                  216,896.368             83                 30                      2.863                      -0.684
+    VIX-dependent cutoff           0.478           1.124                  251,678.301             91                 30                      2.949                      -0.645
+
+What the completed experiment shows
+The learned fixed cutoff produced later Sharpe 1.290, versus 1.055 for the original rule. Profit above cash was $161,611 versus $200,853; entries were 25 versus 75; average reserve was 0.917% versus 2.486% of NAV.
+Its higher Sharpe accompanies fewer trades, lower deployed reserve, and less total profit.
+This is a risk/return tradeoff; the higher Sharpe does not mean the strategy earned more money.
+Maximum cash-relative drawdown was 0.141% versus 0.646% for the original rule.
+Monthly selection produced Sharpe 1.037 (difference -0.017); profit above cash was $216,896.
+The VIX-dependent rule produced Sharpe 1.124 (difference +0.069); profit above cash was $251,678.
+All later Sharpe-difference intervals include zero at both tested block lengths.
+This experiment has not statistically established an improvement over the original rule.
+The chosen 5% cutoff lies at the lower boundary of the tested grid.
+The experiment does not establish a globally optimal cutoff or rank untested thresholds.
+The later history was previously inspected. These findings are exploratory, including the
+candidate selected on earlier data; a frozen future test is still needed for confirmation.
+
+The fixed and VIX-dependent deployment books follow the original rule through 2021, then change
+new proposals in 2022 while carrying their actual baseline holdings and NAV. Their 2018-2021
+deployment performance therefore equals the baseline; the separate candidate results below
+are the data used to choose them. The monthly rule begins adapting in 2018 and carries its own
+holdings into 2022. No selected book is made by stitching candidate return series.
+
+Verified pre-2022 carry into fixed/context deployments
+            case prior_close            nav  option_value  stock_value  maximum_pre2022_difference
+  selected_fixed  2021-12-31 10,581,236.291    -1,365.000  -41,214.812                       0.000
+selected_context  2021-12-31 10,581,236.291    -1,365.000  -41,214.812                       0.000
+
+Paired difference in later Sharpe versus the original 20% rule
+            case  block_sessions  point  lower95  upper95
+  selected_fixed              63  0.236   -0.451    1.052
+  selected_fixed             126  0.236   -0.360    1.095
+selected_rolling              63 -0.017   -0.225    0.174
+selected_rolling             126 -0.017   -0.184    0.140
+selected_context              63  0.069   -0.194    0.315
+selected_context             126  0.069   -0.158    0.280
+
+Learned fixed cutoff: Both intervals include zero; the estimated difference remains uncertain.
+Monthly cutoff selection: Both intervals include zero; the estimated difference remains uncertain.
+VIX-dependent cutoff: Both intervals include zero; the estimated difference remains uncertain.
+These are conditional circular-block percentile intervals using 2,000 paired resamples.
+They are not corrected for choosing policies, testing several policies, or earlier research.
+
+Every fixed candidate: earlier selection period and later exploratory period
+case  tail_percent  validation  earlier_entries  selection_eligible eligibility_reason  chosen_before_2022  evaluation
+ q05         5.000       0.695               30                True           eligible                True       1.293
+ q10        10.000       0.456               44                True           eligible               False       1.087
+ q15        15.000       0.501               53                True           eligible               False       0.739
+ q20        20.000       0.478               58                True           eligible               False       1.055
+ q25        25.000       0.628               64                True           eligible               False       0.983
+ q30        30.000       0.539               68                True           eligible               False       1.113
+
+Locked selection requires at least 252 measured return sessions and 20 entered trades in 2018-2021.
+A candidate with a higher earlier Sharpe can be ineligible because it has too few entries.
+Every contextual candidate (a whole funded policy, not separately scored VIX subsets)
+    case  low_VIX_tail_percent  high_VIX_tail_percent  validation  earlier_entries  selection_eligible eligibility_reason  chosen_before_2022  evaluation
+     q10                10.000                 10.000       0.456               44                True           eligible               False       1.087
+     q20                20.000                 20.000       0.478               58                True           eligible               False       1.055
+     q30                30.000                 30.000       0.539               68                True           eligible               False       1.113
+vix10_20                10.000                 20.000       0.480               51                True           eligible               False       1.183
+vix10_30                10.000                 30.000       0.541               56                True           eligible               False       1.252
+vix20_10                20.000                 10.000       0.333               52                True           eligible               False       0.892
+vix20_30                20.000                 30.000       0.570               62                True           eligible                True       1.117
+vix30_10                30.000                 10.000       0.309               60                True           eligible               False       0.946
+vix30_20                30.000                 20.000       0.454               65                True           eligible               False       1.021
+
+Did the chosen candidates' earlier advantage persist across years?
+           Selection Candidate  Year  Candidate Sharpe  Candidate profit above cash ($)  Candidate entries  20% rule Sharpe  20% rule profit above cash ($)  20% rule entries  Profit difference ($)
+Learned fixed cutoff       q05  2018             0.481                        8,314.763                 10            0.183                       3,153.343                11              5,161.420
+Learned fixed cutoff       q05  2019             0.405                        3,877.765                  4           -0.514                      -8,136.172                13             12,013.936
+Learned fixed cutoff       q05  2020             1.363                       57,088.398                 10            1.104                      76,064.807                20            -18,976.409
+Learned fixed cutoff       q05  2021            -0.351                       -3,401.461                  6            0.019                         403.252                14             -3,804.713
+VIX-dependent cutoff  vix20_30  2018             0.210                        3,601.429                 12            0.183                       3,153.343                11                448.087
+VIX-dependent cutoff  vix20_30  2019            -0.503                       -7,944.818                 13           -0.514                      -8,136.172                13                191.354
+VIX-dependent cutoff  vix20_30  2020             1.272                       91,370.159                 23            1.104                      76,064.807                20             15,305.351
+VIX-dependent cutoff  vix20_30  2021             0.073                        1,312.249                 14            0.019                         403.252                14                908.997
+
+These are the counterfactual candidate books used in selection, compared with the 20% rule
+year by year. They expose concentration in 2020 or another year without changing the selected policy.
+An annual Sharpe difference is descriptive and does not add up to the full-period Sharpe difference.
+
+Monthly threshold distribution
+               period policy  tail_percent  months  fraction_percent  fallback_months  proposals
+ All 90 signal months    q10        10.000       5             5.556                0         25
+ All 90 signal months    q15        15.000       2             2.222                0          8
+ All 90 signal months    q20        20.000      41            45.556               29        311
+ All 90 signal months    q25        25.000      16            17.778                0         57
+ All 90 signal months    q30        30.000      26            28.889                0        283
+2022-25 signal months    q10        10.000       3             7.143                0          2
+2022-25 signal months    q15        15.000       2             4.762                0          8
+2022-25 signal months    q20        20.000      25            59.524               13        181
+2022-25 signal months    q25        25.000       1             2.381                0          4
+2022-25 signal months    q30        30.000      11            26.190                0        181
+
+How much choice did monthly selection actually have?
+               Period  Months  0 eligible: fallback  1 eligible: no ranking choice  2+ eligible: ranking possible  20% rule eligible
+    All signal months      90                    29                              2                             59                 54
+2022-25 signal months      42                    13                              1                             28                 26
+
+Zero eligible candidates means the 20% fallback was used. With exactly one eligible candidate,
+the rule had no competing eligible threshold to rank. Only months with two or more eligible
+candidates permit a comparison of historical Sharpe across thresholds. The entry-count minimum
+and available history can therefore explain an unchanged cutoff without establishing its optimality.
+
+Monthly selection uses the preceding 18 calendar months, strictly before each signal month.
+Candidates need at least 252 measured return sessions and 20 entered trades in that window.
+If none qualify, the cutoff is 20%. Ties favor proximity to 20%, then the smaller tail cutoff.
+The contextual policy uses the already-lagged VIX feature: 20 belongs to the high-VIX regime.
+
+Annual stability: funded excess Sharpe
+ year  Original 20% rule  Learned fixed cutoff  Monthly cutoff selection  VIX-dependent cutoff
+ 2022              2.195                 2.060                     2.137                 2.264
+ 2023              1.108                 1.942                     1.022                 0.977
+ 2024             -0.796                 0.488                    -0.773                -0.860
+ 2025              1.310                 0.348                     1.310                 1.359
+
+Annual stability: profit above cash ($)
+ year  Original 20% rule  Learned fixed cutoff  Monthly cutoff selection  VIX-dependent cutoff
+ 2022        127,528.027           105,563.237               147,217.918           178,183.799
+ 2023         54,746.919            30,103.019                51,814.143            52,292.705
+ 2024        -19,016.825            16,634.941               -19,972.489           -18,898.291
+ 2025         37,594.720             9,310.163                37,836.796            40,100.089
+
+2025 ends on August 29, with new signals ending June 30; it is not a full calendar year.
+Entry-pair counts measure breadth, not independent observations or equal pair contribution.
+
+Actual pair attribution in 2022-2025
+                  Policy  Positive pairs  Negative pairs  Net pair P&L ($)  Shared financing ($)  Top 3 share of positive profit (%)
+       Original 20% rule              18              11       168,095.626            32,757.215                              43.003
+    Learned fixed cutoff              17               2       132,919.725            28,691.636                              59.269
+Monthly cutoff selection              21              10       182,293.860            34,602.508                              41.502
+    VIX-dependent cutoff              19              12       211,268.815            40,409.487                              40.675
+
+Pair results include actual option and stock-hedge P&L, allocated trading/borrow costs, and dividends.
+Attribution includes positions carried into 2022, so these pair counts can exceed new-entry pair counts.
+Shared financing relative to cash is shown separately; pair profit plus shared financing reconciles
+to each funded book's profit above cash. A profitable pair count is not a count of independent bets.
+Top-three concentration is the share of all positive pair profits, not the share of net profit.
+
+Highest and lowest pair contributions
+                  Policy   Group           Pair Stable pair ID  Net pair P&L ($)
+       Original 20% rule Highest        GAP/TJX 105120__110752        36,408.835
+       Original 20% rule Highest         AMD/MU 101121__107544        32,598.517
+       Original 20% rule Highest      SNAP/UBER 210918__213638        31,807.214
+       Original 20% rule Highest        KBH/TOL 106629__111071        27,984.526
+       Original 20% rule Highest        AEO/TJX 101369__110752        27,382.951
+       Original 20% rule  Lowest      UPST/COIN 214904__215427       -21,544.631
+       Original 20% rule  Lowest        UAL/AAL 125537__189845       -16,610.880
+       Original 20% rule  Lowest         HD/LOW 105759__107045        -8,683.256
+       Original 20% rule  Lowest          C/WFC 103049__111953        -5,831.233
+       Original 20% rule  Lowest        DHI/TOL 103651__111071        -3,705.593
+    Learned fixed cutoff Highest        GAP/TJX 105120__110752        39,952.212
+    Learned fixed cutoff Highest      SNAP/UBER 210918__213638        39,046.648
+    Learned fixed cutoff Highest       KSS/BURL 106723__189248        11,450.622
+    Learned fixed cutoff Highest        HAL/SLB 105512__109956         9,203.162
+    Learned fixed cutoff Highest        AEO/TJX 101369__110752         9,015.163
+    Learned fixed cutoff  Lowest        UAL/AAL 125537__189845       -10,073.049
+    Learned fixed cutoff  Lowest        THC/HCA 110945__146286        -9,616.649
+    Learned fixed cutoff  Lowest        COP/XOP 108969__127107             0.000
+    Learned fixed cutoff  Lowest        NOC/RTN 108231__109497             0.000
+    Learned fixed cutoff  Lowest         MSFT/V 107525__135419             0.000
+Monthly cutoff selection Highest      SNAP/UBER 210918__213638        42,777.214
+Monthly cutoff selection Highest        GAP/TJX 105120__110752        36,473.772
+Monthly cutoff selection Highest        KBH/TOL 106629__111071        27,990.477
+Monthly cutoff selection Highest        AEO/TJX 101369__110752        24,445.890
+Monthly cutoff selection Highest 143439__205711 143439__205711        23,294.483
+Monthly cutoff selection  Lowest      UPST/COIN 214904__215427       -23,644.627
+Monthly cutoff selection  Lowest        UAL/AAL 125537__189845       -22,466.477
+Monthly cutoff selection  Lowest         HD/LOW 105759__107045        -8,941.407
+Monthly cutoff selection  Lowest          C/WFC 103049__111953        -5,831.233
+Monthly cutoff selection  Lowest          BAC/C 101966__103049        -4,167.522
+    VIX-dependent cutoff Highest      SNAP/UBER 210918__213638        55,244.318
+    VIX-dependent cutoff Highest        GAP/TJX 105120__110752        36,530.978
+    VIX-dependent cutoff Highest        KBH/TOL 106629__111071        27,969.575
+    VIX-dependent cutoff Highest        AEO/TJX 101369__110752        24,492.826
+    VIX-dependent cutoff Highest 143439__205711 143439__205711        23,414.083
+    VIX-dependent cutoff  Lowest        UAL/AAL 125537__189845       -21,868.548
+    VIX-dependent cutoff  Lowest      UPST/COIN 214904__215427       -21,614.614
+    VIX-dependent cutoff  Lowest         HD/LOW 105759__107045        -8,941.407
+    VIX-dependent cutoff  Lowest        UAL/DAL 125537__129410        -7,116.666
+    VIX-dependent cutoff  Lowest          C/WFC 103049__111953        -5,859.687
+
+Ticker names are display labels from the bundled roster/prior audit; stable pair IDs identify the data.
+
+Interpretation and limits
+The selection objective here is actual marked daily excess-return Sharpe from funded candidate
+ledgers, including cash days, transaction costs, risk limits, overlapping positions, and carry.
+It is not the earlier regression experiment's signal-date lifetime-payoff surrogate.
+A better later result would support this tested rule family; it would not establish a globally
+optimal threshold or show that arbitrary additional flexibility will help.
+The directional 91/365-calendar-day historical profit screens remain >0, with counts >=21/63.
+Their cached historical memory retains the archived $0.65 option-commission convention while
+the funded ledgers use $0.03. Inherited retrospective roster and formation-calendar limitations
+remain. The 2022-2025 history was already examined before this experiment, so it is exploratory.
+Serial dependence, shared stocks, and overlapping trades limit the effective sample size.
+Full candidate tables are disclosed rather than promoting the best later-period result.
+
+Files: candidate_periods.csv, candidate_annual.csv, selection_scores.csv, rolling_schedule.csv,
+rolling_distribution.csv, monthly_selection_coverage.csv, selection_coverage_summary.csv,
+selected_candidate_earlier_annual.csv,
+funded/periods.csv, funded/annual.csv, funded/sharpe_intervals.csv,
+funded/pair_admissions.csv, protocol.json, completion.json, and comparison.png.

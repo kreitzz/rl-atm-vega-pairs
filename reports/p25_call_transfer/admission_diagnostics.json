@@ -1,0 +1,26 @@
+{
+  "pairs": 207,
+  "pair_flags_overlap": true,
+  "low_open_interest": 129,
+  "invalid_native_signal_iv": 1,
+  "spread_too_wide": 6,
+  "native_locked_count_vega_failures": 14,
+  "native_status_counts": {
+    "no_eligible_contract": 134,
+    "entered": 67,
+    "risk_limit_entry": 6
+  },
+  "parity_greeks_status_counts": {
+    "no_eligible_contract": 130,
+    "entered": 70,
+    "risk_limit_entry": 7
+  },
+  "native_entry_risk_limits": {
+    "pair_capital_reserve,wing_capital_reserve": 5,
+    "pair_gross_hedge_notional,pair_capital_reserve,wing_gross_hedge_notional,wing_capital_reserve": 1
+  },
+  "parity_entry_risk_limits": {
+    "pair_capital_reserve,wing_capital_reserve": 6,
+    "pair_gross_hedge_notional,pair_capital_reserve,wing_gross_hedge_notional,wing_capital_reserve": 1
+  }
+}

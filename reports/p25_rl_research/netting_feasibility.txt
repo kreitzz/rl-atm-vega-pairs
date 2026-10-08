@@ -1,0 +1,15 @@
+FROZEN-ORDER OPTION NETTING FEASIBILITY
+
+Opposing same-session contract groups: 0.
+Cancellable across different pairs with equal fill/cost terms: 0.
+Matched contracts per side: 0; canceled order contracts: 0.
+Potential saved commission/penalty: $0.00.
+Share of paid explicit option cost: 0.00%.
+Saved baseline full-period profit above cash: $272,338.07; potential savings share: 0.00%.
+
+No mechanical entry-netting savings are observed; this direction has no demonstrated cost headroom in these orders.
+No order, position, risk limit, NAV, or strategy was changed. This is not a funded portfolio test, Q-learning result, or Sharpe improvement.
+Savings use original accepted entry quantities and matching observed fill prices/per-contract commission and penalty.
+Option premiums cancel mechanically at the common price. Existing shared stock hedges are already netted.
+Cost/admission feedback, virtual pair accounting, and any alternative portfolio policy would require a separate replay.
+All historical dates are inherited from the verified 2018-August 2025 full baseline; no new holdout is introduced.

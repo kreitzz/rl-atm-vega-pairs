@@ -1,0 +1,7 @@
+case,period,candidates,finite_predictions,matured_outcomes,diagnostic_rows,selected
+rank_ridge,validation,2416,2209,2205,2020,355
+rank_ridge,evaluation,2328,2328,2106,2106,413
+rank_ridge,full,4744,4537,4311,4126,768
+rank_spline,validation,2416,2209,2205,2020,446
+rank_spline,evaluation,2328,2328,2106,2106,435
+rank_spline,full,4744,4537,4311,4126,881

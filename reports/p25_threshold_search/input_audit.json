@@ -1,0 +1,67 @@
+{
+  "grid": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3
+  ],
+  "coverage": [
+    {
+      "tail": 0.05,
+      "proposals": 163,
+      "pairs": 32,
+      "both_contract_ids_available": 163,
+      "missing_proposals": 0,
+      "missing_contract_ids": 0
+    },
+    {
+      "tail": 0.1,
+      "proposals": 306,
+      "pairs": 40,
+      "both_contract_ids_available": 306,
+      "missing_proposals": 0,
+      "missing_contract_ids": 0
+    },
+    {
+      "tail": 0.15,
+      "proposals": 459,
+      "pairs": 42,
+      "both_contract_ids_available": 459,
+      "missing_proposals": 0,
+      "missing_contract_ids": 0
+    },
+    {
+      "tail": 0.2,
+      "proposals": 608,
+      "pairs": 46,
+      "both_contract_ids_available": 608,
+      "missing_proposals": 0,
+      "missing_contract_ids": 0
+    },
+    {
+      "tail": 0.25,
+      "proposals": 743,
+      "pairs": 48,
+      "both_contract_ids_available": 663,
+      "missing_proposals": 80,
+      "missing_contract_ids": 104
+    },
+    {
+      "tail": 0.3,
+      "proposals": 846,
+      "pairs": 49,
+      "both_contract_ids_available": 686,
+      "missing_proposals": 160,
+      "missing_contract_ids": 210
+    }
+  ],
+  "missing_ids": 210,
+  "control_ids": 16,
+  "possible_matches_year_cheap_vega": 3,
+  "other_local_caches": "AMD_NVDA contract cache and recent call-transfer cache are calls only; existing P25 archives share the already audited quote DB.",
+  "rate_source": "data\\q_contracts\\AMD_NVDA\\zero_curve.parquet",
+  "label_gates": "Directional 91/365-day positive profit, counts >=21/63; unchanged inherited beta/context/calendar.",
+  "note": "Coverage measures contract IDs, not future tradability. Missingness never removes proposals."
+}

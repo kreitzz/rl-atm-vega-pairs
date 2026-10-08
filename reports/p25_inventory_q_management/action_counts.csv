@@ -1,0 +1,13 @@
+case,phase,action,action_name,decision_dates
+manage_q,validation,0,hold,78
+manage_q,validation,1,half,207
+manage_q_risk,validation,0,hold,31
+manage_q_risk,validation,1,half,254
+manage_myopic_risk,validation,1,half,285
+manage_q,evaluation,0,hold,686
+manage_q,evaluation,1,half,42
+manage_q_risk,evaluation,0,hold,9
+manage_q_risk,evaluation,2,close,205
+manage_myopic_risk,evaluation,0,hold,379
+manage_myopic_risk,evaluation,1,half,319
+manage_myopic_risk,evaluation,2,close,20

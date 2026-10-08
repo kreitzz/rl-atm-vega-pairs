@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "candidate_books": 12,
+  "deployment_books": 3,
+  "independently_recomputed_selection_windows": 92,
+  "original_baseline_nav_trades_effective_decisions_reproduced": true,
+  "baseline_proposal_metadata_normalization": {
+    "excluded_column": "base_level",
+    "reason": "Inherited proposal metadata normalized to4; effective level4 and signed full-size action verified identical.",
+    "original_counts": {
+      "2": 305,
+      "4": 296,
+      "3": 7
+    },
+    "replay_counts": {
+      "4": 608
+    }
+  },
+  "locked_deployment_pre2022_nav_fills_inventory_equal_baseline": true,
+  "every_saved_signal_reproduced_from_causal_policy": true,
+  "all_funded_ledgers_reconciled": true,
+  "protected_input_hashes_unchanged": true,
+  "vix_prior_session_fraction_used_without_additional_lag": true,
+  "protocol_sha256": "5b0cefb87eca2dbfcc531fd94bbcfb8ec59e6715886a89e7f958b22f5ff06a13",
+  "max_independent_ledger_error": 6.524714990518987e-09
+}

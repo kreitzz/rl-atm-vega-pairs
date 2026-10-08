@@ -1,0 +1,7 @@
+case,size_fraction,proposals
+direct_additive,0.5,220
+direct_additive,0.75,104
+direct_additive,1.0,284
+direct_linear,0.5,223
+direct_linear,0.75,118
+direct_linear,1.0,267

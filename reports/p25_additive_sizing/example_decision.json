@@ -1,0 +1,18 @@
+{
+  "case": "additive_pairs",
+  "signal_date": "2025-06-23",
+  "pair": "107484__113437",
+  "fit": "2025-06-01",
+  "predicted_full_size_lifetime_profit": 1.9961601922099028,
+  "sum_of_terms": 1.9961601922099033,
+  "training_score_edges": [
+    -3.704117992867746,
+    -0.397162962645495
+  ],
+  "size_fraction": 1.0,
+  "entry_date": "2025-06-24",
+  "admission_status": "no_eligible_contract",
+  "units": "Legacy-label dollars of predicted full-size standalone lifetime profit, not realized or funded portfolio P&L.",
+  "attribution": "Fitted-model score decomposition; not causal economic contribution or realized P&L attribution.",
+  "selection": "Latest actual qualified proposal for additive_pairs; ascending pair identifier breaks same-date ties."
+}

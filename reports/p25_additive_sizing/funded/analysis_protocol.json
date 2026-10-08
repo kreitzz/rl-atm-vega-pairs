@@ -1,0 +1,21 @@
+{
+  "reference": "tree_cem",
+  "cases": [
+    "tree_cem",
+    "fixed100",
+    "linear_score",
+    "additive_main",
+    "additive_pairs"
+  ],
+  "replications": 2000,
+  "blocks": [
+    63,
+    126
+  ],
+  "paired_common_calendar": true,
+  "interval_type": "circular-block percentile",
+  "uncertainty_scope": "Conditional on frozen fitted policies; no correction for research search or multiple comparisons.",
+  "historical_status": "Exploratory: evaluation history was inspected before this experiment.",
+  "pair_attribution_cases": [],
+  "prediction_bins": "Retrospective descriptive score quantiles; not fitted entry thresholds; unresolved targets excluded."
+}

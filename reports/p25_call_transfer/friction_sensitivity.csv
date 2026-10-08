@@ -1,0 +1,10 @@
+case,period,costs_removed,midpoint_residual_removed,annualized_excess_sharpe,profit_above_cash,entries
+put_reference,2018_2021,True,False,0.7284293803347391,74164.46606725082,97
+put_reference,2022_2025,True,False,1.3927020558576717,276254.54075004533,110
+put_reference,full_history,True,False,1.0952036838475618,350419.00681729615,207
+call_parity_greeks_frozen,2018_2021,True,False,0.24686584665629896,60007.518882118165,97
+call_parity_greeks_frozen,2022_2025,True,False,1.1123294066546956,275074.016885655,110
+call_parity_greeks_frozen,full_history,True,False,0.6381004727851483,335081.53576777317,207
+call_parity_greeks_frozen,2018_2021,True,True,1.1275582558995816,124086.43304312229,97
+call_parity_greeks_frozen,2022_2025,True,True,1.40598591759072,287636.06292579323,110
+call_parity_greeks_frozen,full_history,True,True,1.2583658672710758,411722.4959689155,207

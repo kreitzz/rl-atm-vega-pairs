@@ -1,0 +1,7 @@
+{
+  "selected": "fixed100",
+  "best_q_by_validation": "q_capacity",
+  "criterion": "Four Q candidates only; >=20entries, nonnegative profit in both2020/2021, Sharpe exceeds fixed100 by.01; otherwise baseline.",
+  "validation_only": true,
+  "protocol_sha256": "dfbf32e9075608a139027964f1d101c65e5ef75e6adf108a7474222f67bb5b63"
+}

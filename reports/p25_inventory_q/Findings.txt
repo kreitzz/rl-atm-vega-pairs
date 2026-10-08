@@ -1,0 +1,148 @@
+INVENTORY-AWARE Q LEARNING: BOUNDED EXPERIMENT
+
+Policy selected using 2020-2021 only: Original threshold, full size.
+Highest Q validation Sharpe: Q: capital capacity.
+Highest later Q point estimate: Q: risk utility (descriptive; not used for selection).
+All four candidate Q families and both ablations are reported; later performance does not change selection.
+Every new Q/control book follows fixed100 through 2021 and carries its actual inventory and NAV into 2022; archived tree/CEM retains its own history.
+
+LATER FUNDED RESULTS: JANUARY 2022-AUGUST 2025
+Policy                                  Sharpe    Above cash ($)  Entries  Pairs  Reserve (%)  Drawdown (%)
+Original threshold, full size             1.055           200,853       75     28        2.486        -0.646
+Q: capital capacity                       1.068           200,025       71     28        2.244        -0.664
+Q: risk utility                           1.072           218,495       99     28        2.383        -0.686
+Q: conservative                           1.055           200,853       75     28        2.486        -0.646
+Q: portfolio diversification              1.055           200,853       75     28        2.486        -0.646
+Myopic risk utility                       0.214            28,791       26     15        0.990        -0.327
+Q: no inventory inputs                    0.981           210,460      115     29        2.399        -0.769
+Fixed half size                           0.992           206,723      151     31        2.289        -0.735
+Unheld-pair rule                          0.904           158,581       67     28        2.275        -0.643
+Congestion rule                           1.165           246,427      110     29        2.658        -0.645
+Archived tree + CEM                       1.263           248,673      110     31        2.437        -0.495
+Archived learned 5% threshold             1.290           161,611       25     18        0.917        -0.141
+
+FINDING
+No Q policy met the earlier selection criteria; the retained policy is the original threshold.
+Q: capital capacity versus the original threshold: 63 sessions: +0.013 [-0.095, +0.118]; 126 sessions: +0.013 [-0.070, +0.117]; improvement not established across both block lengths.
+Sequential versus immediate-reward learning: 63 sessions: +0.858 [-0.330, +1.684]; 126 sessions: +0.858 [-0.298, +1.650]; improvement not established across both block lengths.
+Inventory versus signal-only Q: 63 sessions: +0.091 [-0.129, +0.430]; 126 sessions: +0.091 [-0.128, +0.427]; improvement not established across both block lengths.
+
+INTERPRETATION
+This tests allocation of the existing 608 IV/RV proposals, including skip, half/full size and an unheld-pair action.
+Q learning learns delayed rewards through its own funded inventory and future admission capacity.
+All Q arms use ordinary maximum-value Bellman backups; conservative arms penalize model disagreement only when extracting actions.
+It does not generate a new broad stock universe, rehedge option exposure, or learn exit/roll decisions.
+The risk penalty optimizes a reward/second-moment utility, not Sharpe directly. Model dispersion is not a calibrated confidence bound.
+
+BASELINE SHARPE AND STATISTICAL LIMITS
+earlier, 63-session blocks: baseline Sharpe 0.478 [-0.254, +0.919].
+earlier, 126-session blocks: baseline Sharpe 0.478 [-0.295, +0.917].
+evaluation, 63-session blocks: baseline Sharpe 1.055 [+0.005, +1.984].
+evaluation, 126-session blocks: baseline Sharpe 1.055 [-0.131, +1.960].
+full, 63-session blocks: baseline Sharpe 0.769 [+0.173, +1.314].
+full, 126-session blocks: baseline Sharpe 0.769 [+0.054, +1.328].
+These baseline intervals ask whether the saved strategy Sharpe is above zero; the paired intervals ask whether one strategy improves another.
+A paired interval containing zero does not establish that the baseline is uniquely significant or optimal.
+All intervals use 2,000 paired/circular calendar-block resamples and condition on fitted policies.
+All historical periods were previously inspected. Intervals do not correct for accumulated research, model selection, or multiple comparisons.
+These are exploratory historical results, not confirmation on an untouched holdout.
+
+EARLIER VALIDATION: 2020-2021 (COMMON OCTOBER 2021 PROPOSAL CUTOFF, DECEMBER RUNOFF)
+          case  annualized_excess_sharpe  entries  profit_2020  profit_2021
+      fixed100                  0.820553       30 76064.807270  5751.043277
+       fixed50                  0.762210       54 57259.209745 -8164.260975
+   diversified                  0.830326       24 57405.881727  4165.501973
+    congestion                  0.709051       43 69721.949383 -3465.522843
+    q_capacity                  0.820553       30 76064.807270  5751.043277
+        q_risk                  0.820553       30 76064.807270  5751.043277
+q_conservative                  0.820553       30 76064.807270  5751.043277
+   q_portfolio                  0.820553       30 76064.807270  5751.043277
+   myopic_risk                  0.781237       20 76064.807270    94.427408
+q_no_inventory                  0.809373       30 76064.807270  4551.806274
+
+LATER ANNUAL EXCESS SHARPE (2025 IS PARTIAL)
+year             2022   2023   2024   2025
+case                                      
+fixed100        2.195  1.108 -0.796  1.310
+q_capacity      2.292  1.037 -0.771  1.310
+q_risk          2.230  1.723 -1.041  1.241
+q_conservative  2.195  1.108 -0.796  1.310
+q_portfolio     2.195  1.108 -0.796  1.310
+myopic_risk     1.001  1.498 -0.435  0.118
+q_no_inventory  2.347  0.864 -1.125  1.141
+fixed50         2.548  1.594 -1.311  0.777
+diversified     1.956  1.068 -0.795  1.321
+congestion      2.376  1.082 -0.724  1.124
+tree_cem        2.458  1.492 -0.907  1.092
+learned5        2.060  1.942  0.488  0.348
+
+LATER ACTUAL COSTS AND RISK
+                option_commission  option_execution_penalty  stock_execution_cost  stock_borrow_cost  peak_stress_pct  peak_reserve_pct  post_entry_risk_breach_days
+case                                                                                                                                                                
+fixed100                   630.66                  7444.260             12158.898           2508.584            3.108            14.864                            0
+q_capacity                 600.27                  7055.235             11342.568           2301.720            3.106            13.137                            0
+q_risk                     595.38                  7271.730             11404.554           2427.832            3.155            14.532                            0
+q_conservative             630.66                  7444.260             12158.898           2508.584            3.108            14.864                            0
+q_portfolio                630.66                  7444.260             12158.898           2508.584            3.108            14.864                            0
+myopic_risk                141.42                  2658.510              4369.187           1109.918            1.707             8.102                            0
+q_no_inventory             601.41                  7436.883             11450.392           2420.470            3.048            13.958                            0
+fixed50                    633.06                  7457.029             11066.830           2291.975            3.183            15.755                            0
+diversified                518.01                  6660.747             11190.944           2279.693            2.907            11.917                            0
+congestion                 673.29                  7982.898             12742.085           2683.849            3.382            16.673                            0
+tree_cem                   640.23                  7603.372             11819.121           2434.506            3.185            15.772                            0
+learned5                   184.86                  2458.503              4397.011            893.321            1.558            10.585                            0
+
+PAIR CONCENTRATION
+Original threshold, full size: 18 positive/11 negative pairs; top3 share of positive pair profit 43.0%; pair profit $168,096; shared financing $32,757.
+Q: capital capacity: 18 positive/11 negative pairs; top3 share of positive pair profit 43.9%; pair profit $167,189; shared financing $32,836.
+Q: risk utility: 19 positive/10 negative pairs; top3 share of positive pair profit 49.7%; pair profit $182,403; shared financing $36,092.
+Q: conservative: 18 positive/11 negative pairs; top3 share of positive pair profit 43.0%; pair profit $168,096; shared financing $32,757.
+Q: portfolio diversification: 18 positive/11 negative pairs; top3 share of positive pair profit 43.0%; pair profit $168,096; shared financing $32,757.
+Myopic risk utility: 10 positive/6 negative pairs; top3 share of positive pair profit 58.4%; pair profit $13,983; shared financing $14,808.
+Q: no inventory inputs: attribution unavailable (unavailable_memory_preflight); no proxy pair P&L substituted.
+Fixed half size: attribution unavailable (unavailable_memory_preflight); no proxy pair P&L substituted.
+Unheld-pair rule: 19 positive/10 negative pairs; top3 share of positive pair profit 47.4%; pair profit $131,738; shared financing $26,843.
+Congestion rule: attribution unavailable (unavailable_memory_preflight); no proxy pair P&L substituted.
+Archived tree + CEM: 21 positive/11 negative pairs; top3 share of positive pair profit 51.6%; pair profit $211,262; shared financing $37,411.
+Archived learned 5% threshold: 17 positive/2 negative pairs; top3 share of positive pair profit 59.3%; pair profit $132,920; shared financing $28,692.
+Pairs overlap in names and dates; profitable-pair counts are not independent observations.
+
+LEARNED ACTIONS AND TRAINING DATA
+          case action_name  decision_dates  fraction
+    q_capacity        skip              18     0.072
+    q_capacity        full             233     0.928
+        q_risk        skip              17     0.068
+        q_risk        half              61     0.243
+        q_risk        full             173     0.689
+q_conservative        full             251     1.000
+   q_portfolio        full             251     1.000
+   myopic_risk        skip             144     0.574
+   myopic_risk        full             107     0.426
+q_no_inventory        half             118     0.470
+q_no_inventory        full             133     0.530
+          case      phase  transitions  distinct_market_dates last_transition_end  iterations
+    q_capacity validation          822                    131          2019-10-16          24
+        q_risk validation          822                    131          2019-10-16          24
+q_conservative validation          822                    131          2019-10-16          24
+   q_portfolio validation         1048                    131          2019-10-16          24
+   myopic_risk validation          822                    131          2019-10-16           1
+q_no_inventory validation          822                    131          2019-10-16          24
+    q_capacity evaluation         1431                    229          2021-12-31          24
+        q_risk evaluation         1431                    229          2021-12-31          24
+q_conservative evaluation         1431                    229          2021-12-31          24
+   q_portfolio evaluation         1832                    229          2021-12-31          24
+   myopic_risk evaluation         1431                    229          2021-12-31           1
+q_no_inventory evaluation         1431                    229          2021-12-31          24
+Behavior trajectories reuse the same market dates; transition counts are not independent sample counts.
+
+Final-model impurity importances are saved in feature_importances.csv; they describe fitted model use, not causal effects.
+
+VERIFICATION
+All 12 funded ledgers independently reconciled; all saved Q actions reproduce from their frozen models.
+Protected sources and replay/model hashes were checked; original baseline accounting and pre-2022 Q histories match.
+No policy fitted, retuned, or selected using later returns in this report. Shared-financing attribution reconciles wherever available.
+One numeric worker/thread, 20% CPU duty, 384 MiB RSS limit. Peak report RSS: 311.1 MiB.
+
+Reproduce: python -m scripts.p25_rl.run --phase all; python -m scripts.p25_rl.report.
+Detailed tables: periods.csv, annual.csv, validation.csv, selection.json, sharpe_intervals.csv, baseline_sharpe_intervals.csv,
+training_counts.csv, action_counts.csv, feature_importances.csv, concentration.csv, pair_periods.csv and pair_attribution_status.json.

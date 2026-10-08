@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "all_nav_columns_match": true,
+  "all_trades_match": true,
+  "all_decisions_match": true
+}
