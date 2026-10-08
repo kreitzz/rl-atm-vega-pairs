@@ -1,0 +1,3 @@
+case,reference,months,median_training_sharpe_difference,mean_training_sharpe_difference,months_ahead,months_behind
+direct_linear,tree_cem,90,-0.007762854554547172,-0.013155076078439718,41,49
+direct_additive,tree_cem,90,0.08053925662003539,0.07611765028005384,81,9

@@ -10,6 +10,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.venv-pca*/
 venv/
 .ipynb_checkpoints/
 .pytest_cache/
@@ -35,6 +36,7 @@ data/*
 !data/p25_ungated_search_experiment.zip
 !data/p25_validation_split_experiment.zip
 !data/p25_validation_extensions.zip
+!data/p25_representation_experiment.zip
 !data/submission/
 !data/DATA_LICENSE.txt
 /artifacts/

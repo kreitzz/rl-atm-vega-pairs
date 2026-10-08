@@ -1,0 +1,79 @@
+{
+  "cases": [
+    "tree_cem",
+    "fixed100",
+    "linear_score",
+    "additive_main",
+    "additive_pairs"
+  ],
+  "features": [
+    "iv_mean",
+    "oriented_iv_gap",
+    "rank_strength",
+    "oriented_vrp_gap",
+    "rv_mean",
+    "beta",
+    "correlation",
+    "dte_mean",
+    "oriented_dte_gap",
+    "commission_vol_points",
+    "vix",
+    "profit_91d",
+    "count_91d",
+    "profit_365d",
+    "count_365d"
+  ],
+  "alpha_multipliers": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "interactions": [
+    [
+      "rank_strength",
+      "correlation"
+    ],
+    [
+      "rank_strength",
+      "vix"
+    ],
+    [
+      "profit_365d",
+      "count_365d"
+    ]
+  ],
+  "model": "Linear ridge, degree2 spline additive mains (3 training quantile knots), and same mains plus3 residualized tensor interactions; ridge n*alpha; linear spline extrapolation.",
+  "outer": "90 monthly fits Jan2018-Jun2025; same18month signal window with signal/end strictly before fit, original qualified completed rows.",
+  "inner": "Two chronological3month validation folds in preceding6months; each uses its own18month completed training window. Validation outcomes must be completed before outer fit; min32train and8validation. Require both folds elsealpha1. Choose pooled validation MSE; exact ties prefer stronger penalty.",
+  "size_head": "All3 new models use their outer-training score terciles: below first50%, middle75%, above second100%; right-sided ties. Smooth score, discrete sizes. No CEM for these models.",
+  "controls": "Original tree/CEM and fixed100% archived replays. Additive-vs-linear isolates function family under matched head; versus tree compares whole pipelines.",
+  "isolation": "Same608proposals, original20%opportunityrank/profit/count gates, contracts,10mcapital,costs,riskrules,dailyhedges,andcontinuousholdings. No threshold-search5%rule combined.",
+  "target": "Original fullsize standalone lifetime dollar profit, including legacy.65optioncommission; funded replays use.03commission. This objective mismatch remains common across regression targets.",
+  "stability": "On actual proposals perturb each economic feature alone by+/-5% outertrain populationSD. Record sizing changes; synthetic local sensitivity, not plausible joint scenarios. Compare adjacent fits on shared historical training rows. Originaltree evaluated too.",
+  "evaluation": "2018-21 earlier,2022-Aug29,2025 later; already researched history, not untouchedholdout. No automatic strategy promotion.",
+  "inference": "Paired circular63/126session blocks2000replications, conditional exploratory intervals without multiple-research adjustment.",
+  "resources": {
+    "threads": 1,
+    "duty": 0.2,
+    "rss_mib": 384
+  },
+  "hashes": {
+    "data\\submission\\artifacts\\contracts\\p25_feature_search\\training_rows.parquet": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175",
+    "config\\p25_validation_2018_2021.json": "5b354c5edea52cd6f827e35b0ca0394b364b0e3fd5070c0470b5b04e23a86d03",
+    "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+    "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+    "config\\p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00",
+    "scripts\\run_p25_additive_sizing.py": "8e6c0238dda8b98aa7f339b58d0f8e9ce3b1773f7f262f91849476f61f2c2cb7",
+    "scripts\\p25_additive_sizing.py": "026903c7c68c5f7385a0eeb16561a8eb1a7d34df7a218aa50ccf5a6fbc92e1fc",
+    "scripts\\uniform_smile_engine.py": "733fee09ba8e3311c70588bef548aea7bb6136c69e3c221e840fe163733d94f1",
+    "scripts\\uniform_smile_risk.py": "b5a95584d56f18503c006831517c3b0c2fac426d752907b2de2577e577adcfc0",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\tree_cem\\daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\tree_cem\\trades.csv": "29158cad2f31708872d700c02570ab27d8bd23e5dc5134c51529034b02bcf9dd",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\tree_cem\\decisions.csv": "a322bc70b85a00fa8514b770b6d6fc746af5938e2763aadda13fa9ae0be3ca2a",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\tree_cem\\scored_allocations.parquet": "ca55994f9d61c775bb0f73bcfd4967662eb20b1dc993730b454a3f4bfddcb1c4",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\fixed100\\daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\fixed100\\trades.csv": "4fbb7bb8efe5f804819ccc1e34888b0b828c315a3d795b0545b17a19c22ea47c",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\fixed100\\decisions.csv": "17e2897c59e812e925b7f93c2ce10eebba3ff5a5d352828aac050ebe9e402576",
+    "artifacts\\contracts\\p25_strategy_audit\\sizing\\replays\\fixed100\\scored_allocations.parquet": "60074212652ecdacde06c62da37afd4620ce061ee00aa0bf73ce1b15ca5900d8"
+  }
+}

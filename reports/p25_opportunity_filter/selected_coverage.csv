@@ -1,0 +1,7 @@
+case,selected,missing_contract_pair_dates,missing_contract_pairs,unresolved_paths,unresolved_pairs,completed_training_outcomes,stored_all_actions_zero,stored_full_size_zero_other_nonzero
+current_fixed100,608,0,0,0,0,558,50,0
+rank_all_fixed100,4744,0,0,25,4,4311,393,15
+broad_ridge,1261,624,68,0,0,1114,146,1
+broad_spline,1670,773,74,0,0,1464,198,8
+rank_ridge,768,0,0,0,0,689,77,2
+rank_spline,881,0,0,0,0,787,93,1

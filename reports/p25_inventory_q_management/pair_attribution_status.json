@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "case": "manage_q",
+      "status": "complete",
+      "cohorts": 137,
+      "calendar_rows": 1926,
+      "current_rss_mib": 256.2578125,
+      "dense_array_allowance_mib": 72.47186279296875,
+      "quote_lookup_allowance_mib": 9.4482421875,
+      "estimated_peak_rss_mib": 354.17791748046875,
+      "pairs": 41,
+      "max_daily_reconciliation_error": 5.530637281481177e-09
+    },
+    {
+      "case": "manage_q_risk",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 309,
+      "calendar_rows": 1926,
+      "current_rss_mib": 212.765625,
+      "dense_array_allowance_mib": 163.45843505859375,
+      "quote_lookup_allowance_mib": 32.0,
+      "estimated_peak_rss_mib": 424.22406005859375
+    },
+    {
+      "case": "manage_myopic_risk",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 177,
+      "calendar_rows": 1926,
+      "current_rss_mib": 258.796875,
+      "dense_array_allowance_mib": 93.63153076171875,
+      "quote_lookup_allowance_mib": 8.3526611328125,
+      "estimated_peak_rss_mib": 376.78106689453125
+    }
+  ]
+}

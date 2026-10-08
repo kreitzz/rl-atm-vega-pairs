@@ -1,0 +1,28 @@
+feature,label,trees,percent_trees,retained_trees,active_trees,percent_active_trees,active_retained_trees,first_split_trees,proposal_paths,retained_proposal_paths,retained_entered_paths
+profit_365d,"Past profitability, 365 days",46,51.111111111111114,39,37,50.68493150684932,32,12,182,182,57
+count_365d,"Observation count, 365 days",42,46.666666666666664,37,35,47.945205479452056,31,12,228,210,74
+correlation,Pair correlation,39,43.333333333333336,36,34,46.57534246575342,31,22,257,245,80
+iv_mean,Mean implied volatility,35,38.888888888888886,26,32,43.83561643835616,24,7,164,148,49
+profit_91d,"Past profitability, 91 days",34,37.77777777777778,27,27,36.986301369863014,23,2,164,153,48
+oriented_iv_gap,Oriented relative IV gap,32,35.55555555555556,17,26,35.61643835616438,14,1,107,63,15
+oriented_vrp_gap,Oriented volatility-premium gap,31,34.44444444444444,27,28,38.35616438356164,24,9,151,143,41
+rank_strength,Spread rank strength,30,33.333333333333336,16,20,27.397260273972602,10,4,84,39,16
+beta,Pair beta,25,27.77777777777778,20,15,20.54794520547945,13,6,57,54,22
+commission_vol_points,Commission in volatility points,23,25.555555555555557,22,22,30.136986301369863,21,3,119,119,38
+rv_mean,Mean realized volatility,23,25.555555555555557,17,16,21.91780821917808,11,9,51,39,12
+vix,VIX,21,23.333333333333332,21,18,24.65753424657534,18,2,97,93,39
+count_91d,"Observation count, 91 days",13,14.444444444444445,12,9,12.32876712328767,8,1,65,51,15
+dte_mean,Mean days to expiry,9,10.0,6,6,8.219178082191782,4,0,18,16,5
+beta_available,beta_available,0,0.0,0,0,0.0,0,0,0,0,0
+commission_vol_points_available,commission_vol_points_available,0,0.0,0,0,0.0,0,0,0,0,0
+correlation_available,correlation_available,0,0.0,0,0,0.0,0,0,0,0,0
+count_365d_available,count_365d_available,0,0.0,0,0,0.0,0,0,0,0,0
+count_91d_available,count_91d_available,0,0.0,0,0,0.0,0,0,0,0,0
+dte_mean_available,dte_mean_available,0,0.0,0,0,0.0,0,0,0,0,0
+oriented_dte_gap,Oriented expiry gap,0,0.0,0,0,0.0,0,0,0,0,0
+oriented_dte_gap_available,oriented_dte_gap_available,0,0.0,0,0,0.0,0,0,0,0,0
+oriented_vrp_gap_available,oriented_vrp_gap_available,0,0.0,0,0,0.0,0,0,0,0,0
+profit_365d_available,profit_365d_available,0,0.0,0,0,0.0,0,0,0,0,0
+profit_91d_available,profit_91d_available,0,0.0,0,0,0.0,0,0,0,0,0
+rv_mean_available,rv_mean_available,0,0.0,0,0,0.0,0,0,0,0,0
+vix_available,vix_available,0,0.0,0,0,0.0,0,0,0,0,0

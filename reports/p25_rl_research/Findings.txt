@@ -1,0 +1,72 @@
+PAIR IV/RV REINFORCEMENT LEARNING: THREE BOUNDED ITERATIONS
+
+Earlier-selected research approach: Action critics: capacity Q. Best Q on earlier validation: Action critics: capacity Q.
+The selected research Q does not establish reliable benchmark improvement: its paired lower bound is not above zero at both block lengths.
+Highest later candidate Q point estimate: Q: risk utility (descriptive; not used for selection).
+
+Policy                                   Validation  Later Sharpe  Above cash ($)  Entries
+                                         2020-2021   2022-2025
+Original threshold, full size                0.821         1.055         200,853       75
+Q: capital capacity                          0.821         1.068         200,025       71
+Q: risk utility                              0.821         1.072         218,495       99
+Q: conservative                              0.821         1.055         200,853       75
+Q: portfolio diversification                 0.821         1.055         200,853       75
+Myopic risk utility                          0.781         0.214          28,791       26
+Q: no inventory inputs                       0.809         0.981         210,460      115
+Fixed half size                              0.762         0.992         206,723      151
+Unheld-pair rule                             0.830         0.904         158,581       67
+Congestion rule                              0.709         1.165         246,427      110
+Action critics: capacity Q                   0.974         0.802         126,243       77
+Action critics: risk Q                       0.000         0.763         136,639       92
+Action critics: conservative Q               0.665         1.048         198,744       76
+Action critics: myopic risk                  0.169         0.891         178,699      124
+Q: hold/trim/exit                            0.870         0.983         190,367       79
+Q: risk-aware hold/trim/exit                 0.903        -0.486         -13,830      251
+Myopic hold/trim/exit                        0.903         0.388          58,800      119
+Myopic entry, same reward as capacity Q      0.751         0.887         183,866       75
+Myopic exits, same reward as hold/exit Q     0.961         0.999         142,509      113
+Archived tree + CEM                              —         1.263         248,673      110
+Archived learned 5% threshold                    —         1.290         161,611       25
+
+WHAT WE TESTED
+1. Entry allocation Q: skip/half/full proposals, with an unheld-pair action, actual inventory, admission limits and funded rewards.
+2. Action-specific entry Q: independent action critics ensure that allocations can receive different estimated values.
+3. Held-book Q: fixed-full entries, then hold/trim/close decisions using current RV-versus-IV carry, maturity, execution cost and inventory.
+All use small fitted-Q models, 2018-2019 transitions, 2020-2021 validation and a pre-2022 refit.
+Nine candidate policies were considered in joint selection before later Q evaluation; one research approach was selected. Myopic and missing-inventory arms are ablations.
+
+FINDING
+The earlier criteria selected Action critics: capacity Q for research evaluation, without establishing benchmark superiority.
+The selected research Q does not establish reliable benchmark improvement: its paired lower bound is not above zero at both block lengths.
+None of the nine candidate Q policies establishes a reliable Sharpe improvement over the baseline at both conditional block lengths.
+Selected approach: incremental Sharpe improvement not established; matched continuation benefit not established. Both block lengths must have positive lower bounds. These conditional evidence flags do not change selection.
+Best earlier Q versus baseline: 63 sessions: -0.253 [-0.544, +0.107]; 126 sessions: -0.253 [-0.543, +0.119]; improvement not established across both block lengths.
+Entry Q versus myopic: 63 sessions: +0.858 [-0.330, +1.684]; 126 sessions: +0.858 [-0.298, +1.650]; improvement not established across both block lengths.
+Entry Q with versus without inventory: 63 sessions: +0.091 [-0.129, +0.430]; 126 sessions: +0.091 [-0.128, +0.427]; improvement not established across both block lengths.
+Action-specific Q versus myopic: 63 sessions: -0.128 [-0.652, +0.562]; 126 sessions: -0.128 [-0.649, +0.561]; improvement not established across both block lengths.
+Management Q versus myopic: 63 sessions: -0.874 [-2.209, +0.225]; 126 sessions: -0.874 [-2.398, +0.360]; improvement not established across both block lengths.
+Unshaped capacity Q versus matched myopic: 63 sessions: -0.085 [-0.402, +0.346]; 126 sessions: -0.085 [-0.347, +0.319]; improvement not established across both block lengths.
+Unshaped management Q versus matched myopic: 63 sessions: -0.015 [-0.457, +0.614]; 126 sessions: -0.015 [-0.364, +0.489]; improvement not established across both block lengths.
+
+HOW TO INTERPRET THIS
+Original baseline later Sharpe: 1.055, conditional 95% interval [-0.131, +1.960] using 126-session blocks.
+The threshold contains a useful simple opportunity rule. A confidence interval containing zero for CEM-minus-baseline does not prove that the baseline is uniquely significant.
+The benchmark also includes historical profit/count screens, pair formation, contract eligibility, risk admission and daily stock hedging; its result is not attributable to one number alone.
+Q learning has an economic role when decisions change later inventory/capacity or exit costs. These tests measure those mechanisms rather than relabeling a predictive score as RL.
+Risk-shaped Q optimizes a return/second-moment utility, not Sharpe. The fixed 0.5 penalty can favor cash; its failure would not establish that every risk-aware Q policy fails.
+All Q variants use ordinary maximum-value Bellman backups. Conservative variants penalize model disagreement only when choosing actions.
+The initial capacity critic assigned identical values to all actions on validation states and reverted to full size; the separate-action follow-up addresses that representation failure.
+Sparse trades, repeated market histories and approximate book states limit learning. Higher historical Sharpe alone is insufficient to select a new method.
+These market dates had already been used in prior research; the new policies were frozen before their later replays. Intervals condition on fitted policies, use paired 63/126-session blocks and 2,000 resamples, and do not adjust for accumulated research.
+No later winner is promoted. The original strategy configuration is unchanged and its protected hashes were rechecked. A frozen future evaluation remains necessary.
+
+A DISTINCT FUTURE RL TEST (NOT RUN HERE)
+Keep the opportunity rule and option book fixed; learn when and how much stock delta to hedge, with transaction costs and explicit residual-delta risk. Compare with daily hedging and a validation-selected fixed no-trade band at matched risk.
+This gives actions a direct cost-versus-future-risk consequence and more decision dates; it is a control hypothesis, not a promise of higher Sharpe. [Deep Hedging](https://arxiv.org/abs/1802.03042) supports this control mechanism under trading frictions, not performance in this dataset.
+A new broad-universe IV/RV alpha strategy first needs quote coverage repaired: the prior coverage audit found 5,712 of 11,977 candidate pair-dates missing at least one contract ID; ID presence alone does not establish complete daily quotes.
+
+OUTPUTS
+best_approach.json identifies the earlier-selected policy and best research Q model; results.csv includes every arm.
+Detailed family tables retain annual results, costs, risk, actions, training counts and independently reconciled ledgers.
+Feature importances describe model use, not causal effects. In separate-action critics, routing-action columns have zero split importance by construction; the action-specific models still differ.
+The portfolio experiments retain the inherited proposal universe; they do not demonstrate a new broad-universe strategy.

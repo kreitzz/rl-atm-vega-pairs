@@ -1,0 +1,15 @@
+{
+  "python": "3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\.venv-pca312\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.5.3",
+    "pyarrow": "25.0.1",
+    "matplotlib": "3.11.2",
+    "psutil": "7.0.0"
+  },
+  "unavailable_versions": []
+}

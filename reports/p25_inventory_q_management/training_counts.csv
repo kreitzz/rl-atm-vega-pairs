@@ -1,0 +1,7 @@
+case,phase,cutoff,transitions,distinct_market_dates,last_transition_end,gamma,penalty,daily_reward_scale_bps,held_transitions
+manage_q,validation,2020-01-01,2008,502,2019-12-31,0.99,0.0,0.7998961706138382,1274
+manage_q_risk,validation,2020-01-01,2008,502,2019-12-31,0.99,0.5,0.7998961706138382,1274
+manage_myopic_risk,validation,2020-01-01,2008,502,2019-12-31,0.0,0.5,0.7998961706138382,1274
+manage_q,evaluation,2022-01-01,4028,1007,2021-12-31,0.99,0.0,1.710986910101929,2276
+manage_q_risk,evaluation,2022-01-01,4028,1007,2021-12-31,0.99,0.5,1.710986910101929,2276
+manage_myopic_risk,evaluation,2022-01-01,4028,1007,2021-12-31,0.0,0.5,1.710986910101929,2276

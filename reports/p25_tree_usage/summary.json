@@ -1,0 +1,25 @@
+{
+  "monthly_fits": 90,
+  "fits_with_proposals": 73,
+  "fits_with_entries": 69,
+  "proposals": 608,
+  "entries": 207,
+  "raw_variables_min": 2,
+  "raw_variables_max": 6,
+  "raw_variables_median": 5.0,
+  "raw_variables_mean": 4.477777777777778,
+  "raw_trees_exactly_three": 11,
+  "raw_trees_more_than_three": 78,
+  "retained_variables_min": 1,
+  "retained_variables_max": 6,
+  "retained_variables_median": 4.0,
+  "split_nodes": 492,
+  "redundant_split_nodes": 112,
+  "leaves_distribution": {
+    "5": 5,
+    "6": 39,
+    "7": 45,
+    "8": 1
+  },
+  "cross_month_execution_proposals": 14
+}

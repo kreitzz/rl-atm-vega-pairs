@@ -1,0 +1,7 @@
+tail,proposals,pairs,both_contract_ids_available,missing_proposals,missing_contract_ids
+0.05,163,32,163,0,0
+0.1,306,40,306,0,0
+0.15,459,42,459,0,0
+0.2,608,46,608,0,0
+0.25,743,48,663,80,104
+0.3,846,49,686,160,210

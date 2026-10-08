@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "peak_rss_mib": 208.72265625,
+  "source_hashes": {
+    "funded/periods.csv": "c844446da921bce561332f98fcab15eb277cd1f99c3872432e6c83228c2d4828",
+    "funded/annual.csv": "ebbff8a44c0bec30588cc22dcd5326f7c383833c628d3261c6a0151344a44b04",
+    "funded/sharpe_intervals.csv": "aaa8703527463ff861dfdaf50dd8362c4a89bd0da4ba37ec5f897d4ffa4e08a9",
+    "matched_intervals.csv": "147a5f8e2e8b590d2129de83986cc8efa00e5e8df2896d70260af8d7329d9525",
+    "fits.csv": "b41f323ff1edebc8a780a53b912fd91488999757f2123e5a2b8324bb2a85005c",
+    "seed_diagnostics.csv": "61140d980ecc211760cf4982611faa50c5f6a798c7321e8724b8ed68d62cfed6",
+    "perturbation.csv": "63d334d946673ac2277944adaf5708d654fbf241ecff5eb6352e85e6b321d61c",
+    "refit_stability.csv": "8e6e30162f9141af0d17107afa0fbc0671af23c044f7d8560359c0c22517e0b4"
+  },
+  "script_hash": "8de271307aaa5b2695f55f176d7ed57c78be041388f02def9692806743164493",
+  "outputs": {
+    "Findings.txt": "784211bdb32dee0b59cf7afff43636c62b6d3716d247123aaab3ce71496f8309",
+    "comparison.png": "45c89dee8a4e534052851efe443e9e877e7f46360d79b947219861af378ffa6e",
+    "stability_summary.csv": "b9f39c6d57eef5a9125673fdfd879801ceffff555351b9cf32b618b941446e1e",
+    "training_summary.csv": "2475bf616220df1687c73d34c82ae3a34d01b8e439efd4e62f2af730a589fffb",
+    "training_comparisons.csv": "31924cbd2303ef5aca0aa189b086a4907ce3a99c53ba99e18dbddb434e860e41",
+    "size_distribution.csv": "a6b73d44bea1058bc96d885dc0d1170aaa3da4c1b35b007208b040cb23f5b6ca"
+  }
+}

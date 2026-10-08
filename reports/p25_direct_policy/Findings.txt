@@ -1,0 +1,84 @@
+MATCHED-OBJECTIVE DIRECT POSITION SIZING
+
+Neither direct policy exceeds the tree/CEM Sharpe in either period.
+Matching the downstream training objective did not establish a superior replacement in this experiment. Equal objective and candidate budgets do not establish equal optimization difficulty or prove the tree globally optimal.
+
+Question: do linear or additive decision policies improve on the existing tree when trained against the same daily shadow-path Sharpe objective?
+All policies receive the same 608 original proposals and retain the original 20% opportunity gate. Execution uses the same 10m funded account, contracts, costs, risk limits, daily hedges and continuing inventory.
+The two new policies use all 15 economic variables with fixed identities. Monthly coefficients and training-only transforms change. Linear uses 16 parameters; additive uses up to 61, including an intercept. Additive terms are degree-2 splines with three training quantile knots and linear extrapolation; no interactions.
+The score is dimensionless and directly determines 50%/75%/100% requested size using boundaries -0.5/+0.5. It is not predicted dollars, a probability or an opportunity filter. Existing option quantities are not rebalanced to every new score.
+
+WHAT IS MATCHED
+Training rows, completed-outcome chronology, daily action-specific label paths, unpenalized shadow Sharpe objective, executable sizes, seed 2026 and 50 x 192 = 9600 evaluated candidates per monthly fit are matched. Original categorical tree CEM choices are exactly reproduced in all 90 months.
+Direct policies use bounded diagonal Gaussian coefficient CEM; the original tree uses categorical leaf-action CEM. Same budget does not mean identical search geometry, parameter capacity, wall time or convergence. Coefficient bounds and simple bases constrain complexity, but no extra regularization penalty changes the common objective.
+All three constant sizes and the incumbent best policy are injected each iteration; the full-size policy is the initial incumbent. Policy hyperparameters are predeclared and not selected on later results.
+The original tree partitions are still fitted by profit-prediction squared error, with CEM optimizing the subsequent leaf sizes. New policies optimize their score coefficients directly. This comparison tests policy classes under matched downstream objective, not pure causal isolation of tree topology.
+Original legacy training paths retain their original costs; the funded backtest retains its current costs. The existing training/execution cost mismatch and standalone-path versus funded-admission mismatch remain shared limitations.
+Archived regression controls are descriptive comparisons to the previous approach. Moving from them to direct optimization also removes ridge/CV and tercile calibration, so that contrast is not a pure loss-function ablation.
+
+FUNDED PERFORMANCE
+Earlier: 2018-2021. Later: January 2022-August 29 2025. Both histories were already inspected; neither is an untouched holdout.
+Model | Earlier Sharpe | Later Sharpe | Later profit above cash | Later entries | Later cash-relative drawdown
+Tree + CEM | 0.573 | 1.263 | $248,673.30 | 110 | -0.495%
+Fixed 100% | 0.478 | 1.055 | $200,852.84 | 75 | -0.646%
+Regression linear | 0.438 | 0.931 | $185,773.55 | 95 | -0.675%
+Regression additive | 0.464 | 1.060 | $197,832.02 | 103 | -0.680%
+Direct linear | 0.267 | 0.873 | $171,107.13 | 96 | -0.704%
+Direct additive | 0.302 | 1.013 | $179,597.90 | 97 | -0.711%
+
+LATER PAIRED COMPARISONS
+Direct linear minus Tree + CEM:
+  63-session blocks: change -0.389; conditional 95% interval [-0.742, -0.070].
+  126-session blocks: change -0.389; conditional 95% interval [-0.698, -0.061].
+  Both block lengths favor the reference, conditional on these fitted policies.
+Direct additive minus Tree + CEM:
+  63-session blocks: change -0.249; conditional 95% interval [-0.513, +0.072].
+  126-session blocks: change -0.249; conditional 95% interval [-0.529, +0.089].
+  A consistently signed difference is not established across both block lengths.
+Direct additive minus Direct linear:
+  63-session blocks: change +0.140; conditional 95% interval [-0.128, +0.409].
+  126-session blocks: change +0.140; conditional 95% interval [-0.086, +0.390].
+  A consistently signed difference is not established across both block lengths.
+Direct linear minus Regression linear:
+  63-session blocks: change -0.058; conditional 95% interval [-0.313, +0.188].
+  126-session blocks: change -0.058; conditional 95% interval [-0.288, +0.202].
+  A consistently signed difference is not established across both block lengths.
+Direct additive minus Regression additive:
+  63-session blocks: change -0.047; conditional 95% interval [-0.386, +0.224].
+  126-session blocks: change -0.047; conditional 95% interval [-0.400, +0.230].
+  A consistently signed difference is not established across both block lengths.
+Intervals resample common calendar blocks, not individual trades. They condition on fitted policies, do not retrain models in each resample, and do not adjust for the accumulated research search. No policy is automatically promoted.
+
+TRAINING AND OPTIMIZATION DIAGNOSTICS
+Parameter counts describe the sizing search only. Tree split-feature selection and thresholds are not counted; spline coefficients include dependent basis directions. These are not comparable effective degrees of freedom for the whole fitted pipelines.
+Each monthly training window has 59-299 completed outcomes; overlapping trades and reused windows are not independent observations.
+Tree + CEM: median training shadow Sharpe 0.722; median training gain over full size 0.607; 5-8 parameters.
+Direct linear: median training shadow Sharpe 0.739; median training gain over full size 0.595; 16-16 parameters.
+  0/90 fits improved best training Sharpe by over 0.01 in the last ten iterations. Small final improvement is not proof of global convergence.
+Direct additive: median training shadow Sharpe 0.821; median training gain over full size 0.707; 60-61 parameters.
+  1/90 fits improved best training Sharpe by over 0.01 in the last ten iterations. Small final improvement is not proof of global convergence.
+Direct additive training-only seeds 2027/2028 across six predeclared months: 12 alternative fits; median assignment disagreement 12.6%; shadow Sharpe change range [-0.038, +0.055].
+Direct linear training-only seeds 2027/2028 across six predeclared months: 12 alternative fits; median assignment disagreement 11.5%; shadow Sharpe change range [-0.076, +0.057].
+Direct linear versus tree on the same training windows: median Sharpe difference -0.008; ahead in 41/90 months and behind in 49/90.
+Direct additive versus tree on the same training windows: median Sharpe difference +0.081; ahead in 81/90 months and behind in 9/90.
+Interpretation: additive policies improve the training objective in most months, but the gain does not carry through to either funded evaluation period. This is consistent with overfitting and/or the gap between standalone shadow paths and funded portfolio outcomes; the experiment does not identify which mechanism dominates. The observed failure cannot simply be described as an inability to beat the tree on its training objective.
+Alternative seeds are not deployed or used for selection; these diagnostics do not establish out-of-sample seed robustness.
+
+SIZING STABILITY
+Local: change one variable by +/-5% of its training standard deviation, keeping the others fixed. These are synthetic sensitivity checks, not feasible joint shocks.
+Refit: apply adjacent monthly fits to common historical training rows. This measures recommendation changes, not actual position turnover or prospective generalization.
+Model | Local changed decisions | Refit changed decisions
+Tree + CEM | 0.38% | 21.80%
+Fixed 100% | 0% by construction | 0% by construction
+Regression linear | 0.77% | 17.94%
+Regression additive | 1.07% | 16.84%
+Direct linear | 0.71% | 16.91%
+Direct additive | 0.73% | 16.39%
+
+VERIFICATION
+Four targeted unit tests passed. All 180 direct models and their 90 original tree counterparts were checked. Saved predictions, contributions, size choices, transforms and stability metrics reproduce; all direct training objectives were independently reaggregated using the original state-book implementation.
+Four complete direct CEM searches (both policy types in the first and last months) were rerun exactly. All six funded ledgers reconcile, archived controls are byte-identical and protected source hashes remain unchanged.
+
+REPRODUCE
+Run sequentially in .venv-pca312: python -m scripts.run_p25_direct_policy; python -m scripts.verify_p25_direct_policy; python -m scripts.report_p25_direct_policy.
+One numerical worker/thread, 20% CPU duty, 384 MiB RSS limit. Saved models and ledgers: artifacts/contracts/p25_direct_policy.

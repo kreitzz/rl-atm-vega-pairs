@@ -1,0 +1,98 @@
+{
+  "cases": [
+    "broad_ridge",
+    "broad_spline",
+    "rank_ridge",
+    "rank_spline"
+  ],
+  "features": [
+    "iv_mean",
+    "oriented_iv_gap",
+    "oriented_rank",
+    "oriented_vrp_gap",
+    "rv_mean",
+    "beta",
+    "correlation",
+    "dte_mean",
+    "oriented_dte_gap",
+    "commission_vol_points",
+    "vix",
+    "profit_91d",
+    "count_91d",
+    "profit_365d",
+    "count_365d"
+  ],
+  "settings": {
+    "months": 18,
+    "validation_months": 6,
+    "fold_months": 3,
+    "alpha_multipliers": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "quantiles": [
+      0.5,
+      0.7,
+      0.9
+    ],
+    "minimum_training_rows": 100,
+    "minimum_validation_entries": 20,
+    "spline_knots": 3,
+    "spline_degree": 2,
+    "economic_floor": 0.0
+  },
+  "training": "Monthly18month completed outcomes; two past3month validation folds; alpha chosen by OOF MSE; nonnegative hurdle chosen by signal-date lifetime payoff mean/sd surrogate.",
+  "broad": "All11977 inherited eligible pair-dates, both directions; choose at most one direction or skip. No rank or profit-memory gates.",
+  "rank": "All4744 extreme-rank candidates in inherited direction, learned skip/fullsize gate replaces profit-memory screen. Separate models trained on historical rank-selected directions only.",
+  "target": {
+    "target": "Lifetime standalone cash-relative net P&L / reference entry vega 450",
+    "option_commission": 0.65,
+    "option_penalty_vol_points": 0.1,
+    "stock_hedge_bps": 1,
+    "actual_entry_vega_available": false,
+    "recosted_to_live_commission": false,
+    "known_no_entry_is_not_a_training_outcome": true,
+    "missing_or_unresolved_outcome_is_not_zero": true,
+    "features": "Signal-close state; memory contains strictly prior completed outcomes",
+    "universe_limitation": "Inherited retrospective roster and formation/context calendar"
+  },
+  "shadow": "Sum archived standalone daily net excess P&L paths at fixed reference450vega; zero paths only if stored finite; unresolved paths never zero-imputed. Incomplete books labeled observed-path diagnostics.",
+  "funded": "Rank arms only; same10m cash ledger, entry450vega per leg scaled with account, hold to expiry, daily hedge, .03 commission, risk limits and carry. No sizing optimization.",
+  "controls": [
+    "current_fixed100",
+    "rank_all_fixed100"
+  ],
+  "comparisons": "2018-2021 earlier and2022-Aug2025 later; both models reported; no automatic promotion or model chosen on later results.",
+  "uncertainty": "Paired circular calendar blocks63/126,2000resamples; conditional descriptive intervals, no research-selection adjustment.",
+  "broad_funded_blocker": {
+    "both_contract_ids": 6265,
+    "middle_rank_both_contract_ids": 1521,
+    "missing_at_least_one_contract": 5712,
+    "note": "Contract ID presence only; not a day-by-day completeness or entry-validity test. Not used to select candidates."
+  },
+  "untouched_holdout": false,
+  "inherited_universe_bias": true,
+  "dataset_sha256": "a2e589cc19b15d8a06ad6594bd1b957d28af5d8be0f537194f95242b15551b40",
+  "audit_sha256": "8657d00fb8b60c9c09b93e04896b3c695630a5628e4d4f854f146b6701cfefd6",
+  "protected_sources": {
+    "config\\p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00",
+    "config\\p25_validation_2018_2021.json": "5b354c5edea52cd6f827e35b0ca0394b364b0e3fd5070c0470b5b04e23a86d03",
+    "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+    "data\\submission\\artifacts\\contracts\\p25_feature_search\\training_rows.parquet": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175",
+    "data\\submission\\artifacts\\contracts\\same_structure_smile\\P25_rows.parquet": "95706a9ae59aa56a57cdef11a04d3d92940f262c30a2afcfe0291fec7fa750f2",
+    "scripts\\uniform_smile_engine.py": "733fee09ba8e3311c70588bef548aea7bb6136c69e3c221e840fe163733d94f1",
+    "scripts\\uniform_smile_risk.py": "b5a95584d56f18503c006831517c3b0c2fac426d752907b2de2577e577adcfc0"
+  },
+  "scripts": {
+    "p25_opportunity_dataset.py": "3581136749e24a46c904dcf38a36f7ffb761f68d0ab5119f822b92abc04ab03f",
+    "p25_opportunity_models.py": "72a11ca75d1b66626da1fc4dc3416aa1fbac4e92880ca01ffb254bc5095da6ac",
+    "run_p25_opportunity_filter.py": "142568e0c17a7bd248ca7ad5e67ec99ce5fd8d478247cc2fb402b4572bb0e23a",
+    "analyze_p25_opportunity_filter.py": "ae722c25d1f4b65c42b9831706bb72bcc6b8fcd55de615fc3fd24d3bd773a1d5"
+  },
+  "resources": {
+    "threads": 1,
+    "duty": 0.2,
+    "rss_limit_mib": 384
+  }
+}

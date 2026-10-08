@@ -1,0 +1,13 @@
+case,status,entries,active_pairs,independent_ledger_error,all_inventory_closed,unique_proposal_identities,scored_levels_match_decisions,requested_direction_matches,policy_actions_match_requests
+fixed100,passed,133,40,5.701622285414487e-09,True,True,True,True,True
+q_capacity,passed,129,40,5.1700226322282106e-09,True,True,True,True,True
+q_risk,passed,157,40,5.1700226322282106e-09,True,True,True,True,True
+q_conservative,passed,133,40,5.701622285414487e-09,True,True,True,True,True
+q_portfolio,passed,133,40,5.701622285414487e-09,True,True,True,True,True
+myopic_risk,passed,84,28,5.291639126880909e-09,True,True,True,True,True
+q_no_inventory,passed,173,41,5.799165592179634e-09,True,True,True,True,True
+fixed50,passed,209,43,5.1700226322282106e-09,True,True,True,True,True
+diversified,passed,125,40,5.1700226322282106e-09,True,True,True,True,True
+congestion,passed,168,41,5.413085091277026e-09,True,True,True,True,True
+tree_cem,passed,207,44,5.0595190259628e-09,True,True,True,True,False
+learned5,passed,83,32,5.1700226322282106e-09,True,True,True,True,False

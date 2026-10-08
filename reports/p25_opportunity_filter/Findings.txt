@@ -1,0 +1,200 @@
+P25 contextual opportunity-filter experiment
+
+The funded experiment does not establish that either contextual filter improves on the current filter at fixed 100% reference sizing.
+Both block-length intervals are below zero for Rank + ridge, Rank + spline.
+The broader question—replacing the fixed volatility-rank cutoff itself—remains unresolved at the funded portfolio level because the available quote bundle cannot replay the full broad candidate set.
+
+What was tested
+Four predeclared pipelines: ridge and smooth spline regression, each trained either on all eligible pair-dates in both directions or on extreme-rank candidates in the inherited direction. Each chooses skip or the fixed full reference size; no position-sizing optimization was performed.
+Broad scope: 11,977 evaluation pair-dates across 112 pairs, including 7,233 middle-rank pair-dates rejected by the old 20/80 rule. Rank scope: 4,744 extreme-rank candidates. The current filter retains 608 of those candidates.
+Monthly models use the preceding 18 months of completed outcomes. Two chronological three-month validation folds choose among three regularization strengths using prediction error, then choose a nonnegative score hurdle from a small predeclared set. The hurdle objective aggregates lifetime payoff by signal date; it is an unfunded surrogate, not funded portfolio Sharpe.
+360 monthly fitting/decision windows were processed: 90 per pipeline, January 2018–June 2025. 328 windows produced fitted predictive models (including models whose validation rule skips all); the remaining windows skipped because training or chronological validation was insufficient. Each available monthly model and hurdle is frozen. Candidate features vary daily, so the implied entry boundary changes with conditions even while the monthly hurdle is frozen.
+The target is conditional on historically completed, executable training outcomes. Known failed/no-entry and unresolved outcomes are excluded from model fitting, not reclassified as zero-return training trades. Evaluation candidates include failed-entry cases and are selected without consulting their future outcomes; execution eligibility is then checked by the replay. This avoids using future outcome availability to screen the evaluation universe, while leaving a training-to-execution distribution difference.
+
+Training capacity (overlapping directions, pairs and dates are not independent observations)
+Pipeline | Training direction rows min / median / max | Distinct pair-dates min / median / max | Skip-all or insufficient months
+Broad ridge | 3244 / 5088 / 10700 | 1622 / 2544 / 5350 | 60
+Broad spline | 3244 / 5088 / 10700 | 1622 / 2544 / 5350 | 53
+Rank + ridge | 606 / 954.5 / 2133 | 606 / 954.5 / 2133 | 42
+Rank + spline | 606 / 954.5 / 2133 | 606 / 954.5 / 2133 | 35
+
+Model activity and changing hurdles
+Pipeline | Months with selections / 90 | Insufficient training | Insufficient validation | Validation skip-all | Distinct finite hurdles | Finite hurdle range
+Broad ridge | 27 / 90 | 0 | 8 | 52 | 18 | 0.000 to 2.673
+Broad spline | 36 / 90 | 0 | 8 | 45 | 17 | 0.000 to 3.428
+Rank + ridge | 35 / 90 | 0 | 8 | 34 | 35 | 0.000 to 4.321
+Rank + spline | 42 / 90 | 0 | 8 | 27 | 37 | 0.000 to 6.459
+Months without entries may reflect unavailable validation outcomes, a validation skip-all rule, scores below the fitted hurdle, or portfolio admission. They are not evidence that the model confidently identified an absence of opportunities. See inactive_models.csv for each unavailable model and chronological fold counts.
+Inactive example: Broad ridge 2018-01-01, validation_skip_all, 2034 outer training pair-dates; 2017-07-01: train=5224, validation=420, usable=True; 2017-10-01: train=4618, validation=340, usable=True.
+Inactive example: Broad ridge 2018-02-01, validation_skip_all, 1940 outer training pair-dates; 2017-08-01: train=5046, validation=484, usable=True; 2017-11-01: train=4358, validation=260, usable=True.
+Inactive example: Broad ridge 2018-08-01, validation_skip_all, 1634 outer training pair-dates; 2018-02-01: train=3880, validation=722, usable=True; 2018-05-01: train=3284, validation=650, usable=True.
+Inactive example: Broad ridge 2018-11-01, validation_skip_all, 1810 outer training pair-dates; 2018-05-01: train=3284, validation=1020, usable=True; 2018-08-01: train=3268, validation=580, usable=True.
+Inactive example: Broad ridge 2019-03-01, validation_skip_all, 2115 outer training pair-dates; 2018-09-01: train=3488, validation=798, usable=True; 2018-12-01: train=3748, validation=626, usable=True.
+Inactive example: Broad ridge 2019-04-01, validation_skip_all, 2214 outer training pair-dates; 2018-10-01: train=3564, validation=844, usable=True; 2019-01-01: train=3882, validation=678, usable=True.
+
+Acceptance across fixed volatility-rank bins (all evaluation dates)
+Pipeline | Rank bin | Candidate pair-dates | Selected | Acceptance
+Broad ridge | 0–20% | 2281 | 209 | 9.2%
+Broad ridge | 20–40% | 1867 | 160 | 8.6%
+Broad ridge | 40–60% | 3492 | 416 | 11.9%
+Broad ridge | 60–80% | 1874 | 159 | 8.5%
+Broad ridge | 80–100% | 2463 | 317 | 12.9%
+Broad spline | 0–20% | 2281 | 322 | 14.1%
+Broad spline | 20–40% | 1867 | 209 | 11.2%
+Broad spline | 40–60% | 3492 | 483 | 13.8%
+Broad spline | 60–80% | 1874 | 236 | 12.6%
+Broad spline | 80–100% | 2463 | 420 | 17.1%
+Rank + ridge | 0–20% | 2281 | 351 | 15.4%
+Rank + ridge | 20–40% | 0 | 0 | undefined
+Rank + ridge | 40–60% | 0 | 0 | undefined
+Rank + ridge | 60–80% | 0 | 0 | undefined
+Rank + ridge | 80–100% | 2463 | 417 | 16.9%
+Rank + spline | 0–20% | 2281 | 419 | 18.4%
+Rank + spline | 20–40% | 0 | 0 | undefined
+Rank + spline | 40–60% | 0 | 0 | undefined
+Rank + spline | 60–80% | 0 | 0 | undefined
+Rank + spline | 80–100% | 2463 | 462 | 18.8%
+Broad rules may choose either direction or skip within every rank bin. Rank rules score only the inherited extreme-rank direction. Acceptance within bins is descriptive; it does not establish that a rank bin is profitable.
+
+Funded results: same $10 million account, fixed 100% reference sizing
+Pipeline | Earlier Sharpe | Later Sharpe | Later profit above cash | Later entries | Later entry pairs | Later mean reserve | Later max cash-relative drawdown
+Current filter | 0.478 | 1.055 | $200,853 | 75 | 28 | 2.49% | -0.65%
+All extreme-rank | 0.847 | 0.567 | $330,791 | 459 | 49 | 11.84% | -1.24%
+Rank + ridge | 0.526 | -0.383 | $-40,550 | 92 | 32 | 2.31% | -0.72%
+Rank + spline | 0.710 | -0.153 | $-7,728 | 99 | 32 | 2.82% | -0.58%
+All funded arms retain the old extreme-rank cutoff. Learned arms replace the historical-profit screen. All extreme-rank removes that screen without learning a replacement. Decisions include skips and subsequent risk/eligibility rejection; selected proposals and funded entries are different counts.
+The reference is the current filter with constant 100% sizing (later Sharpe approximately 1.055). The previously reported 1.263 belongs to the separate tree/CEM sizing strategy and is not the reference for this opportunity-selection comparison.
+
+Paired later Sharpe differences: contextual filter minus current fixed-size filter
+Pipeline | Block sessions | Difference [95% interval]
+Rank + ridge | 63 | -1.438 [-2.515, -0.241]
+Rank + ridge | 126 | -1.438 [-2.469, -0.180]
+Rank + spline | 63 | -1.208 [-2.234, -0.171]
+Rank + spline | 126 | -1.208 [-2.194, -0.022]
+Intervals use 2,000 paired circular calendar-block resamples. They condition on fitted strategies, preserve simultaneous calendar shocks, and do not adjust for earlier strategy research or multiple comparisons. Neither the earlier nor later history is a fresh holdout. These intervals cannot certify a deployable edge.
+
+Annual funded stability: daily cash-excess Sharpe / profit above cash / entries
+2018: Current filter 0.18 / $3,153 / 11; All extreme-rank 0.01 / $383 / 88; Rank + ridge -1.41 / $-26,646 / 26; Rank + spline -1.19 / $-28,168 / 25
+2019: Current filter -0.51 / $-8,136 / 13; All extreme-rank -0.11 / $-4,838 / 89; Rank + ridge 0.41 / $8,991 / 8; Rank + spline 0.89 / $16,465 / 13
+2020: Current filter 1.10 / $76,065 / 20; All extreme-rank 1.91 / $382,455 / 131; Rank + ridge 1.33 / $174,206 / 30; Rank + spline 1.78 / $175,236 / 48
+2021: Current filter 0.02 / $403 / 14; All extreme-rank -0.10 / $-6,290 / 106; Rank + ridge -0.15 / $-6,764 / 15; Rank + spline -0.00 / $-65 / 25
+2022: Current filter 2.19 / $127,528 / 42; All extreme-rank 1.06 / $175,361 / 213; Rank + ridge -0.26 / $-10,456 / 17; Rank + spline 0.30 / $26,206 / 25
+2023: Current filter 1.11 / $54,747 / 14; All extreme-rank 0.31 / $47,879 / 123; Rank + ridge -0.58 / $-7,513 / 25; Rank + spline -0.70 / $-23,498 / 40
+2024: Current filter -0.80 / $-19,017 / 10; All extreme-rank 1.09 / $180,710 / 74; Rank + ridge -0.55 / $-21,718 / 33; Rank + spline -0.41 / $-9,952 / 26
+2025: Current filter 1.31 / $37,595 / 9; All extreme-rank -1.54 / $-73,160 / 49; Rank + ridge -0.17 / $-864 / 17; Rank + spline -0.36 / $-484 / 8
+
+Funded stability interpretation
+Rank + ridge: 2020 profit above cash $174,206, versus $149,787 across all of 2018–2021. The 2020 contribution exceeds the entire earlier-period profit, so the other earlier years lose money in aggregate. Later losses occur in 4 of 4 annual observations: 2022, 2023, 2024, 2025.
+Rank + spline: 2020 profit above cash $175,236, versus $163,467 across all of 2018–2021. The 2020 contribution exceeds the entire earlier-period profit, so the other earlier years lose money in aggregate. Later losses occur in 3 of 4 annual observations: 2023, 2024, 2025.
+The 2025 observation ends in August and is not a full calendar year. The annual pattern is consistent with unstable predictive usefulness, rather than a durable improvement demonstrated across periods; it does not establish the causal mechanism behind the deterioration.
+
+Funded pair entry concentration (coverage, not P&L attribution)
+Current filter: 28 pairs entered; top three pairs account for 29.3% of entries.
+All extreme-rank: 49 pairs entered; top three pairs account for 23.1% of entries.
+Rank + ridge: 32 pairs entered; top three pairs account for 30.4% of entries.
+Rank + spline: 32 pairs entered; top three pairs account for 29.3% of entries.
+
+Reconciled funded pair P&L: later period
+Pipeline | Positive pairs | Negative pairs | Net pair P&L | Shared financing versus cash | Top-three share of positive pair profit
+Current filter | 18 | 11 | $168,096 | $32,757 | 43.0%
+Rank + ridge | 12 | 20 | $-55,543 | $14,993 | 59.9%
+Rank + spline | 14 | 19 | $-26,678 | $18,950 | 69.1%
+Pair net P&L includes attributed option/hedge outcomes and execution/borrow costs. Shared financing remains separate. These attributed cases reconcile daily to the portfolio change in profit above cash; the pair table and financing together explain the account, not independent pair portfolios.
+Funded pair-level net P&L is unavailable for All extreme-rank. Entry breadth alone cannot establish breadth of profitability for those cases.
+
+Broad opportunity discovery: archived standalone-path diagnostic
+These figures aggregate stored holding-period P&L paths at a fixed reference 450 vega. They have no funded shared-capital denominator and are not ROI. They omit portfolio admission, hedge netting and shared financing. Do not compare their Sharpe or dollar levels directly with the funded table.
+Pipeline | Earlier observed-path Sharpe | Later observed-path Sharpe | Selected pair-dates | Middle-rank selections | Finite stored paths | Unresolved selected paths
+Current filter | 0.262 | 0.749 | 608 | 0 | 608 | 0
+All extreme-rank | 0.339 | 0.182 | 4744 | 0 | 4719 | 25
+Broad ridge | 0.208 | -0.065 | 1261 | 735 | 1261 | 0
+Broad spline | 0.012 | 0.041 | 1670 | 928 | 1670 | 0
+Rank + ridge | 0.487 | -0.754 | 768 | 0 | 768 | 0
+Rank + spline | 0.781 | -0.285 | 881 | 0 | 881 | 0
+All selected stored paths are finite for Broad ridge, Broad spline, Rank + ridge, Rank + spline. Their shadow findings are not caused by excluding unresolved selected paths. Finite stored paths still do not provide the missing funded contract quotes.
+Any case with unresolved selected paths is an observed-component diagnostic, not complete strategy performance. Missing paths are never imputed as zero; excluded outcomes can change the result in either direction. Finite stored no-entry paths are preserved as stored zeros, while those no-entry observations are not used as completed training outcomes.
+
+Coverage of the actual selected broad opportunities
+Pipeline | Selected | Missing at least one contract ID | Pairs with missing IDs | Unresolved selected paths / pairs | Completed training outcomes | Stored all-actions-zero paths
+Broad ridge | 1261 | 624 | 68 | 0 / 0 | 1114 | 146
+Broad spline | 1670 | 773 | 74 | 0 / 0 | 1464 | 198
+Contract ID presence is only an initial coverage check, not proof of day-by-day quote availability. These coverage counts were audited after selection and never used to filter the prediction universe.
+
+Later observed-path difference versus current filter (126-session blocks; incomplete paths remain a limitation)
+Broad ridge: -0.813 [-2.283, +0.684]
+Broad spline: -0.708 [-2.049, +0.649]
+Rank + ridge: -1.503 [-2.827, -0.313]
+Rank + spline: -1.033 [-2.383, +0.012]
+
+Later shadow pair-profit concentration (standalone observed paths only)
+Current filter: 19 positive and 13 negative pairs; top three supply 53.4% of positive observed shadow profit.
+All extreme-rank: 29 positive and 29 negative pairs; top three supply 40.2% of positive observed shadow profit.
+Broad ridge: 24 positive and 20 negative pairs; top three supply 42.7% of positive observed shadow profit.
+Broad spline: 26 positive and 20 negative pairs; top three supply 46.0% of positive observed shadow profit.
+Rank + ridge: 11 positive and 23 negative pairs; top three supply 55.7% of positive observed shadow profit.
+Rank + spline: 12 positive and 24 negative pairs; top three supply 56.1% of positive observed shadow profit.
+
+Annual observed-path diagnostic Sharpe (not funded returns)
+2018: Broad ridge -0.01; Broad spline 0.34; Rank + ridge -1.18; Rank + spline -0.50
+2019: Broad ridge -0.70; Broad spline -0.70; Rank + ridge -0.14; Rank + spline -0.40
+2020: Broad ridge 1.03; Broad spline 1.22; Rank + ridge 1.81; Rank + spline 2.35
+2021: Broad ridge 0.44; Broad spline -0.92; Rank + ridge 0.04; Rank + spline 0.10
+2022: Broad ridge -0.02; Broad spline 0.45; Rank + ridge -0.71; Rank + spline 0.75
+2023: Broad ridge -0.16; Broad spline 0.84; Rank + ridge -1.32; Rank + spline -1.73
+2024: Broad ridge -0.05; Broad spline -1.08; Rank + ridge -0.96; Rank + spline -0.38
+2025: Broad ridge 0.00; Broad spline 0.58; Rank + ridge 0.04; Rank + spline 0.43
+
+Prediction quality on completed candidate outcomes
+Payoff units are archived net dollars per reference entry vega. Score bins are retrospective descriptive quantiles, not replay entry thresholds. Overlapping trades prevent treating these counts as independent samples.
+Pipeline | Group | Outcomes | Mean predicted | Mean realized | 5th percentile realized | Positive outcomes
+Broad ridge | selected | 592 | 2.144 | -0.206 | -21.458 | 46.1%
+Broad ridge | rejected | 4814 | -0.592 | -0.245 | -19.633 | 46.2%
+Broad ridge | bin_1 | 1082 | -0.926 | -1.498 | -19.003 | 42.1%
+Broad ridge | bin_2 | 1081 | -0.829 | 0.868 | -17.200 | 47.2%
+Broad ridge | bin_3 | 1081 | -0.718 | -0.929 | -19.914 | 42.2%
+Broad ridge | bin_4 | 1081 | -0.431 | -0.324 | -22.023 | 49.8%
+Broad ridge | bin_5 | 1081 | 1.444 | 0.681 | -20.870 | 49.9%
+Broad spline | selected | 680 | 2.379 | 0.036 | -19.135 | 49.0%
+Broad spline | rejected | 4726 | -0.511 | -0.802 | -20.871 | 46.1%
+Broad spline | bin_1 | 1082 | -0.982 | -0.939 | -22.708 | 47.5%
+Broad spline | bin_2 | 1081 | -0.738 | -0.219 | -16.230 | 47.2%
+Broad spline | bin_3 | 1081 | -0.563 | -0.713 | -18.639 | 43.6%
+Broad spline | bin_4 | 1081 | -0.220 | -2.605 | -27.726 | 45.7%
+Broad spline | bin_5 | 1081 | 1.764 | 0.994 | -18.953 | 48.4%
+Rank + ridge | selected | 360 | 1.705 | -2.029 | -21.721 | 44.4%
+Rank + ridge | rejected | 1746 | -0.674 | 0.702 | -20.732 | 52.7%
+Rank + ridge | bin_1 | 422 | -2.365 | -0.565 | -42.276 | 50.9%
+Rank + ridge | bin_2 | 421 | -0.710 | 0.692 | -16.549 | 50.1%
+Rank + ridge | bin_3 | 421 | -0.270 | 1.380 | -16.764 | 57.5%
+Rank + ridge | bin_4 | 421 | 0.198 | 1.464 | -17.629 | 51.8%
+Rank + ridge | bin_5 | 421 | 1.816 | -1.793 | -23.715 | 46.3%
+Rank + spline | selected | 380 | 1.524 | -0.758 | -20.468 | 44.2%
+Rank + spline | rejected | 1726 | -0.601 | 0.454 | -21.849 | 52.9%
+Rank + spline | bin_1 | 422 | -2.773 | -0.910 | -41.550 | 46.7%
+Rank + spline | bin_2 | 421 | -0.651 | 0.221 | -16.230 | 47.5%
+Rank + spline | bin_3 | 421 | -0.128 | 0.859 | -16.260 | 54.9%
+Rank + spline | bin_4 | 421 | 0.381 | 1.020 | -23.455 | 55.1%
+Rank + spline | bin_5 | 421 | 2.089 | -0.011 | -20.457 | 52.5%
+
+Interpretation of the observed prediction failure
+The selected-trade forecasts are poorly calibrated in the later period: positive predicted payoffs do not translate into comparable realized payoffs. This is measured on completed candidate outcomes under the archived cost convention, not on the funded subset.
+Broad ridge: later selected mean forecast +2.144, realized -0.206; earlier selected realized mean +0.483.
+Broad spline: later selected mean forecast +2.379, realized +0.036; earlier selected realized mean +0.086.
+Rank + ridge: later selected mean forecast +1.705, realized -2.029; earlier selected realized mean +1.434.
+Rank + spline: later selected mean forecast +1.524, realized -0.758; earlier selected realized mean +1.974.
+Rank + ridge reverses from positive earlier shadow Sharpe (0.487) to negative later shadow Sharpe (-0.754); the earlier result did not persist.
+Rank + spline reverses from positive earlier shadow Sharpe (0.781) to negative later shadow Sharpe (-0.285); the earlier result did not persist.
+Broad ridge: later pooled top-score quintile mean outcome +0.681, bottom quintile -1.498. This descriptive ranking contrast is not the same as the frozen monthly hurdle policy.
+Broad spline: later pooled top-score quintile mean outcome +0.994, bottom quintile -0.939. This descriptive ranking contrast is not the same as the frozen monthly hurdle policy.
+The broad pooled top-versus-bottom score contrast leaves open whether some ranking information exists, but the intermediate bins are not a reliable monotonic payoff ladder. Pooled bins mix models and market periods and use the whole evaluation score distribution. They do not validate changing the entry rule to a post-hoc quintile cutoff.
+The observed result is lack of stable payoff calibration and weak or reversing selected-opportunity performance. Overfitting, changing market relationships, noisy correlated labels, and the surrogate/funded objective mismatch are possible explanations, not causes established by this experiment. No model or threshold was modified in response to these diagnostics.
+
+Limits and what the experiment answers
+1. A full broad funded replay is unavailable: 5,712 of 11,977 candidate pair-dates lack at least one contract ID in the available quote bundle. The remaining 6,265 have ID presence only; that is not a daily quote completeness test. Quote coverage was not used to select the broad candidates.
+2. Training labels and shadow paths retain the archived $0.65 per-contract commission. Funded replays use the current $0.03 commission. Both include the specified option execution penalty and stock hedge costs, but labels were not recosted because complete contract paths are unavailable. The target is normalized by reference 450 vega, not verified actual entry gross vega. This is a controlled proxy experiment, not the fully aligned target originally proposed.
+3. The inherited universe and formation calendar contain retrospective coverage restrictions. Temporal training safeguards do not remove that universe limitation.
+4. These tests can support or weaken the case for learned opportunity filtering. They do not prove the current rule is optimal, that PCA is necessary, or that unexplained input variance is profitable signal. A failed ridge/spline test does not rule out every useful contextual rule.
+5. The next decisive broad test needs complete point-in-time quotes, consistently costed outcomes, and a frozen future evaluation. Preserve this experiment and its negative as well as positive findings; do not search more thresholds on the same later period and call the result confirmation.
+
+Reproduction: python -m scripts.run_p25_opportunity_filter; python -m scripts.report_p25_opportunity_filter
+Source protocol, fitted monthly models, scores, candidate coverage, funded ledgers and detailed CSV tables are retained. The report generator does not tune or select a model.

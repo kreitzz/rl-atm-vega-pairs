@@ -1,0 +1,9 @@
+case,phase,status,entries,active_pairs,independent_ledger_error,all_inventory_closed,unique_proposal_identities,scored_levels_match_decisions,requested_direction_matches,policy_actions_match_requests
+fixed100,validation,passed,54,22,5.1700226322282106e-09,True,True,True,True,False
+manage_q,validation,passed,63,22,4.5301931095309556e-09,True,True,True,True,False
+manage_q_risk,validation,passed,66,22,4.645926310331561e-09,True,True,True,True,False
+manage_myopic_risk,validation,passed,66,22,4.645926310331561e-09,True,True,True,True,False
+fixed100,evaluation,passed,133,40,5.701622285414487e-09,True,True,True,True,False
+manage_q,evaluation,passed,137,41,5.526089807972312e-09,True,True,True,True,False
+manage_q_risk,evaluation,passed,309,41,5.1700226322282106e-09,True,True,True,True,False
+manage_myopic_risk,evaluation,passed,177,40,5.51960965822218e-09,True,True,True,True,False

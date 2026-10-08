@@ -1,0 +1,7 @@
+case,entries,active_pairs,independent_ledger_error,all_inventory_closed
+tree_cem,207,44,5.0595190259628e-09,True
+fixed100,133,40,5.701622285414487e-09,True
+regression_linear,183,44,5.435140337795019e-09,True
+regression_additive,189,44,5.64273250347469e-09,True
+direct_linear,194,42,5.251422408036888e-09,True
+direct_additive,190,41,5.159563443157822e-09,True

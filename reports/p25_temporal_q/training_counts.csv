@@ -1,0 +1,5 @@
+case,phase,cutoff,transitions,distinct_market_dates,last_transition_end,gamma,penalty,daily_reward_scale_bps
+entry_myopic_capacity,validation,2020-01-01,822,131,2019-10-16,0.0,0.0,0.8859906716729847
+manage_myopic_capacity,validation,2020-01-01,2008,502,2019-12-31,0.0,0.0,0.7998961706138382
+entry_myopic_capacity,evaluation,2022-01-01,1431,229,2021-12-31,0.0,0.0,1.7585953378547103
+manage_myopic_capacity,evaluation,2022-01-01,4028,1007,2021-12-31,0.0,0.0,1.710986910101929

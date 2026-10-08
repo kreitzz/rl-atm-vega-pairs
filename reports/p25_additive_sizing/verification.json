@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "monthly_models": 270,
+  "proposals_per_new_case": 608,
+  "outer_and_inner_window_chronology_verified": true,
+  "alpha_choice_verified_against_saved_fold_scores": true,
+  "cv_scores_refitted_for_verification": false,
+  "all_saved_predictions_contributions_and_sizes_reproduced": true,
+  "training_transforms_terciles_and_interaction_orthogonality_verified": true,
+  "perturbations_and_refit_changes_reproduced": true,
+  "stability_denominators_identical": true,
+  "original_tree_sizes_reproduced": true,
+  "training_and_signal_availability_flags_all_one": true,
+  "archived_controls_identical": true,
+  "all_funded_ledgers_reconciled": true,
+  "protected_hashes_unchanged": true,
+  "protocol_sha256": "e7bcd3db912ae58efa2514e52b3e352fd46ea62c1b3776a174b2c6164157b970",
+  "max_independent_ledger_error": 5.701622285414487e-09
+}

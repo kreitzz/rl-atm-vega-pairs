@@ -1,0 +1,20 @@
+{
+  "reference": "current_fixed100",
+  "cases": [
+    "current_fixed100",
+    "rank_all_fixed100",
+    "rank_ridge",
+    "rank_spline"
+  ],
+  "replications": 2000,
+  "blocks": [
+    63,
+    126
+  ],
+  "paired_common_calendar": true,
+  "interval_type": "circular-block percentile",
+  "uncertainty_scope": "Conditional on frozen fitted policies; no correction for research search or multiple comparisons.",
+  "historical_status": "Exploratory: evaluation history was inspected before this experiment.",
+  "pair_attribution_cases": [],
+  "prediction_bins": "Retrospective descriptive score quantiles; not fitted entry thresholds; unresolved targets excluded."
+}

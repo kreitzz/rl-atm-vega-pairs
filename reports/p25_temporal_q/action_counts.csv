@@ -1,0 +1,12 @@
+case,phase,action,action_name,decision_dates
+entry_myopic_capacity,validation,0,skip,42
+entry_myopic_capacity,validation,1,half,33
+entry_myopic_capacity,validation,2,full,22
+manage_myopic_capacity,validation,0,hold,65
+manage_myopic_capacity,validation,1,retain_half,220
+entry_myopic_capacity,evaluation,0,skip,92
+entry_myopic_capacity,evaluation,1,half,25
+entry_myopic_capacity,evaluation,2,full,134
+manage_myopic_capacity,evaluation,0,hold,482
+manage_myopic_capacity,evaluation,1,retain_half,37
+manage_myopic_capacity,evaluation,2,close_book,44

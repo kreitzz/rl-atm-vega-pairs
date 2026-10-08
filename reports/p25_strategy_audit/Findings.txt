@@ -1,0 +1,241 @@
+P25 STRATEGY INVESTIGATION — THREE QUESTIONS
+Completed on October 7, 2026
+
+The current tree is a defensible research benchmark. Its superiority to simple
+constant sizing is not established with confidence. The stronger concerns are
+the inherited opportunity universe and the concentration of profits in a few
+pairs and periods. This investigation supports improving those foundations
+before treating additional model complexity as the main solution.
+
+We verified the current validation-selected 27-input policy, its 90 monthly
+models, all 608 qualified proposals and 207 executed pair trades. Every one of
+273 files in the reference archive passed its recorded hash check. Its funded
+NAV, trades and decisions match the previously reproduced baseline. The older
+33-input submission policy is a different model and is not the baseline here.
+
+All comparisons below use $10 million funded accounts. The earlier period is
+2018–2021 and the later period is January 2022–August 29, 2025. Monthly fits use
+only completed past outcomes, but this historical period has already been
+examined repeatedly. These are exploratory historical comparisons, not a new
+untouched holdout. Portfolio inventory continues across monthly and yearly
+boundaries. The current strategy sizes new option entries, holds their contract
+quantities until expiry, and adjusts the stock delta hedge daily.
+
+1. DOES THE TREE PROVIDE A JUSTIFIED POSITION-SIZING RULE?
+
+A single tree is a coherent way to map entry information to a piecewise sizing
+policy. The leaf labels are local partitions of that month's model; they are
+not eight permanent economic regimes. Using one tree is not itself a defect.
+
+The key question is whether those partitions add enough value to justify the
+estimation and optimization. We compared the current tree/CEM pipeline with
+three existing constant-size controls and two new, predeclared alternatives:
+
+Sizing pipeline                Earlier Sharpe   Later Sharpe
+Current tree + CEM                   0.573           1.263
+Constant 50%                        0.437           1.007
+Constant 75%                        0.449           0.944
+Constant 100%                       0.478           1.055
+Historical spread-rank rule          0.464           0.815
+Regularized linear score            0.421           0.890
+
+The rank rule uses completed-training spread-strength terciles. The linear
+model combines the same 27 inputs using ridge regression, then converts its
+score to the same 50/75/100% action ladder using training-only terciles. We
+fitted 90 monthly linear models and ran two new funded portfolio replays.
+Both alternatives preserve the opportunity stream, costs and risk rules.
+Actual admissions can differ because sizing changes inventory and headroom.
+
+The tree has the highest Sharpe in both periods among these six pipelines.
+Later profit above cash is $248,673 for the tree, $164,770 for the rank rule,
+and $179,745 for the linear rule. The new alternatives perform worse in all
+three tested time-block uncertainty calculations.
+
+However, the constant 100% rule is the strongest constant selected on the
+earlier period. The later tree-minus-constant Sharpe difference is +0.208,
+with a 95% interval of -0.098 to +0.433 using 126-session paired circular
+blocks and 2,000 resamples. It includes zero at all three block lengths
+(21, 63 and 126 sessions). These intervals do not adjust for the historical
+strategy search or multiple comparisons. The evidence is therefore weaker
+than a claim that the tree's complexity reliably pays for itself.
+
+Specific design concerns:
+- The tree is fitted to full-size, standalone lifetime dollar profit using
+  squared error. CEM then chooses leaf sizes to maximize aggregate daily
+  shadow-path Sharpe. The final funded portfolio adds shared capital, integer
+  contracts, netted hedges, financing and admission constraints. These are
+  different objectives and execution environments.
+- Training labels retain $0.65 commission per contract, while funded execution
+  uses $0.03, a 0.10-vol-point option penalty and 1 bp stock hedge cost.
+- Monthly training sets contain 59–299 examples (median 125). Individual
+  leaves contain 8–69 examples (median 19); 165 of 582 fitted monthly leaves
+  contain fewer than 15. Overlapping trades, pairs and training windows limit
+  the amount of independent evidence.
+- On shared historical examples, 21.8% of sizing assignments change between
+  adjacent monthly fits. This measures model-update sensitivity, not live
+  position turnover and not an out-of-sample instability estimate.
+- The current tree requests 50% on 316 proposals, 75% on only seven, and 100%
+  on 285. Its output is mostly a choice between half and full size.
+- There is no zero-size action. The sizing learner cannot reject an otherwise
+  qualified opportunity; downstream eligibility and risk checks can.
+
+Assessment: keep the current tree and constant 100% as benchmarks. The two
+new simple rules give no reason to replace it. Their failure does not prove
+the tree architecture optimal: they also replace CEM, and the linear score
+still uses discrete actions. Fully continuous portfolio-aware sizing was not
+tested here. Original training and execution code were preserved.
+
+2. ARE THE TRADING OPPORTUNITIES ARBITRARY?
+
+There is a concrete hypothesis: an unusually high or low relative put-IV
+spread within a related, liquid equity pair may revert. The code applies a
+historical rank rule, a beta/correlation filter, and positive completed-profit
+memory. The exact roster, thresholds, contract choices and memory cutoffs
+have not been established as optimal or broadly robust.
+
+Three substantive findings matter:
+
+First, the current 345-pair roster is inherited from earlier experiments that
+kept pairs with complete simulated paths across their tested variants. The
+lineage goes from 358 attempted comparisons to 347 broad pairs, then 346,
+then 345. F/GM and DVN/MRO were removed after contract-handling failures
+observed in 2023 in earlier models. Other initial availability restrictions
+also use full-history coverage. This is retrospective data conditioning.
+We found no evidence of direct profit ranking in these removals; the direction
+and magnitude of performance bias cannot be determined from this audit.
+
+Second, the near-one beta filter depends on the ordering of the two names.
+Reversing the names makes 425 of 608 qualified proposals (69.9%) fail that
+same criterion, including 130 of 207 executed entries. That challenges using
+the filter as a symmetric measure of pair similarity. It does not establish
+that those trades should be removed; requiring both betas near one would
+also impose a much stricter correlation threshold.
+
+Third, the profitability memory gate strongly restricts participation:
+
+Cumulative stage                            Pair/date rows    Pairs
+Extreme historical spread-rank opportunities      4,744          78
+Also meet minimum history counts                  3,484          62
+Also have positive profit histories                 608          46
+Actually admitted under current sizing              207          44
+
+These counts start inside the already available and filtered candidate data,
+not the full 345-pair raw calendar. The memory requirements remove 87.2% of
+otherwise eligible extreme-rank opportunities. Of the 608 proposals, 348 are
+blocked by risk checks, 50 lack eligible contracts and three fail integer
+vega matching. Sizing therefore affects which opportunities get funded.
+
+Existing fixed-100% controls isolate the gate change from learner changes:
+
+Opportunity pool              Earlier Sharpe   Later Sharpe
+With profitability memory          0.478           1.055
+Without memory requirements        0.847           0.567
+
+Removing the gate helps earlier Sharpe and hurts later Sharpe. Later profit
+above cash rises from $200,853 to $330,791, while average reserve rises from
+2.49% to 11.84% and cash-relative maximum drawdown grows from 0.65% to 1.24%.
+The controls use the same funded settings and calendar; the broader market
+cache exactly reproduces the original book on its original contracts. This
+does not independently establish the quality of every additional contract.
+
+The direction is relative to the pair's own historical spread. It buys the
+higher absolute-IV leg on 22.7% of proposals and 16.4% of entries. That is
+consistent with this hypothesis, but the strategy should not be described
+universally as buying lower IV and selling higher IV. Independent expiry
+selection also produces some periods of unmatched single-leg exposure.
+
+Assessment: the rule has an economic rationale, but universe construction,
+pair symmetry and threshold robustness need stronger evidence. Reconstruct
+an explicit point-in-time P25 universe and availability rule first. Test a
+small number of economically motivated changes with constant sizing before
+retraining the sizing policy. The bundled data support the current audit;
+they do not support a complete raw-universe reconstruction on their own.
+
+3. DOES THE STRATEGY WORK CONSISTENTLY ACROSS PAIRS?
+
+The later period's $248,673 profit above cash reconciles to $211,262 of pair
+trading profit after attributed costs and $37,411 of shared financing versus
+the cash benchmark. Shared financing includes interest on earlier strategy
+profits and actual option/hedge cash flows; it is not a separate pair alpha.
+
+Later period leaders                 Net pair profit    New entries
+SNAP/UBER                                $56,628               4
+GAP/TJX                                  $44,041               6
+AMD/MU                                   $40,737               9
+
+Those three supply 66.9% of net pair trading profit, or 51.6% of profit from
+positive-contributing pairs before offsetting losing pairs. Their positions
+fall into only two, two and four overlapping trading episodes respectively.
+Several other profitable pairs share industries or underlying stocks.
+
+There are 21 positive and 11 negative pair contributors in the later period.
+Across both periods only 12 pairs contribute in each, and three are positive
+in both. One of those three has just $14.60 of carried-position profit in the
+later period. This does not disprove generalization across pairs; it means
+the split offers limited direct evidence of repeated success in the same
+pairs. The five largest later winners had no earlier-period funded entries.
+
+Performance is concentrated in time as well:
+2022 net pair profit: +$175,530
+2023 net pair profit:  +$45,777
+2024 net pair profit:  -$30,869
+2025 through August:  +$20,824
+
+2022 accounts for 83.1% of later net pair profit and 66 of 110 new entries.
+The largest later pair losses are UPST/COIN (-$21,615), UAL/AAL (-$11,765)
+and HD/LOW (-$6,921). These are descriptive rankings, not a recommendation
+to remove historical losers. A tradable pair-removal result requires a new
+portfolio replay because admission, financing and shared hedges would change.
+
+All 207 actual trade cohorts were reconstructed. Daily P&L reconciles within
+$0.000000006; pair/year contributions and costs add back to the portfolio.
+Netted stock execution and borrow costs use explicit additive allocations;
+shared financing remains separate. Open inventory crosses year boundaries.
+The saved pair tables include exposure, requested/accepted sizes, episodes,
+costs, drawdown contribution and return-variance contribution. Standalone
+pair Sharpes are not added to obtain a portfolio Sharpe.
+
+Assessment: the aggregate Sharpe is insufficient evidence of a broadly stable
+pair strategy. Pair, industry/underlying, calendar and risk concentration
+should accompany every model comparison.
+
+RECOMMENDED NEXT RESEARCH ORDER
+
+1. Establish the opportunity dataset: causal universe membership, explicit
+   quote availability, actual put liquidity and a symmetric pair-risk rationale.
+2. Use fixed sizing to test whether the proposed signal predicts subsequent
+   delta-hedged net profitability, with a small declared set of threshold and
+   expiry sensitivities. Preserve all negative results and both memory controls.
+3. Align sizing training with the actual funded objective and admission rules.
+   Treat abstention and management of existing positions as separately declared
+   policy changes. Keep the current tree and constant-size controls throughout.
+4. Evaluate performance by pair, period and shared underlying, then use an
+   uninspected period for a confirmatory comparison after choices are frozen.
+
+This audit completes a bounded investigation of the three criticisms. It does
+not establish globally optimal features, thresholds or sizing, and no strategy
+configuration was promoted or changed. Those conclusions would require new
+data and explicitly designed follow-up experiments.
+
+EVIDENCE AND REPRODUCTION
+
+Common protocol and checks: protocol.json, baseline_verification.json,
+completion.json. Original model and engine hashes are checked again at finish.
+
+Sizing: sizing/findings.txt, periods.csv, sharpe_intervals.csv,
+monthly_diagnostics.csv, leaf_diagnostics.csv, size_distribution.csv and
+comparison.png. Reproduction: scripts/audit_p25_sizing.py.
+
+Opportunity rules: opportunities/Findings.txt, funnel.csv,
+fixed_size_gate_control.csv, proposal_structure.csv, roster_history.csv,
+audit.json and opportunity_audit.png. Reproduction: scripts/audit_p25_opportunities.py.
+
+Pair results: pairs/Findings.txt, pair_periods.csv, concentration.csv,
+reconciliation.csv, drawdown_contributions.csv, accounting_leave_one_pair_out.csv,
+cohorts.csv and pair_performance.png. Reproduction: scripts/audit_p25_pairs.py.
+
+Common verification: .venv-pca312/Scripts/python.exe -m scripts.audit_p25_strategy
+Final cross-check: .venv-pca312/Scripts/python.exe -m scripts.audit_p25_strategy --finalize
+Focused sizing tests: .venv-pca312/Scripts/python.exe -m unittest tests.test_audit_p25_sizing
+Use the pinned Python environment. Numerical work runs sequentially with one
+numerical thread, 20% CPU duty and a 384 MiB worker memory guard.

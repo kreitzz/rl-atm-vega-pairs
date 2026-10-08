@@ -1,0 +1,71 @@
+{
+  "cases": [
+    "core3",
+    "raw_full",
+    "pca3",
+    "pca80",
+    "pca_all"
+  ],
+  "core": [
+    "iv_mean",
+    "oriented_iv_gap",
+    "rank_strength"
+  ],
+  "inputs": [
+    "iv_mean",
+    "oriented_iv_gap",
+    "rank_strength",
+    "oriented_vrp_gap",
+    "rv_mean",
+    "beta",
+    "correlation",
+    "dte_mean",
+    "oriented_dte_gap",
+    "commission_vol_points",
+    "vix",
+    "profit_91d",
+    "count_91d",
+    "profit_365d",
+    "count_365d",
+    "oriented_vrp_gap_available",
+    "rv_mean_available",
+    "beta_available",
+    "correlation_available",
+    "dte_mean_available",
+    "oriented_dte_gap_available",
+    "commission_vol_points_available",
+    "vix_available",
+    "profit_91d_available",
+    "count_91d_available",
+    "profit_365d_available",
+    "count_365d_available"
+  ],
+  "pca": "Sample-standardized SVD on 15 economic inputs; flags separate; training-only fit; no whitening.",
+  "all_pc": "All directions of varying inputs retained, including sample-null directions. Constant inputs cannot help training.",
+  "training": "90 monthly 18-month windows Jan2018-Jun2025; signal_eligible & finite_label; signal and end strictly before cutoff.",
+  "optimizer": "CEM50x192 seed2026; full-size anchor; 50/75/100%; <=8 leaves; minleaf=max(8,min(63,n//8)); fallback100 under16 rows.",
+  "validation": "2018-01-02 through2021-12-31; highest funded10m excess Sharpe, lexical case tie break.",
+  "evaluation": "2022-01-03 through2025-08-29; continuing inventory and monthly completed-outcome refits.",
+  "comparison": "Identical608 proposals, contracts, screens, costs,10m capital, risk limits,18month lookback and search budget.",
+  "bootstrap": "Paired circular time blocks21/63/126 sessions,2000 replications per contrast; same dates for both; no search adjustment.",
+  "scope": "Sizing representation only; core-only retains entry filters based on other variables. No pair/universe/signal reselection.",
+  "untouched_holdout": false,
+  "prior_history_inspected": true,
+  "automatic_promotion": false,
+  "runtime": {
+    "python": "3.12.9",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3",
+    "threads": 1,
+    "duty_cycle": 0.2,
+    "rss_limit_mib": 384
+  },
+  "source_sha256": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175",
+  "archive_sha256": "517791f49912c1b1138fad3bbda96225a9e78600a7c74c80f290dbeff65c6e9d",
+  "scripts": {
+    "scripts/p25_representation.py": "a923d7272556085f7c0dee990de469f56c2d4a2d4abe9aac320743825640c4eb",
+    "scripts/run_p25_representation.py": "6e1ab2e1616d5b07e283a2a1d31cb98dd301e7b8107f133f0f238aa323af5cf7"
+  }
+}

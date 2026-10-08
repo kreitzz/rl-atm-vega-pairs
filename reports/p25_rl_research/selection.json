@@ -1,0 +1,31 @@
+{
+  "selected": "action_q_capacity",
+  "best_q_by_validation": "action_q_capacity",
+  "candidates": [
+    "q_capacity",
+    "q_risk",
+    "q_conservative",
+    "q_portfolio",
+    "action_q_capacity",
+    "action_q_risk",
+    "action_q_conservative",
+    "manage_q",
+    "manage_q_risk"
+  ],
+  "criterion": "At least20validation entries, nonnegative profit in both2020/2021, and Sharpe > common fixed100+.01; choose highest earlier Sharpe, case-name tie break. Otherwise retain fixed100.",
+  "validation_start": "2020-01-01",
+  "validation_end": "2021-12-31",
+  "proposal_cutoff": "2021-10-31",
+  "validation_only": true,
+  "later_history_unseen": false,
+  "source_hashes": {
+    "reports\\p25_inventory_q\\protocol.json": "dfbf32e9075608a139027964f1d101c65e5ef75e6adf108a7474222f67bb5b63",
+    "reports\\p25_inventory_q\\validation.csv": "663d6b2ce4520bba3f7786ad3181f42206f142a418cbd75239c9eda486b73cd4",
+    "reports\\p25_action_q\\protocol.json": "39099cea9b172133bfee22d8a7fa5078caf3131d45d92a9a7483778875d0e626",
+    "reports\\p25_action_q\\validation.csv": "a2dce6755ef684aa72632a29ecf8fba8d2b623e7eb04052af07116888d123ac0",
+    "reports\\p25_temporal_q\\protocol.json": "3cd42e85bac5014808e7bba8fe6b486127eb1f9c918a74ffb5ace883156cafab",
+    "reports\\p25_temporal_q\\validation.csv": "934333c88cde3bf0d522d29921c5f98e347ef58492b41e590be4bed294db7ac6",
+    "reports\\p25_inventory_q_management\\protocol.json": "58b58364e53c9f78d275554187f0419146fef8252650c19b5de80444ddc517ea",
+    "reports\\p25_inventory_q_management\\validation.csv": "e4d3add6ca21a7aac59f1e9faf8edd8f9be45b258804257cc50bf0fb5b164a81"
+  }
+}

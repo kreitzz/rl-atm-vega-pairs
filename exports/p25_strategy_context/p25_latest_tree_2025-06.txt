@@ -1,0 +1,39 @@
+P25 SIZING POLICY ASSOCIATED WITH 1.2625242881710248 EXCESS SHARPE
+
+This is the screened features/control configuration, selected using 2018-2021.
+Its funded 2022-01-03 to 2025-08-29 evaluation has 1.2625242881710248 annualized daily cash-excess Sharpe.
+That is a portfolio result across monthly models, not the score of any one tree.
+90 monthly fits run from January 2018 through June 2025. Each uses 27 inputs and an 18-month completed-outcome window.
+Tree states have at most 8 leaves, not necessarily exactly 8. State IDs and thresholds can change monthly.
+The tree partitions inputs into leaves. Direct portfolio-Sharpe search assigns each leaf 50%, 75%, or 100% sizing.
+These are sizing decisions on already-qualified directional proposals. Entry screens and funded risk checks can still reject a trade.
+The original 33-input checkpoint is separate; do not attribute its models/results to this selected 27-input policy.
+Native feature units and full-precision thresholds are preserved below.
+Exports read saved tree arrays only, without refitting, prediction, or a backtest replay.
+Saved sklearn version is 1.9.0; export reader uses 1.7.2. Source hashes were verified against the committed bundle manifest.
+
+MONTHLY FIT: 2025-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-06-01.joblib
+SHA-256: b2d7814c8c97cc72196f9003f95e786b368e2d070781f22a30c831da7971caf8
+Training rows: 83; latest completed outcome: 2025-05-16
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 133.5:
+  IF iv_mean <= 0.33763676881790161:
+    IF rank_strength <= 0.85008421540260315:
+      IF count_91d <= 27:
+        SIZE 50% (leaf node 9; training examples 10)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 14)
+    ELSE:
+      IF vix <= 0.14434999972581863:
+        SIZE 50% (leaf node 11; training examples 11)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 10)
+  ELSE:
+    IF count_91d <= 24.5:
+      SIZE 100% (leaf node 5; training examples 12)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 16)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 10)

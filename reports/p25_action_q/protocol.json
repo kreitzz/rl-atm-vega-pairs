@@ -1,0 +1,141 @@
+{
+  "question": "Can action-specific critics learn allocations missed by the shared shallow critic?",
+  "algorithm": "Fitted Q iteration with one 24-tree depth3 minleaf30 ExtraTrees forest per observed action; 24 Bellman fits, gamma0 one fit. Equal decision-date weight across shared-history trajectories. Ordinary max-Q backup. Conservative extraction subtracts one ensemble SD of advantage over full, not a confidence interval.",
+  "reason": "Earlier first-iteration diagnostics found the shared critic often ignored its one-hot action columns. Action-specific critics force representation of conditional action values; no later new-Q returns were inspected before this iteration.",
+  "experiments": {
+    "action_q_capacity": {
+      "gamma": 0.99,
+      "penalty": 0.0,
+      "actions": [
+        0,
+        1,
+        2
+      ],
+      "inventory": true,
+      "conservative": false
+    },
+    "action_q_risk": {
+      "gamma": 0.99,
+      "penalty": 0.5,
+      "actions": [
+        0,
+        1,
+        2
+      ],
+      "inventory": true,
+      "conservative": false
+    },
+    "action_q_conservative": {
+      "gamma": 0.99,
+      "penalty": 0.5,
+      "actions": [
+        0,
+        1,
+        2
+      ],
+      "inventory": true,
+      "conservative": true
+    },
+    "action_myopic_risk": {
+      "gamma": 0.0,
+      "penalty": 0.5,
+      "actions": [
+        0,
+        1,
+        2
+      ],
+      "inventory": true,
+      "conservative": false
+    }
+  },
+  "features": [
+    "iv",
+    "gap",
+    "rank",
+    "vrp",
+    "memory",
+    "vix",
+    "demand",
+    "stress",
+    "reserve",
+    "pair_stress",
+    "pair_cohorts",
+    "name_overlap",
+    "remaining_dte",
+    "release_7d",
+    "drawdown",
+    "recent_vol",
+    "iv_balance",
+    "gross_vega"
+  ],
+  "actions": {
+    "0": "skip",
+    "1": "half",
+    "2": "full"
+  },
+  "train": "Initial fit uses actual transitions ending strictly before2020; nonterminal partial histories retain continuation. Final fits use transitions ending strictly before2022. No artificial flat terminal at fit boundaries.",
+  "validation": "2020-2021 continuous book, fixed100 before2020. Identical proposal cutoff Oct31 2021 for all controls/variants, runoff throughDec31 2021. Select on validation only.",
+  "evaluation": "2022-Aug29 2025, continuous original2018onward book, fixed100 before2022; carry actual Dec2021 inventory and NAV. Fit once before2022. Every frozen arm reported, no later retuning.",
+  "reward": "Sum daily actual funded cash-excess returns in bps between opportunity closes; utility reward minus penalty*sum(daily_bps\u00b2)/(2*training-only daily scale), floor .01bps. Future bootstrap discounted gamma^session_count. Utility is not Sharpe.",
+  "timing": "One action at completed signal close, next-session entry; unheld membership frozen at signal close. No execution quotes or future waiting time in state. All original fills, costs, risk limits, hedges and cash accounting retained.",
+  "limitations": "Only608inherited proposals,495distinctdates. Counterfactual behavior paths share market data; aggregated book state is approximate. Previously inspected history and inherited universe, no untouched holdout or universal multiple-testing correction.",
+  "selection": "Three Q arms; >=20validation entries, both2020/2021 excess profits>=0, validation Sharpe>fixed100+.01. Myopic ablation ineligible. Authoritative combined selection across all declared families before later evaluation.",
+  "resources": {
+    "threads": 1,
+    "duty": 0.2,
+    "rss_limit_mib": 384
+  },
+  "source_code": {
+    "scripts\\p25_rl\\action_q.py": "10ec0cad37fdb10406205579984e060d7d1d9b89e4097a7b8ba36884282a4035",
+    "scripts\\p25_rl\\critic.py": "a2e4fe4e7e15c11088c01fef4bb72325a867183fd02f55736652d39c725cf9a0",
+    "scripts\\p25_rl\\policy.py": "60b871a04298a91ee91b28af11414ea28bf16db64b66b8a6dfe905e6047982d7",
+    "scripts\\p25_rl\\ledger.py": "7acbdb048a37a17d1915290f91823dc0695b93113cc311b04d99693583958796",
+    "scripts\\p25_rl\\run.py": "c16be177b2f28101b5bdbf9124a57976878cf12230bd93e1edc3dc1a6406019a",
+    "scripts\\p25_rl\\provenance.py": "3aed5c6ad4454deaa6fe905205e7510547eea9c54af8829511d01fc9a9fba29f"
+  },
+  "reused_training_files": {
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\full_2026\\transitions.parquet": "a796713e3e255a4cf104ebd5f52388171f6c1c2d4bea6a492a49725862b4d739",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\full_2026\\daily_rewards.parquet": "5183e383d60a3c2c6613b58cc7cdf0414b1dff67ccd245afa8fe3f423c082d42",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\full_2026\\status.json": "aa64f866975fb13aec07ad4c1778dec605d19dbe34804926b69222fc6069abdf",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\half_2026\\transitions.parquet": "2311e654c8ff8b4246e6573b6114e2994b0b31512b1ed95f6a4622dd2efd471b",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\half_2026\\daily_rewards.parquet": "774aac69fa6af496012f6ee81988f6518a9087916e025e456f018f74a9e29dde",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\half_2026\\status.json": "aff3364cd266b4f67a65c7fdde0168d71a478f9ca64faccf96390942fb3c158b",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\diversified_2026\\transitions.parquet": "ab008aee0d2bc82bbc4c04d914ebc5bec1de6fe43844f03f5ac8ed1bcf4e78f2",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\diversified_2026\\daily_rewards.parquet": "125384f345952abae6a3af17355895677176f60a8f5cf06456074a9b20d31757",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\diversified_2026\\status.json": "f526680ce852d7de7812447a54e7b6fff17843739a35995c1a3614eb98f1e0c6",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2026\\transitions.parquet": "91a3dbee2cc5c9acbd9f19bb5207cfd85c42ad4790fb9cbcc8beaaa014bdc4f1",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2026\\daily_rewards.parquet": "c1d91bdf500f6db51b6ae5f2517fc42c0c5704a46b8870839694346c517b7822",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2026\\status.json": "f07da772516518665a8a93b58324c5be972a24e42749ee0c4396fd8ebda54ed6",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2027\\transitions.parquet": "c2eda67b7bf4aa574c12c42ce08685c08d8901be923eba5a9649958108f14293",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2027\\daily_rewards.parquet": "72c73e5a2b512f2aba015b4fc43759b9ff9fe1676c86cf5b7b929c757c5d4b5a",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2027\\status.json": "d2caac35df0978b580425a87c7669fe6b658eef9257ab798e46f0aba1adb3b13",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2028\\transitions.parquet": "e93bffc82fd942d657e1025774ba483e63c856cbf46daedf74971a057ee9d3db",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2028\\daily_rewards.parquet": "732b255747217a84ea1633a6a04e2ec6c6e5579569151d3c9601d83e5043c0ce",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\random_2028\\status.json": "39728cf33eb8481c643b4c75bf4695d69f8857754ddb6a4c0d488457fdd4312e",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\sticky_2026\\transitions.parquet": "8cf36762cdea00f3465c195ff91e194016276fe391d34e46af768f4bbb05bce5",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\sticky_2026\\daily_rewards.parquet": "267a582f00d5d8d926952a3febe5cd81c5eb3a5bb828fb1c2c7161bfc8e2ebf4",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\sticky_2026\\status.json": "b3a0b238e633cab135c19ba0fa5a01e21b3a5858a23138c15711756b28023cad",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\congestion_2026\\transitions.parquet": "d1621c1e5d093accbd445cea6824b9798c58b2e6c97b790e1716c5787563fcc0",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\congestion_2026\\daily_rewards.parquet": "d88e9b1c041bbdda35ad456f5e004481bb174ec61a057276c5f416e11c1a4cda",
+    "artifacts\\contracts\\p25_inventory_q\\behavior\\congestion_2026\\status.json": "1ad93434dbffae2b3cf80f659c35a4d95bcaa841844a013bb4aa02fbea61a898"
+  },
+  "protected_hashes": {
+    "data\\submission\\artifacts\\contracts\\p25_feature_search\\training_rows.parquet": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175",
+    "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+    "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+    "config\\p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00",
+    "scripts\\uniform_smile_engine.py": "733fee09ba8e3311c70588bef548aea7bb6136c69e3c221e840fe163733d94f1",
+    "scripts\\uniform_smile_risk.py": "b5a95584d56f18503c006831517c3b0c2fac426d752907b2de2577e577adcfc0",
+    "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\stocks.parquet": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e",
+    "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\rates.parquet": "96346c87a5d71514f7e7378d2041ee116ca89f515fd5a76da74414ff9a40ddc3",
+    "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\dividends.parquet": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\trades.csv": "4fbb7bb8efe5f804819ccc1e34888b0b828c315a3d795b0545b17a19c22ea47c",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\decisions.csv": "17e2897c59e812e925b7f93c2ce10eebba3ff5a5d352828aac050ebe9e402576",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\fixed100\\scored_allocations.parquet": "60074212652ecdacde06c62da37afd4620ce061ee00aa0bf73ce1b15ca5900d8",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\tree_cem\\daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\tree_cem\\trades.csv": "29158cad2f31708872d700c02570ab27d8bd23e5dc5134c51529034b02bcf9dd",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\tree_cem\\decisions.csv": "a322bc70b85a00fa8514b770b6d6fc746af5938e2763aadda13fa9ae0be3ca2a",
+    "artifacts\\contracts\\p25_direct_policy\\replays\\tree_cem\\scored_allocations.parquet": "ca55994f9d61c775bb0f73bcfd4967662eb20b1dc993730b454a3f4bfddcb1c4"
+  }
+}

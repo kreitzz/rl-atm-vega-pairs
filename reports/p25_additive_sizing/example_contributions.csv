@@ -1,0 +1,20 @@
+term,predicted_lifetime_profit_contribution,kind,label
+intercept,-4.367790374411155,intercept,Intercept
+iv_mean,-0.2763334212510956,main,Mean implied volatility
+oriented_iv_gap,0.4508523208548192,main,Oriented IV gap
+rank_strength,-0.3339262072858191,main,Spread rank strength
+oriented_vrp_gap,0.28855700813939084,main,Oriented volatility-premium gap
+rv_mean,-1.6688466748021156,main,Mean realized volatility
+beta,0.36234405171540773,main,Pair beta
+correlation,1.2317161670455392,main,Pair correlation
+dte_mean,-0.630934389036332,main,Mean days to expiry
+oriented_dte_gap,0.22818568853595222,main,Oriented expiry gap
+commission_vol_points,1.331830426873183,main,Commission in volatility points
+vix,1.2917542706849865,main,VIX
+profit_91d,1.8734383585722396,main,"Past profit, 91 days"
+count_91d,-0.010366571065314578,main,"Observations, 91 days"
+profit_365d,0.4783704171047215,main,"Past profit, 365 days"
+count_365d,2.297044941061043,main,"Observations, 365 days"
+rank_strength:correlation,0.26722381060414024,interaction,Spread rank strength × Pair correlation
+rank_strength:vix,-0.5775464112152633,interaction,Spread rank strength × VIX
+profit_365d:count_365d,-0.23941321991442466,interaction,"Past profit, 365 days × Observations, 365 days"

@@ -1,0 +1,7 @@
+tail,proposals,both_contract_ids_available,required_signal_keys,missing_signal_keys,required_next_session_keys,missing_next_session_keys,required_signal_through_pre_expiry_keys,missing_history_keys,missing_history_keys_new_ids
+0.05,163,163,322,0,322,0,5304,0,0
+0.1,306,306,602,0,602,0,9680,0,0
+0.15,459,459,901,0,901,0,13952,0,0
+0.2,608,608,1191,0,1191,0,17438,0,0
+0.25,743,743,1455,0,1455,0,20858,0,0
+0.3,846,846,1654,0,1654,0,23801,0,0

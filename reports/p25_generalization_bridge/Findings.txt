@@ -1,0 +1,81 @@
+FROZEN-POLICY GENERALIZATION DIAGNOSTIC
+
+Question: where does the additive policy lose its training advantage over tree + CEM?
+No models were retrained, no allocations changed, and no new strategy was selected.
+
+Main finding: the later additive standalone point estimate is better, at both old and current costs. The ranking flips when the paths are restricted to each policy's actual funded admissions.
+Thus, the observed funded advantage of tree/CEM is primarily associated with its interaction with portfolio admission. The evidence does not support a simple claim that the additive model fails to generalize.
+The additive standalone advantage and funded disadvantage both have paired intervals spanning zero. This locates the observed reversal; it does not establish statistical superiority.
+Earlier-period results differ: additive is slightly worse even on unrestricted standalone paths, and the gap widens after admission.
+
+TRAINING (90 overlapping monthly windows; not 90 independent trials)
+Direct linear: ahead of tree in 41/90 windows; median paired Sharpe difference -0.0078.
+Direct additive: ahead of tree in 81/90 windows; median paired Sharpe difference +0.0805.
+Training summaries must not be compared as absolute Sharpe levels with the later aggregated portfolio: windows and samples differ.
+
+EARLIER: 2018-2021
+Stage                                              Tree     Linear   Additive  Additive-tree
+Standalone, old costs                               0.342    0.273    0.307  -0.036
+Standalone, current costs                           0.445    0.388    0.420  -0.024
+Only actual admissions, shadow paths                0.570    0.263    0.300  -0.270
+Actual funded portfolio                             0.573    0.267    0.302  -0.271
+
+LATER: 2022-AUGUST 2025
+Stage                                              Tree     Linear   Additive  Additive-tree
+Standalone, old costs                               0.531    0.593    0.653  +0.122
+Standalone, current costs                           0.606    0.671    0.726  +0.120
+Only actual admissions, shadow paths                1.268    0.883    1.027  -0.242
+Actual funded portfolio                             1.263    0.873    1.013  -0.249
+
+COST AND ADMISSION CHECKS
+Tree + CEM: later standalone Sharpe change from commission alone +0.0756; descriptive admission-mask change +0.6620.
+  All-history entry commission saving $59,402.20; with financing through cohort expiry $59,525.84.
+Direct linear: later standalone Sharpe change from commission alone +0.0775; descriptive admission-mask change +0.2127.
+  All-history entry commission saving $62,117.18; with financing through cohort expiry $62,249.14.
+Direct additive: later standalone Sharpe change from commission alone +0.0732; descriptive admission-mask change +0.3003.
+  All-history entry commission saving $63,412.36; with financing through cohort expiry $63,546.34.
+The admission mask uses each strategy's actual saved accept/reject decisions. It diagnoses which proposals reached the book, but is not a new executable policy.
+The final step also changes NAV-scaled integer quantities, netted hedges, financing, execution handling and the return denominator. Differences are descriptive and are not an additive causal decomposition of Sharpe.
+
+POST-HOC CHECK: HOLD THE ADMITTED PROPOSALS FIXED (later Sharpe)
+Sizing policy              Tree admission mask  Linear mask  Additive mask
+Tree + CEM                               1.268        0.676          0.942
+Direct linear                            1.098        0.883          1.096
+Direct additive                          1.013        0.733          1.027
+This supplementary calculation was added after seeing the stage results. It crosses saved sizes and saved admission masks, with no refit or policy selection. The crossed combinations may violate risk limits and are not funded strategy results.
+
+On the tree-admitted proposal set, the tree sizes also beat additive sizes. Conversely, on the additive-admitted set, additive sizes beat tree sizes. This is an interaction between allocation and the selected portfolio, not just a difference in trade counts.
+The saved later ledgers admit110 proposals for tree/CEM and97 for additive;87 are shared,23 are tree-only and10 additive-only. The dominant recorded entry-risk rejection is pair/wing stress loss.
+This does not mean the tree was explicitly trained to optimize portfolio admission: both policies optimized standalone paths. Its sizing choices interact more favorably with the existing limits in this observed sample.
+A subsequent experiment should evaluate candidate sizing choices through the actual past portfolio ledger, with inventory and risk limits, using training-only selection and chronological evaluation. Better funded performance is not guaranteed.
+
+LATER PAIRED SHARPE-DIFFERENCE INTERVALS (candidate minus tree)
+Standalone, old costs, Direct linear, 63-session blocks: +0.062 [-0.290, +0.416].
+Standalone, old costs, Direct linear, 126-session blocks: +0.062 [-0.284, +0.321].
+Standalone, old costs, Direct additive, 63-session blocks: +0.122 [-0.322, +0.365].
+Standalone, old costs, Direct additive, 126-session blocks: +0.122 [-0.345, +0.335].
+Standalone, current costs, Direct linear, 63-session blocks: +0.064 [-0.288, +0.421].
+Standalone, current costs, Direct linear, 126-session blocks: +0.064 [-0.281, +0.325].
+Standalone, current costs, Direct additive, 63-session blocks: +0.120 [-0.341, +0.362].
+Standalone, current costs, Direct additive, 126-session blocks: +0.120 [-0.348, +0.331].
+Only actual admissions, shadow paths, Direct linear, 63-session blocks: -0.385 [-0.732, -0.058].
+Only actual admissions, shadow paths, Direct linear, 126-session blocks: -0.385 [-0.695, -0.058].
+Only actual admissions, shadow paths, Direct additive, 63-session blocks: -0.242 [-0.509, +0.081].
+Only actual admissions, shadow paths, Direct additive, 126-session blocks: -0.242 [-0.524, +0.104].
+Actual funded portfolio, Direct linear, 63-session blocks: -0.389 [-0.742, -0.070].
+Actual funded portfolio, Direct linear, 126-session blocks: -0.389 [-0.698, -0.061].
+Actual funded portfolio, Direct additive, 63-session blocks: -0.249 [-0.513, +0.072].
+Actual funded portfolio, Direct additive, 126-session blocks: -0.249 [-0.529, +0.089].
+
+VERIFICATION AND SCOPE
+All 608 proposals have finite archived and reconstructed paths for every chosen action. No outcome-based exclusions or missing-path zero filling.
+For each policy, all 608 reconstructed old-cost paths match their archived float32 values exactly. Sub-cent full-history dollar differences are serialization rounding.
+Standalone paths use the original 1m cash account and fixed450vega sizing reference. The fee bridge changes only commission from .65 to .03; all other label mechanics stay fixed.
+Standalone Sharpe sums overlapping daily cash-relative dollar paths, including zero days. It does not average per-trade Sharpes. Stored values divide dollars by10m; that constant does not change Sharpe.
+Actual funded Sharpe uses the saved 10m portfolio's cash-excess daily percentage returns; all three ledgers reconcile independently and match the prior reported results.
+Intervals use paired circular calendar blocks,2000 draws,seed2026. They are conditional on fitted policies and do not correct for the many alternatives already examined.
+Both periods have already been inspected. This diagnostic does not prove tree/CEM is globally optimal or guaranteed robust on future data.
+Protected source and replay hashes were unchanged. Original checkpoints and decisions are preserved.
+Peak diagnostic RSS: 289.0MiB; one numeric worker, one thread,20% CPU duty.
+
+Reproduce: python -m scripts.diagnose_p25_generalization; python -m unittest tests.test_p25_generalization; python -m scripts.report_p25_generalization.

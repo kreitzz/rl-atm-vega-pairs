@@ -1,0 +1,5 @@
+{
+  "status": "passed",
+  "inventory_continuous": true,
+  "all_q_prior_nav_matches_baseline": true
+}

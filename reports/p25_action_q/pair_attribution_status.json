@@ -1,0 +1,50 @@
+{
+  "cases": [
+    {
+      "case": "action_q_capacity",
+      "status": "complete",
+      "cohorts": 135,
+      "calendar_rows": 1926,
+      "current_rss_mib": 241.93359375,
+      "dense_array_allowance_mib": 71.41387939453125,
+      "quote_lookup_allowance_mib": 9.32159423828125,
+      "estimated_peak_rss_mib": 338.6690673828125,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.166612027096562e-09
+    },
+    {
+      "case": "action_q_risk",
+      "status": "complete",
+      "cohorts": 150,
+      "calendar_rows": 1926,
+      "current_rss_mib": 246.87109375,
+      "dense_array_allowance_mib": 79.3487548828125,
+      "quote_lookup_allowance_mib": 9.65423583984375,
+      "estimated_peak_rss_mib": 351.87408447265625,
+      "pairs": 38,
+      "max_daily_reconciliation_error": 5.616129783447832e-09
+    },
+    {
+      "case": "action_q_conservative",
+      "status": "complete",
+      "cohorts": 134,
+      "calendar_rows": 1926,
+      "current_rss_mib": 247.671875,
+      "dense_array_allowance_mib": 70.8848876953125,
+      "quote_lookup_allowance_mib": 9.17510986328125,
+      "estimated_peak_rss_mib": 343.73187255859375,
+      "pairs": 41,
+      "max_daily_reconciliation_error": 5.807123670820147e-09
+    },
+    {
+      "case": "action_myopic_risk",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 182,
+      "calendar_rows": 1926,
+      "current_rss_mib": 253.2265625,
+      "dense_array_allowance_mib": 96.2764892578125,
+      "quote_lookup_allowance_mib": 11.322021484375,
+      "estimated_peak_rss_mib": 376.8250732421875
+    }
+  ]
+}

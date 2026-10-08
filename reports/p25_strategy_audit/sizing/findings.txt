@@ -1,0 +1,46 @@
+P25 position-sizing audit
+
+Scope: current 27-input monthly tree/CEM versus 3 constants and 2 predeclared simpler pipelines; identical 608 qualified proposals. Historical results are exploratory, not an untouched holdout.
+
+Case | Validation Sharpe | Later Sharpe | Later profit above cash | Later entries
+tree_cem | 0.573 | 1.263 | $248,673 | 110
+fixed50 | 0.437 | 1.007 | $204,913 | 151
+fixed75 | 0.449 | 0.944 | $195,021 | 104
+fixed100 | 0.478 | 1.055 | $200,853 | 75
+rank_terciles | 0.464 | 0.815 | $164,770 | 121
+ridge_terciles | 0.421 | 0.890 | $179,745 | 94
+
+Constant selected using 2018–2021 only: fixed100.
+
+Interpretation and recommendation
+
+The current tree/CEM has the highest Sharpe in both periods among these six tested pipelines. The two newly tested simple alternatives are materially worse on this history, with paired intervals below zero across all three block lengths. These results provide no reason to replace the current tree with either specific alternative.
+
+However, the evidence does not establish that the tree's complexity is necessary. Against the constant chosen on validation (100%), the tree's later Sharpe advantage is 0.208, with a 95% interval of [-0.098, +0.433] using 126-session blocks. The interval includes zero for all three block lengths; the comparison with constant 50% also includes zero throughout. Retain the tree as the empirical benchmark and keep constant sizing as a serious simpler challenger, rather than interpreting the point-estimate ranking as proof of superiority.
+
+The tree requests 50% size for 316 proposals, 75% for only 7, and 100% for 285. Despite up to eight leaves, the resulting decision is almost always half-size versus full-size. This is another reason to distinguish the number of states from the economic complexity of the sizing action.
+
+The next model experiment should first align the training reward with actual execution costs and shared portfolio admission, then test a tightly specified simpler mapping on a genuinely new period or a separately reserved chronological sample. The current results do not establish optimality, validate unseen pairs, or eliminate uncertainty about opportunity selection. Leaf-level histories are too small and overlapping to treat each state as a confidently estimated market regime.
+
+Training examples per monthly fit: {'min': 59, 'median': 125.0, 'max': 299}; leaf sample counts: {'min': 8, 'median': 19.0, 'max': 69}.
+Leaves per tree: {'min': 5, 'median': 7.0, 'max': 8}; distinct pairs per tree: {'min': 8, 'median': 18.0, 'max': 38}; distinct pairs per leaf: {'min': 1, 'median': 5.0, 'max': 18}.
+165/582 monthly leaves have fewer than 15 observations. Overlapping dates/pairs and overlapping monthly windows mean these are not independent observations.
+Across adjacent fits, 21.8% of common training-example sizing assignments change. This is descriptive model-update sensitivity on shared historical examples, not an out-of-sample turnover or refit-bootstrap estimate.
+
+Mechanism: tree minimizes squared error of realized full-size standalone lifetime P&L, not Sharpe. CEM separately chooses 50/75/100 percent per leaf to maximize daily aggregate historical shadow-path Sharpe. Thus splits need not all affect size, and training return prediction does not directly optimize final funded risk-adjusted performance.
+A single shallow tree is a coherent interpretable mapping from entry context to size; it need not represent eight persistent market regimes. Monthly leaf IDs are local partitions and cannot be interpreted as the same economic state across different fits. The design is reasonable as a benchmark but needs evidence that its complexity improves funded performance.
+Original labels carry $0.65/contract training commission; funded engine uses $0.03/contract plus 0.10 vol-point option penalty and 1 bp stock hedge costs. Shadow paths are additive standalone trades; funded engine has shared cash/hedges, integer contracts, financing and admission limits. The surrogate objective and final account objective are different.
+No zero action is available to the sizing policy. Every qualified opportunity requests at least 50%; funded risk/eligibility checks can subsequently reject it. Opportunity quality cannot be solved entirely by this action space.
+Rank rule is monotonically larger for stronger rank_strength using completed-training terciles. Ridge is a regularized continuous linear score on all 27 original inputs, then quantized to the same three sizes using training-score terciles. It is not a test of truly continuous action sizes; retained engine only accepts the original ladder.
+Rank/ridge arms replace the full tree/CEM pipeline, including objective and flexibility. Their failure would not isolate tree topology or rule out a continuous portfolio-aware sizing optimizer. No hyperparameter search was conducted.
+
+Paired later Sharpe differences: candidate minus current tree; 95% intervals, 126-session circular blocks.
+fixed50: -0.256 [-0.589, +0.082]
+fixed75: -0.319 [-0.545, -0.049]
+fixed100: -0.208 [-0.433, +0.098]
+rank_terciles: -0.447 [-0.664, -0.156]
+ridge_terciles: -0.373 [-0.587, -0.126]
+
+Intervals use 2,000 paired calendar-block resamples; 21/63/126 sensitivity is in sharpe_intervals.csv. No correction for strategy search, new-arm design after prior history inspection, or multiple comparisons.
+
+Verification: control files SHA256-verified (Windows CSV line endings canonicalized to LF where required); current tree NAV equals prior exact replay; all 608 saved sizing assignments and every training leaf count/mean reproduced; new funded ledgers independently reconcile. Models/cutoffs and source hashes are saved.

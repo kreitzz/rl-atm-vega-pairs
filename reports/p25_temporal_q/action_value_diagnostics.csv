@@ -1,0 +1,5 @@
+case,phase,decision_dates,median_action_value_range,maximum_action_value_range,different_action_values_fraction
+entry_myopic_capacity,validation,97,0.22492217448809348,0.5722850854202063,1.0
+manage_myopic_capacity,validation,285,0.30579039632669375,0.48857871431822575,1.0
+entry_myopic_capacity,evaluation,251,0.531882823924427,1.7938146547602707,1.0
+manage_myopic_capacity,evaluation,563,0.5992480913180739,1.7271091449636389,1.0

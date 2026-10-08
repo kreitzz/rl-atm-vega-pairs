@@ -1,0 +1,5 @@
+{
+  "status": "passed",
+  "all_q_prior_nav_matches_baseline": true,
+  "inventory_continuity": "Same unbroken simulation; no reset or return splicing"
+}

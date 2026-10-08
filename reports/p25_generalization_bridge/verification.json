@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "proposals": 608,
+  "cases": 3,
+  "finite_coverage": true,
+  "legacy_path_reconciliation": [
+    {
+      "case": "tree_cem",
+      "proposals": 608,
+      "float32_exact_paths": 608,
+      "max_daily_dollar_error": 0.001409241932748273,
+      "total_dollar_difference": -0.003917838065642899
+    },
+    {
+      "case": "direct_linear",
+      "proposals": 608,
+      "float32_exact_paths": 608,
+      "max_daily_dollar_error": 0.001409241932748273,
+      "total_dollar_difference": -0.003676192638314957
+    },
+    {
+      "case": "direct_additive",
+      "proposals": 608,
+      "float32_exact_paths": 608,
+      "max_daily_dollar_error": 0.0013052584804995604,
+      "total_dollar_difference": 0.0013526030967325837
+    }
+  ],
+  "saved_funded_ledgers_reconciled": true,
+  "protected_hashes_unchanged": true,
+  "peak_rss_mib": 289.04296875,
+  "code_sha256": "bed3d5b099f56d6da601a90525190770f6c4590158e4469fd2de18f4fc28d521"
+}

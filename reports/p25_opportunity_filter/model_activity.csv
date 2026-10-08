@@ -1,0 +1,5 @@
+case,months_with_candidates,months_with_selection,months_without_selection,insufficient_training,insufficient_validation,validation_skip_all,fitted_months,distinct_finite_hurdles,minimum_finite_hurdle,maximum_finite_hurdle
+broad_ridge,83,27,63,0,8,52,30,18,0.0,2.6728928154371663
+broad_spline,83,36,54,0,8,45,37,17,0.0,3.4275617322756062
+rank_ridge,83,35,55,0,8,34,48,35,0.0,4.321419554166025
+rank_spline,83,42,48,0,8,27,55,37,0.0,6.458621780329771

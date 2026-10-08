@@ -1,0 +1,31 @@
+{
+  "purpose": "Investigate sizing justification, opportunity selection and pair-level performance together.",
+  "baseline": "Validation-selected screened 27-input,18-month,50/75/100% monthly policy in a10m funded account.",
+  "signal_count": 608,
+  "funded_entries": 207,
+  "monthly_models": 90,
+  "validation": "2018-01-02 through2021-12-31",
+  "later_evaluation": "2022-01-03 through2025-08-29",
+  "untouched_holdout": false,
+  "selection_caveat": "Inherited roster, formation calendar and strategy; history has already been repeatedly inspected.",
+  "timing": "Signals at close, entry next session; monthly completed-outcome fits; continuous portfolio inventory.",
+  "holding": "Entry option sizes held until each leg expiry subject to corporate events; stocks delta-hedged daily.",
+  "sizing_work": "Audit target/objective/sample stability; compare archived50/75/100 constants and predeclared simple economic/continuous sizing alternatives on the same qualified proposals.",
+  "opportunity_work": "Trace roster and gate provenance, reconstruct funnel, compare screened/ungated fixed-full controls, inspect symmetry and robustness evidence.",
+  "pair_work": "Reconstruct actual shared-ledger attribution; report pair/year contributions, exposures, costs, concentration and portfolio drawdown attribution.",
+  "controls": "Same execution costs,10m capital,risk rules and dates within each comparison. Shared netting and admission can change under sizing.",
+  "new_experiments": "Each agent must record its own exact method before new scores. No broad tuning or policy promotion.",
+  "completion": "Each criticism receives evidence, limitations and a recommended action, with reproducible outputs and reconciled baseline.",
+  "runtime": "Only one numerical worker at a time,one numerical thread,20% CPU duty,384MiB aggregate worker RSS.",
+  "protected_source_hashes": {
+    "config/p25_validation_2018_2021.json": "5b354c5edea52cd6f827e35b0ca0394b364b0e3fd5070c0470b5b04e23a86d03",
+    "config/p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00",
+    "data/p25_validation_split_experiment.zip": "517791f49912c1b1138fad3bbda96225a9e78600a7c74c80f290dbeff65c6e9d",
+    "reports/p25_validation_split/bundle_manifest.json": "2cbef64aafbbf7cf37daa9cf74c82bf40af86fbede8513c21a9d868a58c018e5",
+    "data/submission/artifacts/contracts/p25_feature_search/training_rows.parquet": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175",
+    "scripts/uniform_smile_engine.py": "733fee09ba8e3311c70588bef548aea7bb6136c69e3c221e840fe163733d94f1",
+    "scripts/uniform_smile_risk.py": "b5a95584d56f18503c006831517c3b0c2fac426d752907b2de2577e577adcfc0",
+    "scripts/p25_action_windows.py": "b84a7d1c905122076279a6d786f623aec961e8380cde0a583fa81f2ba99edfbc",
+    "scripts/run_p25_feature_search.py": "2d25f0df819196ce94a558a45cb7f20b0a397e79b301341d6a100564970f4b75"
+  }
+}

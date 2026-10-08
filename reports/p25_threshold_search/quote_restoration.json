@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "new_contracts": 210,
+  "new_quote_rows": 4728,
+  "controls": 16,
+  "control_quote_comparisons": 390,
+  "control_max_errors": {
+    "bid": 0.0,
+    "ask": 0.0,
+    "strike": 0.0,
+    "bs_rate": 0.0,
+    "known_dividend_pv": 0.0,
+    "bs_iv": 6.017408793468348e-14,
+    "delta": 5.551115123125783e-15,
+    "vega": 9.575673587391975e-16
+  },
+  "invalid_status_counts": {
+    "ok": 4480,
+    "invalid_input_or_price_bounds": 248
+  },
+  "existing_quotes_preserved": true
+}

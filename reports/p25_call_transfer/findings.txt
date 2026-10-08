@@ -1,0 +1,47 @@
+Frozen P25 -> exact same-strike/expiry call investigation
+
+The P25 volatility trade transfers positively to call counterparts, but observed daily Sharpe is lower. Execution filters, hedge costs and pricing/Greek differences prevent treating the current call backtest as an interchangeable portfolio.
+
+Scope and accounting
+- Latest frozen 27-input sizing allocations; 207 executed pairs, 414 option legs, 354 unique counterpart contracts; 8,011 daily call quotes with no missing required dates.
+- No tree/CEM fitting, reward optimization, new WRDS requests, or production strategy changes.
+- Same signed option quantities, strikes, expiries and trade dates. Long puts map to long calls plus an adjusted stock hedge and financing, not short calls. The strike cashflows do not automatically cancel across names/quantities/expiries.
+- The 1.263 figure refers to Jan 2022-Aug 2025. Full-history P25 Sharpe is 0.960493. The history has been inspected retrospectively; it is not a fresh holdout.
+
+Results for Jan 2022-Aug 2025: annualized daily excess-return Sharpe; profit above the funded cash benchmark
+- put_reference: Sharpe 1.262524; excess P&L $248,673.30; 110 pairs entered in this period.
+- call_native_frozen_eligible: Sharpe 0.814914; excess P&L $200,470.69; 110 pairs entered in this period.
+- call_parity_greeks_frozen: Sharpe 0.937447; excess P&L $228,865.72; 110 pairs entered in this period.
+- call_native_constraints: Sharpe 0.504689; excess P&L $56,171.05; 33 pairs entered in this period.
+- put_common_call_native_constraints: Sharpe 0.767590; excess P&L $64,602.87; 33 pairs entered in this period.
+
+Frozen portfolios versus admitted portfolios
+- The parity-Greek frozen arm retains all 207 original pairs; it uses actual observed call prices with put delta+1, put vega and put IV. It bypasses OI/spread/admission/risk gates for attribution only; it is not an approved deployable strategy.
+- The independently fitted call arm retains 206 of 207 full-history pairs; one 2018 signal quote has no valid European call IV. It retains all 110 2022-2025 pairs. Its matched put control excludes that one 2018 trade, so carried cash/funding can differ slightly from the full P25 reference.
+- With unchanged production constraints, native calls enter 67/207 full-history pairs. 129 pairs have at least one signal call below the inherited OI minimum of 100; 6 have a wide spread; 14 breach 10% vega neutrality at the frozen counts. Flags overlap.
+- The remaining admitted-call rejections are reserve or gross stock hedge limits. The reserve formula charges gross option premium plus 50% of stock hedge notional, so a call substitution does not preserve that capital rule.
+- Matched put controls preserve each admitted-call cohort, execution dates and signed counts. Comparing the full P25 portfolio with only admitted calls would confound allocation transfer with admission.
+
+Costs and marks explain the gap
+- In the all-trade parity-Greek control, call-minus-put net excess P&L is $-19,807.58. Extra stock hedge costs are $9,645.96, extra stock borrow $5,614.38, and option costs differ by $0.00. Gross P&L including financing differs by $-4,547.24. Components reconcile to period NAV.
+- Removing costs as a fixed-execution accounting sensitivity (including reinvestment of saved fees) gives put profit $276,254.54, call-control profit $275,074.02. Their Sharpe ratios remain 1.392702 and 1.112329, so matching aggregate profit does not guarantee matching daily risk.
+- Daily excess-P&L correlation is 0.673454, monthly correlation 0.968955; call daily P&L standard deviation is 1.282 times the put reference.
+- The daily call-minus-put P&L gap correlates 0.994602 with movements in the exposure-weighted midpoint parity residual. Removing that residual from marks and entry cashflows gives hypothetical call Sharpe 1.187241. This is an accounting sensitivity, not an executable-price result or proof of erroneous quotes.
+- A separate theoretical BS control with shared causal IV, zero rates/dividends and zero costs verifies parity at the cash-account level. Its NAV discrepancy is recorded in protocol.json.
+
+Interpretation and remaining limits
+- Independent call midpoint IV fitting changes the hedge and can fail near model bounds. Across the 8,011 rows, 635 native call IVs and 77 put IVs fail fitting; held positions use the engine's causal last-IV fallback. These failures are not silently dropped.
+- Residuals can reflect asynchronous quotes, bid/ask midpoint effects, dividend/carry approximations and American exercise premiums. This investigation quantifies their accounting effect; it does not identify which cause dominates.
+- The engine uses cash intrinsic settlement and does not model early exercise or assignment. This matters for assessing executable American call/put equivalence.
+- European put-call parity motivates matching stock and financing as well as options: C-P=S-PV(dividends)-K*exp(-rT). The zero-carry theoretical control verifies the implementation; observed prices and funded costs explain why realized Sharpe need not match.
+- The useful next investigation is call quote/Greek quality and comparable capital/admission rules. These results alone do not establish out-of-sample robustness or justify changing production risk limits.
+
+Files and reproduction
+- period_comparison.csv: all cases and date periods, including common-cohort put controls.
+- pnl_components.csv: independently reconciled options, stock, dividends, financing and cost contributions.
+- frequency_diagnostics.csv, midpoint_residual_sensitivity.csv, friction_sensitivity.csv: risk and accounting sensitivities.
+- quote_diagnostics.json, admission_diagnostics.json, call_signal_eligibility.csv, native_locked_vega_checks.csv: pricing and admission diagnostics.
+- protocol.json: source hashes, conventions, baseline reproduction, synthetic identity test and resource use.
+- Raw quotes, fitted marks and full execution/NAV ledgers remain under ignored data/p25_call_transfer/analysis.
+- Run in mfe_wrds: python -m scripts.run_p25_call_transfer; --reuse-completed rechecks sources, saved allocations and cash ledgers before reusing this investigation's completed actual-data cases.
+- Theory source: https://www.optionseducation.org/advancedconcepts/put-call-parity

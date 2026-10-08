@@ -1,0 +1,20 @@
+{
+  "reference": "q20",
+  "cases": [
+    "q20",
+    "selected_fixed",
+    "selected_rolling",
+    "selected_context"
+  ],
+  "replications": 2000,
+  "blocks": [
+    63,
+    126
+  ],
+  "paired_common_calendar": true,
+  "interval_type": "circular-block percentile",
+  "uncertainty_scope": "Conditional on frozen fitted policies; no correction for research search or multiple comparisons.",
+  "historical_status": "Exploratory: evaluation history was inspected before this experiment.",
+  "pair_attribution_cases": [],
+  "prediction_bins": "Retrospective descriptive score quantiles; not fitted entry thresholds; unresolved targets excluded."
+}

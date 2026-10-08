@@ -1,0 +1,31 @@
+case,phase,cutoff,last_transition_end,transitions,distinct_market_dates,daily_reward_scale_bps,iterations,terminal_transitions,caveat,final_target_change,gamma,penalty,held_transitions
+q_capacity,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,24.0,0.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.012918743465587,,,
+q_risk,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,24.0,0.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.372060402751141,,,
+q_conservative,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,24.0,0.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.372060402751141,,,
+q_portfolio,validation,2020-01-01,2019-10-16,1048,131,0.8859906716729847,24.0,0.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.3889984637823821,,,
+myopic_risk,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,1.0,0.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.0,,,
+q_no_inventory,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,24.0,0.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.3698624943449017,,,
+q_capacity,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,24.0,7.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.1010897794718815,,,
+q_risk,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,24.0,7.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.719290115811429,,,
+q_conservative,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,24.0,7.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.719290115811429,,,
+q_portfolio,evaluation,2022-01-01,2021-12-31,1832,229,1.7585953378547103,24.0,8.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.6781770394659123,,,
+myopic_risk,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,1.0,7.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.0,,,
+q_no_inventory,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,24.0,7.0,Repeated behavior trajectories share market history; they are not independent observations. Aggregated state approximates the full book.,0.6720308457048488,,,
+action_q_capacity,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,,,,,0.99,0.0,
+action_q_risk,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,,,,,0.99,0.5,
+action_q_conservative,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,,,,,0.99,0.5,
+action_myopic_risk,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,,,,,0.0,0.5,
+action_q_capacity,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,,,,,0.99,0.0,
+action_q_risk,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,,,,,0.99,0.5,
+action_q_conservative,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,,,,,0.99,0.5,
+action_myopic_risk,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,,,,,0.0,0.5,
+manage_q,validation,2020-01-01,2019-12-31,2008,502,0.7998961706138382,,,,,0.99,0.0,1274.0
+manage_q_risk,validation,2020-01-01,2019-12-31,2008,502,0.7998961706138382,,,,,0.99,0.5,1274.0
+manage_myopic_risk,validation,2020-01-01,2019-12-31,2008,502,0.7998961706138382,,,,,0.0,0.5,1274.0
+manage_q,evaluation,2022-01-01,2021-12-31,4028,1007,1.710986910101929,,,,,0.99,0.0,2276.0
+manage_q_risk,evaluation,2022-01-01,2021-12-31,4028,1007,1.710986910101929,,,,,0.99,0.5,2276.0
+manage_myopic_risk,evaluation,2022-01-01,2021-12-31,4028,1007,1.710986910101929,,,,,0.0,0.5,2276.0
+entry_myopic_capacity,validation,2020-01-01,2019-10-16,822,131,0.8859906716729847,,,,,0.0,0.0,
+manage_myopic_capacity,validation,2020-01-01,2019-12-31,2008,502,0.7998961706138382,,,,,0.0,0.0,
+entry_myopic_capacity,evaluation,2022-01-01,2021-12-31,1431,229,1.7585953378547103,,,,,0.0,0.0,
+manage_myopic_capacity,evaluation,2022-01-01,2021-12-31,4028,1007,1.710986910101929,,,,,0.0,0.0,

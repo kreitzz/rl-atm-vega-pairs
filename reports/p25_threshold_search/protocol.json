@@ -1,0 +1,126 @@
+{
+  "question": "Does direct past-only selection of the IV-rank opportunity cutoff improve funded returns?",
+  "policies": {
+    "q05": {
+      "key": "q05",
+      "q_low": 0.05,
+      "q_high": null,
+      "vix_cutoff": 0.2
+    },
+    "q10": {
+      "key": "q10",
+      "q_low": 0.1,
+      "q_high": null,
+      "vix_cutoff": 0.2
+    },
+    "q15": {
+      "key": "q15",
+      "q_low": 0.15,
+      "q_high": null,
+      "vix_cutoff": 0.2
+    },
+    "q20": {
+      "key": "q20",
+      "q_low": 0.2,
+      "q_high": null,
+      "vix_cutoff": 0.2
+    },
+    "q25": {
+      "key": "q25",
+      "q_low": 0.25,
+      "q_high": null,
+      "vix_cutoff": 0.2
+    },
+    "q30": {
+      "key": "q30",
+      "q_low": 0.3,
+      "q_high": null,
+      "vix_cutoff": 0.2
+    },
+    "vix10_20": {
+      "key": "vix10_20",
+      "q_low": 0.1,
+      "q_high": 0.2,
+      "vix_cutoff": 0.2
+    },
+    "vix10_30": {
+      "key": "vix10_30",
+      "q_low": 0.1,
+      "q_high": 0.3,
+      "vix_cutoff": 0.2
+    },
+    "vix20_10": {
+      "key": "vix20_10",
+      "q_low": 0.2,
+      "q_high": 0.1,
+      "vix_cutoff": 0.2
+    },
+    "vix20_30": {
+      "key": "vix20_30",
+      "q_low": 0.2,
+      "q_high": 0.3,
+      "vix_cutoff": 0.2
+    },
+    "vix30_10": {
+      "key": "vix30_10",
+      "q_low": 0.3,
+      "q_high": 0.1,
+      "vix_cutoff": 0.2
+    },
+    "vix30_20": {
+      "key": "vix30_20",
+      "q_low": 0.3,
+      "q_high": 0.2,
+      "vix_cutoff": 0.2
+    }
+  },
+  "fixed_family": [
+    "q05",
+    "q10",
+    "q15",
+    "q20",
+    "q25",
+    "q30"
+  ],
+  "context_family": [
+    "q10",
+    "q20",
+    "q30",
+    "vix10_20",
+    "vix10_30",
+    "vix20_10",
+    "vix20_30",
+    "vix30_10",
+    "vix30_20"
+  ],
+  "max_tail": 0.3,
+  "quotes": "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_threshold_search\\quotes.sqlite",
+  "isolation": "Change IVrank gate only; retain directional91/365day profit>0 and count>=21/63, inherited universe/calendar/beta screens, fixed100% sizing, all costs/risk/expiry/dailyhedge rules.",
+  "candidate_books": "Continuous funded2018-Aug2025 ledgers, .03 option commission. Past marked daily excess returns including cash days; not lifetime label targets.",
+  "fixed": "Choose max funded excess Sharpe in2018-2021 with >=252 sessions and>=20 entries; deterministic proximity-to20% ties. Follow baseline until2022, then locked choice.",
+  "rolling": "Each signal month select from fixed candidates on trailing18calendar months strictly before month, >=252 sessions and>=20 entries per eligible candidate; fallback20%. Replay actual changing decisions, never splice NAV.",
+  "context": "Prior VIX/100 >=.20 defines high regime, no additional lag; low/high IVrank tails chosen jointly by whole-policy2018-2021 funded Sharpe. Baseline until2022 then locked policy; no rolling contextual search.",
+  "deployment": "Separate continuous actual inventory for each selection; fixed/context carry baseline holdings and NAV through2022 boundary.",
+  "later": "2022-01-03 through2025-08-29 with signals ending2025-06-30; exploratory previously inspected history, not untouched holdout.",
+  "inference": "Paired circular63/126session blocks,2000 replications; conditional descriptive intervals, not adjusted for repeated research or multiple comparisons.",
+  "limitations": [
+    "Inherited retrospective pair roster and formation calendar",
+    "Memory gates unchanged and based on archived cost convention",
+    "Grid and VIX regime family restricted in advance; not global optimality"
+  ],
+  "resources": {
+    "threads": 1,
+    "duty": 0.2,
+    "rss_limit_mib": 384
+  },
+  "hashes": {
+    "artifacts\\contracts\\p25_opportunity_filter\\dataset\\candidates.parquet": "a2e589cc19b15d8a06ad6594bd1b957d28af5d8be0f537194f95242b15551b40",
+    "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+    "config\\p25_submission.json": "d86b5b754b4ca6210c9e55071a7c995029d190276603e169122299399621ed00",
+    "scripts\\uniform_smile_engine.py": "733fee09ba8e3311c70588bef548aea7bb6136c69e3c221e840fe163733d94f1",
+    "scripts\\uniform_smile_risk.py": "b5a95584d56f18503c006831517c3b0c2fac426d752907b2de2577e577adcfc0",
+    "scripts\\run_p25_threshold_search.py": "342cf1f237f06cb816f74ef19331ef605bc4495c3c769b694da9801a18d9f214",
+    "scripts\\p25_threshold_policy.py": "3b90ee4d3397613cfa3d8e5a8fdfc4ee54cc5cf6dbc00e054d552e9817fc20cd",
+    "artifacts\\contracts\\p25_threshold_search\\quotes.sqlite": "35a102907019fc806e28e7f9e9bd6eefa5344a571da32daaff8c2bf59453148a"
+  }
+}

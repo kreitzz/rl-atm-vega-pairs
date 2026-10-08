@@ -1,0 +1,13 @@
+{
+  "admission.csv": "a9bbc37328c81c13b99248162fc4ada32d56163dc36622b7490100684d70ec21",
+  "audit.json": "baab30db8f93870715e50d9354ac2d02d8f76e02d9543e3714401040f58f7a20",
+  "Findings.txt": "6deb54762ad111c87dc792023200d50b928a9835624a83a39c85d0b0f5975592",
+  "fixed_size_gate_control.csv": "f88c28b2202f66bf2bdc8d7381cf7c8e8d34f7ea2bc70e2ee0441e6dcadca04d",
+  "funnel.csv": "3b904dd5996e6b2fffd0e1931af3a423dc857309525b072e30df7dbf99fd0816",
+  "opportunity_audit.png": "d31a0f0c224bac7a2fb16adf3a6b1464a26e20157999f82b3745a27c4b440bb7",
+  "pair_coverage.csv": "2c54db91ce69c7f02832d791438b2e51d135d3c1914f650d7f7089cb3d75ec18",
+  "proposal_structure.csv": "817ef8547ca2c72399f2d2d0fba2a5097f9c060c0ccc99bcf78f6c0d2dabe0e1",
+  "protocol.json": "a81acbca6733f59e12bfdd27a9ed8402fe2ba496484180400509cc5342c12717",
+  "roster_history.csv": "1d00e736c70ca9c7848ca8e8993b715136840b09693187f7cf8094c73d6b67c6",
+  "structural_diagnostics.csv": "db737badac2fcea690239d3f9b5dff2db435aa9f28cf209da408179be4be9b04"
+}

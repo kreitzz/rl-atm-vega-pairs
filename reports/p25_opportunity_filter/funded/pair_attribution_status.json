@@ -1,0 +1,106 @@
+{
+  "cases": [
+    {
+      "case": "rank_ridge",
+      "status": "complete",
+      "cohorts": 171,
+      "calendar_rows": 1926,
+      "current_rss_mib": 168.5234375,
+      "dense_array_allowance_mib": 90.45758056640625,
+      "quote_lookup_allowance_mib": 11.3677978515625,
+      "estimated_peak_rss_mib": 286.34881591796875,
+      "quotes_used": 316,
+      "pairs": 53,
+      "max_daily_reconciliation_error": 8.298229658976197e-09,
+      "sources": {
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\rank_ridge\\daily_nav.parquet": "6bf13282669df589c384c6972bcc5dd11b5a77b89213b29feaea2f2425e03f51",
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\rank_ridge\\trades.csv": "f6e1192dbfa80bf1710e65d4c9b6ee51d10f557b08b5c547f2ddfed479b04c86",
+        "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+        "scripts\\attribute_p25_opportunity_filter.py": "43cf0c4c0378fe0eb88e0e1ce2ca8b99f85b06890112e1e41f4ae8369f035f4c",
+        "scripts\\shared_trade_ledger.py": "938f1bc3ff5f14c000dfe5003ed5636d4ec3142522789a4a403e72425b590d8d",
+        "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\stocks.parquet": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\dividends.parquet": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e"
+      },
+      "financing": "Shared financing remains separate from pair profit",
+      "costs": "Shared stock execution and borrow costs allocated using audited hedge-weight convention"
+    },
+    {
+      "case": "rank_spline",
+      "status": "complete",
+      "cohorts": 210,
+      "calendar_rows": 1926,
+      "current_rss_mib": 172.34375,
+      "dense_array_allowance_mib": 111.0882568359375,
+      "quote_lookup_allowance_mib": 14.0167236328125,
+      "estimated_peak_rss_mib": 313.44873046875,
+      "quotes_used": 391,
+      "pairs": 53,
+      "max_daily_reconciliation_error": 7.788912625983357e-09,
+      "sources": {
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\rank_spline\\daily_nav.parquet": "3811ad1dd35c4fbd211970620bbce6b452850211a7ccd059f25d506f7ca7235e",
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\rank_spline\\trades.csv": "5f68c3cf423d29ffdcba192dd148356431e658d1117600d9f55dab5170130f1d",
+        "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+        "scripts\\attribute_p25_opportunity_filter.py": "43cf0c4c0378fe0eb88e0e1ce2ca8b99f85b06890112e1e41f4ae8369f035f4c",
+        "scripts\\shared_trade_ledger.py": "938f1bc3ff5f14c000dfe5003ed5636d4ec3142522789a4a403e72425b590d8d",
+        "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\stocks.parquet": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\dividends.parquet": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e"
+      },
+      "financing": "Shared financing remains separate from pair profit",
+      "costs": "Shared stock execution and borrow costs allocated using audited hedge-weight convention"
+    },
+    {
+      "case": "current_fixed100",
+      "status": "complete",
+      "cohorts": 133,
+      "calendar_rows": 1926,
+      "current_rss_mib": 178.54296875,
+      "dense_array_allowance_mib": 70.35589599609375,
+      "quote_lookup_allowance_mib": 9.11712646484375,
+      "estimated_peak_rss_mib": 274.0159912109375,
+      "quotes_used": 259,
+      "pairs": 40,
+      "max_daily_reconciliation_error": 5.706169758923352e-09,
+      "sources": {
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\current_fixed100\\daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\current_fixed100\\trades.csv": "4fbb7bb8efe5f804819ccc1e34888b0b828c315a3d795b0545b17a19c22ea47c",
+        "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+        "scripts\\attribute_p25_opportunity_filter.py": "43cf0c4c0378fe0eb88e0e1ce2ca8b99f85b06890112e1e41f4ae8369f035f4c",
+        "scripts\\shared_trade_ledger.py": "938f1bc3ff5f14c000dfe5003ed5636d4ec3142522789a4a403e72425b590d8d",
+        "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\stocks.parquet": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\dividends.parquet": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e"
+      },
+      "financing": "Shared financing remains separate from pair profit",
+      "costs": "Shared stock execution and borrow costs allocated using audited hedge-weight convention"
+    },
+    {
+      "case": "rank_all_fixed100",
+      "status": "unavailable_memory_preflight",
+      "cohorts": 873,
+      "calendar_rows": 1926,
+      "current_rss_mib": 128.48046875,
+      "dense_array_allowance_mib": 461.80975341796875,
+      "quote_lookup_allowance_mib": 32.0,
+      "estimated_peak_rss_mib": 638.2902221679688,
+      "sources": {
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\rank_all_fixed100\\daily_nav.parquet": "7fe207a2ed3a549891c308bc99469795194b56513ea1e05653ecc2bc0735f676",
+        "artifacts\\contracts\\p25_opportunity_filter\\replays\\rank_all_fixed100\\trades.csv": "2e841c57d93275d8dccbf8fb26464ed0f798930e4f53939756fdd716f8449517",
+        "data\\submission\\artifacts\\contracts\\p25_capital_sensitivity\\replays\\10m_learned\\config.json": "5310493f7e8e2fe34831fc4c70141620e5370d43a4956185b40ce4702ed4a6e6",
+        "scripts\\attribute_p25_opportunity_filter.py": "43cf0c4c0378fe0eb88e0e1ce2ca8b99f85b06890112e1e41f4ae8369f035f4c",
+        "scripts\\shared_trade_ledger.py": "938f1bc3ff5f14c000dfe5003ed5636d4ec3142522789a4a403e72425b590d8d",
+        "artifacts\\contracts\\p25_opportunity_filter\\quotes.sqlite": "1274d2f11380f9b4d551ba909d72583aa16e3b32914c9cd80fddb6c4f66821fb",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\stocks.parquet": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e",
+        "data\\submission\\artifacts\\contracts\\p25_signal_transfer\\market\\dividends.parquet": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e"
+      }
+    }
+  ],
+  "peak_rss_mib": 263.703125,
+  "successful_cases": [
+    "rank_ridge",
+    "rank_spline",
+    "current_fixed100"
+  ],
+  "accounting": "Actual funded fills, delta hedges, costs, dividends; financing separate; exact daily NAV reconciliation"
+}

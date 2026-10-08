@@ -1,0 +1,6 @@
+status,decisions,with_active_same_pair,with_long_holding_same_pair,with_single_leg_tail,median_remaining_days
+entered,207,83,19,4,28.0
+integer_vega_mismatch,3,3,2,0,16.0
+no_eligible_contract,50,39,12,1,23.0
+risk_deleveraging,69,69,0,3,17.0
+risk_limit_entry,279,258,54,6,24.0

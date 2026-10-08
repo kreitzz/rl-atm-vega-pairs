@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "primary_monthly_models": 180,
+  "tree_controls_reproduced": 90,
+  "additional_training_seed_fits": 24,
+  "new_funded_replays": 2,
+  "proposals_per_case": 608,
+  "peak_rss_mib": 257.3359375,
+  "protected_sources_unchanged": true
+}

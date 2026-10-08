@@ -1,0 +1,5 @@
+case,phase,status,entries,active_pairs,independent_ledger_error,all_inventory_closed,unique_proposal_identities,scored_levels_match_decisions,requested_direction_matches,policy_actions_match_requests
+entry_myopic_capacity,validation,passed,55,20,4.603975867212284e-09,True,True,True,True,True
+manage_myopic_capacity,validation,passed,65,22,4.285539034754038e-09,True,True,True,True,False
+entry_myopic_capacity,evaluation,passed,133,39,5.376023182179779e-09,True,True,True,True,True
+manage_myopic_capacity,evaluation,passed,171,40,5.1700226322282106e-09,True,True,True,True,False

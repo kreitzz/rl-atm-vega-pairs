@@ -1,0 +1,4 @@
+case,months,median_training_sharpe,median_gain_over_fullsize,min_parameters,max_parameters,months_with_last_ten_gain_gt_001
+tree_cem,90,0.7215924435640284,0.6070118674431848,5,8,
+direct_linear,90,0.7386892161415386,0.5948949788200859,16,16,0.0
+direct_additive,90,0.8212640754005812,0.7069688327132553,60,61,1.0

@@ -1,0 +1,9 @@
+case,phase,status,entries,active_pairs,independent_ledger_error,all_inventory_closed,unique_proposal_identities,scored_levels_match_decisions,requested_direction_matches,policy_actions_match_requests
+action_q_capacity,validation,passed,53,19,4.593488256432465e-09,True,True,True,True,True
+action_q_risk,validation,passed,24,14,4.285539034754038e-09,True,True,True,True,True
+action_q_conservative,validation,passed,45,19,5.991296347929165e-09,True,True,True,True,True
+action_myopic_risk,validation,passed,27,14,4.285539034754038e-09,True,True,True,True,True
+action_q_capacity,evaluation,passed,135,40,5.1700226322282106e-09,True,True,True,True,True
+action_q_risk,evaluation,passed,150,38,5.617039278149605e-09,True,True,True,True,True
+action_q_conservative,evaluation,passed,134,41,5.807578418171033e-09,True,True,True,True,True
+action_myopic_risk,evaluation,passed,182,42,5.324409357854165e-09,True,True,True,True,True

@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "kind": "mechanical frozen-order feasibility",
+  "baseline": "artifacts\\contracts\\p25_inventory_q\\replays\\baseline_verification",
+  "period": "2018-August2025 full baseline",
+  "summary": {
+    "entry_contract_groups": 264,
+    "opposing_entry_groups": 0,
+    "equal_term_opposing_groups": 0,
+    "cancellable_groups": 0,
+    "entry_order_contracts": 36085,
+    "matched_contracts_per_side": 0,
+    "cancelled_order_contracts": 0,
+    "paid_option_commission": 1082.5500000000002,
+    "paid_option_execution_penalty": 12842.505480546042,
+    "paid_explicit_option_cost": 13925.055480546042,
+    "potential_commission_savings": 0,
+    "potential_penalty_savings": 0,
+    "potential_total_savings": 0,
+    "share_of_paid_explicit_option_cost": 0.0,
+    "share_of_entry_order_contracts": 0.0,
+    "baseline_full_period_profit_above_cash": 272338.07105799206,
+    "share_of_baseline_profit_above_cash": 0.0
+  },
+  "source_hashes": {
+    "artifacts\\contracts\\p25_inventory_q\\replays\\baseline_verification\\trades.csv": "4fbb7bb8efe5f804819ccc1e34888b0b828c315a3d795b0545b17a19c22ea47c",
+    "artifacts\\contracts\\p25_inventory_q\\replays\\baseline_verification\\daily_nav.parquet": "0ae77b88ab134cf17e72b913a25cc0d6fa51f32a7c956c00d4187edf10d9cf6d",
+    "artifacts\\contracts\\p25_inventory_q\\replays\\baseline_verification\\status.json": "706c4c5cf4c73a3aca781c639c304600401525f88a4286807c6f544244c43efa",
+    "reports\\p25_inventory_q\\baseline_verification.json": "2771ff501c77bec207b1e6f5cd96c14a63f238c92a1e1a7a8172159b407bb62a",
+    "reports\\p25_inventory_q\\completion.json": "a11235489f1a2f8cd53ce113ed128aeb974f90b86c788f6578545d6fc2dfd713",
+    "scripts\\p25_rl\\netting.py": "31cd54973846f9faaeebbd527529412588c0e9d9a747007fda01c9737f331fba",
+    "scripts\\p25_rl\\run.py": "c16be177b2f28101b5bdbf9124a57976878cf12230bd93e1edc3dc1a6406019a",
+    "scripts\\p25_rl\\policy.py": "60b871a04298a91ee91b28af11414ea28bf16db64b66b8a6dfe905e6047982d7",
+    "scripts\\p25_rl\\ledger.py": "7acbdb048a37a17d1915290f91823dc0695b93113cc311b04d99693583958796",
+    "scripts\\p25_rl\\provenance.py": "3aed5c6ad4454deaa6fe905205e7510547eea9c54af8829511d01fc9a9fba29f"
+  },
+  "output_hashes": {
+    "netting_feasibility.csv": "65b58b7734d2b858c95d8c1a099a84ee5f7cbed66303a8255038a7f913f8139d",
+    "netting_feasibility.txt": "d2a9d2f2a75b0c9cde5415ead39f1eb81c5a5fd3fce2b44baaed8540f5e9fe01"
+  },
+  "resources": {
+    "threads": 1,
+    "workers": 1,
+    "duty": 0.2,
+    "rss_limit_mib": 384,
+    "peak_rss_mib": 85.53515625
+  },
+  "limitations": [
+    "No altered fills or quantities",
+    "No portfolio/reinforcement-learning replay",
+    "No funded return or Sharpe calculation",
+    "No future holdout",
+    "Only explicit saved option commissions and penalties counted"
+  ]
+}

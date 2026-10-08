@@ -1,0 +1,2212 @@
+P25 SIZING POLICY ASSOCIATED WITH 1.2625242881710248 EXCESS SHARPE
+
+This is the screened features/control configuration, selected using 2018-2021.
+Its funded 2022-01-03 to 2025-08-29 evaluation has 1.2625242881710248 annualized daily cash-excess Sharpe.
+That is a portfolio result across monthly models, not the score of any one tree.
+90 monthly fits run from January 2018 through June 2025. Each uses 27 inputs and an 18-month completed-outcome window.
+Tree states have at most 8 leaves, not necessarily exactly 8. State IDs and thresholds can change monthly.
+The tree partitions inputs into leaves. Direct portfolio-Sharpe search assigns each leaf 50%, 75%, or 100% sizing.
+These are sizing decisions on already-qualified directional proposals. Entry screens and funded risk checks can still reject a trade.
+The original 33-input checkpoint is separate; do not attribute its models/results to this selected 27-input policy.
+Native feature units and full-precision thresholds are preserved below.
+Exports read saved tree arrays only, without refitting, prediction, or a backtest replay.
+Saved sklearn version is 1.9.0; export reader uses 1.7.2. Source hashes were verified against the committed bundle manifest.
+
+
+
+
+MONTHLY FIT: 2018-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-01-01.joblib
+SHA-256: 0bee4f4524a6dc20e6f2186ed343585bfcd5c88d7977800127f7595d77a98367
+Training rows: 74; latest completed outcome: 2017-12-29
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.03216945193707943:
+  IF oriented_vrp_gap <= 0.30440428853034973:
+    IF oriented_iv_gap <= 0.059408271685242653:
+      IF oriented_vrp_gap <= -0.18987575173377991:
+        IF commission_vol_points <= 0.2656438946723938:
+          SIZE 100% (leaf node 9; training examples 10)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 9)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 14)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 17)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 12)
+
+MONTHLY FIT: 2018-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-02-01.joblib
+SHA-256: 7a79f83a330996d88ee634013aa4c06a80ce4eceec343c4f1486cd36f16b28fd
+Training rows: 63; latest completed outcome: 2018-01-26
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.03216945193707943:
+  IF profit_91d <= 0.034074325114488602:
+    IF oriented_vrp_gap <= -0.12813048809766769:
+      IF profit_365d <= 0.017247293144464493:
+        SIZE 75% (leaf node 7; training examples 8)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 10)
+    ELSE:
+      IF commission_vol_points <= 0.44054538011550903:
+        SIZE 75% (leaf node 9; training examples 14)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 12)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 8)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 11)
+
+MONTHLY FIT: 2018-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-03-01.joblib
+SHA-256: 48282b9b57aa5749607678de0fd108a9dd13af9f05c507f4da3455dc949e1e3b
+Training rows: 65; latest completed outcome: 2018-02-23
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.12813048809766769:
+  IF iv_mean <= 0.22508037090301514:
+    SIZE 50% (leaf node 11; training examples 8)
+  ELSE:
+    SIZE 50% (leaf node 12; training examples 9)
+ELSE:
+  IF count_365d <= 115:
+    IF oriented_iv_gap <= -0.0067399032413959503:
+      SIZE 50% (leaf node 7; training examples 8)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 8)
+  ELSE:
+    IF iv_mean <= 0.20211034268140793:
+      SIZE 75% (leaf node 5; training examples 9)
+    ELSE:
+      IF correlation <= 0.77929377555847168:
+        SIZE 50% (leaf node 9; training examples 8)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 15)
+
+MONTHLY FIT: 2018-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-04-01.joblib
+SHA-256: 632c0de64dd59f48f012314639d5ec67b6fc12bd4e32b3268635a23bd9540716
+Training rows: 59; latest completed outcome: 2018-03-29
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.020253817550837994:
+  IF oriented_vrp_gap <= -0.12879273295402527:
+    SIZE 50% (leaf node 7; training examples 14)
+  ELSE:
+    IF count_91d <= 36.5:
+      SIZE 50% (leaf node 9; training examples 8)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 8)
+ELSE:
+  IF commission_vol_points <= 0.42434701323509216:
+    IF iv_mean <= 0.21873569488525391:
+      SIZE 50% (leaf node 5; training examples 8)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 13)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 8)
+
+MONTHLY FIT: 2018-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-05-01.joblib
+SHA-256: 6d281c9be8bdb2daea71eb4a902d88070ae2faad9ea1f9a44f39062467c6aedf
+Training rows: 65; latest completed outcome: 2018-04-27
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.020253817550837994:
+  IF oriented_vrp_gap <= -0.12879273295402527:
+    SIZE 50% (leaf node 7; training examples 14)
+  ELSE:
+    IF count_91d <= 36.5:
+      SIZE 50% (leaf node 11; training examples 8)
+    ELSE:
+      SIZE 100% (leaf node 12; training examples 8)
+ELSE:
+  IF vix <= 0.1124499998986721:
+    SIZE 100% (leaf node 3; training examples 8)
+  ELSE:
+    IF iv_mean <= 0.2469308152794838:
+      IF iv_mean <= 0.23405043035745621:
+        SIZE 50% (leaf node 9; training examples 10)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 8)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 9)
+
+MONTHLY FIT: 2018-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-06-01.joblib
+SHA-256: 4d5fa3d07066b533888528b3cad9723b03dfd779638b693a900be6517a7bad01
+Training rows: 70; latest completed outcome: 2018-05-25
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.020253817550837994:
+  IF oriented_vrp_gap <= -0.26162993907928467:
+    SIZE 50% (leaf node 7; training examples 12)
+  ELSE:
+    IF vix <= 0.10374999791383743:
+      SIZE 100% (leaf node 11; training examples 12)
+    ELSE:
+      SIZE 100% (leaf node 12; training examples 11)
+ELSE:
+  IF vix <= 0.1124499998986721:
+    SIZE 100% (leaf node 3; training examples 8)
+  ELSE:
+    IF iv_mean <= 0.2469308152794838:
+      IF iv_mean <= 0.23405043035745621:
+        SIZE 50% (leaf node 9; training examples 10)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 8)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 9)
+
+MONTHLY FIT: 2018-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-07-01.joblib
+SHA-256: 83b3068e64deb0af0ce824d36c6f2ae0406741797a638bab49940b551e2e8956
+Training rows: 81; latest completed outcome: 2018-06-29
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.42620363831520081:
+  SIZE 50% (leaf node 1; training examples 12)
+ELSE:
+  IF oriented_iv_gap <= 0.14117205888032913:
+    IF count_365d <= 163.5:
+      SIZE 50% (leaf node 5; training examples 18)
+    ELSE:
+      IF profit_365d <= 0.019961056299507618:
+        SIZE 100% (leaf node 7; training examples 19)
+      ELSE:
+        IF profit_91d <= 0.027307562530040741:
+          SIZE 100% (leaf node 9; training examples 10)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 12)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 10)
+
+MONTHLY FIT: 2018-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-08-01.joblib
+SHA-256: 68d1eddc609305fcacedb366d73b5880abefc27cdba530a80e2335e5124a3ca1
+Training rows: 95; latest completed outcome: 2018-07-20
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.020275084301829338:
+  IF rv_mean <= 0.22923208028078079:
+    IF correlation <= 0.84845408797264099:
+      IF commission_vol_points <= 0.34168566763401031:
+        SIZE 100% (leaf node 11; training examples 11)
+      ELSE:
+        SIZE 50% (leaf node 12; training examples 11)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 11)
+  ELSE:
+    SIZE 50% (leaf node 6; training examples 20)
+ELSE:
+  IF iv_mean <= 0.21748154610395432:
+    SIZE 50% (leaf node 3; training examples 16)
+  ELSE:
+    IF commission_vol_points <= 0.31584732234477997:
+      SIZE 100% (leaf node 7; training examples 15)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 11)
+
+MONTHLY FIT: 2018-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-09-01.joblib
+SHA-256: 6b0322dee10acc0d5f1ded9fc3e7c5506ff7edf8db984f9a16b9e6e98de11da2
+Training rows: 100; latest completed outcome: 2018-08-17
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.020275084301829338:
+  IF rv_mean <= 0.22923208028078079:
+    IF profit_91d <= 0.018330217339098454:
+      SIZE 100% (leaf node 9; training examples 19)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 16)
+  ELSE:
+    SIZE 50% (leaf node 6; training examples 23)
+ELSE:
+  IF iv_mean <= 0.21748154610395432:
+    SIZE 50% (leaf node 3; training examples 16)
+  ELSE:
+    IF commission_vol_points <= 0.31307365000247955:
+      SIZE 100% (leaf node 7; training examples 14)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 12)
+
+MONTHLY FIT: 2018-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-10-01.joblib
+SHA-256: bd5bf0fa617cc62fb6723a5a51f29ade145bbf400dd176d579c6d2493d8acdd4
+Training rows: 95; latest completed outcome: 2018-09-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.020275084301829338:
+  IF rv_mean <= 0.22923208028078079:
+    IF profit_91d <= 0.018330217339098454:
+      IF beta <= 0.95772415399551392:
+        SIZE 50% (leaf node 11; training examples 11)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 11)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 16)
+  ELSE:
+    SIZE 50% (leaf node 6; training examples 21)
+ELSE:
+  IF beta <= 0.96017909049987793:
+    IF profit_91d <= 0.026733040809631348:
+      SIZE 100% (leaf node 7; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 13)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 11)
+
+MONTHLY FIT: 2018-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-11-01.joblib
+SHA-256: 9069ec98c450ed02dd0ca5045d332388643b5080eb8d81de79868ea4e886cb81
+Training rows: 101; latest completed outcome: 2018-10-26
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 163.5:
+  IF profit_91d <= 0.023489006794989109:
+    SIZE 50% (leaf node 5; training examples 18)
+  ELSE:
+    IF vix <= 0.12409999966621399:
+      SIZE 100% (leaf node 11; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 12; training examples 20)
+ELSE:
+  IF profit_365d <= 0.020253817550837994:
+    IF oriented_vrp_gap <= -0.15614260733127594:
+      SIZE 50% (leaf node 7; training examples 13)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 14)
+  ELSE:
+    IF profit_91d <= 0.026733040809631348:
+      SIZE 100% (leaf node 9; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 10; training examples 12)
+
+MONTHLY FIT: 2018-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2018-12-01.joblib
+SHA-256: 38730d2a29a3d10fa27a098d5e6d8f53ee701a589814dd8c38bcb4eb8c9742ec
+Training rows: 94; latest completed outcome: 2018-10-26
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 163.5:
+  IF profit_91d <= 0.023489006794989109:
+    SIZE 50% (leaf node 5; training examples 18)
+  ELSE:
+    IF vix <= 0.12409999966621399:
+      SIZE 100% (leaf node 7; training examples 11)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 20)
+ELSE:
+  IF profit_365d <= 0.019961056299507618:
+    IF oriented_vrp_gap <= -0.057120487093925476:
+      SIZE 50% (leaf node 11; training examples 11)
+    ELSE:
+      SIZE 100% (leaf node 12; training examples 12)
+  ELSE:
+    IF commission_vol_points <= 0.31654392182826996:
+      SIZE 100% (leaf node 9; training examples 11)
+    ELSE:
+      SIZE 50% (leaf node 10; training examples 11)
+
+MONTHLY FIT: 2019-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-01-01.joblib
+SHA-256: 1fea843ee1c1efd68213758b1988cfaa7f81490a9b5b14fb780a458a2cc6ff22
+Training rows: 105; latest completed outcome: 2018-12-21
+Inputs: 27; leaf count: 5
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_iv_gap <= -0.099933434277772903:
+  SIZE 50% (leaf node 1; training examples 21)
+ELSE:
+  IF count_365d <= 163.5:
+    IF iv_mean <= 0.23867404460906982:
+      SIZE 50% (leaf node 7; training examples 23)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 17)
+  ELSE:
+    IF profit_365d <= 0.019961056299507618:
+      SIZE 100% (leaf node 5; training examples 23)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 21)
+
+MONTHLY FIT: 2019-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-02-01.joblib
+SHA-256: 85a1ce875318e04bf5d93ed82bf851f3e3a3f75e62dceebdd04156fc90b3540b
+Training rows: 122; latest completed outcome: 2019-01-18
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 163.5:
+  IF vix <= 0.12694999575614929:
+    SIZE 100% (leaf node 5; training examples 22)
+  ELSE:
+    IF oriented_iv_gap <= -0.087687447667121887:
+      SIZE 50% (leaf node 7; training examples 25)
+    ELSE:
+      IF commission_vol_points <= 0.33981515467166901:
+        SIZE 50% (leaf node 9; training examples 15)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 18)
+ELSE:
+  IF profit_365d <= 0.019961056299507618:
+    SIZE 100% (leaf node 3; training examples 21)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 21)
+
+MONTHLY FIT: 2019-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-03-01.joblib
+SHA-256: 3149462fbffddf916069fa3774d6f3ed18ef2320f1123c6ae500196dbcc47b23
+Training rows: 131; latest completed outcome: 2019-02-22
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 141.5:
+  IF oriented_iv_gap <= -0.064272124320268631:
+    SIZE 50% (leaf node 7; training examples 29)
+  ELSE:
+    IF count_365d <= 95:
+      SIZE 100% (leaf node 9; training examples 16)
+    ELSE:
+      SIZE 50% (leaf node 10; training examples 16)
+ELSE:
+  IF profit_91d <= 0.040817772969603539:
+    IF profit_91d <= 0.016590663231909275:
+      SIZE 100% (leaf node 5; training examples 16)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 31)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 23)
+
+MONTHLY FIT: 2019-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-04-01.joblib
+SHA-256: 593664a5c186c5a0aa341f83c14cf54592e154d3763827909ead762c7ff9d1fb
+Training rows: 134; latest completed outcome: 2019-03-15
+Inputs: 27; leaf count: 5
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 141.5:
+  IF oriented_iv_gap <= -0.064272124320268631:
+    SIZE 50% (leaf node 7; training examples 31)
+  ELSE:
+    SIZE 50% (leaf node 8; training examples 30)
+ELSE:
+  IF profit_91d <= 0.040817772969603539:
+    IF profit_91d <= 0.016590663231909275:
+      SIZE 100% (leaf node 5; training examples 16)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 31)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 26)
+
+MONTHLY FIT: 2019-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-05-01.joblib
+SHA-256: fb7e1d0a26ebb08e1e9fdfbbbc9a9644d92715535c9ce5c8f38e22bb371b0029
+Training rows: 149; latest completed outcome: 2019-04-26
+Inputs: 27; leaf count: 5
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 141.5:
+  IF oriented_iv_gap <= -0.064272124320268631:
+    SIZE 50% (leaf node 7; training examples 33)
+  ELSE:
+    SIZE 50% (leaf node 8; training examples 33)
+ELSE:
+  IF profit_91d <= 0.040817772969603539:
+    IF profit_365d <= 0.018844832666218281:
+      SIZE 100% (leaf node 5; training examples 28)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 29)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 26)
+
+MONTHLY FIT: 2019-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-06-01.joblib
+SHA-256: ac015b366b097c6fc25487c9d4a4841cf83a094273097bfb98039fcc895b65f3
+Training rows: 151; latest completed outcome: 2019-05-24
+Inputs: 27; leaf count: 5
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 141.5:
+  IF oriented_iv_gap <= -0.064272124320268631:
+    SIZE 50% (leaf node 5; training examples 32)
+  ELSE:
+    SIZE 50% (leaf node 6; training examples 33)
+ELSE:
+  IF correlation <= 0.82298821210861206:
+    SIZE 100% (leaf node 3; training examples 33)
+  ELSE:
+    IF profit_91d <= 0.040817772969603539:
+      SIZE 50% (leaf node 7; training examples 32)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 21)
+
+MONTHLY FIT: 2019-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-07-01.joblib
+SHA-256: 6289c7951b220856ebc4798812162863185a86d9331b73a677b478c7d932bd4a
+Training rows: 149; latest completed outcome: 2019-06-28
+Inputs: 27; leaf count: 5
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 141.5:
+  IF oriented_iv_gap <= -0.064272124320268631:
+    SIZE 50% (leaf node 7; training examples 32)
+  ELSE:
+    SIZE 50% (leaf node 8; training examples 34)
+ELSE:
+  IF profit_91d <= 0.040817772969603539:
+    IF profit_365d <= 0.018844832666218281:
+      SIZE 100% (leaf node 5; training examples 22)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 31)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 30)
+
+MONTHLY FIT: 2019-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-08-01.joblib
+SHA-256: 9b494977c4ac115eb719bacfb1a4fd6b0accc5f2fccaaac2b9974b0152b654c6
+Training rows: 147; latest completed outcome: 2019-07-19
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.50331711769104004:
+  IF count_365d <= 141.5:
+    IF oriented_iv_gap <= -0.029851027764379978:
+      SIZE 50% (leaf node 9; training examples 31)
+    ELSE:
+      SIZE 50% (leaf node 10; training examples 25)
+  ELSE:
+    IF correlation <= 0.83227771520614624:
+      SIZE 100% (leaf node 5; training examples 25)
+    ELSE:
+      IF profit_91d <= 0.040817772969603539:
+        SIZE 100% (leaf node 7; training examples 27)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 21)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 18)
+
+MONTHLY FIT: 2019-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-09-01.joblib
+SHA-256: 85ace958f55ffd9cba8c9f34dd6c7993efe7be7f3ae86cc2e165d4a4f1cc739c
+Training rows: 145; latest completed outcome: 2019-08-30
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.50331711769104004:
+  IF count_365d <= 141.5:
+    IF oriented_iv_gap <= -0.036007232964038849:
+      SIZE 50% (leaf node 7; training examples 31)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 31)
+  ELSE:
+    IF oriented_iv_gap <= -0.037589676678180695:
+      SIZE 100% (leaf node 5; training examples 24)
+    ELSE:
+      IF profit_91d <= 0.040817772969603539:
+        SIZE 100% (leaf node 9; training examples 19)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 22)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 18)
+
+MONTHLY FIT: 2019-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-10-01.joblib
+SHA-256: 1abd5e8b8a8316ab93cccb3a298f89c075604e21ce7922a2464714eafd9f5d47
+Training rows: 139; latest completed outcome: 2019-09-27
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.51215833425521851:
+  IF count_365d <= 141.5:
+    IF oriented_iv_gap <= -0.036007232964038849:
+      IF rank_strength <= 0.94706425070762634:
+        SIZE 50% (leaf node 9; training examples 19)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 18)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 30)
+  ELSE:
+    IF correlation <= 0.85389313101768494:
+      SIZE 100% (leaf node 5; training examples 28)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 27)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2019-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-11-01.joblib
+SHA-256: a5d523470e5c6c0335ef22110bab8f345c4c8c5804e7a48468bb62da9246bb63
+Training rows: 139; latest completed outcome: 2019-10-18
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.51215833425521851:
+  IF count_365d <= 141.5:
+    IF oriented_iv_gap <= -0.036007232964038849:
+      IF rank_strength <= 0.94706425070762634:
+        SIZE 50% (leaf node 9; training examples 19)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 18)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 32)
+  ELSE:
+    IF count_365d <= 159.5:
+      SIZE 100% (leaf node 5; training examples 17)
+    ELSE:
+      IF oriented_iv_gap <= -0.001248781627509743:
+        SIZE 100% (leaf node 11; training examples 19)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 17)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2019-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2019-12-01.joblib
+SHA-256: 048136a23d81b0fa158d5163fee6999b351332cc28338050291722739c831301
+Training rows: 134; latest completed outcome: 2019-11-15
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.51215833425521851:
+  IF count_365d <= 141.5:
+    IF profit_365d <= 0.007200626190751791:
+      SIZE 100% (leaf node 7; training examples 16)
+    ELSE:
+      IF profit_365d <= 0.026005822233855724:
+        IF profit_91d <= 0.019712869077920914:
+          SIZE 50% (leaf node 11; training examples 16)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 16)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 23)
+  ELSE:
+    IF beta <= 0.95481100678443909:
+      SIZE 100% (leaf node 5; training examples 18)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 28)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2020-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-01-01.joblib
+SHA-256: 375d761e429fc8e230689122c5b85a464f65d31a9b6b522d82d0f51f77139a54
+Training rows: 127; latest completed outcome: 2019-12-20
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.63746249675750732:
+  SIZE 50% (leaf node 1; training examples 15)
+ELSE:
+  IF count_365d <= 141.5:
+    IF profit_365d <= 0.026178310625255108:
+      IF correlation <= 0.7976355254650116:
+        IF count_365d <= 118:
+          SIZE 50% (leaf node 11; training examples 17)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 15)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 16)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 18)
+  ELSE:
+    IF dte_mean <= 33.5:
+      SIZE 100% (leaf node 5; training examples 27)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 19)
+
+MONTHLY FIT: 2020-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-02-01.joblib
+SHA-256: 79cb5f6e844f5f4d562b78604fb68085c243c68726546ba5e9d19d0c068746ec
+Training rows: 123; latest completed outcome: 2020-01-17
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.63746249675750732:
+  SIZE 50% (leaf node 1; training examples 15)
+ELSE:
+  IF count_365d <= 141.5:
+    IF profit_365d <= 0.026178310625255108:
+      IF correlation <= 0.7976355254650116:
+        IF count_365d <= 118:
+          SIZE 50% (leaf node 11; training examples 17)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 15)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 16)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 18)
+  ELSE:
+    IF dte_mean <= 33.5:
+      SIZE 100% (leaf node 5; training examples 23)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 19)
+
+MONTHLY FIT: 2020-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-03-01.joblib
+SHA-256: f4d2e892900181eb55f40148da13e8f3c74eeaa8e3f00316b1691cae73465ee7
+Training rows: 128; latest completed outcome: 2020-02-21
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.51215833425521851:
+  IF count_365d <= 141.5:
+    IF rv_mean <= 0.27491793036460876:
+      SIZE 50% (leaf node 7; training examples 22)
+    ELSE:
+      IF rv_mean <= 0.33653755486011505:
+        SIZE 50% (leaf node 9; training examples 16)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 23)
+  ELSE:
+    IF oriented_iv_gap <= 0.037156112492084503:
+      SIZE 100% (leaf node 5; training examples 26)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 24)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2020-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-04-01.joblib
+SHA-256: cbce9189599f531d680c60e4fe2c0878ab1ff9d8fa47f5b2089df6d3dd51cd54
+Training rows: 119; latest completed outcome: 2020-02-21
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.63746249675750732:
+  SIZE 50% (leaf node 1; training examples 15)
+ELSE:
+  IF count_365d <= 141.5:
+    IF rank_strength <= 0.96573162078857422:
+      IF oriented_iv_gap <= -0.036007232964038849:
+        SIZE 50% (leaf node 9; training examples 18)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 22)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 14)
+  ELSE:
+    IF oriented_iv_gap <= 0.037156112492084503:
+      SIZE 100% (leaf node 5; training examples 26)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 24)
+
+MONTHLY FIT: 2020-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-05-01.joblib
+SHA-256: f9c074307148bf6b7c74439774e646f7a782a301f95d8d55137aa2fe538a730f
+Training rows: 124; latest completed outcome: 2020-04-17
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.63746249675750732:
+  SIZE 50% (leaf node 1; training examples 16)
+ELSE:
+  IF profit_91d <= 0.016220221295952797:
+    SIZE 100% (leaf node 3; training examples 25)
+  ELSE:
+    IF count_365d <= 141.5:
+      IF profit_91d <= 0.034170645289123058:
+        SIZE 50% (leaf node 9; training examples 20)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 27)
+    ELSE:
+      IF oriented_iv_gap <= 0.037156112492084503:
+        SIZE 100% (leaf node 7; training examples 20)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 16)
+
+MONTHLY FIT: 2020-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-06-01.joblib
+SHA-256: 999c1def694030d010aaf8f6cc0f14fecebb50b0048dfd5423d6aa9cb7182623
+Training rows: 136; latest completed outcome: 2020-05-29
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.73299223184585571:
+  SIZE 50% (leaf node 1; training examples 18)
+ELSE:
+  IF correlation <= 0.89569500088691711:
+    IF vix <= 0.24970000237226486:
+      IF count_365d <= 129:
+        SIZE 50% (leaf node 7; training examples 22)
+      ELSE:
+        IF correlation <= 0.79828983545303345:
+          SIZE 50% (leaf node 9; training examples 27)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 26)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 21)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 22)
+
+MONTHLY FIT: 2020-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-07-01.joblib
+SHA-256: bb5c29a7c6281526b33d27cf172aa9d3636fc9b788adfbae0bf569f3e952baa5
+Training rows: 142; latest completed outcome: 2020-06-19
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.63705715537071228:
+  SIZE 50% (leaf node 1; training examples 17)
+ELSE:
+  IF correlation <= 0.89182212948799133:
+    IF iv_mean <= 0.47866809368133545:
+      IF count_365d <= 129:
+        SIZE 50% (leaf node 7; training examples 18)
+      ELSE:
+        IF correlation <= 0.777750164270401:
+          SIZE 100% (leaf node 11; training examples 21)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 28)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 17)
+  ELSE:
+    IF iv_mean <= 0.54966509342193604:
+      SIZE 50% (leaf node 9; training examples 18)
+    ELSE:
+      SIZE 50% (leaf node 10; training examples 23)
+
+MONTHLY FIT: 2020-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-08-01.joblib
+SHA-256: d71f822b0a21ed6095d87d39dea5253114b5505a6f42803e6b81e860c4bfc8b8
+Training rows: 148; latest completed outcome: 2020-07-31
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF beta <= 0.8917904794216156:
+  IF rank_strength <= 0.78407701849937439:
+    SIZE 50% (leaf node 3; training examples 20)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 30)
+ELSE:
+  IF profit_91d <= 0.016866497695446014:
+    SIZE 100% (leaf node 5; training examples 22)
+  ELSE:
+    IF profit_91d <= 0.048126209527254105:
+      IF count_365d <= 164.5:
+        SIZE 50% (leaf node 9; training examples 33)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 19)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 24)
+
+MONTHLY FIT: 2020-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-09-01.joblib
+SHA-256: 6fde78373e118f1f66e3e5d8bafd8225a5fa70cbe9f2a4f99ec4467672101f77
+Training rows: 151; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF beta <= 0.8917904794216156:
+  IF rank_strength <= 0.78407701849937439:
+    SIZE 50% (leaf node 3; training examples 20)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 30)
+ELSE:
+  IF profit_91d <= 0.016866497695446014:
+    SIZE 100% (leaf node 5; training examples 21)
+  ELSE:
+    IF profit_91d <= 0.048126209527254105:
+      IF count_365d <= 164.5:
+        IF oriented_iv_gap <= -0.021311142016202211:
+          SIZE 50% (leaf node 11; training examples 19)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 18)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 19)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 24)
+
+MONTHLY FIT: 2020-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-10-01.joblib
+SHA-256: 113b9b5c663c350374384044ed4265b78ff171d9c22cf27afa90f2ecca9468b0
+Training rows: 133; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.5667930543422699:
+  SIZE 50% (leaf node 1; training examples 16)
+ELSE:
+  IF rank_strength <= 0.94894307851791382:
+    IF count_91d <= 31.5:
+      IF count_365d <= 137.5:
+        SIZE 50% (leaf node 7; training examples 29)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 16)
+    ELSE:
+      IF oriented_vrp_gap <= -0.15252240747213364:
+        SIZE 100% (leaf node 9; training examples 17)
+      ELSE:
+        IF oriented_vrp_gap <= 0.064740011468529701:
+          SIZE 50% (leaf node 11; training examples 16)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 22)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 17)
+
+MONTHLY FIT: 2020-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-11-01.joblib
+SHA-256: 8c2133bd3166c128809af30e558d45c283e7964771a25db4c01c7329ef70fa31
+Training rows: 129; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.54560118913650513:
+  SIZE 50% (leaf node 1; training examples 16)
+ELSE:
+  IF rank_strength <= 0.94894307851791382:
+    IF count_91d <= 31.5:
+      IF beta <= 0.88356450200080872:
+        SIZE 50% (leaf node 7; training examples 19)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 25)
+    ELSE:
+      IF oriented_vrp_gap <= -0.14770153909921646:
+        SIZE 100% (leaf node 9; training examples 16)
+      ELSE:
+        IF rv_mean <= 0.54090368747711182:
+          SIZE 50% (leaf node 11; training examples 18)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 19)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 16)
+
+MONTHLY FIT: 2020-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2020-12-01.joblib
+SHA-256: b2ca44907adf3ac4a1f970306ccf49ca493ae7e5f77d1a24c4b93d74b742f678
+Training rows: 126; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= -0.54560118913650513:
+  SIZE 50% (leaf node 1; training examples 16)
+ELSE:
+  IF rank_strength <= 0.95619228482246399:
+    IF count_91d <= 31.5:
+      IF beta <= 0.88356450200080872:
+        SIZE 50% (leaf node 7; training examples 19)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 24)
+    ELSE:
+      IF profit_365d <= 0.015018781647086143:
+        IF iv_mean <= 0.53089913725852966:
+          SIZE 100% (leaf node 11; training examples 15)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 15)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 22)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 15)
+
+MONTHLY FIT: 2021-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-01-01.joblib
+SHA-256: 4113fba9cc3fdc697aaa6e7d6c98b362bf26e1a15686a0acfe7630112edbd4df
+Training rows: 119; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rank_strength <= 0.94894307851791382:
+  IF beta <= 0.8917904794216156:
+    IF profit_365d <= 0.0041733862599357963:
+      SIZE 50% (leaf node 5; training examples 16)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 23)
+  ELSE:
+    IF dte_mean <= 28.75:
+      SIZE 50% (leaf node 7; training examples 14)
+    ELSE:
+      IF vix <= 0.32414999604225159:
+        IF oriented_iv_gap <= -0.038729975000023842:
+          SIZE 100% (leaf node 11; training examples 15)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 17)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 17)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2021-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-02-01.joblib
+SHA-256: 43f389fe9399e6b6445557185af1e90a486dbe3c2e7251b6f5d8a4909e7754f7
+Training rows: 113; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rank_strength <= 0.94894307851791382:
+  IF beta <= 0.8917904794216156:
+    IF profit_91d <= 0.022485320456326008:
+      SIZE 50% (leaf node 5; training examples 17)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 16)
+  ELSE:
+    IF dte_mean <= 28.75:
+      SIZE 50% (leaf node 7; training examples 14)
+    ELSE:
+      IF vix <= 0.32414999604225159:
+        IF oriented_iv_gap <= -0.038729975000023842:
+          SIZE 100% (leaf node 11; training examples 15)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 17)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 17)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2021-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-03-01.joblib
+SHA-256: 981abf4e335a7e97d1e6f2d196cf2aadb59afe659cc0e433fb9aa3c263293fae
+Training rows: 107; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rank_strength <= 0.94894307851791382:
+  IF count_91d <= 31.5:
+    IF count_365d <= 137.5:
+      SIZE 50% (leaf node 5; training examples 22)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 17)
+  ELSE:
+    IF profit_365d <= 0.015018781647086143:
+      IF iv_mean <= 0.52768075466156006:
+        SIZE 100% (leaf node 9; training examples 14)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 15)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 22)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 17)
+
+MONTHLY FIT: 2021-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-04-01.joblib
+SHA-256: 631f5114b8c2cda0ae622e25d94aa064b6c87872b0dd5079334bafd841433014
+Training rows: 99; latest completed outcome: 2020-08-28
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rank_strength <= 0.95619228482246399:
+  IF count_91d <= 31.5:
+    IF count_365d <= 137.5:
+      SIZE 50% (leaf node 5; training examples 20)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 17)
+  ELSE:
+    IF count_91d <= 37:
+      SIZE 100% (leaf node 7; training examples 12)
+    ELSE:
+      IF profit_91d <= 0.014758940320461988:
+        SIZE 100% (leaf node 9; training examples 17)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 19)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 14)
+
+MONTHLY FIT: 2021-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-05-01.joblib
+SHA-256: 523f1d7bfbcb3265a6ccad9fdab487b0968e1f6f2763c8a252028cdfd7317afb
+Training rows: 103; latest completed outcome: 2021-04-30
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.83943900465965271:
+  SIZE 100% (leaf node 1; training examples 22)
+ELSE:
+  IF beta <= 0.89148157835006714:
+    IF rank_strength <= 0.86092716455459595:
+      SIZE 50% (leaf node 5; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 12)
+  ELSE:
+    IF oriented_vrp_gap <= -0.27062581479549408:
+      SIZE 50% (leaf node 7; training examples 15)
+    ELSE:
+      IF profit_91d <= 0.036477768793702126:
+        SIZE 50% (leaf node 9; training examples 19)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 23)
+
+MONTHLY FIT: 2021-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-06-01.joblib
+SHA-256: ababd2784fe5eeaccbdd3b4e0ee961b99a329f88658ee94f45ad762c242844f6
+Training rows: 97; latest completed outcome: 2021-05-21
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.83943900465965271:
+  SIZE 100% (leaf node 1; training examples 15)
+ELSE:
+  IF beta <= 0.88357633352279663:
+    IF rank_strength <= 0.86092716455459595:
+      SIZE 50% (leaf node 5; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 12)
+  ELSE:
+    IF oriented_vrp_gap <= -0.27062581479549408:
+      SIZE 50% (leaf node 7; training examples 15)
+    ELSE:
+      IF profit_91d <= 0.036477768793702126:
+        SIZE 50% (leaf node 9; training examples 20)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 23)
+
+MONTHLY FIT: 2021-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-07-01.joblib
+SHA-256: 8513a06c231ab41bc02a1b94abf9bc1fbf4811dd64709e6962585554da793090
+Training rows: 103; latest completed outcome: 2021-06-18
+Inputs: 27; leaf count: 8
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.83943900465965271:
+  SIZE 100% (leaf node 1; training examples 14)
+ELSE:
+  IF beta <= 0.88357633352279663:
+    IF rank_strength <= 0.86092716455459595:
+      SIZE 50% (leaf node 5; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 12)
+  ELSE:
+    IF profit_365d <= 0.0029087292496114969:
+      IF iv_mean <= 0.54200640320777893:
+        SIZE 100% (leaf node 13; training examples 12)
+      ELSE:
+        SIZE 100% (leaf node 14; training examples 12)
+    ELSE:
+      IF rank_strength <= 0.80352845788002014:
+        SIZE 50% (leaf node 9; training examples 16)
+      ELSE:
+        IF rv_mean <= 0.47050395607948303:
+          SIZE 50% (leaf node 11; training examples 12)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 13)
+
+MONTHLY FIT: 2021-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-08-01.joblib
+SHA-256: af5b300d2fbebe38662145f0c85fb55c7b00040e2dbc79bc20b3e454c8cfb04a
+Training rows: 112; latest completed outcome: 2021-07-23
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.83943900465965271:
+  SIZE 100% (leaf node 1; training examples 17)
+ELSE:
+  IF beta <= 0.88357633352279663:
+    IF profit_91d <= 0.021968686953186989:
+      SIZE 50% (leaf node 5; training examples 14)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 16)
+  ELSE:
+    IF profit_365d <= 0.0029087292496114969:
+      SIZE 100% (leaf node 7; training examples 24)
+    ELSE:
+      IF rank_strength <= 0.80352845788002014:
+        SIZE 50% (leaf node 9; training examples 16)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 25)
+
+MONTHLY FIT: 2021-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-09-01.joblib
+SHA-256: 9522c5bc3d69f21ea2504deba64ab1cbd286462f715d3224de0ad546b4ccc9e3
+Training rows: 123; latest completed outcome: 2021-08-27
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.83943900465965271:
+  SIZE 100% (leaf node 1; training examples 28)
+ELSE:
+  IF beta <= 0.88357633352279663:
+    IF rv_mean <= 0.5534881055355072:
+      SIZE 50% (leaf node 7; training examples 15)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 15)
+  ELSE:
+    IF profit_365d <= 0.0029087292496114969:
+      SIZE 100% (leaf node 5; training examples 24)
+    ELSE:
+      IF rank_strength <= 0.80352845788002014:
+        SIZE 50% (leaf node 9; training examples 16)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 25)
+
+MONTHLY FIT: 2021-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-10-01.joblib
+SHA-256: efbe42a389f13d45bd1236fcba11fc2f40e02156263b92be5490544f26021b1b
+Training rows: 123; latest completed outcome: 2021-09-24
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF beta <= 0.88357633352279663:
+  IF oriented_vrp_gap <= 0.12450351193547249:
+    SIZE 50% (leaf node 3; training examples 17)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 15)
+ELSE:
+  IF oriented_vrp_gap <= 0.060445617884397507:
+    IF dte_mean <= 32.25:
+      IF iv_mean <= 0.48231557011604309:
+        SIZE 50% (leaf node 9; training examples 19)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 20)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 21)
+  ELSE:
+    IF rv_mean <= 0.50343802571296692:
+      SIZE 100% (leaf node 11; training examples 16)
+    ELSE:
+      SIZE 100% (leaf node 12; training examples 15)
+
+MONTHLY FIT: 2021-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-11-01.joblib
+SHA-256: 85aac6bb883b7de5dc929efd9ecd117e1518dd4f3c2f004f62c5552c0a926187
+Training rows: 102; latest completed outcome: 2021-10-15
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF beta <= 1.0241774320602417:
+  IF oriented_vrp_gap <= 0.1672515869140625:
+    IF beta <= 0.91370126605033875:
+      SIZE 50% (leaf node 5; training examples 12)
+    ELSE:
+      IF count_365d <= 135.5:
+        SIZE 50% (leaf node 11; training examples 17)
+      ELSE:
+        SIZE 50% (leaf node 12; training examples 15)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 20)
+ELSE:
+  IF vix <= 0.28035001456737518:
+    IF dte_mean <= 29.5:
+      SIZE 50% (leaf node 9; training examples 12)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 13)
+  ELSE:
+    SIZE 100% (leaf node 8; training examples 13)
+
+MONTHLY FIT: 2021-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2021-12-01.joblib
+SHA-256: 69649ab649d840b0700a1c84fa78df813ddea097f91895e2713cbf90022c17f8
+Training rows: 81; latest completed outcome: 2021-11-19
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= 0.16684123873710632:
+  IF count_365d <= 103:
+    IF oriented_iv_gap <= -0.1092512272298336:
+      SIZE 50% (leaf node 7; training examples 10)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 13)
+  ELSE:
+    IF dte_mean <= 32.25:
+      IF oriented_vrp_gap <= -0.11560310795903206:
+        SIZE 50% (leaf node 9; training examples 12)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 12)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 14)
+ELSE:
+  IF oriented_iv_gap <= -0.0077107767574489117:
+    SIZE 100% (leaf node 11; training examples 10)
+  ELSE:
+    SIZE 100% (leaf node 12; training examples 10)
+
+MONTHLY FIT: 2022-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-01-01.joblib
+SHA-256: 786dbb0695a92b844241978a7f0d2011a21c1a0014ecb534bf52a3521e4696bc
+Training rows: 70; latest completed outcome: 2021-12-23
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF oriented_vrp_gap <= 0.22860827296972275:
+  IF count_365d <= 88:
+    IF rank_strength <= 0.84313294291496277:
+      SIZE 50% (leaf node 9; training examples 12)
+    ELSE:
+      SIZE 50% (leaf node 10; training examples 8)
+  ELSE:
+    IF count_91d <= 31:
+      IF rv_mean <= 0.42218844592571259:
+        SIZE 75% (leaf node 7; training examples 10)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 14)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 12)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 14)
+
+MONTHLY FIT: 2022-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-02-01.joblib
+SHA-256: 2c931edf722f7f7312eff677d950ab0a848ba6683d643595b2410cef21663510
+Training rows: 76; latest completed outcome: 2022-01-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 103:
+  IF oriented_vrp_gap <= 0.1672515869140625:
+    IF rv_mean <= 0.42754708230495453:
+      SIZE 50% (leaf node 5; training examples 10)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 14)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 14)
+ELSE:
+  IF iv_mean <= 0.41363547742366791:
+    IF rank_strength <= 0.76780548691749573:
+      SIZE 50% (leaf node 9; training examples 9)
+    ELSE:
+      IF iv_mean <= 0.32998578250408173:
+        SIZE 100% (leaf node 11; training examples 9)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 10)
+  ELSE:
+    SIZE 100% (leaf node 8; training examples 10)
+
+MONTHLY FIT: 2022-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-03-01.joblib
+SHA-256: 4019d12204f5df0151d6f3834cea04312ac9fcb31c4102893526a7529d8edc5b
+Training rows: 79; latest completed outcome: 2022-02-25
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 103:
+  IF oriented_vrp_gap <= 0.1672515869140625:
+    IF rv_mean <= 0.42754708230495453:
+      SIZE 50% (leaf node 7; training examples 10)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 14)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 14)
+ELSE:
+  IF commission_vol_points <= 0.32502269744873047:
+    IF rank_strength <= 0.72578868269920349:
+      SIZE 50% (leaf node 9; training examples 9)
+    ELSE:
+      IF count_365d <= 116:
+        SIZE 100% (leaf node 11; training examples 14)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 9)
+  ELSE:
+    SIZE 100% (leaf node 6; training examples 9)
+
+MONTHLY FIT: 2022-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-04-01.joblib
+SHA-256: 1d97c9f31b7b127860a8ec6ee518588cc413c34f02823521146aedb0f3ed3a75
+Training rows: 95; latest completed outcome: 2022-03-25
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.93485927581787109:
+  IF profit_365d <= 0.0085793607868254185:
+    IF vix <= 0.19815000146627426:
+      IF oriented_vrp_gap <= -0.019200513255782425:
+        SIZE 50% (leaf node 11; training examples 13)
+      ELSE:
+        SIZE 50% (leaf node 12; training examples 11)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 12)
+  ELSE:
+    IF oriented_vrp_gap <= 0.1672515869140625:
+      IF beta <= 0.93537086248397827:
+        SIZE 50% (leaf node 7; training examples 11)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 16)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 13)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 19)
+
+MONTHLY FIT: 2022-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-05-01.joblib
+SHA-256: 5c258412dd1a0b6df8aa47dc450e137b1f39d9d0d14bff41059eb62cc38e8940
+Training rows: 100; latest completed outcome: 2022-04-29
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.0085793607868254185:
+  IF oriented_iv_gap <= -0.11282986029982567:
+    SIZE 100% (leaf node 5; training examples 14)
+  ELSE:
+    IF count_365d <= 116:
+      SIZE 50% (leaf node 9; training examples 21)
+    ELSE:
+      SIZE 100% (leaf node 10; training examples 13)
+ELSE:
+  IF rank_strength <= 0.75555384159088135:
+    SIZE 50% (leaf node 3; training examples 21)
+  ELSE:
+    IF iv_mean <= 0.453944131731987:
+      SIZE 50% (leaf node 7; training examples 15)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 16)
+
+MONTHLY FIT: 2022-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-06-01.joblib
+SHA-256: 7b5513fb13a297cda7413683ada9c021c10882a7141ec21c8dfd5d2ea5ab107a
+Training rows: 105; latest completed outcome: 2022-05-27
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_91d <= 26.5:
+  IF oriented_vrp_gap <= 0.1672515869140625:
+    IF count_365d <= 83.5:
+      SIZE 50% (leaf node 11; training examples 13)
+    ELSE:
+      SIZE 50% (leaf node 12; training examples 13)
+  ELSE:
+    SIZE 75% (leaf node 4; training examples 21)
+ELSE:
+  IF profit_91d <= 0.011034926399588585:
+    SIZE 100% (leaf node 5; training examples 17)
+  ELSE:
+    IF commission_vol_points <= 0.33323641121387482:
+      IF count_365d <= 115.5:
+        SIZE 50% (leaf node 9; training examples 14)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 14)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 13)
+
+MONTHLY FIT: 2022-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-07-01.joblib
+SHA-256: 8ae700524caec19eaf0baff0a9238f6acd45d89256b4c3c6acb954236eedd73b
+Training rows: 111; latest completed outcome: 2022-06-17
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.57017976045608521:
+  IF profit_365d <= 0.0085793607868254185:
+    IF vix <= 0.2219499945640564:
+      IF count_365d <= 112.5:
+        SIZE 75% (leaf node 11; training examples 15)
+      ELSE:
+        SIZE 50% (leaf node 12; training examples 15)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 16)
+  ELSE:
+    IF iv_mean <= 0.42325630784034729:
+      SIZE 50% (leaf node 7; training examples 20)
+    ELSE:
+      IF oriented_vrp_gap <= -0.014484097715467215:
+        SIZE 50% (leaf node 9; training examples 17)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 13)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 15)
+
+MONTHLY FIT: 2022-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-08-01.joblib
+SHA-256: dd3f6f02da787ebce8f65c93fe1794c0419212a877b28e152d74f8293da0229c
+Training rows: 141; latest completed outcome: 2022-07-29
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF vix <= 0.29805000126361847:
+  IF iv_mean <= 0.68488836288452148:
+    IF correlation <= 0.93485927581787109:
+      IF profit_365d <= 0.0085793607868254185:
+        IF oriented_vrp_gap <= -0.093580238521099091:
+          SIZE 100% (leaf node 11; training examples 18)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 18)
+      ELSE:
+        IF iv_mean <= 0.453944131731987:
+          SIZE 50% (leaf node 9; training examples 26)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 18)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 19)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 18)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 24)
+
+MONTHLY FIT: 2022-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-09-01.joblib
+SHA-256: c89a1c3bdd2e5b16ec41ca7ee7260371ef0524279d0e16464cf9b45970b7282b
+Training rows: 155; latest completed outcome: 2022-08-26
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF vix <= 0.29805000126361847:
+  IF profit_365d <= 0.094162270426750183:
+    IF beta <= 0.98361241817474365:
+      IF profit_91d <= 0.019061518833041191:
+        SIZE 50% (leaf node 9; training examples 20)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 32)
+    ELSE:
+      IF profit_91d <= 0.011952612549066544:
+        SIZE 100% (leaf node 7; training examples 21)
+      ELSE:
+        IF oriented_iv_gap <= 0.17913962155580521:
+          SIZE 100% (leaf node 11; training examples 20)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 19)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 19)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 24)
+
+MONTHLY FIT: 2022-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-10-01.joblib
+SHA-256: 3c63ee5f7baf74bc2d1c54b7adc4c9ebdb6523bbd09009455f7df3c0e8016ada
+Training rows: 185; latest completed outcome: 2022-09-30
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF commission_vol_points <= 0.43733412027359009:
+  IF commission_vol_points <= 0.34547239542007446:
+    IF profit_91d <= 0.011952612549066544:
+      SIZE 100% (leaf node 5; training examples 25)
+    ELSE:
+      IF rank_strength <= 0.88594594597816467:
+        IF vix <= 0.22935000061988831:
+          IF oriented_iv_gap <= 0.00014325414667837322:
+            SIZE 100% (leaf node 11; training examples 23)
+          ELSE:
+            SIZE 50% (leaf node 12; training examples 23)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 25)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 27)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 23)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 39)
+
+MONTHLY FIT: 2022-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-11-01.joblib
+SHA-256: 355ae958d5f1a8937cebde3c47b90e542be299219e808e82d4e02540c48042ea
+Training rows: 201; latest completed outcome: 2022-10-28
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF commission_vol_points <= 0.43733412027359009:
+  IF iv_mean <= 0.66948583722114563:
+    IF profit_91d <= 0.011952612549066544:
+      SIZE 100% (leaf node 5; training examples 29)
+    ELSE:
+      IF commission_vol_points <= 0.23411016911268234:
+        IF commission_vol_points <= 0.16021059453487396:
+          SIZE 50% (leaf node 9; training examples 25)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 42)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 38)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 25)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 42)
+
+MONTHLY FIT: 2022-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2022-12-01.joblib
+SHA-256: 14654fea80e8de4f1809b9cccde8823514106aacb8da329381419add88a61b92
+Training rows: 203; latest completed outcome: 2022-11-25
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF commission_vol_points <= 0.4478728175163269:
+  IF iv_mean <= 0.68515139818191528:
+    IF profit_91d <= 0.011952612549066544:
+      SIZE 100% (leaf node 5; training examples 30)
+    ELSE:
+      IF rank_strength <= 0.89379909634590149:
+        IF vix <= 0.21865000575780869:
+          SIZE 100% (leaf node 9; training examples 45)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 34)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 25)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 25)
+ELSE:
+  SIZE 100% (leaf node 2; training examples 44)
+
+MONTHLY FIT: 2023-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-01-01.joblib
+SHA-256: b79f9e14f8d472e1ccd053145d86ab7b2b7ca59054f1e0210c4ca4696329e7e4
+Training rows: 221; latest completed outcome: 2022-12-30
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.6474933922290802:
+  SIZE 100% (leaf node 1; training examples 28)
+ELSE:
+  IF correlation <= 0.69839289784431458:
+    SIZE 50% (leaf node 3; training examples 32)
+  ELSE:
+    IF commission_vol_points <= 0.23428088426589966:
+      IF iv_mean <= 0.44826672971248627:
+        SIZE 100% (leaf node 7; training examples 43)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 38)
+    ELSE:
+      IF count_365d <= 119.5:
+        SIZE 50% (leaf node 9; training examples 30)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 50)
+
+MONTHLY FIT: 2023-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-02-01.joblib
+SHA-256: 0aca9873083bd12f3fba6f383a33e9f672f06e75c8a11f0b274ff943f4b2c4a6
+Training rows: 224; latest completed outcome: 2023-01-27
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.60400849580764771:
+  SIZE 100% (leaf node 1; training examples 28)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF profit_365d <= 0.026462934911251068:
+      IF profit_365d <= 0.0079841949045658112:
+        IF oriented_iv_gap <= -0.10630401968955994:
+          SIZE 100% (leaf node 9; training examples 30)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 36)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 53)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 42)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 35)
+
+MONTHLY FIT: 2023-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-03-01.joblib
+SHA-256: 8ac4e0778793fb9f97a0646cc4eacda84538316b69fd436623043aa59e8879be
+Training rows: 220; latest completed outcome: 2023-02-17
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.59595403075218201:
+  SIZE 100% (leaf node 1; training examples 28)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF profit_365d <= 0.026462934911251068:
+      IF profit_365d <= 0.0079841949045658112:
+        IF oriented_iv_gap <= -0.10630401968955994:
+          SIZE 100% (leaf node 9; training examples 30)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 36)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 50)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 41)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 35)
+
+MONTHLY FIT: 2023-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-04-01.joblib
+SHA-256: af445e0c6035f295a94e0d9f1811b4fca32c64bbabcbe44f87da9b0b6cfb8ec5
+Training rows: 234; latest completed outcome: 2023-03-31
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.63013210892677307:
+  SIZE 100% (leaf node 1; training examples 29)
+ELSE:
+  IF profit_91d <= 0.11213697493076324:
+    IF profit_365d <= 0.026462934911251068:
+      IF profit_365d <= 0.0030500387074425817:
+        SIZE 100% (leaf node 7; training examples 36)
+      ELSE:
+        IF correlation <= 0.88441938161849976:
+          SIZE 50% (leaf node 9; training examples 30)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 54)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 45)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 40)
+
+MONTHLY FIT: 2023-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-05-01.joblib
+SHA-256: 7ef169b5c8645be96cc4801ecdd88efd4f6a0807d7a70e28fe26e100fbea7d54
+Training rows: 260; latest completed outcome: 2023-04-28
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.66516634821891785:
+  SIZE 100% (leaf node 1; training examples 32)
+ELSE:
+  IF profit_365d <= 0.062977887690067291:
+    IF count_91d <= 24:
+      SIZE 50% (leaf node 5; training examples 34)
+    ELSE:
+      IF profit_365d <= 0.026462934911251068:
+        IF profit_365d <= 0.0030500387074425817:
+          SIZE 100% (leaf node 9; training examples 35)
+        ELSE:
+          IF oriented_vrp_gap <= -0.15964506566524506:
+            SIZE 100% (leaf node 11; training examples 35)
+          ELSE:
+            SIZE 50% (leaf node 12; training examples 45)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 47)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 32)
+
+MONTHLY FIT: 2023-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-06-01.joblib
+SHA-256: 3a0eb254edf4f15f6cbbd533504df20a4605da320b2576a48dfca36b34c1ee14
+Training rows: 269; latest completed outcome: 2023-05-26
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.66509538888931274:
+  IF commission_vol_points <= 0.4478728175163269:
+    IF correlation <= 0.76087197661399841:
+      SIZE 50% (leaf node 5; training examples 35)
+    ELSE:
+      IF iv_mean <= 0.40155267715454102:
+        IF profit_365d <= 0.0079898405820131302:
+          SIZE 100% (leaf node 11; training examples 33)
+        ELSE:
+          SIZE 50% (leaf node 12; training examples 39)
+      ELSE:
+        IF commission_vol_points <= 0.24823202192783356:
+          SIZE 100% (leaf node 9; training examples 45)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 33)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 43)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 41)
+
+MONTHLY FIT: 2023-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-07-01.joblib
+SHA-256: 129320fa963237a4bd587e1650ef5164382a2467602d0c8881f8df764d6400ef
+Training rows: 287; latest completed outcome: 2023-06-30
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.59595403075218201:
+  SIZE 100% (leaf node 1; training examples 35)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF commission_vol_points <= 0.26418296992778778:
+      IF iv_mean <= 0.44826672971248627:
+        SIZE 50% (leaf node 7; training examples 61)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 40)
+    ELSE:
+      IF profit_365d <= 0.0030500387074425817:
+        SIZE 100% (leaf node 9; training examples 53)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 51)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 47)
+
+MONTHLY FIT: 2023-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-08-01.joblib
+SHA-256: d926c34b90cdea3420828bbe2305a7367c256aac51ebbe7f31be85fb4663911a
+Training rows: 299; latest completed outcome: 2023-07-28
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.6474933922290802:
+  SIZE 100% (leaf node 1; training examples 38)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF profit_365d <= 0.027029492892324924:
+      IF profit_365d <= 0.0030500387074425817:
+        SIZE 100% (leaf node 7; training examples 68)
+      ELSE:
+        IF dte_mean <= 30.5:
+          SIZE 50% (leaf node 9; training examples 54)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 51)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 41)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 47)
+
+MONTHLY FIT: 2023-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-09-01.joblib
+SHA-256: ff079ff7967c7a31ffc29af4e8e42cd5a200f17ccf8334ed451964351c288093
+Training rows: 289; latest completed outcome: 2023-08-18
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.6394389271736145:
+  SIZE 100% (leaf node 1; training examples 36)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF profit_365d <= 0.027029492892324924:
+      IF profit_365d <= 0.0029759258031845093:
+        SIZE 100% (leaf node 7; training examples 63)
+      ELSE:
+        IF rv_mean <= 0.48062349855899811:
+          SIZE 50% (leaf node 9; training examples 69)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 36)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 38)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 47)
+
+MONTHLY FIT: 2023-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-10-01.joblib
+SHA-256: 0723bd0354566d89d1f75b31092d92f30bbec7cc76965f67eef5d51cb9b8e0a5
+Training rows: 294; latest completed outcome: 2023-09-22
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.61215585470199585:
+  SIZE 100% (leaf node 1; training examples 37)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF profit_365d <= 0.022814590483903885:
+      IF profit_365d <= 0.0029759258031845093:
+        SIZE 100% (leaf node 7; training examples 63)
+      ELSE:
+        IF count_91d <= 27.5:
+          SIZE 50% (leaf node 9; training examples 40)
+        ELSE:
+          SIZE 75% (leaf node 10; training examples 64)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 43)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 47)
+
+MONTHLY FIT: 2023-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-11-01.joblib
+SHA-256: 5f6270e2e332018d54c9bed682a9dbe25aa4d4b4c709d27fed1896ede2585184
+Training rows: 294; latest completed outcome: 2023-10-20
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.61277872323989868:
+  SIZE 100% (leaf node 1; training examples 40)
+ELSE:
+  IF profit_365d <= 0.0555091742426157:
+    IF profit_365d <= 0.022814590483903885:
+      IF profit_365d <= 0.014632690697908401:
+        IF profit_365d <= 0.0029759258031845093:
+          SIZE 100% (leaf node 9; training examples 63)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 65)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 36)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 43)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 47)
+
+MONTHLY FIT: 2023-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2023-12-01.joblib
+SHA-256: d8472b7bce5ff9984e6a9b6202e5e8f4b6c60937a00476f5dc82c0c38f2f1b79
+Training rows: 293; latest completed outcome: 2023-11-17
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.78000783920288086:
+  IF correlation <= 0.61277872323989868:
+    SIZE 100% (leaf node 3; training examples 37)
+  ELSE:
+    IF correlation <= 0.74189046025276184:
+      SIZE 50% (leaf node 5; training examples 44)
+    ELSE:
+      IF profit_365d <= 0.021093627437949181:
+        IF vix <= 0.23875000327825546:
+          IF beta <= 0.87722468376159668:
+            SIZE 75% (leaf node 11; training examples 41)
+          ELSE:
+            SIZE 100% (leaf node 12; training examples 58)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 41)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 36)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 36)
+
+MONTHLY FIT: 2024-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-01-01.joblib
+SHA-256: 7a688bf8e64e5e41dabfa4b5f7da69aad9e1620232c885d900845a26759fe9d8
+Training rows: 268; latest completed outcome: 2023-12-22
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.60285693407058716:
+  SIZE 100% (leaf node 1; training examples 33)
+ELSE:
+  IF correlation <= 0.74189046025276184:
+    SIZE 50% (leaf node 3; training examples 59)
+  ELSE:
+    IF profit_365d <= 0.021964293904602528:
+      IF beta <= 0.88310042023658752:
+        SIZE 50% (leaf node 7; training examples 57)
+      ELSE:
+        IF correlation <= 0.86447188258171082:
+          SIZE 50% (leaf node 9; training examples 33)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 48)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 38)
+
+MONTHLY FIT: 2024-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-02-01.joblib
+SHA-256: fee40ffa075b9efc4af6be324140c1497cb6a30d2395b25dfba407f0f0d23e00
+Training rows: 255; latest completed outcome: 2024-01-12
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF correlation <= 0.60285693407058716:
+  SIZE 100% (leaf node 1; training examples 33)
+ELSE:
+  IF correlation <= 0.74189046025276184:
+    SIZE 50% (leaf node 3; training examples 52)
+  ELSE:
+    IF oriented_iv_gap <= -0.018463260494172573:
+      IF rank_strength <= 0.87117347121238708:
+        IF vix <= 0.23829999566078186:
+          IF vix <= 0.19375000149011612:
+            SIZE 50% (leaf node 11; training examples 45)
+          ELSE:
+            SIZE 100% (leaf node 12; training examples 31)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 31)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 32)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 31)
+
+MONTHLY FIT: 2024-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-03-01.joblib
+SHA-256: 89abae121921992b013543624d756b9232cf2fd659464a44c131180f5e4942bf
+Training rows: 221; latest completed outcome: 2024-02-16
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.057522717863321304:
+  IF oriented_iv_gap <= -0.012559526134282351:
+    IF rank_strength <= 0.89680850505828857:
+      IF count_91d <= 26.5:
+        SIZE 50% (leaf node 7; training examples 30)
+      ELSE:
+        IF iv_mean <= 0.40038445591926575:
+          IF iv_mean <= 0.2844524085521698:
+            SIZE 100% (leaf node 11; training examples 34)
+          ELSE:
+            SIZE 50% (leaf node 12; training examples 35)
+        ELSE:
+          SIZE 100% (leaf node 10; training examples 27)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 34)
+  ELSE:
+    SIZE 100% (leaf node 4; training examples 34)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 27)
+
+MONTHLY FIT: 2024-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-04-01.joblib
+SHA-256: db46cb61ba1afd48f1ba367bb55282d9a7e8d74b8d8754119ab7c0f066757b41
+Training rows: 208; latest completed outcome: 2024-03-22
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.057522717863321304:
+  IF commission_vol_points <= 0.64636257290840149:
+    IF correlation <= 0.77291300892829895:
+      SIZE 100% (leaf node 5; training examples 36)
+    ELSE:
+      IF rv_mean <= 0.31999406218528748:
+        IF rv_mean <= 0.26977710425853729:
+          SIZE 75% (leaf node 9; training examples 48)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 27)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 41)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 26)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 30)
+
+MONTHLY FIT: 2024-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-05-01.joblib
+SHA-256: 2a91853829515a0cfb0ca5b11450c12796593722c82fdbf4f23a4becfa75f75f
+Training rows: 197; latest completed outcome: 2024-03-22
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_365d <= 0.057522717863321304:
+  IF commission_vol_points <= 0.65607798099517822:
+    IF correlation <= 0.77291300892829895:
+      SIZE 100% (leaf node 5; training examples 34)
+    ELSE:
+      IF rv_mean <= 0.31999406218528748:
+        IF rv_mean <= 0.27395811676979065:
+          IF iv_mean <= 0.29559613764286041:
+            SIZE 50% (leaf node 11; training examples 24)
+          ELSE:
+            SIZE 75% (leaf node 12; training examples 24)
+        ELSE:
+          SIZE 50% (leaf node 10; training examples 26)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 38)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 24)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 27)
+
+MONTHLY FIT: 2024-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-06-01.joblib
+SHA-256: cae2f30a1843a88377f3d60a734995c6110c029acd2a8bc059275f359702c70c
+Training rows: 167; latest completed outcome: 2024-05-31
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.5067753791809082:
+  IF correlation <= 0.77251294255256653:
+    SIZE 100% (leaf node 5; training examples 35)
+  ELSE:
+    IF beta <= 0.8661632239818573:
+      SIZE 50% (leaf node 7; training examples 23)
+    ELSE:
+      IF rv_mean <= 0.3152439296245575:
+        IF beta <= 0.94107985496520996:
+          SIZE 50% (leaf node 11; training examples 23)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 21)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 24)
+ELSE:
+  IF profit_91d <= 0.090431760996580124:
+    SIZE 50% (leaf node 3; training examples 21)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 20)
+
+MONTHLY FIT: 2024-07-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-07-01.joblib
+SHA-256: 39a6ab5ddc8457c73d859da06a4143da52d106d87f54f1b0badb5d01417138d6
+Training rows: 161; latest completed outcome: 2024-06-21
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.53688159584999084:
+  IF profit_91d <= 0.051669765263795853:
+    IF vix <= 0.1627499982714653:
+      SIZE 100% (leaf node 7; training examples 20)
+    ELSE:
+      IF rv_mean <= 0.3152439296245575:
+        IF iv_mean <= 0.29495973885059357:
+          SIZE 50% (leaf node 11; training examples 20)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 20)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 28)
+  ELSE:
+    IF rv_mean <= 0.31969758868217468:
+      SIZE 100% (leaf node 5; training examples 29)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 20)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 24)
+
+MONTHLY FIT: 2024-08-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-08-01.joblib
+SHA-256: 9e2b98d5e1a414c2416939896b3f8a788108e4d8aa8e55f2874ac5998faf9484
+Training rows: 167; latest completed outcome: 2024-07-19
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_91d <= 0.056583231315016747:
+  IF oriented_iv_gap <= -0.0121971620246768:
+    IF beta <= 0.94107985496520996:
+      IF correlation <= 0.82721954584121704:
+        SIZE 100% (leaf node 9; training examples 26)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 22)
+    ELSE:
+      SIZE 100% (leaf node 8; training examples 28)
+  ELSE:
+    SIZE 100% (leaf node 6; training examples 26)
+ELSE:
+  IF iv_mean <= 0.34372606873512268:
+    SIZE 50% (leaf node 3; training examples 27)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 38)
+
+MONTHLY FIT: 2024-09-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-09-01.joblib
+SHA-256: 76f3e1a87b1bca11ff115c54cddd24d677d284fa3671b7e9ac33ed22bedb0098
+Training rows: 155; latest completed outcome: 2024-07-19
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.53688159584999084:
+  IF profit_91d <= 0.054302671924233437:
+    IF profit_91d <= 0.017137128859758377:
+      SIZE 100% (leaf node 7; training examples 19)
+    ELSE:
+      IF count_365d <= 140:
+        SIZE 50% (leaf node 9; training examples 27)
+      ELSE:
+        IF oriented_vrp_gap <= -0.32830795645713806:
+          SIZE 100% (leaf node 11; training examples 19)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 19)
+  ELSE:
+    IF correlation <= 0.64687585830688477:
+      SIZE 100% (leaf node 5; training examples 19)
+    ELSE:
+      SIZE 50% (leaf node 6; training examples 28)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 24)
+
+MONTHLY FIT: 2024-10-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-10-01.joblib
+SHA-256: 88243d88ec0a142c42bfa93a730d79b2e3a5ded7b052e9dbdf05a847eec23df7
+Training rows: 123; latest completed outcome: 2024-09-20
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF rv_mean <= 0.50727656483650208:
+  IF iv_mean <= 0.24175725877285004:
+    SIZE 100% (leaf node 5; training examples 22)
+  ELSE:
+    IF vix <= 0.13455000519752502:
+      SIZE 50% (leaf node 7; training examples 23)
+    ELSE:
+      IF iv_mean <= 0.31902696192264557:
+        IF rank_strength <= 0.78175255656242371:
+          SIZE 50% (leaf node 11; training examples 15)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 17)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 15)
+ELSE:
+  IF dte_mean <= 34:
+    SIZE 50% (leaf node 3; training examples 15)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 16)
+
+MONTHLY FIT: 2024-11-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-11-01.joblib
+SHA-256: f8e705e947b0ecdad6e4b169d29e08efd30911b4c2bc114c103f47088c66cb81
+Training rows: 111; latest completed outcome: 2024-10-18
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.7246374785900116:
+  IF commission_vol_points <= 0.55886411666870117:
+    IF iv_mean <= 0.24019803106784821:
+      SIZE 100% (leaf node 5; training examples 14)
+    ELSE:
+      IF iv_mean <= 0.34835235774517059:
+        IF correlation <= 0.72585579752922058:
+          SIZE 50% (leaf node 9; training examples 13)
+        ELSE:
+          IF profit_365d <= 0.0044602043926715851:
+            SIZE 50% (leaf node 11; training examples 22)
+          ELSE:
+            SIZE 100% (leaf node 12; training examples 18)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 18)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 13)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 13)
+
+MONTHLY FIT: 2024-12-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2024-12-01.joblib
+SHA-256: 8a1f1f26ef83afb26c6a758ac2523f7c2f0bedc427d3f7299401bc8bfebe69bd
+Training rows: 87; latest completed outcome: 2024-11-22
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.77234694361686707:
+  IF profit_91d <= 0.12125468626618385:
+    IF commission_vol_points <= 0.11320552974939346:
+      IF vix <= 0.13374999910593033:
+        SIZE 50% (leaf node 9; training examples 14)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 10)
+    ELSE:
+      IF rank_strength <= 0.82111018896102905:
+        IF rank_strength <= 0.68113347887992859:
+          SIZE 100% (leaf node 11; training examples 13)
+        ELSE:
+          SIZE 100% (leaf node 12; training examples 13)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 17)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 10)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 10)
+
+MONTHLY FIT: 2025-01-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-01-01.joblib
+SHA-256: b674b02473504ca2767d133f72881da1b55763c62847b2b2fb35a12fc7a0c4a2
+Training rows: 82; latest completed outcome: 2024-12-20
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF iv_mean <= 0.68609318137168884:
+  IF commission_vol_points <= 0.47582347691059113:
+    IF commission_vol_points <= 0.11436601355671883:
+      IF count_365d <= 105.5:
+        SIZE 50% (leaf node 9; training examples 14)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 15)
+    ELSE:
+      IF rank_strength <= 0.8147372305393219:
+        SIZE 100% (leaf node 7; training examples 19)
+      ELSE:
+        SIZE 100% (leaf node 8; training examples 14)
+  ELSE:
+    SIZE 50% (leaf node 4; training examples 10)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 10)
+
+MONTHLY FIT: 2025-02-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-02-01.joblib
+SHA-256: f187871fb3226ecc40c414d576fcba7535e4f508fc3fa94be7a1784a2cfffda6
+Training rows: 90; latest completed outcome: 2025-01-17
+Inputs: 27; leaf count: 6
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF beta <= 0.87337800860404968:
+  SIZE 50% (leaf node 1; training examples 13)
+ELSE:
+  IF commission_vol_points <= 0.11436601355671883:
+    IF count_365d <= 111.5:
+      SIZE 50% (leaf node 7; training examples 16)
+    ELSE:
+      SIZE 75% (leaf node 8; training examples 19)
+  ELSE:
+    IF rank_strength <= 0.8147372305393219:
+      IF oriented_vrp_gap <= -0.25227151811122894:
+        SIZE 100% (leaf node 9; training examples 12)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 13)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 17)
+
+MONTHLY FIT: 2025-03-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-03-01.joblib
+SHA-256: 95c6274433a8237a15b6c6e42b53f733fa8b56652304908f3af57bad520a8439
+Training rows: 87; latest completed outcome: 2025-02-21
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF beta <= 0.87337800860404968:
+  SIZE 50% (leaf node 1; training examples 13)
+ELSE:
+  IF commission_vol_points <= 0.11436601355671883:
+    IF oriented_iv_gap <= 0.19753318279981613:
+      IF iv_mean <= 0.27358031272888184:
+        SIZE 50% (leaf node 11; training examples 13)
+      ELSE:
+        SIZE 50% (leaf node 12; training examples 13)
+    ELSE:
+      SIZE 50% (leaf node 8; training examples 10)
+  ELSE:
+    IF commission_vol_points <= 0.19639770686626434:
+      SIZE 100% (leaf node 5; training examples 10)
+    ELSE:
+      IF profit_365d <= 0.018959995824843645:
+        SIZE 100% (leaf node 9; training examples 13)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 15)
+
+MONTHLY FIT: 2025-04-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-04-01.joblib
+SHA-256: e06d7d8fbaab4e270f59d2d78e84892da44b2a14b786c639ffc074b2a499e724
+Training rows: 85; latest completed outcome: 2025-03-21
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF profit_91d <= 0.087996248155832291:
+  IF commission_vol_points <= 0.10668615996837616:
+    IF oriented_iv_gap <= 0.086528796702623367:
+      SIZE 50% (leaf node 7; training examples 16)
+    ELSE:
+      IF beta <= 1.0340217351913452:
+        SIZE 50% (leaf node 9; training examples 11)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 10)
+  ELSE:
+    IF commission_vol_points <= 0.19639770686626434:
+      SIZE 100% (leaf node 5; training examples 10)
+    ELSE:
+      IF oriented_vrp_gap <= -0.087111636996269226:
+        SIZE 50% (leaf node 11; training examples 10)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 14)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 14)
+
+MONTHLY FIT: 2025-05-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-05-01.joblib
+SHA-256: 5f659cba20f7c56b4c3e1008dfbf019d6f1763c3c742f83a5f9dde75583167c5
+Training rows: 85; latest completed outcome: 2025-04-17
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 133.5:
+  IF oriented_iv_gap <= 0.080886758863925934:
+    IF oriented_vrp_gap <= -0.25227151811122894:
+      IF correlation <= 0.83379316329956055:
+        SIZE 100% (leaf node 9; training examples 10)
+      ELSE:
+        SIZE 100% (leaf node 10; training examples 10)
+    ELSE:
+      IF beta <= 0.91734221577644348:
+        SIZE 100% (leaf node 7; training examples 13)
+      ELSE:
+        SIZE 50% (leaf node 8; training examples 14)
+  ELSE:
+    IF count_365d <= 105:
+      SIZE 50% (leaf node 11; training examples 10)
+    ELSE:
+      SIZE 50% (leaf node 12; training examples 18)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 10)
+
+MONTHLY FIT: 2025-06-01
+Source: data/p25_validation_split_experiment.zip -> artifacts/contracts/p25_feature_search/models/control/2025-06-01.joblib
+SHA-256: b2d7814c8c97cc72196f9003f95e786b368e2d070781f22a30c831da7971caf8
+Training rows: 83; latest completed outcome: 2025-05-16
+Inputs: 27; leaf count: 7
+Leaf action codes are divided by 4: 2=50%, 3=75%, 4=100%.
+IF count_365d <= 133.5:
+  IF iv_mean <= 0.33763676881790161:
+    IF rank_strength <= 0.85008421540260315:
+      IF count_91d <= 27:
+        SIZE 50% (leaf node 9; training examples 10)
+      ELSE:
+        SIZE 50% (leaf node 10; training examples 14)
+    ELSE:
+      IF vix <= 0.14434999972581863:
+        SIZE 50% (leaf node 11; training examples 11)
+      ELSE:
+        SIZE 100% (leaf node 12; training examples 10)
+  ELSE:
+    IF count_91d <= 24.5:
+      SIZE 100% (leaf node 5; training examples 12)
+    ELSE:
+      SIZE 100% (leaf node 6; training examples 16)
+ELSE:
+  SIZE 50% (leaf node 2; training examples 10)

@@ -1,0 +1,3 @@
+case,months,months_ahead,median_difference
+direct_linear,90,41,-0.007762854554547172
+direct_additive,90,81,0.08053925662003539

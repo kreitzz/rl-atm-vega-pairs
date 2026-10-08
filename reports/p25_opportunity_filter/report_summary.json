@@ -1,0 +1,281 @@
+{
+  "conclusion": "The funded experiment does not establish that either contextual filter improves on the current filter at fixed 100% reference sizing.",
+  "interval_evidence": "Both block-length intervals are below zero for Rank + ridge, Rank + spline.",
+  "monthly_decision_windows": 360,
+  "fitted_predictive_models": 328,
+  "broad_funded_available": false,
+  "broad_missing_contract_pair_dates": 5712,
+  "training_capacity": [
+    {
+      "case": "broad_ridge",
+      "models": 90,
+      "minimum_rows": 3244,
+      "median_rows": 5088.0,
+      "maximum_rows": 10700,
+      "minimum_pair_dates": 1622,
+      "median_pair_dates": 2544.0,
+      "maximum_pair_dates": 5350,
+      "nonfitted_months": 60
+    },
+    {
+      "case": "broad_spline",
+      "models": 90,
+      "minimum_rows": 3244,
+      "median_rows": 5088.0,
+      "maximum_rows": 10700,
+      "minimum_pair_dates": 1622,
+      "median_pair_dates": 2544.0,
+      "maximum_pair_dates": 5350,
+      "nonfitted_months": 53
+    },
+    {
+      "case": "rank_ridge",
+      "models": 90,
+      "minimum_rows": 606,
+      "median_rows": 954.5,
+      "maximum_rows": 2133,
+      "minimum_pair_dates": 606,
+      "median_pair_dates": 954.5,
+      "maximum_pair_dates": 2133,
+      "nonfitted_months": 42
+    },
+    {
+      "case": "rank_spline",
+      "models": 90,
+      "minimum_rows": 606,
+      "median_rows": 954.5,
+      "maximum_rows": 2133,
+      "minimum_pair_dates": 606,
+      "median_pair_dates": 954.5,
+      "maximum_pair_dates": 2133,
+      "nonfitted_months": 35
+    }
+  ],
+  "shadow_concentration": [
+    {
+      "case": "current_fixed100",
+      "positive_pairs": 19,
+      "negative_pairs": 13,
+      "top3_share_positive_profit": 0.5339874103887552
+    },
+    {
+      "case": "rank_all_fixed100",
+      "positive_pairs": 29,
+      "negative_pairs": 29,
+      "top3_share_positive_profit": 0.4023826454890344
+    },
+    {
+      "case": "broad_ridge",
+      "positive_pairs": 24,
+      "negative_pairs": 20,
+      "top3_share_positive_profit": 0.4266073905359493
+    },
+    {
+      "case": "broad_spline",
+      "positive_pairs": 26,
+      "negative_pairs": 20,
+      "top3_share_positive_profit": 0.4604564581533909
+    },
+    {
+      "case": "rank_ridge",
+      "positive_pairs": 11,
+      "negative_pairs": 23,
+      "top3_share_positive_profit": 0.5570653991496586
+    },
+    {
+      "case": "rank_spline",
+      "positive_pairs": 12,
+      "negative_pairs": 24,
+      "top3_share_positive_profit": 0.5606321925102374
+    }
+  ],
+  "selected_coverage": [
+    {
+      "case": "current_fixed100",
+      "selected": 608,
+      "missing_contract_pair_dates": 0,
+      "missing_contract_pairs": 0,
+      "unresolved_paths": 0,
+      "unresolved_pairs": 0,
+      "completed_training_outcomes": 558,
+      "stored_all_actions_zero": 50,
+      "stored_full_size_zero_other_nonzero": 0
+    },
+    {
+      "case": "rank_all_fixed100",
+      "selected": 4744,
+      "missing_contract_pair_dates": 0,
+      "missing_contract_pairs": 0,
+      "unresolved_paths": 25,
+      "unresolved_pairs": 4,
+      "completed_training_outcomes": 4311,
+      "stored_all_actions_zero": 393,
+      "stored_full_size_zero_other_nonzero": 15
+    },
+    {
+      "case": "broad_ridge",
+      "selected": 1261,
+      "missing_contract_pair_dates": 624,
+      "missing_contract_pairs": 68,
+      "unresolved_paths": 0,
+      "unresolved_pairs": 0,
+      "completed_training_outcomes": 1114,
+      "stored_all_actions_zero": 146,
+      "stored_full_size_zero_other_nonzero": 1
+    },
+    {
+      "case": "broad_spline",
+      "selected": 1670,
+      "missing_contract_pair_dates": 773,
+      "missing_contract_pairs": 74,
+      "unresolved_paths": 0,
+      "unresolved_pairs": 0,
+      "completed_training_outcomes": 1464,
+      "stored_all_actions_zero": 198,
+      "stored_full_size_zero_other_nonzero": 8
+    },
+    {
+      "case": "rank_ridge",
+      "selected": 768,
+      "missing_contract_pair_dates": 0,
+      "missing_contract_pairs": 0,
+      "unresolved_paths": 0,
+      "unresolved_pairs": 0,
+      "completed_training_outcomes": 689,
+      "stored_all_actions_zero": 77,
+      "stored_full_size_zero_other_nonzero": 2
+    },
+    {
+      "case": "rank_spline",
+      "selected": 881,
+      "missing_contract_pair_dates": 0,
+      "missing_contract_pairs": 0,
+      "unresolved_paths": 0,
+      "unresolved_pairs": 0,
+      "completed_training_outcomes": 787,
+      "stored_all_actions_zero": 93,
+      "stored_full_size_zero_other_nonzero": 1
+    }
+  ],
+  "model_activity": [
+    {
+      "case": "broad_ridge",
+      "months_with_candidates": 83,
+      "months_with_selection": 27,
+      "months_without_selection": 63,
+      "insufficient_training": 0,
+      "insufficient_validation": 8,
+      "validation_skip_all": 52,
+      "fitted_months": 30,
+      "distinct_finite_hurdles": 18,
+      "minimum_finite_hurdle": 0.0,
+      "maximum_finite_hurdle": 2.6728928154371663
+    },
+    {
+      "case": "broad_spline",
+      "months_with_candidates": 83,
+      "months_with_selection": 36,
+      "months_without_selection": 54,
+      "insufficient_training": 0,
+      "insufficient_validation": 8,
+      "validation_skip_all": 45,
+      "fitted_months": 37,
+      "distinct_finite_hurdles": 17,
+      "minimum_finite_hurdle": 0.0,
+      "maximum_finite_hurdle": 3.4275617322756062
+    },
+    {
+      "case": "rank_ridge",
+      "months_with_candidates": 83,
+      "months_with_selection": 35,
+      "months_without_selection": 55,
+      "insufficient_training": 0,
+      "insufficient_validation": 8,
+      "validation_skip_all": 34,
+      "fitted_months": 48,
+      "distinct_finite_hurdles": 35,
+      "minimum_finite_hurdle": 0.0,
+      "maximum_finite_hurdle": 4.321419554166025
+    },
+    {
+      "case": "rank_spline",
+      "months_with_candidates": 83,
+      "months_with_selection": 42,
+      "months_without_selection": 48,
+      "insufficient_training": 0,
+      "insufficient_validation": 8,
+      "validation_skip_all": 27,
+      "fitted_months": 55,
+      "distinct_finite_hurdles": 37,
+      "minimum_finite_hurdle": 0.0,
+      "maximum_finite_hurdle": 6.458621780329771
+    }
+  ],
+  "funded_pair_attribution_cases": [
+    "current_fixed100",
+    "rank_ridge",
+    "rank_spline"
+  ],
+  "later_funded": [
+    {
+      "case": "current_fixed100",
+      "period": "evaluation",
+      "start": "2022-01-03",
+      "end": "2025-08-29",
+      "annualized_excess_sharpe": 1.054539755283272,
+      "profit_above_cash": 200852.84091427177,
+      "proposals": 312,
+      "entries": 75,
+      "active_entry_pairs": 28,
+      "average_reserve_pct": 2.486052611310454,
+      "peak_reserve_pct": 14.86419393703904,
+      "max_cash_relative_drawdown_pct": -0.6457729066545292,
+      "post_entry_risk_breach_days": 0
+    },
+    {
+      "case": "rank_all_fixed100",
+      "period": "evaluation",
+      "start": "2022-01-03",
+      "end": "2025-08-29",
+      "annualized_excess_sharpe": 0.5671387699915111,
+      "profit_above_cash": 330790.77219507284,
+      "proposals": 2328,
+      "entries": 459,
+      "active_entry_pairs": 49,
+      "average_reserve_pct": 11.844452586186414,
+      "peak_reserve_pct": 56.49403535927504,
+      "max_cash_relative_drawdown_pct": -1.243256369733159,
+      "post_entry_risk_breach_days": 64
+    },
+    {
+      "case": "rank_ridge",
+      "period": "evaluation",
+      "start": "2022-01-03",
+      "end": "2025-08-29",
+      "annualized_excess_sharpe": -0.3829905552317156,
+      "profit_above_cash": -40549.9389284309,
+      "proposals": 2328,
+      "entries": 92,
+      "active_entry_pairs": 32,
+      "average_reserve_pct": 2.314393369993512,
+      "peak_reserve_pct": 25.881349538638005,
+      "max_cash_relative_drawdown_pct": -0.7246781443173922,
+      "post_entry_risk_breach_days": 0
+    },
+    {
+      "case": "rank_spline",
+      "period": "evaluation",
+      "start": "2022-01-03",
+      "end": "2025-08-29",
+      "annualized_excess_sharpe": -0.1532292606557737,
+      "profit_above_cash": -7728.406518476084,
+      "proposals": 2328,
+      "entries": 99,
+      "active_entry_pairs": 32,
+      "average_reserve_pct": 2.824830608367308,
+      "peak_reserve_pct": 21.306723125534067,
+      "max_cash_relative_drawdown_pct": -0.5759500911882598,
+      "post_entry_risk_breach_days": 3
+    }
+  ]
+}

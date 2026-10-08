@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "selected": "fixed100",
+  "ledgers_reconciled": 12,
+  "validation_selection_reproduced": true,
+  "saved_model_actions_reproduced": true,
+  "no_return_splicing": true,
+  "proposal_identities_and_requested_levels_verified": true,
+  "archived_threshold_selection_verified": true,
+  "interval_points_verified": true,
+  "protected_sources_unchanged": true,
+  "pair_attribution_available": [
+    "fixed100",
+    "q_capacity",
+    "q_risk",
+    "q_conservative",
+    "q_portfolio",
+    "myopic_risk",
+    "diversified",
+    "tree_cem",
+    "learned5"
+  ],
+  "peak_rss_mib": 311.10546875
+}

@@ -1,0 +1,40 @@
+{
+  "selected_constant_on_validation": "fixed100",
+  "train_rows": {
+    "min": 59,
+    "median": 125.0,
+    "max": 299
+  },
+  "training_pairs": {
+    "min": 8,
+    "median": 18.0,
+    "max": 38
+  },
+  "training_dates": {
+    "min": 57,
+    "median": 102.0,
+    "max": 198
+  },
+  "leaves_per_tree": {
+    "min": 5,
+    "median": 7.0,
+    "max": 8
+  },
+  "leaf_samples": {
+    "min": 8,
+    "median": 19.0,
+    "max": 69
+  },
+  "leaf_pairs": {
+    "min": 1,
+    "median": 5.0,
+    "max": 18
+  },
+  "leaves_total": 582,
+  "leaf_samples_below15": 165,
+  "adjacent_model_change_fraction": 0.21801621124759757,
+  "median_monthly_change_fraction": 0.2193548387096774,
+  "peak_rss_mib": 191.28515625,
+  "protocol_sha256": "f721df3f8f7e34d51c9343704777b7fbe3924cdcc20180fcae26a3e02f86257a",
+  "peak_rss_scope": "report process only; training and replay used separate capped processes"
+}

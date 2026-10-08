@@ -1,0 +1,138 @@
+ADDITIVE POSITION-SIZING EXPERIMENT
+
+The matched comparisons isolate nonlinear main effects and then three declared pairwise interactions within the same score-to-size framework.
+Nonlinear main effects versus a linear score: Both intervals include zero; the difference remains uncertain.
+Three interactions beyond additive main effects: Both intervals include zero; the difference remains uncertain.
+
+WHAT WAS TESTED
+All five cases receive the same 608 original proposals and the unchanged 20% rank gate. This experiment changes entry sizing, with the existing contract selection, capital, risk rules and daily hedge accounting.
+The three new models produce a continuous prediction score, followed by the same discrete 50%/75%/100% sizing head. Cutoffs are terciles of each outer training window's fitted scores; exact cutoff ties select the higher size. A smooth score does not create continuous option-position sizing: crossing a sizing boundary can still change the requested size abruptly.
+Sizing depends on where a score falls relative to its training-score cutoffs, not whether the predicted dollar payoff is positive. Every qualified proposal receives at least a 50% requested size, with subsequent admission controlled by the existing funded engine.
+Linear score versus additive main effects uses the same input identities, training population, target, regularization selection and sizing head. Additive main effects versus additive plus three interactions adds the declared interaction terms. The original tree plus CEM differs in partitioning and action optimization, so its comparison tests the whole sizing pipeline rather than nonlinear features alone.
+The new sizing head assigns larger sizes to higher predicted full-size payoffs. It does not separately estimate conditional risk or portfolio covariance when assigning sizes. The original CEM searches leaf allocations using aggregated training return paths and a Sharpe objective, so a difference against that baseline cannot be attributed solely to replacing the tree.
+Fixed variables means that the feature identities are fixed. Their coefficients or response curves, regularization and sizing calibration are refitted monthly on the preceding 18 months of completed outcomes. There is no permanent set of fixed states.
+The legacy target is full-size standalone lifetime dollar P&L, with $0.65 option commission; funded evaluation uses $0.03 commission. Prediction/CV target fit is not equivalent to optimizing funded portfolio Sharpe.
+The three declared interactions are rank strength × pair correlation, rank strength × VIX, and 365-day past profitability × 365-day observation count. Interaction bases are residualized against their participating main-effect bases in the training window; correlated inputs can still prevent a unique economic interpretation.
+
+FUNDED RESULTS
+Earlier: 2018–2021. Later: 2022–August 2025. Both are chronological evaluations, but both histories had already been inspected before this experiment.
+Model | Earlier Sharpe | Later Sharpe | Later profit above cash | Later entries | Later cash-relative drawdown
+Original tree + CEM | 0.573 | 1.263 | $248,673.30 | 110 | -0.495%
+Fixed 100% | 0.478 | 1.055 | $200,852.84 | 75 | -0.646%
+Linear score | 0.438 | 0.931 | $185,773.55 | 95 | -0.675%
+Additive main effects | 0.464 | 1.060 | $197,832.02 | 103 | -0.680%
+Additive + 3 interactions | 0.559 | 0.944 | $175,086.98 | 99 | -0.733%
+
+MATCHED COMPARISONS AND UNCERTAINTY
+Additive main effects minus Linear score, validation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change +0.026, 95% interval [-0.113, +0.171].
+  126-session blocks: Sharpe change +0.026, 95% interval [-0.092, +0.151].
+Additive main effects minus Linear score, evaluation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change +0.129, 95% interval [-0.083, +0.303].
+  126-session blocks: Sharpe change +0.129, 95% interval [-0.060, +0.309].
+Additive + 3 interactions minus Additive main effects, validation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change +0.095, 95% interval [-0.135, +0.297].
+  126-session blocks: Sharpe change +0.095, 95% interval [-0.120, +0.266].
+Additive + 3 interactions minus Additive main effects, evaluation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change -0.116, 95% interval [-0.236, +0.001].
+  126-session blocks: Sharpe change -0.116, 95% interval [-0.210, +0.017].
+
+COMPARISON WITH THE ORIGINAL TREE/CEM PIPELINE
+Linear score minus Original tree + CEM, evaluation: Both conditional intervals favor the reference.
+  63-session blocks: Sharpe change -0.331, 95% interval [-0.570, -0.086].
+  126-session blocks: Sharpe change -0.331, 95% interval [-0.531, -0.099].
+Additive main effects minus Original tree + CEM, evaluation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change -0.202, 95% interval [-0.448, +0.118].
+  126-session blocks: Sharpe change -0.202, 95% interval [-0.441, +0.144].
+Additive + 3 interactions minus Original tree + CEM, evaluation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change -0.319, 95% interval [-0.597, +0.063].
+  126-session blocks: Sharpe change -0.319, 95% interval [-0.587, +0.097].
+Fixed 100% minus Original tree + CEM, evaluation: Both intervals include zero; the difference remains uncertain.
+  63-session blocks: Sharpe change -0.208, 95% interval [-0.459, +0.111].
+  126-session blocks: Sharpe change -0.208, 95% interval [-0.433, +0.098].
+Intervals resample common calendar blocks and are conditional on the frozen fitted policies. They do not refit the models inside each resample and do not correct for earlier research, choice of model family or multiple comparisons. Agreement across two block lengths is sensitivity evidence, not an untouched confirmation sample.
+Different sizing policies change existing inventory, future admission, integer contract counts, hedging and financing. Identical proposals therefore do not imply identical executed portfolios. Funded P&L and entries must be interpreted together.
+
+TRAINING AND FALLBACKS
+Regularization is chosen from multipliers 0.1, 1 and 10 using two chronological three-month validation folds, with ridge penalty equal to training sample count times the multiplier. If both inner folds do not have sufficient completed data, the multiplier is fixed at 1 and the outer-window score model is still fitted; this fallback does not mean switching to fixed 100% sizing.
+Linear score: 90 monthly fits; training examples 59–299. Basis columns 15–15.
+  Recorded CV/fallback statuses: insufficient inner data, alpha=1 fallback: 23, two-fold selection: 67.
+  Selected regularization multipliers: 0.1=8, 1.0=40, 10.0=42.
+Additive main effects: 90 monthly fits; training examples 59–299. Basis columns 59–60.
+  Recorded CV/fallback statuses: insufficient inner data, alpha=1 fallback: 23, two-fold selection: 67.
+  Selected regularization multipliers: 0.1=9, 1.0=40, 10.0=41.
+Additive + 3 interactions: 90 monthly fits; training examples 59–299. Basis columns 107–108.
+  Recorded CV/fallback statuses: insufficient inner data, alpha=1 fallback: 23, two-fold selection: 67.
+  Selected regularization multipliers: 0.1=4, 1.0=43, 10.0=43.
+
+MEASURED SIZING STABILITY
+The following rates are weighted by the number of evaluated observations; they are not unweighted averages of monthly percentages. Local perturbation and month-to-month refit checks answer different questions.
+Model | Perturbed decisions changed | Mean absolute size change, percentage points | Refit decisions changed | Mean absolute refit size change, percentage points
+Original tree + CEM | 0.4% | 0.19 | 21.8% | 9.98
+Fixed 100% | 0% by construction | 0 | 0% by construction | 0
+Linear score | 0.8% | 0.19 | 17.9% | 4.66
+Additive main effects | 1.1% | 0.27 | 16.8% | 4.37
+Additive + 3 interactions | 1.2% | 0.31 | 18.7% | 4.86
+Each local check perturbs one economic input by plus and minus 5% of its outer-training population standard deviation on each actual proposal, keeping the fitted model and sizing head frozen. Zero-standard-deviation inputs are excluded. Observations therefore count proposal × feature × perturbation-direction cases, not distinct proposals.
+The other observed inputs are held fixed. With correlated inputs, such a point can be unusual or outside the training data distribution. This is local numerical sensitivity, not causal feature importance or a realistic market-shock scenario.
+Refit stability applies successive monthly models to common historical training examples; an example can recur in several adjacent-window comparisons. It measures changes in recommendations when the fitted model changes, not prospective out-of-sample stability or realized turnover of held option positions. Existing option quantities remain fixed after entry under this strategy.
+A lower switching rate can reflect stronger shrinkage, compressed predictions or a sizing head that places most scores in the same bucket. It is not sufficient evidence of a better economic model. Aggregate rates can conceal differences across features and months; inspect stability_by_feature.csv and the original monthly files.
+Additive curves can help interpretation, but correlated predictors can redistribute estimated effects among themselves. Individual curves describe the fitted score conditional on the other terms; they are not independently identified economic relationships.
+
+ANNUAL RESULTS
+Year | Model | Profit above cash | Excess Sharpe | Entries
+2018 | Original tree + CEM | $7,006.44 | 0.522 | 22
+2018 | Fixed 100% | $3,153.34 | 0.183 | 11
+2018 | Linear score | $309.85 | 0.027 | 19
+2018 | Additive main effects | $249.38 | 0.021 | 20
+2018 | Additive + 3 interactions | $-2,515.67 | -0.146 | 19
+2019 | Original tree + CEM | $-7,097.95 | -0.542 | 21
+2019 | Fixed 100% | $-8,136.17 | -0.514 | 13
+2019 | Linear score | $-3,543.52 | -0.246 | 23
+2019 | Additive main effects | $-4,112.14 | -0.287 | 23
+2019 | Additive + 3 interactions | $-1,921.66 | -0.129 | 23
+2020 | Original tree + CEM | $68,222.58 | 1.555 | 31
+2020 | Fixed 100% | $76,064.81 | 1.104 | 20
+2020 | Linear score | $64,363.59 | 1.294 | 27
+2020 | Additive main effects | $66,521.62 | 1.369 | 24
+2020 | Additive + 3 interactions | $80,242.81 | 1.542 | 24
+2021 | Original tree + CEM | $-9,817.76 | -0.580 | 23
+2021 | Fixed 100% | $403.25 | 0.019 | 14
+2021 | Linear score | $-12,200.72 | -0.706 | 19
+2021 | Additive main effects | $-11,690.43 | -0.692 | 19
+2021 | Additive + 3 interactions | $-9,442.51 | -0.551 | 21
+2022 | Original tree + CEM | $177,804.76 | 2.458 | 66
+2022 | Fixed 100% | $127,528.03 | 2.195 | 42
+2022 | Linear score | $153,564.97 | 2.192 | 52
+2022 | Additive main effects | $155,860.45 | 2.489 | 57
+2022 | Additive + 3 interactions | $142,137.25 | 2.418 | 53
+2023 | Original tree + CEM | $58,698.05 | 1.492 | 19
+2023 | Fixed 100% | $54,746.92 | 1.108 | 14
+2023 | Linear score | $43,381.72 | 1.344 | 18
+2023 | Additive main effects | $52,304.74 | 1.671 | 19
+2023 | Additive + 3 interactions | $50,807.87 | 1.636 | 20
+2024 | Original tree + CEM | $-16,737.51 | -0.907 | 11
+2024 | Fixed 100% | $-19,016.82 | -0.796 | 10
+2024 | Linear score | $-33,300.91 | -0.949 | 14
+2024 | Additive main effects | $-32,906.40 | -0.954 | 15
+2024 | Additive + 3 interactions | $-41,099.05 | -1.074 | 14
+2025 | Original tree + CEM | $28,908.00 | 1.092 | 14
+2025 | Fixed 100% | $37,594.72 | 1.310 | 9
+2025 | Linear score | $22,127.77 | 0.931 | 11
+2025 | Additive main effects | $22,573.23 | 0.936 | 12
+2025 | Additive + 3 interactions | $23,240.91 | 1.010 | 12
+
+LIMITS AND NEXT DECISION
+The observed score/size comparison can support or weaken the case for this specific additive specification. It does not show that all nonlinear models, all interactions, or the full input set are optimal. No proposal gate or pair universe was redesigned here.
+Use the matched uncertainty comparisons to judge the extra nonlinear complexity and use the original tree/CEM comparison to judge the resulting policy. A small improvement in prediction or stability alone does not establish improved funded Sharpe. No model is automatically promoted by this report.
+The next confirmatory evaluation requires a frozen design and genuinely new outcomes; further comparisons on this history remain exploratory.
+
+FILES
+funded/periods.csv; funded/annual.csv; funded/sharpe_intervals.csv; matched_intervals.csv; fits.csv; perturbation.csv; refit_stability.csv; stability_summary.csv; stability_by_feature.csv; comparison.png; report_manifest.json.
+
+ONE REVIEWABLE SIZING DECISION
+The latest qualified proposal (same-date ties use ascending pair ID) is 107484__113437 on 2025-06-23, scored by the 2025-06-01 additive-interaction model.
+Intercept plus all main and interaction terms sum to predicted full-size lifetime profit $2.00. Training-score boundaries are $-3.70 and $-0.40, so the recorded requested size is 100%. Exact boundary ties select the higher size.
+The funded engine's next-session admission on 2025-06-24 is no_eligible_contract. A sizing recommendation does not guarantee an executed trade.
+These are predicted legacy-label dollar contributions to one fitted score, not realized P&L, portfolio allocations or causal effects. With correlated predictors, effect attribution can move among terms even when the total prediction is similar.
+The table and chart show every nonmissing term. Columns absent from a model after concatenating cases are omitted; zero-valued terms remain visible. Files: example_contributions.csv, example_decision.json, example_contributions.png.

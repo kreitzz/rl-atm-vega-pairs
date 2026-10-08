@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "report_only": true,
+  "model_fitted": false,
+  "backtest_replayed": false,
+  "source_hashes": {
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\funded\\periods.csv": "1ecd5c96f56d558e077573e725e3929810c7cb8995db25bd581773b3899a9bfa",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\funded\\annual.csv": "3436759ff96b67efc33336146734f48a4104703db3620f6662e77f11ded82cb2",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\funded\\sharpe_intervals.csv": "cbf758664b9a49466241a8ed514c2eff58373163fe92a1dced889d0b1b27b217",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\matched_intervals.csv": "9e58e2a1d2a82ee0872f875209a3106ce870a6ec28d809b15be8f05f8e515e4d",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\fits.csv": "d0d7c91ccd1655402f542291d5fdb13de0265b42aad3ad7c8feccc3197364210",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\perturbation.csv": "4369e4a10018f75317831a67aa689ffc44eee30107174637cd84edaa6d392732",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\refit_stability.csv": "4cf8b7158c5f1cd93b66a62d9268408d450623aded1f2dc05e6271a697a2cfa3",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_additive_sizing\\allocations.parquet": "ca0c3f8a09270985c79e3233b3a605007671c849ab153784014e5bb28e63fec0",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_additive_sizing\\contributions.parquet": "bdc947b4377411661821592aa3a8cb5147648d2e8e75de2ef2f0764cce824bc3",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_additive_sizing\\models\\additive_pairs\\2025-06-01.joblib": "838750f716ca241bc5183b0d814d824da6b75db1ceff0733c3b940bb86d96b2d",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\artifacts\\contracts\\p25_additive_sizing\\replays\\additive_pairs\\decisions.csv": "f359c80c8fb8cee3978a225a984270fbd1e6873e73ba19a51f310b0e9717c313",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\scripts\\report_p25_additive_sizing.py": "6f4a405a6e182f1d71ee73dbe94c00da37b13a08f65df00fca34701fdd621ff3",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\protocol.json": "e7bcd3db912ae58efa2514e52b3e352fd46ea62c1b3776a174b2c6164157b970",
+    "C:\\Users\\xy\\Haas\\Term 3\\230ZB Deep Learning in Finance\\rl-atm-vega-pairs\\reports\\p25_additive_sizing\\funded\\analysis_protocol.json": "34ef9b638a28004fe0d13a903d062c709ca6cc7dd74db83aacb9231eb8fcd126"
+  },
+  "threads": 1,
+  "duty_cycle": 0.2,
+  "rss_limit_mib": 384,
+  "peak_rss_mib": 200.859375,
+  "outputs": {
+    "Findings.txt": "2153fd1c63b67ecb244d3dfebb7a7741c7baf15697cbbccd40547ba031a44b54",
+    "comparison.png": "67712c12326a8d961d2ea0a1d22bffc0b9d279b40f24650efd0339ea8a60be6b",
+    "stability_summary.csv": "0dcdd67fce96b985c5fa828ea607694c43bcc884761433b09a63439fce54e659",
+    "stability_by_feature.csv": "8af604ebcf3d6b0cb4ba5b6fc7baafc63e73919e8af35e8a0d220fac5641217a",
+    "example_contributions.csv": "1ddb2709e8b468e076a29f7bc4bbc0b61061d55a63056229768a2cc6eb1d7906",
+    "example_decision.json": "d13dd9d035b99ea5745bec28b69e698a0c9e8c8ecb2930024e0c41e980124200",
+    "example_contributions.png": "8f0c580d4fd91aced33e942ad897af83fc02a5c1b5f6f816dd4371450e508fed"
+  }
+}

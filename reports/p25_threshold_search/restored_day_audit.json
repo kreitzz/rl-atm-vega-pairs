@@ -1,0 +1,83 @@
+{
+  "status": "verified",
+  "original_payloads_changed": 0,
+  "total_quote_keys": 192802,
+  "total_contracts": 5124,
+  "coverage": [
+    {
+      "tail": 0.05,
+      "proposals": 163,
+      "both_contract_ids_available": 163,
+      "required_signal_keys": 322,
+      "missing_signal_keys": 0,
+      "required_next_session_keys": 322,
+      "missing_next_session_keys": 0,
+      "required_signal_through_pre_expiry_keys": 5304,
+      "missing_history_keys": 0,
+      "missing_history_keys_new_ids": 0
+    },
+    {
+      "tail": 0.1,
+      "proposals": 306,
+      "both_contract_ids_available": 306,
+      "required_signal_keys": 602,
+      "missing_signal_keys": 0,
+      "required_next_session_keys": 602,
+      "missing_next_session_keys": 0,
+      "required_signal_through_pre_expiry_keys": 9680,
+      "missing_history_keys": 0,
+      "missing_history_keys_new_ids": 0
+    },
+    {
+      "tail": 0.15,
+      "proposals": 459,
+      "both_contract_ids_available": 459,
+      "required_signal_keys": 901,
+      "missing_signal_keys": 0,
+      "required_next_session_keys": 901,
+      "missing_next_session_keys": 0,
+      "required_signal_through_pre_expiry_keys": 13952,
+      "missing_history_keys": 0,
+      "missing_history_keys_new_ids": 0
+    },
+    {
+      "tail": 0.2,
+      "proposals": 608,
+      "both_contract_ids_available": 608,
+      "required_signal_keys": 1191,
+      "missing_signal_keys": 0,
+      "required_next_session_keys": 1191,
+      "missing_next_session_keys": 0,
+      "required_signal_through_pre_expiry_keys": 17438,
+      "missing_history_keys": 0,
+      "missing_history_keys_new_ids": 0
+    },
+    {
+      "tail": 0.25,
+      "proposals": 743,
+      "both_contract_ids_available": 743,
+      "required_signal_keys": 1455,
+      "missing_signal_keys": 0,
+      "required_next_session_keys": 1455,
+      "missing_next_session_keys": 0,
+      "required_signal_through_pre_expiry_keys": 20858,
+      "missing_history_keys": 0,
+      "missing_history_keys_new_ids": 0
+    },
+    {
+      "tail": 0.3,
+      "proposals": 846,
+      "both_contract_ids_available": 846,
+      "required_signal_keys": 1654,
+      "missing_signal_keys": 0,
+      "required_next_session_keys": 1654,
+      "missing_next_session_keys": 0,
+      "required_signal_through_pre_expiry_keys": 23801,
+      "missing_history_keys": 0,
+      "missing_history_keys_new_ids": 0
+    }
+  ],
+  "original_query_scope": "run_p25_memory_ablation.quotes streams full yearly native history filtered only by optionid; uniform_smile_data.compact also retains yearly contract history, without proposal-date clipping.",
+  "supplemental_query_scope": "Every requested missing contract queried inclusively from first proposal signal to contract expiry, unfiltered by quote quality.",
+  "missing_keys": "Absent vendor observations remain absent. No forward-fill, synthetic quote, or proposal exclusion is applied. Funded engine decides entry validity and must resolve actual held positions."
+}
