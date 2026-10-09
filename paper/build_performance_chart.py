@@ -67,15 +67,15 @@ def main():
         "axes.labelsize": 9, "xtick.labelsize": 9, "ytick.labelsize": 9,
         "pdf.fonttype": 42, "ps.fonttype": 42,
     })
-    fig, ax = plt.subplots(figsize=(6.5, 3.0))
-    fig.subplots_adjust(left=0.115, right=0.985, bottom=0.19, top=0.92)
+    fig, ax = plt.subplots(figsize=(6.5, 2.3))
+    fig.subplots_adjust(left=0.115, right=0.985, bottom=0.25, top=0.92)
     ax.plot(learned.index, learned / 1000, color="#167D8D", linewidth=1.9, label="Tree + CEM")
     ax.plot(fixed.index, fixed / 1000, color="#17364D", linewidth=1.6,
             linestyle=(0, (5, 2.5)), label="Constant 100%")
     ax.axhline(0, color="#9BAAB5", linewidth=0.7)
     ax.set_axisbelow(True)
     ax.grid(axis="y", color="#E3E9ED", linewidth=0.7)
-    ax.set_ylabel("Cumulative profit above cash ($ thousands)")
+    ax.set_ylabel("Profit above cash ($ thousands)")
     ax.set_xlabel("Evaluation year")
     ax.xaxis.set_major_locator(mdates.YearLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))

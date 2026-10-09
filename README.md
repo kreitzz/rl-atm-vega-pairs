@@ -26,7 +26,7 @@ The same command produces [within-state checks](reports/p25_maturity_diagnostic/
 
 The original **1.003 versus 0.769** full-history checkpoint remains preserved. Sizing changes inventory and admission, so portfolios differ; the new evaluation Sharpe-gain interval includes zero. The broader-pool validation winner did not beat fixed full sizing in the later period.
 
-[Written report (Word / DOCX)](paper/options_relative_value.docx) · [10-page paper (PDF)](paper/options_relative_value.pdf) · [Latest saved presentation](slides/230ZB_volatility_spreads%20%281%29.pptx) · [Browser slides](slides/index.html) · [Submission and reproduction guide](SUBMISSION.md)
+[Latest 10-page paper (PDF)](paper/options_relative_value_draft.pdf) · [Earlier Word edition (DOCX)](paper/options_relative_value.docx) · [Latest saved presentation](slides/230ZB_volatility_spreads%20%281%29.pptx) · [Browser slides](slides/index.html) · [Submission and reproduction guide](SUBMISSION.md)
 
 [Finalized strategy inputs (CSV)](data/p25_variance_premium_inputs.csv): **36,327 rows and 33 model inputs**, plus contract identifiers and entry flags. No future rewards or targets; profitability memory uses completed past outcomes. Saved models, separate training-label paths and selected execution data are in [data/submission](data/submission/manifest.json).
 

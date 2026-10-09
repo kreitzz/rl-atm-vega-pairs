@@ -19,15 +19,15 @@
 \renewcommand{\arraystretch}{1.06}
 \newcommand{\money}[1]{\$#1}
 \title{\textbf{From Equity Pairs to Options Relative Value}\\[0.4em]
-\large Does learning improve capital allocation?}
+\large Does reinforcement learning improve capital allocation?}
 \author{Adam Kreitzman and Soo Xin Yang\\MFE 230Z: Deep Learning in Finance}
 \date{8 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
 We extend equity-pairs trading to relative implied volatility in approximately
-30-day, 25-delta puts on related equity underlyings. A screened opportunity rule generates
-trades; learning then determines their entry size. In a simulated \money{10 million}
+30-day, 25-delta out-of-the-money puts on related equity underlyings. A screened opportunity rule generates
+trades; direct policy-search reinforcement learning (RL) then determines their entry size. In a simulated \money{10 million}
 account over January 2022--August 2025, constant full sizing achieves annualized
 excess Sharpe 1.055, compared with 1.263 for decision-tree states and cross-entropy
 sizing. The observed gain of 0.208 has a conditional 95\% interval of
@@ -108,10 +108,9 @@ training. We make simulated costs explicit and compare multiple trading years.
 
 The next section defines relative-IV opportunities, option contracts and
 hedging through expiry. Our regression tree groups completed historical
-opportunities; cross-entropy search chooses an entry size for each group.
-This is supervised partitioning followed by sizing search, rather than
-sequential Q-learning. Comparing with constant sizing measures the additional
-historical value of learned allocation.
+opportunities; direct policy-search RL chooses an entry size for each group
+using the cross-entropy method (CEM). Comparing with constant sizing measures
+the additional historical value of learned allocation.
 
 \clearpage
 \section{Our strategy and evaluation}
@@ -121,6 +120,8 @@ realized volatility (RV) measures stock-price variation. RV inputs use trailing
 data available at the signal date. We trade puts near 25 delta and 30 days to
 expiry (P25), retained after exploratory research and fixed across sizing
 policies. We do not claim that this segment is optimal.
+These puts have strikes below the stock price. At delta $-0.25$, a long
+100-share contract initially has approximately $-25$ shares of stock exposure.
 
 For underlyings $A$ and $B$, let $IV_{A,t}$ and $IV_{B,t}$ be selected-option
 IVs on signal date $t$. Rank their difference $D_t=IV_{A,t}-IV_{B,t}$ within
@@ -299,9 +300,10 @@ above cash and cash-relative drawdown. Appendix~\ref{app:metrics} defines
 these metrics and the opening portfolios at the reporting boundary.
 
 \clearpage
-\subsection{Learning an entry size: decision tree and CEM}
-The opportunity rule fixes the pair, direction and contracts. We learn only
-the entry size: 50\%, 75\% or 100\% of a reference budget of \money{450} vega
+\subsection{Learning an entry size with direct policy-search RL}
+We use direct policy-search reinforcement learning to learn a sizing policy
+from historical rewards. The opportunity rule fixes the pair, direction and
+contracts; the policy chooses 50\%, 75\% or 100\% of a reference budget of \money{450} vega
 per IV point on each leg, scaled by current account equity relative to its
 initial equity. Opportunities differ in their historical outcomes,
 so the learner groups them and assigns a common size to each group
@@ -374,7 +376,9 @@ sample mean and standard deviation. The factor $\sqrt{252}$ annualizes using
 sessions. This standalone-profit training score differs from funded-account
 Sharpe based on percentage returns and joint admission.
 
-CEM updates size probabilities toward the best 19 of 192 maps, repeating for
+CEM optimizes the policy directly against the Sharpe reward, rather than
+estimating Q-values as in the motivating paper. It updates size probabilities
+toward the best 19 of 192 maps, repeating for
 50 rounds. Constant maps and the best map found so far are retained as anchors.
 A new proposal receives its tree state's requested size, subject to account
 admission. The search does not establish a global optimum.
@@ -382,73 +386,70 @@ admission. The search does not establish a global optimum.
 \clearpage
 \section{Benchmark and learned-sizing results}
 \subsection{Does learned entry sizing improve the benchmark?}
-We compare the tree/CEM policy with constant requests of 50\%, 75\% and 100\%
-of the same reference budget. Each policy receives the same proposals and
-keeps the proposed direction and contracts.
-
-Figure~\ref{fig:performance} shows when profit above cash accumulates. Most of
-the learner's final lead develops during 2022; both policies lose ground
-during 2024.
+All policies receive the same proposals, directions and contracts.
+Figure~\ref{fig:performance} shows profit above cash; most of the learner's
+lead develops in 2022, while both lose ground during 2024.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{performance_above_cash.pdf}
-\caption{Cumulative profit above cash, 3 January 2022--29 August 2025.
-Curves are rebased at the 31 December 2021 close; the books retain carried
-positions. Endpoints match Table~\ref{tab:main}. The paired 95\% interval for
-the Sharpe gain, $[-0.103,0.424]$, includes zero.}
+\caption{Cumulative profit above cash, January 2022--August 2025, rebased at
+31 December 2021. Accounts retain carried positions. Endpoints match
+Table~\ref{tab:main}.}
 \label{fig:performance}
 \end{figure}
 
-Under the same proposals and funded-account rules, constant full sizing earns
-later excess Sharpe of 1.055 and profit above cash of \money{200,853}, compared
-with 1.263 and \money{248,673} for the learner (Table~\ref{tab:main}). The
-observed gain is 0.208 Sharpe and approximately \money{47,800} additional
-profit. This portfolio-policy comparison includes changes in which proposals
-the account admits: 110 entries for the learner versus 75 for constant full sizing.
-\begin{table}[htbp]
+RL raises later Sharpe by 0.208 and profit above cash by approximately
+\money{47,800}, admitting 110 entries versus 75 at full sizing.
+Follow-up checks test rank and regression sizing and alternative linear
+and additive RL policies with the same training Sharpe objective.
+\begin{table}[H]
 \centering\small
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrrr}
 \toprule
-Policy & Earlier & Later & Later & Profit above & Relative\\
- & Sharpe & Sharpe & entries & cash (\$) & drawdown (\%)\\
+Policy & Earlier & Later & Later & Profit above\\
+ & Sharpe & Sharpe & entries & cash (\$)\\
 \midrule
-Constant 50\% & 0.437 & 1.007 & 151 & 204,913 & 0.735\\
-Constant 75\% & 0.449 & 0.944 & 104 & 195,021 & 0.748\\
-Constant 100\% & 0.478 & 1.055 & 75 & 200,853 & 0.646\\
-Tree + CEM & 0.573 & 1.263 & 110 & 248,673 & 0.495\\
+Constant 50\% & 0.437 & 1.007 & 151 & 204,913\\
+Constant 75\% & 0.449 & 0.944 & 104 & 195,021\\
+Constant 100\% & 0.478 & 1.055 & 75 & 200,853\\
+\textbf{RL: tree + CEM} & \textbf{0.573} & \textbf{1.263} & 110 & 248,673\\
+\midrule
+Spread-rank sizing & 0.464 & 0.815 & 121 & 164,770\\
+Ridge-score sizing & 0.421 & 0.890 & 94 & 179,745\\
+Direct linear policy & 0.267 & 0.873 & 96 & 171,107\\
+Direct additive policy & 0.302 & 1.013 & 97 & 179,598\\
 \bottomrule
 \end{tabular}
 \caption{Earlier: 2018--2021 replay at \money{10 million}; later:
-January 2022--August 2025. Entries, profit and maximum cash-relative drawdown
-refer to the later period. Earlier scores are \money{10 million} replay
-scores, not the \money{345 million} configuration-selection scores.}
+January 2022--August 2025. The lower four rows are follow-up checks, not
+original selection candidates. Earlier scores are \money{10 million}
+replays, not configuration-selection scores.}
 \label{tab:main}
 \end{table}
 
-The paired circular-block bootstrap, using 126-session blocks and
-1,000 replications, gives a 95\% interval of $[-0.103,0.424]$ for the Sharpe gain.
-It includes zero and omits search adjustment. The observed gain therefore does
-not establish a repeatable sizing improvement. It also does not isolate gains
-from sizing trades common to both policies.
+Tree/CEM has the highest funded Sharpe in both periods among these policies.
+The alternatives change the sizing pipeline, not just tree architecture.
+A paired circular-block bootstrap (126-session blocks; 1,000 replications)
+gives $[-0.103,0.424]$ for its later gain over full sizing. This includes
+zero and omits research-search adjustment.
 
-The account earns annualized total return of 4.667\%, while annualized growth
-relative to an all-cash account is 0.530\%. Most total account growth therefore
-comes from cash interest. Trading is active---110 new entries---but its net
-contribution above cash is modest: \money{248,673} over the later period.
-Average reserve is 2.44\% of equity and peak reserve 15.77\%. Smaller requested
-sizes can pass stress and pair limits that reject full-size proposals, even
-when average account reserve is low. We use excess
-Sharpe and profit above cash to assess the strategy's added value, rather than
-attributing the full 4.667\% account return to trading.
+\subsection{Why does the admitted portfolio matter?}
+At evaluation costs, summing all proposed standalone trade paths gives later
+Sharpe 0.606 for tree/CEM and 0.726 for the additive policy. Restricting each
+to its own funded admissions reverses the ranking: 1.268 versus 1.027,
+close to funded results of 1.263 versus 1.013. Smaller sizes can pass pair
+stress limits and leave room for later entries. This diagnostic indicates an
+interaction between sizing and admission; it neither isolates predictive
+sizing nor proves that the learner anticipated those constraints.
 
-\subsection{How does performance vary across years?}
-Table~\ref{tab:annual} breaks the learner's later performance into calendar
-periods. Its strongest annual cash-relative performance occurs in 2022,
-which also accounts for 66 of the 110 later entries. In 2024, the account earns
-a positive total return but loses relative to cash. The partial 2025 period
-is positive above cash again. Together with Figure~\ref{fig:performance},
-these results show that the aggregate profit reflects uneven performance
-across years.
+The learner's annualized total account return is 4.667\%; growth relative to
+cash is 0.530\%. Average reserve is 2.44\% and peak reserve 15.77\%.
+Cash-relative drawdown is 0.495\%, compared with 0.646\% at full sizing.
+Most total growth comes from interest, so trading value is measured above cash.
+
+\subsection{Variation across years and pairs}
+Table~\ref{tab:annual} shows uneven annual performance. In 2024, positive
+total account return accompanies a loss relative to cash.
 \begin{table}[H]
 \centering\small
 \begin{tabular}{lrrr@{\hspace{2em}}r}
@@ -468,28 +469,27 @@ percentage points; Sharpe is annualized.}
 \label{tab:annual}
 \end{table}
 
-\section{Conclusion and limitations}
-We compare constant sizing with a tree/CEM policy that learns entry sizes
-from completed historical trades. Both policies use the same screened options
-opportunities, hedging rules and funded-account constraints.
+SNAP/UBER, GAP/TJX and AMD/MU contribute 66.9\% of later net pair trading
+profit. The 2022 share is 83.1\%. These percentages exclude shared financing;
+they show concentration, rather than broad repeated success across pairs.
 
-The constant-full rule earns positive historical profit above cash. Learned
-sizing raises the funded point estimate, with a 0.208 Sharpe gain and
-approximately \money{47,800} additional profit, but its gain interval includes
-zero. It also admits more trades, 110 versus 75, under the same account rules.
-Annual results vary, including a loss relative to cash in 2024. The evidence
-supports a higher aggregate historical estimate for learned sizing, with
-uncertainty about its repeatability.
+\section{Conclusion and extensions}
+The retained tree/CEM RL policy improves the historical funded point estimate over
+constant exposure and the tested alternative sizing pipelines. Its benefit
+combines exposure choices with portfolio admission. The uncertainty interval,
+previously inspected history, inherited universe and simplified execution limit conclusions about
+repeatability and live profitability.
 
-The comparison uses previously inspected history and differs across training,
-selection and evaluation in capital, costs and admission. Execution and option
-exercise are simplified. These results establish neither repeatable learning
-benefits nor live profitability or capacity. Most account growth is cash
-interest; trading value is measured above cash.
+A natural extension is allocation across several independently researched
+signals. Freeze each signal's trade proposals, then let RL choose exposures
+using current inventory, available capital, shared underlying risks and
+completed signal performance. Train against the actual funded ledger and
+compare with fixed allocations. This would test whether learning can combine
+opportunities into a portfolio, beyond sizing one retained signal.
 
 \clearpage
 \appendix
-\small
+\footnotesize
 \section{Signal and learning specification}
 \label{app:implementation}
 Choose the expiry closest to 30 days in the historical anchor selection, then
@@ -530,7 +530,7 @@ observations, including the signal-close return. Returns generally exclude divid
 provide the fallback series.
 
 \begin{center}
-\small
+\footnotesize
 \begin{tabular}{p{0.32\textwidth}p{0.61\textwidth}}
 \toprule
 Input & Definition\\
@@ -600,6 +600,9 @@ The complete 125-pair roster, candidate-date ranges and proposal counts are
 retained in the companion \path{paper/pair_universe.csv}; ranges describe
 recorded candidates, not continuous quote coverage or executed trading dates.
 Inherited formation calendars and usable contracts condition the universe.
+Supporting comparisons and concentration use \path{reports/p25_strategy_audit}
+and \path{reports/p25_direct_policy}; the admission diagnostic is in
+\path{reports/p25_generalization_bridge}.
 Vendor data retain their institutional license restrictions.\par}
 
 \begin{thebibliography}{9}
