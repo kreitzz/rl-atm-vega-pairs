@@ -21,12 +21,12 @@
 \title{\textbf{From Equity Pairs to Options Relative Value}\\[0.4em]
 \large Does learning improve capital allocation?}
 \author{Adam Kreitzman and Soo Xin Yang\\MFE 230Z: Deep Learning in Finance}
-\date{8 October 2026 \quad | \quad Revised report draft}
+\date{8 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
 We extend equity-pairs trading to relative implied volatility in approximately
-30-day, 25-delta puts on related stocks. A screened opportunity rule generates
+30-day, 25-delta puts on related equity underlyings. A screened opportunity rule generates
 trades; learning then determines their entry size. In a simulated \money{10 million}
 account over January 2022--August 2025, constant full sizing achieves annualized
 excess Sharpe 1.055, compared with 1.263 for decision-tree states and cross-entropy
@@ -66,16 +66,18 @@ backtests.
 \section{Motivating paper and adaptation}
 \subsection*{What the paper does}
 Ning and Lee \cite{ning} study how to construct and trade mean-reverting equity
-spreads. For a pair they form $X_t=S_{1,t}-B S_{2,t}$ and choose $B$ by grid
-search to minimize empirical mean reversion time: the average historical duration
-from a significant local extreme to the next crossing of the sample mean.
-This forms a spread without fitting an OU model to observed prices.
+spreads. At time $t$, let $S_{1,t}$ and $S_{2,t}$ denote the two stock prices.
+They form the spread $X_t=S_{1,t}-B S_{2,t}$, where $B$ is the hedge coefficient,
+and choose $B$ by grid search to minimize empirical mean reversion time:
+the average duration from a significant local extreme to the next mean crossing.
+Formation does not fit an Ornstein--Uhlenbeck (OU) mean-reversion model.
 
 For trading, they use tabular Q-learning. The state encodes recent spread moves
 by direction and magnitude; available actions buy, hold or sell a unit, subject
 to the current position. The policy enters a long spread and later closes it,
-rather than initiating a short spread. Its reward favors buying below and
-selling above the equilibrium mean, with a transaction-cost term $c|A|$.
+and does not initiate a short spread. Its reward favors buying below and
+selling above the equilibrium mean, with a transaction-cost term $c|A|$,
+where $c$ is the cost coefficient and $|A|$ is the magnitude of the trading action.
 Q-values combine immediate reward with the estimated value of later decisions.
 
 Because the reward requires a true equilibrium mean, the agent trains on
@@ -91,8 +93,7 @@ provides limited evidence across regimes. \textbf{Costs and scale:} the reward
 defines a cost term, but its numerical implementation and reconciliation to net
 performance are not clearly documented. This is not evidence that costs were
 omitted. Higher turnover raises total costs; larger or faster orders can also
-increase per-unit slippage and market impact. A constant coefficient does not
-establish scalability. \textbf{Simulation transfer:} formation is empirical,
+increase per-unit slippage and market impact. A constant coefficient does not establish scalability. \textbf{Simulation transfer:} formation is empirical,
 but policy training still uses specified mean-reverting dynamics and a known
 equilibrium. Real relationships can shift, so extensive synthetic experience
 does not establish market transfer.
@@ -102,58 +103,53 @@ We borrow the separation of opportunity construction from trading decisions,
 and the question of whether learning improves on a simple rule. We change the
 instrument from equity-price spreads to option-implied-volatility spreads,
 using actual contracts, initial vega matching and daily stock delta hedges.
-Completed historical trade outcomes replace a known synthetic equilibrium as
-the basis for our main sizing learner. We make simulated cash flows and costs
-explicit and extend the historical comparison across multiple trading years.
+Completed historical outcomes replace a known synthetic equilibrium for
+training. We make simulated costs explicit and compare multiple trading years.
 
-The next section turns this adaptation into a trading procedure: identify a
-relative-IV opportunity, buy and sell specific option contracts, and hedge their
-stock exposure until expiry. Our allocation method fits a regression tree to
-completed historical opportunities, then uses the cross-entropy method to
-choose an entry size for each tree state. Comparing this policy with constant
-sizing separates the trading rule's historical performance from the additional
-value of learned allocation.
+The next section defines relative-IV opportunities, option contracts and
+hedging through expiry. Our regression tree groups completed historical
+opportunities; cross-entropy search chooses an entry size for each group.
+This is supervised partitioning followed by sizing search, rather than
+sequential Q-learning. Comparing with constant sizing measures the additional
+historical value of learned allocation.
 
 \clearpage
 \section{Our strategy and evaluation}
 \subsection{From a volatility signal to a hedged trade}
-Implied volatility (IV) is the volatility input that reproduces an option quote
-under a pricing model. Realized volatility (RV) measures subsequent stock-price
-variation. High IV alone does not establish mispricing: an expensive option may
-compensate for large future moves. Our proposal combines observable relative IV
-with relatedness and completed-profitability screens.
+Implied volatility (IV) reproduces an option quote under a pricing model;
+realized volatility (RV) measures stock-price variation. RV inputs use trailing
+data available at the signal date, not future outcomes. We trade puts near
+25 delta and 30 days to expiry (P25), a contract choice retained after
+exploratory research and fixed across all sizing policies. We do not claim
+that this segment is optimal. Appendix~\ref{app:implementation} gives selection
+and quote rules.
 
-We use out-of-the-money puts near 25 delta with approximately 30 days to expiry.
-Earlier comparisons using the same entry and sizing architecture gave stronger
-net results for 25-delta puts than for ATM calls or 75-delta puts. A separate
-comparison of 30- and 90-day contracts on matched proposals also favored the
-shorter maturity under frozen sizing. These experiments motivated the contract
-segment used here; their scope is documented in Appendix~\ref{app:implementation}.
-We hold this specification fixed when comparing sizing policies.
-
-For pair $A,B$, define $D_t=IV_{A,t}-IV_{B,t}$ and rank it within the
-252-session rolling history ending on the signal date. Above the 80th percentile,
+For stocks $A$ and $B$, let $IV_{A,t}$ and $IV_{B,t}$ be their selected
+options' implied volatilities on signal date $t$. Their difference,
+$D_t=IV_{A,t}-IV_{B,t}$, measures which stock's option has higher quoted IV.
+We rank $D_t$ within the 252-session rolling history ending on the signal date,
+requiring at least 63 observed differences. Above the 80th percentile,
 the rule sells A's relatively rich put
 and buys B's relatively cheap put; at or below the 20th percentile it reverses
-the direction. Relative richness is measured against the pair's own history,
-allowing for persistent IV differences. Although the percentile cutoff is fixed,
-the corresponding IV boundary changes with the rolling sample.
+the direction. The percentile compares the pair with its own history, allowing for persistent
+IV differences; the corresponding IV boundary moves with the rolling sample.
 
-We screen for related stocks using return beta between 0.85 and 1.15 and
-correlation of at least 0.5. We then check whether historical simulations for
-the same pair and proposed direction have positive average net profitability.
+Each month, we estimate beta of A's daily returns on B's and their correlation
+using the 126 sessions preceding the month's first session. We require beta
+between 0.85 and 1.15 and correlation of at least 0.5. We then check whether historical simulations for
+the same pair and proposed direction have positive average net profit per unit
+of initial vega. These are full-size, standalone hedged simulations on available
+candidate dates, calculated with the training costs.
 This check uses outcomes completed within the previous 91 and 365 calendar days,
 requiring at least 21 simulations in the shorter window and 63 in the longer
 window. If either count is too small or either average is nonpositive, we do
 not propose the trade. These simulations may overlap and need not have been
 taken by the funded account.
 
-An outcome becomes available to the screen only after its simulation has
-finished, strictly before the new signal date. For example, a simulated trade
-still open on 15 June cannot contribute its eventual expiry profit to a decision
-made on 15 June. The counts ensure some historical evidence is available;
-they do not represent 21 or 63 independent observations. The screens complement
-the IV rank by checking stock relatedness and prior net outcomes for the direction.
+Only simulations completed strictly before the signal date contribute.
+For example, a trade still open on 15 June cannot supply its eventual expiry
+profit to that day's decision. The overlapping outcomes are not independent
+observations.
 
 Contract quantities approximately match initial vega: the change in option value
 for a one-percentage-point increase in IV. Table~\ref{tab:trade} is an
@@ -174,13 +170,11 @@ B contracts have \money{3.00}.}
 \label{tab:trade}
 \end{table}
 
-If A's IV rises by two points and B's by one, the local vega approximation gives
-$\money{900}-\money{450}=\money{450}$ before other effects. This is an interim
-mark change. In the backtest, we hold each option leg to expiry and adjust its
-stock delta hedge daily, unwinding the hedge after settlement. Option quantities
-stay fixed after entry, except for documented corporate-event exits. Profit
-includes premiums, settlement payoffs, stock-hedge gains and losses, dividends,
-interest and costs.
+The example matches local vega exposure, not the two stocks' eventual risks.
+We hold options to expiry and adjust stock delta hedges daily. Final profit
+combines entry premiums, settlement and hedges along the realized stock paths,
+after costs and financing. We evaluate this complete trade; interim IV
+convergence alone does not determine expiry profit.
 
 \subsection{Simulating trades in a funded portfolio}
 \label{sec:execution}
@@ -194,10 +188,12 @@ and expiries---using information available on the signal date. We attempt to
 enter those same contracts on the next trading day. Quantities are rounded to
 whole contracts, with no more than a 10\% difference between the initial long
 and short vega exposures. A proposed trade is accepted only if usable quotes
-are available and it satisfies the account's capital and risk limits.
+are available and it satisfies the account's capital and risk limits. The common opportunity
+set comes from the retained historical formation calendar and pair panel
+listed in Appendix~\ref{app:universe}.
 
 Once accepted, the option positions are held to expiry and their stock delta
-hedges are adjusted daily, except for documented corporate-event exits. All
+hedges are adjusted daily, except for corporate-event exits described in Appendix~\ref{app:implementation}. All
 positions share the account's cash and available capital. Stock hedges in the
 same company are combined into a net position. Consequently, an existing trade
 can reduce the account's ability to accept another opportunity.
@@ -274,49 +270,52 @@ trade outcome is completed before that month's fit.}
 \label{fig:rolling}
 \end{figure}
 
-Configuration selection compares 33 saved sizing configurations on 2018--2021
-performance. The selected specification stays fixed for the later comparison,
-while its fitted tree and size map continue to update monthly. Historical
-examples before 2018 support the initial fit.
+We retain the configuration with the highest annualized daily excess Sharpe
+on 2018--2021 among 33 existing configurations spanning training-history,
+feature and sizing-action choices. The selected configuration uses 27 inputs,
+an 18-month window and 50/75/100\% actions. Candidate identifiers break score ties; its selection score is 0.575 in a
+\money{345 million} research account. This configuration is then replayed at
+\money{10 million}; the account assumptions are summarized in
+Appendix~\ref{app:implementation}.
 
-The later test covers 3 January 2022--29 August 2025. Configuration choices stay
-fixed, but the monthly fitting procedure continues. For example, a trade
-completed in March 2022 may inform an April 2022 fit; a trade that finishes
-after the April cutoff cannot. This is a rolling train-then-test procedure,
-not fitting a model using its future test outcomes. Signal generation stops
-on 30 June 2025, with existing positions followed through the August cutoff.
-The account carries its existing holdings and cash across the 2022 boundary.
+Each monthly fit uses candidates that passed the entry screens on their signal
+dates, have valid simulated outcomes, and finished before fitting. These
+examples need not have been accepted by the funded account. Only signal dates
+within the preceding 18 months enter the fit. Tree fitting and CEM use this
+same sample; the wider candidate history supplies the profitability screens.
 
-There is a separate research-design limitation: 2022--2025 results had already
-been examined in earlier strategy development before this split was imposed.
-The monthly fits respect time order, but the test is not independent of all
-earlier choices of contracts, screens and universe. We interpret the later
-comparison as historical evidence rather than independent validation.
-The historical trade outcomes used to train the sizing model were calculated
-with a commission of \money{0.65} per contract. The final portfolio comparison
-uses \money{0.03} per contract for every policy. Thus, the model learns from
-outcomes calculated under higher commissions than those used to evaluate its
-performance. Appendix~\ref{app:implementation} also documents the account size
-used for configuration selection.
+The later comparison runs from 3 January 2022 to 29 August 2025. The model
+specification stays fixed while monthly refitting continues: a completed March
+trade can inform an April fit, but an unfinished outcome cannot. New signals
+stop on 30 June 2025. All accounts continue from 2018 with their own accumulated
+cash and holdings; the 2022 boundary is a reporting split, not an account reset.
 
-For daily returns above cash $e_t$, annualized excess Sharpe is
-$\widehat S=\sqrt{252}\,\bar e/s_e$, where $s_e$ is the sample standard deviation.
-We also report profit above cash, admitted entries, reserves and cash-relative
-drawdown.
+Later history had already been examined during strategy development. Monthly
+fits respect time order, but this period is not independent of earlier choices
+of contracts, screens and universe. Training also uses \money{0.65} commission
+per option contract, compared with \money{0.03} for every policy in final
+evaluation. We therefore interpret the comparison as historical evidence.
+
+We report annualized Sharpe of daily returns above the cash benchmark, profit
+above cash and cash-relative drawdown. Appendix~\ref{app:metrics} defines
+these metrics and the opening portfolios at the reporting boundary.
 
 \clearpage
 \subsection{Learning an entry size: decision tree and CEM}
 The opportunity rule fixes the pair, direction and contracts. We learn only
 the entry size: 50\%, 75\% or 100\% of a reference budget of \money{450} vega
-per IV point on each leg. Opportunities differ in their historical outcomes,
+per IV point on each leg, scaled by current account equity relative to its
+initial equity. Opportunities differ in their historical outcomes,
 so the learner groups them and assigns a common size to each group
 (Figure~\ref{fig:tree-cem}).
 
 Each monthly regression tree receives 27 inputs: 15 numerical characteristics
-and 12 availability flags, covering relative IV, IV/RV, relatedness, maturity,
-VIX, costs and completed profitability. It learns splits using historical
-full-size profit above cash as its target. Each of its up to eight leaves is
-a state. The cross-entropy method (CEM) then chooses one size for each state.
+and 12 availability flags, covering relative IV, trailing realized variance,
+relatedness, maturity, the CBOE Volatility Index (VIX), costs and completed
+profitability. Appendix~\ref{app:features} defines the inputs. It learns splits using historical
+full-size profit above cash as its target, splitting to reduce squared
+prediction error \cite{tree}. Each of its up to eight leaves is
+a state. The cross-entropy method (CEM) \cite{cem} then chooses one size for each state.
 
 \begin{figure}[H]
 \centering
@@ -403,25 +402,41 @@ The selected map is used for the next month's new opportunities.}
 \label{fig:tree-cem}
 \end{figure}
 
-CEM scores each map using the combined daily profit paths of its historical
-examples. For leaf $\ell(x_i)$ of example $i$ and its saved daily net profit
-above cash $p_{i,d}(a)$ at size $a$, the score is
-\[
-g_d(\boldsymbol a)=\sum_i p_{i,d}\bigl(a_{\ell(x_i)}\bigr),
-\qquad
-\widehat S(\boldsymbol a)=\sqrt{252}\,
-\frac{\overline{g(\boldsymbol a)}}{s_{g(\boldsymbol a)}},
-\qquad a_\ell\in\{0.50,0.75,1.00\}.
-\]
-Daily paths preserve overlapping trades and zero-profit sessions. Constant-size
-maps are included as anchors; the search does not establish a global optimum.
+\clearpage
+\textbf{How CEM scores a size map}
 
-For a new qualified proposal, the fitted tree assigns a leaf and its size map
-supplies the requested entry budget. Account checks then accept or reject it.
-The tree groups opportunities by full-size profit; CEM chooses sizes by aggregate
-daily Sharpe. Training sums standalone paths, while funded evaluation applies
-the shared-account capital and risk constraints described in
-Section~\ref{sec:execution}.
+A candidate map $\boldsymbol m$ assigns an entry size $a_\ell$---50\%, 75\% or
+100\% of the reference budget---to each tree state $\ell$. For training example
+$i$, let $x_i$ denote its 27 inputs and $\ell(x_i)$ the fitted tree's state.
+Let $p_{i,d}(a)$ be its net profit above cash on day $d$ at size $a$.
+Each size has its own rounded contract quantities and standalone cash and
+hedge flows; smaller-size outcomes are not proportional rescalings of the
+full-size outcome. Stored paths share a fixed normalization, which cancels
+from the Sharpe score.
+
+We sum the daily profits across the completed training examples:
+\[
+g_d(\boldsymbol m)=\sum_i p_{i,d}\!\left(a_{\ell(x_i)}\right).
+\]
+Here $g_d(\boldsymbol m)$ is combined profit above cash on day $d$. We rank
+maps using
+\[
+\widehat S_{\mathrm{train}}(\boldsymbol m)=\sqrt{252}\,
+\frac{\overline{g(\boldsymbol m)}}{s_{g(\boldsymbol m)}}.
+\]
+The numerator is mean daily profit over the sample's trading calendar; the
+denominator is its sample standard deviation. The factor $\sqrt{252}$
+annualizes using 252 trading days per year. Overlapping trades and zero-profit
+sessions remain in the calculation. This is a training score based on
+standalone profit paths; the final account Sharpe uses percentage returns
+and applies joint admission constraints.
+
+CEM repeatedly samples maps, ranks them and updates the probability of each
+size in each state toward the best 19 of 192 maps. Each round also includes
+the three constant-size maps and the best map found so far in that monthly
+search. After 50 rounds we retain the best-scoring map, without claiming a
+global optimum. For each new qualified proposal, the tree assigns its state,
+the map requests its size, and the funded account accepts or rejects it.
 
 \clearpage
 \section{Benchmark and learned-sizing results}
@@ -464,23 +479,25 @@ Tree + CEM & 0.573 & 1.263 & 110 & 248,673 & 0.495\\
 \end{tabular}
 \caption{Earlier: 2018--2021 replay at \money{10 million}; later:
 January 2022--August 2025. Entries, profit and maximum cash-relative drawdown
-refer to the later period. Earlier replay scores differ from archived
-large-account selection scores.}
+refer to the later period. Earlier scores are \money{10 million} replay
+scores, not the \money{345 million} configuration-selection scores.}
 \label{tab:main}
 \end{table}
 
-The main saved paired circular-block bootstrap, using 126-session blocks and
+The paired circular-block bootstrap, using 126-session blocks and
 1,000 replications, gives a 95\% interval of $[-0.103,0.424]$ for the Sharpe gain.
 It includes zero and omits search adjustment. The observed gain therefore does
 not establish a repeatable sizing improvement. The learner
-admits 110 trades against 75: it changes portfolio access as well as exposure
-to individual trades.
+admits 110 trades against 75. The comparison measures the combined effect
+of requested sizes and the portfolios admitted under the account rules;
+it does not isolate gains from sizing trades common to both policies.
 
 The account earns annualized total return of 4.667\%, while annualized growth
 relative to an all-cash account is 0.530\%. Most total account growth therefore
 comes from cash interest. Trading is active---110 new entries---but its net
 contribution above cash is modest: \money{248,673} over the later period.
-Average reserve is 2.44\% of equity and peak reserve 15.77\%. We use excess
+Average reserve is 2.44\% of equity and peak reserve 15.77\%; stress and
+pair limits can reject entries even with a low account reserve. We use excess
 Sharpe and profit above cash to assess the strategy's added value, rather than
 attributing the full 4.667\% account return to trading.
 
@@ -505,7 +522,9 @@ Year & Account return (\%) & Above cash (pp) & Excess Sharpe & Entries\\
 \bottomrule
 \end{tabular}
 \caption{Tree/CEM annual funded results; 2025 ends on 29 August.
-Above-cash figures are return differences in percentage points.}
+Account and above-cash returns are unannualized for each displayed period,
+including partial 2025. Above-cash figures are return differences in
+percentage points; Sharpe is annualized.}
 \label{tab:annual}
 \end{table}
 
@@ -522,42 +541,63 @@ Annual results vary, including a loss relative to cash in 2024. The evidence
 supports a higher aggregate historical estimate for learned sizing, with
 uncertainty about its repeatability.
 
-These results describe a historical simulation on previously inspected later
-dates. Training, selection and evaluation differ
-in capital, commission and admission conventions, and execution and
-option-exercise handling are simplified. The observed gain does not establish
-repeatable improvement, live profitability or trading capacity. Most total
-account growth is cash interest; the strategy's added value is measured above cash.
+The comparison uses previously inspected history and differs across training,
+selection and evaluation in capital, costs and admission. Execution and option
+exercise are simplified. These results establish neither repeatable learning
+benefits nor live profitability or capacity. Most account growth is cash
+interest; trading value is measured above cash.
 
 \clearpage
 \appendix
+\small
 \section{Implementation details}
 \label{app:implementation}
-\subsection{Evidence behind the contract segment}
-The earlier shared-architecture experiment compares ATM calls, 25-delta puts
-and 75-delta puts using the same IV-rank rule, screens, tree/CEM structure,
-cost conventions and funded replay. Its positive-size policy has stronger
-historical net results for 25-delta puts. That experiment uses five-year
-training windows and a large reference account, so its Sharpe levels are not
-the final selected-policy results reported in Table~\ref{tab:main}.
+\subsection{Opportunity specification}
+The retained segment uses 30-day expiry anchors from the historical contract
+selection, then chooses a put in that expiry with absolute delta closest to
+0.25, within 0.075. Ties favor narrower relative spreads, higher open interest
+and lower contract identifier. Quotes must be standard 100-share contracts,
+with positive bids, noncrossed markets, open interest of at least 100 and
+bid--ask width at most 25\% of midpoint. The 30-day expiry anchor favors eligible
+maturities closest to 30 days; next-session entry additionally requires 7--55
+days remaining. Identifiers are fixed on the signal date.
 
-The matched-maturity experiment holds pair, signal date, direction and sizing
-fixed where both 30- and 90-day contract selections exist on the signal date.
-It favors the shorter maturity for P25 in that historical comparison. It
-transfers frozen sizing rather than independently optimizing each maturity.
-Together these records explain our focus on 30-day P25; they do not establish
-that this segment is optimal across all contract types and maturities.
+Relatedness uses 126-session daily simple-return covariance divided by B's
+return variance for beta of A on B, and the corresponding correlation. Values
+are calculated before the first session of each month and held fixed that month.
+The IV percentile uses available differences in a 252-session window including
+the signal close, with a minimum of 63 observations. Profitability screens use
+completed full-size simulations in each direction, including available dates
+that did not qualify as funded proposals. Their net dollar profits are divided
+by mean initial leg vega before averaging; completion dates determine the
+91- and 365-calendar-day windows.
 
 \subsection{Risk, execution and accounting conventions}
-Entry admission uses a 5\% stress limit, an 80\% reserve limit and gross stock
-hedges no greater than twice equity. Inherited pair/wing checks use a
-\money{1 million} reference account, while funded comparisons use
-\money{10 million}. Reserve equals gross option premium plus half gross netted
-hedge notional; it is not broker margin. Entry checks do not guarantee protection
-against future losses or broker liquidation. Black--Scholes IV and Greeks use
-a European exercise approximation for American equity options. Market impact,
-early assignment and forced liquidation are not fully modeled; the execution
-penalty is a simulation assumption rather than a measurement of live fills.
+The account checks the proposed portfolio after each entry. Stress loss is
+the sum of each underlying's worst nonnegative modeled loss across nine
+combinations of spot shocks of $-20/0/+20$\% and IV shocks of $-10/0/+10$
+percentage points, including its delta hedge. It takes the worst shock for
+each name separately, without credit for pair correlation. Stress loss may
+not exceed 5\% of the applicable equity budget.
+
+Reserve is gross marked option premium plus half the stock-hedge notional
+summed in absolute value across names after netting within each name. Reserve
+may not exceed 80\% of the equity budget, stock-hedge notional may not exceed
+twice that budget, and gross vega is capped at \money{20,000} per IV point per
+\money{1 million} budget. Global checks use account equity; each pair's checks
+use \money{1 million} scaled by current account equity divided by initial
+account equity. The additional contract-segment check has the same budget and
+is redundant with the pair check in this one-segment study. Same-date proposals
+are processed in stable pair-identifier order. These are research admission
+limits, not broker margin or guarantees against later loss.
+
+The simulation cash-settles expiry and supports verified integer splits.
+Announced corporate actions or unsupported declared distributions trigger exits
+of both legs of affected pairs. Missing entry quotes reject the proposal;
+missing held quotes can be marked using last-known IV with current spot,
+rates and known dividends. Black--Scholes valuation approximates European
+exercise for American equity options. Market impact, early assignment and
+forced liquidation are not fully modeled.
 
 We book option trades at quoted midpoint and deduct a cash execution penalty
 equal to 0.10 IV percentage point times the traded vega. For day $t$, the
@@ -571,53 +611,185 @@ C_t^{\mathrm{funding}}
  &= \left[0.003\,H^-_{t-1}
           +0.01\max(-B_{t-1},0)\right]\Delta\tau_t. \nonumber
 \end{align}
-Here $\mathcal F_t$ contains paid option fills, $\Delta N$ is the number of
-contracts traded, and $V$ is one contract's dollar vega per IV percentage point
-(100 times the per-share quote vega). Thus $0.03$ is the commission in dollars
-per contract. $P|\Delta h|$ is stock-hedge dollar turnover after netting, charged
-at one basis point. $H^-$ is the previous day's short-stock notional, $B$ is cash,
-and $\Delta\tau$ is elapsed calendar days divided by 365. The funding rates are
-0.3\% annual short-stock borrow and a 1\% surcharge on negative cash.
+The following notation identifies the quantities in the cost calculation.
+\begin{center}
+\small
+\begin{tabular}{lp{0.73\textwidth}}
+\toprule
+Symbol & Meaning and unit\\
+\midrule
+$t$, $j$, $s$ & Trading day, option-contract index and stock index, respectively.\\
+$C_t^{\mathrm{execution}}$, $C_t^{\mathrm{funding}}$ & Execution and funding charges on day $t$, in dollars.\\
+$\mathcal F_t$ & Set of option fills charged execution costs on day $t$.\\
+$\Delta N_{j,t}$ & Signed change in the number of contracts of option $j$; absolute value counts contracts traded.\\
+$V_{j,t}$ & Dollar vega of one contract per IV percentage point (100 times per-share quote vega).\\
+$P_{s,t}$ & Stock $s$'s transaction price, in dollars per share.\\
+$\Delta h_{s,t}$ & Signed change in the net stock hedge, in shares; $P_{s,t}|\Delta h_{s,t}|$ is dollar turnover.\\
+$H^-_{t-1}$ & Previous day's short-stock notional, in dollars.\\
+$B_{t-1}$ & Previous day's cash balance, in dollars; a negative balance represents borrowing.\\
+$\Delta\tau_t$ & Elapsed calendar days divided by 365, in years.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The coefficients charge 0.10 IV percentage point of option vega, \money{0.03}
+commission per contract and one basis point (0.0001) of stock turnover.
+Funding charges use 0.3\% (0.003) annual short-stock borrow and a 1\% (0.01)
+surcharge on negative cash.
 
 Benchmark-rate cash interest is recorded separately as
-$I_t=r_{t-1}B_{t-1}\Delta\tau_t$; negative cash therefore pays the benchmark
-rate as well as the surcharge above. Expiry settlement carries no option
-commission or execution penalty.
+$I_t=r_{t-1}B_{t-1}\Delta\tau_t$, where $I_t$ is interest in dollars and
+$r_{t-1}$ is the previous day's annual benchmark rate, expressed as a decimal.
+Negative cash therefore pays the benchmark rate as well as the surcharge above.
+Expiry settlement carries no option commission or execution penalty.
 
 \subsection{Tree states and cross-entropy search}
-The 33-configuration selection uses a \money{345 million} research account;
-the selected method and constant controls are replayed at \money{10 million}
-for the final comparison. This transfers a configuration across capital levels.
-Training commissions are \money{0.65} per contract; funded evaluation uses
-\money{0.03}, as explained in Section 3.3.
+\begin{center}
+\small
+\begin{tabular}{lp{0.69\textwidth}}
+\toprule
+Stage & Capital, costs and objective\\
+\midrule
+Monthly fitting & Standalone \money{1 million} trade paths, \money{0.65}
+option commission; tree predicts full-size outcome, CEM maximizes daily profit
+Sharpe without joint portfolio admission.\\
+Configuration selection & \money{345 million} shared account, \money{0.03}
+commission; highest 2018--2021 excess-return Sharpe among 10 history/recency,
+11 feature and 12 action/history configurations. Selected score: 0.575.\\
+Final comparison & \money{10 million} shared account, \money{0.03}
+commission; same proposals, execution and admission rules for every policy.\\
+\bottomrule
+\end{tabular}
+\end{center}
+All stages use a 0.10-IV-point option execution penalty and one basis point of
+stock-hedge turnover. Selection and evaluation use shared accounts with
+\money{1 million} pair budgets scaled by equity; fitting uses standalone paths.
+These differences are retained limitations of the existing study.
 
-The 27 inputs describe spread rank, IV/RV levels, relatedness, expiry, VIX,
-expected costs, completed profitability and availability. The tree targets
+The tree targets
 cumulative full-size profit above cash, with at most eight leaves. For $n$
 completed examples, minimum leaf size is
-$\max(8,\min(63,\lfloor n/8\rfloor))$. Fewer than 16 examples trigger full-size
-fallback; the initial fit has 74 examples. Every available action requests
+$\max(8,\min(63,\lfloor n/8\rfloor))$. Here $\lfloor n/8\rfloor$ rounds
+$n/8$ down to an integer; the rule sets the minimum examples per leaf to
+one eighth of the training count, bounded between 8 and 63.
+Fewer than 16 examples trigger full-size
+fallback. Every available action requests
 nonzero exposure, although account admission can reject it. Each month has
 its own tree and action map; split features, boundaries and size assignments
 can change while the 27-input specification remains fixed.
 
-CEM searches assignments using completed daily trade paths, including zero-profit
-sessions. Each of 50 rounds evaluates 192 assignments; the best 19 update action
-probabilities with 30\% prior weight, 70\% elite weight and 3\% uniform exploration.
-Constant policies and the incumbent are included; the random seed is 2026.
-Training combines standalone paths, while final replay applies joint admission.
-Selection and deployment therefore have account-size and objective differences.
+CEM starts each month with uniform probabilities. Its update is 0.97 times
+a mixture of 30\% current probability and 70\% frequency among the best
+19 maps, plus 0.03 divided equally across the three actions. The seed is 2026.
+
+\clearpage
+\subsection{Inputs available at the signal date}
+\label{app:features}
+The model uses the following 15 numerical inputs. Proposed-direction quantities
+are oriented as long leg minus short leg. IV and volatility levels are decimal
+annualized values. Trailing realized variance is 252 times mean squared daily
+simple returns over the latest 20 listed trading sessions, with at least 10
+observations, including the signal-close return. Returns use the retained
+historical return series (generally excluding dividends), with adjusted-close
+percentage changes where that series is unavailable.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.32\textwidth}p{0.61\textwidth}}
+\toprule
+Input & Definition\\
+\midrule
+Mean IV & Mean of the two selected-contract IVs.\\
+Oriented IV gap & Long-minus-short IV divided by mean IV.\\
+Rank strength & Twice the absolute distance of the IV-gap percentile from 0.5.\\
+Oriented variance-premium gap & Long-minus-short difference in IV squared minus trailing realized variance, divided by mean IV squared.\\
+Mean RV & Mean of the square roots of the two trailing realized variances.\\
+Beta; correlation & Two inputs: 126-session A-on-B beta and correlation, fixed at monthly formation.\\
+Mean expiry; expiry gap & Two inputs: mean calendar days to expiry and long-minus-short expiry days.\\
+Commission in IV points & Sum across legs of \money{0.65} divided by each contract's dollar vega per IV point.\\
+VIX & Most recent strictly prior VIX close divided by 100.\\
+91-day profit; count & Two inputs: completed full-size profit per initial vega averaged over the trailing 91 calendar days and the number of completed outcomes. The profit input is divided by 100 as a fixed scale.\\
+365-day profit; count & Two inputs: the same measurements over 365 calendar days.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first three inputs are core fields. Each of the other 12 has a binary
+availability flag, giving 27 inputs in total. Nonfinite optional values receive
+zero and flag zero; observed values have flag one. Optional missingness is
+not an additional entry veto. Profit features use only outcomes completed
+strictly before the signal date. Future stock variation and eventual trade
+profit enter outcomes, not decision inputs.
+
+\clearpage
+\subsection{Performance measurement and the reporting boundary}
+\label{app:metrics}
+Let $N_t$ be account equity and $K_t$ all-cash benchmark wealth at close $t$.
+Both start at \money{10 million} in January 2018. The benchmark compounds
+the previous available WRDS zero-curve rate nearest 30 days over elapsed
+calendar days using a 365-day year. Daily excess return is
+\[
+e_t=\left(\frac{N_t}{N_{t-1}}-1\right)
+    -\left(\frac{K_t}{K_{t-1}}-1\right).
+\]
+Annualized excess Sharpe is $\widehat S=\sqrt{252}\,\bar e/s_e$, where
+$\bar e$ and $s_e$ are the sample mean and standard deviation of daily excess
+returns, and 252 is the assumed trading days per year.
+
+For a reporting period with preceding close $0$ and final close $T$, dollar
+profit above cash is $(N_T-K_T)-(N_0-K_0)$. Relative growth uses the ratio
+$Q_t=N_t/K_t$: annualized growth relative to cash is
+$(Q_T/Q_0)^{1/Y}-1$, where $Y$ is elapsed calendar days divided by 365.25.
+Cash-relative drawdown is the largest percentage decline in $Q_t$ from its
+running peak within the reporting period, including close $0$. Reported
+reserve percentages are reserve divided by current equity.
+
+Annual-table account returns are $N_T/N_0-1$; above-cash percentage points
+subtract the corresponding benchmark return $K_T/K_0-1$. These period returns
+are unannualized, including partial 2025. Sharpe remains annualized.
+
+The later period starts after the 31 December 2021 close. Each policy retains
+its own earlier gains, cash and open trades; benchmark wealth is
+\money{10.510 million} for all policies at that close. Figure~\ref{fig:performance}
+subtracts each policy's own opening dollar excess wealth, so curves begin at
+zero without resetting the underlying accounts.
+\begin{center}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Policy & Equity (\$m) & Cash (\$m) & Open trades & Hedge notional (\$m)\\
+\midrule
+Constant 50\% & 10.553 & 10.581 & 5 & 0.190\\
+Constant 75\% & 10.564 & 10.592 & 4 & 0.198\\
+Constant 100\% & 10.581 & 10.624 & 3 & 0.235\\
+Tree + CEM & 10.568 & 10.594 & 4 & 0.190\\
+\bottomrule
+\end{tabular}
+\end{center}
+Hedge notional is summed in absolute value after netting within each name.
+This is a comparison of continuing policies with different opening portfolios,
+not a common-inventory experiment started in 2022.
 
 \clearpage
 \section{Pair universe and date coverage}
 \label{app:universe}
-Historical option quotes, stocks, rates and dividends come through WRDS.
-The original retained roster contains 345 pairs. The prepared historical
-candidate panel used by the sizing study contains 125 pairs, 161 assets and
-36,327 dated candidate observations.
-During the 2018--2025 signal calendar, 46 pairs pass all screens and generate
-608 proposals; the selected funded policy admits 207 entries, including 110
-in the later test. A proposal is a qualified request, not an executed trade.
+Historical option quotes, underlying prices, rates and dividends come through
+WRDS. We reuse the 345-pair roster retained in earlier project research;
+its membership and historical formation calendars are inherited rather than
+selected anew for this comparison. The roster includes equities and ETF
+underlyings, including XOP/COP. Results are conditional on these prior universe
+choices, not evidence of an independently selected universe.
+
+Of that roster, 125 pairs and 161 underlying securities have recorded candidate
+rows in the prepared P25 panel, totaling 36,327 observations. Preparation requires
+observed selected-contract IV, relatedness eligibility and the retained historical
+formation calendar. This panel is therefore a data-and-calendar-conditioned
+subset, not 125 pairs chosen by the sizing learner. Some candidates fail the IV
+or profitability screens: 46 pairs generate the 608 qualified proposals during
+2018--2025, of which the learned funded account admits 207 entries, including
+110 in the later period.
+
+Pair identity uses historical security identifiers, avoiding duplicate pairs
+with reversed ticker order. Displayed labels retain the earlier roster's ticker
+names and orientation; they are not a claim of today's ticker identities.
 
 The earlier selection period is 2 January 2018--31 December 2021. The later
 test is 3 January 2022--29 August 2025, with new signals ending on 30 June 2025
@@ -631,12 +803,6 @@ coverage or a pair's executed trading period. The proposal count refers only
 to qualified signals on the 2018--June 2025 formation calendar. A zero count
 means the pair supplies historical candidates but no qualified funded request
 in that calendar. Labels follow the archived roster.
-
-Sources: \path{reports/atm_nn_cost_hurdles/matched_roster.csv} (complete retained
-roster, with the included flag),
-\path{data/submission/artifacts/contracts/p25_feature_search/training_rows.parquet}
-(prepared panel), and \path{reports/p25_memory_ablation/formation_calendar.csv}
-(per-pair eligible signal calendar).
 
 {\footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -737,22 +903,35 @@ records are in \path{selection.json} in the same directory.
 Figure~\ref{fig:performance} uses the selected daily account in
 \path{data/p25_validation_split_experiment.zip} and the constant-full daily
 account under \path{data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100}.
-\item Contract-segment comparisons:
-\path{reports/same_structure_smile/findings.txt} and
-\path{reports/p25_maturity_matched/findings.txt}.
+\item Universe and model inputs:
+\path{reports/atm_nn_cost_hurdles/matched_roster.csv},
+\path{data/submission/artifacts/contracts/p25_feature_search/training_rows.parquet}
+and \path{reports/p25_memory_ablation/formation_calendar.csv}.
+Feature definitions and fitting are in \path{scripts/uniform_smile_policy.py},
+\path{scripts/same_structure_smile.py} and \path{scripts/run_p25_feature_search.py};
+size-specific paths are in \path{scripts/curve_trading/unit_paths.py}.
 \end{itemize}
 
-The sizing-gain interval uses 1,000 paired circular-block resamples with
-126-session blocks. It conditions on the fitted policies and omits adjustment
-for accumulated research selection. The later comparison is historical
-evidence under that procedure, rather than independent validation.
+The interval resamples the learner's and constant-full account's daily excess
+returns using the same day indices. For each of 1,000 replications, 126-session
+blocks start at randomly selected days, wrap circularly at the series end and
+are concatenated then truncated to the original length. We recalculate the
+Sharpe difference and use its 2.5th and 97.5th percentiles. Policies are fixed
+and accumulated research selection is unadjusted.
 
 Vendor data retain their institutional license restrictions. Repository:
 \url{https://github.com/kreitzz/rl-atm-vega-pairs}.
 
 \begin{thebibliography}{9}
+\raggedright
 \bibitem{ning} B.~Ning and K.~Lee (2024).
 \emph{Advanced Statistical Arbitrage with Reinforcement Learning}.
 arXiv:2403.12180v1. \url{https://arxiv.org/abs/2403.12180}.
+\bibitem{cem} P.-T.~de Boer, D.~P.~Kroese, S.~Mannor and R.~Y.~Rubinstein (2005).
+\emph{A Tutorial on the Cross-Entropy Method}.
+Annals of Operations Research 134, 19--67.
+\url{https://people.smp.uq.edu.au/DirkKroese/ps/aortut.pdf}.
+\bibitem{tree} scikit-learn documentation. \emph{DecisionTreeRegressor}.
+\url{https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html}.
 \end{thebibliography}
 \end{document}
