@@ -1,0 +1,89 @@
+{
+  "scope": "Current 27-input paper strategy; no new strategy optimization",
+  "verification_date": "2026-10-09",
+  "checks": {
+    "completed_outcome_timing_tests": true,
+    "dividend_cash_and_stock_price_accounting_test": true,
+    "whole_contract_vega_matching_test": true,
+    "overlapping_entries_and_cash_reconciliation_test": true,
+    "six_unit_tests_passed": true,
+    "all_27_rebuilt_features_match_original": true,
+    "all_608_saved_sizing_decisions_match": true,
+    "initial_month_tree_and_cem_map_match": true,
+    "all_main_validation_and_evaluation_metrics_match": true,
+    "paired_bootstrap_interval_matches": true
+  },
+  "replays": {
+    "learned": {
+      "daily_sessions": 1926,
+      "max_absolute_nav_difference": 0.0,
+      "nav_fills_and_admissions_match": true,
+      "max_ledger_error": 5.0595190259628e-09,
+      "shared_cash": true,
+      "shared_stock_hedges": true,
+      "independent_ledger_error": 5.0595190259628e-09,
+      "entries": 207
+    },
+    "fixed50": {
+      "daily_sessions": 1926,
+      "max_absolute_nav_difference": 0.0,
+      "nav_fills_and_admissions_match": true,
+      "max_ledger_error": 6.250502337934449e-09,
+      "shared_cash": true,
+      "shared_stock_hedges": true,
+      "independent_ledger_error": 6.250502337934449e-09,
+      "entries": 263
+    },
+    "fixed75": {
+      "daily_sessions": 1926,
+      "max_absolute_nav_difference": 0.0,
+      "nav_fills_and_admissions_match": true,
+      "max_ledger_error": 5.592028173850849e-09,
+      "shared_cash": true,
+      "shared_stock_hedges": true,
+      "independent_ledger_error": 5.592028173850849e-09,
+      "entries": 181
+    },
+    "fixed100": {
+      "daily_sessions": 1926,
+      "max_absolute_nav_difference": 0.0,
+      "nav_fills_and_admissions_match": true,
+      "max_ledger_error": 5.701622285414487e-09,
+      "shared_cash": true,
+      "shared_stock_hedges": true,
+      "independent_ledger_error": 5.701622285414487e-09,
+      "entries": 133
+    }
+  },
+  "resources": {
+    "workers": 1,
+    "cpu_fraction_of_one_core": 0.5,
+    "rss_stop_mib": 384,
+    "observed_peak_rss_mib": {
+      "learned": 350.3,
+      "fixed50": 347.1,
+      "fixed75": 358.1,
+      "fixed100": 361.5
+    }
+  },
+  "not_rerun": "All 90 monthly fits and secondary research searches. The initial fit was reconstructed and every saved proposal was rescored.",
+  "files": {
+    "README.md": "361f851028fd7f9b8a2e064c5d0b686973fc3891fe97afe1ec026babc5a697fc",
+    "__init__.py": "59b9e865f7a8d02b64a0ff9d715bc5458aac02189d0860c4113f066be4dc83df",
+    "__main__.py": "582113e079b8326874761fc3f722eb7dbb5eb38ec6b83e3cac85aaf55b9eec3a",
+    "contracts.py": "39cb597f4739cc5e60a6a9706c8d5a67215ed453f599e985fc6686dcb47649d0",
+    "data.py": "1a5583ea9a124c41dc24e031f111d06300a32d5d188f54a3cba8ce945e4cc78a",
+    "execution.json": "73f368e3f0b6960c7403f706419320dfb37b294205247dc029c8e4ba8eaf44e0",
+    "guard.py": "2c057b66212e0f88f1c3a610df6008ab561ebfbc5961340070c667837034b83a",
+    "ledger.py": "3f7b835e89cf061ce3a7607a0cfd38d870dcf16366216367cc738432fb773db3",
+    "metrics.py": "a795c9aaf53527cdc468089ff14091c3a9b0855d7328604720f80d20f9326720",
+    "policy.py": "65588eac0e1d3e034b8fbc4d03009ea8b8b9089cb3a83cb9dda5a3ae3f9316e6",
+    "pricing.py": "908d26ba7685eed3979977e7f412936165cabed05ae4c2ae70ab1724a0fb9c0a",
+    "provenance.json": "9740342f67f8e8977c5d7bcbe36dd272ee3ba4de4df16374cc4757543fd00933",
+    "requirements.txt": "b5e4b93d1a45b738bdbecc4cb67f681715c3461c36ee6de885c6d7f916de04eb",
+    "risk.py": "6361979fb6dab76473096766fb0e904b80482386ab7d961393100c9ee5b187b3",
+    "signals.py": "ccd5912f479e4dd62dd3267fe5b1119a5b1a82a06f59701d6ab39321791dacce",
+    "strategy.json": "887abf38c88cae04a00b4024060d81ccb8ef144c5c1b51c99c30325a87b50067",
+    "tests/test_strategy.py": "4fc9420f42191abcf6127f3470afc5bea42ae5e88f9d15b604173a3cee7165eb"
+  }
+}

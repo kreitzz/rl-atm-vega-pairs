@@ -1,0 +1,70 @@
+{
+  "checked_on": "2026-10-09",
+  "scope": "All included Python code; main four-policy experiment. Secondary research implementations linked in the guide are outside the package; their supporting tables are included.",
+  "python": "3.11.14",
+  "platform": "win32",
+  "dependencies": {
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "pyarrow": "25.0.1",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.17.1",
+    "joblib": "1.5.3",
+    "psutil": "7.0.0"
+  },
+  "checks": {
+    "original_manifest": "All original file hashes matched before changes",
+    "imports": "All local imports resolve within paper_code; all seven third-party libraries declared",
+    "data": "Bundled ZIP integrity passed; 90 monthly models included; no completed-outcome label arrays missing",
+    "tests": "11 passed",
+    "verify": "608 sizing choices, four-policy period metrics and paired interval reproduced in isolated Python 3.11 environment",
+    "metrics": "Period, annual and interval exports generated",
+    "fit": "January 2018 model exactly matched archived model",
+    "replays": {
+      "learned": "Daily NAV, trades and admissions matched archived evidence",
+      "fixed50": "Daily NAV, trades and admissions matched archived evidence",
+      "fixed75": "Daily NAV, trades and admissions matched archived evidence",
+      "fixed100": "Daily NAV, trades and admissions matched archived evidence"
+    }
+  },
+  "changes": [
+    "Windows resource supervision with cancellation and teardown regression tests",
+    "Declared psutil dependency and root requirements entry point",
+    "Windows setup instructions and explicit runtime/dependency scope",
+    "Updated package checksums",
+    "Report Git commit reference replaced with local package code and evidence paths; PDF rebuilt and final page visually checked"
+  ],
+  "requirements": "Python and declared third-party dependencies require separate installation; bundled runtime inputs work offline without the parent repository, credentials or data downloads.",
+  "limitations": "Full 90-month refitting and macOS/Linux supervision were not rerun. Historical upstream paths in provenance/configuration are attribution metadata, not runtime dependencies.",
+  "report_language_revision": {
+    "pages": 10,
+    "substantive_information_removed": false,
+    "python_files_changed": false,
+    "new_figures": [
+      "Signal screening to funded admission",
+      "Daily shared-account sequence"
+    ],
+    "preserved": [
+      "All four display equations",
+      "All four tables",
+      "Bibliography",
+      "Numerical results and thresholds",
+      "Assumptions and qualifications",
+      "Original three figures"
+    ],
+    "relocated": "The performance-measures overview moved from the end of training to the introduction; the same explanation remains in the report.",
+    "clarified": "83.1% refers to the 2022 share of later net pair profit across all pairs; 66.9% refers to the three named pairs.",
+    "verification": "Sources checked against included screening, policy, ledger, contracts, risk and metrics code; all pages visually inspected; no compiler warnings."
+  },
+  "report_reference_revision": {
+    "authorized_removals": [
+      "Decision-tree inline citation and bibliography entry",
+      "Cross-entropy method inline citation and bibliography entry"
+    ],
+    "other_information_removed": false,
+    "method_explanations_preserved": true,
+    "motivating_paper_reference_preserved": true,
+    "pages": 10,
+    "python_files_changed": false
+  }
+}

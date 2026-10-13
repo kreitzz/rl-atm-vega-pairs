@@ -1,0 +1,189 @@
+{
+  "status": "submission_reference",
+  "configuration": "30-day 25-delta put pairs, $10m funded account",
+  "features": [
+    "iv_mean",
+    "oriented_iv_gap",
+    "rank_strength",
+    "oriented_vrp_gap",
+    "rv_mean",
+    "beta",
+    "correlation",
+    "dte_mean",
+    "oriented_dte_gap",
+    "commission_vol_points",
+    "vix",
+    "profit_91d",
+    "count_91d",
+    "profit_365d",
+    "count_365d",
+    "oriented_vrp_gap_available",
+    "rv_mean_available",
+    "beta_available",
+    "correlation_available",
+    "dte_mean_available",
+    "oriented_dte_gap_available",
+    "commission_vol_points_available",
+    "vix_available",
+    "profit_91d_available",
+    "count_91d_available",
+    "profit_365d_available",
+    "count_365d_available",
+    "ewma_vrp",
+    "ewma_vrp_available",
+    "ewma_vrp_z",
+    "ewma_vrp_z_available",
+    "variance_ratio",
+    "variance_ratio_available"
+  ],
+  "algorithm": "Contextual regression-tree states with direct portfolio-Sharpe CEM allocation; not sequential inventory-trained RL",
+  "training": {
+    "window_months": 18,
+    "refit": "monthly",
+    "tree_leaves": 8,
+    "optimizer": "CEM",
+    "iterations": 50,
+    "candidates": 192,
+    "seed": 2026,
+    "completed_outcomes_only": true
+  },
+  "sizing_actions": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "entry_rule": "Original252-session IV-spread20/80 ranks; beta0.85-1.15; correlation>=0.5; positive91/365-day completed directional memory and count minima21/63",
+  "holding": "Approximately30D25-delta puts; integer vega matched at entry within10%; daily delta hedge; each leg held to its expiry except audited corporate exits",
+  "costs": {
+    "training_commission": 0.65,
+    "actual_option_commission": 0.03,
+    "option_penalty_vol_points_per_leg": 0.1,
+    "stock_hedge_bps": 1
+  },
+  "risk": {
+    "stress_fraction": 0.05,
+    "reserve_fraction": 0.8,
+    "hedge_gross_multiple": 2,
+    "full_vega_per_leg": 450,
+    "pair_reference_capital": 1000000,
+    "funded_capital": 10000000,
+    "gross_vega_per_pair_reference": 20000,
+    "origin": "Inherited implementation assumptions, not user-provided numerical risk limits",
+    "gross_vega_account_cap": 200000
+  },
+  "evaluation_start": "2018-01-02",
+  "evaluation_end": "2025-08-29",
+  "last_signal": "2025-06-30",
+  "proposals": 608,
+  "input_csv": "data/p25_variance_premium_inputs.csv",
+  "input_csv_sha256": "8e99c2bb448e65e38a87d1e2410c5769d829c7797b5d698e2e8b496e28167ae9",
+  "results": {
+    "10m_learned": {
+      "sharpe": 1.002988184369126,
+      "funded_cagr_pct": 2.962540628735888,
+      "cash_relative_cagr_pct": 0.34206866867816377,
+      "net_excess_pnl": 322637.26195329614,
+      "entries": 212
+    },
+    "10m_fixed50": {
+      "sharpe": 0.7606904495943553,
+      "funded_cagr_pct": 2.882387941602804,
+      "cash_relative_cagr_pct": 0.2639559260518176,
+      "net_excess_pnl": 248314.63542671688,
+      "entries": 263
+    },
+    "10m_fixed100": {
+      "sharpe": 0.7685145843286715,
+      "funded_cagr_pct": 2.9083413039580064,
+      "cash_relative_cagr_pct": 0.2892487563542323,
+      "net_excess_pnl": 272338.07105799206,
+      "entries": 133
+    }
+  },
+  "limitations": [
+    "Repeatedly inspected research history; no fresh holdout",
+    "Retrospective pair formation calendar",
+    "Sizing changes inventory and admission; executed portfolios differ",
+    "Inherited research limits are not broker margin requirements",
+    "Train shadow-path score at $0.65 commission differs from funded execution at $0.03",
+    "2025 is partial through August 29"
+  ],
+  "corporate_events": [
+    {
+      "secid": 103676,
+      "announced": "2023-08-25",
+      "effective": "2023-10-02",
+      "source": "https://investors.danaher.com/2023-08-25-Danaher-Declares-pro-Rata-Dividend-of-Veralto-Common-Stock-and-Announces-Expected-When-issued-Trading-of-Veralto-Common-Stock"
+    },
+    {
+      "secid": 106899,
+      "announced": "2025-01-17",
+      "effective": "2025-01-21",
+      "source": "https://www.miaxglobal.com/alert/2025/01/17/miax-exchange-group-options-markets-corporate-action-alert-lennar"
+    },
+    {
+      "secid": 114726,
+      "announced": "2020-04-01",
+      "effective": "2020-04-15",
+      "source": "https://www.vaneck.com/globalassets/home/us/insights/media-coverage/press-releases/vaneck-announces-reverse-share-split-of-five-etfs.pdf"
+    },
+    {
+      "secid": 127107,
+      "announced": "2020-03-23",
+      "effective": "2020-03-30",
+      "source": "https://www.nasdaq.com/press-release/state-street-global-advisors-announces-reverse-splits-of-two-etfs-2020-03-23"
+    },
+    {
+      "secid": 111459,
+      "announced": "2020-03-30",
+      "effective": "2020-04-03",
+      "reason": "UTX Carrier/Otis separation and RTX merger",
+      "source": "https://investors.rtx.com/news-releases/news-release-details/raytheon-and-united-technologies-obtain-all-regulatory-approvals"
+    },
+    {
+      "secid": 106625,
+      "announced": "2021-12-10",
+      "effective": "2021-12-14",
+      "reason": "KSU acquisition by Canadian Pacific",
+      "source": "https://www.sec.gov/Archives/edgar/data/54480/000119312521354084/d151013dex991.htm"
+    },
+    {
+      "secid": 110962,
+      "announced": "2018-09-24",
+      "effective": "2018-10-01",
+      "reason": "Andeavor acquisition by Marathon Petroleum",
+      "source": "https://ir.marathonpetroleum.com/investor/news-releases/news-details/2018/Shareholders-of-Marathon-Petroleum-Corp-and-Andeavor-approve-strategic-combination/default.aspx"
+    },
+    {
+      "secid": 106905,
+      "announced": "2023-01-05",
+      "effective": "2023-01-17",
+      "reason": "Jefferies Vitesse distribution after January13 close",
+      "source": "https://www.sec.gov/Archives/edgar/data/96223/000119312523002005/d398713dex991.htm"
+    },
+    {
+      "secid": 125179,
+      "announced": "2020-08-04",
+      "effective": "2020-08-27",
+      "reason": "SunPower Maxeon distribution after August26 close",
+      "source": "https://mediaroom.maxeon.com/2020-08-04-Maxeon-Solar-Technologies-Form-20-F-Registration-Statement-Declared-Effective-by-SEC"
+    },
+    {
+      "secid": 101556,
+      "announced": "2023-09-12",
+      "effective": "2023-09-25",
+      "reason": "AngloGold ADS termination and primary listing reorganisation",
+      "source": "https://www.sec.gov/Archives/edgar/data/1067428/000162828023032020/finalisationannouncementin.htm"
+    },
+    {
+      "secid": 101322,
+      "announced": "2025-07-18",
+      "effective": "2025-07-18",
+      "exit_same_day": true,
+      "reason": "Hess conversion to Chevron before the open; close paired inventory at that close",
+      "source": "https://infomemo.theocc.com/infomemos?number=56907",
+      "missing_option_exit_mark": "existing last-known-IV causal mark on published1.025CVX deliverable"
+    }
+  ],
+  "corporate_event_source": "scripts/run_uniform_smile.py"
+}

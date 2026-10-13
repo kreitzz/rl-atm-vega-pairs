@@ -1,0 +1,17 @@
+{
+  "repository_commit": "860f1c4a4df21de2c1cbbfe64e5eb3c738e15447",
+  "sources": {
+    "scripts/option_flex/contract_engine.py": "c17ef15da86630a71441ffb98ac90760274015ad8fef77ffe49d6fc0c0504c0b",
+    "scripts/option_flex/black_scholes.py": "3671f9adc7a717544e56fc3af9f9db429ec2ab5c9825de45753466b6974672be",
+    "scripts/uniform_smile_risk.py": "29462843c4716920ea39e5b99d0fe032343ba42a4229f41b8a710ad959fa80b1",
+    "scripts/option_flex/contract_risk.py": "e52da8cd221c1b08dad7a56730b5e83f12689ab4d6af126d76144b651cc3a13b",
+    "scripts/uniform_smile_engine.py": "d4a4996d1f966f78104d4eb5f402de3ab6ff93be2676069b2a316c386196c74a",
+    "scripts/tail_put25_pooled.py": "dc2a7def4c42d57d28ae489e4a799f1420da7e7e88a29410e5eb136f03a2fb3a",
+    "scripts/retrain_atm_commission.py": "97a5a9ba51ddb3c422b74d9d3676fb65954b3813cdc82cead45b6f556a32ad69",
+    "scripts/p25_representation.py": "a923d7272556085f7c0dee990de469f56c2d4a2d4abe9aac320743825640c4eb",
+    "scripts/run_p25_feature_search.py": "fbee8cda978ab1f3d03d8bdf6dc1ae1cc058ca50d681d4aebd9f9d08ca00779f",
+    "scripts/submission_market.py": "eb6e34dab48f27175b18f05330ff44f79a221ea292a0ce3edd2b3593f906d306",
+    "scripts/run_p25_validation_split.py": "7b5933d40de3b1d99c7d1a5b68c32896e0521c9eebc2ae0419abe7b0cf9c683d"
+  },
+  "scope": "Main screened 27-input paper strategy. Ledger specializes inactive optional branches; numerical primitives retain original formulas."
+}

@@ -1,0 +1,1616 @@
+{
+  "report": "../options_relative_value.pdf",
+  "source_commit": "860f1c4a4df21de2c1cbbfe64e5eb3c738e15447",
+  "scope": "Report plus self-contained main four-policy code reproduction; archived secondary comparison tables.",
+  "files": {
+    "config/p25_submission.json": {
+      "bytes": 6840,
+      "sha256": "f1f1a20ba9fab6adfc78da053292ccd4073943adfab15391ef67f6b398a32659"
+    },
+    "data/DATA_LICENSE.txt": {
+      "bytes": 524,
+      "sha256": "3d9e70d153bca22c18c8018469ce0bda38484d5e2cbafdefb88831885b24589d"
+    },
+    "data/p25_validation_split_experiment.zip": {
+      "bytes": 873723,
+      "sha256": "ade16b0d96504e3d61491ced693287a026983a42120c69859177e859e0e521d1"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/config.json": {
+      "bytes": 806,
+      "sha256": "73f368e3f0b6960c7403f706419320dfb37b294205247dc029c8e4ba8eaf44e0"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet": {
+      "bytes": 331412,
+      "sha256": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/decisions.csv": {
+      "bytes": 103704,
+      "sha256": "9611f6df0d971ada55b9c1d9274388ad02ed51f4c6a04aee6f71f0443da86c3d"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/trades.csv": {
+      "bytes": 62776,
+      "sha256": "19c54357aec8b4ea05b592bab5eac8e3d1b5dc4b85becc1fc27e8e6f9568de1e"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/config.json": {
+      "bytes": 806,
+      "sha256": "73f368e3f0b6960c7403f706419320dfb37b294205247dc029c8e4ba8eaf44e0"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/daily_nav.parquet": {
+      "bytes": 342177,
+      "sha256": "bcf47d1c5689fa1d3318047e4a3826e6f299f422c7844c50f6476bd21bf0fb04"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/decisions.csv": {
+      "bytes": 104610,
+      "sha256": "edf61d05dedf36ff5dbdc5f5c4a61d43c5180d5747ca39a6add4514ea766b1d6"
+    },
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/trades.csv": {
+      "bytes": 124011,
+      "sha256": "b182fe7c735e5acd045c4adbd1432604382ceba881b528a4760fa6486c48e0d9"
+    },
+    "data/submission/artifacts/contracts/p25_feature_search/training_rows.parquet": {
+      "bytes": 7811407,
+      "sha256": "3d7b90a0563bf41b98ef1ee36fcd97c48ebc53bab03c65543fb453e7e9f46175"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2018_quotes.parquet": {
+      "bytes": 446506,
+      "sha256": "86924b14e091f0411ee76532c16cbac7ad1df3a63bb3eddc45fa7781716976aa"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2019_quotes.parquet": {
+      "bytes": 261350,
+      "sha256": "6a0d28eecc52281f3703cbc4ef6476b63811b9e5a135f087fb2296f57be0e162"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2020_quotes.parquet": {
+      "bytes": 433828,
+      "sha256": "a95b75526e9b20c59c294377b0d34fae154937d0ad39f214dc45ebd5c83e2f8c"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2021_quotes.parquet": {
+      "bytes": 303749,
+      "sha256": "5435c8dc756064a1d3c6d3f0d755a20de264e29fb7ff011ffd07a18937dd89ef"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2022_quotes.parquet": {
+      "bytes": 719032,
+      "sha256": "fb58f95f2cc8a90ec0d578429f20cf3651de7e2b2557ca02d8dea69339b5a2e2"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2023_quotes.parquet": {
+      "bytes": 397184,
+      "sha256": "87341674d37872784ef2aff7fa9964630157bc33d7e58aaee3e5f07c620336fe"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2024_quotes.parquet": {
+      "bytes": 224311,
+      "sha256": "41867fc62cee764b0e3ac81e6af5a209b3e6ff7e5120e168c62bb0e4a86fb8cd"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/2025_quotes.parquet": {
+      "bytes": 222192,
+      "sha256": "68871cc5ce260266a2ff6495fad607c9963bad3352f599cc26af274c81de85b7"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/dividends.parquet": {
+      "bytes": 164383,
+      "sha256": "2787797ac69b5b8a852c61921727884a94b0844d7e06e71ccb91cb7d10986e3e"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/rates.parquet": {
+      "bytes": 73146,
+      "sha256": "96346c87a5d71514f7e7378d2041ee116ca89f515fd5a76da74414ff9a40ddc3"
+    },
+    "data/submission/artifacts/contracts/p25_signal_transfer/market/stocks.parquet": {
+      "bytes": 5087996,
+      "sha256": "f8e8ddfdb655643dd353134bec998cf555ba31d38ce4b4c89368e1aad420901e"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101029__104229/P25_labels.npy": {
+      "bytes": 158132,
+      "sha256": "adc144b060c4cd928b56efccbca1d7bfb3cd51f9f7f2932611b8d90d91c0679c"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101121__106203/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101121__107544/P25_labels.npy": {
+      "bytes": 509024,
+      "sha256": "3836bf5380a619f80c3b635978663cd743d754ea2556cdf283f1e1b5f592d1c6"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101121__108321/P25_labels.npy": {
+      "bytes": 463880,
+      "sha256": "7b1192a4dbadd0d7c17bfc637b4c71041b8c57dba82fbfa191754fd0e0d7ed47"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101149__110991/P25_labels.npy": {
+      "bytes": 1194392,
+      "sha256": "b10bffa0bc55f92c729af7608fd573a70318cb2f858d2f489a29c956db7e4e05"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101151__105316/P25_labels.npy": {
+      "bytes": 1352396,
+      "sha256": "7ecf15cb0c44cd285bc44612a18991fa7730f2d43e01c913e60fccf7e8decbc2"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101151__106701/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101151__108130/P25_labels.npy": {
+      "bytes": 1900280,
+      "sha256": "27b5d01a9c911b0db3e686d4e5a44aa211cbc52b07a4308e0b734669c62e4dbd"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101151__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101204__103434/P25_labels.npy": {
+      "bytes": 115040,
+      "sha256": "7e40c6c178b96f6f27afdb2f75fcdbd2925cd07d5ae1b729a01e10ce406a6480"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101227__109958/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101227__110497/P25_labels.npy": {
+      "bytes": 262784,
+      "sha256": "d07fe6e27e0558ed91f55c0a27edb3d214a3f9b92dff87e174a7491a6d5261de"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101227__111337/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101310__110752/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101310__205536/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101322__102968/P25_labels.npy": {
+      "bytes": 1073324,
+      "sha256": "43550c5ea12ef201cdf5bd098ce30cd15b308469630312314ffbf513e7377aa4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101322__104416/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101322__104533/P25_labels.npy": {
+      "bytes": 1017920,
+      "sha256": "ae6fb6410411ea1c94a781fdf3ac6a9f367e6e93028925639b7b329a2f614435"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101322__143107/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101368__103979/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101368__108649/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101368__110337/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101369__105120/P25_labels.npy": {
+      "bytes": 41168,
+      "sha256": "f78c569736327cdd52d3090a3ae48060cf7c8d95379408264b21b06985d60187"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101369__105450/P25_labels.npy": {
+      "bytes": 28856,
+      "sha256": "7d5b8b7eed7c5b594ce356966148c5b5ce7ef234c3d4634737d9db1c54519f73"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101369__110752/P25_labels.npy": {
+      "bytes": 361280,
+      "sha256": "227237b712891d56b8c7785eb7dd69f0cf0d771aac29be794d4d7122eed145db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101397__105581/P25_labels.npy": {
+      "bytes": 195068,
+      "sha256": "898fc8d8d18b87041b2bf4eabb6026b2f22e4bdb77230001fe4597e156761ad9"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101397__109869/P25_labels.npy": {
+      "bytes": 753212,
+      "sha256": "6761881fd7235827c39d3ae8fb4d659969a069d9a43186458741e81b07550f69"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101397__112254/P25_labels.npy": {
+      "bytes": 987140,
+      "sha256": "cf6249531bf3e80c9dc6fc1b220876cad1b9c24818d500f28f44f27f6641f9b1"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101475__107325/P25_labels.npy": {
+      "bytes": 117092,
+      "sha256": "56469f9ee3ae2bf63fa987e1a414212b9089cc10e053ea36ac47d7082882ac31"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101477__104081/P25_labels.npy": {
+      "bytes": 141716,
+      "sha256": "e0685493c6c1102c36e55aa260e0cf6a6e734261ac8f8d910bd6496a44a48fe4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101533__102963/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101533__110366/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101533__119431/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101556__103131/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101556__108130/P25_labels.npy": {
+      "bytes": 642404,
+      "sha256": "7e0871734af9740df071b86f64e53bd9d6022c04df1a7cfed0a11fccf02875c4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101561__111814/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101561__139176/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101561__139331/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101561__139653/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101561__204531/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101580__102963/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101580__110366/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101580__127107/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101580__151404/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101594__103042/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101594__111987/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101594__208503/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101639__112934/P25_labels.npy": {
+      "bytes": 279200,
+      "sha256": "bc595f55808a88840c4cec14bbe2dc2ab8b7150c34f46318bd774754f668db5d"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101803__207008/P25_labels.npy": {
+      "bytes": 125300,
+      "sha256": "b52a3c6370c261b862dcb90cb366e2eea35a127af9ad2c8352fc45752b53fdc2"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101853__102373/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101853__106808/P25_labels.npy": {
+      "bytes": 205328,
+      "sha256": "c0b61316af064353b3bef01016174d493062662fbd21b04ff984749bcbd511a4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101920__110955/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101920__111921/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101966__102936/P25_labels.npy": {
+      "bytes": 3381824,
+      "sha256": "cd3d0beedb5a9d71e58717aad92d25a5095dedde7f460ba9c8f980317c054bc0"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101966__103049/P25_labels.npy": {
+      "bytes": 2222444,
+      "sha256": "6874faa3e1334f0d4d71ba88bc6712c31f6b78e20200f7aa789ae5f96c725edb"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/101966__111953/P25_labels.npy": {
+      "bytes": 1900280,
+      "sha256": "980cd43a6ddcc9d07dfa07c7a1872da38bde4e99527411323ae119d9deb7f8c3"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102043__104185/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102043__107398/P25_labels.npy": {
+      "bytes": 59636,
+      "sha256": "95a5bcd987ce8308f69b4819eb17d23d85f5e2b6f057b78653a5e38e2d44c546"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102064__103651/P25_labels.npy": {
+      "bytes": 250472,
+      "sha256": "3968b342868107741b336c070473b19134761a78960df2200f3bce33a1e0099d"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102064__106629/P25_labels.npy": {
+      "bytes": 266888,
+      "sha256": "3120aecdf64c11edeaf0e6c27d4da7a6dfaaa56fdb321267952f7ba8a9cf23b9"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102064__111071/P25_labels.npy": {
+      "bytes": 402320,
+      "sha256": "45d1a0a40fa7b9af66552035a9215110924a6a39ad751cc306e4d09458aea274"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102235__105329/P25_labels.npy": {
+      "bytes": 223796,
+      "sha256": "24bcddc5f1f930b2136937725eccf8472534368126c44f5909f62c2f34fe5b71"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102235__106067/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102235__106905/P25_labels.npy": {
+      "bytes": 10388,
+      "sha256": "585540822d2c78b26ade02728a6681ef25f9f07c27a06ba21707e8056dc1a9be"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102235__123704/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102235__143554/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102265__111459/P25_labels.npy": {
+      "bytes": 989192,
+      "sha256": "3c6c4e27a44d29e12c3d52e82e9eeade6a79344ea918f8adbbb6b3b1923b165b"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102265__128252/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102373__106808/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102373__213673/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102381__110215/P25_labels.npy": {
+      "bytes": 59636,
+      "sha256": "833f88c3d2d37f863b1fd3ca7fde6bad2bf16c8c13594ac677ad33a32c8343d1"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102472__154945/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102472__206149/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102571__102668/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102571__106625/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102571__111394/P25_labels.npy": {
+      "bytes": 909164,
+      "sha256": "1f408c7f2b36a60d33377be7ee18b385d0f5029cc9da6321692ff345d0f55984"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102632__213921/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102668__111394/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102752__161182/P25_labels.npy": {
+      "bytes": 712172,
+      "sha256": "3b8dbb15dc675f23ae62894102cd18b62b7e2dfb104e269e4ff631920ee3948d"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102833__209658/P25_labels.npy": {
+      "bytes": 16544,
+      "sha256": "507240371098fc6b65c000f01bca43e365b34bfde9e367e8dc5a1bd5c8314457"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102833__216878/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102873__210354/P25_labels.npy": {
+      "bytes": 369488,
+      "sha256": "ffd3929bdcbd92e58c403bf7d0974de8484af54a68a33cdccc4f5413f5129581"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102885__103054/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102936__103049/P25_labels.npy": {
+      "bytes": 164288,
+      "sha256": "b1e94c4e368ac715de77490350430abda8120f43a0f1242ebe07b3ff2e08dabd"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102936__111953/P25_labels.npy": {
+      "bytes": 1294940,
+      "sha256": "bea3022377a5a4b89c6a912a653f952dee9687de8b95ef86e65754f9f64fff2c"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102956__108463/P25_labels.npy": {
+      "bytes": 49376,
+      "sha256": "df4d9bf8dbc8657410275ab077daab4f182a5582b6592626b833b7f3ed5361be"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102956__112042/P25_labels.npy": {
+      "bytes": 273044,
+      "sha256": "ab652c8bf5666a55f614888ac97d5f89db82ef433781fdc8c349bb4757f0e276"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102956__145634/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102956__146036/P25_labels.npy": {
+      "bytes": 207380,
+      "sha256": "5216664fb2c8d569d7dae2dae3e84998eb4ef3b1334febbb7697972a4d37df74"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102963__110366/P25_labels.npy": {
+      "bytes": 348968,
+      "sha256": "55e8ddb9cbd531ea62d592e5c29802b676aad4223028a3fcfdbdd35173f6ad81"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102963__119431/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102963__151404/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102968__104533/P25_labels.npy": {
+      "bytes": 1600688,
+      "sha256": "1dcb7528de66a68c3c0940394a96e6e9235740ae47dfac09903788d7b29e1acd"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102968__108969/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/102968__143107/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103022__129677/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103022__207743/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103042__208503/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103049__111953/P25_labels.npy": {
+      "bytes": 1407800,
+      "sha256": "a881f01ee1ba2a36465b9b08c828b30b6140b3101efbc58672562e3b147da0f4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103098__105003/P25_labels.npy": {
+      "bytes": 872228,
+      "sha256": "74a53110d4db326867f0564aa2acff63257e9ac599f12de2e4aa41f42c70de6a"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103098__127149/P25_labels.npy": {
+      "bytes": 658820,
+      "sha256": "fd818b224a2fbc4887b61b0c7d7321c592cc19f29701c7bbfe8454157f68603c"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103098__214407/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103131__108130/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103198__104146/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103198__139906/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103255__110945/P25_labels.npy": {
+      "bytes": 14492,
+      "sha256": "b661133d9852f3d96205f54a60b335ef62e3c4ddc2ac5dc6e3b4dc34df74793a"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103255__146286/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103368__103404/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103466__139733/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103651__106629/P25_labels.npy": {
+      "bytes": 209432,
+      "sha256": "5816b0af0b6369fb7907a67666279cd3bff1bf55d4dcf575b004f08c756415e8"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103651__111071/P25_labels.npy": {
+      "bytes": 1134884,
+      "sha256": "9c0b74b2a8dd69dff3a47aa52338923e05be0f63dd1fcef71d0903684968aa06"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103676__110991/P25_labels.npy": {
+      "bytes": 457724,
+      "sha256": "b81e22547ba9948c6483162f96c6e8f6051ef0db903dee6d1dc6614fad355f05"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103802__107158/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103802__110366/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103802__127107/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103802__189349/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103979__104508/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103979__104878/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103979__108609/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103979__108649/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/103979__110337/P25_labels.npy": {
+      "bytes": 1024076,
+      "sha256": "0763bcce59af6c71846f63073a0d9579464865dac6a77be85215ccd6581b7774"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104019__135145/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104081__106067/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104286__105169/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104360__110197/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104508__104878/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104508__108609/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104508__110337/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104508__119846/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104533__108969/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104533__143107/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104560__104878/P25_labels.npy": {
+      "bytes": 59636,
+      "sha256": "59ba0ea09dcf9f34046be4675d582961d1389bdd842d47faa7fd193423f2f251"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104633__106723/P25_labels.npy": {
+      "bytes": 730640,
+      "sha256": "55c1cb991242568a84014c0aa84bdf91e2bc0e19bc41b0a0a8e36ce58bc0fbc4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104633__108849/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104633__189248/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104635__125537/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104635__129410/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104635__189845/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104681__207748/P25_labels.npy": {
+      "bytes": 32960,
+      "sha256": "3902312012a14a06519fbd3ac9f7b711901204b4332d08c249e5541d4e051833"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104878__110337/P25_labels.npy": {
+      "bytes": 318188,
+      "sha256": "356090630daa19d0a41db8f573c7a78bc7d403afbb8abf807b91efe87c06284e"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104939__205575/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104992__121756/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104992__143554/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/104992__147220/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105003__127149/P25_labels.npy": {
+      "bytes": 145820,
+      "sha256": "525b062db409eaf96d58c04118ca9f21aa5af5ce22e15609e01b4ea7028c5f22"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105003__214407/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105040__207852/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105120__105450/P25_labels.npy": {
+      "bytes": 47324,
+      "sha256": "cd515dd2dc03031ab734dd45ac54043c5813e53eef7d7c7bf29eb2a3701451d5"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105120__110752/P25_labels.npy": {
+      "bytes": 712172,
+      "sha256": "9ddd7cd21289190d774a77c7e65a3198c0f747e991e3984dfd28d1ffeb5374f0"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105169__111459/P25_labels.npy": {
+      "bytes": 336656,
+      "sha256": "aaa221e5de760ef928d6d7681d741463ca4f973fdb14eba52f9ec0d45f7a6d54"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105169__128252/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105316__108130/P25_labels.npy": {
+      "bytes": 1487828,
+      "sha256": "39bcfa961d081ec64a8bfeae011929c741f57bca4c1023217f391ef7d0e82c8d"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105316__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105329__106067/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105329__106905/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105450__110752/P25_labels.npy": {
+      "bytes": 110936,
+      "sha256": "d9654740d13d93120636ed39583ea7f82696670089e26551a2ef0d0977e90feb"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105512__109476/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105512__109956/P25_labels.npy": {
+      "bytes": 2240912,
+      "sha256": "a27cf9bab7ef4073dc5e3484a1254559bb2e534386f56321ce8edfa8995331a5"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105512__112333/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105512__114726/P25_labels.npy": {
+      "bytes": 1239536,
+      "sha256": "0744548d8b56e238473d9a10973a06dc691f7da243b365f5cc1c7c85dc61c3bb"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105512__116545/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105573__108231/P25_labels.npy": {
+      "bytes": 39116,
+      "sha256": "f1bfc5ccf223bbdee1fdc417dc984f90a8e6cfb576f7383c92ba0334b9a956b0"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105573__109497/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105581__109869/P25_labels.npy": {
+      "bytes": 730640,
+      "sha256": "4d0a199fd8e6aa7182ed7d4bf34cff5550530dd275e3dd6d524b88299095ce00"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105581__112254/P25_labels.npy": {
+      "bytes": 591104,
+      "sha256": "1e192d61ac3d041d554073796d57dbc21dfcc87e426974a61f066508161f206b"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105615__110945/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105615__111493/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105615__146286/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105663__106701/P25_labels.npy": {
+      "bytes": 404372,
+      "sha256": "102b623ede8dfeaf47dcdf1e9c1da9f8b347be8e6be7ef52fd88d8de0c065dd6"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105663__111450/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105663__142772/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105663__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105759__107045/P25_labels.npy": {
+      "bytes": 193016,
+      "sha256": "4e33b53373bc65320135069522011fc5a3dc8d76aa26a6bf2897e647a12e609a"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/105785__107616/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106067__106905/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106203__107544/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106203__108321/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106625__111394/P25_labels.npy": {
+      "bytes": 525440,
+      "sha256": "85fd4fc0920db116d8da05b23ae6b462ee01750a1eca49d4acd4064d37361755"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106629__106899/P25_labels.npy": {
+      "bytes": 3443384,
+      "sha256": "fe1d46fe3bbdc57b439a15d83ba2634e4aa95d119eea11a12e9bd8dcb2cddf78"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106629__111071/P25_labels.npy": {
+      "bytes": 1512452,
+      "sha256": "ea5ae3e157409da1ed6976d86ce1480f8f00b2050c794f698dbe5136245aa548"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106701__108130/P25_labels.npy": {
+      "bytes": 888644,
+      "sha256": "a12e619c17449649a0fa0943631560c10b552358c13c0a575771257d8c468db6"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106701__111450/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106701__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106701__151613/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106715__111434/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106715__112185/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106715__116076/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106723__108849/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106723__189248/P25_labels.npy": {
+      "bytes": 135560,
+      "sha256": "4f97e8bd7a1a4752fb98171cea13c5230579fabb30e2dc4cd7a55dfb6e779f19"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106744__110649/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106744__208300/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106775__124758/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106790__109371/P25_labels.npy": {
+      "bytes": 28856,
+      "sha256": "47090e96a903be4ee08e48cbda95f800de7b7c8bf63d37ca166a54577498968e"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/106899__111071/P25_labels.npy": {
+      "bytes": 1594532,
+      "sha256": "812974034c6e6567e607b9d62efa00ae636ced5048a0bd786abd69601a03c669"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107107__108423/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107110__108843/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107110__116416/P25_labels.npy": {
+      "bytes": 509024,
+      "sha256": "7089fa3348e2c3e9421d42deafd62551d4b367eada9a7c71a831d70ca3849978"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107110__205208/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107141__110188/P25_labels.npy": {
+      "bytes": 303824,
+      "sha256": "7e1cd3585bc94f3bdc7671cff98743c093d587a3b0d8a7d164cf7dbacfc1aedf"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107158__110366/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107158__189349/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107248__116416/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107248__127317/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107248__189909/P25_labels.npy": {
+      "bytes": 1489880,
+      "sha256": "500201cd1f7b216bd29e3ae36ad742be54928753f865f239bbe96ce44d18bd5b"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107484__113437/P25_labels.npy": {
+      "bytes": 2298368,
+      "sha256": "6b785282e96f4192b02bb98b9833d220bcc54ad5e85801423f7cc2da47574102"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107484__121535/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107525__121812/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107525__135419/P25_labels.npy": {
+      "bytes": 492608,
+      "sha256": "35a5702bbc1205cf70e212be0421f876f5dc9893d3f770070ae9b570657c32d8"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107525__154402/P25_labels.npy": {
+      "bytes": 164288,
+      "sha256": "c4725598480d964eb321ce0d24add29c37d2cdb466a0f8fb702766e8ada4b0d3"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107544__108321/P25_labels.npy": {
+      "bytes": 207380,
+      "sha256": "bfdafbe529901727b91429f3116f0459d182abbc06d210168c08e5b8ba10f5a8"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/107616__111222/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108114__123307/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108114__208142/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108130__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108231__109497/P25_labels.npy": {
+      "bytes": 420788,
+      "sha256": "9190d4fb873677117c6b1a3823b7e69d53f0cdc09a52f53652d83a7e3dcfdb76"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108253__129677/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108463__112042/P25_labels.npy": {
+      "bytes": 433100,
+      "sha256": "fa6a0b4b9a3b47aef487286d3fa25020e4117ab15931bb186fddb079b11c9f25"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108463__146036/P25_labels.npy": {
+      "bytes": 490556,
+      "sha256": "2f5cc926592208895b02b4bd36b57c3b3f8e7f8434cde18f6162accdacc57295"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108463__211296/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108649__110337/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108843__116416/P25_labels.npy": {
+      "bytes": 53480,
+      "sha256": "4633f09f2817db6468abf3d1776e8400409468b53e1d3da11d344af2f25bb821"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108843__205208/P25_labels.npy": {
+      "bytes": 223796,
+      "sha256": "497a109d96574edf589f31d9b2c9d3afe2d9a9369f0010e2a5623b81a81830ad"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/108969__127107/P25_labels.npy": {
+      "bytes": 1606844,
+      "sha256": "6d081289882ca9b552951160cc01d7c83ad00d0f6f26305a6adcfec791ee2415"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109006__112046/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109072__213108/P25_labels.npy": {
+      "bytes": 601364,
+      "sha256": "76d503e85d3b2a4f9f1377e47d6d1c4ba5d150b48ae0d4fcb9fde2e046a183df"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109072__214357/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109072__214803/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109182__124209/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109182__151386/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109476__109956/P25_labels.npy": {
+      "bytes": 418736,
+      "sha256": "92d93c90f6744321c9c9c5151d7edcea3c0004a66e6a5dc58390148af44d9ab3"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109476__112333/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109775__111668/P25_labels.npy": {
+      "bytes": 371540,
+      "sha256": "2787cea65f8d258f3f951bcd267e7cbccba0066405cd1a244e1973f32db0d333"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109775__121764/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109869__112254/P25_labels.npy": {
+      "bytes": 671132,
+      "sha256": "743705a169f78d336d92e953ff8692a26289bd7f8e9161cab88a882b1ffd6ae4"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109956__112333/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109956__114726/P25_labels.npy": {
+      "bytes": 1477568,
+      "sha256": "e2cb335e354f27cf8e499428e5f38af132649bd8ab7ab7ce2bdc4199087d3829"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109956__116545/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109958__110497/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/109958__111337/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110000__122791/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110000__123090/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110262__110460/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110357__125537/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110357__129410/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110357__189845/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110366__119431/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110366__151404/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110366__189349/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110497__111337/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110945__111493/P25_labels.npy": {
+      "bytes": 39116,
+      "sha256": "aa6b4ed104a69c2cb7e7dd44b45dfca244a2777720baa5cdd900789cbcd114a1"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110945__146286/P25_labels.npy": {
+      "bytes": 695756,
+      "sha256": "e15e5ac94763a3b6d74c458b56b105590378c42a6260283f429567fdf5783dfb"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110952__111279/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110952__206043/P25_labels.npy": {
+      "bytes": 297668,
+      "sha256": "8b18114c322b2efa3e7c91fcfd86773348b08b01b6b15209df84e279f2c8c0fa"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110962__152875/P25_labels.npy": {
+      "bytes": 691652,
+      "sha256": "ca9b1cc761e95a799c03471e780a01e6f3997f27356d2454bcddb12bd8caa6b7"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110979__111459/P25_labels.npy": {
+      "bytes": 765524,
+      "sha256": "5594d23bf30b3873b46371823e32badb21f54bc2cb117820613dc037b8dcb70c"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110979__128763/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/110991__144520/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111279__206043/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111296__189349/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111359__189478/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111434__116076/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111436__128233/P25_labels.npy": {
+      "bytes": 201224,
+      "sha256": "8546b56fe7a00d374c8d5fb0c893dce05ca9e15090fcde6b6c9e4c139b0af5d3"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111436__208308/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111450__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111459__128252/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111469__113119/P25_labels.npy": {
+      "bytes": 324344,
+      "sha256": "42d25c112631dda86a813c2da03dbd646b07505a5637c3ecc6facf65717039f7"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111469__113430/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111493__146286/P25_labels.npy": {
+      "bytes": 100676,
+      "sha256": "0ff08c4e39ef86876b4830004dffc8c62232166e4f3b7305fea1919da07e3252"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111814__204531/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/111987__208503/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112042__145634/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112042__146036/P25_labels.npy": {
+      "bytes": 254576,
+      "sha256": "adb682591c73ba4be4ba04235f52d573661cfc2db394fe2c5dc9e3ca8182c28b"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112042__211296/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112046__155603/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112213__113437/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112333__116545/P25_labels.npy": {
+      "bytes": 59636,
+      "sha256": "46679da78dc9d70613e9cbab04836527e9d3ef410dcaf41cbf45ad4f13eb25aa"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112463__161182/P25_labels.npy": {
+      "bytes": 318188,
+      "sha256": "b1bca51ada1ca6c94b57dbfe4612ef106b621856fae4ec125ce51fd144bb1669"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112472__116545/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112472__121571/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112472__125052/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/112472__142517/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/113119__113430/P25_labels.npy": {
+      "bytes": 59636,
+      "sha256": "494e0b899c7976db2ea164677a9cbaa14b69ca89c4809a4ae52738e01368d775"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/113437__121535/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/114695__145989/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/114695__213271/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/114726__127107/P25_labels.npy": {
+      "bytes": 1508348,
+      "sha256": "6b21e308377c9fa60cd2447ad7fb85e2ad0a92e96e9ba5b80ae3027a709c6732"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/116416__189909/P25_labels.npy": {
+      "bytes": 424892,
+      "sha256": "3348020b498393bfbc6a6f02bdf597ed53752a4fea08342ed87a936e585ff196"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/116416__205208/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121355__121995/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121355__123847/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121571__125052/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121571__142517/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121571__214242/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121756__143554/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121812__154402/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/121995__123847/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/122791__123090/P25_labels.npy": {
+      "bytes": 28856,
+      "sha256": "dd5c7a9256d627d45ee10e3bfad61190df5bd584c1e5e188e50dc3867fe024be"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/123090__207444/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/123090__213287/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/123704__143554/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/124209__151386/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/124737__142517/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/125052__142517/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/125052__214242/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/125179__128133/P25_labels.npy": {
+      "bytes": 371540,
+      "sha256": "70b0b48053bbc849237a432bcc6ff8838240dbaa74ed95d975f88c6d0d5cd536"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/125537__129410/P25_labels.npy": {
+      "bytes": 2392760,
+      "sha256": "332946968c86b610b2661b3cd32ac24b3a1ddf064fe6a72dd117849d940a7d22"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/125537__189845/P25_labels.npy": {
+      "bytes": 853760,
+      "sha256": "76172ac2eac1bb897ffb7920afe0c26c845dd7f0faed2a5215df98908d54b31e"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/125944__151709/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/129410__189845/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/129677__189574/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/135419__154402/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/139176__139653/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/142517__214242/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/142772__145681/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/143439__205711/P25_labels.npy": {
+      "bytes": 100676,
+      "sha256": "9ae479576c8666e46362b95f30afa0b80c7aff41b82b40e854332c8f8094bbe9"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/143554__147220/P25_labels.npy": {
+      "bytes": 215588,
+      "sha256": "53f575be10b9d04d65ac24198aa7b46ea8d728e5f617dadf1099494256b31292"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/144671__205575/P25_labels.npy": {
+      "bytes": 37064,
+      "sha256": "4ac28ae32d567c57a8c9f5b7d5342924a232b8eb1e624f6cecd5ecfcb8665576"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/145634__146036/P25_labels.npy": {
+      "bytes": 400268,
+      "sha256": "0555c15f4aeb5989464d130a86e42816830b764414f3d1f8cc43d3b61b18ad2a"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/146036__211296/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/154402__189705/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/154402__210918/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/155271__211715/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/189478__214964/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/206322__208220/P25_labels.npy": {
+      "bytes": 28856,
+      "sha256": "cced0ab831891a38b91259a3920834f7bb5959662710b0ac25b8772a11b27323"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/206322__213271/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/207008__213816/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/207039__207768/P25_labels.npy": {
+      "bytes": 20648,
+      "sha256": "0ae68b1b918c4ac2b181f439f97f6d450dacf69b77a1c387201b859325de5acf"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/207444__213287/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/210291__211188/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/210291__212347/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/210291__213365/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/210603__210831/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/210918__213638/P25_labels.npy": {
+      "bytes": 172496,
+      "sha256": "75e5504df2405cf4276306203e0b49883046b5d14b7f9a4964e13536a64407a0"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/211188__211224/P25_labels.npy": {
+      "bytes": 43220,
+      "sha256": "3995b95a8501efae3a55336dfde9db9fd9ef092ea33a3cb9edcf3ea1db3dcae6"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/211188__212347/P25_labels.npy": {
+      "bytes": 166340,
+      "sha256": "346fdd88ce87c881a5f4a129799f12ca3265d265565ded21a916bf366f1e55a8"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/211188__213365/P25_labels.npy": {
+      "bytes": 67844,
+      "sha256": "f2a87cfc28efffa21b4f51762c985170865451278736d1e7a58b85cf194a45f7"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/211224__212347/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/211715__214410/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/212347__213365/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/213114__213363/P25_labels.npy": {
+      "bytes": 92468,
+      "sha256": "04dde268f2f1b82554363a9159f06096c5f5634ce927d5cd89f65ad7721844e9"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/213531__213638/P25_labels.npy": {
+      "bytes": 441308,
+      "sha256": "fe00223b4e917c403f43138a31908092a7e9cdb47c3633567836ed393be5475c"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/214803__216213/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/214904__215427/P25_labels.npy": {
+      "bytes": 182756,
+      "sha256": "9a67825abc78fc98f686ff3408f8acfa3bf9bee2a920e83b0a1bf44504e11ab1"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/8957__105003/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "data/submission/artifacts/contracts/uniform_smile/pairs/8957__127149/P25_labels.npy": {
+      "bytes": 128,
+      "sha256": "6450e07021f8df3f0b569dcdaff8c5633ebdedf214a97e80edf0099511dbf1db"
+    },
+    "figures/performance_above_cash.pdf": {
+      "bytes": 32023,
+      "sha256": "3b8281369c85e55b182729544549b5f2a5885ccb123e07ac42c76ec0949fe3d5"
+    },
+    "paper/pair_universe.csv": {
+      "bytes": 4102,
+      "sha256": "406e8fdcdebe882735bdaba30055dc8c6b5cb234ad3b8cc85f116f25d2f3cd5a"
+    },
+    "paper_code/__init__.py": {
+      "bytes": 355,
+      "sha256": "59b9e865f7a8d02b64a0ff9d715bc5458aac02189d0860c4113f066be4dc83df"
+    },
+    "paper_code/__main__.py": {
+      "bytes": 8176,
+      "sha256": "582113e079b8326874761fc3f722eb7dbb5eb38ec6b83e3cac85aaf55b9eec3a"
+    },
+    "paper_code/contracts.py": {
+      "bytes": 5865,
+      "sha256": "39cb597f4739cc5e60a6a9706c8d5a67215ed453f599e985fc6686dcb47649d0"
+    },
+    "paper_code/data.py": {
+      "bytes": 5305,
+      "sha256": "1a5583ea9a124c41dc24e031f111d06300a32d5d188f54a3cba8ce945e4cc78a"
+    },
+    "paper_code/execution.json": {
+      "bytes": 806,
+      "sha256": "73f368e3f0b6960c7403f706419320dfb37b294205247dc029c8e4ba8eaf44e0"
+    },
+    "paper_code/guard.py": {
+      "bytes": 7089,
+      "sha256": "a14f455c79d75060060e1e8256d5614dcf460e1979f8d1b9f0ae9306181cb14c"
+    },
+    "paper_code/ledger.py": {
+      "bytes": 26058,
+      "sha256": "3f7b835e89cf061ce3a7607a0cfd38d870dcf16366216367cc738432fb773db3"
+    },
+    "paper_code/metrics.py": {
+      "bytes": 4962,
+      "sha256": "a795c9aaf53527cdc468089ff14091c3a9b0855d7328604720f80d20f9326720"
+    },
+    "paper_code/policy.py": {
+      "bytes": 6017,
+      "sha256": "65588eac0e1d3e034b8fbc4d03009ea8b8b9089cb3a83cb9dda5a3ae3f9316e6"
+    },
+    "paper_code/pricing.py": {
+      "bytes": 5118,
+      "sha256": "908d26ba7685eed3979977e7f412936165cabed05ae4c2ae70ab1724a0fb9c0a"
+    },
+    "paper_code/provenance.json": {
+      "bytes": 1428,
+      "sha256": "9740342f67f8e8977c5d7bcbe36dd272ee3ba4de4df16374cc4757543fd00933"
+    },
+    "paper_code/README.md": {
+      "bytes": 5908,
+      "sha256": "0875ffa1afa4a93256e1c55447fd3ff1525b2e797a60481ac83cec0fddfc54ca"
+    },
+    "paper_code/requirements.txt": {
+      "bytes": 168,
+      "sha256": "c34bdb2d25a7fa05ba3bed0a1f4eb15764a3fe2b1d65be8257b681f0a02643c7"
+    },
+    "paper_code/risk.py": {
+      "bytes": 3689,
+      "sha256": "6361979fb6dab76473096766fb0e904b80482386ab7d961393100c9ee5b187b3"
+    },
+    "paper_code/signals.py": {
+      "bytes": 5956,
+      "sha256": "ccd5912f479e4dd62dd3267fe5b1119a5b1a82a06f59701d6ab39321791dacce"
+    },
+    "paper_code/strategy.json": {
+      "bytes": 1368,
+      "sha256": "887abf38c88cae04a00b4024060d81ccb8ef144c5c1b51c99c30325a87b50067"
+    },
+    "paper_code/tests/test_guard.py": {
+      "bytes": 2371,
+      "sha256": "e2af89a5d0bed933d29de34d497fca54cc9c635a8faefe116040fc37e75b30e8"
+    },
+    "paper_code/tests/test_strategy.py": {
+      "bytes": 6492,
+      "sha256": "4fc9420f42191abcf6127f3470afc5bea42ae5e88f9d15b604173a3cee7165eb"
+    },
+    "paper_code/verification.json": {
+      "bytes": 3863,
+      "sha256": "ea500aca993f9e4402c6e9767519d144096e9013d851dbbf5df9ca0dfd932625"
+    },
+    "README.md": {
+      "bytes": 2982,
+      "sha256": "e609079a7aa8f0992825d85205cf5f13af80a02118e756406125ef361a57a229"
+    },
+    "report_source.tex": {
+      "bytes": 37649,
+      "sha256": "5a28b7e8272c128d84bb2d915e42a132882ee628d92d2985e7f898e47b4d22a3"
+    },
+    "reports/p25_direct_policy/funded/periods.csv": {
+      "bytes": 2952,
+      "sha256": "b5aa29c8c918d571d858154466f085eedbfaf13ba6b34af871d8256f090c4a4f"
+    },
+    "reports/p25_generalization_bridge/stages.csv": {
+      "bytes": 3339,
+      "sha256": "bb861415f20c8fa3b81534baf2e2927875dc6b9ffe630b60e6d1e2c56d33459e"
+    },
+    "reports/p25_strategy_audit/pairs/pair_periods.csv": {
+      "bytes": 110266,
+      "sha256": "22803850df820f30fbcbf619a6f1477037040305383bae2d5973ab0a42b6f7f1"
+    },
+    "reports/p25_strategy_audit/sizing/periods.csv": {
+      "bytes": 2373,
+      "sha256": "26d42d4b13af91edb449d513f02b996c78224cd0ba5c1523b44fe504e3968671"
+    },
+    "reports/p25_validation_split/annual.csv": {
+      "bytes": 7383,
+      "sha256": "016c46859565e916eb3456e5b08c7b16b765d919bb95cec259d3768b69882add"
+    },
+    "reports/p25_validation_split/holdout_intervals.csv": {
+      "bytes": 280,
+      "sha256": "35eecd9bea00bf42b7be6e7723c26c21994fa367d22687ff9fa3fc191dda6b31"
+    },
+    "reports/p25_validation_split/periods.csv": {
+      "bytes": 6879,
+      "sha256": "c87e3a83a4a81ef6292a12d84f1a01b669aec4652d37677d90316d6ed6dac435"
+    },
+    "reports/p25_validation_split/selection.json": {
+      "bytes": 1387,
+      "sha256": "1d40c0838c64fc9ab6ba1609e23352589487557d334f2181d8609bd463da0058"
+    },
+    "reports/p25_validation_split/validation_candidates.csv": {
+      "bytes": 13768,
+      "sha256": "960cc352202f455e3cc042fc3ec07d0e22136ec091af7b376942673f43c3b747"
+    },
+    "requirements.txt": {
+      "bytes": 31,
+      "sha256": "f45efbc55e21fb83795050a15f01dea95a5c6d3a41db6e4129cbcb9580bf396b"
+    },
+    "self_contained_check.json": {
+      "bytes": 3571,
+      "sha256": "40a15a9bcd70e403d99efffa96e2475ea566bd1a2d4c8a13e7b686f0b6defa12"
+    }
+  },
+  "report_sha256": "40200172376629362db6427d1a5708176ed4027a4a6e8a4db7b690a043ead9a5"
+}

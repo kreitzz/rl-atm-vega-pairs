@@ -1,0 +1,530 @@
+"""Funded daily ledger, specialized to entry sizing and hold-to-expiry.
+
+Extracted from the published engine without changing financial arithmetic.
+Unused management and leverage branches are removed. See provenance.json.
+"""
+from collections import defaultdict
+from dataclasses import replace
+import numpy as np
+import pandas as pd
+from .contracts import (
+    MarketRow, UnresolvedPosition, valid_quote, valid_greeks, integer_size,
+    verified_integer_split, execution_terms,
+)
+from .risk import book_risk, risk_breaches
+from .pricing import option_values
+
+def inventory_features(pair_metrics, global_metrics, pair_capital, capital, max_vega):
+    return dict(
+        pair_inventory_vega=pair_metrics.get('gross_vega', 0.0) / (max_vega * pair_capital / capital),
+        pair_inventory_hedge=pair_metrics.get('gross_hedge_notional', 0.0) / (2 * pair_capital),
+        pair_inventory_cohorts=pair_metrics.get('active_cohorts', 0.0) / 10,
+        global_inventory_vega=global_metrics.get('gross_vega', 0.0) / max_vega,
+        global_inventory_hedge=global_metrics.get('gross_hedge_notional', 0.0) / (2 * capital),
+    )
+
+def simulate(market, signals, calendar, cfg, pair_capital, policy=None, corporate_events=(), wing_capital=None):
+    """Replay the paper’s next-session entries in one funded account.
+
+    Prior stock hedges earn price P&L and dividends before rebalancing.
+    Each option leg settles at its own expiry; no early assignment is modeled.
+    New entries must pass pair, option-bucket and global risk limits."""
+    cal = pd.DatetimeIndex(calendar)
+    if not cfg.hold_to_expiry or not cfg.risk_controls:
+        raise ValueError('Shared test requires the frozen expiry and risk conventions')
+    if cal.has_duplicates or len(cal) < 2:
+        raise ValueError('Unique calendar with runoff required')
+    if signals.duplicated(['date', 'pair', 'wing']).any():
+        raise ValueError('Duplicate pair/wing signal')
+    if not pd.DatetimeIndex(signals.date).isin(cal[:-1]).all():
+        raise ValueError('Every signal needs a subsequent execution session')
+    if not signals.base_level.isin([1, 2, 3, 4]).all() or not signals.direction.isin([-1, 1]).all():
+        raise ValueError('Only frozen nonzero direction proposals are executable')
+    secids = sorted(set(signals.secid_a) | set(signals.secid_b))
+    pair_members = {r.pair: {int(r.secid_a), int(r.secid_b)} for r in signals.itertuples()}
+    pair_cfg = replace(cfg, capital=pair_capital, max_gross_vega=cfg.max_gross_vega * pair_capital / cfg.capital)
+    wing_cfg = None if wing_capital is None else replace(cfg, capital=wing_capital, max_gross_vega=cfg.max_gross_vega * wing_capital / cfg.capital)
+    schedule = {pd.Timestamp(d): g.sort_values(['pair', 'wing'], kind='stable') for d, g in signals.groupby('date', sort=False)}
+    events = defaultdict(set)
+    for event in corporate_events:
+        if event.get('exit_same_day', False):
+            after = cal[cal >= pd.Timestamp(event['effective'])]
+            exit_day = after[0] if len(after) else None
+        else:
+            before = cal[cal < pd.Timestamp(event['effective'])]
+            exit_day = before[-1] if len(before) else None
+        if exit_day is not None and pd.Timestamp(event['announced']) <= exit_day:
+            events[exit_day].add(int(event['secid']))
+            effective = cal[cal >= pd.Timestamp(event['effective'])]
+            if len(effective):
+                events[effective[0]].add(int(event['secid']))
+    cash_events = defaultdict(list)
+    for event in market.divs.itertuples():
+        j = cal.searchsorted(event.ex_date)
+        if 0 < j < len(cal):
+            cash_events[cal[j]].append((int(event.secid), float(event.amount)))
+    cash = cfg.capital
+    hedge = {s: 0.0 for s in secids}
+    positions = []
+    trades = []
+    decisions = []
+    daily = []
+    previous_spots = {}
+    previous_adjustments = {}
+    previous_date = None
+    previous_unavailable = set()
+    previous_nav = cfg.capital
+    previous_option_value = 0.0
+    previous_rate = 0.0
+    lag_pairs = {}
+    lag_global = {}
+    max_ledger_error = 0.0
+    for i, date in enumerate(cal):
+        # 1. Observe today's stock marks and value existing option inventory.
+        repaired = fallbacks = modeled = 0
+        scenario_cache = {}
+        mark_cache = {}
+        spots = {}
+        adjustments = {}
+        unavailable = set()
+        split_factors = {s: 1.0 for s in secids}
+        for sid in secids:
+            spot, adjust = market.stock(date, sid)
+            if not np.isfinite([spot, adjust]).all() or spot <= 0:
+                if hedge[sid] or any((p['secid'] == sid for p in positions)):
+                    raise UnresolvedPosition(f'{date}: missing held underlying {sid}')
+                unavailable.add(sid)
+                spot = previous_spots.get(sid, 0.0)
+                adjust = previous_adjustments.get(sid, 1.0)
+            spots[sid] = float(spot)
+            adjustments[sid] = float(adjust)
+
+        def quote(oid, p=None):
+            nonlocal repaired, fallbacks, modeled
+            key = (int(oid), None if p is None else p['cohort'], None if p is None else p.get('last_iv'))
+            if key in mark_cache:
+                return mark_cache[key]
+            raw = market.quote(date, int(oid))
+            if raw is None:
+                if p is None:
+                    return None
+                sigma = p.get('last_iv', np.nan)
+                if not np.isfinite(sigma) or sigma <= 0 or date >= p['expiry']:
+                    raise UnresolvedPosition(f'{date}: no causal held mark for {oid}')
+                rate = market.rate(date)
+                pv = market.dividend_pv(date, p['secid'], p['expiry'], rate)
+                price, delta, _, vega = option_values(
+                    spots[p['secid']] - pv,
+                    p['strike'],
+                    (p['expiry'] - date).days / 365,
+                    rate,
+                    sigma,
+                    p['cp_flag'],
+                )
+                q = MarketRow(
+                    secid=p['secid'],
+                    optionid=int(oid),
+                    date=date,
+                    strike=p['strike'],
+                    expiry=p['expiry'],
+                    cp_flag=p['cp_flag'],
+                    cfadj=p['cfadj'],
+                    multiplier=100.0,
+                    standard=True,
+                    bid=float(price),
+                    ask=float(price),
+                    delta=float(delta),
+                    vega=float(vega),
+                    bs_iv=sigma,
+                    bs_rate=rate,
+                    known_dividend_pv=pv,
+                    bs_status='causal_held_mark',
+                )
+                modeled += 1
+            else:
+                q = raw.copy()
+            if cfg.repair_crossed_held_quotes and 0 <= q.ask < q.bid:
+                q['bid'], q['ask'] = (q.ask, q.bid)
+                repaired += 1
+            if not valid_quote(q):
+                raise UnresolvedPosition(f'{date}: invalid held quote {oid}')
+            if p is not None:
+                if q.cfadj != p['cfadj'] or q.strike != p['strike'] or q.expiry != p['expiry']:
+                    raise UnresolvedPosition(f'{date}: unsupported option adjustment {oid}')
+                if q.get('bs_status') == 'unsupported_distribution' and p['pair'] not in event_pairs:
+                    raise UnresolvedPosition(f'{date}: unsupported distribution {oid}')
+                sigma = float(q.get('bs_iv', np.nan))
+                if not valid_greeks(q) or not np.isfinite(sigma) or sigma <= 0:
+                    sigma = p.get('last_iv', np.nan)
+                    rate = q.get('bs_rate', np.nan)
+                    pv = q.get('known_dividend_pv', np.nan)
+                    if not np.isfinite([sigma, rate, pv]).all() or sigma <= 0 or spots[p['secid']] - pv <= 0:
+                        raise UnresolvedPosition(f'{date}: no causal hedge for {oid}')
+                    _, delta, _, vega = option_values(
+                        spots[p['secid']] - pv,
+                        p['strike'],
+                        (p['expiry'] - date).days / 365,
+                        rate,
+                        sigma,
+                        p['cp_flag'],
+                    )
+                    q.update(delta=float(delta), vega=float(vega), bs_iv=float(sigma))
+                    fallbacks += 1
+                p['last_iv'] = float(q.bs_iv)
+                p['last_vega'] = float(q.vega)
+            mark_cache[key] = q
+            return q
+        for sid in secids:
+            if sid not in previous_adjustments or adjustments[sid] == previous_adjustments[sid]:
+                continue
+            held = [p for p in positions if p['secid'] == sid]
+            if not held and (not hedge[sid]):
+                continue
+            ratio = adjustments[sid] / previous_adjustments[sid]
+            raw = [market.quote(date, p['optionid']) for p in held]
+            if not held or not cfg.support_integer_splits or any((q is None or not verified_integer_split(p, q, ratio) for p, q in zip(held, raw))):
+                raise UnresolvedPosition(f'{date}: unverified held split {sid}')
+            ratio = int(round(ratio))
+            split_factors[sid] = ratio
+            hedge[sid] *= ratio
+            for p, q in zip(held, raw):
+                trades.append(dict(
+                    date=date,
+                    cohort=p['cohort'],
+                    pair=p['pair'],
+                    wing=p['wing'],
+                    secid=sid,
+                    optionid=p['optionid'],
+                    quantity=p['quantity'] * (ratio - 1),
+                    price=0.0,
+                    commission=0.0,
+                    execution_penalty=0.0,
+                    reason='split_adjustment',
+                ))
+                p['quantity'] *= ratio
+                p['strike'] = q.strike
+                p['cfadj'] = q.cfadj
+                p['last_vega'] /= ratio
+        adjusted_prior = {s: previous_spots.get(s, spots[s]) / split_factors[s] for s in secids}
+        # 2. Yesterday's stock hedge earns today's price P&L and dividends.
+        # Cash interest and borrow accrue across elapsed calendar days.
+        hedge_pnl = sum((hedge[s] * (spots[s] - adjusted_prior[s]) for s in secids)) if previous_date is not None else 0.0
+        interest = borrow = dividend = option_cost = option_penalty = 0.0
+        if previous_date is not None:
+            elapsed = (date - previous_date).days / 365
+            interest = cash * (previous_rate + (cfg.borrowing_spread if cash < 0 else 0)) * elapsed
+            borrow = sum((max(-hedge[s], 0) * adjusted_prior[s] for s in secids)) * cfg.stock_borrow_rate * elapsed
+            dividend = sum((hedge.get(s, 0.0) * amount for s, amount in cash_events.get(date, [])))
+            cash += interest - borrow + dividend
+        # 3. Settle expiries and known corporate-event exits.
+        option_cash = 0.0
+        kept = []
+        for p in positions:
+            if date >= p['exit_date']:
+                price = max((spots[p['secid']] - p['strike']) * (1 if p['cp_flag'] == 'C' else -1), 0.0)
+                amount = p['quantity'] * 100 * price
+                cash += amount
+                option_cash += amount
+                trades.append(dict(
+                    date=date,
+                    cohort=p['cohort'],
+                    pair=p['pair'],
+                    wing=p['wing'],
+                    secid=p['secid'],
+                    optionid=p['optionid'],
+                    quantity=-p['quantity'],
+                    price=price,
+                    commission=0.0,
+                    execution_penalty=0.0,
+                    reason='expiry_settlement',
+                ))
+            else:
+                kept.append(p)
+        positions = kept
+        event_pairs = {p['pair'] for p in positions if pair_members[p['pair']] & events.get(date, set())}
+        for p in positions:
+            raw = market.quote(date, p['optionid'])
+            if raw is not None and raw.get('bs_status') == 'unsupported_distribution':
+                event_pairs.add(p['pair'])
+        kept = []
+        for p in positions:
+            if p['pair'] not in event_pairs:
+                kept.append(p)
+                continue
+            q = quote(p['optionid'], p)
+            qty = -p['quantity']
+            price, penalty, slippage = execution_terms(q, qty, cfg, p.get('last_vega'))
+            fee = abs(qty) * cfg.option_commission
+            amount = -qty * 100 * price - fee - penalty
+            cash += amount
+            option_cash += amount
+            option_cost += slippage + fee
+            option_penalty += penalty
+            trades.append(dict(
+                date=date,
+                cohort=p['cohort'],
+                pair=p['pair'],
+                wing=p['wing'],
+                secid=p['secid'],
+                optionid=p['optionid'],
+                quantity=qty,
+                price=price,
+                commission=fee,
+                execution_penalty=penalty,
+                reason='announced_corporate_action_exit',
+            ))
+        positions = kept
+
+        def assess(book, cash_balance):
+            metrics = book_risk(book, lambda p: quote(p['optionid'], p), spots, date, cfg, scenario_cache)
+            hc = sum((abs(metrics['target_hedge'][s] - hedge[s]) * spots[s] for s in secids)) * cfg.stock_cost_bps / 10000
+            nav = cash_balance + sum((hedge[s] * spots[s] for s in secids)) + metrics['option_value'] - hc
+            return (metrics, nav)
+        # 4. Admit yesterday's proposals using today's executable quotes.
+        # Existing positions plus proposed additions must fit all risk budgets.
+        global_metrics, sizing_nav = assess(positions, cash)
+        pre_global = risk_breaches(global_metrics, sizing_nav, cfg)
+        if i > 0 and cal[i - 1] in schedule:
+            signal_date = cal[i - 1]
+            for row in schedule[signal_date].to_dict('records'):
+                sid_a, sid_b = (int(row['secid_a']), int(row['secid_b']))
+                pair = row['pair']
+                wing = row['wing']
+                context = inventory_features(
+                    lag_pairs.get(pair, {}),
+                    lag_global,
+                    pair_capital,
+                    cfg.capital,
+                    cfg.max_gross_vega,
+                )
+                level = int(row['base_level']) if policy is None else int(policy(row, context))
+                if level not in range(5):
+                    raise ValueError('Sizing must use the declared 0/25/50/75/100 ladder')
+                action = row['direction'] * level / 4
+                requested_budget_scale = 1.0
+                decision = dict(
+                    signal_date=signal_date,
+                    entry_date=date,
+                    pair=pair,
+                    wing=wing,
+                    base_level=int(row['base_level']),
+                    level=level,
+                    action=action,
+                    status='flat',
+                    **context,
+                )
+                if not level:
+                    decisions.append(decision)
+                    continue
+                if {sid_a, sid_b} & events.get(date, set()):
+                    decision['status'] = 'announced_corporate_action_no_entry'
+                    decisions.append(decision)
+                    continue
+                if {sid_a, sid_b} & (unavailable | previous_unavailable):
+                    decision['status'] = 'underlying_unavailable_at_entry'
+                    decisions.append(decision)
+                    continue
+                selected = []
+                live = []
+                for sid, oid in [(sid_a, row['optionid_a']), (sid_b, row['optionid_b'])]:
+                    if not np.isfinite(oid):
+                        break
+                    old = market.quote(signal_date, int(oid))
+                    now = market.quote(date, int(oid))
+                    if old is None or now is None:
+                        break
+                    if sid not in previous_spots or previous_spots[sid] <= 0:
+                        break
+                    dte = (old.expiry - date).days
+                    if old.secid != sid or not valid_quote(old, True, cfg) or (not cfg.min_dte <= dte <= cfg.max_dte) or (abs(old.strike / previous_spots[sid] - 1) > cfg.max_moneyness_distance):
+                        break
+                    eligible = now.copy()
+                    eligible['open_interest'] = old.open_interest
+                    if not valid_quote(eligible, True, cfg) or now.strike != old.strike or now.cfadj != old.cfadj or (now.expiry != old.expiry) or (now.secid != sid):
+                        break
+                    selected.append(old)
+                    live.append(now)
+                if len(live) != 2:
+                    decision['status'] = 'no_eligible_contract'
+                    decisions.append(decision)
+                    continue
+                target_exit = max((q.expiry for q in selected))
+                if target_exit > cal[-1] or not cal[(cal > date) & (cal <= target_exit)].size:
+                    decision['status'] = 'insufficient_runoff'
+                    decisions.append(decision)
+                    continue
+                cohort = f'{signal_date.date()}|{pair}|{wing}'
+                size = integer_size(
+                    [100 * q.vega for q in live],
+                    cfg.entry_vega_per_leg * abs(action) * max(0, sizing_nav) / cfg.capital,
+                    cfg.max_entry_vega_imbalance,
+                )
+                if size is None:
+                    decision['status'] = 'integer_vega_mismatch'
+                    decisions.append(decision)
+                    continue
+                current_pair = [p for p in positions if p['pair'] == pair]
+                pm = book_risk(current_pair, lambda p: quote(p['optionid'], p), spots, date, cfg, scenario_cache)
+                pair_nav = pair_capital * requested_budget_scale * max(0, sizing_nav) / cfg.capital
+                if pre_global or risk_breaches(pm, pair_nav, pair_cfg):
+                    decision['status'] = 'risk_deleveraging'
+                    decisions.append(decision)
+                    continue
+                current_wing = [p for p in current_pair if p['wing'] == wing]
+                if wing_cfg is not None:
+                    wm = book_risk(current_wing, lambda p: quote(p['optionid'], p), spots, date, cfg, scenario_cache)
+                    if risk_breaches(
+                        wm,
+                        wing_capital * requested_budget_scale * max(0, sizing_nav) / cfg.capital,
+                        wing_cfg,
+                    ):
+                        decision['status'] = 'wing_risk_deleveraging'
+                        decisions.append(decision)
+                        continue
+                additions = []
+                trial_cash = cash
+                fills = []
+                for leg, (sid, old, q, n) in enumerate(zip([sid_a, sid_b], selected, live, size)):
+                    qty = int(n) * int(np.sign(action)) * (1 if leg == 0 else -1)
+                    price, penalty, slippage = execution_terms(q, qty, cfg)
+                    fee = abs(qty) * cfg.option_commission
+                    trial_cash -= qty * 100 * price + fee + penalty
+                    p = dict(
+                        cohort=cohort,
+                        pair=pair,
+                        wing=wing,
+                        secid=sid,
+                        optionid=int(old.optionid),
+                        quantity=qty,
+                        expiry=q.expiry,
+                        strike=q.strike,
+                        cfadj=q.cfadj,
+                        cp_flag=q.cp_flag,
+                        exit_date=cal[cal <= q.expiry][-1],
+                        last_iv=float(q.bs_iv),
+                        last_vega=float(q.vega),
+                    )
+                    additions.append(p)
+                    fills.append((price, penalty, slippage, fee))
+                gm, projected_nav = assess(positions + additions, trial_cash)
+                pm = book_risk(
+                    current_pair + additions,
+                    lambda p: quote(p['optionid'], p),
+                    spots,
+                    date,
+                    cfg,
+                    scenario_cache,
+                )
+                breaches = risk_breaches(gm, projected_nav, cfg) + ['pair_' + x for x in risk_breaches(pm, pair_capital * requested_budget_scale * projected_nav / cfg.capital, pair_cfg)]
+                if wing_cfg is not None:
+                    wm = book_risk(
+                        current_wing + additions,
+                        lambda p: quote(p['optionid'], p),
+                        spots,
+                        date,
+                        cfg,
+                        scenario_cache,
+                    )
+                    breaches += ['wing_' + x for x in risk_breaches(wm, wing_capital * requested_budget_scale * projected_nav / cfg.capital, wing_cfg)]
+                if breaches:
+                    decision.update(status='risk_limit_entry', risk_limits=','.join(breaches))
+                    decisions.append(decision)
+                    continue
+                for p, (price, penalty, slippage, fee) in zip(additions, fills):
+                    amount = -p['quantity'] * 100 * price - fee - penalty
+                    cash += amount
+                    option_cash += amount
+                    option_cost += slippage + fee
+                    option_penalty += penalty
+                    positions.append(p)
+                    trades.append(dict(
+                        date=date,
+                        cohort=cohort,
+                        pair=pair,
+                        wing=wing,
+                        secid=p['secid'],
+                        optionid=p['optionid'],
+                        quantity=p['quantity'],
+                        price=price,
+                        commission=fee,
+                        execution_penalty=penalty,
+                        reason='entry',
+                    ))
+                decision.update(
+                    status='entered',
+                    vega_a=size[0] * 100 * live[0].vega,
+                    vega_b=size[1] * 100 * live[1].vega,
+                )
+                decisions.append(decision)
+        global_metrics, unused = assess(positions, cash)
+        # 5. Rebalance the net stock hedge for the next session, paying turnover.
+        stock_cost = turnover = 0.0
+        for sid in secids:
+            change = global_metrics['target_hedge'][sid] - hedge[sid]
+            notional = change * spots[sid]
+            fee = abs(notional) * cfg.stock_cost_bps / 10000
+            cash -= notional + fee
+            stock_cost += fee
+            turnover += abs(notional)
+            hedge[sid] = global_metrics['target_hedge'][sid]
+        option_value = global_metrics['option_value']
+        stock_value = sum((hedge[s] * spots[s] for s in secids))
+        nav = cash + option_value + stock_value
+        # 6. Reconcile NAV to the actual cash flows and marks.
+        option_pnl = option_cash + option_value - previous_option_value
+        expected = option_pnl + hedge_pnl - stock_cost + interest - borrow + dividend
+        error = nav - previous_nav - expected
+        max_ledger_error = max(max_ledger_error, abs(error))
+        if abs(error) > 1e-05 or nav <= 0:
+            raise AssertionError(f'{date}: shared ledger error {error}, NAV {nav}')
+        grouped = defaultdict(list)
+        for p in positions:
+            grouped[p['pair']].append(p)
+        lag_pairs = {}
+        for pair, held in grouped.items():
+            m = book_risk(held, lambda p: quote(p['optionid'], p), spots, date, cfg, scenario_cache)
+            m['active_cohorts'] = len({p['cohort'] for p in held})
+            lag_pairs[pair] = m
+        lag_global = global_metrics
+        daily.append(dict(
+            date=date,
+            nav=nav,
+            pnl=nav - previous_nav,
+            return_=nav / previous_nav - 1,
+            cash=cash,
+            option_value=option_value,
+            stock_value=stock_value,
+            gross_vega=global_metrics['gross_vega'],
+            net_vega=sum((p['quantity'] * 100 * quote(p['optionid'], p).vega for p in positions)),
+            gross_hedge_notional=global_metrics['gross_hedge_notional'],
+            capital_reserve=global_metrics['capital_reserve'],
+            stress_loss=global_metrics['stress_loss'],
+            active_cohorts=len({p['cohort'] for p in positions}),
+            active_pairs=len(grouped),
+            option_execution_cost=option_cost,
+            option_model_penalty=option_penalty,
+            hedge_cost=stock_cost,
+            hedge_turnover=turnover,
+            interest=interest,
+            stock_borrow_cost=borrow,
+            dividend_cash=dividend,
+            option_pnl=option_pnl,
+            hedge_gross_pnl=hedge_pnl,
+            ledger_error=error,
+            repaired_held_quotes=repaired,
+            greek_fallbacks=fallbacks,
+            causal_held_mark_fallbacks=modeled,
+            post_trade_risk_breach=bool(risk_breaches(global_metrics, nav, cfg)),
+            pair_risk_breaches=sum((bool(risk_breaches(m, pair_capital * nav / cfg.capital * 1.0, pair_cfg)) for pair, m in lag_pairs.items())),
+        ))
+        previous_spots = spots
+        previous_adjustments = adjustments
+        previous_date = date
+        previous_nav = nav
+        previous_option_value = option_value
+        previous_rate = market.rate(date)
+        previous_unavailable = unavailable
+    if positions or abs(option_value) + abs(stock_value) > 1e-07:
+        raise AssertionError('Runoff must close all inventory')
+    audit = dict(max_ledger_error=max_ledger_error, shared_cash=True, shared_stock_hedges=True)
+    return (pd.DataFrame(daily).set_index('date'), pd.DataFrame(trades), pd.DataFrame(decisions), audit)

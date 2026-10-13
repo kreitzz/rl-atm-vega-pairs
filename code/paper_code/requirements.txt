@@ -1,0 +1,8 @@
+# Same numerical versions as the archived scikit-learn models.
+numpy==2.4.6
+pandas==2.2.3
+pyarrow==25.0.1
+scikit-learn==1.9.0
+scipy==1.17.1
+joblib==1.5.3
+psutil==7.0.0
