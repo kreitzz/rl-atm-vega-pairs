@@ -1,0 +1,23 @@
+{
+  "features": ["residual_memory", "iv", "vix"],
+  "actions": [2, 4, 8],
+  "minimum_cell_samples": 12,
+  "minimum_training_samples": 64,
+  "training_windows_months": [18],
+  "training_sample_per_month": 12,
+  "validation_start": "2018-01-01",
+  "validation_end": "2021-12-31",
+  "test_start": "2022-01-01",
+  "test_end": "2025-08-29",
+  "output_root": "artifacts/contracts/atm_rv_straddle_bandit",
+  "report_root": "reports/atm_rv_straddle_bandit",
+  "source": "artifacts/contracts/atm_rv_straddle_full/proposals.parquet",
+  "quote_root": "artifacts/contracts/atm_rv_straddle_full",
+  "sampling": "Calendar sessions 1, 6, 11 and 16; up to three evenly spaced current residual-memory ranks on each session. No payoff or future availability filter.",
+  "objective": "Inherited 18-month reward-tree contextual bandit, exhaustive sizing search on completed action-specific straddle daily profit above cash.",
+  "warmup": "Only 2018 onward labels are cached. Full size until at least 64 completed training samples; no pre-2018 outcomes are invented.",
+  "signal": "Original bottom-decile call RV-minus-IV persistence proposals and original residual-memory, call IV and VIX states, unchanged.",
+  "scope": "Entry-sizing contextual bandit, not an inventory-management Q learner. Integer straddle counts; total call-plus-put vega matches the requested budget.",
+  "use_scale_hook": true,
+  "test_status": "Previously inspected dates; exploratory instrument and sizing comparison, not a fresh holdout."
+}

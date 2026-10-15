@@ -1,0 +1,30 @@
+{
+  "primary": "Sum of unchanged $10m put-pair and $10m short-straddle funded books. $20m initial capital; weights drift with NAV. No additional leverage or hedge netting.",
+  "put": "Retained screened 30D 25-delta put-pair contextual sizing policy.",
+  "straddle": "Bottom-decile RV-minus-IV ATM straddles, performance60 contextual sizing.",
+  "risk_balance": {
+    "put_weight": 0.9437920381549337,
+    "straddle_weight": 0.05620796184506627,
+    "estimated_through": "2021-12-31",
+    "method": "Inverse standalone validation volatility; no Sharpe optimization."
+  },
+  "diagnostic": "Daily 50/50 and risk-balanced saved-return blends do not replay whole contracts, shared account admission, net hedges or reallocation fees. Validation/full risk-balanced results use weights estimated from the entire validation period and are descriptive.",
+  "controls": "All nine combinations of put and straddle fixed 50/75/100%, each summing two unchanged $10m books.",
+  "selection": "No new model fits, thresholds or allocation searches. Source policies were selected using previously inspected historical dates; this is not untouched out-of-sample evidence.",
+  "checks": "Identical calendars and cash returns, source Sharpe reproduction, covariance identity and summed-ledger return identity passed.",
+  "source_sha256": {
+    "artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
+    "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/daily_nav.parquet": "dbbb283d13a14467ed67fcd658d2873a0aa07b938ff3315abd8da7be134d8000",
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/daily_nav.parquet": "bcf47d1c5689fa1d3318047e4a3826e6f299f422c7844c50f6476bd21bf0fb04",
+    "artifacts/contracts/p25_validation_split/replays/screened_fixed75/daily_nav.parquet": "1aef85817eca09612e58aaa45bfacebc2567dded496a84b450abcd8c9fc2c88a",
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts/contracts/atm_rv_straddle_fixed50/replays/tree18/daily_nav.parquet": "e6e64610b5f49db894890941d3b0e29e1b0cd98a42a8fdc93eedf1bb8ce6ce49",
+    "artifacts/contracts/straddle_capped_books/fixed75/replays/tree18/daily_nav.parquet": "e0c8f765fbd7fb2b80f06d13510735b66edca5231db98f56d0d66478f80710b4",
+    "artifacts/contracts/atm_rv_straddle_full/replays/straddle100/daily_nav.parquet": "1c23a674924ef2c394fa9cb7f2fbb80f9a82b903756c4bbf32c5098b37603918",
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/report_put_straddle_bandits.py": "aeb60cf4eded1ee8f32895aec71281a97facd26e246688acc04b9aa2ec8413d1",
+    "scripts/report_atm_p25_combination.py": "7e634ead722b8f2342c4aa48570176dab2e048371de6a1fbf21b58a2446c1aea",
+    "paper_code/metrics.py": "a795c9aaf53527cdc468089ff14091c3a9b0855d7328604720f80d20f9326720",
+    "config/p25_validation_2018_2021.json": "370f913f9b944e79b7b707bfea0358fc4ef8a1257d3b59dedc7d491aa656ebaf",
+    "reports/straddle_policy_refinement/checkpoint.json": "632f3ecffd5bc4b8964b6e33cc2f227c3e6791ed5c6cfdec5064b5723fee7f34"
+  }
+}

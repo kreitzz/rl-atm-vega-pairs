@@ -1,0 +1,32 @@
+STRADDLE SIZING: JOINT-PERIOD TARGET MET
+
+All Sharpe ratios are annualized from daily excess returns above cash. Validation: 2018-2021; later period: 2022-August 2025.
+Selection explicitly screens both researched periods. This is not an untouched holdout result.
+
+period                   validation  evaluation    full
+case                                                   
+fixed100                     0.5283      0.9895  0.7226
+fixed50                      0.7404      0.9203  0.8194
+fixed75                      0.5422      0.9676  0.7276
+performance60                0.7749      1.0406  0.8993
+performance60_shuffle19      0.7800      0.8344  0.8047
+performance60_shuffle41      0.7005      0.9281  0.8012
+performance60_shuffle7       0.6502      1.0442  0.8232
+
+Selected procedure: performance60. Same features as the earlier 48-month performance-context bandit; 60-month completed-outcome history, monthly refits, ridge alpha 100, three score contexts and exhaustive 50/75/100% sizing-map search.
+The state combines trailing completed RV-minus-IV memory, IV, VIX, recent IV/VIX changes, and a causal fixed-half paper benchmark's trailing performance, volatility, drawdown and reserve. It does not use the learner's own current inventory as feedback.
+Validation is unchanged because usable actual-straddle reward examples begin in 2018. The longer window changes later fits. January 2025 contains 2,807 completed examples versus 2,213 at 48 months.
+No execution-cost, proposal, contract-selection, account-NAV or risk-limit changes. All 35,774 original proposals remain; sizes affect inventory and subsequent admission.
+
+The parameter search stopped on the first joint-period winner. Five earlier ensemble variants failed validation; a sixth was stopped partway through its replay. Twenty-three remaining refinement variants were not run.
+Three additional controls shuffle the selected policy sizes among names within each signal date. They preserve proposed daily action counts and macro timing; funded admission can still change.
+These are three prespecified control seeds, not a complete randomization distribution.
+
+Later-period shuffled Sharpe ranges from 0.8344 to 1.0442; 1 of 3 controls match or exceed the learned policy. These controls help distinguish name-specific sizing from common timing and capacity effects; three draws cannot establish statistical significance.
+
+Conditional paired 63/126-session block intervals against all fixed controls are in cases/performance60/intervals.csv. Later-period improvement intervals include zero. They do not adjust for the broader research search.
+Excluding 2022 from later scoring without refitting: selected Sharpe 0.9755, versus fixed 50/75/100% at 0.8779/0.9331/0.8785. This checks profit concentration, not training with 2022 removed.
+The source daily option/stock/dividend/financing/borrow cash flows reconcile and positions finish closed. Causality, action-map and checkpoint tests passed. Preparation memory amendments retain unchanged input hashes and are archived under the artifact history folder.
+All numerical work used one worker capped at 20% of one core, with 256 MiB RSS/physical-footprint and swap-growth stops. No apps were closed and no limits increased.
+
+See comparison.csv, annual_comparison.csv, shuffle_comparisons.csv, checkpoint.json and comparison.png.

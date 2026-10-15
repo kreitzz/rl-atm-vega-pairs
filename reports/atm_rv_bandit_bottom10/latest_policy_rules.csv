@@ -1,0 +1,7 @@
+fit,leaf,conditions,size_fraction,training_samples
+2025-06-01,0,VIX <= 21.77 AND past-year RV−IV (vol points) <= -7.72 AND ATM IV (vol points) <= 67.50,2.0,22
+2025-06-01,1,VIX > 21.77,0.5,27
+2025-06-01,2,VIX <= 21.77 AND past-year RV−IV (vol points) > -7.72 AND past-year RV−IV (vol points) <= -6.07 AND VIX <= 13.65,0.5,35
+2025-06-01,3,VIX <= 21.77 AND past-year RV−IV (vol points) > -7.72 AND past-year RV−IV (vol points) > -6.07,2.0,40
+2025-06-01,4,VIX <= 21.77 AND past-year RV−IV (vol points) > -7.72 AND past-year RV−IV (vol points) <= -6.07 AND VIX > 13.65,0.5,26
+2025-06-01,5,VIX <= 21.77 AND past-year RV−IV (vol points) <= -7.72 AND ATM IV (vol points) > 67.50,2.0,21

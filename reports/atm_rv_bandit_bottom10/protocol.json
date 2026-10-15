@@ -1,0 +1,251 @@
+{
+  "specification": {
+    "features": [
+      "residual_memory",
+      "iv",
+      "vix"
+    ],
+    "actions": [
+      2,
+      4,
+      8
+    ],
+    "state_definition": "Retain the original validation-selected reward-tree family with up to eight states on residual_memory, IV, and VIX; 50/100/200% actions on the bottom-10% signal pool.",
+    "minimum_cell_samples": 12,
+    "minimum_training_samples": 64,
+    "training_windows_months": [
+      18,
+      60
+    ],
+    "training_sample_per_month": 12,
+    "validation_start": "2018-01-01",
+    "validation_end": "2021-12-31",
+    "test_start": "2022-01-01",
+    "test_end": "2025-08-29",
+    "selection": "Highest 2018-2021 funded annualized excess Sharpe across reward-tree candidates; ties prefer 60 months then lexical name",
+    "refit": "Monthly, using only sample trades completed strictly before month start",
+    "objective": "Annualized Sharpe of aggregated action-specific daily profit above cash in completed shadow trades",
+    "sample_selection": "First trading signal date of each month, bottom residual-memory quintile; up to twelve evenly spaced ranks. Never use future label availability to select samples.",
+    "scope": "Offline full-information contextual sizing bandit; no inventory inputs and no sequential inventory value function",
+    "test_status": "Previously examined historical dates; validation-based choice is new, but the test is not untouched",
+    "seed": 2026,
+    "validation_candidates": [
+      "tree18",
+      "tree60"
+    ],
+    "validation_extension": "Keep the reward-tree family retained in the original 20% experiment; compare 18/60-month training windows for the requested bottom-10% signal. Earlier 20% larger-ladder comparisons are incomplete and retained separately.",
+    "output_root": "artifacts/contracts/atm_rv_bandit_bottom10",
+    "report_root": "reports/atm_rv_bandit_bottom10",
+    "use_scale_hook": true,
+    "fixed_controls": [
+      "fixed50",
+      "fixed100",
+      "fixed200"
+    ],
+    "reuse_replays": {},
+    "selection_fraction": 0.1,
+    "use_local_fixed100": true
+  },
+  "base_specification": {
+    "target": "next_entry_close_to_expiry_annualized_rv_minus_signal_atm_iv",
+    "annualization": 252,
+    "memory_days": 365,
+    "memory_min_completed": 126,
+    "training_years": 5,
+    "minimum_training_rows": 1000,
+    "selection_fraction": 0.2,
+    "minimum_cross_section": 5,
+    "entry_frequency": "daily_with_overlapping_cohorts",
+    "forecast": "monthly_pooled_linear_regression_on_completed_residual_memory",
+    "models": [
+      "residual_forecast",
+      "residual_memory",
+      "trailing_rv",
+      "random_quintile"
+    ],
+    "evaluation_start": "2018-01-01",
+    "evaluation_end": "2025-08-29",
+    "last_signal": "2025-06-30",
+    "min_dte": 21,
+    "max_dte": 45,
+    "max_moneyness_distance": 0.1,
+    "seed": 2026,
+    "entry_vega": 450,
+    "per_name_reference_capital": 1000000,
+    "account_capital": 10000000,
+    "listing_risk_events": [
+      {
+        "secid": 209658,
+        "announced": "2020-05-27",
+        "effective": "2020-05-27",
+        "exit_same_day": true,
+        "no_entry_from": "2020-05-27",
+        "reason": "Next-session liquidation/no re-entry after NYSE May26 public initiation of delisting proceedings; no use of the later October29 suspension date to preemptively exit.",
+        "source": "https://www.sec.gov/Archives/edgar/data/876661/000087666120001005/ruleprovisionnotice.htm"
+      }
+    ],
+    "observed_stock_repairs": [
+      {
+        "secid": 213108,
+        "permno": 17949,
+        "date": "2020-10-13",
+        "close": 21.18,
+        "cfadj": 1.0,
+        "source": "cached CRSP dsf: prc=21.18, cfacpr=cfacshr=1; adjacent CRSP prices match OptionMetrics exactly",
+        "source_file": "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2020.parquet"
+      }
+    ],
+    "corporate_events": [
+      {
+        "secid": 151404,
+        "announced": "2020-12-31",
+        "effective": "2021-01-07",
+        "reason": "Devon December30 shareholder-approval release publicly anticipated January7 WPX merger; next-session availability and January6 close exit before adjusted deliverables.",
+        "source": "https://www.devonenergy.com/news/2020/Devon-Energy-and-WPX-Energy-Shareholders-Approve-Merger-of-Equals"
+      },
+      {
+        "secid": 104081,
+        "announced": "2020-10-01",
+        "effective": "2020-10-02",
+        "reason": "Next-session availability of Morgan Stanley September30 public expected October2 ETRADE closing; exit at October1 close before the halt and adjusted deliverables.",
+        "source": "https://www.morganstanley.com/press-releases/morgan-stanley-receives-regulatory-approval-to-acquire-e-trade"
+      },
+      {
+        "secid": 111337,
+        "announced": "2025-06-16",
+        "effective": "2025-06-16",
+        "exit_same_day": true,
+        "no_entry_from": "2025-06-16",
+        "reason": "Next-session corporate-risk exit after June13 evening public final regulatory approval and expected prompt closing; does not assume the eventual June18 closing date.",
+        "source": "https://www.sec.gov/Archives/edgar/data/1163302/000110465925059596/tm2518073d1_ex99-1.htm"
+      },
+      {
+        "secid": 101029,
+        "announced": "2023-10-13",
+        "effective": "2023-10-13",
+        "no_entry_from": "2023-10-13",
+        "cash_merger_price": 95.0,
+        "accelerated_expiry": "2023-10-20",
+        "reason": "OCC53363: consummated before October13 open, stock converts to $95 cash, options cash-only deliverable and expirations accelerate to October20. Marks at intrinsic cash claim from effective session; stock converts to cash without simulated sale spread; payout at accelerated expiry, with settlement lag/early exercise omitted as in ordinary expiry.",
+        "source": "https://infomemo.theocc.com/infomemos?number=53363"
+      },
+      {
+        "secid": 211715,
+        "announced": "2025-06-06",
+        "effective": "2025-07-01",
+        "no_entry_from": "2025-07-01",
+        "reason": "June4 shareholder-approval 8-K publicly expected merger on or before July1. Conservative next-session availability June6, planned June30 close exit before stock deliverables change; not inferred from later missing prices.",
+        "source": "https://www.sec.gov/Archives/edgar/data/1382821/000138282125000089/rdfn-20250604.htm"
+      }
+    ],
+    "selection_notice": "New exploratory strategy on already examined historical dates and retrospective cached universe; not an untouched holdout. No prior pair beta, profitability or pair-membership gate."
+  },
+  "proposals": 35774,
+  "sample_trades": 1657,
+  "sample_names": 204,
+  "selection_uses_future_outcomes": false,
+  "vix": "Same signal-close CBOE close, known before next-session fills.",
+  "costs": {
+    "capital": 10000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 200000.0,
+    "max_entry_vega_imbalance": 0.1,
+    "option_commission": 0.03,
+    "stock_cost_bps": 1,
+    "borrowing_spread": 0.01,
+    "stock_borrow_rate": 0.003,
+    "min_open_interest": 100,
+    "max_relative_spread": 0.25,
+    "max_moneyness_distance": 0.1,
+    "min_dte": 21,
+    "max_dte": 45,
+    "target_dte": 30,
+    "holding_days": 30,
+    "hold_to_expiry": true,
+    "repair_crossed_held_quotes": true,
+    "support_integer_splits": true,
+    "option_spread_fraction": 0,
+    "option_penalty_vol_points": 0.1,
+    "allow_missing_flat_underlying": true,
+    "risk_controls": true,
+    "max_hedge_leverage": 2.0,
+    "max_reserve_fraction": 0.8,
+    "stock_reserve_fraction": 0.5,
+    "max_stress_loss_fraction": 0.05,
+    "spot_stress": 0.2,
+    "vol_stress": 0.1
+  },
+  "universe": "Original retrospective cached universe; bottom 10% of daily residual-memory ranks.",
+  "resources": "One worker, 20% of one core, 256 MiB resident/compressed stop; Brave kept open.",
+  "control_test_note": "Fixed-100% bottom-decile validation/test comparison was inspected before bandit fitting; candidate family, windows, actions, costs, and risk settings were fixed before it. No untouched-test claim.",
+  "final_specification": {
+    "features": [
+      "residual_memory",
+      "iv",
+      "vix"
+    ],
+    "actions": [
+      2,
+      4,
+      8
+    ],
+    "state_definition": "Retain the original validation-selected reward-tree family with up to eight states on residual_memory, IV, and VIX; 50/100/200% actions on the bottom-10% signal pool.",
+    "minimum_cell_samples": 12,
+    "minimum_training_samples": 64,
+    "training_windows_months": [
+      18,
+      60
+    ],
+    "training_sample_per_month": 12,
+    "validation_start": "2018-01-01",
+    "validation_end": "2021-12-31",
+    "test_start": "2022-01-01",
+    "test_end": "2025-08-29",
+    "selection": "Highest 2018-2021 funded annualized excess Sharpe across reward-tree candidates; ties prefer 60 months then lexical name",
+    "refit": "Monthly, using only sample trades completed strictly before month start",
+    "objective": "Annualized Sharpe of aggregated action-specific daily profit above cash in completed shadow trades",
+    "sample_selection": "First trading signal date of each month, bottom residual-memory quintile; up to twelve evenly spaced ranks. Never use future label availability to select samples.",
+    "scope": "Offline full-information contextual sizing bandit; no inventory inputs and no sequential inventory value function",
+    "test_status": "Previously examined historical dates; validation-based choice is new, but the test is not untouched",
+    "seed": 2026,
+    "validation_candidates": [
+      "tree18",
+      "tree60"
+    ],
+    "validation_extension": "Keep the reward-tree family retained in the original 20% experiment; compare 18/60-month training windows for the requested bottom-10% signal. Earlier 20% larger-ladder comparisons are incomplete and retained separately.",
+    "output_root": "artifacts/contracts/atm_rv_bandit_bottom10",
+    "report_root": "reports/atm_rv_bandit_bottom10",
+    "use_scale_hook": true,
+    "fixed_controls": [
+      "fixed50",
+      "fixed100",
+      "fixed200"
+    ],
+    "reuse_replays": {},
+    "selection_fraction": 0.1,
+    "use_local_fixed100": true
+  },
+  "selection": {
+    "selected": {
+      "case": "tree18",
+      "months": 18,
+      "validation_sharpe": 0.6746828950395897
+    },
+    "candidates": [
+      {
+        "case": "tree18",
+        "months": 18,
+        "validation_sharpe": 0.6746828950395897
+      },
+      {
+        "case": "tree60",
+        "months": 60,
+        "validation_sharpe": 0.6467138729955566
+      }
+    ],
+    "selected_using_validation_only": true,
+    "previously_examined_dates": true,
+    "configuration_hash": "cff9e2684c68bc887619c7ab29797e64ec6fe6a51915288099604d73b6bc3689"
+  },
+  "policy_training_note": "Independent action-specific shadow cash paths; funded inventory/admission effects are evaluated during replay, not optimized directly during training."
+}

@@ -1,0 +1,39 @@
+ATM RV-IV CONTEXTUAL SIZING BANDIT
+
+Inputs: trailing-year completed RV-minus-IV memory, signal-close ATM IV, and signal-close VIX.
+Daily proposal pool: bottom 10% of past-year residual memory, identical across sizing policies. All entries short approximately 30-day ATM calls and delta hedge daily.
+Sizing actions: 50%, 100%, 200% of the original $450-vega reference per trade. Account and execution assumptions unchanged.
+Candidates compared on 2018-2021 validation: tree18, tree60.
+Configuration and selection history are recorded in protocol.json; previous ladders remain in separate experiment folders.
+Selected candidate: tree18. Monthly fits use only outcomes completed before month start; the selected procedure continues to refit during evaluation.
+Training uses a bounded sample of up to twelve trade proposals at the first trading signal date of each month. This limits temporal/VIX coverage and is a prototype, not an exhaustive use of all training opportunities.
+Unit actual-contract cash ledgers generate integer-count action payoffs; cash is separately replayed by action including financing. Funded capacity effects enter only during portfolio replay.
+2018-2021 is called validation; 2022-August2025 is called test. These historical dates were examined in previous research, so this is not an untouched holdout.
+
+ANNUALIZED EXCESS SHARPE / ANNUALIZED GROWTH RELATIVE TO CASH / ENTRIES
+Fixed 50%, validation: Sharpe 0.649; cash-relative growth 2.658%; 1932 entries.
+Fixed 50%, test: Sharpe 0.612; cash-relative growth 2.229%; 1769 entries.
+Fixed 50%, full: Sharpe 0.632; cash-relative growth 2.453%; 3701 entries.
+Fixed 100%, validation: Sharpe 0.521; cash-relative growth 2.534%; 1010 entries.
+Fixed 100%, test: Sharpe 0.647; cash-relative growth 2.797%; 928 entries.
+Fixed 100%, full: Sharpe 0.576; cash-relative growth 2.659%; 1938 entries.
+Fixed 200%, validation: Sharpe 0.541; cash-relative growth 3.277%; 528 entries.
+Fixed 200%, test: Sharpe 0.981; cash-relative growth 5.602%; 512 entries.
+Fixed 200%, full: Sharpe 0.740; cash-relative growth 4.382%; 1040 entries.
+Contextual bandit, validation: Sharpe 0.675; cash-relative growth 3.437%; 1501 entries.
+Contextual bandit, test: Sharpe 0.676; cash-relative growth 2.862%; 1300 entries.
+Contextual bandit, full: Sharpe 0.673; cash-relative growth 3.161%; 2801 entries.
+
+Interpretation: compare both validation and test. The difference from fixed full size cannot by itself isolate predictive sizing from changed inventory/admission; fixed-size controls use the same action ladder.
+The bootstrap intervals are conditional on these fitted/selected policies, using paired 63-session circular blocks and 1,000 draws. They do not correct research selection.
+
+Files: results.csv, annual.csv, validation_candidates.json, monthly_training.csv, sizes.csv,
+sharpe_comparisons.csv, ledger_audit.json, admissions.csv, latest_policy_rules.csv, protocol.json, source_hashes.json.
+Daily funded ledgers, monthly checkpoints, fitted policies and action-specific training paths: artifacts/contracts/atm_rv_bandit_bottom10.
+
+Reproduce with scripts.research_atm_rv_bandit --config config/atm_rv_bandit_bottom10.json under scripts.run_signal_discovery_guarded:
+phases sample, labels, allocate/replay (each validation candidate), select, allocate/replay (selected case and fixed-size controls, stage test), report, audit, charts.
+Use one worker, 20% one-core duty, 256 MiB RSS/compressed stop, 30% minimum headroom, 256 MiB swap-growth stop. Monthly checkpoints permit safe resumption.
+
+Observed result: the selected bandit beats fixed 50% and 100% descriptively in both periods, but fixed 200% achieves the highest 2022-August2025 Sharpe (0.981) and full-period Sharpe (0.740). The bandit is strongest on validation (0.675), not on test (0.676). Its small test gain versus fixed 100% has a paired 95% interval of approximately [-0.293, +0.327]. These results do not establish a repeatable learning advantage.
+Signal-only comparison at fixed 100%: bottom 20% validation/test Sharpe 0.508/0.729, bottom 10% 0.521/0.647. The narrower cutoff did not improve both periods. See signal_comparison.csv.

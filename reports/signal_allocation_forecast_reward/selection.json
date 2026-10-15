@@ -1,0 +1,5 @@
+{
+  "family": "local",
+  "validation_pure_sharpe": 1.4590979249586544,
+  "rule": "Select the forecast half-life using pure risk-adjusted validation Sharpe; freeze that half-life across the five-goal curve before later replay. Retain all variants and matched gamma-zero controls."
+}

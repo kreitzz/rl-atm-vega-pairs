@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "case": "performance60",
+      "scores": {
+        "validation": 0.7749039158410541,
+        "evaluation": 1.040612016660284,
+        "full": 0.8993012708835477
+      },
+      "qualifies": true
+    }
+  ],
+  "thresholds": {
+    "validation": 0.7404249352204291,
+    "evaluation": 0.9895299159093045,
+    "full": 0.8194222883205718
+  }
+}

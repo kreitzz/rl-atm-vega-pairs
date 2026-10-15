@@ -1,0 +1,27 @@
+{
+  "original_proposals": 35774,
+  "matched_proposals": 35774,
+  "names": 204,
+  "method": "Exact date/stock/strike/expiry/adjustment match in full cached standard 100-share put chains; no outcome or future-quote filter.",
+  "specification": {
+    "source": "artifacts/contracts/atm_rv_bandit_bottom10/proposals.parquet",
+    "signal": "Unchanged bottom-10% trailing completed RV-minus-IV memory, using original call-IV inputs",
+    "instrument": "Equal-count short call and put with exactly matching stock, strike, expiry and adjustment; daily delta hedge",
+    "total_entry_vega": 450,
+    "option_commission": 0.03,
+    "option_penalty_vol_points": 0.1,
+    "initial_controls": [
+      "matched_calls100",
+      "straddle100",
+      "matched_calls200",
+      "straddle200",
+      "transfer_tree18"
+    ],
+    "validation_start": "2018-01-01",
+    "validation_end": "2021-12-31",
+    "test_start": "2022-01-01",
+    "test_end": "2025-08-29",
+    "raw_put_root": "data/curve_trading/puts_raw",
+    "scope": "Actual matched put contracts recovered from locally cached full put chains. Equal total vega, original fees/limits. Call-trained bandit transfer is not a newly fitted straddle policy. Previously examined dates; exploratory results."
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "family": "replacement",
+  "validation_pure_sharpe": 1.3750869696773798,
+  "rule": "Compare the two Sharpe reward formulations using their pure-Sharpe validation Sharpe. Freeze the winning formulation, and show its entire five-objective curve on later dates. Profit-only is shared. Save every formulation and all gamma-zero controls; no later replacement."
+}

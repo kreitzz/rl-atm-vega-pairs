@@ -1,0 +1,38 @@
+{
+  "features": [
+    "residual_memory",
+    "iv",
+    "vix"
+  ],
+  "actions": [
+    2,
+    3,
+    4
+  ],
+  "state_definition": "Compare eight median context cells with up to eight reward-trained CART leaves, retaining the same three features and 50/75/100% actions",
+  "minimum_cell_samples": 12,
+  "minimum_training_samples": 64,
+  "training_windows_months": [
+    18,
+    60
+  ],
+  "training_sample_per_month": 12,
+  "validation_start": "2018-01-01",
+  "validation_end": "2021-12-31",
+  "test_start": "2022-01-01",
+  "test_end": "2025-08-29",
+  "selection": "Highest 2018-2021 funded annualized excess Sharpe across four candidates; ties prefer 60 months then lexical candidate name",
+  "refit": "Monthly, using only sample trades completed strictly before month start",
+  "objective": "Annualized Sharpe of aggregated action-specific daily profit above cash in completed shadow trades",
+  "sample_selection": "First trading signal date of each month, bottom residual-memory quintile; up to twelve evenly spaced ranks. Never use future label availability to select samples.",
+  "scope": "Offline full-information contextual sizing bandit; no inventory inputs and no sequential inventory value function",
+  "test_status": "Previously examined historical dates; validation-based choice is new, but the test is not untouched",
+  "seed": 2026,
+  "validation_candidates": [
+    "bandit18",
+    "bandit60",
+    "tree18",
+    "tree60"
+  ],
+  "validation_extension": "Median partitions did not beat full sizing on validation. Added reward-trained partitions before any bandit test-period replay; original median-only selection preserved in reports."
+}

@@ -1,0 +1,5 @@
+{
+  "case": "q_lambda0.025_g0.5",
+  "risk": 0.025,
+  "rule": "Freeze a reference Q preference by validation Sharpe before replaying later dates; display every Q preference and fixed mix. No later winner replaces that reference."
+}

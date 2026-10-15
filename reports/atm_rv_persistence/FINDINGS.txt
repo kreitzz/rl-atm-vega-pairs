@@ -1,0 +1,45 @@
+ATM CALL RV-MINUS-IV PERSISTENCE EXPERIMENT
+
+Tested 2018-01-02 through 2025-08-29, with last new signals in June 2025.
+Universe: 308 retrospectively cached equities and ETFs. No pair selection or vega neutrality.
+Predict realised annualized close-to-close RV through expiry minus signal-close ATM IV.
+Memory contains only candidate outcomes completed strictly before each signal, over the preceding year.
+The predictive model is a monthly pooled OLS regression on that memory, using five years of completed training outcomes.
+All four rankings short their daily bottom quintile using the same integer-contract sizing and risk limits.
+Actual next-session call fills, daily stock delta hedges, dividends, interest, borrow and expiry settlement.
+Costs: midpoint plus 0.10 vol-point penalty, $0.03 per option contract, and 1 bp stock turnover.
+Reference account $10m; target $450 initial vega per entry, scaled with NAV.
+
+FULL-PERIOD RESULTS
+Rolling regression: excess Sharpe 0.014; entries 1957; profit above cash $-49,280; annualized growth relative to cash -0.053%.
+Past-year residual: excess Sharpe 0.592; entries 1938; profit above cash $2,770,694; annualized growth relative to cash 2.713%.
+Recent RV minus IV: excess Sharpe 0.334; entries 2120; profit above cash $1,735,177; annualized growth relative to cash 1.755%.
+Random quintile: excess Sharpe -0.034; entries 1646; profit above cash $-169,613; annualized growth relative to cash -0.183%.
+
+The regression coefficient on residual memory is negative in 61 of 90 monthly fits, reversing the direct historical ranking in those months.
+
+Interpretation: realised RV-minus-IV is a forecasting target, not a substitute for option P&L.
+Headline Sharpe subtracts the cash return. The results CSV also reports the account return-to-volatility ratio without subtracting cash; that ratio includes interest on the account and should not be called excess Sharpe.
+The target is not gamma-weighted, and admission constraints can change which ranked proposals actually trade.
+The one-feature regression is a simple initial approximation; the predictive model used at work is unknown.
+Random selection is one fixed seed, not a full distribution of randomized portfolios.
+These dates were examined during prior research, and the universe is retrospective; this is exploratory replication, not an untouched holdout.
+Risk limits block additional entries rather than force liquidation of existing positions. Inspect breach/deployment statistics before judging scalability.
+This experiment has not yet evaluated RL sizing. No claim of an RL benefit follows from these results.
+
+Files: results.csv (aggregate), periods.csv (two subperiods), annual.csv (year by year),
+pnl_components.csv (cash-flow components), admissions.csv, ledger_audit.json, protocol.json,
+sharpe_comparisons.csv (paired circular-block bootstrap, 1,000 draws, 63/126 sessions; conditional on these selected specifications),
+forecast_quintiles.csv, all_ranking_quintiles.csv, cumulative_profit.png and annual_sharpe.png.
+Detailed daily ledgers and monthly checkpoints are in artifacts/contracts/atm_rv_persistence/replays/.
+
+REPRODUCTION
+Use the numerical Python environment with numpy, pandas, pyarrow and matplotlib.
+Run scripts.research_atm_rv_persistence through scripts.run_signal_discovery_guarded.
+Guard arguments: --duty-cycle 0.2 --rss-limit-mib 256 --warning-rss-limit-mib 256
+--min-free-percent 30 --warning-min-free-percent 30 --max-swap-growth-mib 256
+--pause-low-headroom-seconds 60 --stop-file artifacts/contracts/atm_rv_persistence/STOP
+After the guard arguments, pass -- --phase PHASE.
+Phase order: probe, prepare, optimize, predict, quotes, replay (each --model in config), test, report, charts.
+Data preparation and every monthly replay are resumable. Critical pressure, excess worker memory or swap growth halt the process.
+Corporate-action compatibility checks for older completed runs are recorded beside their ledgers.

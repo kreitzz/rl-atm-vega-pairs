@@ -1,0 +1,17 @@
+{
+  "output_root":"artifacts/contracts/straddle_ensemble_search",
+  "report_root":"reports/straddle_ensemble_search",
+  "validation_end":"2021-12-31",
+  "evaluation_end":"2025-08-29",
+  "experts":{
+    "a":"artifacts/contracts/straddle_performance_followup/cases/performance_ridge48",
+    "b":"artifacts/contracts/straddle_context_followup/cases/combined_tree36",
+    "c":"artifacts/contracts/straddle_overnight_study/cases/market_tree8_w36"
+  },
+  "cases":["mean_ab","min_ab","median_abc","mean_abc","mean_ac","mean_ab_cap75","agree75","pick63","pick126","soft63","risk63","max_ab"],
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256},
+  "search":"In declared order: actual funded validation; candidates exceeding every fixed control continue to later replay. Stop after the first candidate exceeding all three fixed controls in both periods, then run three same-date state-shuffle controls. All attempts and aliases retained.",
+  "evaluation_status":"The goal explicitly screens both previously examined periods. Any joint winner is a retrospectively researched candidate, not an untouched holdout result.",
+  "unchanged":"All35774 proposals,50/75/100% sizing menu,contract selection,execution costs,financing,borrow and funded risk limits.",
+  "control_seeds":[7,19,41]
+}

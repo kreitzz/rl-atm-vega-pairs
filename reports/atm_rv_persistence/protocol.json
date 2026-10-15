@@ -1,0 +1,146 @@
+{
+  "specification": {
+    "target": "next_entry_close_to_expiry_annualized_rv_minus_signal_atm_iv",
+    "annualization": 252,
+    "memory_days": 365,
+    "memory_min_completed": 126,
+    "training_years": 5,
+    "minimum_training_rows": 1000,
+    "selection_fraction": 0.2,
+    "minimum_cross_section": 5,
+    "entry_frequency": "daily_with_overlapping_cohorts",
+    "forecast": "monthly_pooled_linear_regression_on_completed_residual_memory",
+    "models": [
+      "residual_forecast",
+      "residual_memory",
+      "trailing_rv",
+      "random_quintile"
+    ],
+    "evaluation_start": "2018-01-01",
+    "evaluation_end": "2025-08-29",
+    "last_signal": "2025-06-30",
+    "min_dte": 21,
+    "max_dte": 45,
+    "max_moneyness_distance": 0.1,
+    "seed": 2026,
+    "entry_vega": 450,
+    "per_name_reference_capital": 1000000,
+    "account_capital": 10000000,
+    "listing_risk_events": [
+      {
+        "secid": 209658,
+        "announced": "2020-05-27",
+        "effective": "2020-05-27",
+        "exit_same_day": true,
+        "no_entry_from": "2020-05-27",
+        "reason": "Next-session liquidation/no re-entry after NYSE May26 public initiation of delisting proceedings; no use of the later October29 suspension date to preemptively exit.",
+        "source": "https://www.sec.gov/Archives/edgar/data/876661/000087666120001005/ruleprovisionnotice.htm"
+      }
+    ],
+    "observed_stock_repairs": [
+      {
+        "secid": 213108,
+        "permno": 17949,
+        "date": "2020-10-13",
+        "close": 21.18,
+        "cfadj": 1.0,
+        "source": "cached CRSP dsf: prc=21.18, cfacpr=cfacshr=1; adjacent CRSP prices match OptionMetrics exactly",
+        "source_file": "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2020.parquet"
+      }
+    ],
+    "corporate_events": [
+      {
+        "secid": 151404,
+        "announced": "2020-12-31",
+        "effective": "2021-01-07",
+        "reason": "Devon December30 shareholder-approval release publicly anticipated January7 WPX merger; next-session availability and January6 close exit before adjusted deliverables.",
+        "source": "https://www.devonenergy.com/news/2020/Devon-Energy-and-WPX-Energy-Shareholders-Approve-Merger-of-Equals"
+      },
+      {
+        "secid": 104081,
+        "announced": "2020-10-01",
+        "effective": "2020-10-02",
+        "reason": "Next-session availability of Morgan Stanley September30 public expected October2 ETRADE closing; exit at October1 close before the halt and adjusted deliverables.",
+        "source": "https://www.morganstanley.com/press-releases/morgan-stanley-receives-regulatory-approval-to-acquire-e-trade"
+      },
+      {
+        "secid": 111337,
+        "announced": "2025-06-16",
+        "effective": "2025-06-16",
+        "exit_same_day": true,
+        "no_entry_from": "2025-06-16",
+        "reason": "Next-session corporate-risk exit after June13 evening public final regulatory approval and expected prompt closing; does not assume the eventual June18 closing date.",
+        "source": "https://www.sec.gov/Archives/edgar/data/1163302/000110465925059596/tm2518073d1_ex99-1.htm"
+      },
+      {
+        "secid": 101029,
+        "announced": "2023-10-13",
+        "effective": "2023-10-13",
+        "no_entry_from": "2023-10-13",
+        "cash_merger_price": 95.0,
+        "accelerated_expiry": "2023-10-20",
+        "reason": "OCC53363: consummated before October13 open, stock converts to $95 cash, options cash-only deliverable and expirations accelerate to October20. Marks at intrinsic cash claim from effective session; stock converts to cash without simulated sale spread; payout at accelerated expiry, with settlement lag/early exercise omitted as in ordinary expiry.",
+        "source": "https://infomemo.theocc.com/infomemos?number=53363"
+      },
+      {
+        "secid": 211715,
+        "announced": "2025-06-06",
+        "effective": "2025-07-01",
+        "no_entry_from": "2025-07-01",
+        "reason": "June4 shareholder-approval 8-K publicly expected merger on or before July1. Conservative next-session availability June6, planned June30 close exit before stock deliverables change; not inferred from later missing prices.",
+        "source": "https://www.sec.gov/Archives/edgar/data/1382821/000138282125000089/rdfn-20250604.htm"
+      }
+    ],
+    "selection_notice": "New exploratory strategy on already examined historical dates and retrospective cached universe; not an untouched holdout. No prior pair beta, profitability or pair-membership gate."
+  },
+  "settings": {
+    "capital": 10000000,
+    "entry_vega_per_leg": 450,
+    "max_gross_vega": 200000.0,
+    "max_entry_vega_imbalance": 0.1,
+    "option_commission": 0.03,
+    "stock_cost_bps": 1,
+    "borrowing_spread": 0.01,
+    "stock_borrow_rate": 0.003,
+    "min_open_interest": 100,
+    "max_relative_spread": 0.25,
+    "max_moneyness_distance": 0.1,
+    "min_dte": 21,
+    "max_dte": 45,
+    "target_dte": 30,
+    "holding_days": 30,
+    "hold_to_expiry": true,
+    "repair_crossed_held_quotes": true,
+    "support_integer_splits": true,
+    "option_spread_fraction": 0,
+    "option_penalty_vol_points": 0.1,
+    "allow_missing_flat_underlying": true,
+    "risk_controls": true,
+    "max_hedge_leverage": 2.0,
+    "max_reserve_fraction": 0.8,
+    "stock_reserve_fraction": 0.5,
+    "max_stress_loss_fraction": 0.05,
+    "spot_stress": 0.2,
+    "vol_stress": 0.1
+  },
+  "source_hashes": {
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/research_atm_rv_persistence.py": "be07b7e359ea8750eab046bf1384fd1a7fb625a26c76417eb225d8ea87eee695",
+    "scripts/atm_rv_persistence_engine.py": "e0caf55876a5191de172be8d37e4bfc32593afd2eb09635385a86678579dfbde",
+    "config/atm_rv_persistence.json": "cad9cf6ddfc7ffb67b4cfa9de6f2e2a25b5294c54a2eab53ee26b817a2648e6a",
+    "paper_code/execution.json": "73f368e3f0b6960c7403f706419320dfb37b294205247dc029c8e4ba8eaf44e0",
+    "config/p25_submission.json": "f1f1a20ba9fab6adfc78da053292ccd4073943adfab15391ef67f6b398a32659",
+    "scripts/run_year_cheap_vega.py": "d478f2113b96d353af3adc0afac2da18523d99ae11e31b8ff13f4c7dd3607471",
+    "scripts/uniform_smile_risk.py": "29462843c4716920ea39e5b99d0fe032343ba42a4229f41b8a710ad959fa80b1",
+    "scripts/option_flex/contract_engine.py": "c17ef15da86630a71441ffb98ac90760274015ad8fef77ffe49d6fc0c0504c0b",
+    "scripts/option_flex/black_scholes.py": "3671f9adc7a717544e56fc3af9f9db429ec2ab5c9825de45753466b6974672be"
+  },
+  "universe": "All cached uniform-smile asset selections; retrospective universe, no pair beta or profitability gate.",
+  "model": "One-feature pooled OLS on preceding-365-calendar-day completed RV-minus-IV residuals. Five-year training window; monthly refit.",
+  "entry": "Bottom 20% by predicted residual at previous close; next-session integer short ATM call, $450 initial vega, overlapping cohorts.",
+  "accounting": "Actual option and stock cash flows, daily delta hedges, declared dividends, interest and borrow, hold to expiry.",
+  "quotes": "Observed cached selected-contract histories; last-known-IV causal held marks allowed for at most two sessions. Longer gaps halt, not retrospective trade deletion.",
+  "limits": "Published $10m account/global risk limits; original $1m pair reference applies per name. Entry contract DTE21-45 and moneyness within10%.",
+  "scope": "Fixed sizing first. These runs do not measure an RL improvement. Historical evaluation already examined in other research.",
+  "risk_note": "Limits control new admissions. Existing positions can breach reserve/stress limits as markets move; hold-to-expiry does not force liquidation. Net short vega is not comparable to a vega-neutral pair book.",
+  "coverage_note": "Missing held data halt the replay. Cached observed CRSP prices and explicitly documented public-announcement corporate/listing exits repair coverage consistently across policies. OCC cash-only merger deliverables are marked at fixed intrinsic claim value until accelerated expiration; stock hedges convert to cash. Settlement lag, early exercise and claim discounting are omitted. Missing future RV labels do not exclude current proposals, but cannot be used in the forecasting fits."
+}

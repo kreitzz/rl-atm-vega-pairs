@@ -1,0 +1,16 @@
+{
+  "output_root":"artifacts/contracts/signal_allocation_objectives",
+  "report_root":"reports/signal_allocation_objectives",
+  "source_root":"artifacts/contracts/signal_capital_allocation",
+  "discount":0.99,
+  "iterations":200,
+  "profit_weights":[0.0,0.25,0.5,0.75,1.0],
+  "sharpe_rewards":["local","replacement"],
+  "profit_scale_dollars":250000,
+  "profit_reward":"Weekly net gain above the cash return on a common $10m starting budget, divided by $250k. Uses complete net weekly paths, including allocation costs.",
+  "sharpe_reward":"Using only completed training weeks of the unchanged fixed 50/50 reference, replace the reference week with each counterfactual allocation path and measure the resulting full-training-window annualized Sharpe change. Compare this exact single-week replacement with its first-order moment derivative. This is a reward surrogate for whole-policy Sharpe, not exact global Sharpe optimization.",
+  "blend":"R = profit_weight * dollar_profit_reward + (1-profit_weight) * Sharpe_reward. Scale Sharpe changes by completed training session count/252, so components represent contributions to normalized annual profit and annualized Sharpe. No arbitrary variance-penalty grid.",
+  "selection":"Compare the two Sharpe reward formulations using their pure-Sharpe validation Sharpe. Freeze the winning formulation, and show its entire five-objective curve on later dates. Profit-only is shared. Save every formulation and all gamma-zero controls; no later replacement.",
+  "scope":"Reward-only follow-up using gamma0.99 and 200 updates, unchanged features, state/action basis, 104-week training and 52-week minimum. Best put and straddle bandits frozen. Same seven one-budget fixed mixes, source accounting, extra resizing costs and next-close execution. No portfolio stop or fixed-control warmup. Previously researched historical dates; no manuscript edits.",
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256}
+}

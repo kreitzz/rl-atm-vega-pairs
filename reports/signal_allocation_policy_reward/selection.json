@@ -1,0 +1,5 @@
+{
+  "family": "local",
+  "validation_pure_sharpe": 1.3553928778849382,
+  "rule": "Select local versus exact single-week Sharpe-change formulation using pure-Sharpe validation performance, then freeze the entire objective curve. Show every formulation and matched myopic control. No later replacement."
+}

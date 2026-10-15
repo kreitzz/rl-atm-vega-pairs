@@ -1,0 +1,10 @@
+{
+  "menus": {"balanced": [0.35, 0.5, 0.65]},
+  "windows": [24, 48],
+  "partitions": ["edge", "tree2", "tree3"],
+  "minimum_training_months": 12,
+  "validation_end": "2021-12-31",
+  "test_start": "2022-01-01",
+  "test_end": "2025-08-29",
+  "scope": "Opportunity-aware sequential direct policy search using known-close proposal attributes, VIX and current inventory. Fractional strategy indices with resizing costs. Exploratory historical research, not an untouched holdout."
+}

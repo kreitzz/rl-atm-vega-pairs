@@ -1,0 +1,15 @@
+{
+  "selected": [
+    {
+      "gamma": 0.5,
+      "case": "q_lambda0.025_g0.5",
+      "risk": 0.025
+    },
+    {
+      "gamma": 0.99,
+      "case": "q_lambda0.025_g0.99",
+      "risk": 0.025
+    }
+  ],
+  "rule": "Highest validation Sharpe separately per discount; no later replacement"
+}

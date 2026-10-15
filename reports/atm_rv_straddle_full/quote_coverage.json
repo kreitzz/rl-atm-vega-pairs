@@ -1,0 +1,19 @@
+{
+  "names": 204,
+  "rows": 854093,
+  "put_rows": 421365,
+  "fitting": "Independent observed-put-mid inversion with matching-call same-date rate/dividend inputs; bounded 2048-row fitting buffers.",
+  "buffered_preparer": {
+    "code": "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/prepare_straddle_quotes_buffered.py",
+    "sha256": "19b2cf8e04d2f9f5fec7c566adf8e4b4ab0c2fc39167f0f02efe8dfa02367d9d",
+    "equivalent_fitter": "scripts.research_atm_rv_straddle_full.fit_put_frame",
+    "maximum_fit_rows": 2048,
+    "raw_batch_rows": 8192,
+    "numerical_change": false,
+    "maximum_partitions_per_worker": 8,
+    "previous_version": "prepare_straddle_quotes_buffered_v1.py; first manifest retained"
+  },
+  "status": "complete",
+  "completed_partitions": 128,
+  "total_partitions": 128
+}

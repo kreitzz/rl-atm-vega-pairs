@@ -1,0 +1,21 @@
+INTERPRETABILITY OF FROZEN ENTRY AND CAPITAL-ALLOCATION POLICIES
+
+Q ALLOCATION (gamma=0.99, original risk-adjusted reward)
+At penalty 0.20, later Sharpe is 1.726 and profit above cash is $1.306m. A constant target equal to the actual mean straddle target (24.9%) gives 1.387 and $841,251. The analogous validation comparison is 1.215 versus 0.828. These hindsight-average targets diagnose mean exposure; they are not validation-selected controls.
+The policy is mostly a switch: 141/191 later weeks put-only, 46/191 straddle-only and four interior allocations. In low-VIX later weeks mean straddle target is44.9%, versus4.7% in high-VIX weeks, split at the later sample median for description only. The validation relationship differs; do not infer a universal threshold rule.
+None of49 nonzero later schedule rotations reaches the actual penalty0.20 Sharpe. Median rotated Sharpe is0.744. Three of49 validation rotations match or exceed actual. These are descriptive timing placebos conditional on a researched schedule, not adjusted p-values.
+The matched gamma-zero learner achieves later Sharpe1.645 and $1.184m, versus1.726 and $1.306m. At the actual states, continuation changes9/191 later decisions (28/191 at penalty0.10). Much of the dynamic-versus-static gain is conditional one-period allocation; the sequential contribution is smaller.
+Centering VIX, the straddle IV/RV gap and put-spread strength changes13.6%,12.6% and11.0% of later penalty0.20 actions. Frozen-policy replays with centered inputs are sensitivity checks, not retrained ablations. Some center interventions improve Sharpe: removing previous-weight information this way gives1.733, slightly above1.726. Do not claim every state variable is necessary or every feature sensitivity is beneficial.
+All actual actions, daily returns, NAV, and additive chosen-versus-runner-up score gaps reproduce saved outputs. Model availability and completed-training timing are checked for every fitted explanation.
+
+ENTRY BANDITS
+Exact archived explanations were reverified against every recorded source hash. All608 put-pair sizes and35774 straddle sizes are reproduced.
+Put later path usage:365-day completed profit18.7%, meanIV14.9%, commission/vega12.7%, return correlation12.3%. This is model usage, not causal or impurity importance.
+Straddle later input-centering size changes:IV36.6%, VIX change15.3%, normalized RV-minus-IV memory12.9%, VIX11.9%. Exact score terms plus thresholds and context-to-size maps explain the actual policy.
+At later fixed-full versus bandit admission, puts have74 common entries,36 bandit-only and1 fixed-only; straddles have897 common,307 bandit-only and43 fixed-only. Capacity and admission contribute to the executed-portfolio differences.
+Among quote-available completed straddle labels, later mean full-size profit is$1631 for assignments of100% versus$16 for50%. This is a selected label subset, not all live proposals.75% has only22 later observations.
+Existing within-date straddle shuffles achieve laterSharpes0.834,0.928,1.044 versus learned1.041. One ofthree controls wins, so name-specific prediction is not conclusively isolated.
+
+SELECTION AND DOCUMENTS
+Both periods have been researched. Highlighted Q settings are not highest-validation-Sharpe selections: the validation winner has laterSharpe0.282. Straddle performance60 was selected using both historical periods. No new training or policy promotion occurred in this interpretability audit.
+The new paper lives in paper/interpretability_extension_2026_10_15; original report files remain unchanged. Tables preserve counterexamples and failed reward trials.

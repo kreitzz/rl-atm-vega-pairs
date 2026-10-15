@@ -1,0 +1,12 @@
+{
+  "menus": {"balanced": [0.35, 0.5, 0.65], "wide": [0.2, 0.5, 0.8]},
+  "windows": [24, 48],
+  "partitions": ["vix", "momentum", "tree2", "tree3"],
+  "minimum_training_months": 12,
+  "minimum_leaf_months": 6,
+  "tilt_penalty": 0.05,
+  "validation_end": "2021-12-31",
+  "test_start": "2022-01-01",
+  "test_end": "2025-08-29",
+  "scope": "Direct policy search maximizing realized training portfolio excess Sharpe net of costs, with an explicit preference for neutral allocation. Fractional strategy-return-index allocation, not a shared option inventory. Exploratory research on previously examined historical dates."
+}

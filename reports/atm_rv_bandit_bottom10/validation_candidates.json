@@ -1,0 +1,22 @@
+{
+  "selected": {
+    "case": "tree18",
+    "months": 18,
+    "validation_sharpe": 0.6746828950395897
+  },
+  "candidates": [
+    {
+      "case": "tree18",
+      "months": 18,
+      "validation_sharpe": 0.6746828950395897
+    },
+    {
+      "case": "tree60",
+      "months": 60,
+      "validation_sharpe": 0.6467138729955566
+    }
+  ],
+  "selected_using_validation_only": true,
+  "previously_examined_dates": true,
+  "configuration_hash": "cff9e2684c68bc887619c7ab29797e64ec6fe6a51915288099604d73b6bc3689"
+}

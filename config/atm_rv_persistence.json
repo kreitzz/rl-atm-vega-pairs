@@ -1,0 +1,94 @@
+{
+  "target": "next_entry_close_to_expiry_annualized_rv_minus_signal_atm_iv",
+  "annualization": 252,
+  "memory_days": 365,
+  "memory_min_completed": 126,
+  "training_years": 5,
+  "minimum_training_rows": 1000,
+  "selection_fraction": 0.2,
+  "minimum_cross_section": 5,
+  "entry_frequency": "daily_with_overlapping_cohorts",
+  "forecast": "monthly_pooled_linear_regression_on_completed_residual_memory",
+  "models": [
+    "residual_forecast",
+    "residual_memory",
+    "trailing_rv",
+    "random_quintile"
+  ],
+  "evaluation_start": "2018-01-01",
+  "evaluation_end": "2025-08-29",
+  "last_signal": "2025-06-30",
+  "min_dte": 21,
+  "max_dte": 45,
+  "max_moneyness_distance": 0.1,
+  "seed": 2026,
+  "entry_vega": 450,
+  "per_name_reference_capital": 1000000,
+  "account_capital": 10000000,
+  "listing_risk_events": [
+    {
+      "secid": 209658,
+      "announced": "2020-05-27",
+      "effective": "2020-05-27",
+      "exit_same_day": true,
+      "no_entry_from": "2020-05-27",
+      "reason": "Next-session liquidation/no re-entry after NYSE May26 public initiation of delisting proceedings; no use of the later October29 suspension date to preemptively exit.",
+      "source": "https://www.sec.gov/Archives/edgar/data/876661/000087666120001005/ruleprovisionnotice.htm"
+    }
+  ],
+  "observed_stock_repairs": [
+    {
+      "secid": 213108,
+      "permno": 17949,
+      "date": "2020-10-13",
+      "close": 21.18,
+      "cfadj": 1.0,
+      "source": "cached CRSP dsf: prc=21.18, cfacpr=cfacshr=1; adjacent CRSP prices match OptionMetrics exactly",
+      "source_file": "/Users/adamkreitzman/Desktop/RL_Converts/convert-rv-rl/data/raw/wrds/crsp_underlying_daily/year=2020.parquet"
+    }
+  ],
+  "corporate_events": [
+    {
+      "secid": 151404,
+      "announced": "2020-12-31",
+      "effective": "2021-01-07",
+      "reason": "Devon December30 shareholder-approval release publicly anticipated January7 WPX merger; next-session availability and January6 close exit before adjusted deliverables.",
+      "source": "https://www.devonenergy.com/news/2020/Devon-Energy-and-WPX-Energy-Shareholders-Approve-Merger-of-Equals"
+    },
+    {
+      "secid": 104081,
+      "announced": "2020-10-01",
+      "effective": "2020-10-02",
+      "reason": "Next-session availability of Morgan Stanley September30 public expected October2 ETRADE closing; exit at October1 close before the halt and adjusted deliverables.",
+      "source": "https://www.morganstanley.com/press-releases/morgan-stanley-receives-regulatory-approval-to-acquire-e-trade"
+    },
+    {
+      "secid": 111337,
+      "announced": "2025-06-16",
+      "effective": "2025-06-16",
+      "exit_same_day": true,
+      "no_entry_from": "2025-06-16",
+      "reason": "Next-session corporate-risk exit after June13 evening public final regulatory approval and expected prompt closing; does not assume the eventual June18 closing date.",
+      "source": "https://www.sec.gov/Archives/edgar/data/1163302/000110465925059596/tm2518073d1_ex99-1.htm"
+    },
+    {
+      "secid": 101029,
+      "announced": "2023-10-13",
+      "effective": "2023-10-13",
+      "no_entry_from": "2023-10-13",
+      "cash_merger_price": 95.0,
+      "accelerated_expiry": "2023-10-20",
+      "reason": "OCC53363: consummated before October13 open, stock converts to $95 cash, options cash-only deliverable and expirations accelerate to October20. Marks at intrinsic cash claim from effective session; stock converts to cash without simulated sale spread; payout at accelerated expiry, with settlement lag/early exercise omitted as in ordinary expiry.",
+      "source": "https://infomemo.theocc.com/infomemos?number=53363"
+    },
+    {
+      "secid": 211715,
+      "announced": "2025-06-06",
+      "effective": "2025-07-01",
+      "no_entry_from": "2025-07-01",
+      "reason": "June4 shareholder-approval 8-K publicly expected merger on or before July1. Conservative next-session availability June6, planned June30 close exit before stock deliverables change; not inferred from later missing prices.",
+      "source": "https://www.sec.gov/Archives/edgar/data/1382821/000138282125000089/rdfn-20250604.htm"
+    }
+  ],
+  "selection_notice": "New exploratory strategy on already examined historical dates and retrospective cached universe; not an untouched holdout. No prior pair beta, profitability or pair-membership gate."
+}

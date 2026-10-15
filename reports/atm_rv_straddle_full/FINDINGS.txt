@@ -1,0 +1,157 @@
+ATM RV-minus-IV signal: calls versus actual matched straddles
+===========================================================
+
+These are exploratory historical comparisons on previously inspected dates.
+All Sharpe ratios are annualized, using daily returns above the cash benchmark.
+Validation: January 2018–December 2021. Later evaluation: January 2022–August 2025.
+
+INSTRUMENT COMPARISON
+
+Policy                              Validation    Later       Full
+Short ATM calls, fixed 100%             0.521      0.647      0.576
+Short ATM straddles, fixed 100%         0.528      0.990      0.723
+Short ATM calls, fixed 200%             0.541      0.981      0.740
+Short ATM straddles, fixed 200%         0.489      0.957      0.691
+Call-trained bandit, calls              0.675      0.676      0.673
+Call-trained bandit, straddles          0.785      0.929      0.850
+Short ATM straddles, fixed 50%          0.740      0.920      0.819
+Straddle-trained sizing bandit         0.633      0.608      0.621
+
+Sources: instrument_comparison.csv and
+../atm_p25_straddle_followup/instrument_results.csv. The transferred bandit was
+trained on call outcomes, not straddle outcomes. All listed runs are complete.
+
+WHAT CHANGED
+
+Retain all 35,774 original bottom-decile residual-memory signal proposals across
+204 names. Replace each short ATM call with an equal-count short call and short
+put on the same name, strike, expiry and adjustment factor. Delta hedge their
+net stock exposure daily and hold until expiry under the original simulator.
+The 100% budget is $450 of TOTAL straddle vega per vol point, not $450 per leg.
+Straddles take directional short-vega exposure; they are not vega-neutral pairs.
+
+Exact puts were recovered from already cached full chains. All original signal
+rows matched: the earlier selected-contract-only 857-row pilot is superseded.
+There are 854,093 cached quote rows, including 421,365 independently inverted
+observed put quotes. No put prices were synthesized through put-call parity.
+The original call controls were reused only after checking identical proposal
+keys and execution settings.
+
+Costs remain $0.03 per option contract plus a 0.10-vol-point adverse penalty
+from observed mid, 1 bp stock execution, and 0.30% annual stock borrow. Positive
+cash earns the reference rate; negative cash pays that rate plus 1%.
+Cash dividends, declared-dividend information and the existing corporate-event
+rules remain in the ledger. Early assignment and real pin execution are not
+simulated; the existing intrinsic-cash-settlement convention is retained.
+
+WHY THE FUNDED PORTFOLIOS DIFFER
+
+For 2022–August 2025 at 100% size:
+  Calls:    mean gross stock hedge $6.20m; mean reserve 29.9%; 928 entries.
+  Straddle: mean gross stock hedge $2.75m; mean reserve 16.9%; 940 entries.
+
+Only 610 entries are shared; 318 are call-only and 330 straddle-only. Therefore
+this is a full portfolio comparison, not a common-trade causal attribution.
+Daily excess-return correlation is 0.772.
+
+The funding contribution relative to cash improves from approximately -$774k
+for calls to +$61k for straddles, while option/hedge/dividend profit before fees
+falls from $2.206m to $1.941m. All components reconcile to the daily ledger.
+There are NO negative-cash days in either book: the call drag is foregone cash
+interest from funding long stock hedges, not an additional margin-loan charge.
+
+On frozen straddle100 positions, increasing annual stock borrow from 0.3% to
+3% and 10% reduces later Sharpe from 0.990 to 0.934 and 0.790, respectively.
+This includes cash-interest feedback but not re-admission or retraining.
+Actual name-specific borrowing costs and executable fills remain unverified.
+
+At straddle100 entries in the later period, independently fitted put IV exceeds
+call IV by a median 0.210 vol points and a mean 0.481 vol points. The European
+parity reference lies within the observed bid/ask conversion interval for 84.1%
+of entries. This is a diagnostic, not an arbitrage test: American exercise and
+stock borrow can change the relevant relationship. Together with admission
+changes, observed quote differences also matter; the stock-funding attribution
+alone is not a causal explanation of the performance difference.
+
+RELATION TO THE RL ALLOCATION EXPERIMENTS
+
+The earlier 1.859 later-period combination ALREADY contains learned put-pair
+entry sizing. It combines that funded strategy with the fixed-200% call book
+using a simple causal volatility-balancing rule. Calling it wholly non-RL
+would be incorrect.
+
+Holding this capital-allocation rule constant, replacing learned put-pair entry
+sizes with the validation-preferred fixed-50% control reduces later Sharpe from
+1.859 to 1.675. The paired block-bootstrap interval for that improvement crosses
+zero. Validation scores are essentially tied (0.936 versus 0.936).
+
+Additional portfolio-level learners have not beaten that simple rule on later
+dates. The original allocation sweep evaluated 120 candidate procedures across
+two call books; the vehicle-choice extension added 24 procedures. Inherited
+direct allocation was also tested on each of the three straddle books. Their
+results are retained, including failures; they are not evidence that capital
+RL universally improves performance.
+
+A retrospective fixed mix of calls200 and straddles200 reaches 1.869 later
+Sharpe with the learned put-pair book. That is only 0.010 above 1.859 and was
+not the validation winner; do not present it as a confirmed new advantage.
+
+Straddles improve the standalone retained signal at 100% sizing, but replacing
+calls with straddles does not improve its combination with put-pair trading:
+later Sharpe is 1.561 for straddles100, 1.775 for straddles200 and 1.596 for
+transferred straddle sizing, versus 1.859 for calls200. Diversification matters.
+
+STRADDLE-SPECIFIC ENTRY TRAINING
+
+The new learner keeps the inherited three inputs (completed call RV-minus-IV
+memory, call IV and VIX), 18-month lookback, reward-tree states and 50/100/200%
+ladder. It trains on straddle rewards, including integer contracts, both option
+fees, net daily delta hedging, dividends, borrow and action-specific financing.
+No additional hyperparameter sweep was conducted for this new entry learner.
+
+Training samples use the first, sixth, eleventh and sixteenth calendar trading
+session each month, with three evenly spaced current ranks on each date.
+Sampling precedes reading payoffs. Of 1,080 sampled episodes, 518 supply valid
+completed executable training labels. Missing labels do not remove any of the
+35,774 daily funded proposals. No pre-2018 straddle labels are fabricated: use
+100% sizing until 64 completed observations. The first nontrivial monthly fit
+is November 2018; the last fit has 92 completed examples in its 18-month window.
+All training outcomes must finish strictly before the monthly decision cutoff.
+
+The new straddle-trained policy does not improve the result. Its validation /
+later / full Sharpes are 0.633 / 0.608 / 0.621 versus 0.785 / 0.929 / 0.850 for
+the transferred call-trained policy. Training history and sampling also differ,
+so this is not a controlled test of reward target alone. It establishes that
+this particular fresh straddle-training procedure failed, not that adaptive
+straddle sizing cannot work.
+
+The completed fixed50 control has validation / later / full Sharpes of
+0.740 / 0.920 / 0.819, with 3,699 entries across the full period. The fresh
+straddle-trained policy has 2,537 entries, the transferred policy 2,768, and
+the fixed100 straddle policy 1,933. Conditional sizing changes admission.
+
+Under the same causal volatility-balancing procedure with learned put-pair
+entry sizing, later combined Sharpe is 1.609 for straddles50 and 1.514 for the
+fresh straddle-trained policy. Neither exceeds the existing calls200 combination.
+All controls, annual results and paired bootstrap intervals are saved in
+../atm_p25_straddle_followup/. Charts are sizing_comparison.png and
+growth_relative_to_cash.png in that directory.
+
+The five follow-up straddle books independently reconcile daily option, stock,
+dividend, financing, borrow and fee cash flows. The new unit-ledger scaling and
+calendar-only sampling tests, together with all 14 memory-guard tests, pass.
+All new research workers have exited; no continuing background run is required.
+
+REPRODUCTION AND RESOURCE LIMITS
+
+Code: scripts/research_atm_rv_straddle_full.py and associated buffered quote,
+checkpoint replay, attribution, borrow-stress and sizing-followup modules.
+Configuration: config/atm_rv_straddle_full.json and atm_rv_straddle_bandit.json.
+Source manifests lock code/configuration and quote signatures. Funded books
+save monthly cash/inventory checkpoints. Independent ledger and costless
+put-call-parity tests check the implementation.
+
+All numerical workers run sequentially at 20% of one CPU core, with hard 256 MiB
+resident/physical-footprint limits and a 256 MiB system-swap-growth stop. Brave
+is kept open. The allocation comparisons use fractional funded-strategy indices;
+they are not a new joint option-and-stock inventory simulation.

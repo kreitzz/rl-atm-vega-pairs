@@ -1,0 +1,24 @@
+{
+  "module":"scripts.straddle_performance_followup",
+  "output_root":"artifacts/contracts/straddle_performance_followup",
+  "report_root":"reports/straddle_performance_followup",
+  "source_root":"artifacts/contracts/straddle_feature_transfer",
+  "feature_source":"artifacts/contracts/straddle_context_followup",
+  "warmup_action":2,
+  "actions":[2,3,4],
+  "minimum_training_samples":128,
+  "minimum_leaf_samples":63,
+  "validation_end":"2021-12-31",
+  "evaluation_end":"2025-08-29",
+  "ridge_alpha":100.0,
+  "feature_groups":["performance","capacity"],
+  "specifications":[
+    {"name":"performance_tree36","features":"performance","kind":"tree","months":36,"target":"profit"},
+    {"name":"performance_ridge48","features":"performance","kind":"ridge","months":48,"target":"profit"},
+    {"name":"capacity_ridge36","features":"capacity","kind":"ridge","months":36,"target":"profit"},
+    {"name":"capacity_risk48","features":"capacity","kind":"ridge","months":48,"target":"risk"}
+  ],
+  "selection":"Same aggregate-validation primary and leave-one-year-out secondary as the preceding study. Freeze both plus one robust winner per block before later replay. Fixed50 remains preferred unless the primary improves aggregate validation.",
+  "evaluation_status":"Exploratory research on previously examined dates. This follow-up was specified after the preceding study's validation results, before its later results.",
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256}
+}

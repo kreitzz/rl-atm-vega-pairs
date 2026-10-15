@@ -1,0 +1,30 @@
+{
+  "output_root": "artifacts/contracts/straddle_context_followup",
+  "report_root": "reports/straddle_context_followup",
+  "source_root": "artifacts/contracts/straddle_feature_transfer",
+  "feature_source": "artifacts/contracts/straddle_overnight_study",
+  "warmup_action": 2,
+  "actions": [2, 3, 4],
+  "minimum_training_samples": 128,
+  "minimum_leaf_samples": 63,
+  "validation_end": "2021-12-31",
+  "evaluation_end": "2025-08-29",
+  "prior_strength": 10,
+  "ridge_alpha": 100.0,
+  "feature_groups": ["memory", "dynamics", "combined", "market"],
+  "specifications": [
+    {"name":"memory_ridge36","features":"memory","kind":"ridge","months":36,"target":"profit"},
+    {"name":"memory_ridge48","features":"memory","kind":"ridge","months":48,"target":"profit"},
+    {"name":"dynamics_ridge36","features":"dynamics","kind":"ridge","months":36,"target":"profit"},
+    {"name":"dynamics_ridge48","features":"dynamics","kind":"ridge","months":48,"target":"profit"},
+    {"name":"combined_ridge36","features":"combined","kind":"ridge","months":36,"target":"profit"},
+    {"name":"combined_ridge48","features":"combined","kind":"ridge","months":48,"target":"profit"},
+    {"name":"combined_tree36","features":"combined","kind":"tree","months":36,"target":"profit"},
+    {"name":"combined_risk36","features":"combined","kind":"ridge","months":36,"target":"risk"},
+    {"name":"memory_risk36","features":"memory","kind":"ridge","months":36,"target":"risk"},
+    {"name":"market_risk36","features":"market","kind":"ridge","months":36,"target":"risk"}
+  ],
+  "selection": "Funded validation only: primary highest aggregate Sharpe; secondary highest minimum leave-one-year-out gain against fixed50. Also evaluate one validation-robust winner per feature block, at most six unique policies. Freeze before later replay. Fixed50 remains preferred unless primary improves aggregate validation.",
+  "evaluation_status": "Exploratory historical research on previously examined dates; not an untouched holdout.",
+  "resource_limits": {"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256}
+}

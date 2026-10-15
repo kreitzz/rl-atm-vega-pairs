@@ -1,0 +1,3 @@
+kind,case,objective,family,profit_weight,objective_label,gamma,period,annualized_excess_sharpe,annualized_total_account_return_pct,annualized_growth_relative_to_cash_pct,annualized_excess_volatility_pct,max_cash_relative_drawdown_pct,profit_above_cash
+q,forecast63_profit0_g0.99,forecast63_profit0,local,0.0,Sharpe-focused,0.99,validation,1.4590979249586544,4.212737167206959,2.923677621933596,1.987981878278584,-2.0279354673948924,1282184.1003889255
+q,forecast126_profit0_g0.99,forecast126_profit0,replacement,0.0,Sharpe-focused,0.99,validation,1.4590979249586544,4.212737167206959,2.923677621933596,1.987981878278584,-2.0279354673948924,1282184.1003889255

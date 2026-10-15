@@ -2,6 +2,14 @@
 
 Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A frozen spread signal proposes trades; a contextual learner selects 50%, 75% or 100% vega exposure using monthly fits on completed past outcomes. The retained learner uses direct Sharpe optimization, not Q-learning.
 
+## Research extension: two signals and capital allocation
+
+The original put-pair study remains the foundation. New research adds a short-ATM-straddle signal, contextual sizing within both signals, and fitted Q-learning to allocate one capital budget between them. [Results and interpretation](reports/signal_reward_comparison/RESEARCH_OVERVIEW.txt) · [2022–2025 comparison](reports/signal_reward_comparison/fixed_vs_q_099_evaluation.png) · [2018–2021 comparison](reports/signal_reward_comparison/fixed_vs_q_099_validation.png) · [Comparison CSV](reports/signal_reward_comparison/fixed_vs_q_099.csv) · [Interpretability findings](reports/allocation_interpretability_099/FINDINGS.txt).
+
+The highlighted Q setting reaches **1.215 / 1.726 annualized excess Sharpe** across the two periods, with **$1.306m** later profit above cash. Its fixed mean-exposure control reaches 1.387 later Sharpe; the matched one-period learner reaches 1.645. All preferences, weaker results and failed reward trials are included. These are researched historical settings, not a fresh untouched evaluation.
+
+[Derived review/replay snapshot](data/research/signal_allocation_099_snapshot.zip): saved models, daily ledgers and prepared allocation states, with file hashes. Raw option chains and credentials are excluded; source data licensing remains applicable. Full fitting and option-ledger reconstruction require the original market-data cache.
+
 **Validation-selected filtered strategy:** RL achieves **0.573 versus 0.478** excess Sharpe at fixed full sizing in 2018–2021 validation, and **1.263 versus 1.055** in January 2022–August 2025 evaluation. All these comparisons use $10m funded accounts. Evaluation profit above cash is $248,673 versus $200,853. Selection ranks 33 archived screened configurations using only validation scores; the selected 27-input, 18-month, 50/75/100% policy keeps the profitability filter. Archived selection scores use the original $345m research account. This is a retrospective split within an inherited strategy and universe, not an untouched holdout.
 
 [New selection and findings](reports/p25_validation_split/findings.md) · [Both-period results](reports/p25_validation_split/periods.csv) · [Yearly results](reports/p25_validation_split/annual.csv) · [New configuration](config/p25_validation_2018_2021.json) · [Models and selection evidence](data/p25_validation_split_experiment.zip)

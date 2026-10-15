@@ -1,0 +1,32 @@
+{
+  "output_root":"artifacts/contracts/straddle_overnight_study",
+  "report_root":"reports/straddle_overnight_study",
+  "source_root":"artifacts/contracts/straddle_feature_transfer",
+  "forecast_root":"artifacts/contracts/straddle_rv_forecast",
+  "warmup_action":2,
+  "minimum_training_samples":128,
+  "minimum_leaf_samples":63,
+  "validation_end":"2021-12-31",
+  "evaluation_end":"2025-08-29",
+  "feature_groups":["core","transfer","market","market_forecast"],
+  "training_windows_months":[18,36],
+  "selection":"Primary: largest minimum leave-one-validation-year-out Sharpe improvement over fixed50; secondary: largest aggregate validation Sharpe. Keep fixed50 as the preferred policy unless a learner improves aggregate validation Sharpe. Freeze both selections before later replay.",
+  "later_evaluation":"Evaluate the validation winner within each feature group, plus the two overall selectors. Retain all validation attempts and all later results; no post-test replacement of the primary.",
+  "evaluation_status":"Exploratory research on previously inspected dates, not a new untouched holdout.",
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256},
+  "q_study":{
+    "source_book":"fixed50",
+    "tasks":["composition","budget"],
+    "feature_groups":["performance","economic","combined"],
+    "training_windows_months":[24,48],
+    "ridge_alphas":[1.0,10.0],
+    "discounts":[0.3,0.9],
+    "frequencies":["M","W-FRI"],
+    "bellman_iterations":20,
+    "minimum_training_periods":{"M":12,"W-FRI":52},
+    "composition_risk_shares":[0.25,0.5,0.75],
+    "budget_levels":[0.5,0.75,1.0],
+    "later_evaluation":"For each task/frequency/state group: validation-robust and validation-point winners, their gamma-zero controls, all constant actions, a trailing-performance rule, and three predeclared random-action controls. Evaluate costs x2 and x5 for the primary and validation-best constant.",
+    "scope":"Fitted Q over fractional, funded strategy indices, with drifting prior allocations and next-close resizing costs. Not a jointly funded option-inventory replay."
+  }
+}

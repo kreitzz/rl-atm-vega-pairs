@@ -1,0 +1,25 @@
+{
+  "output_root": "artifacts/contracts/straddle_entry_refinement",
+  "report_root": "reports/straddle_entry_refinement",
+  "source_root": "artifacts/contracts/straddle_capped_books/entry",
+  "actions": [2, 3, 4],
+  "warmup_action": 2,
+  "minimum_training_samples": 64,
+  "minimum_leaf_samples": 32,
+  "validation_end": "2021-12-31",
+  "evaluation_end": "2025-08-29",
+  "shortlist_size": 2,
+  "specifications": [
+    {"name": "core_tree2_w36", "kind": "tree", "features": "core", "leaves": 2, "months": 36},
+    {"name": "core_tree4_w36", "kind": "tree", "features": "core", "leaves": 4, "months": 36},
+    {"name": "economic_tree2_w36", "kind": "tree", "features": "economic", "leaves": 2, "months": 36},
+    {"name": "economic_tree4_w36", "kind": "tree", "features": "economic", "leaves": 4, "months": 36},
+    {"name": "economic_tree2_w60", "kind": "tree", "features": "economic", "leaves": 2, "months": 60},
+    {"name": "economic_tree4_w60", "kind": "tree", "features": "economic", "leaves": 4, "months": 60},
+    {"name": "economic_ridge_w36", "kind": "ridge", "features": "economic", "leaves": 3, "months": 36, "ridge": 10},
+    {"name": "economic_ridge_w60", "kind": "ridge", "features": "economic", "leaves": 3, "months": 60, "ridge": 10}
+  ],
+  "selection": "Monthly causal shadow validation screens eight procedures; two finalists receive actual funded validation replay. Select on funded 2018-2021 Sharpe before continuing the winner to later dates.",
+  "scope": "Individual short-straddle entry sizing only. Same daily bottom-decile proposals, exact 50/75/100 rewards, costs and funded risk limits. No allocation across strategy sleeves.",
+  "evaluation_status": "Previously inspected historical dates; an exploratory refinement, not an untouched holdout."
+}

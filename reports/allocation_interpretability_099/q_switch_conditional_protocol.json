@@ -1,0 +1,7 @@
+{
+  "period": "2022-01-01 to 2025-08-29",
+  "q_case": "q_lambda0.2_g0.99",
+  "alignment": "Source returns strictly after decision execution close and through next decision execution close. First session is excluded because it belongs to prior weights. Final interval ends August29.",
+  "accounting": "Source strategy returns already include underlying trading and funding costs. Additional outer allocation resizing costs are excluded from these conditional source diagnostics.",
+  "interpretation": "Statistics on noncontiguous selected days; not independently deployable strategy Sharpes, causal effects, or fresh evaluation. No model or paper changed."
+}

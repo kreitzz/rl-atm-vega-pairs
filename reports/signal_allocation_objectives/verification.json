@@ -1,0 +1,8 @@
+{
+  "fixed_curves_unchanged": true,
+  "endpoint_paths_verified": true,
+  "model_timing_checks": 1458,
+  "selected_family": "replacement",
+  "discount": 0.99,
+  "bellman_updates": 200
+}

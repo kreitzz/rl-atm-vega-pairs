@@ -1,0 +1,7 @@
+{
+  "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/research_atm_rv_bandit.py": "eb082be3fd1c2d60cd88a8d1bdc7bfe40c793ed9ab79bcf7abe1e0f7b735b345",
+  "config/atm_rv_bandit_bottom10.json": "cff9e2684c68bc887619c7ab29797e64ec6fe6a51915288099604d73b6bc3689",
+  "config/atm_rv_persistence.json": "cad9cf6ddfc7ffb67b4cfa9de6f2e2a25b5294c54a2eab53ee26b817a2648e6a",
+  "scripts/atm_rv_persistence_engine.py": "e0caf55876a5191de172be8d37e4bfc32593afd2eb09635385a86678579dfbde",
+  "data/raw/VIX_History.csv": "7779c99be9796b0f13bf520c42d6e3bf075bb886352233d896897f70629adb14"
+}

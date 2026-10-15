@@ -1,0 +1,7 @@
+period,size,date,pair,wing,model_fit,last_completed,training_samples,leaf,status,risk_limits,rule
+evaluation,0.5,2022-02-04,109956__114726,P25,2022-02-01,2022-01-28,76,5,entered,,count_365d=79 <= 103 AND oriented_vrp_gap=-0.279046 <= 0.167252 AND rv_mean=0.373664 <= 0.427547
+evaluation,0.75,2023-10-02,101966__103049,P25,2023-10-01,2023-09-22,294,10,entered,,correlation=0.814869 > 0.612156 AND profit_365d=0.00689371 <= 0.0555092 AND profit_365d=0.00689371 <= 0.0228146 AND profit_365d=0.00689371 > 0.00297593 AND count_91d=54 > 27.5
+evaluation,1.0,2022-01-18,125537__189845,P25,2022-01-01,2021-12-23,70,6,entered,,oriented_vrp_gap=-0.144968 <= 0.228608 AND count_365d=185 > 88 AND count_91d=53 > 31
+validation,0.5,2018-01-02,101966__103049,P25,2018-01-01,2017-12-29,74,6,entered,,profit_365d=0.0175517 <= 0.0321695 AND oriented_vrp_gap=-0.000623018 <= 0.304404 AND oriented_iv_gap=0.0615968 > 0.0594083
+validation,0.75,2018-02-01,101966__103049,P25,2018-02-01,2018-01-26,63,9,entered,,profit_365d=0.0180303 <= 0.0321695 AND profit_91d=0.0194959 <= 0.0340743 AND oriented_vrp_gap=0.0388909 > -0.12813 AND commission_vol_points=0.333328 <= 0.440545
+validation,1.0,2018-04-05,101966__103049,P25,2018-04-01,2018-03-29,59,6,entered,,profit_365d=0.0219105 > 0.0202538 AND commission_vol_points=0.327552 <= 0.424347 AND iv_mean=0.281659 > 0.218736

@@ -1,0 +1,40 @@
+{
+  "selected": "performance60",
+  "specification": {
+    "name": "performance60",
+    "features": "performance",
+    "months": 60
+  },
+  "features": [
+    "residual_memory",
+    "iv",
+    "vix",
+    "normalized_memory",
+    "variance_ratio",
+    "vix_change21",
+    "iv_change5",
+    "benchmark_sharpe21",
+    "benchmark_sharpe63",
+    "benchmark_sharpe126",
+    "benchmark_vol63",
+    "benchmark_drawdown63",
+    "benchmark_reserve",
+    "benchmark_available"
+  ],
+  "monthly_refits": 90,
+  "sizing_levels": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "metrics": {
+    "evaluation": 1.040612016660284,
+    "full": 0.8993012708835477,
+    "validation": 0.7749039158410541
+  },
+  "source_manifest": "artifacts/contracts/straddle_policy_refinement/sources.json",
+  "data_manifest": "artifacts/contracts/straddle_policy_refinement/data_manifest.json",
+  "selection": "Explicit retrospective joint-period historical screen; source dates were previously inspected.",
+  "unchanged_execution": true,
+  "all_three_fixed_controls_beaten_in_both_periods": true
+}

@@ -1,0 +1,13 @@
+strategy,control,period,common_entries,bandit_only,fixed_only,neither
+put,fixed50,evaluation,105,5,46,156
+put,fixed50,validation,89,8,23,176
+put,fixed75,evaluation,82,28,22,180
+put,fixed75,validation,66,31,11,188
+put,fixed100,evaluation,74,36,1,201
+put,fixed100,validation,53,44,5,194
+straddle,fixed50,evaluation,1149,55,633,15118
+straddle,fixed50,validation,1366,29,551,16873
+straddle,fixed75,evaluation,1032,172,190,15561
+straddle,fixed75,validation,1145,250,167,17257
+straddle,fixed100,evaluation,897,307,43,15708
+straddle,fixed100,validation,956,439,37,17387

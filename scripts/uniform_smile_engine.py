@@ -25,7 +25,7 @@ def inventory_features(pair_metrics,global_metrics,pair_capital,capital,max_vega
                 global_inventory_hedge=global_metrics.get('gross_hedge_notional',0.)/(2*capital))
 
 
-def simulate(market,signals,calendar,cfg,pair_capital,policy=None,corporate_events=(),wing_capital=None,scale_policy=None,scale_pair_budget=False,management_policy=None,locked_entry_counts=None):
+def simulate(market,signals,calendar,cfg,pair_capital,policy=None,corporate_events=(),wing_capital=None,scale_policy=None,scale_pair_budget=False,management_policy=None,locked_entry_counts=None,replay_checkpoint=None):
     """Signals are previous-close rows with fixed pair, wing and option IDs.
 
     Sizes are absolute fractions of entry_vega_per_leg. Policy uses only its
@@ -78,7 +78,19 @@ def simulate(market,signals,calendar,cfg,pair_capital,policy=None,corporate_even
     # Optional capital policy sees only the preceding completed session.
     lag_cash = cash; lag_names = {}; benchmark = cfg.capital; relative_peak = 1.
     pending_management = {}; management_log = []
+    option_value=stock_value=0.;start_i=0
+    if replay_checkpoint is not None:
+        restored=replay_checkpoint.load()
+        if restored is not None:
+            (cash,hedge,positions,trades,decisions,daily,previous_spots,previous_adjustments,
+             previous_date,previous_unavailable,previous_nav,previous_option_value,previous_rate,
+             lag_pairs,lag_global,max_ledger_error,lag_cash,lag_names,benchmark,relative_peak,
+             pending_management,management_log,option_value,stock_value)=restored
+            start_i=len(daily)
+            if start_i>len(cal) or (start_i and daily[-1]['date']!=cal[start_i-1]):
+                raise ValueError('Replay checkpoint calendar does not match')
     for i,date in enumerate(cal):
+        if i<start_i:continue
         repaired = fallbacks = modeled = 0; scenario_cache = {}; mark_cache = {}
         spots = {}; adjustments = {}; unavailable = set(); split_factors = {s:1. for s in secids}
         for sid in secids:
@@ -377,6 +389,12 @@ def simulate(market,signals,calendar,cfg,pair_capital,policy=None,corporate_even
             for p in positions:
                 lag_names[p['secid']]+=abs(p['quantity'])*100*quote(p['optionid'],p).vega
         previous_spots=spots;previous_adjustments=adjustments;previous_date=date;previous_nav=nav;previous_option_value=option_value;previous_rate=market.rate(date);previous_unavailable=unavailable
+        if replay_checkpoint is not None:
+            replay_checkpoint.save(i,date,(cash,hedge,positions,trades,decisions,daily,
+                previous_spots,previous_adjustments,previous_date,previous_unavailable,
+                previous_nav,previous_option_value,previous_rate,lag_pairs,lag_global,
+                max_ledger_error,lag_cash,lag_names,benchmark,relative_peak,pending_management,
+                management_log,option_value,stock_value))
     if positions or abs(option_value)+abs(stock_value)>1e-7:
         raise AssertionError('Runoff must close all inventory')
     audit=dict(max_ledger_error=max_ledger_error,shared_cash=True,shared_stock_hedges=True)

@@ -1,0 +1,10 @@
+call_case,straddle_case,period,call_entries,straddle_entries,shared_entries,call_only,straddle_only,daily_excess_correlation
+matched_calls100,straddle100,validation,1010,993,641,369,352,0.7241617670758151
+matched_calls100,straddle100,test,928,940,610,318,330,0.7716776653921668
+matched_calls100,straddle100,full,1938,1933,1251,687,682,0.7425988242084007
+matched_calls200,straddle200,validation,528,501,271,257,230,0.6958037890560166
+matched_calls200,straddle200,test,512,489,306,206,183,0.7151539174305394
+matched_calls200,straddle200,full,1040,990,577,463,413,0.7034475990709744
+calls_tree18,transfer_tree18,validation,1501,1464,914,587,550,0.6662955759167838
+calls_tree18,transfer_tree18,test,1300,1304,852,448,452,0.7648495651802667
+calls_tree18,transfer_tree18,full,2801,2768,1766,1035,1002,0.7059084248133063

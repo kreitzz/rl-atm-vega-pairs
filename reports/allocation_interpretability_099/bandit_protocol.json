@@ -1,0 +1,30 @@
+{
+  "exact_explanations_sources_reverified": true,
+  "put_proposals": 608,
+  "straddle_proposals": 35774,
+  "sources": {
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/explain_bandit_mechanisms.py": "a7a58ff6c132934704562976d13536ae6ba0c61eea3e852da33b7120db04eb4d",
+    "reports/retained_entry_explanations/protocol.json": "3b6bd38fd9673edf9417bb29b8c4554555d3017b80d33b73f19e0c5634bcbbe7",
+    "reports/retained_entry_explanations/put_pair_rules.csv": "0c2b7e5e6db4b26ea70fe560a1c088b5f7819cec07f0dcf5ae9fc24863a9b873",
+    "reports/retained_entry_explanations/straddle_score_explanations.csv": "0471aa297e1fb5e3d28223affdf5832275d7b2f7d4b4b956e273dc29ea62560b",
+    "artifacts/contracts/straddle_policy_refinement/training.parquet": "8536d8c16af334a1d6f982bb941b3360629dd44468a768000bb32157a56d82ea",
+    "reports/straddle_policy_refinement/comparison.csv": "2875c6e6436d59c80ee8337010cd6b4164ea05f6edbe5c8e3be3e35271e0cbc5",
+    "artifacts/contracts/p25_validation_split/replays/screened_selected/decisions.csv": "a322bc70b85a00fa8514b770b6d6fc746af5938e2763aadda13fa9ae0be3ca2a",
+    "artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/decisions.csv": "edf61d05dedf36ff5dbdc5f5c4a61d43c5180d5747ca39a6add4514ea766b1d6",
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/daily_nav.parquet": "bcf47d1c5689fa1d3318047e4a3826e6f299f422c7844c50f6476bd21bf0fb04",
+    "artifacts/contracts/p25_validation_split/replays/screened_fixed75/decisions.csv": "11cfc89a0b2651d0fbfc03035413f54ae26855f822bf7637bcde94d6d0f85a6a",
+    "artifacts/contracts/p25_validation_split/replays/screened_fixed75/daily_nav.parquet": "1aef85817eca09612e58aaa45bfacebc2567dded496a84b450abcd8c9fc2c88a",
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/decisions.csv": "9611f6df0d971ada55b9c1d9274388ad02ed51f4c6a04aee6f71f0443da86c3d",
+    "data/submission/artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/decisions.csv": "e5f52a3a5205be50a774992ac45a8b30c498e8d76beeafc315aa70b01330bfec",
+    "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/daily_nav.parquet": "dbbb283d13a14467ed67fcd658d2873a0aa07b938ff3315abd8da7be134d8000",
+    "artifacts/contracts/atm_rv_straddle_fixed50/replays/tree18/decisions.csv": "7713346a9300672940870e8d3219ac988467a14ad10f77b13ec4169cb92c84db",
+    "artifacts/contracts/atm_rv_straddle_fixed50/replays/tree18/daily_nav.parquet": "e6e64610b5f49db894890941d3b0e29e1b0cd98a42a8fdc93eedf1bb8ce6ce49",
+    "artifacts/contracts/straddle_capped_books/fixed75/replays/tree18/decisions.csv": "d07843d32e932a756eaa0052af40fc2dafce443bf0eb84d80a3634bc7e42f5a0",
+    "artifacts/contracts/straddle_capped_books/fixed75/replays/tree18/daily_nav.parquet": "e0c8f765fbd7fb2b80f06d13510735b66edca5231db98f56d0d66478f80710b4",
+    "artifacts/contracts/atm_rv_straddle_full/replays/straddle100/decisions.csv": "ffe106aa518705e6074d2806ebc57779d3b2e5b1170f4e0752ea3de10b334dd9",
+    "artifacts/contracts/atm_rv_straddle_full/replays/straddle100/daily_nav.parquet": "1c23a674924ef2c394fa9cb7f2fbb80f9a82b903756c4bbf32c5098b37603918"
+  },
+  "meaning": "Entry-size choices and funded admission are separate. Label-based outcome buckets use a quote-available retrospective subset, not all proposals, and do not establish causal size effects. Existing within-date straddle shuffles preserve daily proposed action counts but can change funded admission."
+}

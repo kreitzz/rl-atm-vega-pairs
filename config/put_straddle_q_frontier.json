@@ -1,0 +1,32 @@
+{
+  "output_root": "artifacts/contracts/put_straddle_q_frontier",
+  "report_root": "reports/put_straddle_q_frontier",
+  "capital": 10000000,
+  "drawdown_budgets": {"dd02": 0.02, "dd05": 0.05, "dd10": 0.10, "unlimited": null},
+  "risk_preferences": [0.0, 0.05, 0.2],
+  "training_weeks": [104, 208],
+  "minimum_training_weeks": 52,
+  "discount": 0.97,
+  "bellman_iterations": 20,
+  "prior_episodes": 8,
+  "drawdown_grid": [0.0, 0.25, 0.5, 0.75, 0.9, 0.98, 1.02],
+  "soft_budget_fraction": 0.8,
+  "actions": [
+    {"name": "cash", "put": 0.0, "straddle": 0.0},
+    {"name": "put_only", "put": 1.0, "straddle": 0.0},
+    {"name": "straddle_half", "put": 0.0, "straddle": 0.5},
+    {"name": "straddle_full", "put": 0.0, "straddle": 1.0},
+    {"name": "overlay_quarter", "put": 1.0, "straddle": 0.25},
+    {"name": "overlay_half", "put": 1.0, "straddle": 0.5},
+    {"name": "overlay_threequarters", "put": 1.0, "straddle": 0.75},
+    {"name": "overlay_full", "put": 1.0, "straddle": 1.0}
+  ],
+  "validation_end": "2021-12-31",
+  "evaluation_end": "2025-08-29",
+  "timing": "Weekly prior-close decisions, next-session-close resizing, monthly refits on completed weeks only. All policies use put-only during the common 52-week fitting warmup.",
+  "reward": "Weekly sum of percent daily excess returns minus preference times sum of squared percent daily excess returns, minus 100 times the drawdown budget upon the first hard-budget crossing.",
+  "drawdown": "Total account NAV drawdown from its continuing high-water mark. No reset between reporting periods. At 80% of budget, exclude new straddle allocations and queue existing straddles for next-close reduction. At budget crossing queue next-close liquidation and halt risk for the remaining history. Gaps can overshoot; report actual drawdown and stopping dates.",
+  "selection": "For each budget and preference select training window by 2018-2021 realized utility. Fixed-action control selected using the same validation objective. Then replay 2022-2025 without replacing selections; matched discount-zero control uses the same selected window.",
+  "scope": "Fractional exposures to the two retained funded strategy indices, preserving source costs and charging additional resizing and pooled-cash financing. Not a joint contract-admission backtest. The source strategies and these historical dates have already been researched.",
+  "resource_limits": {"workers": 1, "cpu_fraction_of_one_core": 0.2, "worker_mib": 256, "max_system_swap_growth_mib": 256}
+}

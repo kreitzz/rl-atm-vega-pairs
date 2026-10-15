@@ -1,0 +1,270 @@
+{
+  "configuration": {
+    "module": "scripts.straddle_policy_refinement",
+    "output_root": "artifacts/contracts/straddle_policy_refinement",
+    "report_root": "reports/straddle_policy_refinement",
+    "data_root": "artifacts/contracts/straddle_performance_followup",
+    "label_root": "artifacts/contracts/straddle_feature_transfer",
+    "minimum_training_samples": 128,
+    "warmup_action": 2,
+    "validation_end": "2021-12-31",
+    "evaluation_end": "2025-08-29",
+    "specifications": [
+      {
+        "name": "performance60",
+        "features": "performance",
+        "months": 60
+      },
+      {
+        "name": "performance84",
+        "features": "performance",
+        "months": 84
+      },
+      {
+        "name": "performance48_a30",
+        "features": "performance",
+        "months": 48,
+        "alpha": 30
+      },
+      {
+        "name": "performance48_a300",
+        "features": "performance",
+        "months": 48,
+        "alpha": 300
+      },
+      {
+        "name": "performance48_k2",
+        "features": "performance",
+        "months": 48,
+        "states": 2
+      },
+      {
+        "name": "performance48_k4",
+        "features": "performance",
+        "months": 48,
+        "states": 4
+      },
+      {
+        "name": "performance48_h24",
+        "features": "performance",
+        "months": 48,
+        "half_life_months": 24
+      },
+      {
+        "name": "performance48_h12",
+        "features": "performance",
+        "months": 48,
+        "half_life_months": 12
+      },
+      {
+        "name": "performance48_h6",
+        "features": "performance",
+        "months": 48,
+        "half_life_months": 6
+      },
+      {
+        "name": "performance36",
+        "features": "performance",
+        "months": 36
+      },
+      {
+        "name": "minimal48",
+        "features": "minimal",
+        "months": 48
+      },
+      {
+        "name": "minimal60",
+        "features": "minimal",
+        "months": 60
+      },
+      {
+        "name": "market48",
+        "features": "market",
+        "months": 48
+      },
+      {
+        "name": "market60",
+        "features": "market",
+        "months": 60
+      },
+      {
+        "name": "performance48_ordered",
+        "features": "performance",
+        "months": 48,
+        "ordered": true
+      },
+      {
+        "name": "performance48_risk",
+        "features": "performance",
+        "months": 48,
+        "target": "risk"
+      },
+      {
+        "name": "performance48_risk_ordered",
+        "features": "performance",
+        "months": 48,
+        "target": "risk",
+        "ordered": true
+      },
+      {
+        "name": "performance48_winsor",
+        "features": "performance",
+        "months": 48,
+        "winsor": 0.01
+      },
+      {
+        "name": "performance48_p05",
+        "features": "performance",
+        "months": 48,
+        "exposure_penalty": 0.05
+      },
+      {
+        "name": "performance48_p15",
+        "features": "performance",
+        "months": 48,
+        "exposure_penalty": 0.15
+      },
+      {
+        "name": "dynamics48",
+        "features": "dynamics",
+        "months": 48
+      },
+      {
+        "name": "dynamics60",
+        "features": "dynamics",
+        "months": 60
+      },
+      {
+        "name": "performance60_a30",
+        "features": "performance",
+        "months": 60,
+        "alpha": 30
+      },
+      {
+        "name": "performance60_a300",
+        "features": "performance",
+        "months": 60,
+        "alpha": 300
+      }
+    ],
+    "search": "Preordered funded validation; candidates exceeding all fixed controls continue into the later period. Stop on the first joint-period winner; retain all attempts and run three per-date size-shuffle controls. Later results are explicitly part of this historical research screen.",
+    "control_seeds": [
+      7,
+      19,
+      41
+    ],
+    "resource_limits": {
+      "workers": 1,
+      "cpu_fraction_of_one_core": 0.2,
+      "worker_mib": 256,
+      "max_system_swap_growth_mib": 256
+    }
+  },
+  "features": {
+    "performance": [
+      "residual_memory",
+      "iv",
+      "vix",
+      "normalized_memory",
+      "variance_ratio",
+      "vix_change21",
+      "iv_change5",
+      "benchmark_sharpe21",
+      "benchmark_sharpe63",
+      "benchmark_sharpe126",
+      "benchmark_vol63",
+      "benchmark_drawdown63",
+      "benchmark_reserve",
+      "benchmark_available"
+    ],
+    "minimal": [
+      "iv",
+      "residual_memory",
+      "vix",
+      "normalized_memory",
+      "variance_ratio",
+      "vix_change21",
+      "benchmark_sharpe63",
+      "benchmark_vol63",
+      "benchmark_drawdown63"
+    ],
+    "market": [
+      "residual_memory",
+      "iv",
+      "vix",
+      "normalized_memory",
+      "variance_ratio",
+      "vix_change21",
+      "iv_change5",
+      "benchmark_sharpe21",
+      "benchmark_sharpe63",
+      "benchmark_sharpe126",
+      "benchmark_vol63",
+      "benchmark_drawdown63",
+      "benchmark_reserve",
+      "benchmark_available",
+      "spot_market_beta126",
+      "iv_vix_beta126",
+      "iv_spot_beta126",
+      "jump_share63",
+      "spot_market_beta126_available",
+      "iv_vix_beta126_available",
+      "iv_spot_beta126_available",
+      "jump_share63_available"
+    ],
+    "dynamics": [
+      "iv",
+      "residual_memory",
+      "vix",
+      "normalized_memory",
+      "variance_ratio",
+      "vix_change21",
+      "benchmark_sharpe63",
+      "benchmark_vol63",
+      "benchmark_drawdown63",
+      "momentum21",
+      "drawdown63",
+      "downside_share21",
+      "iv_change21",
+      "rv_acceleration",
+      "relative_iv"
+    ]
+  },
+  "thresholds": {
+    "validation": 0.7404249352204291,
+    "evaluation": 0.9895299159093045,
+    "full": 0.8194222883205718
+  },
+  "unique_cases": [
+    "performance60",
+    "performance84",
+    "performance48_a30",
+    "performance48_a300",
+    "performance48_k2",
+    "performance48_k4",
+    "performance48_h24",
+    "performance48_h12",
+    "performance48_h6",
+    "performance36",
+    "minimal48",
+    "minimal60",
+    "market48",
+    "market60",
+    "performance48_ordered",
+    "performance48_risk",
+    "performance48_risk_ordered",
+    "performance48_winsor",
+    "performance48_p05",
+    "performance48_p15",
+    "dynamics48",
+    "dynamics60",
+    "performance60_a30",
+    "performance60_a300"
+  ],
+  "aliases": {},
+  "proposals": 35774,
+  "valid_rewards": 4116,
+  "forecast": "Completed-trade profit/risk ridge contexts; equal date weights, optional recency. Action search uses full unmodified reward paths even when the partition target is winsorized.",
+  "objective": "Daily aggregate training Sharpe; optional exposure regularization or ordered size maps. These are training choices, not changes to execution costs.",
+  "interpretation": "Explicit historical search on both previously inspected periods. No new untouched evaluation."
+}

@@ -1,0 +1,47 @@
+{
+  "features": [
+    "residual_memory",
+    "iv",
+    "vix"
+  ],
+  "actions": [
+    2,
+    4,
+    8
+  ],
+  "state_definition": "Retain the original validation-selected reward-tree family with up to eight states on residual_memory, IV, and VIX; 50/100/200% actions on the bottom-10% signal pool.",
+  "minimum_cell_samples": 12,
+  "minimum_training_samples": 64,
+  "training_windows_months": [
+    18,
+    60
+  ],
+  "training_sample_per_month": 12,
+  "validation_start": "2018-01-01",
+  "validation_end": "2021-12-31",
+  "test_start": "2022-01-01",
+  "test_end": "2025-08-29",
+  "selection": "Highest 2018-2021 funded annualized excess Sharpe across reward-tree candidates; ties prefer 60 months then lexical name",
+  "refit": "Monthly, using only sample trades completed strictly before month start",
+  "objective": "Annualized Sharpe of aggregated action-specific daily profit above cash in completed shadow trades",
+  "sample_selection": "First trading signal date of each month, bottom residual-memory quintile; up to twelve evenly spaced ranks. Never use future label availability to select samples.",
+  "scope": "Offline full-information contextual sizing bandit; no inventory inputs and no sequential inventory value function",
+  "test_status": "Previously examined historical dates; validation-based choice is new, but the test is not untouched",
+  "seed": 2026,
+  "validation_candidates": [
+    "tree18",
+    "tree60"
+  ],
+  "validation_extension": "Keep the reward-tree family retained in the original 20% experiment; compare 18/60-month training windows for the requested bottom-10% signal. Earlier 20% larger-ladder comparisons are incomplete and retained separately.",
+  "output_root": "artifacts/contracts/atm_rv_bandit_bottom10",
+  "report_root": "reports/atm_rv_bandit_bottom10",
+  "use_scale_hook": true,
+  "fixed_controls": [
+    "fixed50",
+    "fixed100",
+    "fixed200"
+  ],
+  "reuse_replays": {},
+  "selection_fraction": 0.1,
+  "use_local_fixed100": true
+}

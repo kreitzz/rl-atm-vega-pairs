@@ -1,0 +1,64 @@
+{
+  "studies": [
+    {
+      "study": "signal_allocation_discount",
+      "complete": true,
+      "source_fingerprints_verified": true,
+      "max_completed_worker_rss_mib": 129.0
+    },
+    {
+      "study": "signal_allocation_objectives",
+      "complete": true,
+      "source_fingerprints_verified": true,
+      "max_completed_worker_rss_mib": 154.1
+    },
+    {
+      "study": "signal_allocation_forecast_reward",
+      "complete": true,
+      "source_fingerprints_verified": true,
+      "max_completed_worker_rss_mib": 160.4
+    },
+    {
+      "study": "signal_allocation_policy_reward",
+      "complete": true,
+      "source_fingerprints_verified": true,
+      "max_completed_worker_rss_mib": 160.1
+    }
+  ],
+  "reference_rows": [
+    {
+      "variance_penalty": 0.1,
+      "period": "validation",
+      "sharpe": 1.2859843223895668,
+      "profit": 1003208.0364057831,
+      "fixed50_sharpe": 0.8043778393417369,
+      "fixed50_profit": 702794.3901197314
+    },
+    {
+      "variance_penalty": 0.1,
+      "period": "evaluation",
+      "sharpe": 1.4907646895026403,
+      "profit": 1387790.331866106,
+      "fixed50_sharpe": 1.1668072323883727,
+      "fixed50_profit": 1238422.4273915049
+    },
+    {
+      "variance_penalty": 0.2,
+      "period": "validation",
+      "sharpe": 1.214713761299956,
+      "profit": 875336.1018261872,
+      "fixed50_sharpe": 0.8043778393417369,
+      "fixed50_profit": 702794.3901197314
+    },
+    {
+      "variance_penalty": 0.2,
+      "period": "evaluation",
+      "sharpe": 1.7260821371916952,
+      "profit": 1305939.7916185018,
+      "fixed50_sharpe": 1.1668072323883727,
+      "fixed50_profit": 1238422.4273915049
+    }
+  ],
+  "all_failed_trials_retained": true,
+  "paper_edited": false
+}

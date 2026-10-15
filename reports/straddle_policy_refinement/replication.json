@@ -1,0 +1,27 @@
+[
+  {
+    "month": "2019-01",
+    "samples": 475,
+    "unchanged_predictions": true
+  },
+  {
+    "month": "2020-01",
+    "samples": 948,
+    "unchanged_predictions": true
+  },
+  {
+    "month": "2021-01",
+    "samples": 1536,
+    "unchanged_predictions": true
+  },
+  {
+    "month": "2021-12",
+    "samples": 2046,
+    "unchanged_predictions": true
+  },
+  {
+    "month": "2025-01",
+    "samples": 2213,
+    "unchanged_predictions": true
+  }
+]

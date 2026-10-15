@@ -1,0 +1,14 @@
+{
+  "output_root":"artifacts/contracts/signal_allocation_forecast_reward",
+  "report_root":"reports/signal_allocation_forecast_reward",
+  "source_root":"artifacts/contracts/signal_capital_allocation",
+  "discount":0.99,
+  "iterations":200,
+  "profit_weights":[0.0,0.25,0.5,0.75,1.0],
+  "sharpe_rewards":["local","replacement"],
+  "family_meanings":{"local":"EWMA covariance, 63-session half-life","replacement":"EWMA covariance, 126-session half-life"},
+  "profit_scale_dollars":250000,
+  "selection":"Select the forecast half-life using pure risk-adjusted validation Sharpe; freeze that half-life across the five-goal curve before later replay. Retain all variants and matched gamma-zero controls.",
+  "scope":"Follow-up after weak later results from fixed-reference Sharpe-change rewards. Keep both bandits, all features, capital splits, costs, timing and discount0.99 unchanged. Risk-adjusted reward is net return per unit of the actual allocation's forecast risk, not a fixed50/50 reference and not exact global Sharpe. Forecast covariance uses only completed training returns, with declared63/126-session half-lives. Prior holding determines first-session risk; chosen allocation determines remaining-session risk. No stops, leverage or changes to fixed endpoints. Previously researched dates; no paper edits.",
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256}
+}

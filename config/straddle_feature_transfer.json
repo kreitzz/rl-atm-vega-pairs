@@ -1,0 +1,22 @@
+{
+  "output_root": "artifacts/contracts/straddle_feature_transfer",
+  "report_root": "reports/straddle_feature_transfer",
+  "source_root": "artifacts/contracts/straddle_capped_books/entry",
+  "actions": [2, 3, 4],
+  "warmup_action": 2,
+  "minimum_training_samples": 128,
+  "minimum_leaf_samples": 63,
+  "validation_end": "2021-12-31",
+  "evaluation_end": "2025-08-29",
+  "specifications": [
+    {"name":"dense_control36","kind":"tree","features":"control","leaves":4,"months":36},
+    {"name":"profit_memory36","kind":"tree","features":"memory","leaves":4,"months":36},
+    {"name":"risk_cost36","kind":"tree","features":"risk","leaves":4,"months":36},
+    {"name":"transferred36","kind":"tree","features":"all","leaves":4,"months":36},
+    {"name":"transferred18","kind":"tree","features":"all","leaves":4,"months":18}
+  ],
+  "sampling":"Reuse original calendar samples and enrich with every entry admitted by the causal fixed-50% book. Never filter live proposals by future outcome availability.",
+  "selection":"Compare all five procedures on actual funded 2018-2021 validation Sharpe. No sparse-shadow prescreen. Freeze selection before continuing its later-period book.",
+  "scope":"Transfer completed-profit memory, volatility risk, historical richness and cost/expiry features from the retained put bandit to individual short-straddle sizing. Same costs, quotes, daily proposals and funded risk limits.",
+  "evaluation_status":"Previously inspected historical dates; exploratory research, not an untouched holdout."
+}

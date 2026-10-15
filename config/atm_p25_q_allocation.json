@@ -1,0 +1,19 @@
+{
+  "actions": ["cash", "pair_only", "atm_risk25", "risk_balanced", "atm_risk75", "atm_only"],
+  "training_windows_months": [24, 48],
+  "risk_penalty_multipliers": [0.5, 1.0, 2.0],
+  "discount": 0.9,
+  "bellman_iterations": 20,
+  "ridge_alpha": 25.0,
+  "minimum_training_months": 12,
+  "state_lookback_sessions": 63,
+  "validation_end": "2021-12-31",
+  "test_start": "2022-01-01",
+  "test_end": "2025-08-29",
+  "reward": "Monthly sum of daily excess returns divided by training reference volatility, minus half a training-calibrated variance penalty times their squares. This is a risk-adjusted reward proxy; candidate selection uses actual validation Sharpe.",
+  "timing": "Use prior-close features. Reallocate after the first session of each month; that session's market return belongs to the previous allocation.",
+  "costs": "Additional proportional resizing estimate: previous source holdings at execution close, 0.10 vol points times gross vega, 1bp stock hedge notional, and $0.03 per outstanding option contract, per source NAV. Original source trading costs remain in returns.",
+  "selection": "Highest 2018-2021 validation excess Sharpe among six Q procedures per ATM variant; ties prefer longer window and larger penalty. No test-period search.",
+  "scope": "Fitted Q-iteration over fractional units of frozen strategy return indices, with prior allocation and action-dependent future resizing costs. No shared option inventory, new integer quantities, netting or broker margin replay.",
+  "history": "Source funded ledgers begin in 2018. Initial policies use a causal rolling risk-balance fallback until 12 completed, feature-ready months exist. Historical test dates have been examined previously."
+}

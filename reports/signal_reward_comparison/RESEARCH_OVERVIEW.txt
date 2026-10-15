@@ -1,0 +1,24 @@
+TWO FROZEN VOLATILITY SIGNALS AND DYNAMIC CAPITAL ALLOCATION
+
+Original put-pair bandit:30-day25-delta downside puts, initially vega matched, daily delta hedge. Annualized excess Sharpe0.573 in2018-2021 and1.263 in2022-Aug2025.
+New short-ATM-straddle bandit:bottom decile of completed past-year RV-minus-IV memory. Retained60-month contextual sizing,50/75/100%. Sharpe0.775 and1.041. Source costs and funded admission remain in the ledgers.
+
+One total budget, seven put/straddle capital splits, no outer leverage or added stop:
+                                     2018-2021 Sh.  2022-2025 Sh.  Later profit above cash
+Fixed50/50                                  0.804          1.167             $1.238m
+Q gamma0.99,variance penalty0.10             1.286          1.491             $1.388m
+Q gamma0.99,variance penalty0.20             1.215          1.726             $1.306m
+Highest-Sharpe later fixed mix(90/10)         0.926          1.612             $0.435m
+
+Interpretation:the penalty0.20 Q mostly switches between put-only and straddle-only. A fixed target matching its mean later straddle allocation gives1.387 Sharpe and$0.841m, versus Q1.726/$1.306m. The matched discount-zero learner reaches1.645/$1.184m; sequential value adds a smaller increment than the entire dynamic-versus-fixed gap.
+On subsequent days when Q selected straddles,the source straddle mean daily excess return is3.05bps with16.18bps daily volatility; when Q selected puts,the corresponding straddle figures are1.30bps and27.00bps. These selected-day diagnostics exclude additional outer resizing costs; complete Q portfolio results include those costs.
+Exact tree paths, ridge score terms, Q score-gap terms, policy sensitivities, admission overlap, timing rotations and source hashes are in reports/allocation_interpretability_099 and reports/retained_entry_explanations.
+
+All fixed allocations and all Q preferences are preserved. The highest-validation-Sharpe Q setting has laterSharpe0.282. Both periods were researched; the highlighted preferences are historical operating points, not successful validation-only selections. Three direct Sharpe/profit reward redesigns failed to improve on the original risk-adjusted reward. Their complete results remain included.
+
+Start with fixed_vs_q_099_evaluation.png and fixed_vs_q_099_validation.png here, then allocation_interpretability_099/FINDINGS.txt. The original paper remains unchanged while a focused follow-up extension is prepared separately.
+
+CODE AND REVIEW DATA
+Config:config/signal_allocation_discount.json. Q implementation:scripts/signal_capital_allocation.py and scripts/signal_allocation_discount.py. Interpretation:scripts/explain_signal_allocation_099.py and scripts/explain_bandit_mechanisms.py. Saved-result charts:scripts/plot_signal_discount_comparison.py.
+Snapshot:data/research/signal_allocation_099_snapshot.zip contains derived ledgers, saved models and prepared states in repository-relative paths, with a SHA256 manifest. Inspect or extract into a separate clone before restoring cached artifacts. It excludes raw option chains and credentials. Market data retain institutional/vendor licensing restrictions; academic/research use follows the repository terms.
+Run numerical work serially through scripts/run_signal_discovery_guarded.py with20% of one CPU core,256MiB RSS/footprint and swap-growth caps,and30% minimum headroom. Never close user apps or raise limits to force a run.

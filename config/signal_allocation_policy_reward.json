@@ -1,0 +1,13 @@
+{
+  "output_root":"artifacts/contracts/signal_allocation_policy_reward",
+  "report_root":"reports/signal_allocation_policy_reward",
+  "source_root":"artifacts/contracts/signal_capital_allocation",
+  "discount":0.99,
+  "iterations":200,
+  "profit_weights":[0.0,0.25,0.5,0.75,1.0],
+  "sharpe_rewards":["local","replacement"],
+  "profit_scale_dollars":250000,
+  "selection":"Select local versus exact single-week Sharpe-change formulation using pure-Sharpe validation performance, then freeze the entire objective curve. Show every formulation and matched myopic control. No later replacement.",
+  "scope":"Final targeted reward-calibration check after fixed50/50 and forecast-risk rewards underperformed later. In each monthly fit, identify the highest-Sharpe of the seven constant capital mixes using ONLY completed104-week training history. Use that mix's actual return moments to calibrate the Sharpe-change reward, then learn allocation improvements with Q. This is a training-only reward reference, not a retrospective choice of test benchmark. Fixed comparison remains all seven mixes. Same two retained best bandits, features, actions, execution, costs, budget, fitting schedule, discount0.99 and200 Bellman updates. No stops, leverage or fixed warmup. Previously researched dates; no manuscript edits.",
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256}
+}

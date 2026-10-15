@@ -1,0 +1,26 @@
+[
+  {
+    "model": "residual_forecast",
+    "independent_ledger_error": 6.599293556064367e-09,
+    "terminal_inventory_flat": true,
+    "all_entry_quantities_short": true
+  },
+  {
+    "model": "residual_memory",
+    "independent_ledger_error": 8.847564458847046e-09,
+    "terminal_inventory_flat": true,
+    "all_entry_quantities_short": true
+  },
+  {
+    "model": "trailing_rv",
+    "independent_ledger_error": 8.200004231184721e-09,
+    "terminal_inventory_flat": true,
+    "all_entry_quantities_short": true
+  },
+  {
+    "model": "random_quintile",
+    "independent_ledger_error": 6.213667802512646e-09,
+    "terminal_inventory_flat": true,
+    "all_entry_quantities_short": true
+  }
+]

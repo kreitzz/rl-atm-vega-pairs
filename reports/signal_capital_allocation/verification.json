@@ -1,0 +1,8 @@
+{
+  "endpoint_paths_verified": true,
+  "no_added_stop": true,
+  "no_fixed_warmup": true,
+  "one_capital_budget": true,
+  "completed_model_timing_checks": 810,
+  "selected_case": "q_lambda0.025_g0.5"
+}

@@ -1,0 +1,10 @@
+{
+  "output_root":"artifacts/contracts/signal_allocation_discount",
+  "report_root":"reports/signal_allocation_discount",
+  "source_root":"artifacts/contracts/signal_capital_allocation",
+  "discounts":[0.5,0.99],
+  "discount":0.99,
+  "iterations":200,
+  "scope":"Controlled discount comparison on the corrected one-budget allocator. Both discounts use the same original rewards, features, training windows, source bandits, seven splits, execution, costs, fallback and 200 Bellman updates. Existing gamma0.5/20-update study retained separately. No stops or benchmark changes. Validation selects a reference separately for each discount; every reward setting is reported.",
+  "resource_limits":{"workers":1,"cpu_fraction_of_one_core":0.2,"worker_mib":256,"max_system_swap_growth_mib":256}
+}

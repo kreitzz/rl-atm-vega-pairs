@@ -1,0 +1,9 @@
+{
+  "baseline_annual_stock_borrow_pct": 0.3,
+  "stress_annual_stock_borrow_pct": [
+    3.0,
+    10.0
+  ],
+  "method": "Reprice stock-borrow charges on original executed hedges. Recompute consequent cash accrual and debit financing. Keep all positions and execution dates fixed.",
+  "limitation": "Uniform hypothetical stock-loan rates, not observed name-specific borrow fees. No re-admission or retraining, and no stock-lending income on long hedges."
+}

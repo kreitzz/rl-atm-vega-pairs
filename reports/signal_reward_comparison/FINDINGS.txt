@@ -1,0 +1,7 @@
+Discount0.99 improved several original variance-penalty settings. Discount0.5 results were identical at20 versus200 Bellman updates. Each discount was compared with200 updates. No extra portfolio stop, no overlay or fixed warmup. Original source endpoints remain unchanged.
+
+Two useful researched operating points are shown in risk_adjusted_reference.csv. They are not the highest-validation-Sharpe selections. The original validation winner still underperforms later.
+
+Three explicit reward studies (fixed-reference Sharpe changes, allocation-specific forecast-risk normalization, and training-reference Sharpe changes) did not improve the later frontier over the original risk-adjusted reward. Keep all their results; no later winner was substituted into a validation selection.
+
+All simulations use best retained put/straddle bandits, same seven one-budget fixed splits, native accounting plus common resizing costs, completed-week monthly fitting and next-close allocation. Previously researched historical dates, not fresh holdout evidence. No paper edits.

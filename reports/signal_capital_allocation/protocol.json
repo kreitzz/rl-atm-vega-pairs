@@ -1,0 +1,93 @@
+{
+  "configuration": {
+    "output_root": "artifacts/contracts/signal_capital_allocation",
+    "report_root": "reports/signal_capital_allocation",
+    "prepared_source": "artifacts/contracts/q_opportunity_tactical/prepared.joblib",
+    "put_book": "artifacts/contracts/p25_validation_split/replays/screened_selected",
+    "straddle_book": "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18",
+    "straddle_weights": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      1.0
+    ],
+    "training_weeks": 104,
+    "minimum_training_weeks": 52,
+    "ridge_alpha": 10.0,
+    "discount": 0.5,
+    "iterations": 20,
+    "risk_preferences": [
+      0.0,
+      0.025,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "capital": 10000000,
+    "validation_end": "2021-12-31",
+    "evaluation_end": "2025-08-29",
+    "budget": "One capital budget. Put weight plus straddle weight equals one. No portfolio stop, leverage, cash action, or changes to either underlying bandit.",
+    "fixed": "Seven constant capital targets, rebalanced weekly at the next close, beginning at their OWN target on the first date. Both pure endpoints must reproduce source daily returns, wealth, and period Sharpes before Q fitting starts.",
+    "q": "Weekly allocation among the same seven targets. Monthly fitted Bellman iteration using only completed weeks. Prior holdings enter the state and future resizing costs. Q uses 50/50 before sufficient training history; fixed benchmarks never inherit this fallback.",
+    "reward": "Daily excess return normalized by completed training-window 50/50 reference volatility, minus lambda times squared standardized daily return. Five declared risk preferences, plus matched gamma-zero controls. No stopping penalty.",
+    "execution": "Source trading, hedge, dividend and financing cash flows remain embedded in each frozen return series. Additional actual allocation changes pay the saved source-based resizing estimate (0.10 vol points, 1bp hedge notional, $0.03 per contract). No initial assignment fee; next-close execution. Cash benchmark subtracted once.",
+    "selection": "Freeze a reference Q preference by validation Sharpe before replaying later dates; display every Q preference and fixed mix. No later winner replaces that reference.",
+    "scope": "Corrected comparison of dynamic versus fixed allocation across the retained best two bandits. Prior overlay and stop-modified results are separate and do not supply this experiment's marks. Historical dates already researched. Fractional strategy-index allocation, not shared integer option inventory. No paper edits.",
+    "resource_limits": {
+      "workers": 1,
+      "cpu_fraction_of_one_core": 0.2,
+      "worker_mib": 256,
+      "max_system_swap_growth_mib": 256
+    }
+  },
+  "features": [
+    "pair_rank_strength",
+    "pair_vrp_gap",
+    "atm_iv_rv_gap",
+    "atm_completed_premium",
+    "log_vol_ratio",
+    "correlation63",
+    "vix",
+    "relative_sharpe63"
+  ],
+  "targets": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.9,
+      0.1,
+      0.0
+    ],
+    [
+      0.75,
+      0.25,
+      0.0
+    ],
+    [
+      0.5,
+      0.5,
+      0.0
+    ],
+    [
+      0.25,
+      0.75,
+      0.0
+    ],
+    [
+      0.09999999999999998,
+      0.9,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ]
+  ]
+}

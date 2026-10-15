@@ -1,0 +1,13 @@
+FROZEN ENTRY POLICY EXPLANATIONS
+
+{
+  "put_proposals": 608,
+  "straddle_proposals": 35774,
+  "exact_level_replication": true,
+  "put": "Exact root-to-leaf conditions followed by the CEM-selected leaf-to-size map. Path frequency is model usage, not a profitability effect or impurity importance.",
+  "straddle": "Exact standardized ridge-score contributions, followed by score thresholds and the learned size map. A larger score does not necessarily imply larger size because the action map is not constrained to be monotonic.",
+  "default": "Months without a fitted multi-context model use the saved default size and are not assigned invented feature contributions.",
+  "timing": "Every saved model is checked for completed training outcomes before its monthly cutoff. Row dates are signal closes; actual execution occurs in the following session.",
+  "admission": "Model size and proposal admission are separate. All proposals, including rejected ones, are included and carry their saved admission status.",
+  "interpretation": "No new fitting. Center ablations describe sensitivity conditional on other inputs, not causal feature effects. Correlated inputs can substitute for each other. Performance-based validation of explanations is a separate question."
+}

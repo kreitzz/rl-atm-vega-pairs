@@ -1,0 +1,9 @@
+{
+  "fixed_results_unchanged": true,
+  "model_timing_checks": 1215,
+  "discounts": [
+    0.5,
+    0.99
+  ],
+  "bellman_updates": 200
+}
