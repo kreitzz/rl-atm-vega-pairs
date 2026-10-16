@@ -1,0 +1,28 @@
+{
+  "rows": 1926,
+  "weekly_periods": 400,
+  "features": [
+    "pair_rank_strength",
+    "pair_vrp_gap",
+    "atm_iv_rv_gap",
+    "atm_completed_premium",
+    "log_vol_ratio",
+    "correlation63",
+    "vix",
+    "relative_sharpe63",
+    "previous_straddle_weight"
+  ],
+  "economic_features_identical": true,
+  "strategy_risk_features_recomputed": true,
+  "resizing_costs_recomputed": true,
+  "bandit_reference_reproduced": true,
+  "source_hashes": {
+    "config/signal_learning_factorial.json": "1e9e5e8ec0f8d2736bc5c59e2bacf01bda1250282a9612f7427d65311f7adfac",
+    "artifacts/contracts/signal_capital_allocation/prepared.joblib": "8fd36c1bb5f57a8815b1864ef4def1d2c1ca552d073f46d1f8c2a204d78923b7",
+    "data/raw/VIX_History.csv": "7779c99be9796b0f13bf520c42d6e3bf075bb886352233d896897f70629adb14",
+    "artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
+    "artifacts/contracts/p25_validation_split/replays/screened_selected/trades.csv": "29158cad2f31708872d700c02570ab27d8bd23e5dc5134c51529034b02bcf9dd",
+    "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/daily_nav.parquet": "dbbb283d13a14467ed67fcd658d2873a0aa07b938ff3315abd8da7be134d8000",
+    "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/trades.csv": "ada8f856b4467e4da4f818fec8319de1a9d31880136b8db96fc50d0ce19dec82"
+  }
+}

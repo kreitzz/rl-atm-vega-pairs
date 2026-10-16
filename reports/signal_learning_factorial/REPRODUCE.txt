@@ -1,0 +1,10 @@
+Run serially under scripts.run_signal_discovery_guarded, with --duty-cycle 0.2 --rss-limit-mib 256 --warning-rss-limit-mib 256 --min-free-percent 30 --warning-min-free-percent 30 --max-swap-growth-mib 256 --pause-low-headroom-seconds 60.
+
+Module scripts.signal_learning_factorial:
+--phase run --entry bandit
+--phase run --entry fixed100
+--phase run --entry fixed75
+--phase run --entry fixed50
+--phase summarize
+
+Each family resumes saved monthly model files. Source ledger hashes are checked. The bandit preparation and results must reproduce the existing allocator. Fixed-family Q models use independent training returns and family-specific past performance states. all_results.csv includes every fixed split and lambda; four_way.csv uses the fixed-full / fixed-50:50 reference; sizing_sensitivity.csv retains other fixed entry sizes.

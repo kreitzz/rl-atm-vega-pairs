@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="162pt" viewBox="0 0 511.2 162" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-16T11:47:28.942545</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 162 
+L 511.2 162 
+L 511.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 123.843312 68.24736 
+L 362.307888 68.24736 
+Q 369.822528 68.24736 369.822528 65.91456 
+L 369.822528 41.65344 
+Q 369.822528 39.32064 362.307888 39.32064 
+L 123.843312 39.32064 
+Q 116.328672 39.32064 116.328672 41.65344 
+L 116.328672 65.91456 
+Q 116.328672 68.24736 123.843312 68.24736 
+z
+" clip-path="url(#pec81e4f73f)" style="fill: #edf3f7; stroke: #b9cbd7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 376.836192 68.24736 
+L 417.415248 68.24736 
+Q 424.929888 68.24736 424.929888 65.91456 
+L 424.929888 41.65344 
+Q 424.929888 39.32064 417.415248 39.32064 
+L 376.836192 39.32064 
+Q 369.321552 39.32064 369.321552 41.65344 
+L 369.321552 65.91456 
+Q 369.321552 68.24736 376.836192 68.24736 
+z
+" clip-path="url(#pec81e4f73f)" style="fill: #dff0f1; stroke: #b9cbd7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 148.892112 107.12736 
+L 387.356688 107.12736 
+Q 394.871328 107.12736 394.871328 104.79456 
+L 394.871328 80.53344 
+Q 394.871328 78.20064 387.356688 78.20064 
+L 148.892112 78.20064 
+Q 141.377472 78.20064 141.377472 80.53344 
+L 141.377472 104.79456 
+Q 141.377472 107.12736 148.892112 107.12736 
+z
+" clip-path="url(#pec81e4f73f)" style="fill: #edf3f7; stroke: #b9cbd7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 401.884992 107.12736 
+L 442.464048 107.12736 
+Q 449.978688 107.12736 449.978688 104.79456 
+L 449.978688 80.53344 
+Q 449.978688 78.20064 442.464048 78.20064 
+L 401.884992 78.20064 
+Q 394.370352 78.20064 394.370352 80.53344 
+L 394.370352 104.79456 
+Q 394.370352 107.12736 401.884992 107.12736 
+z
+" clip-path="url(#pec81e4f73f)" style="fill: #dff0f1; stroke: #b9cbd7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 173.940912 146.00736 
+L 412.405488 146.00736 
+Q 419.920128 146.00736 419.920128 143.67456 
+L 419.920128 119.41344 
+Q 419.920128 117.08064 412.405488 117.08064 
+L 173.940912 117.08064 
+Q 166.426272 117.08064 166.426272 119.41344 
+L 166.426272 143.67456 
+Q 166.426272 146.00736 173.940912 146.00736 
+z
+" clip-path="url(#pec81e4f73f)" style="fill: #edf3f7; stroke: #b9cbd7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 426.933792 146.00736 
+L 467.512848 146.00736 
+Q 475.027488 146.00736 475.027488 143.67456 
+L 475.027488 119.41344 
+Q 475.027488 117.08064 467.512848 117.08064 
+L 426.933792 117.08064 
+Q 419.419152 117.08064 419.419152 119.41344 
+L 419.419152 143.67456 
+Q 419.419152 146.00736 426.933792 146.00736 
+z
+" clip-path="url(#pec81e4f73f)" style="fill: #dff0f1; stroke: #b9cbd7; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #244b70" x="10.12176" y="12.5712" transform="rotate(-0 10.12176 12.5712)">Same procedure; new completed history each month</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="10.12176" y="56.382047" transform="rotate(-0 10.12176 56.382047)">Jan 2022 fit</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #244b70" x="243.0756" y="56.582438" transform="rotate(-0 243.0756 56.582438)">Jul 2020–Dec 2021</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #244b70" x="397.12572" y="56.428531" transform="rotate(-0 397.12572 56.428531)">Jan</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 369.318617 53.784 
+Q 369.82253 53.784 368.984803 53.784 
+" style="fill: none; stroke: #087f91; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 364.984803 51.784 
+L 368.984803 53.784 
+L 364.984803 55.784 
+" style="fill: none; stroke: #087f91; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="10.12176" y="95.262047" transform="rotate(-0 10.12176 95.262047)">Feb 2022 fit</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #244b70" x="268.1244" y="95.335094" transform="rotate(-0 268.1244 95.335094)">Aug 2020–Jan 2022</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #244b70" x="422.17452" y="96.392125" transform="rotate(-0 422.17452 96.392125)">Feb</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 394.367417 92.664 
+Q 394.87133 92.664 394.033603 92.664 
+" style="fill: none; stroke: #087f91; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 390.033603 90.664 
+L 394.033603 92.664 
+L 390.033603 94.664 
+" style="fill: none; stroke: #087f91; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start" x="10.12176" y="134.142047" transform="rotate(-0 10.12176 134.142047)">Mar 2022 fit</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #244b70" x="293.1732" y="134.303375" transform="rotate(-0 293.1732 134.303375)">Sep 2020–Feb 2022</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #244b70" x="447.22332" y="135.118219" transform="rotate(-0 447.22332 135.118219)">Mar</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 419.416217 131.544 
+Q 419.92013 131.544 419.082403 131.544 
+" style="fill: none; stroke: #087f91; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 415.082403 129.544 
+L 419.082403 131.544 
+L 415.082403 133.544 
+" style="fill: none; stroke: #087f91; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #7d8791" x="280.6488" y="26.568" transform="rotate(-0 280.6488 26.568)">18-month fit window</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #087f91" x="445.97088" y="26.568" transform="rotate(-0 445.97088 26.568)">New entries</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pec81e4f73f">
+   <rect x="5.112" y="3.24" width="500.976" height="155.52"/>
+  </clipPath>
+ </defs>
+</svg>

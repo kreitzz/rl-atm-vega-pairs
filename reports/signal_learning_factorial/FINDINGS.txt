@@ -1,0 +1,22 @@
+ENTRY SIZING × CAPITAL ALLOCATION: FOUR-WAY COMPARISON
+
+Primary control: 100% fixed entry sizing on both signals, with fixed 50/50 capital allocation. The retained bandits keep their original proposals and entry policies. The Q allocator is independently fitted on each entry family's actual return/cost paths; it is never transplanted from the bandit family onto fixed-size sleeves.
+
+Reference lambda 0.20, gamma 0.99, original nine-input state:
+Entries / Allocation             Validation Sharpe   2022–25 Sharpe   Later profit above cash
+Fixed full / Fixed 50:50               0.556              1.088             $1,144,766
+Bandit / Fixed 50:50                   0.804              1.167             $1,238,422
+Fixed full / Q                        0.870              1.194               $955,457
+Bandit / Q                            1.215              1.726             $1,305,940
+
+Both learning layers improve Sharpe in this full-size reference comparison, with the largest point-estimate improvement when combined. Q alone reduces later profit at this risk preference. The Sharpe interaction is positive but is descriptive, not a statistical or causal synergy estimate.
+
+ENTRY-SIZE SENSITIVITY
+At lambda 0.20, fixed 75% entries plus Q gives validation/later Sharpe 0.891/2.118 and later profit $1,059,531. This exceeds bandit+Q later Sharpe but earns less profit and has weaker validation performance. Fixed 50% entries plus Q gives later Sharpe 1.116 and profit $897,110. Do not claim that adding bandits dominates every fixed-size alternative.
+
+At lambda 1.00, bandit+Q gives 1.005/2.152 Sharpe and $1,141,251 later profit. Fixed-full+Q gives 0.951/1.633 and $1,127,405. Fixed-75%+Q gives 0.849/1.897 and $887,460. All four lambda settings, seven fixed capital splits, and entry-size controls are retained in all_results.csv and sizing_sensitivity.csv.
+
+DESIGN / VERIFICATION
+Same $10m initial budget, dates, opportunity features, seven allocation choices, original execution charges and monthly completed-outcome training. Strategy-dependent risk and relative-performance features, and source-based resizing costs, are rebuilt for each entry family. Reward scaling uses each family's completed-window 50/50 reference volatility, following the identical original formula. Every pure endpoint reproduces its source funded strategy; fixed-size source Sharpes match the existing published controls. The bandit family exactly reproduces the current Q and all fixed-allocation marks. Eight endpoints and 324 monthly models were checked. Each fit uses completed outcomes before its decisions.
+
+These are funded strategy-index allocation comparisons; entry sizing changes admission and inventory within the source ledgers. They do not replace the study with a shared integer-contract allocation simulator. The paper has not been edited by this experiment.

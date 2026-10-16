@@ -1,0 +1,17 @@
+{
+  "entry": "fixed100",
+  "endpoints": [
+    {
+      "straddle_target": 0.0,
+      "source_nav_and_returns_reproduced": true
+    },
+    {
+      "straddle_target": 1.0,
+      "source_nav_and_returns_reproduced": true
+    }
+  ],
+  "monthly_model_count": 81,
+  "training_timing_verified": true,
+  "bandit_results_reproduced": false,
+  "fresh_family_specific_Q": true
+}

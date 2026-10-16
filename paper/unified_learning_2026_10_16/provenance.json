@@ -1,0 +1,52 @@
+{
+  "main_pages": 15,
+  "appendix_pages": 5,
+  "source_hashes": {
+    "reports/p25_validation_split/periods.csv": "c87e3a83a4a81ef6292a12d84f1a01b669aec4652d37677d90316d6ed6dac435",
+    "reports/p25_validation_split/annual.csv": "016c46859565e916eb3456e5b08c7b16b765d919bb95cec259d3768b69882add",
+    "reports/p25_validation_split/holdout_intervals.csv": "35eecd9bea00bf42b7be6e7723c26c21994fa367d22687ff9fa3fc191dda6b31",
+    "reports/straddle_policy_refinement/comparison.csv": "2875c6e6436d59c80ee8337010cd6b4164ea05f6edbe5c8e3be3e35271e0cbc5",
+    "reports/straddle_policy_refinement/annual_comparison.csv": "dd2f618773b9c0116ba40aebec2723644cf358d772da6b781a697c08215ad947",
+    "reports/allocation_interpretability_099/q_controls.csv": "ee90801334b6cca994ddbc14cf281361a19e346f16740e1bc1aad7ab9bd49d72",
+    "reports/allocation_interpretability_099/q_switch_conditional_results.csv": "34e2ae11e9277862d135c75c1f5f390b85392e5dce6af127c2e666901f49d446",
+    "reports/allocation_interpretability_099/bandit_admission_overlap.csv": "a547f3f817416217931a92590d2873b3104c911add49180f14961465e11ad2a3",
+    "reports/allocation_interpretability_099/put_tree_usage.csv": "acd86a4b2525bd3bcd9e614c3f435f8db27e4c08abb94b363fad8f413d4d5a14",
+    "reports/retained_entry_explanations/straddle_feature_importance.csv": "d8a344ff7255105d090fadb6be2c324fc9941adb9be34d19c19745e18ffa7e5b",
+    "reports/signal_allocation_variance/results.csv": "755af438a44f6c0def3e4adef3328d666706dd3e4733516f9e012ef06a7ea91b",
+    "reports/signal_allocation_variance/annual.csv": "d22a9db6584191f317021c0c2d51b70967010f499e83eaf9c9a0540dcf55184e",
+    "reports/signal_allocation_variance/convergence_results.csv": "9cb7c437b87ec3c75c265a8d2a5551305e991597fc9376c87dd553008929a25e",
+    "reports/signal_learning_factorial/all_results.csv": "312fae0151d6f09daf029cf9d5e59257809993640e264ee58294868606afd181",
+    "reports/signal_learning_factorial/four_way.csv": "3f527f1b3408e4c14c08e4d12678802c3cc7628d343fc6fcd7a39344e30161b4",
+    "artifacts/contracts/straddle_policy_refinement/models/performance60/2025-01.json": "7f34eecb9740a040af118efd4e19f934813d5d6cba87540d6501b922b07e7158",
+    "paper/figure_data/signal_example.csv": "19a81ba7d9c760c968fc5ccf1bb648d84e1f1334693e2e3ecffcb751681c10fa",
+    "reports/p25_validation_split/validation_candidates.csv": "960cc352202f455e3cc042fc3ec07d0e22136ec091af7b376942673f43c3b747",
+    "reports/signal_allocation_variance/fixed_results.csv": "f083ad83b47f2da87acae05f7dd800ca980e72d28faf9a17f74122891aaffd87",
+    "reports/signal_allocation_variance/decisions.csv": "74415d818f8edb3329ef6c2ed2362ac2fd5435e8ef8f51925eb08685cad58b01",
+    "reports/p25_strategy_audit/sizing/periods.csv": "26d42d4b13af91edb449d513f02b996c78224cd0ba5c1523b44fe504e3968671",
+    "reports/p25_direct_policy/funded/periods.csv": "b5aa29c8c918d571d858154466f085eedbfaf13ba6b34af871d8256f090c4a4f",
+    "reports/p25_strategy_audit/pairs/concentration.csv": "147dab19675c02d863f3a8a3394bf9d6258d27153bc15ea35dfc3ddc2a032280",
+    "artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
+    "artifacts/paper_code/replays/fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/daily_nav.parquet": "dbbb283d13a14467ed67fcd658d2873a0aa07b938ff3315abd8da7be134d8000",
+    "artifacts/contracts/atm_rv_straddle_full/replays/straddle100/daily_nav.parquet": "1c23a674924ef2c394fa9cb7f2fbb80f9a82b903756c4bbf32c5098b37603918"
+  },
+  "preserved_versions": {
+    "paper/options_relative_value_draft.pdf": "0658734deabffdff95644b152a6d361d7e014b8b7b4b1bf9aed995f691630d13",
+    "paper/options_relative_value_draft.tex": "43b08c30369f6ca3c83e76bc9beb7e8e55d3bf6f98d866354cb2785775184d09",
+    "paper/original_with_rl_extension/options_relative_value_extended.pdf": "e01e58b58ca91639e7f0a28557b64c4fab47eb0685bcf9c8f8b5fd6f63cf147e",
+    "paper/original_with_rl_extension/research_extension.docx": "0a59f8e3292ed9541c66460163008ff2faeb099a680ae24a335f99d42a772d1b"
+  },
+  "figures": {
+    "learning_pipeline": "Two exposure decisions. Entry policies size proposals within each signal; a separately fitted Q policy chooses the capital split between funded strategy indices.",
+    "signal_example": "AMD minus NVDA selected-put IV in 2019. Shading marks excursions outside historical percentile boundaries, not executed trades. Gaps are unavailable quotes. Daily contract selection makes this a signal series, not the mark of one held contract.",
+    "refit_timeline": "Monthly put-policy refitting. Only completed outcomes whose signal dates fall in the displayed 18-month window enter each fit. The selected model settings remain fixed; the tree and size assignments update.",
+    "feature_validation": "Original feature exploration at the 18-month baseline. Scores use 2018–2021 validation and the archived $345 million research account; funded policy comparisons use $10 million. The three highest scores tie exactly.",
+    "entry_policy": "The original tree/CEM construction. The three-state maps illustrate candidates; actual trees have up to eight states. Each candidate selects action-specific completed paths; the best 19 update sampling probabilities. The retained map sizes next month’s proposals.",
+    "entry_curves": "Cumulative profit above cash after the 2021 close, retaining carried positions. The underlying accounts continue from 2018. Panel scales differ because the signals have different risk and profit magnitudes.",
+    "entry_explanations": "Put bars show the share of visited tree nodes; straddle bars show size changes when one input is centered. The denominators differ. Both are descriptive policy-usage measures.",
+    "allocation_risk": "Bandit-managed source portfolios; nine-input Q state and γ = 0.99. Gray labels are fixed straddle percentages; the remainder goes to put pairs. Lines connect discrete policies. Both axes have the same scales across periods; 2025 ends in August.",
+    "allocation_schedule": "Weekly target decisions during evaluation, before next-close execution. The remaining weight goes to put pairs. These are requested strategy allocations, not drifted portfolio holdings or individual trade sizes.",
+    "conditional_risk": "Realized straddle returns after λ = 0.20 Q decisions. Straddle-only choices cover 220 sessions; put-only choices cover 678. The four mixed-allocation intervals are omitted. Source costs are included; outer resizing charges are excluded.",
+    "factorial": "Cell values are annualized excess Sharpe at λ = 0.20. Fixed entry size is 100%; fixed capital allocation is 50/50. Q is independently fitted on each entry family’s actual returns and costs."
+  }
+}

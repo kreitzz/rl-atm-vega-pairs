@@ -1,0 +1,53 @@
+RESTORING THE ORIGINAL PAPER AND INTEGRATING THE EXTENSIONS
+
+The original options_relative_value_draft.pdf and original-with-extension
+version remain unchanged. The preceding integrated draft, figures and builder
+are preserved locally in ../unified_learning_2026_10_16_before_figure_revision.
+
+The paper now has 15 main pages and 5 supporting appendix pages. There is no
+longer a ten-page main-paper constraint.
+
+Material retained or restored from the original argument:
+- Page 1: the AMD/NVDA intuition; separate a profitable signal from allocation.
+- Page 2: motivating paper, formation/trading distinction and criticisms.
+- Page 3: delta and vega definitions, worked contract/hedge example and path P&L.
+- Page 4: actual IV-spread illustration, economic ranking argument, completed
+  profitability memory and why relatedness alone is insufficient.
+- Page 6: actual-contract daily accounting, dividends, financing, execution,
+  funded admission and the monthly fitting timeline.
+- Page 7: feature exploration, EWMA candidate interpretation and the precise
+  validation selection of the retained 27-input specification.
+- Page 8: detailed regression-tree/CEM map-search diagram and training score.
+- Page 9: original put sizing results alongside the straddle comparison.
+- Appendix D: original alternative sizing controls, annual economics and
+  concentration rather than discarding them to make room for new results.
+- Appendix E: original account-versus-cash performance definitions.
+
+Extensions build on that foundation:
+- Page 5: separate economic explanation and completed-outcome timing for
+  RV-minus-IV persistence, ATM straddles and their net short-volatility risk.
+- Page 10: exact bandit interpretation and admission diagnostics.
+- Pages 11-13: Q formulation, risk preferences, actual allocation decisions,
+  conditional straddle return/risk and timing controls.
+- Page 14: four-way experiment and separately refitted fixed-75% result.
+- Page 15: interpretation, limitations, conclusion and references.
+
+Figure revisions:
+- Figures are drawn at their printed width, with readable labels and 170-dpi
+  PNGs plus standalone vector PDF/SVG files.
+- Generic signal and cash-ledger flowcharts are replaced by substantive text,
+  a worked trade, the historical spread, refitting timeline and feature evidence.
+- The bandit figure restores candidate size maps, Sharpe scoring, elite updates
+  and the CEM feedback loop.
+- Entry curves use explicit dollar units and show ending values.
+- The Q tradeoff shows both periods on consistent axes; fixed allocations and
+  Q preferences have separate, positioned labels.
+- Allocation histories occupy separate tracks instead of overlapping lines.
+- The conditional chart distinguishes mean return from volatility.
+- The four-way chart is a two-by-two comparison in each period, with the
+  learning layers on separate axes and all Sharpe values printed.
+
+No strategy fitting, signal reselection or performance optimization occurred.
+All numerical results come from saved reports and ledgers. The build checks
+source hashes, preservation of earlier papers, table values, per-page content
+and figure fingerprints, and page overflow before assembling the PDF.

@@ -1,0 +1,75 @@
+{
+  "entry_families": {
+    "fixed100": {
+      "entry": "fixed100",
+      "endpoints": [
+        {
+          "straddle_target": 0.0,
+          "source_nav_and_returns_reproduced": true
+        },
+        {
+          "straddle_target": 1.0,
+          "source_nav_and_returns_reproduced": true
+        }
+      ],
+      "monthly_model_count": 81,
+      "training_timing_verified": true,
+      "bandit_results_reproduced": false,
+      "fresh_family_specific_Q": true
+    },
+    "fixed75": {
+      "entry": "fixed75",
+      "endpoints": [
+        {
+          "straddle_target": 0.0,
+          "source_nav_and_returns_reproduced": true
+        },
+        {
+          "straddle_target": 1.0,
+          "source_nav_and_returns_reproduced": true
+        }
+      ],
+      "monthly_model_count": 81,
+      "training_timing_verified": true,
+      "bandit_results_reproduced": false,
+      "fresh_family_specific_Q": true
+    },
+    "fixed50": {
+      "entry": "fixed50",
+      "endpoints": [
+        {
+          "straddle_target": 0.0,
+          "source_nav_and_returns_reproduced": true
+        },
+        {
+          "straddle_target": 1.0,
+          "source_nav_and_returns_reproduced": true
+        }
+      ],
+      "monthly_model_count": 81,
+      "training_timing_verified": true,
+      "bandit_results_reproduced": false,
+      "fresh_family_specific_Q": true
+    },
+    "bandit": {
+      "entry": "bandit",
+      "endpoints": [
+        {
+          "straddle_target": 0.0,
+          "source_nav_and_returns_reproduced": true
+        },
+        {
+          "straddle_target": 1.0,
+          "source_nav_and_returns_reproduced": true
+        }
+      ],
+      "monthly_model_count": 81,
+      "training_timing_verified": true,
+      "bandit_results_reproduced": true,
+      "fresh_family_specific_Q": false
+    }
+  },
+  "records": 132,
+  "common_calendar": true,
+  "source_fixed_book_sharpes_checked": true
+}

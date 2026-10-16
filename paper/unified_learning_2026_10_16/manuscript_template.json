@@ -1,0 +1,952 @@
+[
+  {
+    "title": "Learning exposure within and across options strategies",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Abstract"
+      },
+      {
+        "type": "paragraph",
+        "text": "We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022–August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. A four-way comparison separates the learning layers: fixed entries and fixed allocation reach Sharpe 1.088; bandit entries with Q allocation reach 1.726. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results."
+      },
+      {
+        "type": "heading",
+        "text": "1. From a useful signal to an exposure decision"
+      },
+      {
+        "type": "paragraph",
+        "text": "Suppose AMD and NVDA face similar news, but AMD options become unusually expensive relative to NVDA options. Selling the richer options and buying the cheaper ones expresses a view about the relative price of volatility. Daily stock hedges reduce immediate directional exposure, and initial vega matching reduces sensitivity to a common small change in implied volatility. The trade still carries risk: related stocks can experience different events, and option premiums may correctly reflect those differences."
+      },
+      {
+        "type": "paragraph",
+        "text": "Our starting point is Ning and Lee’s equity-pairs framework [1], which separates constructing a spread from learning how to trade it. We carry that distinction into options. First, we ask whether an economic rule produces useful historical trades under explicit contract and funding assumptions. We then ask whether learning improves the amount of capital assigned to those opportunities. A profitable signal and a useful allocation policy are separate findings."
+      },
+      {
+        "type": "chart",
+        "name": "learning_pipeline",
+        "height": 127
+      },
+      {
+        "type": "paragraph",
+        "text": "The original relative-volatility strategy remains the foundation of this paper. We add a second signal—persistent realized-minus-implied volatility—and a second learning decision: allocating capital between the resulting strategies. Entry bandits choose individual trade sizes; fitted Q-learning chooses the strategy mix. Both reporting periods, 2018–2021 validation and January 2022–August 2025 evaluation, remain visible throughout."
+      }
+    ],
+    "subtitle": "Adam Kreitzman and Soo Xin Yang · 16 October 2026"
+  },
+  {
+    "title": "2. What we take from the motivating paper",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Construct the opportunity, then learn how to trade it"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ning and Lee [1] study how to construct and trade mean-reverting equity spreads. If the two stock prices are S₁ and S₂, they form X = S₁ − B S₂. They choose the hedge coefficient B by grid search to minimize empirical mean-reversion time: the average duration from a significant local extreme to the next mean crossing. Spread formation is empirical; it does not first impose an Ornstein–Uhlenbeck (OU) model."
+      },
+      {
+        "type": "paragraph",
+        "text": "For trading, they use tabular Q-learning. The state records recent spread moves by direction and magnitude. Actions buy, hold or sell a unit, subject to current inventory; the agent enters a long spread and later closes it. Its reward favors buying below and selling above an equilibrium mean, with a transaction-cost term. Q-values combine immediate reward with the estimated value of later decisions."
+      },
+      {
+        "type": "paragraph",
+        "text": "The agent trains on 10,000 simulated one-year OU paths because the reward requires a known equilibrium mean. The market study forms ten US pairs in 2022 and trades them in 2023. The combined method exceeds the Distance Method and OU benchmarks on their reported daily Sharpe measure. Those daily figures are not directly comparable with our annualized options ratios."
+      },
+      {
+        "type": "heading",
+        "text": "What the evidence establishes—and leaves open"
+      },
+      {
+        "type": "paragraph",
+        "text": "One trading year gives limited evidence across regimes. Formation and trading policy also change together, so their comparison does not isolate Q-learning’s contribution. The simulated equilibrium is known; a real relationship’s equilibrium can shift. Finally, a cost term in a reward does not by itself establish net execution quality or scalability. These issues motivate our use of actual contracts, explicit cash flows, several market years and controlled exposure comparisons."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Design choice",
+          "Motivating study",
+          "Our extension"
+        ],
+        "rows": [
+          [
+            "Economic object",
+            "Equity-price spread",
+            "Relative option IV; persistent RV − IV"
+          ],
+          [
+            "Policy experience",
+            "Simulated mean reversion",
+            "Completed historical trade paths"
+          ],
+          [
+            "Learned decision",
+            "Spread entry and exit",
+            "Entry size; then strategy allocation"
+          ],
+          [
+            "Comparison",
+            "Different spread-trading methods",
+            "Shared proposals; separate learning layers"
+          ]
+        ],
+        "widths": [
+          110,
+          174,
+          228
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "We retain the separation between finding a spread and learning how to trade it. We change the instrument, reward and decision problem. A successful sizing policy does not establish that the original paper’s trading algorithm transfers unchanged to options. Our later Q experiment is closer to its sequential question: present allocations affect holdings, subsequent resizing costs and future choices."
+      },
+      {
+        "type": "paragraph",
+        "text": "The early ATM-volatility proxy results gave us reason to investigate further, but weakened when simulated with actual contracts. Strike-specific payoffs, daily hedge errors and costs were absent from the simple IV-versus-future-RV proxy. We investigated maturity, position on the option smile and additional predictors. Approximately 30-day, 25-delta puts became the retained relative-volatility configuration."
+      }
+    ]
+  },
+  {
+    "title": "3. What the option trade actually does",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "A put gives its buyer the right to sell stock at a specified strike. Our retained pair strategy selects out-of-the-money puts near 25 delta and approximately 30 days to expiry. At delta −0.25, a small $1 rise in the stock initially lowers the put’s value by about $0.25 per share. Delta measures price sensitivity; it is not an exact probability of exercise."
+      },
+      {
+        "type": "paragraph",
+        "text": "Implied volatility (IV) is the volatility input that makes an option-pricing model reproduce a quoted price. Higher IV generally means a more expensive option, holding other inputs fixed. Realized volatility (RV) describes how much the stock actually moves. Selling an option can be attractive when the premium compensates for those future movements; buying can be attractive in the opposite situation. Future RV is unknown at entry."
+      },
+      {
+        "type": "heading",
+        "text": "A worked example: matching vega and hedging delta"
+      },
+      {
+        "type": "paragraph",
+        "text": "Vega measures the change in option value when IV rises by one percentage point—for example, from 30% to 31%. The table reports total position vega; each option contract represents 100 shares. These are illustrative numbers, not an observed trade."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Position",
+          "Contracts",
+          "Total vega per IV point",
+          "Initial stock hedge"
+        ],
+        "rows": [
+          [
+            "Buy A puts",
+            "+100",
+            "+$450",
+            "Buy 2,500 shares"
+          ],
+          [
+            "Sell B puts",
+            "−150",
+            "−$450",
+            "Short 3,750 shares"
+          ]
+        ],
+        "widths": [
+          108,
+          75,
+          155,
+          174
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Each A contract has $4.50 of vega and each B contract $3.00. Buying 100 A contracts and selling 150 B contracts therefore balances +$450 against −$450. An equal one-point IV increase approximately cancels at entry. Both puts initially have delta −0.25 per share: the long puts require buying stock, while the short puts require selling it. Equal option counts would generally fail to balance vega."
+      },
+      {
+        "type": "paragraph",
+        "text": "If A’s IV instead rises by two points while B’s rises by one, the initial vega approximation gives a $900 gain on A and a $450 loss on B: a $450 net gain before other effects. This is a local approximation to changes in option marks, not a formula for profit earned by holding to expiry. We match vega at entry and adjust stock delta hedges daily; we do not continuously restore vega neutrality."
+      },
+      {
+        "type": "heading",
+        "text": "What earns or loses money?"
+      },
+      {
+        "type": "paragraph",
+        "text": "After delta hedging, returns still depend on the stock’s path. Gamma describes how delta changes as stock moves; theta describes time decay. A long put’s movement gains must compensate for time decay and costs. A short option earns decay but loses from sufficiently large moves. The leading small-interval terms are"
+      },
+      {
+        "type": "equation",
+        "text": "Delta-hedged change ≈ ½ Γ(ΔS)² + Θ Δt + Vega ΔIV.",
+        "latex": "\\Delta P_{\\rm hedged}\\approx\\frac{1}{2}\\Gamma(\\Delta S)^2+\\Theta\\Delta t+V\\Delta IV."
+      },
+      {
+        "type": "paragraph",
+        "text": "Our backtester records option marks, terminal payoffs and stock cash flows. It does not replace them with “realized volatility minus implied volatility.” Initial vega neutrality also leaves differences in gamma, jump exposure and responses to market stress. In the approximation, V and the IV change use the same volatility-point units."
+      }
+    ]
+  },
+  {
+    "title": "4. Finding the relative-volatility signal",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Relative richness across related names"
+      },
+      {
+        "type": "paragraph",
+        "text": "For each pair, we compare the IV difference D = IV_A − IV_B with its latest 252 trading sessions, requiring 63 observations. At the upper quintile we sell A’s relatively high-IV put and buy B’s; at the lower quintile we reverse direction. Historical ranking matters: a ten-point gap means something different for a pair usually five points apart than for one usually fifteen points apart."
+      },
+      {
+        "type": "chart",
+        "name": "signal_example",
+        "height": 191
+      },
+      {
+        "type": "paragraph",
+        "text": "Monthly formation requires 126-session return beta between 0.85 and 1.15 and correlation of at least 0.5. The proposed direction must also show positive historical profit per initial vega over 91 and 365 calendar days, with 21 and 63 completed observations. These are simulated standalone candidates, not just funded fills. A trade entered yesterday with a month left cannot contribute its eventual profit today."
+      },
+      {
+        "type": "heading",
+        "text": "Why an extreme is not enough"
+      },
+      {
+        "type": "paragraph",
+        "text": "Beta measures the scale of one name’s response to the other; correlation measures how consistently they move together. Neither guarantees that their option prices should behave alike. The relatedness screens keep the comparison among reasonably similar names without treating relatedness as the trading signal."
+      },
+      {
+        "type": "paragraph",
+        "text": "The profitability memory adds a different economic question: has this direction recently paid for the premium and hedging costs? We are looking for an unusually wide IV difference in a direction with evidence of structural relative richness, rather than assuming every large gap must revert. The memory and completed-count conditions are selected rules, shared across all put sizing controls."
+      },
+      {
+        "type": "paragraph",
+        "text": "The chart follows each day’s selected contract. After entry, the simulator holds the purchased and sold contracts rather than replacing them when daily selection changes. Profit therefore depends on their realized option and hedge cash flows. A temporary narrowing of the displayed IV gap is neither required nor sufficient for a profitable expiry trade."
+      }
+    ]
+  },
+  {
+    "title": "5. A second signal: persistent volatility richness",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Why sell the names where realized volatility keeps disappointing?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Some names repeatedly realize less movement than their option premiums imply. The second signal uses that persistence within each name rather than requiring a second company with offsetting vega. It asks whether an observed premium has been sufficiently persistent to justify selling the next roughly 30-day volatility exposure. The economic idea is related to Goyal and Saretto [2]; the new question here is how to size and allocate around it."
+      },
+      {
+        "type": "paragraph",
+        "text": "For every historical candidate, subtract entry ATM-call IV from the annualized RV measured after the next-session entry close through that contract’s expiry. Only after the outcome finishes can it join the signal history. Average those completed RV − IV observations over the preceding 365 calendar days, requiring 126. Rank eligible names each day and sell the bottom 10%."
+      },
+      {
+        "type": "equation",
+        "text": "Memory_i,t = mean(completed RV_i,u→T − entry ATM-call IV_i,u) over the prior year.",
+        "latex": "M_{i,t}=\\operatorname{mean}_{u:\\,t-365<T_u<t}\\left(RV_{i,u\\to T_u}-IV^{\\rm ATM\\ call}_{i,u}\\right)."
+      },
+      {
+        "type": "paragraph",
+        "text": "For illustration, a name whose completed outcomes average RV 26% against entry IV 34% has memory −8 volatility points. A name averaging −2 points ranks less rich under this rule, although neither figure guarantees a profitable new short. Ranking is cross-sectional: bottom decile means the lowest eligible memories, not a fixed requirement that the premium exceed eight points."
+      },
+      {
+        "type": "heading",
+        "text": "Why a straddle, and what risk does it sell?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ATM means the strike is near the current stock price. We sell an ATM call and put with the same name, strike and expiry, then adjust the stock delta hedge daily. This collects premium against movement in either direction. At full size, $450 is the combined call-and-put vega budget. The position is short gamma and vega: quiet realized paths can support carry, while jumps and changing uncertainty can generate large losses. It is not vega neutral."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Economic distinction",
+          "Relative put pair",
+          "ATM straddle"
+        ],
+        "rows": [
+          [
+            "Comparison",
+            "Current gap versus pair history",
+            "Completed RV − IV versus other names"
+          ],
+          [
+            "Exposure",
+            "Buy one put; sell another",
+            "Sell call and put on one name"
+          ],
+          [
+            "Initial vega",
+            "Approximately offset across names",
+            "Net short"
+          ],
+          [
+            "Main challenge",
+            "Different realized paths and events",
+            "Premium income versus movement risk"
+          ]
+        ],
+        "widths": [
+          138,
+          187,
+          187
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The signal retains ATM-call IV even though execution uses a straddle. It ranks a difference in annualized volatility units, not squared variance and not an exact option-return forecast. The actual-contract ledger determines profitability after premiums, hedging, costs and financing. This distinction prevents the ranking target from being mistaken for simulated profit."
+      },
+      {
+        "type": "paragraph",
+        "text": "The two signals consequently offer different portfolios. The pair trade targets relative option richness with initial vega offset; the straddle accepts market-volatility exposure to collect a persistent premium. Their different dollar profits and risk make capital allocation a separate decision from either trade’s entry size."
+      }
+    ]
+  },
+  {
+    "title": "6. Building the actual-contract backtester",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Historical option quotes, stock prices, rates and dividends come through WRDS. Each source strategy starts with $10 million. Signal-date contracts trade in the following session if quotes and account checks permit. At full size, put pairs target $450 vega per IV point on each leg; straddles target $450 across call and put together. Whole contracts are rounded; put pairs allow an initial vega mismatch of no more than 10%."
+      },
+      {
+        "type": "heading",
+        "text": "Daily marks, hedges and cash flows"
+      },
+      {
+        "type": "paragraph",
+        "text": "Options normally remain until expiry. At each close, we mark the existing option and stock positions, record cash flows and then rebalance stock delta. The next day’s hedge profit uses the stock held after that rebalance. Final option payoffs and hedge unwinds complete the trade. Trading the same name on later dates is possible subject to existing inventory and risk checks."
+      },
+      {
+        "type": "paragraph",
+        "text": "Buying hedge stock debits cash; selling it credits cash. The cash balance earns the prior available benchmark rate, with negative cash paying that rate plus one percentage point annually. Short-stock borrow adds 0.30% annually on short notional. Stock dividends are separate signed cash flows: a long holder receives the dividend and a short holder owes it. The ex-dividend stock-price drop does not replace that cash payment."
+      },
+      {
+        "type": "paragraph",
+        "text": "Option fills use midpoint plus an adverse charge of 0.10 IV point times traded vega and $0.03 per contract; stock turnover costs one basis point. Expiry settlement has no option fill charge. Inventory, reserve, stress and quote checks determine admission. A request for less size can pass a pair limit and leave capacity for a later proposal. Appendix A defines the checks; they are research assumptions rather than broker margin."
+      },
+      {
+        "type": "heading",
+        "text": "What stays fixed, and what updates?"
+      },
+      {
+        "type": "chart",
+        "name": "refit_timeline",
+        "height": 162
+      },
+      {
+        "type": "paragraph",
+        "text": "The put inputs, 18-month fitting window, tree settings and 50/75/100% action menu remain fixed while the tree and size map refit monthly. Only outcomes completed before a fit enter training. A finished March trade can inform an April fit; an unfinished outcome cannot. Straddle and Q fits follow the same timing principle with their own windows. Accounts continue across the 2022 reporting boundary with accumulated cash and positions."
+      },
+      {
+        "type": "paragraph",
+        "text": "All Sharpe ratios annualize daily returns above cash. Dollar profit subtracts the increase in the continuing cash benchmark; Appendix E defines the metrics precisely."
+      }
+    ]
+  },
+  {
+    "title": "7. Selecting information and training history",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "The put learner’s baseline 27 inputs describe spread rank, IV and trailing RV, beta and correlation, expiry, the CBOE Volatility Index (VIX), costs and completed profitability. Availability flags identify missing fields. Future trade profits are training outcomes, never current inputs."
+      },
+      {
+        "type": "heading",
+        "text": "A candidate measure of relative richness"
+      },
+      {
+        "type": "paragraph",
+        "text": "One additional block compares squared IV with forecast annualized variance. Its forecast uses exponentially weighted squared daily returns, with a 20-session half-life and at least 63 observations. Multiplication by 252 annualizes the estimate. The block adds the spread, a historical z-score and forecast-to-implied variance ratio, with availability flags."
+      },
+      {
+        "type": "equation",
+        "text": "Implied-versus-forecast variance spread = IV² − forecast annualized variance.",
+        "latex": "\\text{Variance spread}=IV^2-\\widehat{\\sigma}_{\\rm RV}^{\\,2}."
+      },
+      {
+        "type": "paragraph",
+        "text": "IV of 40% and forecast RV of 30% give 0.40² − 0.30² = 0.07, a variance difference rather than seven volatility points. A downside put also reflects skew, so this feature is not a clean underlying variance-risk-premium estimate. The EWMA block is a tested addition; it is not part of the retained 27-input put baseline."
+      },
+      {
+        "type": "chart",
+        "name": "feature_validation",
+        "height": 253
+      },
+      {
+        "type": "paragraph",
+        "text": "We rank 33 archived screened configurations by 2018–2021 validation excess Sharpe within the established 30-day, 25-delta design. Feature, window and action-menu experiments form this grid. Baseline, IV-factor and term-structure scores tie exactly at 0.575; alphabetical configuration ordering retains the baseline. The selected specification has 27 inputs, an 18-month window and 50/75/100% sizes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Archived selection scores use a $345 million research account; funded replays use $10 million. This split selects the sizing procedure within the established contract design and pair roster. Appendix B records extension selection histories."
+      }
+    ]
+  },
+  {
+    "title": "8. Learning entry size with contextual bandits",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "We use direct policy search to learn a contextual sizing policy that maximizes historical portfolio Sharpe. The rule fixes direction and contracts; the bandit chooses 50%, 75% or 100% exposure. CEM optimizes the put policy."
+      },
+      {
+        "type": "heading",
+        "text": "Put pairs: group observations, then search size assignments"
+      },
+      {
+        "type": "paragraph",
+        "text": "Each monthly regression tree uses completed examples from the preceding 18 months. Its target is cumulative full-size profit above cash; splits reduce prediction error across 27 inputs. At most eight leaves define states. With n examples, minimum leaf count is max(8, min(63, floor(n/8))); fewer than 16 use full size."
+      },
+      {
+        "type": "chart",
+        "name": "entry_policy",
+        "height": 242
+      },
+      {
+        "type": "paragraph",
+        "text": "For completed example i, p denotes its profit above cash on day d at size a. Each size has its own rounded contracts and simulated hedge path. A map assigns one size to each tree state. We sum its daily paths, retaining overlapping positions and zero-profit sessions, and score the result:"
+      },
+      {
+        "type": "equation",
+        "text": "g_d(m) = Σ_i p_i,d(a_state(i)); S_train(m) = √252 mean(g) / sd(g).",
+        "latex": "g_d(m)=\\sum_i p_{i,d}(a_{\\ell(x_i)}),\\qquad\\widehat S_{\\rm train}(m)=\\sqrt{252}\\,\\overline{g}/s_g."
+      },
+      {
+        "type": "paragraph",
+        "text": "CEM [3] updates size probabilities toward the best 19 of 192 candidate maps for 50 rounds. Constant maps and the incumbent are anchors. This standalone-path training score differs from funded-account Sharpe: replay additionally applies shared cash, inventory and admission."
+      },
+      {
+        "type": "heading",
+        "text": "Straddles: the same decision with ridge-score contexts"
+      },
+      {
+        "type": "paragraph",
+        "text": "The straddle bandit fits a 60-month ridge model to completed full-size profit, using 14 inputs and requiring 128 examples. The inputs include IV, RV−IV memory, VIX and a separate fixed-half paper portfolio’s recent performance. Score terciles define three states. We enumerate all 27 size maps and retain the highest training Sharpe. Insufficient history uses half size. Both learners use completed outcomes; Appendix B provides exact fitting details."
+      }
+    ]
+  },
+  {
+    "title": "9. Does learned entry sizing improve returns?",
+    "blocks": [
+      {
+        "type": "chart",
+        "name": "entry_curves",
+        "height": 213
+      },
+      {
+        "type": "data_table",
+        "name": "entry_results",
+        "widths": [
+          171,
+          83,
+          83,
+          75,
+          100
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The put bandit improves later excess Sharpe by 0.208 and profit above cash by approximately $47,800 relative to full size. It admits 110 entries instead of 75. The straddle bandit reaches Sharpe 1.041 and $2.379 million above cash, compared with 0.990 and $2.206 million at full size. Its earlier Sharpe also exceeds each fixed-size control. Straddles produce much more dollar profit and daily volatility than the put-pair portfolio, making allocation between them economically consequential."
+      },
+      {
+        "type": "paragraph",
+        "text": "These are comparisons of complete funded policies. All entry policies receive the same proposal pool—608 put-pair proposals and 35,774 straddle proposals—but size changes contract rounding, outstanding risk and the capacity to admit later opportunities. The resulting entries therefore differ. The findings support useful historical exposure choices; they do not isolate predictive sizing from admission effects."
+      },
+      {
+        "type": "paragraph",
+        "text": "Most of the put learner’s later lead develops in 2022, while 2024 loses ground. Its annualized total account return is 4.667%; growth relative to cash is 0.530%. Average reserve is 2.44% and peak reserve 15.77%. Cash interest explains much total growth; trading value is measured above cash."
+      }
+    ]
+  },
+  {
+    "title": "10. Explaining the bandits’ decisions",
+    "blocks": [
+      {
+        "type": "chart",
+        "name": "entry_explanations",
+        "height": 213
+      },
+      {
+        "type": "heading",
+        "text": "From an input to a requested trade size"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a put proposal, interpretation is exact: follow the saved tree’s root-to-leaf conditions, then read the size assigned to that leaf. Completed 365-day profitability appears in 18.7% of later visited decision nodes, mean IV in 14.9%, commission relative to vega in 12.7%, and stock-return correlation in 12.3%. These frequencies describe which information the fitted policy uses; they are not causal effects or a ranking of expected profit contributions."
+      },
+      {
+        "type": "paragraph",
+        "text": "For a straddle proposal, standardized ridge contributions add to a score. Saved thresholds locate its context, and the learned map selects a size. Centering IV changes 36.6% of later fitted proposal sizes. Recent VIX change changes 15.3%, normalized RV-minus-IV memory 12.9%, and VIX level 11.9%. The size map need not rise monotonically with the regression score because it optimizes the combined daily path. Exact replay reproduces every saved size across all 608 put and 35,774 straddle proposals."
+      },
+      {
+        "type": "data_table",
+        "name": "admission",
+        "widths": [
+          242,
+          90,
+          90,
+          90
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Admission provides a second explanation for performance. Against fixed full size, the put bandit enters 36 later opportunities that the fixed policy rejects and misses one that it accepts. For straddles, those counts are 307 and 43. These differences can arise through the inventory left by earlier size decisions. An explanation of proposed size alone therefore does not explain the entire portfolio result."
+      },
+      {
+        "type": "paragraph",
+        "text": "Among quote-available completed straddle labels, full-size profit averages $1,631 for proposals assigned full size and $16 for those assigned half size. This subset is conditioned on available labels. Three within-date size shuffles yield later Sharpes 0.834, 0.928 and 1.044, versus 1.041 learned. One shuffle wins: favorable funded results and feature usage do not by themselves establish predictive sizing."
+      }
+    ]
+  },
+  {
+    "title": "11. Q-learning allocates capital across signals",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "The outer learner makes a different decision: what fraction of one $10 million budget should track each funded strategy? Its seven put/straddle targets are 100/0, 90/10, 75/25, 50/50, 25/75, 10/90 and 0/100. Weights sum to one; there is no outer leverage or cash action. A weekly decision based on prior-close information takes effect at the next close. The first session retains old holdings, then positions resize and drift until the next decision."
+      },
+      {
+        "type": "heading",
+        "text": "State, action and action-dependent holdings"
+      },
+      {
+        "type": "paragraph",
+        "text": "Nine state inputs describe four economic opportunities—put-spread rank strength, the put implied-versus-realized variance gap, straddle IV-versus-RV richness and completed straddle premium—plus relative strategy volatility, strategy-return correlation, VIX, relative recent Sharpe and previous straddle weight. Previous holdings matter because changing allocations incurs additional costs. A target is a fractional claim on a funded strategy index, not a new integer-contract order book. Underlying trading costs remain embedded in source returns; resizing adds source-based option and hedge charges."
+      },
+      {
+        "type": "equation",
+        "text": "R𝑤(λ) = Σ[d in week w] (z_d − λ z_d²),   z_d = e_d / σ_ref.",
+        "latex": "R_w(\\lambda)=\\sum_{d\\in w}(z_d-\\lambda z_d^2),\\qquad z_d=e_d/\\widehat{\\sigma}_{\\mathrm{ref}}"
+      },
+      {
+        "type": "heading",
+        "text": "Reward and continuation value"
+      },
+      {
+        "type": "paragraph",
+        "text": "Reference volatility is estimated from the training window’s fixed-50/50 excess returns. The parameter λ penalizes squared normalized fluctuations. At zero it rewards normalized profit without a variance penalty; it does not maximize Sharpe directly. The discount γ = 0.99 separately weights continuation value. The reward permits a range of risk preferences instead of requiring one policy to maximize dollar profit and Sharpe simultaneously."
+      },
+      {
+        "type": "paragraph",
+        "text": "Monthly fitted Q iteration uses the preceding 104 completed weeks, with at least 52. A quadratic function of straddle weight has coefficients linear in standardized state, giving 30 coefficients. Each Bellman update regresses immediate reward plus discounted next-state maximum value onto the same basis [4]. We use ridge coefficient 10 and 200 updates. Seven prior allocations crossed with seven actions supply counterfactual paths on each market week; they do not create independent market observations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Q uses 50/50 before enough training weeks exist; each fixed control starts at its own target. A discount-zero learner supplies a matched one-period control. In the factorial experiment, Q is refitted independently for each entry policy. Strategy-dependent risk features, reward paths and resizing charges are rebuilt for that policy, while economic signal definitions remain shared."
+      },
+      {
+        "type": "paragraph",
+        "text": "This outer experiment addresses an extension proposed in the original paper: freeze each signal’s proposals, then learn how to combine their exposures. Entry sizes change the inner funded portfolios; Q changes the capital assigned across them. The accounting layers are deliberately distinct, allowing us to remove either learning layer in the four-way comparison."
+      }
+    ]
+  },
+  {
+    "title": "12. Risk preference changes the allocation tradeoff",
+    "blocks": [
+      {
+        "type": "chart",
+        "name": "allocation_risk",
+        "height": 267
+      },
+      {
+        "type": "data_table",
+        "name": "risk_preferences",
+        "widths": [
+          85,
+          102,
+          105,
+          110,
+          110
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "With bandit entries and λ = 0.20, Q reaches later Sharpe 1.726 and $1.306 million profit above cash. Fixed 50/50 gives 1.167 and $1.238 million; the highest-Sharpe fixed split, 90/10, gives 1.612 and $435,181. At λ = 1, Q trades some profit for Sharpe 2.152. Straddle-heavy fixed allocations still generate more dollars. The curve therefore describes a profit–risk tradeoff, not dominance on every objective. At λ = 0.20, annualized growth relative to cash is 2.34% and excess volatility 1.35%; at λ = 1 these are 2.13% and 0.98%."
+      },
+      {
+        "type": "paragraph",
+        "text": "The zero-penalty result is informative. Validation Sharpe is 1.427 but later Sharpe falls to 0.671. It chooses straddles alone in 138 of 191 later decisions, versus 46 at λ = 0.20 and 31 at λ = 1. Its mean straddle target is 73.2%, versus 24.9% and 16.9%. Increasing Bellman updates from 200 to 500, 1,000 and 2,000 changes no later decision for the four settings. Insufficient iteration is therefore not the explanation in this check."
+      }
+    ]
+  },
+  {
+    "title": "13. When does Q choose the riskier signal?",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Straddles offer more dollar profit and much greater daily risk. At λ = 0.20, Q chooses put pairs alone on 141 later decision dates, straddles alone on 46, and an interior mix on four. It primarily switches strategies."
+      },
+      {
+        "type": "chart",
+        "name": "allocation_schedule",
+        "height": 159
+      },
+      {
+        "type": "heading",
+        "text": "The selected intervals have different carry-to-risk ratios"
+      },
+      {
+        "type": "chart",
+        "name": "conditional_risk",
+        "height": 202
+      },
+      {
+        "type": "paragraph",
+        "text": "After Q chooses straddles, their mean daily excess return is 3.05 basis points with volatility 16.18; after it chooses put pairs, the straddle figures are 1.30 and 27.00. These are realized conditional statistics on noncontiguous dates, not causal estimates or standalone strategy Sharpes. They include source costs but exclude additional outer resizing charges."
+      },
+      {
+        "type": "paragraph",
+        "text": "A fixed target equal to Q’s realized mean allocation reaches later Sharpe 1.387, versus 1.726 for Q: average exposure alone does not reproduce the result. The matched discount-zero learner reaches 1.645; continuation changes nine of 191 decisions at the same states. Much of the gain comes from conditional allocation, with a smaller incremental sequential benefit."
+      }
+    ]
+  },
+  {
+    "title": "14. Separating the two learning layers",
+    "blocks": [
+      {
+        "type": "chart",
+        "name": "factorial",
+        "height": 216
+      },
+      {
+        "type": "data_table",
+        "name": "factorial",
+        "widths": [
+          216,
+          92,
+          92,
+          112
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The primary four-way comparison fixes the baseline at full entry size and 50/50 capital allocation. Both learning layers improve Sharpe in both periods, with the largest point-estimate gain when combined. The Q policy on fixed-entry portfolios is trained on those portfolios’ own completed returns; it is not transplanted from the bandit portfolios. Economic opportunity inputs stay shared, while relative performance, volatility, correlation and costs change with the actual source strategies."
+      },
+      {
+        "type": "data_table",
+        "name": "fixed75_allocation",
+        "widths": [
+          170,
+          80,
+          85,
+          92,
+          85
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The fixed-75% result shows that capital allocation can help independently of entry learning. Q nearly doubles later Sharpe with similar profit and a much smaller drawdown. Its later Sharpe exceeds bandit-plus-Q at this λ, while its profit and validation Sharpe are lower. Bandit sizing therefore changes the available profit–risk tradeoff without dominating every constant entry size."
+      }
+    ]
+  },
+  {
+    "title": "15. Interpretation, limitations and conclusion",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "What the comparisons establish"
+      },
+      {
+        "type": "paragraph",
+        "text": "Entry bandits improve the retained portfolios through both requested size and admission. Q improves allocation even with constant entry size. Reward design matters: the zero-penalty profit objective transfers less reliably. The preferred combination depends on the investor’s profit–risk preference."
+      },
+      {
+        "type": "heading",
+        "text": "What remains uncertain"
+      },
+      {
+        "type": "paragraph",
+        "text": "The estimates come from one researched historical universe. Individual fits use completed past outcomes; that chronological protection is distinct from uncertainty introduced by searching signals and specifications. The original put-sizing Sharpe gain has a paired 95% block interval of −0.103 to +0.424. Entry-size shuffles and feature substitutions also give mixed results. We therefore distinguish favorable point estimates and decision explanations from a statistically established, selection-adjusted learning advantage. Appendix B records the selection history and inference conventions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; a common ledger could change admission, financing and netting. Initial vega matching is local, and the straddle signal adds net short-volatility risk."
+      },
+      {
+        "type": "heading",
+        "text": "Conclusion"
+      },
+      {
+        "type": "paragraph",
+        "text": "The two signals explain why capital allocation matters. Relative put pricing creates a low-deployment portfolio with favorable selected-period risk-adjusted returns. Persistent RV−IV selling earns more dollars with greater exposure to realized movement. Neither dominates for every investor. The allocation learner links these economic differences to a risk-preference reward and current information, extending the original question from one trade rule to competing sources of return."
+      },
+      {
+        "type": "paragraph",
+        "text": "Future work should test a common contract-level ledger, measured execution costs and additional independently developed signals. Learned trimming remains worth studying, although earlier improvements on weak entry signals were less compelling than improving exposure to useful signals."
+      },
+      {
+        "type": "paragraph",
+        "text": "Learning exposure is useful at two levels in these simulations. Bandits adapt individual entry commitments; Q-learning decides when competing strategies deserve capital. The four-way comparison and fixed-entry controls make their contributions separately visible. The results motivate an integrated implementation and prospective evaluation."
+      },
+      {
+        "type": "heading",
+        "text": "References"
+      },
+      {
+        "type": "reference",
+        "text": "[1] Ning, B., and K. Lee (2024). Advanced Statistical Arbitrage with Reinforcement Learning. arXiv:2403.12180. https://arxiv.org/abs/2403.12180"
+      },
+      {
+        "type": "reference",
+        "text": "[2] Goyal, A., and A. Saretto (2009). Cross-section of option returns and volatility. Journal of Financial Economics 94, 310–326. https://doi.org/10.1016/j.jfineco.2009.01.001"
+      },
+      {
+        "type": "reference",
+        "text": "[3] de Boer, P.-T., D. P. Kroese, S. Mannor, and R. Y. Rubinstein (2005). A Tutorial on the Cross-Entropy Method. Annals of Operations Research 134, 19–67. https://people.smp.uq.edu.au/DirkKroese/ps/aortut.pdf"
+      },
+      {
+        "type": "reference",
+        "text": "[4] Ernst, D., P. Geurts, and L. Wehenkel (2005). Tree-Based Batch Mode Reinforcement Learning. Journal of Machine Learning Research 6, 503–556. https://jmlr.org/papers/v6/ernst05a.html"
+      }
+    ]
+  },
+  {
+    "title": "Appendix A. Contracts, features and account checks",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Data and trade construction"
+      },
+      {
+        "type": "paragraph",
+        "text": "WRDS supplies option quotes, stock prices, rates and distributions. The inherited formation archive contains 345 pairs; 125 prepared pairs with 161 equity/ETF underlyings supply candidates. Forty-six pairs generate 608 screened put proposals over 2018–2025. This universe is retrospective and conditioned on usable coverage. The companion roster in paper/pair_universe.csv records prepared pairs and candidate-date ranges, which are not claims of continuous quote availability."
+      },
+      {
+        "type": "paragraph",
+        "text": "Put selection takes the expiry nearest 30 days, then the put nearest absolute delta 0.25 within 0.075. Ties prefer narrower quotes, higher open interest and lower contract identifier. Entry requires standard 100-share contracts, positive noncrossed quotes, open interest of at least 100, quote width no more than 25% of midpoint and 7–55 days remaining. Straddles match call and put on name, strike, expiry and adjustment. Corporate events can force exits; missing entry quotes reject proposals. Held marks may use last-known IV with current spot, rates and known dividends."
+      },
+      {
+        "type": "heading",
+        "text": "Entry-state definitions"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Put-pair feature group",
+          "Numerical inputs"
+        ],
+        "rows": [
+          [
+            "Volatility and opportunity",
+            "Mean IV; oriented IV gap; rank strength; oriented IV²-minus-trailing-variance gap; mean RV"
+          ],
+          [
+            "Relatedness and maturity",
+            "126-session beta and correlation; mean expiry and expiry difference"
+          ],
+          [
+            "Costs and market",
+            "Training commission in IV points; strictly prior VIX close"
+          ],
+          [
+            "Completed profitability",
+            "91-day and 365-day mean profit per initial vega and completed counts"
+          ]
+        ],
+        "widths": [
+          178,
+          334
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "These are 15 numerical inputs. The first three are core fields; the remaining 12 have binary availability flags, giving 27 inputs. Missing optional values are zero with flag zero. Put trailing variance is 252 times mean squared simple stock returns over 20 sessions, with at least 10 observations. The straddle signal uses annualized squared log returns and a 21-session RV input. The measures have different retained definitions; no new common RV estimator is fitted for this comparison."
+      },
+      {
+        "type": "paragraph",
+        "text": "The straddle’s 14 ridge inputs are completed residual memory, IV, VIX, normalized memory, variance ratio, 21-session VIX change, 5-session IV change, and a fixed-half benchmark’s 21/63/126-session Sharpe, 63-session volatility and drawdown, reserve use and availability flag. These benchmark states come from an external causal paper portfolio, not the learner’s own future inventory."
+      },
+      {
+        "type": "heading",
+        "text": "Admission and risk accounting"
+      },
+      {
+        "type": "paragraph",
+        "text": "Research stress takes each name’s worst modeled option-plus-hedge loss across spot shocks −20/0/+20% and IV shocks −10/0/+10 points, then sums without pair-correlation credit. Limits are stress loss 5% of budget, reserve 80%, hedge notional twice budget and gross vega $20,000 per IV point per $1 million. Reserve is gross option premium plus half netted hedge notional. Global checks use equity; pair checks use a $1 million reference scaled by current/initial equity. These are research limits, not broker margin. European-style valuation and cash settlement approximate expiry; assignment is not fully simulated."
+      }
+    ]
+  },
+  {
+    "title": "Appendix B. Fitting, chronology and controls",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Entry optimizers"
+      },
+      {
+        "type": "paragraph",
+        "text": "The put tree has up to eight leaves, with minimum count max(8, min(63, floor(n/8))); fewer than 16 examples use full size. CEM uses 50 rounds of 192 maps, 19 elites and seed 2026. Probabilities start uniform; updates mix 30% prior probability and 70% elite frequency, shrink by 0.97 and add 0.03 uniformly. Constant maps and the incumbent are anchors. Separate rounded-contract paths supply daily training profits; funded NAV returns supply evaluation Sharpe. Put memory and training labels retain a $0.65 option commission; funded evaluation uses $0.03 for every policy."
+      },
+      {
+        "type": "paragraph",
+        "text": "The straddle ridge fit uses median centers, standard deviations floored at 0.001, clipped inputs within ±5, penalty 100 with no intercept penalty, and equal total weight per date. Full-size completed profit is its target. Score terciles define contexts; all 27 size maps are evaluated on aggregate daily paths. Ties favor lower exposure. The 60-month window requires 128 examples. Only 4,116 training rewards are finite; the policy still handles all 35,774 proposals."
+      },
+      {
+        "type": "heading",
+        "text": "Q specification and numerical check"
+      },
+      {
+        "type": "equation",
+        "text": "Q(s,a) = b(s) + a c(s) + a² d(s),   a ∈ {0, .10, .25, .50, .75, .90, 1}.",
+        "latex": "Q(s,a)=b(s)+a\\,c(s)+a^2d(s),\\qquad a\\in\\{0,.10,.25,.50,.75,.90,1\\}"
+      },
+      {
+        "type": "paragraph",
+        "text": "Each coefficient function is linear in the intercept and nine standardized inputs. Training centers use means, scales have floor 0.1, and standardized values are clipped within ±5. Ridge is 10, except the global intercept penalty 0.01. Bellman regression weights counterfactual rows so each week has unit total mass. The reference volatility is that family’s completed-window 50/50 daily excess standard deviation. All 81 monthly fits were checked at 200, 500, 1,000 and 2,000 updates. Later actions are identical across budgets for the four reported λ values."
+      },
+      {
+        "type": "data_table",
+        "name": "timing_controls",
+        "widths": [
+          220,
+          96,
+          96,
+          100
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The mean-weight control uses the realized average target retrospectively. Forty-nine nonzero circular rotations of the saved λ = 0.20 action schedule preserve its action counts and most serial structure; none reaches actual later Sharpe, while three reach or exceed actual validation Sharpe. Their median later Sharpe is 0.744. Wealth and resizing costs are recomputed. These are descriptive timing diagnostics, not selection-adjusted tests."
+      },
+      {
+        "type": "heading",
+        "text": "Chronology and statistical interpretation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every fit uses strictly completed past outcomes. Put selection ranks 33 archived screened configurations by 2018–2021 scores before the $10 million replay. Straddle specification search inspected both reporting periods; its record is preserved. The four Q preferences describe researched risk choices and do not replace the original validation-selection record. Chronological fitting and selection independence are distinct. The put interval uses 1,000 paired circular resamples of 126-session blocks, with fixed policies and no research-selection adjustment. A prospectively frozen evaluation remains open."
+      }
+    ]
+  },
+  {
+    "title": "Appendix C. Supporting results and reproducibility",
+    "blocks": [
+      {
+        "type": "data_table",
+        "name": "annual_sharpes",
+        "widths": [
+          70,
+          110,
+          110,
+          110,
+          112
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "All figures are annualized excess Sharpe; 2025 ends on 29 August. The sleeves retain their separate funded histories, and outer allocations include resizing charges. Annual results show regime variation that aggregate ratios conceal. A high pooled Sharpe is not evidence of positive excess performance every year."
+      },
+      {
+        "type": "data_table",
+        "name": "size_risk_sensitivity",
+        "widths": [
+          152,
+          90,
+          90,
+          90,
+          90
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This table holds Q’s feature definitions, discount, training window and action menu fixed while refitting separately on each entry family. Values are 2022–2025 Sharpes. The complete seven fixed capital splits are also retained; 50/50 is the primary fixed-allocation baseline, rather than a later-period optimized control."
+      },
+      {
+        "type": "heading",
+        "text": "Evidence and reproduction"
+      },
+      {
+        "type": "paragraph",
+        "text": "Entry results come from reports/p25_validation_split/periods.csv and reports/straddle_policy_refinement/comparison.csv. Exact entry explanations are in reports/retained_entry_explanations. Allocation results, decisions and convergence checks are in reports/signal_allocation_variance. Independent fixed-entry Q fits and the four-way experiment are in reports/signal_learning_factorial. Its checks reproduce all eight pure strategy endpoints and 324 monthly checkpoint timings. The paper’s provenance manifest records source and figure hashes."
+      },
+      {
+        "type": "paragraph",
+        "text": "The companion scripts preserve the actual-contract ledger and the separate fractional-index allocator. Model fitting requires the licensed source cache or archived derived inputs; vendor redistribution restrictions still apply. Reproduce this document from its saved manuscript and figures without refitting any model. Public repository: https://github.com/kreitzz/rl-atm-vega-pairs"
+      }
+    ]
+  },
+  {
+    "title": "Appendix D. Original sizing and annual results",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Alternative put sizing pipelines retained from the original study"
+      },
+      {
+        "type": "data_table",
+        "name": "original_sizing_controls",
+        "widths": [
+          180,
+          80,
+          80,
+          72,
+          100
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "All policies receive the same put proposals, directions, contracts and funded admission rules. The lower four rows are follow-up comparisons rather than original selection candidates. Tree/CEM has the highest funded Sharpe in both periods among these policies. These comparisons retain the original question about entry sizing alongside the newer straddle and allocation experiments."
+      },
+      {
+        "type": "data_table",
+        "name": "original_annual_economics",
+        "widths": [
+          60,
+          110,
+          125,
+          120,
+          97
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Calendar-period account returns and above-cash differences are not annualized, including partial 2025. Sharpe is annualized. In 2024 the account grows while losing relative to cash. The original put strategy’s results are concentrated in a few pairs and in 2022; this limits claims of broad repeated success."
+      },
+      {
+        "type": "paragraph",
+        "text": "The original put results are concentrated: SNAP/UBER, GAP/TJX and AMD/MU contribute 66.9% of later net pair trading profit, and 2022 supplies 83.1%. These figures exclude shared financing. They describe where gains occurred, not a rule for selecting those names retrospectively. Annual Sharpe ratios are retained in Appendix C."
+      },
+      {
+        "type": "paragraph",
+        "text": "The put account’s later annualized total account return is 4.667%, versus 0.530% growth relative to cash. Average reserve is 2.44% and peak reserve 15.77%. Its cash-relative drawdown is 0.495%, compared with 0.646% at full size. These figures retain the original distinction between a profitable trading signal, account funding and capital deployment."
+      }
+    ]
+  },
+  {
+    "title": "Appendix E. Performance definitions and timing diagnostics",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Account return, cash-relative growth and dollar profit"
+      },
+      {
+        "type": "paragraph",
+        "text": "Let N be account NAV and K the continuing all-cash benchmark. Both begin at $10 million in January 2018. The benchmark compounds the previous available WRDS zero-curve rate nearest 30 days over calendar days using a 365-day year. For each reporting period, 0 is the preceding close and T the final close."
+      },
+      {
+        "type": "equation",
+        "text": "e_t = (N_t/N_(t−1) − 1) − (K_t/K_(t−1) − 1); S = √252 mean(e)/sd(e).",
+        "latex": "e_t=\\frac{N_t}{N_{t-1}}-\\frac{K_t}{K_{t-1}},\\qquad\\widehat S=\\sqrt{252}\\,\\overline{e}/s_e."
+      },
+      {
+        "type": "paragraph",
+        "text": "Dollar profit above cash is (N_T − K_T) − (N_0 − K_0). With Q_t = N_t/K_t and Y equal to elapsed days divided by 365.25, annualized growth relative to cash is (Q_T/Q_0)^(1/Y) − 1. Cash-relative drawdown is the greatest percentage decline of Q from its running peak, including the opening close. The annual table instead subtracts the cash return from the account return, in percentage points."
+      },
+      {
+        "type": "paragraph",
+        "text": "At the 2021 close, the learned put account has $10.568 million equity and four open trades; full sizing has $10.581 million and three. Cash benchmark wealth is $10.510 million. Performance curves subtract each policy’s opening dollar excess wealth; they do not reset accounts or liquidate inventory at the reporting split."
+      },
+      {
+        "type": "heading",
+        "text": "Additional allocation diagnostics"
+      },
+      {
+        "type": "paragraph",
+        "text": "Centering VIX and straddle IV-versus-RV richness changes 13.6% and 12.6% of later actions. Across 49 nonzero rotations of Q’s saved schedule, none reaches its later Sharpe; median Sharpe is 0.744. These diagnostics explain information use and timing, without establishing causal feature effects or selection-adjusted significance."
+      },
+      {
+        "type": "paragraph",
+        "text": "The rotation control preserves allocation counts and most serial structure, then recomputes wealth and resizing costs. Three of 49 rotated schedules reach or exceed the actual validation Sharpe; none reaches the actual later Sharpe. Timing-control results are reported in Appendix B. These are diagnostics of the retained policy, not a substitute for prospective evaluation."
+      },
+      {
+        "type": "paragraph",
+        "text": "A final distinction concerns portfolio admission. The source put and straddle books each simulate whole contracts and daily stock hedges under their own funded histories. The outer allocator trades fractional claims on those net strategy indices, with additional resizing charges. Its capital weights are not premium deployment or broker margin, and reallocating indices does not rerun a common integer-contract inventory ledger."
+      }
+    ]
+  }
+]

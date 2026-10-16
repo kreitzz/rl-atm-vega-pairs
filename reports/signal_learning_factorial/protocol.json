@@ -1,0 +1,61 @@
+{
+  "configuration": {
+    "output_root": "artifacts/contracts/signal_learning_factorial",
+    "report_root": "reports/signal_learning_factorial",
+    "reference_root": "artifacts/contracts/signal_capital_allocation",
+    "bandit_models": "artifacts/contracts/signal_allocation_variance/models",
+    "entries": {
+      "fixed100": {
+        "put": "artifacts/paper_code/replays/fixed100",
+        "straddle": "artifacts/contracts/atm_rv_straddle_full/replays/straddle100"
+      },
+      "fixed75": {
+        "put": "artifacts/contracts/p25_validation_split/replays/screened_fixed75",
+        "straddle": "artifacts/contracts/straddle_capped_books/fixed75/replays/tree18"
+      },
+      "fixed50": {
+        "put": "artifacts/paper_code/replays/fixed50",
+        "straddle": "artifacts/contracts/atm_rv_straddle_fixed50/replays/tree18"
+      },
+      "bandit": {
+        "put": "artifacts/contracts/p25_validation_split/replays/screened_selected",
+        "straddle": "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18"
+      }
+    },
+    "primary_fixed_entry": "fixed100",
+    "fixed_allocation_straddle_weight": 0.5,
+    "reference_risk_preference": 0.2,
+    "risk_preferences": [
+      0.0,
+      0.1,
+      0.2,
+      1.0
+    ],
+    "discount": 0.99,
+    "iterations": 200,
+    "training_weeks": 104,
+    "minimum_training_weeks": 52,
+    "ridge_alpha": 10.0,
+    "capital": 10000000,
+    "evaluation_end": "2025-08-29",
+    "resource_limits": {
+      "workers": 1,
+      "cpu_fraction_of_one_core": 0.2,
+      "worker_mib": 256,
+      "max_system_swap_growth_mib": 256
+    }
+  },
+  "primary": "Fixed full entries and fixed 50/50 capital allocation. No later-period optimization of either fixed control.",
+  "Q": "Same original nine feature definitions, seven capital splits, lambda grid, gamma, ridge and training windows. Refit independently for each fixed-entry family.",
+  "feature_control": "Four economic opportunity features shared. Relative volatility, correlation and relative trailing Sharpe recomputed from that family of strategy indices, using only prior-close data.",
+  "scope": "Fractional strategy-index allocation above independently funded option ledgers. The entry intervention includes admission/inventory effects. No claim of a shared integer-contract portfolio.",
+  "interaction": "Sharpe difference-of-differences is descriptive, not an additive causal attribution.",
+  "completed_entry_families": [
+    "fixed100",
+    "fixed75",
+    "fixed50",
+    "bandit"
+  ],
+  "paper_unchanged": true,
+  "reward_normalization": "Same formula for each family: standardize daily excess returns by the completed training-window volatility of that family\u2019s 50/50 reference."
+}
