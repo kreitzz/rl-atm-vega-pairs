@@ -105,3 +105,14 @@ All 14 conventional configurations, validation choices, fitted moments, causal
 fit dates, yearly results, decisions and fee diagnostics are retained under
 reports/paper_allocation_benchmarks. Their inputs are already supplied by
 data/research/signal_allocation_variance_snapshot.zip.
+
+CALIBRATED SELECTION QUALIFICATION
+
+Section 16 now separates causal monthly fitting from independent validation
+of the complete research process, and states that the magnitude of selection
+bias has not been estimated. The performance claims identify the three
+displayed positive penalties explicitly. Lambda 0 remains the main economic
+illustration of profit-only allocation and weaker later performance.
+Appendix B preserves the window-refinement history and points to the original
+Q selection and complete results. The put-sizing interval remains reported
+in that appendix. All numerical tables, figures and policies are unchanged.

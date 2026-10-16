@@ -216,9 +216,9 @@
     },
     {
       "page": 16,
-      "bottom_content_points": 58.649999999999466,
+      "bottom_content_points": 72.24999999999946,
       "overflow": false,
-      "content_sha256": "125474f776521dbdd4b95a1afe85defcaf48877c9cedbea0a1f516371b694005",
+      "content_sha256": "541363464babb227daea9309f2343490ba8fffc15d423b5df7eb372529f10787",
       "rendered": true,
       "vector_figures": []
     },
@@ -232,9 +232,9 @@
     },
     {
       "page": 18,
-      "bottom_content_points": 109.04999999999973,
+      "bottom_content_points": 95.44999999999973,
       "overflow": false,
-      "content_sha256": "f9f633bbc68b889efdfd081cd5d1ee7e36ddd7f29f3d5a31b399a7515ba58bbc",
+      "content_sha256": "30835e9068776d96cd84c9fdbabe23bf917974e822b1a5ef3a42ef259a3668f5",
       "rendered": true,
       "vector_figures": []
     },
@@ -299,8 +299,8 @@
     "paper/unified_learning_2026_10_16/figures/factorial.svg": "cffeed35d0fbb0ef26517b55bcc8af2a03e72a44e722feffae7fbef9e29716c4"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "2dc2e90fd3e4a1f37f8fff71730ef2eb61a9eeecdef2126bcdd5c6a0e51bcadb",
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "b64289b348d4957f36d68202018380e3cc882981747c672a240904d0131ad759",
-    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "07f58737612c864da9a7c5b91c14218a3e95fe4aed03d4504cbf338864361bcc"
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "1550548de525fd84eb9ff83f4a4f7e00674cc6f13a9cd8f6a2bd17e57743333b",
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "235e5c01f6f3fa9745db0936be8aac3a4b4ad93344336cbf208ccc2d612e79ce",
+    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "95ae93d7cc7ad764cffece207ff45f7f7e9d63ce4a87be7f6a87136c22a1a788"
   }
 }

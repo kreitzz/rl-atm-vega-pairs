@@ -695,7 +695,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Entry bandits improve the retained portfolios through requested size and admission. Q improves allocation with constant entry size and outperforms rolling conventional allocators at the positive penalties tested. Its profit-only policy transfers less reliably when straddles weaken. Reward design matters, and the preferred combination depends on the investor’s profit–risk preference."
+        "text": "Entry bandits improve the retained portfolios through sizing and admission. Q improves allocation with constant entries and exceeds the corresponding rolling mean–variance controls at λ = 0.10, 0.20 and 1. Its profit-only policy transfers less reliably when straddles weaken. Reward design changes the allocation tradeoff."
       },
       {
         "type": "heading",
@@ -703,7 +703,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The estimates come from one researched historical universe. Individual fits use completed past outcomes; that chronological protection is distinct from uncertainty introduced by searching signals and specifications. The original put-sizing Sharpe gain has a paired 95% block interval of −0.103 to +0.424. Entry-size shuffles and feature substitutions also give mixed results. We therefore distinguish favorable point estimates and decision explanations from a statistically established, selection-adjusted learning advantage. Appendix B records the selection history and inference conventions."
+        "text": "All fitted policies use only information available before their decisions. However, strategy development included inspection of later-period results, including choices of training windows and risk preferences. Consequently, the evaluation measures historical performance under chronologically fitted policies, rather than an independently frozen test of the complete research process. The controlled comparisons provide evidence about adaptive exposure allocation under the stated assumptions, but neither the magnitude of research-selection bias nor prospective performance has been established."
       },
       {
         "type": "paragraph",
@@ -865,7 +865,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Every fit uses strictly completed past outcomes. Put selection ranks 33 archived screened configurations by 2018–2021 scores before the $10 million replay. Straddle specification search inspected both reporting periods; its record is preserved. The four Q preferences describe researched risk choices and do not replace the original validation-selection record. Chronological fitting and selection independence are distinct. The put interval uses 1,000 paired circular resamples of 126-session blocks, with fixed policies and no research-selection adjustment. A prospectively frozen evaluation remains open."
+        "text": "Every fit uses strictly completed past outcomes. Put selection ranks 33 archived screened configurations by 2018–2021 scores before the $10 million replay. The straddle’s 48- and 60-month windows tie at validation Sharpe 0.775; later Sharpes of 0.960 and 1.041 informed refinement. The four displayed Q preferences illustrate researched risk choices, not a single validation-winning policy. The original selection and full results remain in reports/signal_allocation_discount. The put-sizing gain is 0.208, with a paired 95% interval of −0.103 to +0.424, using 1,000 circular resamples of 126-session blocks, fixed policies and no selection adjustment. These records identify research choices without measuring their bias."
       }
     ]
   },

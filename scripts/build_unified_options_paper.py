@@ -174,6 +174,10 @@ def prepare():
     sources.extend(str(BENCH/name) for name in ['all_results.csv','validation_selection.csv',
                    'cost_and_switching_diagnostics.csv','diagnostic_protocol.json','protocol.json',
                    'verification.json','fit_timing.csv','fit_moments.csv'])
+    sources.extend(['reports/signal_allocation_discount/selection.json',
+                    'reports/signal_allocation_discount/validation_selected_results.csv',
+                    'reports/straddle_performance_followup/cases/performance_ridge48/results.csv',
+                    'reports/straddle_policy_refinement/cases/performance60/results.csv'])
     unchanged=['paper/options_relative_value_draft.pdf','paper/options_relative_value_draft.tex','paper/original_with_rl_extension/options_relative_value_extended.pdf','paper/original_with_rl_extension/research_extension.docx']
     sources.extend(str(Path(folder)/'daily_nav.parquet') for folder in [
         'artifacts/contracts/p25_validation_split/replays/screened_selected',
