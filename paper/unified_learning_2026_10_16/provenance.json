@@ -1,5 +1,5 @@
 {
-  "main_pages": 15,
+  "main_pages": 16,
   "appendix_pages": 5,
   "source_hashes": {
     "reports/p25_validation_split/periods.csv": "c87e3a83a4a81ef6292a12d84f1a01b669aec4652d37677d90316d6ed6dac435",
@@ -25,6 +25,14 @@
     "reports/p25_strategy_audit/sizing/periods.csv": "26d42d4b13af91edb449d513f02b996c78224cd0ba5c1523b44fe504e3968671",
     "reports/p25_direct_policy/funded/periods.csv": "b5aa29c8c918d571d858154466f085eedbfaf13ba6b34af871d8256f090c4a4f",
     "reports/p25_strategy_audit/pairs/concentration.csv": "147dab19675c02d863f3a8a3394bf9d6258d27153bc15ea35dfc3ddc2a032280",
+    "reports/paper_allocation_benchmarks/all_results.csv": "1066209fece8bde8c23fc24549ae5bc6d24f2c1c0808fce8f2a5ebb8d538b0ae",
+    "reports/paper_allocation_benchmarks/validation_selection.csv": "bb1a92a4357a73edefe9d718b3c52d9ae8a5901bef1faaf7828ad61a34168104",
+    "reports/paper_allocation_benchmarks/cost_and_switching_diagnostics.csv": "201e6ff7ccc57638379eb84fe4aca3776933d78ccc9cff7d2810490442171d27",
+    "reports/paper_allocation_benchmarks/diagnostic_protocol.json": "78a9cbd246e89d97031a5090a24e00f3b5eb972e7e4cc2a224b6148d60fe3d1b",
+    "reports/paper_allocation_benchmarks/protocol.json": "f9b819740296f0febc51bcd16a2920fcaec843897536607546821e290ede5ed5",
+    "reports/paper_allocation_benchmarks/verification.json": "e47b70ce39d5b0e0e36c1c03c13a2010aff6715144f683308c1955ac29d32876",
+    "reports/paper_allocation_benchmarks/fit_timing.csv": "f69c4b5deccdd52ae787dae2fe67894b922e324cea3c96fa8a02709b39e877d7",
+    "reports/paper_allocation_benchmarks/fit_moments.csv": "fe9706483824f3aedf3369bec68b73575b6c40f9248e07dfec759e74898ca850",
     "artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
     "artifacts/paper_code/replays/fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
     "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/daily_nav.parquet": "dbbb283d13a14467ed67fcd658d2873a0aa07b938ff3315abd8da7be134d8000",

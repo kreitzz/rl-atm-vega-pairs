@@ -1,0 +1,6 @@
+{
+  "method": "Replay exactly the saved target schedule with and without incremental outer resizing charges; retain all trading costs inside both source indices. Do not refit or reselect actions.",
+  "checks": "Every actual replay matches its saved daily excess returns to 1e-12; no-fee and actual portfolios have identical drifted fractional weights.",
+  "interpretation": "The fee removal is a mechanical conditional sensitivity, not a feasible new strategy. Sum of fee fractions is an additive charge diagnostic, not an exact compounded return attribution.",
+  "script_sha256": "14d7169550c509fc6cb51272afd5604f3e21905a750616fbf68233456d286d31"
+}

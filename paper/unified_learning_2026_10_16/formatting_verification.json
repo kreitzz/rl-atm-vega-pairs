@@ -3,20 +3,24 @@
   "title": "From Equity Pairs to Options Relative Value",
   "main_title_single_line": true,
   "all_numeric_tables_verified": true,
-  "source_data_unchanged": true,
   "profit_comparison_figure_revised": true,
   "incremental_profit_endpoints_verified": true,
   "vector_figures_embedded": 11,
-  "main_pages": 15,
+  "main_pages": 16,
   "appendix_pages": 5,
   "minimum_bottom_points": 55.00211267605646,
-  "pdf_sha256": "63dddc649905c718e22f4128973e1949e049c12bf0aab9980f2bd57649d7d71f",
-  "research_equations_tables_results_unchanged": true,
+  "pdf_sha256": "2dc2e90fd3e4a1f37f8fff71730ef2eb61a9eeecdef2126bcdd5c6a0e51bcadb",
   "lambda_zero_explanation_expanded": true,
   "changed_prose_pages": [
-    11,
-    12,
-    15
+    1,
+    13,
+    15,
+    16
   ],
-  "other_pages_unchanged": true
+  "retained_strategy_equations_tables_results_unchanged": true,
+  "retained_source_data_unchanged": true,
+  "all_14_existing_numeric_tables_preserved": true,
+  "all_11_existing_figures_preserved": true,
+  "conventional_allocation_comparison_added": true,
+  "fee_diagnostics_added": true
 }

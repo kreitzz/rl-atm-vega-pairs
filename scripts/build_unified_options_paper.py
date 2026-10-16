@@ -19,8 +19,9 @@ FIG=DEST/'figures';RENDER=DEST/'rendered_pages'
 FACTOR=Path('reports/signal_learning_factorial')
 VAR=Path('reports/signal_allocation_variance')
 INTERP=Path('reports/allocation_interpretability_099')
+BENCH=Path('reports/paper_allocation_benchmarks')
 BLUE='#17364d';TEAL='#087f9c';GRAY='#657681'
-MAIN_PAGES=15
+MAIN_PAGES=16
 APPENDIX_PAGES=5
 CAPTIONS={
  'learning_pipeline':'Two exposure decisions. Entry policies size proposals within each signal; a separately fitted Q policy chooses the capital split between funded strategy indices.',
@@ -81,6 +82,22 @@ def table(name):
             v=pick(data,variance_penalty=str(risk),period='validation');e=pick(data,variance_penalty=str(risk),period='evaluation')
             rows.append([f'λ = {risk:g}',f'{float(v["annualized_excess_sharpe"]):.3f}',money(v['profit_above_cash']),f'{float(e["annualized_excess_sharpe"]):.3f}',money(e['profit_above_cash'])])
         return ['Reward','2018–21 S','2018–21 profit','2022–25 S','2022–25 profit'],rows
+    if name=='conventional_allocators':
+        data=read(BENCH/'all_results.csv')
+        choices={r['family']:r['case'] for r in read(BENCH/'validation_selection.csv')}
+        cases=[('fixed_0.5','Fixed 50/50'),
+               (choices['minimum_variance'],'Minimum variance'),
+               (choices['maximum_sharpe'],'Maximum Sharpe'),
+               (choices['mean_variance_lambda0.2'],'Mean–variance, λ = .20'),
+               ('Q_lambda0.2','Q, λ = .20'),
+               (choices['mean_variance_lambda1'],'Mean–variance, λ = 1'),
+               ('Q_lambda1','Q, λ = 1')]
+        for case,label in cases:
+            v=pick(data,case=case,period='validation');e=pick(data,case=case,period='evaluation')
+            rows.append([label,f'{float(v["annualized_excess_sharpe"]):.3f}',
+                         f'{float(e["annualized_excess_sharpe"]):.3f}',money(e['profit_above_cash']),
+                         f'{float(e["annualized_excess_volatility_pct"]):.3f}'])
+        return ['Capital allocator','2018–21 S','2022–25 S','Later profit','Later σ (%)'],rows
     if name=='factorial':
         data=read(FACTOR/'four_way.csv')
         for cell,label in [('Fixed entry / fixed allocation','Fixed / fixed'),('Bandit entry / fixed allocation','Bandit / fixed'),('Fixed entry / Q allocation','Fixed / Q'),('Bandit entry / Q allocation','Bandit / Q')]:
@@ -154,6 +171,9 @@ def prepare():
              str(VAR/'fixed_results.csv'),str(VAR/'decisions.csv'),
              'reports/p25_strategy_audit/sizing/periods.csv','reports/p25_direct_policy/funded/periods.csv',
              'reports/p25_strategy_audit/pairs/concentration.csv']
+    sources.extend(str(BENCH/name) for name in ['all_results.csv','validation_selection.csv',
+                   'cost_and_switching_diagnostics.csv','diagnostic_protocol.json','protocol.json',
+                   'verification.json','fit_timing.csv','fit_moments.csv'])
     unchanged=['paper/options_relative_value_draft.pdf','paper/options_relative_value_draft.tex','paper/original_with_rl_extension/options_relative_value_extended.pdf','paper/original_with_rl_extension/research_extension.docx']
     sources.extend(str(Path(folder)/'daily_nav.parquet') for folder in [
         'artifacts/contracts/p25_validation_split/replays/screened_selected',
@@ -164,7 +184,7 @@ def prepare():
     write_tex(pages)
     (DEST/'README.txt').write_text('''UNIFIED PAPER: LEARNING EXPOSURE WITHIN AND ACROSS OPTIONS STRATEGIES
 
-options_exposure_learning.pdf is the fifteen-page main paper.
+options_exposure_learning.pdf is the sixteen-page main paper.
 options_exposure_learning_with_appendix.pdf contains the same main paper plus five technical appendix pages.
 options_exposure_learning.docx is an editable copy of the complete manuscript.
 options_exposure_learning.tex and manuscript.json preserve the same text, tables and figures.
@@ -173,7 +193,9 @@ The original ten-page paper and original-with-extension version are unchanged. T
 
 To build the figures on another checkout, extract reproduction_inputs.zip into the repository root first. It supplies four derived daily portfolio ledgers and one saved context model, verified against provenance.json; it contains no raw option chains or credentials. Other required reports and the signal illustration are committed alongside the paper. This compact archive supports document reproduction, not a complete refit of the underlying strategies.
 
-Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 20 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
+Page 15 adds conventional allocation benchmarks adapted from Caner et al. (2026): minimum variance, maximum Sharpe and mean–variance objectives. Sample and linear Ledoit-Wolf covariance estimators are compared using validation only within each objective family. All cases and the zero-penalty exception are retained in reports/paper_allocation_benchmarks. Same-schedule fee diagnostics distinguish allocation performance from incremental resizing charges. Realized volatility is reported alongside profit; policies do not have matched risk exposure.
+
+Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 21 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
 
 The PDF uses traditional academic typography: the original one-line title, centered authors and subtitle, black serif headings, plain ruled tables and centered page numbers. Charts are embedded as vectors; PNGs support previews and the editable Word export. scripts.options_paper_layout defines the matching PDF and Word style. LaTeX and Word may paginate differently in other software. Source report hashes, original-version preservation checks and layout checks are saved alongside the paper. All Sharpe ratios are annualized excess Sharpe; 2025 is partial. Data licensing remains applicable.
 ''')

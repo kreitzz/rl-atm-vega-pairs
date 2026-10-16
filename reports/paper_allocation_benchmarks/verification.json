@@ -1,0 +1,115 @@
+{
+  "all_fixed_replays_reproduced": [
+    {
+      "weight": 0.0,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.0,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.0,
+      "period": "full",
+      "reproduced": true
+    },
+    {
+      "weight": 0.1,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.1,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.1,
+      "period": "full",
+      "reproduced": true
+    },
+    {
+      "weight": 0.25,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.25,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.25,
+      "period": "full",
+      "reproduced": true
+    },
+    {
+      "weight": 0.5,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.5,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.5,
+      "period": "full",
+      "reproduced": true
+    },
+    {
+      "weight": 0.75,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.75,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.75,
+      "period": "full",
+      "reproduced": true
+    },
+    {
+      "weight": 0.9,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.9,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 0.9,
+      "period": "full",
+      "reproduced": true
+    },
+    {
+      "weight": 1.0,
+      "period": "validation",
+      "reproduced": true
+    },
+    {
+      "weight": 1.0,
+      "period": "evaluation",
+      "reproduced": true
+    },
+    {
+      "weight": 1.0,
+      "period": "full",
+      "reproduced": true
+    }
+  ],
+  "endpoints_reproduce_source_returns": true,
+  "training_ends_precede_decisions": true,
+  "source_dates_unique": true,
+  "original_Q_results_used_unchanged": true,
+  "monthly_fit_count": 81,
+  "cases": 14
+}

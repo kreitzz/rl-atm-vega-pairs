@@ -1,7 +1,7 @@
 {
-  "main_pages": 15,
+  "main_pages": 16,
   "appendix_pages": 5,
-  "total_pages": 20,
+  "total_pages": 21,
   "all_table_values_in_pdf": true,
   "source_hashes_verified": true,
   "vector_figures_embedded": 11,
@@ -11,7 +11,7 @@
       "page": 1,
       "bottom_content_points": 63.28342999171463,
       "overflow": false,
-      "content_sha256": "7ec2c6fb4fee7397086819210f17bd91de87e6acf1191ebac4c147c404f8c9bf",
+      "content_sha256": "a32f7644e25cfd7ed7ef9c5e9365240c2c355f709345d8b299ba4abe5314f639",
       "rendered": true,
       "vector_figures": [
         {
@@ -171,7 +171,7 @@
       "page": 13,
       "bottom_content_points": 79.02464788732394,
       "overflow": false,
-      "content_sha256": "040f88c5faba77e4749ae166bd7c7be0bc01aaf39c1c40378a957431c3b15259",
+      "content_sha256": "f69b3e2178e011f5b96789b36776ac34d9614b93707a704e631f9db7de2aee3e",
       "rendered": true,
       "vector_figures": [
         {
@@ -208,14 +208,22 @@
     },
     {
       "page": 15,
-      "bottom_content_points": 60.44999999999948,
+      "bottom_content_points": 85.4499999999999,
       "overflow": false,
-      "content_sha256": "0d940bbecc11e1f85539d255d608e35e446f873c4dec10bbe526562a643b8507",
+      "content_sha256": "e29ce96770e18a63310fde9e10f85529227a9ce2d98df42fc4d96a0ab238322f",
       "rendered": true,
       "vector_figures": []
     },
     {
       "page": 16,
+      "bottom_content_points": 58.649999999999466,
+      "overflow": false,
+      "content_sha256": "125474f776521dbdd4b95a1afe85defcaf48877c9cedbea0a1f516371b694005",
+      "rendered": true,
+      "vector_figures": []
+    },
+    {
+      "page": 17,
       "bottom_content_points": 109.24999999999972,
       "overflow": false,
       "content_sha256": "ea81edb033ac7fbfe0620a55786dc5d8b7cdc1a39540fa06cb586e6b41055a42",
@@ -223,7 +231,7 @@
       "vector_figures": []
     },
     {
-      "page": 17,
+      "page": 18,
       "bottom_content_points": 109.04999999999973,
       "overflow": false,
       "content_sha256": "f9f633bbc68b889efdfd081cd5d1ee7e36ddd7f29f3d5a31b399a7515ba58bbc",
@@ -231,7 +239,7 @@
       "vector_figures": []
     },
     {
-      "page": 18,
+      "page": 19,
       "bottom_content_points": 127.05000000000021,
       "overflow": false,
       "content_sha256": "6183a40c941ab4e1ef85d20e064293c7abfbfb625f8739decb9017a63120a5bb",
@@ -239,7 +247,7 @@
       "vector_figures": []
     },
     {
-      "page": 19,
+      "page": 20,
       "bottom_content_points": 154.2500000000002,
       "overflow": false,
       "content_sha256": "13bc6c8b2127238100a05552d428e9e851122d58fee415232d3704b5dbd36c78",
@@ -247,7 +255,7 @@
       "vector_figures": []
     },
     {
-      "page": 20,
+      "page": 21,
       "bottom_content_points": 295.6499999999995,
       "overflow": false,
       "content_sha256": "a55c0c933b8322003abc51faabeb4597a5619eeb0373f53f5867e04e077cef8a",
@@ -291,8 +299,8 @@
     "paper/unified_learning_2026_10_16/figures/factorial.svg": "cffeed35d0fbb0ef26517b55bcc8af2a03e72a44e722feffae7fbef9e29716c4"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "63dddc649905c718e22f4128973e1949e049c12bf0aab9980f2bd57649d7d71f",
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "49be302b922a9a707c9f4e4361280f9290c790f5f1d912ba667ac74174420bcb",
-    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "98d39e849be2a460756985c74a889c3cff5d58bc3839ee995353aeaf0124e875"
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "2dc2e90fd3e4a1f37f8fff71730ef2eb61a9eeecdef2126bcdd5c6a0e51bcadb",
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "b64289b348d4957f36d68202018380e3cc882981747c672a240904d0131ad759",
+    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "07f58737612c864da9a7c5b91c14218a3e95fe4aed03d4504cbf338864361bcc"
   }
 }

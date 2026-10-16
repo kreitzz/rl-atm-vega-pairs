@@ -1,0 +1,56 @@
+{
+  "configuration": {
+    "source_root": "artifacts/contracts/signal_capital_allocation",
+    "output_root": "artifacts/contracts/paper_allocation_benchmarks",
+    "report_root": "reports/paper_allocation_benchmarks",
+    "training_weeks": 104,
+    "minimum_training_weeks": 52,
+    "straddle_weights": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      1.0
+    ],
+    "covariance_estimators": [
+      "sample",
+      "ledoit_wolf"
+    ],
+    "risk_preferences": [
+      0.0,
+      0.1,
+      0.2,
+      1.0
+    ],
+    "monthly_return_target": 0.01,
+    "capital": 10000000,
+    "evaluation_end": "2025-08-29",
+    "paper": "Designing Agentic AI-Based Screening for Portfolio Investment, uploaded August 10 2026 version, sections 4.2 and 5.2.2",
+    "scope": "Adapt portfolio objectives to the two frozen bandit strategy indices. Same seven long-only capital targets, next-close weekly execution, source trading costs and incremental resizing charges as retained Q. Not a replication of stock screening or high-dimensional estimation. Ledoit-Wolf linear shrinkage is a robustness control, not the paper's nonlinear shrinkage estimator.",
+    "selection": "All configurations reported. Within each objective family, choose the covariance estimator by 2018-2021 Sharpe, with alphabetical case-name ties; carry the same choice to 2022-August 2025. No later-period selection.",
+    "target_return_fallback": "If no allowed target attains the paper's 1% monthly forecast return, choose the highest forecast mean and explicitly record infeasibility. This is a labeled fallback, not a solution to an infeasible constrained problem.",
+    "resource_limits": {
+      "workers": 1,
+      "cpu_fraction_of_one_core": 0.2,
+      "worker_mib": 256,
+      "max_system_swap_growth_mib": 256
+    }
+  },
+  "mean_variance_objective": "mean/ref_vol - lambda * variance/ref_vol**2; conventional centered variance. Q penalizes the raw second moment and uses state and continuation value.",
+  "estimation": "Daily net source excess returns from Q-matched completed 104-week windows, minimum 52. Refitted monthly; weekly decisions execute at next close. No parameter chosen using later results.",
+  "covariance": "Sample covariance and sklearn LedoitWolf linear shrinkage; no high-dimensional inverse needed for two strategies.",
+  "trading": "Identical source costs and extra weekly resizing model. No leverage, short strategy weights, cash action, or stop. Same 50/50 warmup as Q. Funded indices, not a shared integer-contract ledger.",
+  "target_return": "Paper target adapted to 1% monthly EXCESS return, converted geometrically to daily; infeasibility and max-mean fallback recorded. Other methods optimize on excess returns too.",
+  "source_hashes": {
+    "config/paper_allocation_benchmarks.json": "bef259c5be4ef6e49680485904919c389c0f262833951808e4d44a8431c69035",
+    "/Users/adamkreitzman/Desktop/MFE230Z/MFE230Zb/scripts/paper_allocation_benchmarks.py": "14d7169550c509fc6cb51272afd5604f3e21905a750616fbf68233456d286d31",
+    "artifacts/contracts/signal_capital_allocation/prepared.joblib": "8fd36c1bb5f57a8815b1864ef4def1d2c1ca552d073f46d1f8c2a204d78923b7",
+    "scripts/atm_p25_allocation_q.py": "1c7d63a0bb4f5b5529e803b30be842b826c24855c5560140e0e69dbae9378ed9",
+    "scripts/report_atm_p25_combination.py": "7e634ead722b8f2342c4aa48570176dab2e048371de6a1fbf21b58a2446c1aea",
+    "reports/signal_allocation_variance/results.csv": "755af438a44f6c0def3e4adef3328d666706dd3e4733516f9e012ef06a7ea91b",
+    "reports/signal_allocation_variance/fixed_results.csv": "f083ad83b47f2da87acae05f7dd800ca980e72d28faf9a17f74122891aaffd87"
+  },
+  "paper_unchanged": true
+}

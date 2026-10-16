@@ -8,7 +8,7 @@
       },
       {
         "type": "paragraph",
-        "text": "We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022–August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. A four-way comparison separates the learning layers: fixed entries and fixed allocation reach Sharpe 1.088; bandit entries with Q allocation reach 1.726. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results."
+        "text": "We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022–August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. Combining both learners raises Sharpe from 1.088 to 1.726 in a four-way comparison. With bandit entries, Q also exceeds rolling mean–variance allocation: 1.726 versus 1.519. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results."
       },
       {
         "type": "heading",
@@ -591,7 +591,7 @@
       },
       {
         "type": "paragraph",
-        "text": "After Q chooses straddles, their mean daily excess return is 3.05 basis points with volatility 16.18; after it chooses put pairs, the straddle figures are 1.30 and 27.00. These are realized conditional statistics on noncontiguous dates, not causal estimates or standalone strategy Sharpes. They include source costs but exclude additional outer resizing charges."
+        "text": "After Q chooses straddles, their mean daily excess return is 3.05 basis points with volatility 16.18; after it chooses put pairs, the straddle figures are 1.30 and 27.00. Put pairs average −0.09 basis points on the first set and +0.31 on the second. These are realized conditional statistics on noncontiguous dates, not causal estimates or standalone strategy Sharpes. Source costs are included; outer resizing charges are excluded."
       },
       {
         "type": "paragraph",
@@ -639,7 +639,55 @@
     ]
   },
   {
-    "title": "15. Interpretation, limitations and conclusion",
+    "title": "15. Comparing dynamic allocation methods",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "A dynamic policy might outperform fixed weights simply by responding to recent returns. We therefore adapt the minimum-variance, maximum-Sharpe and mean–variance portfolio objectives of Caner et al. [5] to our two frozen bandit portfolios. This comparison asks whether Q improves on conventional dynamic allocation as well."
+      },
+      {
+        "type": "heading",
+        "text": "The same budget, opportunities and execution"
+      },
+      {
+        "type": "paragraph",
+        "text": "All methods choose among the same seven capital splits, use one $10 million budget and pay the same source trading and additional resizing costs. Estimates use Q’s preceding 104 completed weeks, with a minimum of 52, monthly refits and the same 50/50 warmup. Within each objective, 2018–2021 Sharpe selects sample covariance or linear Ledoit–Wolf shrinkage; that choice remains fixed for the later period. This adapts their objectives rather than replicating their stock screens, nonlinear shrinkage or 15-year estimation window."
+      },
+      {
+        "type": "data_table",
+        "name": "conventional_allocators",
+        "widths": [
+          218,
+          72,
+          72,
+          78,
+          72
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "All S columns are annualized excess Sharpe; later σ is annualized daily excess-return volatility. At λ = 0.20, Q raises later Sharpe from 1.519 to 1.726 and profit above cash from $452,303 to $1,305,940. At λ = 1, the corresponding figures are 1.795 versus 2.152 and $439,118 versus $1,141,251. Q also improves both measures at λ = 0.10 in both periods. These are portfolio comparisons, not equal-risk experiments: Q takes more realized risk."
+      },
+      {
+        "type": "heading",
+        "text": "Why the allocation rules differ"
+      },
+      {
+        "type": "paragraph",
+        "text": "The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At λ = 0.20, its mean later straddle target is 24.9%, versus 12.7% for mean–variance allocation. The selected intervals on page 13 have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone."
+      },
+      {
+        "type": "paragraph",
+        "text": "Q changes targets 24 times later, versus eight for mean–variance allocation. Removing only outer resizing charges raises their Sharpes to 1.774 and 1.525; all source trading costs remain. Lower resizing fees therefore do not explain Q’s advantage. The conventional rule uses centered variance, whereas Q penalizes the raw second moment and adds state and continuation value; identical λ values do not make these identical objectives."
+      },
+      {
+        "type": "paragraph",
+        "text": "The result has a clear exception: at λ = 0, conventional profit-only allocation reaches later Sharpe 1.041 and $2.154 million above cash, versus Q’s 0.671 and $1.353 million. The literal 1% monthly target used in [5] is infeasible under our allocation limits; its maximum-mean fallback is recorded separately. All 14 conventional cases and the fee diagnostics are retained in the companion results."
+      }
+    ]
+  },
+  {
+    "title": "16. Interpretation, limitations and conclusion",
     "blocks": [
       {
         "type": "heading",
@@ -647,7 +695,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Entry bandits improve the retained portfolios through both requested size and admission. Q improves allocation even with constant entry size. Reward design matters: the profit-only learner concentrates on the higher-profit straddle strategy, but its exposure and timing transfer less reliably when that strategy weakens. Positive risk penalties produce a different allocation tradeoff. The preferred combination depends on the investor’s profit–risk preference."
+        "text": "Entry bandits improve the retained portfolios through requested size and admission. Q improves allocation with constant entry size and outperforms rolling conventional allocators at the positive penalties tested. Its profit-only policy transfers less reliably when straddles weaken. Reward design matters, and the preferred combination depends on the investor’s profit–risk preference."
       },
       {
         "type": "heading",
@@ -671,11 +719,11 @@
       },
       {
         "type": "paragraph",
-        "text": "Future work should test a common contract-level ledger, measured execution costs and additional independently developed signals. Learned trimming remains worth studying, although earlier improvements on weak entry signals were less compelling than improving exposure to useful signals."
+        "text": "Future work should test shared contract-level inventory, measured execution costs and additional independent signals. Learned trimming remains worth studying, although earlier gains on weak entry signals were less compelling."
       },
       {
         "type": "paragraph",
-        "text": "Learning exposure is useful at two levels in these simulations. Bandits adapt individual entry commitments; Q-learning decides when competing strategies deserve capital. The four-way comparison and fixed-entry controls make their contributions separately visible. The results motivate an integrated implementation and prospective evaluation."
+        "text": "Bandits adapt trade commitments; Q allocates across strategies. The four-way and conventional-benchmark comparisons support studying both exposure decisions in an integrated implementation and prospective evaluation."
       },
       {
         "type": "heading",
@@ -696,6 +744,10 @@
       {
         "type": "reference",
         "text": "[4] Ernst, D., P. Geurts, and L. Wehenkel (2005). Tree-Based Batch Mode Reinforcement Learning. Journal of Machine Learning Research 6, 503–556. https://jmlr.org/papers/v6/ernst05a.html"
+      },
+      {
+        "type": "reference",
+        "text": "[5] Caner, M., A. Capponi, N. Sun, and J. Y. Tan (2026). Designing Agentic AI-Based Screening for Portfolio Investment. arXiv:2603.23300. https://arxiv.org/abs/2603.23300"
       }
     ]
   },

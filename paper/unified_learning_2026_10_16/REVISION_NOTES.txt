@@ -81,3 +81,27 @@ on straddles, and why both exposure and allocation timing matter for its weaker
 later Sharpe. The fixed-75%-straddle control and unchanged actions under more
 Bellman updates distinguish the economic explanation from exposure alone or
 insufficient iteration. No fitting, data changes or performance changes occurred.
+
+CONVENTIONAL ALLOCATION BENCHMARKS
+
+The main paper now has 16 pages plus the same five appendix pages. Page 15 adds
+minimum-variance, maximum-Sharpe and mean–variance allocation across the same
+frozen bandit indices. Sample and linear Ledoit-Wolf covariance are selected
+using validation within each objective. The text distinguishes this adaptation
+from the source paper's stock screening, nonlinear shrinkage and 15-year window.
+Both date periods, later dollar profit and realized excess volatility are shown.
+All 14 previous numeric tables and all 11 figures are preserved. The abstract and
+conclusion mention the additional controls, with a new Caner et al. reference.
+
+The mechanism discussion adds conditional put returns to the existing conditional
+straddle returns. A saved-schedule audit reconciles every actual daily path and
+removes only outer resizing charges. Q changes allocation more often and incurs
+more resizing charges; that cost difference does not explain its advantage.
+The text distinguishes conditional exposure from the smaller continuation-value
+contribution and retains the profit-only Q failure. No entry bandit or Q policy
+was refitted or altered for this document revision.
+
+All 14 conventional configurations, validation choices, fitted moments, causal
+fit dates, yearly results, decisions and fee diagnostics are retained under
+reports/paper_allocation_benchmarks. Their inputs are already supplied by
+data/research/signal_allocation_variance_snapshot.zip.

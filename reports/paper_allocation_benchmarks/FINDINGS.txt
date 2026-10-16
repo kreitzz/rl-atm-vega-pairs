@@ -1,0 +1,61 @@
+CONVENTIONAL ALLOCATION BENCHMARKS
+
+Both sources are the retained bandit portfolios. All Sharpe ratios are annualized excess Sharpe.
+Capital $10m; unchanged source execution assumptions and incremental resizing costs.
+104 completed weeks, minimum 52; monthly estimation, weekly decisions, next-close execution.
+Same seven capital allocations and 50/50 warmup as Q. No strategy leverage or cash action.
+
+Policy | 2018–21 Sharpe | 2022–Aug2025 Sharpe | Later profit above cash
+-----------------------------------------------------------------------------------------------
+Fixed 50/50 | 0.804 | 1.167 | $1,238,422
+Minimum variance | 0.316 | 1.329 | $283,692
+Maximum Sharpe | 0.189 | 0.659 | $353,417
+Mean–variance lambda 0 | 0.470 | 1.041 | $2,153,590
+Q lambda 0 | 1.427 | 0.671 | $1,353,063
+Mean–variance lambda 0.1 | 0.350 | 1.350 | $630,276
+Q lambda 0.1 | 1.286 | 1.491 | $1,387,790
+Mean–variance lambda 0.2 | 0.355 | 1.519 | $452,303
+Q lambda 0.2 | 1.215 | 1.726 | $1,305,940
+Mean–variance lambda 1 | 0.246 | 1.795 | $439,118
+Q lambda 1 | 1.005 | 2.152 | $1,141,251
+
+INTERPRETATION
+Q has higher Sharpe and dollar profit than the validation-chosen conventional mean–variance estimator at each positive penalty (0.1, 0.2, 1) in both periods.
+This does not hold for lambda 0: profit-only conventional allocation has higher later profit and Sharpe than profit-only Q.
+Minimum variance becomes almost entirely put-pair exposure; mean–variance lambda 1 averages 9.27% straddles later, versus 16.88% for Q lambda 1.
+Q lambda 0.2 averages 24.92% straddles later, versus 12.75% for conventional mean–variance lambda 0.2. These are different portfolio paths, not matched mean-risk exposures.
+The conventional controls estimate unconditional trailing moments. Q also uses economic states and continuation value; this comparison alone does not isolate either contribution.
+
+SELECTION AND SCOPE
+Choose sample or Ledoit-Wolf covariance separately within each objective using validation Sharpe, alphabetical case-name ties; display every case in all_results.csv.
+The paper uses nonlinear shrinkage among other high-dimensional estimators. This study uses linear Ledoit-Wolf shrinkage for a two-strategy problem; it is an adaptation, not a replication.
+The paper uses a 15-year estimation window; we retain Q's two-year window and seven long-only capital targets to hold the decision problem constant.
+The literal 1% monthly target is infeasible in every fitted decision. Its explicitly labeled max-mean fallback always targets 100% straddles in the later period. Do not present it as a feasible constrained optimum.
+The existing paper and its strategy specifications are unchanged.
+
+REPRODUCTION
+Run scripts.paper_allocation_benchmarks --phase run, then --phase analyze and --phase chart in separate scripts.run_signal_discovery_guarded workers.
+One worker, 20% of one core, 256 MiB RSS/footprint, 30% headroom floor, 256 MiB maximum swap growth.
+verification.json reconciles all seven fixed allocations in all three reporting periods and verifies both source endpoints.
+config/paper_allocation_benchmarks.json and protocol.json specify objectives, timing, selection, and source hashes.
+
+ADDITIONAL COST AND SWITCHING CHECK
+
+At lambda 0.20, Q changes targets 24 times during evaluation, versus eight for
+mean–variance allocation. Removing only incremental outer resizing charges
+raises their Sharpes to 1.774 and 1.525, respectively. All source option, hedge,
+financing and borrow costs remain. The difference is not explained by lower
+resizing charges for Q. See cost_and_switching_diagnostics.csv.
+
+Annualized excess volatility is 1.353% for Q0.20 and 0.619% for mean–variance0.20.
+At lambda1 it is0.985% and0.519%. The higher profits include more realized risk;
+higher Sharpe indicates that return also improves relative to that risk.
+
+REPRODUCTION INPUTS
+
+Extract data/research/signal_allocation_variance_snapshot.zip into the repository
+root. This existing derived-data archive supplies prepared.joblib and the saved
+Q daily ledgers required by the run and diagnostics phases; no new raw option
+data or WRDS connection is needed. Run the run, analyze, diagnostics and chart
+phases serially in the memory guard. The new results are incorporated on page15
+of the unified paper; underlying strategies and saved Q policies are unchanged.

@@ -1,0 +1,8 @@
+family,case
+mean_variance_lambda0,ledoit_wolf_mean_variance_lambda0
+target_return,ledoit_wolf_target_return
+mean_variance_lambda0.2,ledoit_wolf_mean_variance_lambda0.2
+mean_variance_lambda0.1,ledoit_wolf_mean_variance_lambda0.1
+minimum_variance,ledoit_wolf_minimum_variance
+mean_variance_lambda1,ledoit_wolf_mean_variance_lambda1
+maximum_sharpe,sample_maximum_sharpe
