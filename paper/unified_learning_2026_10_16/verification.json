@@ -4,147 +4,255 @@
   "total_pages": 20,
   "all_table_values_in_pdf": true,
   "source_hashes_verified": true,
+  "vector_figures_embedded": 11,
   "original_versions_unchanged": true,
   "layout_checks": [
     {
       "page": 1,
-      "bottom_content_points": 76.0149130074565,
+      "bottom_content_points": 63.28342999171463,
       "overflow": false,
-      "content_sha256": "e848daa592dfd7c0ddce16c2cb3528666acf495102292fe14632b1eb477c1f67",
-      "rendered": true
+      "content_sha256": "7ec2c6fb4fee7397086819210f17bd91de87e6acf1191ebac4c147c404f8c9bf",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "learning_pipeline",
+          "x": 54,
+          "y": 158.6834299917146,
+          "width": 504,
+          "height": 124.016570008285
+        }
+      ]
     },
     {
       "page": 2,
-      "bottom_content_points": 118.99999999999994,
+      "bottom_content_points": 154.24999999999974,
       "overflow": false,
-      "content_sha256": "9bee309304f7ce6a7aab76933d2ee91f0c106cf282c05f81015d144f186c0d83",
-      "rendered": true
+      "content_sha256": "c657ca60339d81fc45b35812e65ffcce0ddb8394f88631d8a3c9b0c76cad5e47",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 3,
-      "bottom_content_points": 133.84999999999997,
+      "bottom_content_points": 140.44999999999965,
       "overflow": false,
-      "content_sha256": "c783be7fc1f59233a5fb022e08379c55333a7e76027b77d80cf094c9fe817a4b",
-      "rendered": true
+      "content_sha256": "306ce1cf08bfda25c535ae7676dcb992b8c7ae6b13d98989ccad847d86fbfdea",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 4,
-      "bottom_content_points": 105.11350455675228,
+      "bottom_content_points": 137.9461060480528,
       "overflow": false,
-      "content_sha256": "cfcf443610e2408e4e583984bd01ab5675e8317cea4786eff171512c403dd5b9",
-      "rendered": true
+      "content_sha256": "1221ca6b2c60f1478ea0412c65c2496af2e464a064b67e8a36fc8574be71c9a8",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "signal_example",
+          "x": 54,
+          "y": 430.9461060480529,
+          "width": 504,
+          "height": 187.90389395194697
+        }
+      ]
     },
     {
       "page": 5,
-      "bottom_content_points": 128.74999999999994,
+      "bottom_content_points": 124.24999999999972,
       "overflow": false,
-      "content_sha256": "9b362489ed3b7195dd67ecea37f6d461f316cbe9c022c220803ce86a656e5f46",
-      "rendered": true
+      "content_sha256": "decc13a4d25897c3907fcbae6aeb6223bf1eb6e31a710ed59d018905f4b88363",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 6,
-      "bottom_content_points": 71.20857497928748,
+      "bottom_content_points": 118.5404722452358,
       "overflow": false,
-      "content_sha256": "55ddb58f1df98db9e4aa97f2dca025511b5981d293f948bb5447db338625e84a",
-      "rendered": true
+      "content_sha256": "9c783eaf96b9cd8f715375be9d906aff922b724aa6db1d811b10854da9eb473e",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "refit_timeline",
+          "x": 54,
+          "y": 248.14047224523577,
+          "width": 504,
+          "height": 159.50952775476387
+        }
+      ]
     },
     {
       "page": 7,
-      "bottom_content_points": 66.1056338028169,
+      "bottom_content_points": 101.59929577464769,
       "overflow": false,
-      "content_sha256": "fb154b7c5e85dfe3ce890cc9c8f9c72ec4a8d086e2cd1df3ac0cf81c2796226c",
-      "rendered": true
+      "content_sha256": "0030b095aaaaa6a71a31cf42887968edad5429a525f5815b9af1882b026a7b32",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "feature_validation",
+          "x": 54,
+          "y": 244.79929577464765,
+          "width": 504,
+          "height": 248.45070422535213
+        }
+      ]
     },
     {
       "page": 8,
-      "bottom_content_points": 64.38463131731567,
+      "bottom_content_points": 74.45596520298244,
       "overflow": false,
-      "content_sha256": "b0e7e043469c60f0848bddee4be9895cb7409fb64f794709e60ea5b9d84e44f4",
-      "rendered": true
+      "content_sha256": "ea4056817a4412f40f19a49ad38c5c348cef044a1196dc0596be03e1c3c8ffc6",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "entry_policy",
+          "x": 54,
+          "y": 347.05596520298246,
+          "width": 504,
+          "height": 237.5940347970174
+        }
+      ]
     },
     {
       "page": 9,
-      "bottom_content_points": 82.27970173985074,
+      "bottom_content_points": 89.25033140016595,
       "overflow": false,
-      "content_sha256": "f41e42ac9509a8a5826331ff076bc4640d59d612a945c173d85cbb30f9abcffa",
-      "rendered": true
+      "content_sha256": "5c72ef7fcf5693fa1c62ae72244bec2aa5393001d1d33b812feb12cc2908177e",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "entry_curves",
+          "x": 54,
+          "y": 498.0503314001657,
+          "width": 504,
+          "height": 209.1996685998343
+        }
+      ]
     },
     {
       "page": 10,
-      "bottom_content_points": 59.079701739850805,
+      "bottom_content_points": 84.05033140016553,
       "overflow": false,
-      "content_sha256": "f7f5e7dda41122f43d7a249c07ee9793081064154e0f1caa74235a0ffe7c54bb",
-      "rendered": true
+      "content_sha256": "c341a0324068ee679b8175a2c65fddd7b467e46943db361e10d73a0e3983758e",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "entry_explanations",
+          "x": 54,
+          "y": 498.0503314001657,
+          "width": 504,
+          "height": 209.1996685998343
+        }
+      ]
     },
     {
       "page": 11,
-      "bottom_content_points": 169.0,
+      "bottom_content_points": 200.44999999999948,
       "overflow": false,
-      "content_sha256": "23bd81b8b484cf8065ddde23f4c1930852520b0c2361f4db83bfb59f8c648a6b",
-      "rendered": true
+      "content_sha256": "f563945215fd63c92e62c8887917f9bded3219b6a805b7553fd4a83fb86348af",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 12,
-      "bottom_content_points": 128.18309859154925,
+      "bottom_content_points": 157.20211267605643,
       "overflow": false,
-      "content_sha256": "90af875b74836da672e3aeaa48f955158b514ee6dea3188843a5fcf5b8dec30a",
-      "rendered": true
+      "content_sha256": "eb23b381409a09fa23475e155a98acea991b5da7e947f63d79d219f7886ca900",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "allocation_risk",
+          "x": 54,
+          "y": 444.6021126760563,
+          "width": 504,
+          "height": 262.6478873239437
+        }
+      ]
     },
     {
       "page": 13,
-      "bottom_content_points": 54.30281690140848,
+      "bottom_content_points": 79.02464788732394,
       "overflow": false,
-      "content_sha256": "ea6a445fb2b6905818ca36b9708a0d1ca8a3e0d916b2c440742485cfc7630e2a",
-      "rendered": true
+      "content_sha256": "040f88c5faba77e4749ae166bd7c7be0bc01aaf39c1c40378a957431c3b15259",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "allocation_schedule",
+          "x": 54,
+          "y": 495.5852112676056,
+          "width": 504,
+          "height": 177.46478873239437
+        },
+        {
+          "name": "conditional_risk",
+          "x": 54,
+          "y": 235.8246478873239,
+          "width": 504,
+          "height": 198.7605633802817
+        }
+      ]
     },
     {
       "page": 14,
-      "bottom_content_points": 147.76197183098583,
+      "bottom_content_points": 126.69225352112679,
       "overflow": false,
-      "content_sha256": "bb82b1f549fe3c18fd393baa7ffef386924a428bcdbe5d415f078b2a0bda00ee",
-      "rendered": true
+      "content_sha256": "4a814e385382af71c0f0a3ef9947d98361f9669860f8a69b5540e797cca851de",
+      "rendered": true,
+      "vector_figures": [
+        {
+          "name": "factorial",
+          "x": 54,
+          "y": 494.2922535211268,
+          "width": 504,
+          "height": 212.95774647887325
+        }
+      ]
     },
     {
       "page": 15,
-      "bottom_content_points": 91.20000000000005,
+      "bottom_content_points": 87.64999999999947,
       "overflow": false,
-      "content_sha256": "a3b21cef658387e57426a7c93746abeaae5f4e7245ea34ae697c8716ec1f2a87",
-      "rendered": true
+      "content_sha256": "c51490e0fd3be16eac695ad1f62e5c7b790fbadaca04d1936a032230a6ea7e69",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 16,
-      "bottom_content_points": 101.94999999999993,
+      "bottom_content_points": 109.24999999999972,
       "overflow": false,
-      "content_sha256": "2a5eaaf78f86a906335395f5d907f231ad9618a1508b0fa9c0d35625ff2814d9",
-      "rendered": true
+      "content_sha256": "ea81edb033ac7fbfe0620a55786dc5d8b7cdc1a39540fa06cb586e6b41055a42",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 17,
-      "bottom_content_points": 89.29999999999995,
+      "bottom_content_points": 109.04999999999973,
       "overflow": false,
-      "content_sha256": "5a13d76a6ddf0a4185aa5a03012a5369111968e0f675aa86d54cc0e5ce5afbdb",
-      "rendered": true
+      "content_sha256": "f9f633bbc68b889efdfd081cd5d1ee7e36ddd7f29f3d5a31b399a7515ba58bbc",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 18,
-      "bottom_content_points": 121.05000000000035,
+      "bottom_content_points": 127.05000000000021,
       "overflow": false,
-      "content_sha256": "28b4ed6ac7972600c9aa626a9aa848382b7d05ba0918d81a0036f3697e562bfe",
-      "rendered": true
+      "content_sha256": "6183a40c941ab4e1ef85d20e064293c7abfbfb625f8739decb9017a63120a5bb",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 19,
-      "bottom_content_points": 136.25000000000023,
+      "bottom_content_points": 154.2500000000002,
       "overflow": false,
-      "content_sha256": "2d22e5eea2c687b28812d74c6b8b0ad2ec2d759865ebfb81a08e30c65c293f8e",
-      "rendered": true
+      "content_sha256": "13bc6c8b2127238100a05552d428e9e851122d58fee415232d3704b5dbd36c78",
+      "rendered": true,
+      "vector_figures": []
     },
     {
       "page": 20,
-      "bottom_content_points": 227.25,
+      "bottom_content_points": 295.6499999999995,
       "overflow": false,
-      "content_sha256": "f0c349994a3de0e2f15ca4056f2884d608caace70faff6532a2779e9f34d0af9",
-      "rendered": true
+      "content_sha256": "a55c0c933b8322003abc51faabeb4597a5619eeb0373f53f5867e04e077cef8a",
+      "rendered": true,
+      "vector_figures": []
     }
   ],
   "figure_hashes": {
@@ -183,8 +291,8 @@
     "paper/unified_learning_2026_10_16/figures/factorial.svg": "cffeed35d0fbb0ef26517b55bcc8af2a03e72a44e722feffae7fbef9e29716c4"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "d1d89621070c17380355793e43bd783df0fa0401541085826367f85f87d45fe3",
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "a31b508fd12de1b6289695926df7e542161c4aac979a3832a3de3ebac6965795",
-    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "288ed68b0c809069a1cb9331c3c73de930ce6ad153cd4f43218019494333d932"
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "6921fdf78f090526d782f8f2f3ba5610c08f30b3e47fb78c0a70b11c061cd7dd",
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "5989335f0d841366298487fda1c3eee81392234b09e0916ef28c40d84ae45a2b",
+    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "98d39e849be2a460756985c74a889c3cff5d58bc3839ee995353aeaf0124e875"
   }
 }

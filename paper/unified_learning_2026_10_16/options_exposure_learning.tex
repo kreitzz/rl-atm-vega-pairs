@@ -1,15 +1,19 @@
 \documentclass[11pt,letterpaper]{article}
-\usepackage[margin=0.7in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,microtype,amsmath,amssymb,booktabs,array,float,graphicx,hyperref}
+\hypersetup{hidelinks}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.35em}
+\setlength{\parskip}{0.4em}
+\title{\textbf{From Equity Pairs to Options Relative Value}\\[0.4em]\large Reinforcement Learning for Trade Sizing and Capital Allocation}
+\author{Adam Kreitzman and Soo Xin Yang\\MFE 230Z: Deep Learning in Finance}
+\date{16 October 2026}
 \begin{document}
-\section*{Learning exposure within and across options strategies}
-Adam Kreitzman and Soo Xin Yang · 16 October 2026\par
-\subsection*{Abstract}
+\maketitle
+\begin{abstract}
 We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022--August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. A four-way comparison separates the learning layers: fixed entries and fixed allocation reach Sharpe 1.088; bandit entries with Q allocation reach 1.726. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results.
 
+\end{abstract}
 \subsection*{1. From a useful signal to an exposure decision}
 Suppose AMD and NVDA face similar news, but AMD options become unusually expensive relative to NVDA options. Selling the richer options and buying the cheaper ones expresses a view about the relative price of volatility. Daily stock hedges reduce immediate directional exposure, and initial vega matching reduces sensitivity to a common small change in implied volatility. The trade still carries risk: related stocks can experience different events, and option premiums may correctly reflect those differences.
 

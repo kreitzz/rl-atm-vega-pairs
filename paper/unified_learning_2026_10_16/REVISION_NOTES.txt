@@ -51,3 +51,15 @@ No strategy fitting, signal reselection or performance optimization occurred.
 All numerical results come from saved reports and ledgers. The build checks
 source hashes, preservation of earlier papers, table values, per-page content
 and figure fingerprints, and page overflow before assembling the PDF.
+
+ACADEMIC FORMATTING REVISION
+
+Restores the original one-line title, From Equity Pairs to Options Relative
+Value, with a centered subtitle, authors, course and date. Removes the report
+banner, blue page headings, colored table bands and branded footer. Uses black
+serif typography, plain ruled tables, right-aligned numerical columns and
+centered page numbers. Final PDFs embed the eleven original figure PDFs as
+vectors at the audited preview positions. Word receives matching paper styles.
+All research paragraphs, equations, table cells, sections and results are
+unchanged. formatting_verification.json records the checks. The immediately
+preceding layout is archived locally in ../unified_learning_2026_10_16_before_academic_format.

@@ -175,7 +175,7 @@ To build the figures on another checkout, extract reproduction_inputs.zip into t
 
 Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 20 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
 
-The PDF is rendered from the shared manuscript using the existing publication renderer. LaTeX and Word are editable exports and may paginate differently in other software. Source report hashes, original-version preservation checks and layout checks are saved alongside the paper. All Sharpe ratios are annualized excess Sharpe; 2025 is partial. Data licensing remains applicable.
+The PDF uses traditional academic typography: the original one-line title, centered authors and subtitle, black serif headings, plain ruled tables and centered page numbers. Charts are embedded as vectors; PNGs support previews and the editable Word export. scripts.options_paper_layout defines the matching PDF and Word style. LaTeX and Word may paginate differently in other software. Source report hashes, original-version preservation checks and layout checks are saved alongside the paper. All Sharpe ratios are annualized excess Sharpe; 2025 is partial. Data licensing remains applicable.
 ''')
     print(f'Prepared {MAIN_PAGES} main pages and {APPENDIX_PAGES} appendix pages',flush=True)
 
@@ -186,9 +186,13 @@ def figure(name):
 
 
 def page_fingerprint(page):
+    from scripts.options_paper_layout import STYLE_VERSION,FALLBACK_CHARS
     names=[b['name'] for b in page['blocks'] if b['type']=='chart']
-    evidence=dict(page=page,figures={name:digest(FIG/f'{name}.png') for name in names},
+    evidence=dict(style=STYLE_VERSION,page=page,
+                  figures={name:{ext:digest(FIG/f'{name}.{ext}') for ext in ('png','pdf')} for name in names},
                   captions={name:CAPTIONS[name] for name in names})
+    if any(c in b.get('text','') for b in page['blocks'] for c in FALLBACK_CHARS):
+        evidence['unicode_font_fallback']='STIXGeneral + DejaVu Serif'
     return hashlib.sha256(json.dumps(evidence,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
 
@@ -199,24 +203,12 @@ def render(page_number):
     import matplotlib.pyplot as plt
     from matplotlib.backends.backend_pdf import PdfPages
     from scripts import build_research_publication as pub
+    from scripts.options_paper_layout import page_class
+    plt.rcParams.update({'font.family':'STIXGeneral','mathtext.fontset':'stix'})
     pub.FIG=FIG;pub.CHARTS={k:dict(caption=v) for k,v in CAPTIONS.items()};pub.PAPER_FIGURES=NUMBERS
     pages=json.loads((DEST/'manuscript.json').read_text());page=pages[page_number-1]
-    class Page(pub.PaperPage):
-        def text(self,x,y,text,size=10.35,color='#202832',family='serif',weight='normal'):
-            return self.fig.text(x/612,y/792,text,fontsize=size,color=color,family=family,weight=weight,va='top',parse_math=False)
-        def image(self,name,height):
-            from PIL import Image
-            im=Image.open(FIG/f'{name}.png')
-            # Full printed width: never shrink a chart into a letterboxed axes.
-            height=self.width*im.height/im.width
-            ax=self.fig.add_axes([self.x/612,(self.y-height)/792,self.width/612,height/792])
-            ax.imshow(im);ax.axis('off');self.y-=height+4
-            self.paragraph(f'Figure {NUMBERS[name]}. '+CAPTIONS[name],size=8.4,leading=10.5,color=GRAY)
+    Page=page_class(pub.PaperPage)
     canvas=Page(page_number,page['title'])
-    for obj in canvas.fig.texts:
-        if obj.get_text()=='MFE230Z  |  OPTIONS RELATIVE VALUE':obj.set_text('OPTIONS EXPOSURE LEARNING  |  KREITZMAN & YANG')
-        if obj.get_text()=='RESEARCH DRAFT · 4 OCTOBER 2026':obj.set_text('RESEARCH PAPER · 16 OCTOBER 2026')
-    if page.get('subtitle'):canvas.paragraph(page['subtitle'],size=9,color=GRAY,leading=12)
     for block in page['blocks']:
         kind=block['type']
         if kind=='paragraph':canvas.paragraph(block['text'])
@@ -224,16 +216,20 @@ def render(page_number):
         elif kind=='table':canvas.table(block)
         elif kind=='chart':canvas.image(block['name'],block['height'])
         elif kind=='equation':
-            canvas.fig.text(canvas.x/612,canvas.y/792,'$'+block['latex']+'$',fontsize=11,color=BLUE,family='serif',va='top',parse_math=True);canvas.y-=30
+            canvas.equation(block['latex'])
         elif kind=='reference':
-            before=len(canvas.fig.texts);canvas.paragraph(block['text'],size=8.1,leading=10.1,color=GRAY)
+            before=len(canvas.fig.texts);canvas.paragraph(block['text'],size=9,leading=11)
             url=re.search(r'https://\S+',block['text'])
             if url:
                 for obj in canvas.fig.texts[before:]:obj.set_url(url.group())
     check=dict(page=page_number,bottom_content_points=canvas.y,overflow=canvas.y<49,
-               content_sha256=page_fingerprint(page),rendered=False)
+               content_sha256=page_fingerprint(page),rendered=False,vector_figures=canvas.figure_placements)
     dump(RENDER/f'layout_{page_number:02d}.json',check)
+    # The PNG preview includes the charts. Final PDFs receive their vector
+    # equivalents at these exact positions during assembly.
+    for ax in canvas.figure_axes:ax.set_visible(False)
     with PdfPages(RENDER/f'page_{page_number:02d}.pdf') as pdf:pdf.savefig(canvas.fig)
+    for ax in canvas.figure_axes:ax.set_visible(True)
     canvas.fig.savefig(RENDER/f'page_{page_number:02d}.png',dpi=110);plt.close(canvas.fig)
     check['rendered']=True
     dump(RENDER/f'layout_{page_number:02d}.json',check);print(json.dumps(check),flush=True)
@@ -241,7 +237,8 @@ def render(page_number):
 
 
 def assemble():
-    from pypdf import PdfReader,PdfWriter
+    from pypdf import PdfReader,PdfWriter,Transformation
+    from scripts.options_paper_layout import TITLE
     pages=json.loads((DEST/'manuscript.json').read_text());meta=json.loads((DEST/'provenance.json').read_text())
     for path,expected in {**meta['source_hashes'],**meta['preserved_versions']}.items():assert digest(path)==expected,path
     checks=[json.loads((RENDER/f'layout_{i:02d}.json').read_text()) for i in range(1,len(pages)+1)]
@@ -250,8 +247,16 @@ def assemble():
         assert check.get('rendered') and check.get('content_sha256')==page_fingerprint(page),('Stale page',check['page'])
     for filename,indices in [('options_exposure_learning.pdf',range(1,MAIN_PAGES+1)),('technical_appendix.pdf',range(MAIN_PAGES+1,len(pages)+1)),('options_exposure_learning_with_appendix.pdf',range(1,len(pages)+1))]:
         writer=PdfWriter()
-        for n in indices:writer.append(PdfReader(RENDER/f'page_{n:02d}.pdf'),outline_item=pages[n-1]['title'])
-        writer.add_metadata({'/Title':'Learning Exposure Within and Across Options Strategies','/Author':'Adam Kreitzman and Soo Xin Yang'})
+        for n in indices:
+            page=PdfReader(RENDER/f'page_{n:02d}.pdf').pages[0]
+            for placement in checks[n-1]['vector_figures']:
+                figure=PdfReader(FIG/f'{placement["name"]}.pdf').pages[0]
+                transform=Transformation().scale(placement['width']/float(figure.mediabox.width),
+                                                  placement['height']/float(figure.mediabox.height))
+                page.merge_transformed_page(figure,transform.translate(placement['x'],placement['y']))
+            writer.add_page(page)
+            writer.add_outline_item(pages[n-1]['title'],len(writer.pages)-1)
+        writer.add_metadata({'/Title':TITLE,'/Author':'Adam Kreitzman and Soo Xin Yang'})
         with (DEST/filename).open('wb') as f:writer.write(f)
         writer.close()
     complete=PdfReader(DEST/'options_exposure_learning_with_appendix.pdf');assert len(complete.pages)==len(pages)
@@ -265,6 +270,7 @@ def assemble():
                     for value in row:assert compact(value) in compact(actual),(number+1,value)
     for value in ['1.726','2.152','2.118','0.671','1.263','1.041']:assert value in text,value
     verification=dict(main_pages=MAIN_PAGES,appendix_pages=APPENDIX_PAGES,total_pages=len(pages),all_table_values_in_pdf=True,source_hashes_verified=True,
+        vector_figures_embedded=sum(len(c['vector_figures']) for c in checks),
         original_versions_unchanged=True,layout_checks=checks,
         figure_hashes={str(FIG/f'{name}.{ext}'):digest(FIG/f'{name}.{ext}') for name in CAPTIONS for ext in ('png','pdf','svg')},
         output_hashes={str(p):digest(p) for p in DEST.glob('*.pdf')})
@@ -272,18 +278,24 @@ def assemble():
 
 
 def write_tex(pages):
+    from scripts.options_paper_layout import TITLE,SUBTITLE,AUTHORS,COURSE,DATE
     mapping={'\\':r'\textbackslash{}','&':r'\&','%':r'\%','$':r'\$','#':r'\#','_':r'\_','{':r'\{','}':r'\}',
              'λ':r'\ensuremath{\lambda}','γ':r'\ensuremath{\gamma}','σ':r'\ensuremath{\sigma}','Δ':r'\ensuremath{\Delta}',
              '²':r'\ensuremath{^2}','±':r'\ensuremath{\pm}','×':r'\ensuremath{\times}','−':'-','–':'--','—':'---','’':"'",'“':'``','”':"''"}
     def escape(text):return ''.join(mapping.get(c,c) for c in str(text))
-    parts=[r'\documentclass[11pt,letterpaper]{article}',r'\usepackage[margin=0.7in]{geometry}',r'\usepackage[T1]{fontenc}',r'\usepackage{lmodern,microtype,amsmath,amssymb,booktabs,array,float,graphicx,hyperref}',r'\setlength{\parindent}{0pt}',r'\setlength{\parskip}{0.35em}',r'\begin{document}']
+    parts=[r'\documentclass[11pt,letterpaper]{article}',r'\usepackage[margin=0.75in]{geometry}',r'\usepackage[T1]{fontenc}',r'\usepackage{lmodern,microtype,amsmath,amssymb,booktabs,array,float,graphicx,hyperref}',r'\hypersetup{hidelinks}',r'\setlength{\parindent}{0pt}',r'\setlength{\parskip}{0.4em}',
+           r'\title{\textbf{'+escape(TITLE)+r'}\\[0.4em]\large '+escape(SUBTITLE)+'}',
+           r'\author{'+escape(AUTHORS)+r'\\'+escape(COURSE)+'}',r'\date{'+escape(DATE)+'}',r'\begin{document}',r'\maketitle']
     for index,page in enumerate(pages):
         if index:parts.append(r'\clearpage')
         if index==MAIN_PAGES:parts.append(r'\appendix')
-        parts.append(r'\section*{'+escape(page['title'])+'}')
-        if page.get('subtitle'):parts.append(escape(page['subtitle'])+r'\par')
+        if index:parts.append(r'\section*{'+escape(page['title'])+'}')
         for b in page['blocks']:
             kind=b['type']
+            if index==0 and kind=='heading' and b['text']=='Abstract':
+                parts.append(r'\begin{abstract}');continue
+            if index==0 and kind=='heading' and b['text'].startswith('1.'):
+                parts.append(r'\end{abstract}')
             if kind in ['paragraph','reference']:parts.append(escape(b['text'])+'\n')
             elif kind=='heading':parts.append(r'\subsection*{'+escape(b['text'])+'}')
             elif kind=='equation':parts.append(r'\['+b['latex']+r'\]')
@@ -298,10 +310,15 @@ def write_tex(pages):
 
 def docx():
     from scripts import export_research_docx as word
+    from scripts.options_paper_layout import format_word
     pages=json.loads((DEST/'manuscript.json').read_text());export=copy.deepcopy(pages)
     for page in export:
         for b in page['blocks']:
             if b['type']=='reference':b['type']='paragraph'
+            if b['type']=='chart':
+                import struct
+                w,h=struct.unpack('>II',(FIG/f'{b["name"]}.png').read_bytes()[16:24])
+                b['height']=504*h/w
     def verify(path,pages,charts,numbers):
         with zipfile.ZipFile(path) as z:
             assert z.testzip() is None;document=word.ET.fromstring(z.read('word/document.xml'))
@@ -317,12 +334,10 @@ def docx():
     word.verify=verify;path=DEST/'options_exposure_learning.docx'
     word.export(export,{k:dict(caption=v) for k,v in CAPTIONS.items()},NUMBERS,path)
     with zipfile.ZipFile(path) as z:parts={n:z.read(n) for n in z.namelist()}
-    header=word.ET.fromstring(parts['word/header1.xml'])
-    for node in header.findall('.//w:t',word.NS):
-        if node.text and 'OPTIONS RELATIVE VALUE' in node.text:node.text='OPTIONS EXPOSURE LEARNING · KREITZMAN & YANG · 16 OCTOBER 2026'
-    parts['word/header1.xml']=word.xml(header)
+    parts=format_word(parts,word)
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:
         for name,data in parts.items():z.writestr(name,data)
+    verify(path,export,CAPTIONS,NUMBERS)
     print('Verified editable Word manuscript with all tables and figures',flush=True)
 
 

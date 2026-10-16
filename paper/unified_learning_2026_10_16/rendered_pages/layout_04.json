@@ -1,7 +1,16 @@
 {
   "page": 4,
-  "bottom_content_points": 105.11350455675228,
+  "bottom_content_points": 137.9461060480528,
   "overflow": false,
-  "content_sha256": "cfcf443610e2408e4e583984bd01ab5675e8317cea4786eff171512c403dd5b9",
-  "rendered": true
+  "content_sha256": "1221ca6b2c60f1478ea0412c65c2496af2e464a064b67e8a36fc8574be71c9a8",
+  "rendered": true,
+  "vector_figures": [
+    {
+      "name": "signal_example",
+      "x": 54,
+      "y": 430.9461060480529,
+      "width": 504,
+      "height": 187.90389395194697
+    }
+  ]
 }

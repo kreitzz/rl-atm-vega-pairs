@@ -1,7 +1,16 @@
 {
   "page": 1,
-  "bottom_content_points": 76.0149130074565,
+  "bottom_content_points": 63.28342999171463,
   "overflow": false,
-  "content_sha256": "e848daa592dfd7c0ddce16c2cb3528666acf495102292fe14632b1eb477c1f67",
-  "rendered": true
+  "content_sha256": "7ec2c6fb4fee7397086819210f17bd91de87e6acf1191ebac4c147c404f8c9bf",
+  "rendered": true,
+  "vector_figures": [
+    {
+      "name": "learning_pipeline",
+      "x": 54,
+      "y": 158.6834299917146,
+      "width": 504,
+      "height": 124.016570008285
+    }
+  ]
 }

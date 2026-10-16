@@ -1,7 +1,8 @@
 {
   "page": 18,
-  "bottom_content_points": 121.05000000000035,
+  "bottom_content_points": 127.05000000000021,
   "overflow": false,
-  "content_sha256": "28b4ed6ac7972600c9aa626a9aa848382b7d05ba0918d81a0036f3697e562bfe",
-  "rendered": true
+  "content_sha256": "6183a40c941ab4e1ef85d20e064293c7abfbfb625f8739decb9017a63120a5bb",
+  "rendered": true,
+  "vector_figures": []
 }

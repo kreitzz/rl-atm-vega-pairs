@@ -1,7 +1,16 @@
 {
   "page": 9,
-  "bottom_content_points": 82.27970173985074,
+  "bottom_content_points": 89.25033140016595,
   "overflow": false,
-  "content_sha256": "f41e42ac9509a8a5826331ff076bc4640d59d612a945c173d85cbb30f9abcffa",
-  "rendered": true
+  "content_sha256": "5c72ef7fcf5693fa1c62ae72244bec2aa5393001d1d33b812feb12cc2908177e",
+  "rendered": true,
+  "vector_figures": [
+    {
+      "name": "entry_curves",
+      "x": 54,
+      "y": 498.0503314001657,
+      "width": 504,
+      "height": 209.1996685998343
+    }
+  ]
 }
