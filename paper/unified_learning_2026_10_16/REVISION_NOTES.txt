@@ -72,3 +72,12 @@ negative differences. Direct labels distinguish the two totals and the final
 incremental gain. The plotted daily values and endpoint reconciliation are in
 figure_data/entry_curves.csv and figure_data/entry_curves_verification.json.
 These compare funded policies; position sizing also changes admissions.
+
+PROFIT-ONLY ALLOCATION EXPLANATION
+
+Pages 11, 12 and 15 now explain why lambda = 0 rewards additional profit
+without an explicit charge for volatility, how the retained policy concentrates
+on straddles, and why both exposure and allocation timing matter for its weaker
+later Sharpe. The fixed-75%-straddle control and unchanged actions under more
+Bellman updates distinguish the economic explanation from exposure alone or
+insufficient iteration. No fitting, data changes or performance changes occurred.

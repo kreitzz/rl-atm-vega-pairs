@@ -147,15 +147,15 @@
       "page": 11,
       "bottom_content_points": 200.44999999999948,
       "overflow": false,
-      "content_sha256": "f563945215fd63c92e62c8887917f9bded3219b6a805b7553fd4a83fb86348af",
+      "content_sha256": "ef97fe702624e2d91b8c57a827fbfeab6211739f1bd36ed427603dc6e8cde33e",
       "rendered": true,
       "vector_figures": []
     },
     {
       "page": 12,
-      "bottom_content_points": 157.20211267605643,
+      "bottom_content_points": 55.00211267605646,
       "overflow": false,
-      "content_sha256": "eb23b381409a09fa23475e155a98acea991b5da7e947f63d79d219f7886ca900",
+      "content_sha256": "1dcb8485129a4f2cabb5a99d7f4fef6a732ee2feba423aef931032519ec576ac",
       "rendered": true,
       "vector_figures": [
         {
@@ -208,9 +208,9 @@
     },
     {
       "page": 15,
-      "bottom_content_points": 87.64999999999947,
+      "bottom_content_points": 60.44999999999948,
       "overflow": false,
-      "content_sha256": "c51490e0fd3be16eac695ad1f62e5c7b790fbadaca04d1936a032230a6ea7e69",
+      "content_sha256": "0d940bbecc11e1f85539d255d608e35e446f873c4dec10bbe526562a643b8507",
       "rendered": true,
       "vector_figures": []
     },
@@ -291,8 +291,8 @@
     "paper/unified_learning_2026_10_16/figures/factorial.svg": "cffeed35d0fbb0ef26517b55bcc8af2a03e72a44e722feffae7fbef9e29716c4"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "22ff2ec247dc95e50954c34feccdade3d1853167b0c2fe48798665d673458d9b",
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "bc79b57bc9f2a90b338c5fa750073d19c2df9fd50a3ea2c56495658e8196af11",
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "63dddc649905c718e22f4128973e1949e049c12bf0aab9980f2bd57649d7d71f",
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "49be302b922a9a707c9f4e4361280f9290c790f5f1d912ba667ac74174420bcb",
     "paper/unified_learning_2026_10_16/technical_appendix.pdf": "98d39e849be2a460756985c74a889c3cff5d58bc3839ee995353aeaf0124e875"
   }
 }

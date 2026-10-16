@@ -602,7 +602,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Reference volatility is estimated from the training window’s fixed-50/50 excess returns. The parameter λ penalizes squared normalized fluctuations. At zero it rewards normalized profit without a variance penalty; it does not maximize Sharpe directly. The discount γ = 0.99 separately weights continuation value. The reward permits a range of risk preferences instead of requiring one policy to maximize dollar profit and Sharpe simultaneously."
+        "text": "Reference volatility is estimated from the training window’s fixed-50/50 excess returns. The parameter λ penalizes squared normalized fluctuations. At λ = 0, the directive is profit alone: additional normalized return earns reward without an explicit charge for the accompanying volatility. A higher-profit, higher-variance strategy can therefore attract capital even when its risk-adjusted performance is weaker. This objective does not maximize Sharpe. The discount γ = 0.99 separately weights continuation value; it is unchanged across risk preferences."
       },
       {
         "type": "paragraph",
@@ -679,7 +679,11 @@
       },
       {
         "type": "paragraph",
-        "text": "The zero-penalty result is informative. Validation Sharpe is 1.427 but later Sharpe falls to 0.671. It chooses straddles alone in 138 of 191 later decisions, versus 46 at λ = 0.20 and 31 at λ = 1. Its mean straddle target is 73.2%, versus 24.9% and 16.9%. Increasing Bellman updates from 200 to 500, 1,000 and 2,000 changes no later decision for the four settings. Insufficient iteration is therefore not the explanation in this check."
+        "text": "At λ = 0, the learner aggressively pursues profit through the higher-dollar, higher-variance straddle strategy. It chooses straddles alone in 138 of 191 later decisions, with a mean straddle target of 73.2%, versus 24.9% at λ = 0.20 and 16.9% at λ = 1. Validation Sharpe is 1.427, but later Sharpe falls to 0.671. When straddle performance weakens, this concentration becomes costly: the zero-penalty portfolio loses approximately $331,000 above cash in 2025."
+      },
+      {
+        "type": "paragraph",
+        "text": "The problem also involves when capital is committed. A fixed 75% allocation to straddles achieves later Sharpe 1.084, so average exposure alone does not explain the weaker Q result. The profit-only learner can respond to state, but its learned timing does not distinguish attractive straddle opportunities well enough in the later period. Positive penalties make large fluctuations costly and lead to more selective straddle exposure. Increasing Bellman updates from 200 to 500, 1,000 and 2,000 changes no later decision for these settings. This check points to the reward and learned allocation rule, rather than too few iterations."
       }
     ]
   },
@@ -815,7 +819,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Entry bandits improve the retained portfolios through both requested size and admission. Q improves allocation even with constant entry size. Reward design matters: the zero-penalty profit objective transfers less reliably. The preferred combination depends on the investor’s profit–risk preference."
+        "text": "Entry bandits improve the retained portfolios through both requested size and admission. Q improves allocation even with constant entry size. Reward design matters: the profit-only learner concentrates on the higher-profit straddle strategy, but its exposure and timing transfer less reliably when that strategy weakens. Positive risk penalties produce a different allocation tradeoff. The preferred combination depends on the investor’s profit–risk preference."
       },
       {
         "type": "heading",
