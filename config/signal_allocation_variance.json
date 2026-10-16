@@ -1,0 +1,26 @@
+{
+  "source_root": "artifacts/contracts/signal_capital_allocation",
+  "output_root": "artifacts/contracts/signal_allocation_variance",
+  "report_root": "reports/signal_allocation_variance",
+  "risk_preferences": [
+    0.0,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "discount": 0.99,
+  "iterations": 200,
+  "training_weeks": 104,
+  "minimum_training_weeks": 52,
+  "ridge_alpha": 10.0,
+  "capital": 10000000,
+  "evaluation_end": "2025-08-29",
+  "features": "Original nine inputs and seven capital allocation choices; frozen source bandits unchanged.",
+  "reference_selection": "Keep the original validation winner lambda=0.025 from reports/signal_allocation_discount/selection.json; the four displayed settings illustrate risk preferences rather than replace that reference.",
+  "resource_limits": {
+    "workers": 1,
+    "cpu_fraction_of_one_core": 0.2,
+    "worker_mib": 256,
+    "max_system_swap_growth_mib": 256
+  }
+}

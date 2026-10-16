@@ -1,0 +1,23 @@
+PROJECT RESEARCH MEMORY: RISK PREFERENCE IN TWO-SIGNAL Q ALLOCATION
+
+Retain the original nine-input state, gamma 0.99, 200 Bellman updates, and the same two frozen entry bandits. The user requested that lambda 0, 0.10, 0.20, and 1.00 become the four paper operating points. All seven fixed mixes remain visible. These four are a risk-preference comparison; do not relabel them as validation winners.
+
+ANNUALIZED EXCESS SHARPE (2018–2021 validation / 2022–August 2025 evaluation)
+lambda 0.00: 1.427 / 0.671; later profit above cash $1,353,063.
+lambda 0.10: 1.286 / 1.491; later profit above cash $1,387,790.
+lambda 0.20: 1.215 / 1.726; later profit above cash $1,305,940.
+lambda 1.00: 1.005 / 2.152; later profit above cash $1,141,251.
+
+INTERPRETATION
+At zero penalty the objective rewards normalized profit without penalizing its squared fluctuations. It does not directly maximize Sharpe. The policy chooses 100% straddles in 138/191 later decisions and its mean straddle target is 73.2%, compared with 46/191 and 24.9% at lambda 0.20, and 31/191 and 16.9% at lambda 1.00. The zero-penalty policy loses $331,255 above cash in 2025; lambda 1 earns $75,335. This supports an explanation involving exposure and allocation timing; it does not establish a causal attribution or predict all future regimes. Fixed 75% straddles achieves later Sharpe 1.084, so excess straddle exposure alone cannot explain the zero-penalty result.
+
+Use lambda zero as the simple failure example in the paper. Call it the profit-only objective, not the validation winner. Increasing the risk penalty trades profit for greater later risk-adjusted performance. Modest positive penalties also have strong validation performance; results are not confined to one isolated setting.
+
+CHRONOLOGY
+All individual fits use only completed past outcomes. Do not describe this as fitting on future evaluation outcomes. Distinguish causal walk-forward fitting from the separate choice of reported risk preferences. The original validation-selection record remains unchanged. Do not claim that these four newly displayed points were all selected before later outcomes were inspected.
+
+PAPER / RESOURCE REQUIREMENTS
+Preserve the original ten paper pages exactly; edit the focused extension. Keep one worker, 20% of one core, 256 MiB worker footprint and maximum system swap-growth allowance, with resumable checkpoints. Keep user apps open. Raw options and credentials are not added to derived research archives.
+
+CONVERGENCE CHECK
+All 81 monthly fits were repeated at 200, 500, 1,000, and 2,000 Bellman updates with unchanged data and parameters. For all six checked preferences, including the four retained points, every later decision was identical across iteration budgets; later Sharpe and profit were identical. Action rankings can stabilize even while a common Q-value level continues approaching its fixed point. The low-penalty failure is not explained by too few iterations in this matched check. Full retained-policy diagnostics and results are saved alongside this file.

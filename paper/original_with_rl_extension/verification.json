@@ -28,7 +28,7 @@
     {
       "extension_page": 4,
       "pdf_page": 14,
-      "bottom_content_points": 137.80304506699133,
+      "bottom_content_points": 127.44999999999987,
       "overflow": false
     },
     {
@@ -40,12 +40,10 @@
     {
       "extension_page": 6,
       "pdf_page": 16,
-      "bottom_content_points": 152.02832167832167,
+      "bottom_content_points": 71.77832167832167,
       "overflow": false
     }
   ],
   "original_pdf_sha256": "0658734deabffdff95644b152a6d361d7e014b8b7b4b1bf9aed995f691630d13",
-  "output_sha256": "a544effcdd1aa920e66c7d6dbd40ea91a26c487eb6ab7e183aaca30ba3894b84",
-  "builder_sha256": "117fd334c2fa7b3e1be7ad9d21a6b219bdad8e2011c741f495bf58cf747e6639",
-  "editable_extension_verified": true
+  "output_sha256": "e01e58b58ca91639e7f0a28557b64c4fab47eb0685bcf9c8f8b5fd6f63cf147e"
 }

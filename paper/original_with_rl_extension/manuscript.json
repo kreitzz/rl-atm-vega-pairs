@@ -178,86 +178,66 @@
       {
         "type": "chart",
         "name": "q_evaluation",
-        "height": 205
+        "height": 224
       },
       {
         "type": "table",
         "headers": [
-          "Put / straddle allocation",
+          "Risk penalty",
           "2018–21 Sharpe",
+          "2018–21 profit",
           "2022–25 Sharpe",
-          "Later profit"
+          "2022–25 profit"
         ],
         "rows": [
           [
-            "Fixed 100% / 0%",
-            "0.573",
-            "1.263",
-            "$0.249m"
+            "λ = 0",
+            "1.427",
+            "$1.281m",
+            "0.671",
+            "$1.353m"
           ],
           [
-            "Fixed 90% / 10%",
-            "0.926",
-            "1.612",
-            "$0.435m"
-          ],
-          [
-            "Fixed 75% / 25%",
-            "0.853",
-            "1.371",
-            "$0.726m"
-          ],
-          [
-            "Fixed 50% / 50%",
-            "0.804",
-            "1.167",
-            "$1.238m"
-          ],
-          [
-            "Fixed 25% / 75%",
-            "0.785",
-            "1.084",
-            "$1.789m"
-          ],
-          [
-            "Fixed 10% / 90%",
-            "0.778",
-            "1.055",
-            "$2.138m"
-          ],
-          [
-            "Fixed 0% / 100%",
-            "0.775",
-            "1.041",
-            "$2.379m"
-          ],
-          [
-            "Dynamic Q, λ = 0.1",
+            "λ = 0.1",
             "1.286",
+            "$1.003m",
             "1.491",
             "$1.388m"
           ],
           [
-            "Dynamic Q, λ = 0.2",
+            "λ = 0.2",
             "1.215",
+            "$0.875m",
             "1.726",
             "$1.306m"
+          ],
+          [
+            "λ = 1",
+            "1.005",
+            "$0.660m",
+            "2.152",
+            "$1.141m"
           ]
         ],
         "widths": [
-          220,
-          97,
-          97,
-          98
+          100,
+          103,
+          103,
+          103,
+          103
         ]
       },
       {
         "type": "paragraph",
-        "text": "At penalty 0.20, Q reaches later Sharpe 1.726 and $1.306 million profit above cash. The highest fixed-split Sharpe is 1.612 at 90/10, earning $435,181. Q also exceeds fixed 50/50 on both Sharpe and profit. Penalty 0.10 trades some Sharpe for profit: 1.491 and $1.388 million. Straddle-heavy fixed mixes earn more dollars at lower Sharpe, so the gain is a better tradeoff at these operating points, not dominance on every objective."
+        "text": "We report 2018–2021 validation and 2022–August 2025 walk-forward out-of-sample performance. Each monthly fit uses only outcomes completed before its decisions; earlier completed evaluation-period weeks can therefore enter later refits. The four settings illustrate risk preferences; they are not all validation winners. Features, source bandits, allocation choices, execution and discount remain identical."
       },
       {
         "type": "paragraph",
-        "text": "The put-only endpoint exactly reproduces the original strategy’s daily returns and NAV; the straddle-only endpoint reproduces the second strategy. Both periods were previously researched. The two Q preferences are highlighted historical settings, not the highest-validation-Sharpe selections. The complete sweep remains available in the supporting results."
+        "text": "At penalty 0.20, Q reaches later Sharpe 1.726 and $1.306 million profit above cash. The highest fixed-split Sharpe is 1.612 at 90/10, earning $435,181. Penalty 0.10 retains more profit at Sharpe 1.491. Raising the penalty to 1.00 reaches Sharpe 2.152 while reducing profit to $1.141 million. Straddle-heavy fixed mixes still earn more dollars: these are different risk–return tradeoffs, rather than dominance on every objective."
+      },
+      {
+        "type": "paragraph",
+        "text": "The zero-penalty policy provides a useful contrast. Its validation Sharpe is 1.427, but later Sharpe falls to 0.671. Without a variance penalty, the reward favors profit and the policy allocates more often to the higher-profit straddle signal. A strong validation Sharpe alone does not ensure that this risk preference transfers to a different period."
       }
     ]
   },
@@ -380,7 +360,15 @@
       },
       {
         "type": "paragraph",
-        "text": "This extension builds on the original finding rather than replacing it: learn entry size within a signal, then study allocation across distinct signals. Its historical limitations remain. The straddle procedure searched both periods, and the highest-validation-Sharpe Q preference performs poorly later (0.282). Execution assumptions and a shared contract-level allocator still need validation. Supporting controls, complete sweeps and exact explanation files are retained in reports/allocation_interpretability_099 and reports/signal_allocation_discount."
+        "text": "The reward changes behavior, not just the reported score. With no variance penalty, 138 of 191 later decisions choose straddles alone, versus 46 at penalty 0.20 and 31 at 1.00. Mean straddle targets are 73.2%, 24.9% and 16.9%. The zero-penalty policy loses $331,255 above cash in 2025; penalty 1.00 earns $75,335. Fixed 75% straddles still achieves later Sharpe 1.084, so timing as well as exposure contributes to the zero-penalty failure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Increasing Bellman updates from 200 to 500, 1,000 and 2,000 leaves every later allocation decision and result unchanged for all four settings. The weak zero-penalty result is therefore not explained by an insufficient iteration budget in this check."
+      },
+      {
+        "type": "paragraph",
+        "text": "The extension separates signal profitability from capital allocation. Modest positive penalties retain strong Sharpe across both periods, while the profit-only objective transfers less reliably. Shared integer-contract replay and execution sensitivity are the next checks."
       }
     ]
   }

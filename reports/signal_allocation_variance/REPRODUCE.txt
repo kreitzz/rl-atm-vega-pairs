@@ -1,0 +1,15 @@
+FOUR RISK PREFERENCES: ORIGINAL Q STATE
+
+Extract data/research/signal_allocation_variance_snapshot.zip at the repository root. It contains the saved models, derived daily strategy data, and prepared counterfactual weeks. It contains no raw option chains or credentials. Source data licensing still applies.
+
+Using an environment with requirements-contracts.txt and requirements-report.txt, run serially:
+
+python -m scripts.run_signal_discovery_guarded --module scripts.signal_allocation_variance --timeout 1200 --duty-cycle 0.2 --rss-limit-mib 256 --warning-rss-limit-mib 256 --min-free-percent 30 --warning-min-free-percent 30 --max-swap-growth-mib 256 --pause-low-headroom-seconds 60 -- --phase run
+
+Use the same guard with --phase charts or --phase paper_chart to rebuild the two-panel comparison or compact paper figure. Running with saved models replays them; missing monthly models are fitted on completed prior weeks only. To refit independently, use a fresh output directory in config/signal_allocation_variance.json.
+
+For the iteration-budget control, use the same guard with --module scripts.check_signal_allocation_variance_convergence and no phase argument. Cached monthly snapshots avoid repeating the numerical fit; a fresh convergence/models directory refits the snapshots.
+
+Paper update: scripts.build_original_options_extension phases prepare, render --page 4, render --page 6, assemble and docx, using a fresh guarded worker per page. Other original extension page PDFs are unchanged; a clean checkout should render all six extension pages before assembly. The submitted original ten PDF pages are copied intact.
+
+results.csv retains only lambda 0, 0.10, 0.20 and 1.00. supporting_full_lambda_sweep.csv preserves the entire tested original-state grid for provenance. All Sharpe values are annualized excess Sharpe; profits are above the cash benchmark. No later winner replaces the original selection record.

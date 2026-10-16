@@ -9,13 +9,15 @@
     "reports/allocation_interpretability_099/q_switch_conditional_results.csv": "34e2ae11e9277862d135c75c1f5f390b85392e5dce6af127c2e666901f49d446",
     "reports/allocation_interpretability_099/q_protocol.json": "81d2b287e42abb9a4f22333544d20bed68045a02891f26c6d6fe6d80991bd1aa",
     "reports/allocation_interpretability_099/bandit_protocol.json": "3107de3fcdaa2cd80df521bdc03d3f8ef816959d1bbbe5504c66945fe88d3cc4",
-    "reports/signal_allocation_discount/results.csv": "80b4ce367eeb0fc8cd883c3f8392e80f51902cea40aaf1f6806ff13df91b4c52"
+    "reports/signal_allocation_discount/results.csv": "80b4ce367eeb0fc8cd883c3f8392e80f51902cea40aaf1f6806ff13df91b4c52",
+    "reports/signal_allocation_variance/results.csv": "755af438a44f6c0def3e4adef3328d666706dd3e4733516f9e012ef06a7ea91b",
+    "reports/signal_allocation_variance/decisions.csv": "74415d818f8edb3329ef6c2ed2362ac2fd5435e8ef8f51925eb08685cad58b01"
   },
   "original_preserved": "The first original_pages PDF pages are copied intact, not redrawn. The original paper text is not rewritten. The extension follows the original paper and appendices.",
   "figures": {
     "bandit_explanations": "Entry-policy explanations. Put bars measure actual tree-path usage; straddle bars measure how often centering an input changes proposed size. The measures have different definitions and are not causal effects.",
     "learning_layers": "The extension adds a second signal and an outer allocation decision. The original put-pair framework remains the first strategy; its retained entry policy is frozen.",
-    "q_evaluation": "Seven fixed capital splits versus two researched Q settings, 2022\u2013August 2025. Fixed labels give put/straddle weights. Lines connect discrete results; they are not a fitted frontier.",
+    "q_evaluation": "Four risk preferences with the original nine-input Q state versus seven fixed capital splits, 2022\u2013August 2025. Gray labels give put/straddle weights. Lines connect discrete results rather than a fitted frontier; the table also reports validation performance.",
     "q_context": "Penalty-0.20 Q: fraction of later decisions changed when one input is set to its monthly training center, holding the other actual state values fixed.",
     "q_schedule": "The saved Q policy mostly switches between the two strategy indices. These are capital weights, rather than the fraction of cash spent on options. Only fitted decisions are shown.",
     "q_timing": "Matched controls at penalty 0.20. The average-weight control uses the realized mean target retrospectively; the discount-zero learner uses the same reward, features, data and regularization as Q."

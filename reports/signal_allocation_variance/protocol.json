@@ -1,0 +1,53 @@
+{
+  "configuration": "config/signal_allocation_variance.json",
+  "features": [
+    "pair_rank_strength",
+    "pair_vrp_gap",
+    "atm_iv_rv_gap",
+    "atm_completed_premium",
+    "log_vol_ratio",
+    "correlation63",
+    "vix",
+    "relative_sharpe63",
+    "previous_straddle_weight"
+  ],
+  "discount": 0.99,
+  "iterations": 200,
+  "risk_preferences": [
+    0,
+    0.1,
+    0.2,
+    1
+  ],
+  "validation": [
+    "2018-01-01",
+    "2021-12-31"
+  ],
+  "evaluation": [
+    "2022-01-01",
+    "2025-08-29"
+  ],
+  "fit_timing": "Every monthly fit uses strictly completed prior weeks. Earlier completed weeks within the evaluation period may enter subsequent rolling fits.",
+  "comparison": "Same nine state inputs, seven actions, source bandits, 104-week window, minimum 52 weeks, costs, and single capital budget for all four preferences.",
+  "display": "Four requested operating points span risk preference. They do not replace or claim to be the original validation winner; its selection record is preserved in reports/signal_allocation_discount/selection.json.",
+  "source_sha256": "8fd36c1bb5f57a8815b1864ef4def1d2c1ca552d073f46d1f8c2a204d78923b7",
+  "training_counterfactuals": "Seven prior allocations crossed with seven actions share each market week; not independent observations.",
+  "supporting_lambda_sweep": [
+    0,
+    0.025,
+    0.05,
+    0.075,
+    0.1,
+    0.125,
+    0.15,
+    0.175,
+    0.2,
+    0.225,
+    0.25,
+    0.3,
+    0.4,
+    0.6,
+    1
+  ],
+  "convergence": "81 monthly fits at 200, 500, 1000, 2000 updates; identical evaluation-period actions for every checked preference."
+}

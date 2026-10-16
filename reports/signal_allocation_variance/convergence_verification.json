@@ -1,0 +1,17 @@
+{
+  "original_200_step_results_reproduced": true,
+  "monthly_models": 81,
+  "iterations": [
+    200,
+    500,
+    1000,
+    2000
+  ],
+  "policies": [
+    0.0,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "later_actions_identical_across_budgets": true
+}

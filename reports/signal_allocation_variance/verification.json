@@ -1,0 +1,12 @@
+{
+  "original_three_preferences_reproduced": true,
+  "all_monthly_training_ends_precede_decisions": true,
+  "nine_inputs": true,
+  "seven_actions": true,
+  "policies": [
+    0.0,
+    0.1,
+    0.2,
+    1.0
+  ]
+}
