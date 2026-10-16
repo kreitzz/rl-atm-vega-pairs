@@ -113,17 +113,17 @@
     },
     {
       "page": 9,
-      "bottom_content_points": 89.25033140016595,
+      "bottom_content_points": 64.1964788732397,
       "overflow": false,
-      "content_sha256": "5c72ef7fcf5693fa1c62ae72244bec2aa5393001d1d33b812feb12cc2908177e",
+      "content_sha256": "37f3ed8b9e8d9f789c5ddaf425be8d108c17d5eff097c9ccac7f0b5927ff8802",
       "rendered": true,
       "vector_figures": [
         {
           "name": "entry_curves",
           "x": 54,
-          "y": 498.0503314001657,
+          "y": 472.9964788732394,
           "width": 504,
-          "height": 209.1996685998343
+          "height": 234.25352112676057
         }
       ]
     },
@@ -271,9 +271,9 @@
     "paper/unified_learning_2026_10_16/figures/entry_policy.png": "34c191f3084c80e06d7de93fcd8fbb750a0d07bca4c507aab605af700e8abee0",
     "paper/unified_learning_2026_10_16/figures/entry_policy.pdf": "0fe849e926ac3a6bfc3b7cdd6fcdd3cf3422bd4f6c811c8a727c160f32c4d1b0",
     "paper/unified_learning_2026_10_16/figures/entry_policy.svg": "8d33c801a55283effb43315f2c22a2b93d95b2cc2baf1b617ca44ceb4f08fe02",
-    "paper/unified_learning_2026_10_16/figures/entry_curves.png": "e063e46fc6d62f991180bbaefdca3034390e5134508b72f379ed3c6a76b25849",
-    "paper/unified_learning_2026_10_16/figures/entry_curves.pdf": "42aede56fc50ce7e75fe194970ff5ea945fbd3af336ee30a2f99a521e871c4d5",
-    "paper/unified_learning_2026_10_16/figures/entry_curves.svg": "ff04b92915b365712b10837c00d94be99e90ceb9801974e82a4cc7f8330f6cc7",
+    "paper/unified_learning_2026_10_16/figures/entry_curves.png": "816c0170eda8dc97c224801b2b9dca29a976fb68d8a1aa8f822c0226afaa319c",
+    "paper/unified_learning_2026_10_16/figures/entry_curves.pdf": "a3a44df5c5cdc8a7ad81d0e33cbcffc725e5cb5e41cbf1f8f76d167a6f9bd054",
+    "paper/unified_learning_2026_10_16/figures/entry_curves.svg": "38bec246ba1c8112f2d36ba9e4cfa954a5ab2b010e446f5b5fe77a53648886a2",
     "paper/unified_learning_2026_10_16/figures/entry_explanations.png": "0cb0ce986277fc69e2c8e5bef8a852e373e9892b2b368ad46672b40dc1b232f5",
     "paper/unified_learning_2026_10_16/figures/entry_explanations.pdf": "5db5cdce5793681b625da167560aa3d8e8a099ec0941858c9c97e532b3bea2b5",
     "paper/unified_learning_2026_10_16/figures/entry_explanations.svg": "ca7e758986880546c0e96a22d5ac73532911df9dbc745ceef88f947d6e7953d9",
@@ -291,8 +291,8 @@
     "paper/unified_learning_2026_10_16/figures/factorial.svg": "cffeed35d0fbb0ef26517b55bcc8af2a03e72a44e722feffae7fbef9e29716c4"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "6921fdf78f090526d782f8f2f3ba5610c08f30b3e47fb78c0a70b11c061cd7dd",
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "5989335f0d841366298487fda1c3eee81392234b09e0916ef28c40d84ae45a2b",
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "22ff2ec247dc95e50954c34feccdade3d1853167b0c2fe48798665d673458d9b",
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "bc79b57bc9f2a90b338c5fa750073d19c2df9fd50a3ea2c56495658e8196af11",
     "paper/unified_learning_2026_10_16/technical_appendix.pdf": "98d39e849be2a460756985c74a889c3cff5d58bc3839ee995353aeaf0124e875"
   }
 }

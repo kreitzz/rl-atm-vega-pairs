@@ -141,24 +141,73 @@ def build(name, destination):
 
     elif name == 'entry_curves':
         import pandas as pd
-        fig,axes=plt.subplots(1,2,figsize=(WIDTH,2.95))
-        fig.subplots_adjust(left=.085,right=.985,bottom=.20,top=.76,wspace=.32)
-        books=[('Put pairs','artifacts/contracts/p25_validation_split/replays/screened_selected','artifacts/paper_code/replays/fixed100',1e3,'Profit above cash ($000)'),
-               ('ATM straddles','artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18','artifacts/contracts/atm_rv_straddle_full/replays/straddle100',1e6,'Profit above cash ($m)')]
-        for ax,(title,bandit,fixed,scale,ylabel) in zip(axes,books):
+        from matplotlib.ticker import MaxNLocator
+        fig=plt.figure(figsize=(WIDTH,3.30))
+        grid=fig.add_gridspec(2,2,left=.13,right=.88,bottom=.16,top=.81,
+                             width_ratios=[1,1],height_ratios=[1.35,1],wspace=.43,hspace=.38)
+        put_ax=fig.add_subplot(grid[:,0]);straddle_ax=fig.add_subplot(grid[0,1])
+        extra_ax=fig.add_subplot(grid[1,1],sharex=straddle_ax)
+        books=[(put_ax,'Put pairs','artifacts/contracts/p25_validation_split/replays/screened_selected','artifacts/paper_code/replays/fixed100',1e3,'Profit above cash\n($000)'),
+               (straddle_ax,'ATM straddles','artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18','artifacts/contracts/atm_rv_straddle_full/replays/straddle100',1e6,'Profit above cash\n($m)')]
+        paths={}
+        for ax,title,bandit,fixed,scale,ylabel in books:
             for folder,color,label,ls in [(fixed,GRAY,'Fixed 100%','--'),(bandit,TEAL,'Bandit','-')]:
                 b=pd.read_parquet(Path(folder)/'daily_nav.parquet',columns=['nav','cash_benchmark'],use_threads=False)
                 delta=b.nav-b.cash_benchmark
-                v=(delta.loc['2022-01-01':]-delta.loc[:'2021-12-31'].iloc[-1])/scale
-                ax.plot(v.index,v,color=color,lw=1.6,label=label,ls=ls)
-                ax.annotate(f'{v.iloc[-1]:,.0f}' if scale==1e3 else f'{v.iloc[-1]:.2f}',
-                            (v.index[-1],v.iloc[-1]),xytext=(-3,8 if label=='Bandit' else -13),
-                            textcoords='offset points',ha='right',color=color,fontsize=9.5)
-            ax.set_title(title,loc='left',pad=8);ax.set_ylabel(ylabel)
+                raw=delta.loc['2022-01-01':]-delta.loc[:'2021-12-31'].iloc[-1]
+                ax.plot(raw.index,raw/scale,color=color,lw=1.5,label=label,ls=ls)
+                if title=='Put pairs':
+                    ax.annotate(f'{raw.iloc[-1]/scale:,.0f}',(raw.index[-1],raw.iloc[-1]/scale),
+                                xytext=(-3,8 if label=='Bandit' else -13),textcoords='offset points',ha='right',color=color,fontsize=9.5)
+                else:
+                    ax.annotate(f'${raw.iloc[-1]/1e6:.3f}m',(raw.index[-1],raw.iloc[-1]/scale),
+                                xytext=(7,10 if label=='Bandit' else -13),textcoords='offset points',
+                                ha='left',va='center',color=color,fontsize=9,
+                                arrowprops=dict(arrowstyle='-',color=color,lw=.7))
+                paths[('put' if title=='Put pairs' else 'straddle')+('_bandit' if label=='Bandit' else '_fixed100')]=raw
+            ax.set_title(title,loc='left',pad=7);ax.set_ylabel(ylabel,fontsize=9)
             ax.axhline(0,color=GRAY,lw=.6);ax.grid(axis='y',alpha=.15)
             ax.xaxis.set_major_locator(dates.YearLocator());ax.xaxis.set_major_formatter(dates.DateFormatter('%Y'))
-        handles,labels=axes[0].get_legend_handles_labels()
+            ax.margins(x=.02);ax.yaxis.set_major_locator(MaxNLocator(4))
+        straddle_ax.tick_params(axis='x',labelbottom=False,length=0)
+        gap=(paths['straddle_bandit']-paths['straddle_fixed100'])/1e3
+        extra_ax.plot(gap.index,gap,color=BLUE,lw=1.2)
+        extra_ax.fill_between(gap.index,0,gap,where=gap>=0,color=TEAL,alpha=.18,interpolate=True)
+        extra_ax.fill_between(gap.index,0,gap,where=gap<0,color=RED,alpha=.25,interpolate=True)
+        extra_ax.axhline(0,color=GRAY,lw=.8)
+        extra_ax.set_ylabel('Bandit − fixed\n($000)',fontsize=9)
+        extra_ax.yaxis.set_major_locator(MaxNLocator(3));extra_ax.grid(axis='y',alpha=.15)
+        extra_ax.annotate(f'+${gap.iloc[-1]:.0f}k',(gap.index[-1],gap.iloc[-1]),xytext=(7,0),
+                          textcoords='offset points',ha='left',va='center',color=BLUE,fontsize=9.5,
+                          arrowprops=dict(arrowstyle='-',color=BLUE,lw=.7))
+        span=max(float(gap.max()-gap.min()),1)
+        lower=np.floor((min(0,float(gap.min()))-.12*span)/100)*100
+        upper=max(0,float(gap.max()))+.16*span
+        extra_ax.set_ylim(lower,upper);extra_ax.set_yticks(np.arange(lower,upper,100))
+        handles,labels=put_ax.get_legend_handles_labels()
         fig.legend(handles,labels,frameon=False,ncol=2,loc='upper left',bbox_to_anchor=(.07,1))
+        # Publish the plotted values and reconcile all endpoints to the report.
+        expected_put=rows('reports/p25_validation_split/periods.csv')
+        expected_straddle=rows('reports/straddle_policy_refinement/comparison.csv')
+        for key,case,source,period in [('put_bandit','screened_selected',expected_put,'retrospective_holdout'),
+                                      ('put_fixed100','screened_fixed100',expected_put,'retrospective_holdout'),
+                                      ('straddle_bandit','performance60',expected_straddle,'evaluation'),
+                                      ('straddle_fixed100','fixed100',expected_straddle,'evaluation')]:
+            expected=float(one(source,case=case,period=period)['profit_above_cash'])
+            assert abs(paths[key].iloc[-1]-expected)<1e-6,(key,paths[key].iloc[-1],expected)
+        plotted=pd.DataFrame(paths);plotted['straddle_bandit_minus_fixed100']=gap*1e3
+        data_dir=Path(destination).parent/'figure_data';data_dir.mkdir(exist_ok=True)
+        plotted.rename_axis('date').to_csv(data_dir/'entry_curves.csv')
+        import json
+        record=dict(period='2022-01-01 to 2025-08-29',all_endpoints_match_saved_results=True,
+                    straddle_bandit_profit_above_cash=float(paths['straddle_bandit'].iloc[-1]),
+                    straddle_fixed100_profit_above_cash=float(paths['straddle_fixed100'].iloc[-1]),
+                    additional_straddle_profit=float(gap.iloc[-1]*1e3),
+                    minimum_cumulative_advantage=float(gap.min()*1e3),
+                    maximum_cumulative_advantage=float(gap.max()*1e3),
+                    comparison='Difference between separately funded portfolios; sizes also change admission.')
+        (data_dir/'entry_curves_verification.json').write_text(json.dumps(record,indent=2)+'\n')
+        print(json.dumps(record),flush=True)
 
     elif name == 'entry_explanations':
         fig,axes=plt.subplots(1,2,figsize=(WIDTH,2.95))

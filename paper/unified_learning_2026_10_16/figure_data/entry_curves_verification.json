@@ -1,0 +1,10 @@
+{
+  "period": "2022-01-01 to 2025-08-29",
+  "all_endpoints_match_saved_results": true,
+  "straddle_bandit_profit_above_cash": 2378760.744584527,
+  "straddle_fixed100_profit_above_cash": 2206203.4190136064,
+  "additional_straddle_profit": 172557.32557092048,
+  "minimum_cumulative_advantage": -51477.83709956519,
+  "maximum_cumulative_advantage": 263759.342907412,
+  "comparison": "Difference between separately funded portfolios; sizes also change admission."
+}

@@ -1,16 +1,16 @@
 {
   "page": 9,
-  "bottom_content_points": 89.25033140016595,
+  "bottom_content_points": 64.1964788732397,
   "overflow": false,
-  "content_sha256": "5c72ef7fcf5693fa1c62ae72244bec2aa5393001d1d33b812feb12cc2908177e",
+  "content_sha256": "37f3ed8b9e8d9f789c5ddaf425be8d108c17d5eff097c9ccac7f0b5927ff8802",
   "rendered": true,
   "vector_figures": [
     {
       "name": "entry_curves",
       "x": 54,
-      "y": 498.0503314001657,
+      "y": 472.9964788732394,
       "width": 504,
-      "height": 209.1996685998343
+      "height": 234.25352112676057
     }
   ]
 }

@@ -63,3 +63,12 @@ vectors at the audited preview positions. Word receives matching paper styles.
 All research paragraphs, equations, table cells, sections and results are
 unchanged. formatting_verification.json records the checks. The immediately
 preceding layout is archived locally in ../unified_learning_2026_10_16_before_academic_format.
+
+STRADDLE PROFIT COMPARISON
+
+Figure 6 retains both total-profit curves and adds a separate lower-right
+panel showing cumulative bandit profit minus fixed-full profit, including
+negative differences. Direct labels distinguish the two totals and the final
+incremental gain. The plotted daily values and endpoint reconciliation are in
+figure_data/entry_curves.csv and figure_data/entry_curves_verification.json.
+These compare funded policies; position sizing also changes admissions.
