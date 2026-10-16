@@ -8,7 +8,11 @@ The original put-pair study remains the foundation. New research adds a short-AT
 
 The highlighted Q setting reaches **1.215 / 1.726 annualized excess Sharpe** across the two periods, with **$1.306m** later profit above cash. Its fixed mean-exposure control reaches 1.387 later Sharpe; the matched one-period learner reaches 1.645. All preferences, weaker results and failed reward trials are included. These are researched historical settings, not a fresh untouched evaluation.
 
+**Original paper with a focused extension:** [Combined PDF](paper/original_with_rl_extension/options_relative_value_extended.pdf) · [Editable extension only (DOCX)](paper/original_with_rl_extension/research_extension.docx) · [Preservation checks](paper/original_with_rl_extension/verification.json). The original ten pages remain intact; six follow-up pages add the straddle signal, entry-policy interpretation, Q allocation, and evidence for why its switches help.
+
 [Derived review/replay snapshot](data/research/signal_allocation_099_snapshot.zip): saved models, daily ledgers and prepared allocation states, with file hashes. Raw option chains and credentials are excluded; source data licensing remains applicable. Full fitting and option-ledger reconstruction require the original market-data cache.
+
+## Original put-pair study
 
 **Validation-selected filtered strategy:** RL achieves **0.573 versus 0.478** excess Sharpe at fixed full sizing in 2018–2021 validation, and **1.263 versus 1.055** in January 2022–August 2025 evaluation. All these comparisons use $10m funded accounts. Evaluation profit above cash is $248,673 versus $200,853. Selection ranks 33 archived screened configurations using only validation scores; the selected 27-input, 18-month, 50/75/100% policy keeps the profitability filter. Archived selection scores use the original $345m research account. This is a retrospective split within an inherited strategy and universe, not an untouched holdout.
 
