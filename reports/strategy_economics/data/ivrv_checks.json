@@ -1,0 +1,10 @@
+{
+  "trades": 2599,
+  "early_exits": 3,
+  "profitable_with_iv_above_rv": 1509,
+  "losses_with_iv_above_rv": 220,
+  "gap_profit_rank_correlation": 0.8095281840023334,
+  "variance_gap_profit_rank_correlation": 0.7546641023977751,
+  "calendar_sign_changes": 69,
+  "dividend_sign_changes": 6
+}

@@ -1,0 +1,2 @@
+# Preserve frozen snapshot bytes so SHA256 checks work on Windows and Unix.
+* -text whitespace=cr-at-eol

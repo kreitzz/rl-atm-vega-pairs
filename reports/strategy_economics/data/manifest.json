@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "source_head": "8152b445521cc3dd24068918df373e02c9e4b8d5",
+  "baseline_commit": "87642cd556f71d3ba408b726fbc97f14b193b540",
+  "scope": "Derived research outcomes only; no raw WRDS quotes. These compact snapshots reproduce publication figures and tables only, not the raw-data backtest.",
+  "source_path_policy": "Original paths are provenance metadata only and must not be runnable dependencies of publication reproduction. Reproduction reads the local snapshots.",
+  "validation": {
+    "trade_outcomes_rows": 2599,
+    "account_rows_per_case": 1926,
+    "account_case_dates_aligned": true,
+    "account_start": "2018-01-02",
+    "account_end": "2025-08-29"
+  },
+  "snapshots": {
+    "profit_bridge.csv": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_checkpoint_4/portfolio_profit_bridge.csv",
+          "sha256": "86a6d4eb7cc5f3312bdb7e630a48f4d1eef44e7ccb85b3f4f95c56c00a6b35f1",
+          "bytes": 306
+        }
+      ],
+      "snapshot_sha256": "86a6d4eb7cc5f3312bdb7e630a48f4d1eef44e7ccb85b3f4f95c56c00a6b35f1",
+      "bytes": 306
+    },
+    "trade_examples.csv": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_checkpoint_4_5/example_daily.csv",
+          "sha256": "d7564556c8314b060e79ec61fb296639fb5fe1d12217c0f79ffb9f6e1a871942",
+          "bytes": 11957
+        }
+      ],
+      "snapshot_sha256": "d7564556c8314b060e79ec61fb296639fb5fe1d12217c0f79ffb9f6e1a871942",
+      "bytes": 11957
+    },
+    "account_performance.csv": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_management_trial/comparison.csv",
+          "sha256": "879c9914526e5b50487fd4b406c0027ea6157a0a9aa4f31213d9b0b48a8afc20",
+          "bytes": 1099
+        }
+      ],
+      "snapshot_sha256": "879c9914526e5b50487fd4b406c0027ea6157a0a9aa4f31213d9b0b48a8afc20",
+      "bytes": 1099
+    },
+    "sharpe_intervals.csv": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_management_trial/sharpe_intervals.csv",
+          "sha256": "ab604c550bb8f99bb1f3445594f775ab948be3a04801f2d0ee0313b38e3e9982",
+          "bytes": 390
+        }
+      ],
+      "snapshot_sha256": "ab604c550bb8f99bb1f3445594f775ab948be3a04801f2d0ee0313b38e3e9982",
+      "bytes": 390
+    },
+    "risk_protocol.json": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_management_trial/protocol.json",
+          "sha256": "f984c74bf1567c1e95baf11994c2a6a103b0c73fc18d7445401a14f9c4492e1e",
+          "bytes": 2101
+        }
+      ],
+      "snapshot_sha256": "f984c74bf1567c1e95baf11994c2a6a103b0c73fc18d7445401a14f9c4492e1e",
+      "bytes": 2101
+    },
+    "hedge_checks.json": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_checkpoint_4_5/metrics.json",
+          "sha256": "587eb31c2fb5bda637ea5527e7d7a0aa453cbc54555e056c285528a75d1fd305",
+          "bytes": 585
+        }
+      ],
+      "snapshot_sha256": "587eb31c2fb5bda637ea5527e7d7a0aa453cbc54555e056c285528a75d1fd305",
+      "bytes": 585
+    },
+    "ivrv_checks.json": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_checkpoint_4_6/metrics.json",
+          "sha256": "7f44161ef33eb83cfc15e81d5cde68a71e6978c877344839b94faf60e8968c2a",
+          "bytes": 300
+        }
+      ],
+      "snapshot_sha256": "7f44161ef33eb83cfc15e81d5cde68a71e6978c877344839b94faf60e8968c2a",
+      "bytes": 300
+    },
+    "trade_outcomes.csv": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_checkpoint_4_6/trade_volatility.csv",
+          "sha256": "33ed173b8e1f0106258a0d9edd132e903c69b77adb551a0b6f4f5e872500d0f4",
+          "bytes": 1816860
+        }
+      ],
+      "snapshot_sha256": "edaa0bc372666c43fe9a1f82903e6c3d576a2390100361b67875e1636a17d522",
+      "bytes": 636970,
+      "rows": 2599,
+      "columns": [
+        "cohort",
+        "secid",
+        "start",
+        "end",
+        "hedge_profit",
+        "option_profit",
+        "combined_profit",
+        "initial_premium",
+        "persistence",
+        "display_name",
+        "entry_iv",
+        "rv",
+        "rv_calendar",
+        "rv_dividend_adjusted",
+        "early_exit"
+      ]
+    },
+    "account_daily.csv": {
+      "original_sources": [
+        {
+          "path": "artifacts/model_diagnostics/straddle_management_trial/hold_control/daily_nav.parquet",
+          "sha256": "9e8913e386ba57df566b9caf76dbda43b075cb828dae60235aba12b8ed25206a",
+          "bytes": 564161
+        },
+        {
+          "path": "artifacts/model_diagnostics/straddle_management_trial/conditional_half/daily_nav.parquet",
+          "sha256": "3e44d252b2b90aeeea82587128ee978157698949ede374f7b7b303fd0f91a3e0",
+          "bytes": 563025
+        },
+        {
+          "path": "artifacts/model_diagnostics/straddle_management_trial/constant_lower/daily_nav.parquet",
+          "sha256": "8039e3bef1fb782396415b7d40236751b4cf3cab0632711bb301ca34bb2fed0b",
+          "bytes": 567841
+        }
+      ],
+      "snapshot_sha256": "f14eeebc3d84007287e52bf8cba4fecd55a0754dd08407fad71313bdb16df055",
+      "bytes": 602867,
+      "rows": 5778,
+      "columns": [
+        "case",
+        "date",
+        "nav",
+        "cash_benchmark",
+        "excess_return",
+        "straddle_gross_vega"
+      ]
+    },
+    "warning.csv": {
+      "original_sources": [
+        {
+          "path": "reports/model_diagnostics/straddle_management_trial/warning_asof_map.parquet",
+          "sha256": "f8df24b1ae5c7b5eceb0adf5d3438233e46fc952c26d42f671821ddc2b339f4a",
+          "bytes": 128564
+        }
+      ],
+      "snapshot_sha256": "6ef75a481f447b3b5e92c3499691d6e959fc12aad7915d3d9aaada260511d12e",
+      "bytes": 90036,
+      "rows": 908,
+      "columns": [
+        "signal_date",
+        "execution_date",
+        "first_changed_market_return_date",
+        "prediction",
+        "prior_nav",
+        "training_risk_cut_per_nav",
+        "high"
+      ]
+    }
+  }
+}

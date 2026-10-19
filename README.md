@@ -1,5 +1,11 @@
 # Reinforcement learning for options relative value
 
+[Strategy-economics research extension](reports/strategy_economics/report.md):
+explains the short-straddle option/hedge P&L, retrospective IV–RV and price-path
+splits, and one exploratory risk-cut trial. Includes an [illustrated version](reports/strategy_economics/index.html)
+and [offline reproduction instructions](reports/strategy_economics/README.md).
+The original paper and strategy below are unchanged.
+
 Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A frozen spread signal proposes trades; a contextual learner selects 50%, 75% or 100% vega exposure using monthly fits on completed past outcomes. The retained learner uses direct Sharpe optimization, not Q-learning.
 
 **Validation-selected filtered strategy:** RL achieves **0.573 versus 0.478** excess Sharpe at fixed full sizing in 2018–2021 validation, and **1.263 versus 1.055** in January 2022–August 2025 evaluation. All these comparisons use $10m funded accounts. Evaluation profit above cash is $248,673 versus $200,853. Selection ranks 33 archived screened configurations using only validation scores; the selected 27-input, 18-month, 50/75/100% policy keeps the profitability filter. Archived selection scores use the original $345m research account. This is a retrospective split within an inherited strategy and universe, not an untouched holdout.
