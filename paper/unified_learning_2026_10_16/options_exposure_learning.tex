@@ -5,7 +5,7 @@
 \hypersetup{hidelinks}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.4em}
-\title{\textbf{From Equity Pairs to Options Relative Value}\\[0.4em]\large Reinforcement Learning for Trade Sizing and Capital Allocation}
+\title{\textbf{Learning to Allocate Risk in Options Markets}\\[0.4em]\large Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation}
 \author{Adam Kreitzman and Soo Xin Yang\\MFE 230Z: Deep Learning in Finance}
 \date{20 October 2026}
 \begin{document}
@@ -44,6 +44,8 @@ Comparison & Different spread-trading methods & Shared proposals; separate learn
 We retain the separation between finding a spread and learning how to trade it. We change the instrument, reward and decision problem. A successful sizing policy does not establish that the original paper's trading algorithm transfers unchanged to options. Our later Q experiment is closer to its sequential question: present allocations affect holdings, subsequent resizing costs and future choices.
 
 The early ATM-volatility proxy results gave us reason to investigate further, but weakened when simulated with actual contracts. Strike-specific payoffs, daily hedge errors and costs were absent from the simple IV-versus-future-RV proxy. We investigated maturity, position on the option smile and additional predictors. Approximately 30-day, 25-delta puts became the retained relative-volatility configuration.
+
+Bell et al. [6] develop AlphaGlass, which maps characteristics into additive signals with sparse interactions and optimizes portfolio objectives directly. Their interpretable characteristic-based portfolio choice connects to our Sharpe-based sizing and policy diagnostics. We study a different decision structure: sizing actual option trades and allocating between strategy books through fitted Q-learning.
 
 \clearpage
 \section*{3. What the option trade actually does}
@@ -355,7 +357,8 @@ The straddle attribution links the second signal to realized movement and explai
 
 Bandits adapt trade commitments; Q allocates across strategies. The four-way and conventional-benchmark comparisons support studying both exposure decisions in an integrated implementation and prospective evaluation.
 
-\subsection*{References}
+\clearpage
+\section*{References}
 [1] Ning, B., and K. Lee (2024). Advanced Statistical Arbitrage with Reinforcement Learning. arXiv:2403.12180. https://arxiv.org/abs/2403.12180
 
 [2] Goyal, A., and A. Saretto (2009). Cross-section of option returns and volatility. Journal of Financial Economics 94, 310--326. https://doi.org/10.1016/j.jfineco.2009.01.001
@@ -365,6 +368,8 @@ Bandits adapt trade commitments; Q allocates across strategies. The four-way and
 [4] Ernst, D., P. Geurts, and L. Wehenkel (2005). Tree-Based Batch Mode Reinforcement Learning. Journal of Machine Learning Research 6, 503--556. https://jmlr.org/papers/v6/ernst05a.html
 
 [5] Caner, M., A. Capponi, N. Sun, and J. Y. Tan (2026). Designing Agentic AI-Based Screening for Portfolio Investment. arXiv:2603.23300. https://arxiv.org/abs/2603.23300
+
+[6] Bell, S., A. Kakhbod, M. Lettau, and A. Nazemi (2026). AlphaGlass: Interpretable Characteristic-Based Portfolio Choice. NBER Working Paper 35186. https://doi.org/10.3386/w35186
 
 \clearpage
 \appendix

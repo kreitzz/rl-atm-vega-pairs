@@ -1,347 +1,99 @@
 {
-  "main_pages": 20,
+  "document_engine": "LaTeX / Tectonic 0.17.0 (XeTeX)",
+  "typography": "Latin Modern serif text and matching mathematics; conventional academic article layout",
+  "main_pages": 22,
   "appendix_pages": 6,
-  "total_pages": 26,
+  "total_pages": 28,
+  "main_editorial_units": 21,
+  "appendix_editorial_units": 6,
   "all_table_values_in_pdf": true,
+  "numeric_tables": 17,
   "source_hashes_verified": true,
-  "vector_figures_embedded": 16,
   "original_versions_unchanged": true,
-  "layout_checks": [
-    {
-      "page": 1,
-      "bottom_content_points": 63.28342999171463,
-      "overflow": false,
-      "content_sha256": "b2064b86a520d8fc4a9af828e51d212ca88d81202ddff9637082a6205d70282d",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "learning_pipeline",
-          "x": 54,
-          "y": 158.6834299917146,
-          "width": 504,
-          "height": 124.016570008285
-        }
-      ]
-    },
-    {
-      "page": 2,
-      "bottom_content_points": 154.24999999999974,
-      "overflow": false,
-      "content_sha256": "16c023beb7a294d4b141d519ef016c92f59739886432ecdfbff0a2296266f0ec",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 3,
-      "bottom_content_points": 140.44999999999965,
-      "overflow": false,
-      "content_sha256": "32bed61ce0ac0d663caeb4ec5165d1bdac827a97b9fe9f0b628649e51433320e",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 4,
-      "bottom_content_points": 137.9461060480528,
-      "overflow": false,
-      "content_sha256": "cc143ab6d37383f5a984f548b6cb51fee6e2002aecc59496fd4d6a623f260501",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "signal_example",
-          "x": 54,
-          "y": 430.9461060480529,
-          "width": 504,
-          "height": 187.90389395194697
-        }
-      ]
-    },
-    {
-      "page": 5,
-      "bottom_content_points": 124.24999999999972,
-      "overflow": false,
-      "content_sha256": "7166021a44801f7acba275052c7ae8fc0b30cb19b7b6b268971185d220bb1498",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 6,
-      "bottom_content_points": 112.86723280861628,
-      "overflow": false,
-      "content_sha256": "e3a4ba9b5ec291fff994957b5f9c501e6d51020b901e595f2b4eef0c6de008a0",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "straddle_bridge",
-          "x": 54,
-          "y": 493.4390637945318,
-          "width": 504,
-          "height": 152.4109362054681
-        },
-        {
-          "name": "straddle_paths",
-          "x": 54,
-          "y": 256.06723280861627,
-          "width": 504,
-          "height": 141.9718309859155
-        }
-      ]
-    },
-    {
-      "page": 7,
-      "bottom_content_points": 111.88943661971831,
-      "overflow": false,
-      "content_sha256": "c41a7150f266f6121194dd1b9b62b32fb00751a0322f16cafad3f632c2227a9e",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "straddle_ivrv",
-          "x": 54,
-          "y": 447.0894366197182,
-          "width": 504,
-          "height": 198.7605633802817
-        }
-      ]
-    },
-    {
-      "page": 8,
-      "bottom_content_points": 162.51478873239427,
-      "overflow": false,
-      "content_sha256": "760550ee1f1cd3242bf4ee9d0799bb265c999a3ef98898cb274c9054b7f2c040",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "straddle_examples",
-          "x": 54,
-          "y": 319.3147887323943,
-          "width": 504,
-          "height": 326.53521126760563
-        }
-      ]
-    },
-    {
-      "page": 9,
-      "bottom_content_points": 118.5404722452358,
-      "overflow": false,
-      "content_sha256": "cb2bdf612dde608e45345f8296cba364408ec525f77c22e02fc34d6dbbdfd470",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "refit_timeline",
-          "x": 54,
-          "y": 248.14047224523577,
-          "width": 504,
-          "height": 159.50952775476387
-        }
-      ]
-    },
-    {
-      "page": 10,
-      "bottom_content_points": 101.59929577464769,
-      "overflow": false,
-      "content_sha256": "5dbb23034f70946e524c884791eb2d6943acfab6bcc1087f249236200a5d787a",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "feature_validation",
-          "x": 54,
-          "y": 244.79929577464765,
-          "width": 504,
-          "height": 248.45070422535213
-        }
-      ]
-    },
-    {
-      "page": 11,
-      "bottom_content_points": 74.45596520298244,
-      "overflow": false,
-      "content_sha256": "8afe653fd3260ff6b415d80acc49623c2a422565cd0fa9bfbf6eb0ede7133234",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "entry_policy",
-          "x": 54,
-          "y": 347.05596520298246,
-          "width": 504,
-          "height": 237.5940347970174
-        }
-      ]
-    },
-    {
-      "page": 12,
-      "bottom_content_points": 64.1964788732397,
-      "overflow": false,
-      "content_sha256": "3c1c5e852ed392c13dd4c90f53b74359aef4d111120b7ea23e91fd719c7c637d",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "entry_curves",
-          "x": 54,
-          "y": 472.9964788732394,
-          "width": 504,
-          "height": 234.25352112676057
-        }
-      ]
-    },
-    {
-      "page": 13,
-      "bottom_content_points": 84.05033140016553,
-      "overflow": false,
-      "content_sha256": "45d3835212d9af9c1fd69abc73f29e3015f1d5d821132a7c5ef8f48f7bf8ee12",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "entry_explanations",
-          "x": 54,
-          "y": 498.0503314001657,
-          "width": 504,
-          "height": 209.1996685998343
-        }
-      ]
-    },
-    {
-      "page": 14,
-      "bottom_content_points": 200.44999999999948,
-      "overflow": false,
-      "content_sha256": "c618430a65ddb6dadeb7b722a97afea8a8678df9f96cdf580ba325ad2f96f838",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 15,
-      "bottom_content_points": 55.00211267605646,
-      "overflow": false,
-      "content_sha256": "eae73a6bbecb63618a83ab583315693db71ddcf352da98d5408a0ac98ba8969a",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "allocation_risk",
-          "x": 54,
-          "y": 444.6021126760563,
-          "width": 504,
-          "height": 262.6478873239437
-        }
-      ]
-    },
-    {
-      "page": 16,
-      "bottom_content_points": 79.02464788732394,
-      "overflow": false,
-      "content_sha256": "341c74ee7a1b540da3f8d4bb15dc61174ac303902c58476ce03ce03a8cb9179b",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "allocation_schedule",
-          "x": 54,
-          "y": 495.5852112676056,
-          "width": 504,
-          "height": 177.46478873239437
-        },
-        {
-          "name": "conditional_risk",
-          "x": 54,
-          "y": 235.8246478873239,
-          "width": 504,
-          "height": 198.7605633802817
-        }
-      ]
-    },
-    {
-      "page": 17,
-      "bottom_content_points": 126.69225352112679,
-      "overflow": false,
-      "content_sha256": "7555f1e493d1695c2c90002284991cc59566f074b10ae8afc0f6f6f17cb91a19",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "factorial",
-          "x": 54,
-          "y": 494.2922535211268,
-          "width": 504,
-          "height": 212.95774647887325
-        }
-      ]
-    },
-    {
-      "page": 18,
-      "bottom_content_points": 85.4499999999999,
-      "overflow": false,
-      "content_sha256": "700c8fe40d162a92755908b889e3d51a0ebaf3e3904fe944d57d16884b93891c",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 19,
-      "bottom_content_points": 110.18802816901396,
-      "overflow": false,
-      "content_sha256": "245a44a5648b0a919363d1cdef6b9962a7d4f0f26766bf179800f57e2e1e62ff",
-      "rendered": true,
-      "vector_figures": [
-        {
-          "name": "straddle_management",
-          "x": 54,
-          "y": 365.58802816901385,
-          "width": 504,
-          "height": 191.66197183098592
-        }
-      ]
-    },
-    {
-      "page": 20,
-      "bottom_content_points": 58.649999999999466,
-      "overflow": false,
-      "content_sha256": "c27f8228c73e279cfbeaf38d60cbaeb7f78d6933fdd6dac2af72d251f5e13d19",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 21,
-      "bottom_content_points": 109.24999999999972,
-      "overflow": false,
-      "content_sha256": "cbdb0eca87355ec114943f2c9e9f62cd8dc8ac699c790dddf84aa64a56d7b86b",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 22,
-      "bottom_content_points": 95.44999999999973,
-      "overflow": false,
-      "content_sha256": "fee320840edee390cbd343cbd104c8cd779d85334de1222f96462aeab972fcf2",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 23,
-      "bottom_content_points": 127.05000000000021,
-      "overflow": false,
-      "content_sha256": "a6c77039979351a78ad3f0c4eb98cfc12b385e677e305c8dfcef1788300667c9",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 24,
-      "bottom_content_points": 154.2500000000002,
-      "overflow": false,
-      "content_sha256": "3a153e2e5e7e7ecf83a5a013108a90e3e83063b7a0187458f6181253fc5c6454",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 25,
-      "bottom_content_points": 295.6499999999995,
-      "overflow": false,
-      "content_sha256": "0398b04fa2a80edfcba877e2b9a46b4a1c7c67434811d6368b0eca2efe68abd8",
-      "rendered": true,
-      "vector_figures": []
-    },
-    {
-      "page": 26,
-      "bottom_content_points": 114.84999999999951,
-      "overflow": false,
-      "content_sha256": "879a48ddb6edaa38aef1630c230f45f7b49404183ffee26752a30d1db614e038",
-      "rendered": true,
-      "vector_figures": []
-    }
+  "vector_figures_embedded": 16,
+  "bibliography_keys": [
+    "ning2024",
+    "goyal2009",
+    "deboer2005",
+    "ernst2005",
+    "caner2026",
+    "alphaglass2026"
   ],
+  "all_citations_and_references_resolved": true,
+  "no_overfull_boxes_or_missing_characters": true,
+  "management_fitting_not_validation_explicit": true,
+  "font_resources": [
+    "/AKHCZK+LMRoman10-Regular",
+    "/BZIVMZ+LMRoman12-Regular",
+    "/CAFSZL+LMMathSymbols10-Regular",
+    "/DDIEWW+LMMathItalic8-Regular",
+    "/DZGKAF+LMMathSymbols7-Regular",
+    "/FKPJSN+LMMathSymbols8-Regular",
+    "/FZDNHS+LMMathItalic7-Regular",
+    "/IHAIZV+LMRoman12-Bold",
+    "/IXFAWU+LMRoman10-Regular",
+    "/JAGKKY+LMMathExtension10-Regular",
+    "/KPXLOM+LMRoman10-Italic",
+    "/NOMARO+LMMono10-Regular",
+    "/PVTTLK+LMMathItalic6-Regular",
+    "/TQTHRL+LMRoman10-Bold",
+    "/UTACNV+LMRoman7-Regular",
+    "/VDVGTR+LMMathItalic10-Regular",
+    "/YEUUOC+LMRoman8-Regular"
+  ],
+  "compiled_source_manifest": {
+    "source_files": {
+      "main.tex": "fc4a1548f3747337bc75ad316f5481ecd4ffd4a5457b4da717e5c8de89b1e632",
+      "references.bib": "906cd2a87719e0202ec7af7d96de6a294257defc425f37010739faea1c5d48d5",
+      "README.txt": "3a5f426ec3e5f5ee1867392e2bb27541d635c9c0ad26b4014f58edf47c4031b3",
+      "source_manifest.json": "ba11138282e70dcb7786637d7591575b4e77d0dc431fe79731655daa90c4f90f",
+      "sections/01_from_a_useful_signal_to_an_exposure_decision.tex": "8e936ff4a32009ce22a0294b775dbec5813b48ab8df71928c9e45363ecd943e0",
+      "sections/02_what_we_take_from_the_motivating_paper.tex": "26ef5e54209b7bd6e1b12afcb7ff1b8fe28d561508533652f0bacfa0a1d20ce1",
+      "sections/03_what_the_option_trade_actually_does.tex": "e81c3111bb37d68859f71818aed355f091c02ff8791a0f264069477a047e94fc",
+      "sections/04_finding_the_relative_volatility_signal.tex": "19ba17486c36b5f4d59d91e76bd495eb388ac0a660f5aba5bf7224634f3a92ce",
+      "sections/05_a_second_signal_persistent_volatility_richness.tex": "5a83f02eddddd0f4c4e0b4cdaa5210106b8c679bf9d980a168c4abe1429ca5d3",
+      "sections/06_explaining_the_straddle_account_s_profits.tex": "a779208367ed5d96963554654f1b993ea71ba8d35b4b33c84b79926e4d71fb75",
+      "sections/07_relating_implied_volatility_to_realized_outcomes.tex": "ad53b76588c41c00f8e16405eba27f5117dabce799f3c99b9370e7525fccea84",
+      "sections/08_reading_actual_option_and_hedge_paths.tex": "9817f694541503ca33d7fb4ced3fcb1c1e9c5eb5c172e279f9033293ab6da36f",
+      "sections/09_building_the_actual_contract_backtester.tex": "70a1e1f034c6d5768c58ff23134d75de84565e1b6c1a0a9d27dca231e4337e6c",
+      "sections/10_selecting_information_and_training_history.tex": "3f1b64c0358cb276fa9cae21b8d860ce527e3febddd9024136745d0a51ad4253",
+      "sections/11_learning_entry_size_with_contextual_bandits.tex": "55d0f11bee3380b42efdb86adaa991dd1e537cb0f006d525726c8916047cc10e",
+      "sections/12_does_learned_entry_sizing_improve_returns.tex": "2ee2d535887c39b71445c5dab3122a8a60f0fbb53b12aec500bb00a6537a8ce6",
+      "sections/13_explaining_the_bandits_decisions.tex": "f9aaa0251473451f9b4685819d2da84acf0fca53b9f3aef3a56b5d50a3e70c05",
+      "sections/14_q_learning_allocates_capital_across_signals.tex": "f1f3af1a303304df8488daa12b813f411c3b394cfab40f84f14581c059fb72bd",
+      "sections/15_risk_preference_changes_the_allocation_tradeoff.tex": "8a4e77588818a4aaa07b3c63f3f0b7be88070f17d4563365360c33088206a81f",
+      "sections/16_when_does_q_choose_the_riskier_signal.tex": "6aea341ab8392dfd858b415a0b20cbfea4aab761587e01084423c8a6751fa4de",
+      "sections/17_separating_the_two_learning_layers.tex": "d2f740ad123872dfec97d177f4043f072bf1fdf3f2e43550f06f470a7016509b",
+      "sections/18_comparing_dynamic_allocation_methods.tex": "34d324fd06b81b6c3b3be2265c319c117d0e83a4bf0ecb67933f449c5cbb11ac",
+      "sections/19_an_extension_managing_accumulated_straddle_exposure.tex": "1f525cdd1578aad485781dae27e8f5d4410f8c6eaf096d4b1699ee42548de4bb",
+      "sections/20_interpretation_limitations_and_conclusion.tex": "9d0b63c7b98bcadf69ef428d96ce8883e56efea5aed4da27a8f7eb88ac633e65",
+      "appendices/a_contracts_features_and_account_checks.tex": "9ded3081dffd006b020dd5730c1b164538b484da241d8c491b35c22e1e00f114",
+      "appendices/b_fitting_chronology_and_controls.tex": "03dd21f4f997d516f42c04a76ff814198228cf5a01f162a83fac14e0f8ff37f4",
+      "appendices/c_supporting_results_and_reproducibility.tex": "167cc89cbe6e8c7e0339f469f162dbcf4f87fdd44402840ca4f7055c9779f7ba",
+      "appendices/d_original_sizing_and_annual_results.tex": "3d2a9b02561580fd31ed60f5038385251c4f1db9111a33ad644b7d011a3acae4",
+      "appendices/e_performance_definitions_and_timing_diagnostics.tex": "06b01f527068c6e531442fa5ccf25113a7652525093c140bca6fe0f3035afd5d",
+      "appendices/f_straddle_attribution_and_management_protocol.tex": "445b350764fda025817d54ccf69a834c8c2203b1da435d7f7d1ea240649404ea",
+      "figures/learning_pipeline.pdf": "c0e7d29f1f121db9d2ca8a62ede3700ab1b294b160cc43d8516c915f2c58baa0",
+      "figures/signal_example.pdf": "e4605b68e2a1485f47822c822058c7a898236fca219c19d3904a12b813f4c3b8",
+      "figures/straddle_bridge.pdf": "677eab97e89c1a65bbd83b7086699ff9fa2c8e8a5eedfbb677fba3f4ea33e6c9",
+      "figures/straddle_paths.pdf": "15bf881aa6801d15e03df771cb8ae9d48016d42cea44b8a2495bc5d74f1d2dfc",
+      "figures/straddle_ivrv.pdf": "fb88269313f30281383f98c0b7da6a01af783d9943315ce0b480e2e40109596f",
+      "figures/straddle_examples.pdf": "ee3eed4e55b6151cb534b8ef92c06aa0676746e931c9909fe503dbd314462938",
+      "figures/refit_timeline.pdf": "4f10f13c5f3275a0f5991347d8cdc8e8b490b013dca44f557014e6b4e56e2805",
+      "figures/feature_validation.pdf": "c2452edcd1a5887be46ba83dfe9d58d5d697f13b38473cf73fce83bd37272e99",
+      "figures/entry_policy.pdf": "0fe849e926ac3a6bfc3b7cdd6fcdd3cf3422bd4f6c811c8a727c160f32c4d1b0",
+      "figures/entry_curves.pdf": "a3a44df5c5cdc8a7ad81d0e33cbcffc725e5cb5e41cbf1f8f76d167a6f9bd054",
+      "figures/entry_explanations.pdf": "5db5cdce5793681b625da167560aa3d8e8a099ec0941858c9c97e532b3bea2b5",
+      "figures/allocation_risk.pdf": "2c1e365104d6a7c4349a92a0ac93243b087081f145b7917a0a43f03a08c7001e",
+      "figures/allocation_schedule.pdf": "257496b7a8e899ae8093337853ab17d0ada1b7d3ea0dd25a64ddcd131bbb727c",
+      "figures/conditional_risk.pdf": "0e1152dcb5e507cf0be31dc3e2a36497c4ccf6e5d9eb1d2fd0331de4261204f6",
+      "figures/factorial.pdf": "f38d895401e4f2ff319b6e7428b68f4c63d83268653a5fa0bc08035a4824391b",
+      "figures/straddle_management.pdf": "34a3be81c8ffd23b410bee25e452a5863495ccdba49e9f2ee3d7ff4abe268666"
+    },
+    "archive_sha256": "723d127546d125e2e2b5a0dabc10cf55dda5f05e0dce4cd42fd02bd0c9f02e73",
+    "pdf_sha256": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7",
+    "main_source_sha256": "fc4a1548f3747337bc75ad316f5481ecd4ffd4a5457b4da717e5c8de89b1e632"
+  },
   "figure_hashes": {
     "paper/unified_learning_2026_10_16/figures/learning_pipeline.png": "befaba6ba4f04e8d398dfbaf21ed23f96e30ee44ac8ee7b735da1634378ae98d",
     "paper/unified_learning_2026_10_16/figures/learning_pipeline.pdf": "c0e7d29f1f121db9d2ca8a62ede3700ab1b294b160cc43d8516c915f2c58baa0",
@@ -393,8 +145,8 @@
     "paper/unified_learning_2026_10_16/figures/straddle_management.svg": "e427052744f8401e832259dcc6fad777fb088d7a3e07b170b8b63f6e4bd7a27d"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "e60d8bc219505720fda0748ca9c5678cf8140cf56edce7973cafa845cea1b3ee",
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "0e80e212268fa191cfe0eff0fc52ad91d52bebabfb16e898aa66aad35daa6ac1",
-    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "34bb3fe19dc279c66e2e5ad8ab7115577501f44d320abd63d27cb6fee013998d"
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "ae7afca61be081585c61fb9b9bfbfe3a6ee1057254c0fab0b70be8213488df90",
+    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "bc0b323a84521833dc9902a9840751abd093a6fdaea0e0cdc0b83b26d14f9ec9",
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7"
   }
 }

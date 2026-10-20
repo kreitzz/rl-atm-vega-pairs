@@ -17,7 +17,7 @@ from pathlib import Path
 SOURCE=Path('paper/unified_learning_2026_10_16')
 DEST=Path('paper/overleaf_options_exposure')
 ARCHIVE=Path('paper/options_exposure_overleaf.zip')
-KEYS=['ning2024','goyal2009','deboer2005','ernst2005','caner2026']
+KEYS=['ning2024','goyal2009','deboer2005','ernst2005','caner2026','alphaglass2026']
 
 BIB=r'''@misc{ning2024,
   author={Ning, B. and Lee, K.},
@@ -49,6 +49,13 @@ BIB=r'''@misc{ning2024,
   year={2026}, eprint={2603.23300}, archivePrefix={arXiv},
   url={https://arxiv.org/abs/2603.23300}
 }
+@techreport{alphaglass2026,
+  author={Bell, Sebastian and Kakhbod, Ali and Lettau, Martin and Nazemi, Abdolreza},
+  title={{AlphaGlass}: Interpretable Characteristic-Based Portfolio Choice},
+  institution={National Bureau of Economic Research},
+  type={Working Paper}, number={35186}, year={2026}, month={May},
+  doi={10.3386/w35186}, url={https://www.nber.org/papers/w35186}
+}
 '''
 
 
@@ -69,9 +76,9 @@ def escape(text):
     chunks=[]
     # Every other chunk is a citation or repository path. Avoid escaping the
     # backslashes of LaTeX generated in a preceding replacement pass.
-    pattern=r'(\[[1-5]\]|(?:reports|artifacts|paper|scripts|data|config)/[A-Za-z0-9_./-]+)'
+    pattern=r'(\[[1-6]\]|(?:reports|artifacts|paper|scripts|data|config)/[A-Za-z0-9_./-]+)'
     for token in re.split(pattern,str(text)):
-        if re.fullmatch(r'\[[1-5]\]',token):chunks.append(r'\cite{'+KEYS[int(token[1])-1]+'}')
+        if re.fullmatch(r'\[[1-6]\]',token):chunks.append(r'\cite{'+KEYS[int(token[1])-1]+'}')
         elif re.match(r'^(reports|artifacts|paper|scripts|data|config)/',token):chunks.append(r'\path{'+token+'}')
         else:chunks.append(plain(token))
     result=''.join(chunks)
@@ -88,11 +95,13 @@ def table_tex(block):
     for w,is_numeric in zip(weights,numeric):
         align=r'\raggedleft' if is_numeric else r'\raggedright'
         spec.append(r'>{\hsize='+f'{cols*w/sum(weights):.5f}'+r'\hsize\linewidth=\hsize'+align+r'\arraybackslash}X')
-    parts=[r'\begin{center}\small',r'\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}',
+    parts=[r'\begin{table}[H]\centering\small']
+    if block.get('caption'):parts.append(r'\caption{'+escape(block['caption'])+'}')
+    parts.extend([r'\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}',
            r'\begin{tabularx}{\textwidth}{@{}'+''.join(spec)+r'@{}}\toprule',
-           ' & '.join(escape(x) for x in block['headers'])+r'\\\midrule']
+           ' & '.join(r'\textbf{'+escape(x)+'}' for x in block['headers'])+r'\\\midrule'])
     parts.extend(' & '.join(escape(x) for x in row)+r'\\' for row in block['rows'])
-    return '\n'.join(parts+[r'\bottomrule\end{tabularx}\end{center}'])
+    return '\n'.join(parts+[r'\bottomrule\end{tabularx}\end{table}'])
 
 
 def export():
@@ -102,6 +111,9 @@ def export():
     for folder in ['sections','appendices','figures']:(DEST/folder).mkdir(parents=True,exist_ok=True)
     inputs=[];appendices=[];abstract=[];figures=[];block_count=0
     for index,page in enumerate(pages):
+        if page['title']=='References':
+            block_count+=len(page['blocks'])
+            continue
         is_appendix=index>=MAIN_PAGES
         if is_appendix:
             letter=page['title'].split()[1].rstrip('.').lower()
@@ -112,7 +124,7 @@ def export():
             label=f'sec:{index+1}';folder='sections';prefix=f'{index+1:02d}'
         slug=re.sub('[^a-z0-9]+','_',title.lower()).strip('_')[:65]
         filename=f'{folder}/{prefix}_{slug}.tex'
-        content=[r'\section{'+escape(title)+r'}\label{'+label+'}']
+        content=([r'\clearpage'] if is_appendix else [])+[r'\section{'+escape(title)+r'}\label{'+label+'}']
         for b in page['blocks']:
             block_count+=1;kind=b['type']
             if kind=='reference':continue
@@ -121,7 +133,9 @@ def export():
                 abstract.append(escape(b['text']));continue
             if index==0 and kind=='heading' and b['text'].startswith('1.'):continue
             if kind=='paragraph':content.append(escape(b['text'])+'\n')
-            elif kind=='heading':content.append(r'\subsection*{'+escape(b['text'])+'}')
+            elif kind=='heading':
+                if b['text']=='Conclusion':content.append(r'\Needspace{15\baselineskip}')
+                content.append(r'\subsection*{'+escape(b['text'])+'}')
             elif kind=='equation':content.append(r'\begin{equation*}'+b['latex']+r'\end{equation*}')
             elif kind=='table':content.append(table_tex(b))
             elif kind=='chart':
@@ -132,41 +146,59 @@ def export():
                     '\n'+r'\includegraphics[width=\linewidth]{'+name+r'.pdf}'+
                     '\n'+r'\caption{'+escape(CAPTIONS[name])+r'}\label{fig:'+name.replace('_','-')+'}'+
                     '\n'+r'\end{figure}')
-        content.append(r'\FloatBarrier')
-        (DEST/filename).write_text('\n\n'.join(content)+'\n')
+        # Avoid flushing a half-empty float page at every short source section.
+        # Keep figures within the corresponding economic/methodological block.
+        if is_appendix or index in {3,7,9,12,15,18,19}:
+            content.append(r'\FloatBarrier')
+        (DEST/filename).write_text('\n\n'.join(content).rstrip()+'\n')
         (appendices if is_appendix else inputs).append(r'\input{'+filename[:-4]+'}')
     (DEST/'references.bib').write_text(BIB)
     preamble=r'''\documentclass[11pt,letterpaper]{article}
-\usepackage[margin=0.75in]{geometry}
+\usepackage[left=1in,right=1in,top=0.9in,bottom=0.9in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{newtxtext,newtxmath}
+\usepackage{lmodern}
 \usepackage{microtype,amsmath,booktabs,tabularx,array,graphicx,placeins,float}
+\usepackage{titlesec,needspace}
+\usepackage[font=small,labelfont=bf,labelsep=period,justification=justified,singlelinecheck=false]{caption}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{figures/}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.45em}
+\linespread{1.04}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.12em}
 \setlength{\emergencystretch}{2em}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.3\baselineskip}{0.55\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.9\baselineskip}{0.35\baselineskip}
+\captionsetup{skip=7pt}
+\captionsetup[table]{position=top,skip=6pt}
+\setlength{\abovedisplayskip}{9pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{9pt plus 2pt minus 2pt}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
 \setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
 \setlength{\intextsep}{12pt plus 2pt minus 2pt}
 \renewcommand{\topfraction}{.9}
 \renewcommand{\bottomfraction}{.8}
 \renewcommand{\textfraction}{.1}
 \renewcommand{\floatpagefraction}{.8}
-\hypersetup{pdftitle={From Equity Pairs to Options Relative Value},
+\hypersetup{pdftitle={TITLE},
  pdfauthor={Adam Kreitzman and Soo Xin Yang}}
 \begin{document}
 \begin{center}
-\makebox[\textwidth][c]{{\fontsize{20}{24}\selectfont\bfseries TITLE}}
+\makebox[\textwidth][c]{{\fontsize{19}{23}\selectfont\bfseries TITLE}}
 \vspace{0.6em}
 
-{\large SUBTITLE}\par
+{\fontsize{11}{14}\selectfont SUBTITLE}\par
 \vspace{1em}
 AUTHORS\par
-\small MFE 230Z: Deep Learning in Finance\par
-DATE
+{\small MFE 230Z: Deep Learning in Finance}\par
+{\small DATE}
 \end{center}
 \begin{abstract}
 ABSTRACT
@@ -180,9 +212,12 @@ ABSTRACT
 \bibliography{references}
 \clearpage
 \appendix
-'''+ '\n'.join(appendices)+'\n'+r'\end{document}'+'\n'
+\begingroup
+\renewcommand{\baselinestretch}{1}
+\fontsize{10.5}{12.8}\selectfont
+'''+ '\n'.join(appendices)+'\n'+r'\endgroup'+'\n'+r'\end{document}'+'\n'
     (DEST/'main.tex').write_text(main)
-    (DEST/'README.txt').write_text('''OVERLEAF PROJECT — FROM EQUITY PAIRS TO OPTIONS RELATIVE VALUE
+    (DEST/'README.txt').write_text(f'''OVERLEAF PROJECT — {TITLE.upper()}
 
 Upload ../options_exposure_overleaf.zip through Overleaf: New Project > Upload Project.
 Set main.tex as the main document and use pdfLaTeX (current TeX Live).
@@ -192,7 +227,8 @@ option files are needed. All 16 figures are included as vector PDFs.
 Edit main.tex for formatting, sections/*.tex for the main paper,
 appendices/*.tex for supporting detail and references.bib for citations.
 The source is actual editable LaTeX, not images of manuscript pages.
-Sections may paginate differently from the fixed-layout PDF/DOCX edition.
+The primary repository PDF is typeset from this LaTeX project. The Word copy
+shares the same manuscript content and may paginate differently.
 
 This export synthesizes the original exposure-learning study with the teammate's
 straddle economics and separate management trial. Source metrics and limits are
@@ -212,7 +248,7 @@ Data licensing and the original repository's academic-use conditions still apply
     assert 'paper/unified_learning' not in all_tex
     citations=set(re.findall(r'\\cite\{([^}]+)\}',all_tex))
     assert citations==set(KEYS),citations
-    assert len(re.findall(r'\\caption\{',all_tex))==16
+    assert len(re.findall(r'\\caption\{',all_tex))==33
     manifest=dict(manuscript_sha256=sha(SOURCE/'manuscript.json'),
         sections=len(inputs),appendices=len(appendices),figures=figures,
         all_citation_keys_resolved=True,source_blocks=block_count,
@@ -232,15 +268,180 @@ Data licensing and the original repository's academic-use conditions still apply
 
 def compile_project(executable):
     output=Path('/tmp/options_overleaf_compile');output.mkdir(exist_ok=True)
-    command=[str(Path(executable).resolve()),'--keep-logs','--outdir',str(output),'main.tex']
-    subprocess.run(command,cwd=DEST,check=True)
+    command=[str(Path(executable).resolve()),'--keep-logs','--keep-intermediates','--outdir',str(output),'main.tex']
+    with (output/'compiler_console.log').open('w') as console:
+        result=subprocess.run(command,cwd=DEST,stdout=console,stderr=subprocess.STDOUT)
+    if result.returncode:
+        print('\n'.join((output/'compiler_console.log').read_text().splitlines()[-40:]),flush=True)
+        result.check_returncode()
+    with zipfile.ZipFile(ARCHIVE) as archive:
+        names=archive.namelist()
+        assert all(archive.read(name)==(DEST/name).read_bytes() for name in names)
+    record=dict(source_files={name:sha(DEST/name) for name in names},
+                archive_sha256=sha(ARCHIVE),pdf_sha256=sha(output/'main.pdf'),
+                main_source_sha256=sha(DEST/'main.tex'))
+    (output/'build_manifest.json').write_text(json.dumps(record,indent=2)+'\n')
     print('Compiled Overleaf project: '+str(output/'main.pdf'),flush=True)
+
+
+def publish(compiled_pdf,auxiliary):
+    """Promote the verified LaTeX PDF to the stable repository paper filenames.
+
+    The JSON pages remain editorial content units, not physical typeset pages.
+    Appendix A's LaTeX label determines the actual PDF split. This replaces
+    fixed-page plot-based document rendering while retaining the same results.
+    """
+    import unicodedata
+    from pypdf import PdfReader,PdfWriter
+    from scripts.build_unified_options_paper import CAPTIONS
+    from scripts.options_paper_layout import TITLE,SUBTITLE,AUTHORS
+    pdf=Path(compiled_pdf);aux=Path(auxiliary)
+    build=json.loads((pdf.parent/'build_manifest.json').read_text())
+    assert build['pdf_sha256']==sha(pdf),'Compiled PDF changed'
+    assert build['archive_sha256']==sha(ARCHIVE),'Source ZIP changed after compilation'
+    for name,expected in build['source_files'].items():assert sha(DEST/name)==expected,name
+    meta=json.loads((SOURCE/'provenance.json').read_text())
+    for path,expected in {**meta['source_hashes'],**meta['preserved_versions']}.items():assert sha(path)==expected,path
+    log=(pdf.parent/'main.log').read_text()
+    assert not re.search(r'Overfull|There were undefined|Missing character|Citation .+ undefined',log)
+    auxiliary_text=aux.read_text()
+    assert all(re.search(r'\\bibcite\{'+re.escape(key)+r'\}',auxiliary_text) for key in KEYS)
+    label=re.search(r'\\newlabel\{app:a\}\{\{[^{}]*\}\{(\d+)\}',auxiliary_text)
+    assert label,'Missing Appendix A page label'
+    first_appendix=int(label[1]);reader=PdfReader(pdf)
+    text='\n'.join(p.extract_text() for p in reader.pages)
+    compact=lambda value:re.sub(r'\s+','',unicodedata.normalize('NFKC',str(value))).replace('−','-').replace('–','-')
+    all_text=compact(text);pages=json.loads((SOURCE/'manuscript.json').read_text())
+    tables=[b for p in pages for b in p['blocks'] if b['type']=='table']
+    for b in tables:
+        for row in b['rows']:
+            for value in row:assert compact(value) in all_text,value
+    for value in ['AlphaGlass','35186','1.726','2.152','1.263','1.041','1.576','2,599']:
+        assert value in text,value
+    semantic=re.sub(r'(?<=\w)-\s*\n\s*(?=\w)','',text)
+    assert 'withoutvalidating' in compact(semantic) or 'doesnotvalidate' in compact(semantic)
+    fonts=set()
+    for page in reader.pages:
+        resources=page.get('/Resources')
+        if resources:
+            for font in resources.get_object().get('/Font',{}).get_object().values():
+                fonts.add(str(font.get_object().get('/BaseFont','')))
+    assert any('LMRoman' in f or 'lmr' in f.lower() for f in fonts),fonts
+    assert 1<first_appendix<=len(reader.pages)
+    # Append copies the matching navigation outlines as well as page content.
+    for filename,bounds in [('options_exposure_learning.pdf',(0,first_appendix-1)),
+                            ('technical_appendix.pdf',(first_appendix-1,len(reader.pages)))]:
+        writer=PdfWriter();writer.append(str(pdf),pages=bounds)
+        writer.add_metadata({'/Title':TITLE,'/Author':AUTHORS})
+        with (SOURCE/filename).open('wb') as f:writer.write(f)
+    shutil.copy2(pdf,SOURCE/'options_exposure_learning_with_appendix.pdf')
+    figures=json.loads((DEST/'source_manifest.json').read_text())['figure_hashes']
+    for name,expected in figures.items():assert sha(SOURCE/'figures'/f'{name}.pdf')==expected,name
+    record=dict(document_engine='LaTeX / Tectonic 0.17.0 (XeTeX)',
+        typography='Latin Modern serif text and matching mathematics; conventional academic article layout',
+        main_pages=first_appendix-1,appendix_pages=len(reader.pages)-first_appendix+1,
+        total_pages=len(reader.pages),main_editorial_units=meta['main_pages'],appendix_editorial_units=meta['appendix_pages'],
+        all_table_values_in_pdf=True,numeric_tables=len(tables),source_hashes_verified=True,
+        original_versions_unchanged=True,vector_figures_embedded=len(CAPTIONS),
+        bibliography_keys=KEYS,all_citations_and_references_resolved=True,
+        no_overfull_boxes_or_missing_characters=True,management_fitting_not_validation_explicit=True,
+        font_resources=sorted(fonts),compiled_source_manifest=build,
+        figure_hashes={str(SOURCE/'figures'/f'{name}.{ext}'):sha(SOURCE/'figures'/f'{name}.{ext}') for name in CAPTIONS for ext in ('png','pdf','svg')},
+        output_hashes={str(SOURCE/name):sha(SOURCE/name) for name in ['options_exposure_learning.pdf','technical_appendix.pdf','options_exposure_learning_with_appendix.pdf']})
+    (SOURCE/'verification.json').write_text(json.dumps(record,indent=2)+'\n')
+    (SOURCE/'formatting_verification.json').write_text(json.dumps(dict(
+        style='classic-latex-article-v1',title=TITLE,subtitle=SUBTITLE,
+        primary_pdf_typeset_from_overleaf_source=True,all_numeric_tables_verified=True,
+        vector_figures_embedded=16,main_pages=record['main_pages'],appendix_pages=record['appendix_pages'],
+        pdf_sha256=sha(pdf),body_and_math_fonts='Latin Modern',
+        alphaglass_cited=True,all_17_numeric_tables_preserved=True,
+        management_fitting_not_validation_explicit=True),indent=2)+'\n')
+    (SOURCE/'overleaf_compilation_verification.json').write_text(json.dumps(dict(
+        engine=record['document_engine'],compiled=True,compiled_pages=len(reader.pages),
+        compiled_pdf_sha256=sha(pdf),upload_zip_sha256=sha(ARCHIVE),main_source_sha256=sha(DEST/'main.tex'),
+        all_17_numeric_tables_present=True,all_citations_and_references_resolved=True,
+        no_overfull_boxes_or_missing_characters=True,compilation_outputs_excluded_from_zip=True,
+        overleaf_account_upload_performed=False,alphaglass_cited=True),indent=2)+'\n')
+    economics_path=SOURCE/'economics_integration_verification.json'
+    economics=json.loads(economics_path.read_text())
+    economics.update(integrated_pdf_sha256=sha(pdf),main_pages=record['main_pages'],appendix_pages=record['appendix_pages'])
+    economics_path.write_text(json.dumps(economics,indent=2)+'\n')
+    (SOURCE/'README.txt').write_text(f'''PRIMARY PAPER — LATEX EDITION
+{TITLE}
+{SUBTITLE}
+
+options_exposure_learning_with_appendix.pdf is the full typeset paper.
+options_exposure_learning.pdf contains {record['main_pages']} main/reference pages;
+technical_appendix.pdf contains the remaining {record['appendix_pages']} appendix pages.
+The primary PDFs are compiled from paper/overleaf_options_exposure/main.tex.
+Their editable source, six BibTeX references and 16 vector figures are bundled
+in paper/options_exposure_overleaf.zip for Overleaf Upload Project.
+The Word edition shares the manuscript content and may paginate differently.
+
+The paper retains the original signal, trade, methodology and learning-layer
+explanations, plus the teammate's straddle attribution and separate management
+trial. AlphaGlass (Bell et al., 2026) is cited for direct investment-objective
+optimization and interpretable characteristic-based portfolio choice.
+The cuts model is fitted during 2018–2021 without applying management then;
+that period does not validate the trimming benefit. All numerical results and
+figures are unchanged by this typography/citation revision.
+
+Edit sections/*.tex, appendices/*.tex and references.bib in the Overleaf project.
+No direct Overleaf account connection or automatic synchronization is configured.
+The local JSON manuscript is still divided into editorial units; those unit
+counts do not describe physical LaTeX pages. The older plot-based per-page
+preview files are not the typesetting source of the primary PDF.
+
+Reproduction: prepare the shared manuscript with scripts.build_unified_options_paper;
+export, compile and publish with scripts.export_options_overleaf. The guarded
+driver scripts/rebuild_options_paper_guarded.py --stage latex runs these three
+steps sequentially. Tectonic is needed only for local compilation; Overleaf can
+compile the ZIP directly. Run Word export separately if needed.
+Preserve one worker, 20% of one CPU core and the 256 MiB RSS/swap-growth limits.
+No new fitting, strategy selection or raw-data backtest occurs in this build.
+
+verification.json verifies sources, retained results, vector figures, resolved
+citations and the compiled-source hashes. Frozen economics data reproduce the
+publication rather than independently refitting the management simulator.
+Earlier versions, original strategy data restrictions and academic-use terms
+remain applicable. See REVISION_NOTES.txt and the source reports for provenance.
+''')
+    print(f'Published LaTeX paper: {record["main_pages"]} main/reference + {record["appendix_pages"]} appendix pages; {len(tables)} tables and six references verified',flush=True)
+
+
+def preview(compiled_pdf,page_number):
+    """Rasterize one selected PDF page with the macOS native image converter."""
+    from pypdf import PdfReader,PdfWriter
+    root=Path('/tmp/options_typography_review');root.mkdir(exist_ok=True)
+    reader=PdfReader(compiled_pdf);assert 1<=page_number<=len(reader.pages)
+    page=root/f'page_{page_number:02d}.pdf';png=page.with_suffix('.png')
+    writer=PdfWriter();writer.add_page(reader.pages[page_number-1])
+    with page.open('wb') as f:writer.write(f)
+    subprocess.run(['sips','-s','format','png','-s','dpiWidth','144','-s','dpiHeight','144',str(page),'--out',str(png)],check=True,capture_output=True)
+    from PIL import Image
+    with Image.open(png) as image:
+        if 'A' in image.getbands():
+            white=Image.new('RGB',image.size,'white')
+            white.paste(image,mask=image.getchannel('A'));white.save(png)
+    print('Preview: '+str(png),flush=True)
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--phase',choices=['export','compile'],required=True)
+    parser.add_argument('--phase',choices=['export','compile','publish','preview'],required=True)
     parser.add_argument('--tectonic',default='/tmp/options-tectonic/tectonic')
+    parser.add_argument('--compiled-pdf',default='/tmp/options_overleaf_compile/main.pdf')
+    parser.add_argument('--aux',default='/tmp/options_overleaf_compile/main.aux')
+    parser.add_argument('--page',type=int,default=1)
     args=parser.parse_args()
     if args.phase=='export':export()
-    else:compile_project(args.tectonic)
+    elif args.phase=='compile':compile_project(args.tectonic)
+    elif args.phase=='publish':publish(args.compiled_pdf,args.aux)
+    elif args.page==0:
+        import gc
+        from pypdf import PdfReader
+        count=len(PdfReader(args.compiled_pdf).pages)
+        for number in range(1,count+1):
+            preview(args.compiled_pdf,number)
+            gc.collect()
+    else:preview(args.compiled_pdf,args.page)

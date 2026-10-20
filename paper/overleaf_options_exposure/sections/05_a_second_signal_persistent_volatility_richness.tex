@@ -18,20 +18,18 @@ For illustration, a name whose completed outcomes average RV 26\% against entry 
 ATM means the strike is near the current stock price. We sell an ATM call and put with the same name, strike and expiry, then adjust the stock delta hedge daily. This collects premium against movement in either direction. At full size, \$450 is the combined call-and-put vega budget. The position is short gamma and vega: quiet realized paths can support carry, while jumps and changing uncertainty can generate large losses. It is not vega neutral.
 
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Economic exposures of the two retained signals.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=0.80859\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.09570\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.09570\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
-Economic distinction & Relative put pair & ATM straddle\\\midrule
+\textbf{Economic distinction} & \textbf{Relative put pair} & \textbf{ATM straddle}\\\midrule
 Comparison & Current gap versus pair history & Completed RV - IV versus other names\\
 Exposure & Buy one put; sell another & Sell call and put on one name\\
 Initial vega & Approximately offset across names & Net short\\
 Main challenge & Different realized paths and events & Premium income versus movement risk\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 The signal retains ATM-call IV even though execution uses a straddle. It ranks a difference in annualized volatility units, not squared variance and not an exact option-return forecast. The actual-contract ledger determines profitability after premiums, hedging, costs and financing. This distinction prevents the ranking target from being mistaken for simulated profit.
 
 
 The two signals consequently offer different portfolios. The pair trade targets relative option richness with initial vega offset; the straddle accepts market-volatility exposure to collect a persistent premium. Their different dollar profits and risk make capital allocation a separate decision from either trade's entry size.
-
-
-\FloatBarrier

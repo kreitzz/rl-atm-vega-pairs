@@ -1,5 +1,5 @@
 {
-  "manuscript_sha256": "b3346d47d894af98c50ad56c2e12fa4ad27bf9412b10706bd557b11a35a2e37d",
+  "manuscript_sha256": "ab5f9912fd6fff5dc7e9bf0d4f04df4a98918c15771a944ebff3e931570bad1f",
   "sections": 20,
   "appendices": 6,
   "figures": [
@@ -21,7 +21,7 @@
     "straddle_management"
   ],
   "all_citation_keys_resolved": true,
-  "source_blocks": 206,
+  "source_blocks": 207,
   "figure_hashes": {
     "learning_pipeline": "c0e7d29f1f121db9d2ca8a62ede3700ab1b294b160cc43d8516c915f2c58baa0",
     "signal_example": "e4605b68e2a1485f47822c822058c7a898236fca219c19d3904a12b813f4c3b8",

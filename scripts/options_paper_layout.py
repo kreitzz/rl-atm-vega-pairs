@@ -5,8 +5,8 @@ Figure placements also support vector composition in the final PDF.
 """
 import re
 
-TITLE='From Equity Pairs to Options Relative Value'
-SUBTITLE='Reinforcement Learning for Trade Sizing and Capital Allocation'
+TITLE='Learning to Allocate Risk in Options Markets'
+SUBTITLE='Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation'
 AUTHORS='Adam Kreitzman and Soo Xin Yang'
 COURSE='MFE 230Z: Deep Learning in Finance'
 DATE='20 October 2026'

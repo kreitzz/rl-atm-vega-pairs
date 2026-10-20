@@ -145,3 +145,33 @@ the warning model and cutoff; it does not validate a benefit from cuts. The
 1.365-to-1.576 comparison applies only to the later active-management period.
 A validation-period policy comparison would need an earlier-only or nested
 walk-forward warning fit. No such additional experiment is claimed here.
+
+AlphaGlass citation — added Bell, Kakhbod, Lettau and Nazemi (2026), NBER Working
+Paper 35186, DOI 10.3386/w35186. The related-work discussion connects direct
+investment-objective optimization and interpretable characteristic-based
+portfolio choice to our sizing and allocation decisions, without claiming that
+we implement AlphaGlass. References now have a dedicated page: 21 main pages
+including references, followed by six appendix pages. Strategy results, figures,
+and all numerical tables are unchanged.
+
+Academic typography revision — the primary PDFs now come directly from the
+editable LaTeX project. Latin Modern serif text and matching mathematics replace
+the plot-based page export. Revised section spacing, paragraph indentation,
+bold table headings, consistent figure captions and controlled float boundaries
+produce a conventional academic article. The typeset edition has 22 main/reference
+pages plus six appendix pages. Editorial JSON units retain their content and are
+no longer treated as physical PDF pages. AlphaGlass is included in all editions;
+no signals, experiments, result tables or figure values change.
+
+Local publication: scripts/rebuild_options_paper_guarded.py --stage latex exports,
+compiles and verifies the standalone Overleaf source before replacing the stable
+PDF filenames. Appendix A's LaTeX page label sets the main/appendix split.
+Source/figure hashes, table values, bibliography keys and typesetting errors are
+checked before publication. Word remains a separate editable content export.
+
+Final title applied throughout: Learning to Allocate Risk in Options Markets.
+Subtitle: Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation.
+The stable PDF/Word/ZIP filenames are retained so previously shared links work.
+Tables now have numbered captions. The conclusion stays together, references
+flow after it, and each appendix starts on a new page. Appendix text uses a
+consistent 10.5-point serif setting to prevent a short orphaned continuation.

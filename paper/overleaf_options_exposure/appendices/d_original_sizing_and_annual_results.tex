@@ -1,11 +1,14 @@
+\clearpage
+
 \section{Original sizing and annual results}\label{app:d}
 
 \subsection*{Alternative put sizing pipelines retained from the original study}
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Alternative put-sizing policies on the common reporting split.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=1.75781\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.97656\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-Put sizing policy & 2018--21 S & 2022--25 S & Later entries & Later profit\\\midrule
+\textbf{Put sizing policy} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later entries} & \textbf{Later profit}\\\midrule
 Constant 50\% & 0.437 & 1.007 & 151 & \$0.205m\\
 Constant 75\% & 0.449 & 0.944 & 104 & \$0.195m\\
 Constant 100\% & 0.478 & 1.055 & 75 & \$0.201m\\
@@ -14,20 +17,21 @@ Spread-rank sizing & 0.464 & 0.815 & 121 & \$0.165m\\
 Ridge-score sizing & 0.421 & 0.890 & 94 & \$0.180m\\
 Direct linear policy & 0.267 & 0.873 & 96 & \$0.171m\\
 Direct additive policy & 0.302 & 1.013 & 97 & \$0.180m\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 All policies receive the same put proposals, directions, contracts and funded admission rules. The lower four rows are follow-up comparisons rather than original selection candidates. Tree/CEM has the highest funded Sharpe in both periods among these policies. These comparisons retain the original question about entry sizing alongside the newer straddle and allocation experiments.
 
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Put-bandit annual account returns and excess performance.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=0.58594\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.22070\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.17188\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.94727\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-Year & Account return & Above cash (pp) & Excess Sharpe & Entries\\\midrule
+\textbf{Year} & \textbf{Account return} & \textbf{Above cash (pp)} & \textbf{Excess Sharpe} & \textbf{Entries}\\\midrule
 2022 & 3.470\% & 1.673 & 2.458 & 66\\
 2023 & 5.288\% & 0.432 & 1.492 & 19\\
 2024 & 5.104\% & -0.283 & -0.907 & 11\\
 2025* & 3.207\% & 0.169 & 1.092 & 14\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 Calendar-period account returns and above-cash differences are not annualized, including partial 2025. Sharpe is annualized. In 2024 the account grows while losing relative to cash. The original put strategy's results are concentrated in a few pairs and in 2022; this limits claims of broad repeated success.
 

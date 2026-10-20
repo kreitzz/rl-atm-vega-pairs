@@ -21,7 +21,7 @@ VAR=Path('reports/signal_allocation_variance')
 INTERP=Path('reports/allocation_interpretability_099')
 BENCH=Path('reports/paper_allocation_benchmarks')
 BLUE='#17364d';TEAL='#087f9c';GRAY='#657681'
-MAIN_PAGES=20
+MAIN_PAGES=21
 APPENDIX_PAGES=6
 CAPTIONS={
  'learning_pipeline':'Two exposure decisions. Entry policies size proposals within each signal; a separately fitted Q policy chooses the capital split between funded strategy indices.',
@@ -210,7 +210,7 @@ def prepare():
     write_tex(pages)
     (DEST/'README.txt').write_text('''UNIFIED PAPER: LEARNING EXPOSURE WITHIN AND ACROSS OPTIONS STRATEGIES
 
-options_exposure_learning.pdf is the twenty-page main paper.
+options_exposure_learning.pdf is the twenty-one-page main paper, including a dedicated reference page.
 options_exposure_learning_with_appendix.pdf contains the same main paper plus six technical appendix pages.
 options_exposure_learning.docx is an editable copy of the complete manuscript.
 options_exposure_learning.tex and manuscript.json preserve the same text, tables and figures.
@@ -225,7 +225,7 @@ Sections 6–8 integrate the teammate's straddle economics: full-history option/
 
 An independent editable Overleaf project is in ../overleaf_options_exposure; ../options_exposure_overleaf.zip is ready for Overleaf New Project > Upload Project. It includes local vector figures, sections, appendices and a BibTeX database. No Overleaf account connection or automatic synchronization is configured.
 
-Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 26 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
+Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 27 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
 
 The PDF uses traditional academic typography: the original one-line title, centered authors and subtitle, black serif headings, plain ruled tables and centered page numbers. Charts are embedded as vectors; PNGs support previews and the editable Word export. scripts.options_paper_layout defines the matching PDF and Word style. LaTeX and Word may paginate differently in other software. Source report hashes, original-version preservation checks and layout checks are saved alongside the paper. All Sharpe ratios are annualized excess Sharpe; 2025 is partial. Data licensing remains applicable.
 ''')
@@ -365,7 +365,15 @@ def docx():
     from scripts import export_research_docx as word
     from scripts.options_paper_layout import format_word
     pages=json.loads((DEST/'manuscript.json').read_text());export=copy.deepcopy(pages)
+    table_number=0
     for page in export:
+        blocks=[]
+        for b in page['blocks']:
+            if b['type']=='table' and b.get('caption'):
+                table_number+=1
+                blocks.append(dict(type='paragraph',text=f'Table {table_number}. '+b['caption']))
+            blocks.append(b)
+        page['blocks']=blocks
         for b in page['blocks']:
             if b['type']=='reference':b['type']='paragraph'
             if b['type']=='chart':

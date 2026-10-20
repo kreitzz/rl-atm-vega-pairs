@@ -5,28 +5,27 @@
 \caption{Cell values are annualized excess Sharpe at \(\lambda\) = 0.20. Fixed entry size is 100\%; fixed capital allocation is 50/50. Q is independently fitted on each entry family's actual returns and costs.}\label{fig:factorial}
 \end{figure}
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Separating learned entry sizing and learned capital allocation.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=1.68750\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.71875\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.71875\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.87500\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-Entry / capital policy & 2018--21 S & 2022--25 S & Later profit\\\midrule
+\textbf{Entry / capital policy} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later profit}\\\midrule
 Fixed / fixed & 0.556 & 1.088 & \$1.145m\\
 Bandit / fixed & 0.804 & 1.167 & \$1.238m\\
 Fixed / Q & 0.870 & 1.194 & \$0.955m\\
 Bandit / Q & 1.215 & 1.726 & \$1.306m\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 The primary four-way comparison fixes the baseline at full entry size and 50/50 capital allocation. Both learning layers improve Sharpe in both periods, with the largest point-estimate gain when combined. The Q policy on fixed-entry portfolios is trained on those portfolios' own completed returns; it is not transplanted from the bandit portfolios. Economic opportunity inputs stay shared, while relative performance, volatility, correlation and costs change with the actual source strategies.
 
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Allocation with constant 75\% entry sizing.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=1.66016\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.83008\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.89844\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.83008\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-Fixed-75\% entries & 2018--21 S & 2022--25 S & Later profit & Drawdown\\\midrule
+\textbf{Fixed-75\% entries} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later profit} & \textbf{Drawdown}\\\midrule
 Fixed 50/50 & 0.566 & 1.070 & \$1.053m & 3.16\%\\
 Q, \(\lambda\) = .20 & 0.891 & 2.118 & \$1.060m & 0.43\%\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 The fixed-75\% result shows that capital allocation can help independently of entry learning. Q nearly doubles later Sharpe with similar profit and a much smaller drawdown. Its later Sharpe exceeds bandit-plus-Q at this \(\lambda\), while its profit and validation Sharpe are lower. Bandit sizing therefore changes the available profit--risk tradeoff without dominating every constant entry size.
-
-
-\FloatBarrier

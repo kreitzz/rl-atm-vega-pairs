@@ -1,34 +1,49 @@
 \documentclass[11pt,letterpaper]{article}
-\usepackage[margin=0.75in]{geometry}
+\usepackage[left=1in,right=1in,top=0.9in,bottom=0.9in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{newtxtext,newtxmath}
+\usepackage{lmodern}
 \usepackage{microtype,amsmath,booktabs,tabularx,array,graphicx,placeins,float}
+\usepackage{titlesec,needspace}
+\usepackage[font=small,labelfont=bf,labelsep=period,justification=justified,singlelinecheck=false]{caption}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{figures/}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.45em}
+\linespread{1.04}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.12em}
 \setlength{\emergencystretch}{2em}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{1.3\baselineskip}{0.55\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.9\baselineskip}{0.35\baselineskip}
+\captionsetup{skip=7pt}
+\captionsetup[table]{position=top,skip=6pt}
+\setlength{\abovedisplayskip}{9pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{9pt plus 2pt minus 2pt}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
 \setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
 \setlength{\intextsep}{12pt plus 2pt minus 2pt}
 \renewcommand{\topfraction}{.9}
 \renewcommand{\bottomfraction}{.8}
 \renewcommand{\textfraction}{.1}
 \renewcommand{\floatpagefraction}{.8}
-\hypersetup{pdftitle={From Equity Pairs to Options Relative Value},
+\hypersetup{pdftitle={Learning to Allocate Risk in Options Markets},
  pdfauthor={Adam Kreitzman and Soo Xin Yang}}
 \begin{document}
 \begin{center}
-\makebox[\textwidth][c]{{\fontsize{20}{24}\selectfont\bfseries From Equity Pairs to Options Relative Value}}
+\makebox[\textwidth][c]{{\fontsize{19}{23}\selectfont\bfseries Learning to Allocate Risk in Options Markets}}
 \vspace{0.6em}
 
-{\large Reinforcement Learning for Trade Sizing and Capital Allocation}\par
+{\fontsize{11}{14}\selectfont Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation}\par
 \vspace{1em}
 Adam Kreitzman and Soo Xin Yang\par
-\small MFE 230Z: Deep Learning in Finance\par
-20 October 2026
+{\small MFE 230Z: Deep Learning in Finance}\par
+{\small 20 October 2026}
 \end{center}
 \begin{abstract}
 We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022--August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. Combining both learners raises Sharpe from 1.088 to 1.726 in a four-way comparison. With bandit entries, Q also exceeds rolling mean--variance allocation: 1.726 versus 1.519. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results.
@@ -58,10 +73,14 @@ We study reinforcement learning for two exposure decisions in equity options: si
 \bibliography{references}
 \clearpage
 \appendix
+\begingroup
+\renewcommand{\baselinestretch}{1}
+\fontsize{10.5}{12.8}\selectfont
 \input{appendices/a_contracts_features_and_account_checks}
 \input{appendices/b_fitting_chronology_and_controls}
 \input{appendices/c_supporting_results_and_reproducibility}
 \input{appendices/d_original_sizing_and_annual_results}
 \input{appendices/e_performance_definitions_and_timing_diagnostics}
 \input{appendices/f_straddle_attribution_and_management_protocol}
+\endgroup
 \end{document}

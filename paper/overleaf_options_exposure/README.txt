@@ -1,4 +1,4 @@
-OVERLEAF PROJECT — FROM EQUITY PAIRS TO OPTIONS RELATIVE VALUE
+OVERLEAF PROJECT — LEARNING TO ALLOCATE RISK IN OPTIONS MARKETS
 
 Upload ../options_exposure_overleaf.zip through Overleaf: New Project > Upload Project.
 Set main.tex as the main document and use pdfLaTeX (current TeX Live).
@@ -8,7 +8,8 @@ option files are needed. All 16 figures are included as vector PDFs.
 Edit main.tex for formatting, sections/*.tex for the main paper,
 appendices/*.tex for supporting detail and references.bib for citations.
 The source is actual editable LaTeX, not images of manuscript pages.
-Sections may paginate differently from the fixed-layout PDF/DOCX edition.
+The primary repository PDF is typeset from this LaTeX project. The Word copy
+shares the same manuscript content and may paginate differently.
 
 This export synthesizes the original exposure-learning study with the teammate's
 straddle economics and separate management trial. Source metrics and limits are

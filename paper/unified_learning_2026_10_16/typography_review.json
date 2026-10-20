@@ -1,0 +1,21 @@
+{
+  "title": "Learning to Allocate Risk in Options Markets",
+  "subtitle": "Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation",
+  "title_single_line": true,
+  "full_pdf_pages": 28,
+  "main_pages": 22,
+  "appendix_pages": 6,
+  "all_17_table_headers_and_rows_unchanged": true,
+  "all_16_vector_figures_unchanged": true,
+  "numbered_tables": 17,
+  "references": 6,
+  "minimum_page_word_count": 141,
+  "no_short_orphan_continuation_pages": true,
+  "bibliography_and_conclusion_flow_checked": true,
+  "appendices_start_on_new_pages": true,
+  "primary_pdf_from_compiled_overleaf_source": true,
+  "body_and_math_fonts": "Latin Modern",
+  "native_preview_pages": 28,
+  "pdf_sha256": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7",
+  "native_preview_content_streams_match": true
+}

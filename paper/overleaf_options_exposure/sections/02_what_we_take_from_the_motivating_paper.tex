@@ -16,15 +16,16 @@ The agent trains on 10,000 simulated one-year OU paths because the reward requir
 One trading year gives limited evidence across regimes. Formation and trading policy also change together, so their comparison does not isolate Q-learning's contribution. The simulated equilibrium is known; a real relationship's equilibrium can shift. Finally, a cost term in a reward does not by itself establish net execution quality or scalability. These issues motivate our use of actual contracts, explicit cash flows, several market years and controlled exposure comparisons.
 
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{The motivating equity-spread study and our options extension.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=0.64453\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.01953\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.33594\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
-Design choice & Motivating study & Our extension\\\midrule
+\textbf{Design choice} & \textbf{Motivating study} & \textbf{Our extension}\\\midrule
 Economic object & Equity-price spread & Relative option IV; persistent RV - IV\\
 Policy experience & Simulated mean reversion & Completed historical trade paths\\
 Learned decision & Spread entry and exit & Entry size; then strategy allocation\\
 Comparison & Different spread-trading methods & Shared proposals; separate learning layers\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 We retain the separation between finding a spread and learning how to trade it. We change the instrument, reward and decision problem. A successful sizing policy does not establish that the original paper's trading algorithm transfers unchanged to options. Our later Q experiment is closer to its sequential question: present allocations affect holdings, subsequent resizing costs and future choices.
 
@@ -32,4 +33,4 @@ We retain the separation between finding a spread and learning how to trade it. 
 The early ATM-volatility proxy results gave us reason to investigate further, but weakened when simulated with actual contracts. Strike-specific payoffs, daily hedge errors and costs were absent from the simple IV-versus-future-RV proxy. We investigated maturity, position on the option smile and additional predictors. Approximately 30-day, 25-delta puts became the retained relative-volatility configuration.
 
 
-\FloatBarrier
+Bell et al. \cite{alphaglass2026} develop AlphaGlass, which maps characteristics into additive signals with sparse interactions and optimizes portfolio objectives directly. Their interpretable characteristic-based portfolio choice connects to our Sharpe-based sizing and policy diagnostics. We study a different decision structure: sizing actual option trades and allocating between strategy books through fitted Q-learning.

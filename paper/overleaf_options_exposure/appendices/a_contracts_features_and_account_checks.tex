@@ -1,3 +1,5 @@
+\clearpage
+
 \section{Contracts, features and account checks}\label{app:a}
 
 \subsection*{Data and trade construction}
@@ -10,15 +12,16 @@ Put selection takes the expiry nearest 30 days, then the put nearest absolute de
 
 \subsection*{Entry-state definitions}
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Input blocks available to the retained put-sizing policy.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=0.69531\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.30469\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
-Put-pair feature group & Numerical inputs\\\midrule
+\textbf{Put-pair feature group} & \textbf{Numerical inputs}\\\midrule
 Volatility and opportunity & Mean IV; oriented IV gap; rank strength; oriented IV\(^{2}\)-minus-trailing-variance gap; mean RV\\
 Relatedness and maturity & 126-session beta and correlation; mean expiry and expiry difference\\
 Costs and market & Training commission in IV points; strictly prior VIX close\\
 Completed profitability & 91-day and 365-day mean profit per initial vega and completed counts\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 These are 15 numerical inputs. The first three are core fields; the remaining 12 have binary availability flags, giving 27 inputs. Missing optional values are zero with flag zero. Put trailing variance is 252 times mean squared simple stock returns over 20 sessions, with at least 10 observations. The straddle signal uses annualized squared log returns and a 21-session RV input. The measures have different retained definitions; no new common RV estimator is fitted for this comparison.
 

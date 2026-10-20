@@ -1,6 +1,6 @@
 [
   {
-    "title": "From Equity Pairs to Options Relative Value",
+    "title": "Learning to Allocate Risk in Options Markets",
     "blocks": [
       {
         "type": "heading",
@@ -32,7 +32,8 @@
         "text": "The original relative-volatility strategy remains the foundation of this paper. We add a second signal—persistent realized-minus-implied volatility—and a second learning decision: allocating capital between the resulting strategies. Entry bandits choose individual trade sizes; fitted Q-learning chooses the strategy mix. Both reporting periods, 2018–2021 validation and January 2022–August 2025 evaluation, remain visible throughout."
       }
     ],
-    "subtitle": "Adam Kreitzman and Soo Xin Yang · 20 October 2026"
+    "subtitle": "Adam Kreitzman and Soo Xin Yang · 20 October 2026",
+    "paper_subtitle": "Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation"
   },
   {
     "title": "2. What we take from the motivating paper",
@@ -94,7 +95,8 @@
           110,
           174,
           228
-        ]
+        ],
+        "caption": "The motivating equity-spread study and our options extension."
       },
       {
         "type": "paragraph",
@@ -103,6 +105,10 @@
       {
         "type": "paragraph",
         "text": "The early ATM-volatility proxy results gave us reason to investigate further, but weakened when simulated with actual contracts. Strike-specific payoffs, daily hedge errors and costs were absent from the simple IV-versus-future-RV proxy. We investigated maturity, position on the option smile and additional predictors. Approximately 30-day, 25-delta puts became the retained relative-volatility configuration."
+      },
+      {
+        "type": "paragraph",
+        "text": "Bell et al. [6] develop AlphaGlass, which maps characteristics into additive signals with sparse interactions and optimizes portfolio objectives directly. Their interpretable characteristic-based portfolio choice connects to our Sharpe-based sizing and policy diagnostics. We study a different decision structure: sizing actual option trades and allocating between strategy books through fitted Q-learning."
       }
     ]
   },
@@ -152,7 +158,8 @@
           75,
           155,
           174
-        ]
+        ],
+        "caption": "Illustrative put pair with matched initial vega."
       },
       {
         "type": "paragraph",
@@ -284,7 +291,8 @@
           138,
           187,
           187
-        ]
+        ],
+        "caption": "Economic exposures of the two retained signals."
       },
       {
         "type": "paragraph",
@@ -348,7 +356,8 @@
           55,
           110,
           152
-        ]
+        ],
+        "caption": "Completed straddle outcomes by price path and IV versus subsequent RV."
       },
       {
         "type": "paragraph",
@@ -527,7 +536,8 @@
           83,
           75,
           100
-        ]
+        ],
+        "caption": "Entry-sizing policies in validation and later evaluation."
       },
       {
         "type": "paragraph",
@@ -571,7 +581,8 @@
           90,
           90,
           90
-        ]
+        ],
+        "caption": "Later entry overlap between bandit and fixed-full portfolios."
       },
       {
         "type": "paragraph",
@@ -642,7 +653,8 @@
           105,
           110,
           110
-        ]
+        ],
+        "caption": "Q-allocation outcomes under four reward preferences."
       },
       {
         "type": "paragraph",
@@ -705,7 +717,8 @@
           92,
           92,
           112
-        ]
+        ],
+        "caption": "Separating learned entry sizing and learned capital allocation."
       },
       {
         "type": "paragraph",
@@ -720,7 +733,8 @@
           85,
           92,
           85
-        ]
+        ],
+        "caption": "Allocation with constant 75% entry sizing."
       },
       {
         "type": "paragraph",
@@ -752,7 +766,8 @@
           72,
           78,
           72
-        ]
+        ],
+        "caption": "Q-learning and conventional dynamic allocation benchmarks."
       },
       {
         "type": "paragraph",
@@ -801,7 +816,8 @@
           80,
           70,
           85
-        ]
+        ],
+        "caption": "Separate joint-contract management trial, January 2022–August 2025."
       },
       {
         "type": "paragraph",
@@ -851,11 +867,12 @@
       {
         "type": "paragraph",
         "text": "Bandits adapt trade commitments; Q allocates across strategies. The four-way and conventional-benchmark comparisons support studying both exposure decisions in an integrated implementation and prospective evaluation."
-      },
-      {
-        "type": "heading",
-        "text": "References"
-      },
+      }
+    ]
+  },
+  {
+    "title": "References",
+    "blocks": [
       {
         "type": "reference",
         "text": "[1] Ning, B., and K. Lee (2024). Advanced Statistical Arbitrage with Reinforcement Learning. arXiv:2403.12180. https://arxiv.org/abs/2403.12180"
@@ -875,6 +892,10 @@
       {
         "type": "reference",
         "text": "[5] Caner, M., A. Capponi, N. Sun, and J. Y. Tan (2026). Designing Agentic AI-Based Screening for Portfolio Investment. arXiv:2603.23300. https://arxiv.org/abs/2603.23300"
+      },
+      {
+        "type": "reference",
+        "text": "[6] Bell, S., A. Kakhbod, M. Lettau, and A. Nazemi (2026). AlphaGlass: Interpretable Characteristic-Based Portfolio Choice. NBER Working Paper 35186. https://doi.org/10.3386/w35186"
       }
     ]
   },
@@ -924,7 +945,8 @@
         "widths": [
           178,
           334
-        ]
+        ],
+        "caption": "Input blocks available to the retained put-sizing policy."
       },
       {
         "type": "paragraph",
@@ -980,7 +1002,8 @@
           96,
           96,
           100
-        ]
+        ],
+        "caption": "Allocation timing controls at λ = 0.20."
       },
       {
         "type": "paragraph",
@@ -1008,7 +1031,8 @@
           110,
           110,
           112
-        ]
+        ],
+        "caption": "Annualized excess Sharpe by calendar year; 2025 ends in August."
       },
       {
         "type": "paragraph",
@@ -1023,7 +1047,8 @@
           90,
           90,
           90
-        ]
+        ],
+        "caption": "Later excess Sharpe across entry policies and Q reward preferences."
       },
       {
         "type": "paragraph",
@@ -1059,7 +1084,8 @@
           80,
           72,
           100
-        ]
+        ],
+        "caption": "Alternative put-sizing policies on the common reporting split."
       },
       {
         "type": "paragraph",
@@ -1074,7 +1100,8 @@
           125,
           120,
           97
-        ]
+        ],
+        "caption": "Put-bandit annual account returns and excess performance."
       },
       {
         "type": "paragraph",

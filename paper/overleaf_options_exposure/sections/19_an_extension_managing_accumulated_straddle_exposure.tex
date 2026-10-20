@@ -11,14 +11,15 @@ A nonnegative regression predicts the magnitude of next-session straddle-book ma
 \caption{Separate joint-contract management trial, January 2022--August 2025. Upper panel: compounded growth relative to cash. Lower panel: cumulative daily excess-return difference, conditional cuts minus unchanged 90/10. This is not the Q-index account.}\label{fig:straddle-management}
 \end{figure}
 
-\begin{center}\small
+\begin{table}[H]\centering\small
+\caption{Separate joint-contract management trial, January 2022--August 2025.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=1.87500\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.83008\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.68359\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.83008\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-Account & Mean excess (\%) & Vol. (\%) & Sharpe & Drawdown (\%)\\\midrule
+\textbf{Account} & \textbf{Mean excess (\%)} & \textbf{Vol. (\%)} & \textbf{Sharpe} & \textbf{Drawdown (\%)}\\\midrule
 Unchanged 90/10 & 0.718 & 0.525 & 1.365 & 0.676\\
 Conditional cuts & 0.733 & 0.465 & 1.576 & 0.734\\
 Constant 90/5 + cash & 0.499 & 0.435 & 1.147 & 0.719\\
-\bottomrule\end{tabularx}\end{center}
+\bottomrule\end{tabularx}\end{table}
 
 During January 2022--August 2025, conditional cuts raise excess Sharpe from 1.365 to 1.576, mainly by reducing volatility while preserving the arithmetic mean excess return. Cash-relative maximum drawdown becomes slightly worse, 0.734\% versus 0.676\%. The paired 126-session bootstrap interval for the Sharpe gain is -0.22 to +0.66. Annualized mean excess return is 252 times the daily mean, not compounded growth.
 

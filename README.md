@@ -1,4 +1,4 @@
-# Reinforcement learning for options relative value
+# Learning to Allocate Risk in Options Markets
 
 [Strategy-economics research extension](reports/strategy_economics/report.md):
 explains the short-straddle option/hedge P&L, retrospective IV–RV and price-path
@@ -10,7 +10,7 @@ Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A 
 
 ## Research extension: two signals and capital allocation
 
-**Unified paper:** [PDF with technical appendix](paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf) · [Main paper](paper/unified_learning_2026_10_16/options_exposure_learning.pdf) · [Editable Word manuscript](paper/unified_learning_2026_10_16/options_exposure_learning.docx). The integrated paper preserves the original economic explanations, worked trade, feature exploration and tree/CEM method, then develops the straddle and Q-allocation extensions. Twenty main pages and six appendix pages contain sixteen figures, including the teammate’s straddle option/hedge attribution, IV-versus-RV evidence and separate joint-contract management trial. The original four-way comparison, fixed-entry controls and conventional allocation benchmarks remain intact. [Build and verification notes](paper/unified_learning_2026_10_16/README.txt). Earlier paper versions remain intact.
+**Unified paper:** [PDF with technical appendix](paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf) · [Main paper](paper/unified_learning_2026_10_16/options_exposure_learning.pdf) · [Editable Word manuscript](paper/unified_learning_2026_10_16/options_exposure_learning.docx). The primary PDF is typeset from the editable Overleaf LaTeX project. The integrated paper preserves the original economic explanations, worked trade, feature exploration and tree/CEM method, then develops the straddle and Q-allocation extensions. The LaTeX edition contains twenty-two main/reference pages, six appendix pages and sixteen figures, including the teammate’s straddle option/hedge attribution, IV-versus-RV evidence and separate joint-contract management trial. The original four-way comparison, fixed-entry controls and conventional allocation benchmarks remain intact. [Build and verification notes](paper/unified_learning_2026_10_16/README.txt). Earlier paper versions remain intact.
 
 [Overleaf-ready project (ZIP)](paper/options_exposure_overleaf.zip) · [Editable LaTeX source](paper/overleaf_options_exposure/main.tex). In Overleaf, choose **New Project → Upload Project** and upload the ZIP; it includes editable sections, appendices, vector figures and BibTeX references. No Overleaf account connection or automatic synchronization is configured.
 

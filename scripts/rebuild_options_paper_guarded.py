@@ -13,7 +13,7 @@ import sys
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--stage',choices=['figures','pages','finalize'],required=True)
+    parser.add_argument('--stage',choices=['figures','pages','finalize','latex'],required=True)
     parser.add_argument('--pages',type=int,nargs='+')
     parser.add_argument('--figures',nargs='+')
     args=parser.parse_args()
@@ -26,6 +26,8 @@ def main():
     elif args.stage=='pages':
         indices=args.pages or range(1,meta['main_pages']+meta['appendix_pages']+1)
         jobs=[['--phase','render','--page',str(n)] for n in indices]
+    elif args.stage=='latex':
+        jobs=[['--phase',phase] for phase in ['export','compile','publish']]
     else:
         jobs=[['--phase','assemble'],['--phase','docx']]
     env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',
@@ -33,9 +35,10 @@ def main():
     overflows=[]
     for job in jobs:
         print('Building: '+' '.join(job),flush=True)
+        module='scripts.export_options_overleaf' if args.stage=='latex' else 'scripts.build_unified_options_paper'
         command=[sys.executable,'scripts/run_signal_discovery_guarded.py',
-                 '--module','scripts.build_unified_options_paper',
-                 '--timeout','180','--duty-cycle','0.2','--rss-limit-mib','256',
+                 '--module',module,
+                 '--timeout','900' if args.stage=='latex' and job[-1]=='compile' else '180','--duty-cycle','0.2','--rss-limit-mib','256',
                  '--warning-rss-limit-mib','256','--min-free-percent','30',
                  '--warning-min-free-percent','30','--max-swap-growth-mib','256',
                  '--pause-low-headroom-seconds','60',
