@@ -1,0 +1,16 @@
+{
+  "engine": "Tectonic 0.17.0 (XeTeX)",
+  "compiled": true,
+  "compiled_pages": 26,
+  "compiled_pdf_sha256": "82fb798342bda06a93e3ffa4df8dfa7c5866b5358ea44bed27d96d338b24ea0d",
+  "upload_zip_sha256": "664c6a1364e93e0eac906f42dce068f2b08c428d598bb0993b047a122e8ee725",
+  "main_source_sha256": "268a715f98e602f538a55f14a97fe570f4f79978a0aba8b0ffebe34fd0f29ba1",
+  "all_17_numeric_tables_present": true,
+  "all_citations_and_references_resolved": true,
+  "no_overfull_boxes_or_missing_characters": true,
+  "guard_peak_worker_tree_mib": 223.7,
+  "compilation_outputs_excluded_from_zip": true,
+  "overleaf_account_upload_performed": false,
+  "orphaned_feature_figure_fixed": true,
+  "management_fitting_not_validation_explicit": true
+}

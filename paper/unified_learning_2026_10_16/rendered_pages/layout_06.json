@@ -1,16 +1,23 @@
 {
   "page": 6,
-  "bottom_content_points": 118.5404722452358,
+  "bottom_content_points": 112.86723280861628,
   "overflow": false,
-  "content_sha256": "9c783eaf96b9cd8f715375be9d906aff922b724aa6db1d811b10854da9eb473e",
+  "content_sha256": "e3a4ba9b5ec291fff994957b5f9c501e6d51020b901e595f2b4eef0c6de008a0",
   "rendered": true,
   "vector_figures": [
     {
-      "name": "refit_timeline",
+      "name": "straddle_bridge",
       "x": 54,
-      "y": 248.14047224523577,
+      "y": 493.4390637945318,
       "width": 504,
-      "height": 159.50952775476387
+      "height": 152.4109362054681
+    },
+    {
+      "name": "straddle_paths",
+      "x": 54,
+      "y": 256.06723280861627,
+      "width": 504,
+      "height": 141.9718309859155
     }
   ]
 }

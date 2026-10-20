@@ -1,0 +1,38 @@
+\section{Comparing dynamic allocation methods}\label{sec:18}
+
+A dynamic policy might outperform fixed weights simply by responding to recent returns. We therefore adapt the minimum-variance, maximum-Sharpe and mean--variance portfolio objectives of Caner et al. \cite{caner2026} to our two frozen bandit portfolios. This comparison asks whether Q improves on conventional dynamic allocation as well.
+
+
+\subsection*{The same budget, opportunities and execution}
+
+All methods choose among the same seven capital splits, use one \$10 million budget and pay the same source trading and additional resizing costs. Estimates use Q's preceding 104 completed weeks, with a minimum of 52, monthly refits and the same 50/50 warmup. Within each objective, 2018--2021 Sharpe selects sample covariance or linear Ledoit--Wolf shrinkage; that choice remains fixed for the later period. This adapts their objectives rather than replicating their stock screens, nonlinear shrinkage or 15-year estimation window.
+
+
+\begin{center}\small
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=2.12891\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.76172\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+Capital allocator & 2018--21 S & 2022--25 S & Later profit & Later \(\sigma\) (\%)\\\midrule
+Fixed 50/50 & 0.804 & 1.167 & \$1.238m & 1.973\\
+Minimum variance & 0.316 & 1.329 & \$0.284m & 0.438\\
+Maximum Sharpe & 0.189 & 0.659 & \$0.353m & 1.154\\
+Mean--variance, \(\lambda\) = .20 & 0.355 & 1.519 & \$0.452m & 0.619\\
+Q, \(\lambda\) = .20 & 1.215 & 1.726 & \$1.306m & 1.353\\
+Mean--variance, \(\lambda\) = 1 & 0.246 & 1.795 & \$0.439m & 0.519\\
+Q, \(\lambda\) = 1 & 1.005 & 2.152 & \$1.141m & 0.985\\
+\bottomrule\end{tabularx}\end{center}
+
+All S columns are annualized excess Sharpe; later \(\sigma\) is annualized daily excess-return volatility. At \(\lambda\) = 0.20, Q raises later Sharpe from 1.519 to 1.726 and profit above cash from \$452,303 to \$1,305,940. At \(\lambda\) = 1, the corresponding figures are 1.795 versus 2.152 and \$439,118 versus \$1,141,251. Q also improves both measures at \(\lambda\) = 0.10 in both periods. These are portfolio comparisons, not equal-risk experiments: Q takes more realized risk.
+
+
+\subsection*{Why the allocation rules differ}
+
+The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At \(\lambda\) = 0.20, its mean later straddle target is 24.9\%, versus 12.7\% for mean--variance allocation. The selected intervals in Section~\ref{sec:16} have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone.
+
+
+Q changes targets 24 times later, versus eight for mean--variance allocation. Removing only outer resizing charges raises their Sharpes to 1.774 and 1.525; all source trading costs remain. Lower resizing fees therefore do not explain Q's advantage. The conventional rule uses centered variance, whereas Q penalizes the raw second moment and adds state and continuation value; identical \(\lambda\) values do not make these identical objectives.
+
+
+The result has a clear exception: at \(\lambda\) = 0, conventional profit-only allocation reaches later Sharpe 1.041 and \$2.154 million above cash, versus Q's 0.671 and \$1.353 million. The literal 1\% monthly target used in \cite{caner2026} is infeasible under our allocation limits; its maximum-mean fallback is recorded separately. All 14 conventional cases and the fee diagnostics are retained in the companion results.
+
+
+\FloatBarrier

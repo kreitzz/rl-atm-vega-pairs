@@ -1,0 +1,27 @@
+\section{Performance definitions and timing diagnostics}\label{app:e}
+
+\subsection*{Account return, cash-relative growth and dollar profit}
+
+Let N be account NAV and K the continuing all-cash benchmark. Both begin at \$10 million in January 2018. The benchmark compounds the previous available WRDS zero-curve rate nearest 30 days over calendar days using a 365-day year. For each reporting period, 0 is the preceding close and T the final close.
+
+
+\begin{equation*}e_t=\frac{N_t}{N_{t-1}}-\frac{K_t}{K_{t-1}},\qquad\widehat S=\sqrt{252}\,\overline{e}/s_e.\end{equation*}
+
+Dollar profit above cash is (N\_T - K\_T) - (N\_0 - K\_0). With Q\_t = N\_t/K\_t and Y equal to elapsed days divided by 365.25, annualized growth relative to cash is (Q\_T/Q\_0)\textasciicircum{}(1/Y) - 1. Cash-relative drawdown is the greatest percentage decline of Q from its running peak, including the opening close. The annual table instead subtracts the cash return from the account return, in percentage points.
+
+
+At the 2021 close, the learned put account has \$10.568 million equity and four open trades; full sizing has \$10.581 million and three. Cash benchmark wealth is \$10.510 million. Performance curves subtract each policy's opening dollar excess wealth; they do not reset accounts or liquidate inventory at the reporting split.
+
+
+\subsection*{Additional allocation diagnostics}
+
+Centering VIX and straddle IV-versus-RV richness changes 13.6\% and 12.6\% of later actions. Across 49 nonzero rotations of Q's saved schedule, none reaches its later Sharpe; median Sharpe is 0.744. These diagnostics explain information use and timing, without establishing causal feature effects or selection-adjusted significance.
+
+
+The rotation control preserves allocation counts and most serial structure, then recomputes wealth and resizing costs. Three of 49 rotated schedules reach or exceed the actual validation Sharpe; none reaches the actual later Sharpe. Timing-control results are reported in Appendix~\ref{app:b}. These are diagnostics of the retained policy, not a substitute for prospective evaluation.
+
+
+A final distinction concerns portfolio admission. The source put and straddle books each simulate whole contracts and daily stock hedges under their own funded histories. The outer allocator trades fractional claims on those net strategy indices, with additional resizing charges. Its capital weights are not premium deployment or broker margin, and reallocating indices does not rerun a common integer-contract inventory ledger.
+
+
+\FloatBarrier

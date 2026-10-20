@@ -301,6 +301,9 @@ def build(name, destination):
             ax.set_xticks([.5],minor=True);ax.set_yticks([.5],minor=True);ax.grid(which='minor',color='white',lw=3);ax.tick_params(which='minor',length=0)
         axes[0].set_ylabel('Entry sizing',labelpad=12)
         axes[1].tick_params(labelleft=False)
+    elif name in {'straddle_bridge','straddle_paths','straddle_ivrv','straddle_examples','straddle_management'}:
+        from scripts.options_economics_figures import build as economics_figure
+        fig=economics_figure(name)
     else:
         raise ValueError(name)
 

@@ -21,11 +21,15 @@ VAR=Path('reports/signal_allocation_variance')
 INTERP=Path('reports/allocation_interpretability_099')
 BENCH=Path('reports/paper_allocation_benchmarks')
 BLUE='#17364d';TEAL='#087f9c';GRAY='#657681'
-MAIN_PAGES=16
-APPENDIX_PAGES=5
+MAIN_PAGES=20
+APPENDIX_PAGES=6
 CAPTIONS={
  'learning_pipeline':'Two exposure decisions. Entry policies size proposals within each signal; a separately fitted Q policy chooses the capital split between funded strategy indices.',
  'signal_example':'AMD minus NVDA selected-put IV in 2019. Shading marks excursions outside historical percentile boundaries, not executed trades. Gaps are unavailable quotes. Daily contract selection makes this a signal series, not the mark of one held contract.',
+ 'straddle_bridge':'Full-history straddle account, January 2018–August 2025. The option and stock components are read together; the remaining cash flows reconcile them to profit above cash.',
+ 'straddle_paths':'The same 2,599 cohorts grouped by their completed price paths. Combined profit includes option charges but precedes stock-hedge charges, dividends and financing. The grouping is descriptive.',
+ 'straddle_ivrv':'Combined option and hedge profit by completed price path and entry IV versus subsequent RV. These are realized-outcome groups, not new entry screens; totals depend on counts and sizes.',
+ 'straddle_examples':'Two selected cohorts: a large hedge gain (left) and loss (right). Rows show spot versus strike, shares carried into each session, and cumulative option, stock and combined profit. Security IDs are stable identifiers.',
  'refit_timeline':'Monthly put-policy refitting. Only completed outcomes whose signal dates fall in the displayed 18-month window enter each fit. The selected model settings remain fixed; the tree and size assignments update.',
  'feature_validation':'Original feature exploration at the 18-month baseline. Scores use 2018–2021 validation and the archived $345 million research account; funded policy comparisons use $10 million. The three highest scores tie exactly.',
  'entry_policy':'The original tree/CEM construction. The three-state maps illustrate candidates; actual trees have up to eight states. Each candidate selects action-specific completed paths; the best 19 update sampling probabilities. The retained map sizes next month’s proposals.',
@@ -35,6 +39,7 @@ CAPTIONS={
  'allocation_schedule':'Weekly target decisions during evaluation, before next-close execution. The remaining weight goes to put pairs. These are requested strategy allocations, not drifted portfolio holdings or individual trade sizes.',
  'conditional_risk':'Realized straddle returns after λ = 0.20 Q decisions. Straddle-only choices cover 220 sessions; put-only choices cover 678. The four mixed-allocation intervals are omitted. Source costs are included; outer resizing charges are excluded.',
  'factorial':'Cell values are annualized excess Sharpe at λ = 0.20. Fixed entry size is 100%; fixed capital allocation is 50/50. Q is independently fitted on each entry family’s actual returns and costs.',
+ 'straddle_management':'Separate joint-contract management trial, January 2022–August 2025. Upper panel: compounded growth relative to cash. Lower panel: cumulative daily excess-return difference, conditional cuts minus unchanged 90/10. This is not the Q-index account.',
 }
 NUMBERS={name:i+1 for i,name in enumerate(CAPTIONS)}
 
@@ -146,6 +151,17 @@ def table(name):
             rows.append([str(year)+('*' if year==2025 else ''),f'{float(r["funded_return_pct"]):.3f}%',
                          f'{float(r["return_above_cash_pp"]):.3f}',f'{float(r["annualized_excess_sharpe"]):.3f}',r['entries']])
         return ['Year','Account return','Above cash (pp)','Excess Sharpe','Entries'],rows
+    if name=='straddle_ivrv':
+        data=read('reports/strategy_economics/tables/ivrv_groups.csv')
+        for r in data:
+            rows.append([r['path'],r['gap'],r['Trades'],f'{float(r["combined_profit"])/1e6:+.2f}',f'{100*float(r["mean_premium_return"]):+.1f}%'])
+        return ['Price path','IV vs RV','Trades','Profit ($m)','Mean profit / premium'],rows
+    if name=='straddle_management':
+        data=read('reports/strategy_economics/data/account_performance.csv')
+        for case,label in [('hold_control','Unchanged 90/10'),('conditional_half','Conditional cuts'),('constant_lower','Constant 90/5 + cash')]:
+            r=pick(data,case=case,period='later')
+            rows.append([label,f'{100*float(r["annual_excess_mean"]):.3f}',f'{100*float(r["annual_excess_volatility"]):.3f}',f'{float(r["annualized_excess_sharpe"]):.3f}',f'{abs(100*float(r["relative_max_drawdown"])):.3f}'])
+        return ['Account','Mean excess (%)','Vol. (%)','Sharpe','Drawdown (%)'],rows
     raise ValueError(name)
 
 
@@ -178,6 +194,12 @@ def prepare():
                     'reports/signal_allocation_discount/validation_selected_results.csv',
                     'reports/straddle_performance_followup/cases/performance_ridge48/results.csv',
                     'reports/straddle_policy_refinement/cases/performance60/results.csv'])
+    economics=Path('reports/strategy_economics/data')
+    manifest=json.loads((economics/'manifest.json').read_text())
+    for name,record in manifest['snapshots'].items():
+        assert digest(economics/name)==record['snapshot_sha256'],name
+    sources.extend(str(economics/name) for name in ['manifest.json',*manifest['snapshots']])
+    sources.append('reports/strategy_economics/tables/ivrv_groups.csv')
     unchanged=['paper/options_relative_value_draft.pdf','paper/options_relative_value_draft.tex','paper/original_with_rl_extension/options_relative_value_extended.pdf','paper/original_with_rl_extension/research_extension.docx']
     sources.extend(str(Path(folder)/'daily_nav.parquet') for folder in [
         'artifacts/contracts/p25_validation_split/replays/screened_selected',
@@ -188,8 +210,8 @@ def prepare():
     write_tex(pages)
     (DEST/'README.txt').write_text('''UNIFIED PAPER: LEARNING EXPOSURE WITHIN AND ACROSS OPTIONS STRATEGIES
 
-options_exposure_learning.pdf is the sixteen-page main paper.
-options_exposure_learning_with_appendix.pdf contains the same main paper plus five technical appendix pages.
+options_exposure_learning.pdf is the twenty-page main paper.
+options_exposure_learning_with_appendix.pdf contains the same main paper plus six technical appendix pages.
 options_exposure_learning.docx is an editable copy of the complete manuscript.
 options_exposure_learning.tex and manuscript.json preserve the same text, tables and figures.
 
@@ -197,9 +219,13 @@ The original ten-page paper and original-with-extension version are unchanged. T
 
 To build the figures on another checkout, extract reproduction_inputs.zip into the repository root first. It supplies four derived daily portfolio ledgers and one saved context model, verified against provenance.json; it contains no raw option chains or credentials. Other required reports and the signal illustration are committed alongside the paper. This compact archive supports document reproduction, not a complete refit of the underlying strategies.
 
-Page 15 adds conventional allocation benchmarks adapted from Caner et al. (2026): minimum variance, maximum Sharpe and mean–variance objectives. Sample and linear Ledoit-Wolf covariance estimators are compared using validation only within each objective family. All cases and the zero-penalty exception are retained in reports/paper_allocation_benchmarks. Same-schedule fee diagnostics distinguish allocation performance from incremental resizing charges. Realized volatility is reported alongside profit; policies do not have matched risk exposure.
+Section 18 adds conventional allocation benchmarks adapted from Caner et al. (2026): minimum variance, maximum Sharpe and mean–variance objectives. Sample and linear Ledoit-Wolf covariance estimators are compared using validation only within each objective family. All cases and the zero-penalty exception are retained in reports/paper_allocation_benchmarks. Same-schedule fee diagnostics distinguish allocation performance from incremental resizing charges. Realized volatility is reported alongside profit; policies do not have matched risk exposure.
 
-Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 21 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
+Sections 6–8 integrate the teammate's straddle economics: full-history option/hedge attribution, IV versus subsequent RV and two actual trade paths. Section 19 and Appendix F retain the separate joint-contract risk-cut trial, including uncertainty, exposure differences and reproduction limits. None replaces the original bandit or Q comparisons. The original 11 figures are preserved. Frozen inputs are in reports/strategy_economics; their hashes are checked during preparation.
+
+An independent editable Overleaf project is in ../overleaf_options_exposure; ../options_exposure_overleaf.zip is ready for Overleaf New Project > Upload Project. It includes local vector figures, sections, appendices and a BibTeX database. No Overleaf account connection or automatic synchronization is configured.
+
+Reproduce using scripts.build_unified_options_paper under scripts.run_signal_discovery_guarded. Run prepare; figure --figure NAME separately for each name in provenance.json; render --page N in a fresh worker for each of 26 pages; assemble; docx. scripts.rebuild_options_paper_guarded automates the figure, page and finalization stages sequentially. Figures are implemented in scripts.options_paper_figures at their printed width with 170-dpi PNGs and vector PDF/SVG exports. Preserve one worker, 20% of one core, 256 MiB worker and swap-growth caps. No model fitting is performed.
 
 The PDF uses traditional academic typography: the original one-line title, centered authors and subtitle, black serif headings, plain ruled tables and centered page numbers. Charts are embedded as vectors; PNGs support previews and the editable Word export. scripts.options_paper_layout defines the matching PDF and Word style. LaTeX and Word may paginate differently in other software. Source report hashes, original-version preservation checks and layout checks are saved alongside the paper. All Sharpe ratios are annualized excess Sharpe; 2025 is partial. Data licensing remains applicable.
 ''')
@@ -212,11 +238,12 @@ def figure(name):
 
 
 def page_fingerprint(page):
-    from scripts.options_paper_layout import STYLE_VERSION,FALLBACK_CHARS
+    from scripts.options_paper_layout import STYLE_VERSION,FALLBACK_CHARS,TITLE,DATE
     names=[b['name'] for b in page['blocks'] if b['type']=='chart']
-    evidence=dict(style=STYLE_VERSION,page=page,
+    evidence=dict(style=STYLE_VERSION,title=TITLE,date=DATE,page=page,
                   figures={name:{ext:digest(FIG/f'{name}.{ext}') for ext in ('png','pdf')} for name in names},
-                  captions={name:CAPTIONS[name] for name in names})
+                  captions={name:CAPTIONS[name] for name in names},
+                  figure_numbers={name:NUMBERS[name] for name in names})
     if any(c in b.get('text','') for b in page['blocks'] for c in FALLBACK_CHARS):
         evidence['unicode_font_fallback']='STIXGeneral + DejaVu Serif'
     return hashlib.sha256(json.dumps(evidence,sort_keys=True,ensure_ascii=False).encode()).hexdigest()

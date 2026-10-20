@@ -1,16 +1,16 @@
 {
   "page": 9,
-  "bottom_content_points": 64.1964788732397,
+  "bottom_content_points": 118.5404722452358,
   "overflow": false,
-  "content_sha256": "37f3ed8b9e8d9f789c5ddaf425be8d108c17d5eff097c9ccac7f0b5927ff8802",
+  "content_sha256": "cb2bdf612dde608e45345f8296cba364408ec525f77c22e02fc34d6dbbdfd470",
   "rendered": true,
   "vector_figures": [
     {
-      "name": "entry_curves",
+      "name": "refit_timeline",
       "x": 54,
-      "y": 472.9964788732394,
+      "y": 248.14047224523577,
       "width": 504,
-      "height": 234.25352112676057
+      "height": 159.50952775476387
     }
   ]
 }

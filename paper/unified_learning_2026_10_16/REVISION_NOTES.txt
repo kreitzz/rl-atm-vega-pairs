@@ -116,3 +116,32 @@ illustration of profit-only allocation and weaker later performance.
 Appendix B preserves the window-refinement history and points to the original
 Q selection and complete results. The put-sizing interval remains reported
 in that appendix. All numerical tables, figures and policies are unchanged.
+
+20 October 2026 — teammate synthesis and editable Overleaf project
+
+Preserved all original exposition, 15 numeric tables and 11 figures. Added three
+straddle-economics sections explaining combined option/hedge profits, completed
+price paths, IV versus subsequent RV and two actual trade examples. The 2,599
+cohorts cover 2018–August 2025; these are hindsight attribution groups, not new
+entry features or a replacement signal. Source snapshots are hash checked.
+
+Added the separate fixed-90/10 joint-contract management trial and Appendix F.
+It is an interpretable risk rule, not fitted Q-learning, and does not alter the
+main Q experiment's fractional-index scope. The Sharpe gain, bootstrap interval,
+slightly worse drawdown and exposure mismatch with the constant-lower control
+are reported together. Publication reproduction is distinguished from a raw
+backtest/model refit. No strategy is retrained or result substituted.
+
+The manuscript now has 20 main pages, six appendix pages and 16 vector figures.
+A self-contained LaTeX project is exported to paper/overleaf_options_exposure,
+with editable sections, appendices, references.bib and local vector figures.
+paper/options_exposure_overleaf.zip is ready for Overleaf Upload Project.
+The local PDF/DOCX edition and the Overleaf edition may paginate differently.
+No direct Overleaf account connection or automatic sync is available.
+
+Management chronology clarification: all three accounts have the same 0.882
+excess Sharpe in 2018–2021 because management is inactive then. That period fits
+the warning model and cutoff; it does not validate a benefit from cuts. The
+1.365-to-1.576 comparison applies only to the later active-management period.
+A validation-period policy comparison would need an earlier-only or nested
+walk-forward warning fit. No such additional experiment is claimed here.

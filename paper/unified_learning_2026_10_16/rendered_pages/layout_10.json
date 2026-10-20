@@ -1,16 +1,16 @@
 {
   "page": 10,
-  "bottom_content_points": 84.05033140016553,
+  "bottom_content_points": 101.59929577464769,
   "overflow": false,
-  "content_sha256": "c341a0324068ee679b8175a2c65fddd7b467e46943db361e10d73a0e3983758e",
+  "content_sha256": "5dbb23034f70946e524c884791eb2d6943acfab6bcc1087f249236200a5d787a",
   "rendered": true,
   "vector_figures": [
     {
-      "name": "entry_explanations",
+      "name": "feature_validation",
       "x": 54,
-      "y": 498.0503314001657,
+      "y": 244.79929577464765,
       "width": 504,
-      "height": 209.1996685998343
+      "height": 248.45070422535213
     }
   ]
 }

@@ -5,15 +5,15 @@
   "all_numeric_tables_verified": true,
   "profit_comparison_figure_revised": true,
   "incremental_profit_endpoints_verified": true,
-  "vector_figures_embedded": 11,
-  "main_pages": 16,
-  "appendix_pages": 5,
+  "vector_figures_embedded": 16,
+  "main_pages": 20,
+  "appendix_pages": 6,
   "minimum_bottom_points": 55.00211267605646,
-  "pdf_sha256": "1550548de525fd84eb9ff83f4a4f7e00674cc6f13a9cd8f6a2bd17e57743333b",
+  "pdf_sha256": "e60d8bc219505720fda0748ca9c5678cf8140cf56edce7973cafa845cea1b3ee",
   "lambda_zero_explanation_expanded": true,
   "changed_prose_pages": [
-    16,
-    18
+    18,
+    20
   ],
   "retained_strategy_equations_tables_results_unchanged": true,
   "retained_source_data_unchanged": true,
@@ -23,5 +23,15 @@
   "fee_diagnostics_added": true,
   "selection_qualification_calibrated": true,
   "main_profit_only_illustration_lambda": 0,
-  "all_15_existing_numeric_tables_preserved": true
+  "all_15_existing_numeric_tables_preserved": true,
+  "economics_sections_added": [
+    6,
+    7,
+    8
+  ],
+  "separate_management_section": 19,
+  "management_appendix": "F",
+  "total_numeric_tables": 17,
+  "overleaf_project": "paper/options_exposure_overleaf.zip",
+  "management_fitting_not_validation_explicit": true
 }

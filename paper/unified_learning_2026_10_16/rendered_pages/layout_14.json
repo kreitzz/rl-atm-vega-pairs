@@ -1,16 +1,8 @@
 {
   "page": 14,
-  "bottom_content_points": 126.69225352112679,
+  "bottom_content_points": 200.44999999999948,
   "overflow": false,
-  "content_sha256": "4a814e385382af71c0f0a3ef9947d98361f9669860f8a69b5540e797cca851de",
+  "content_sha256": "c618430a65ddb6dadeb7b722a97afea8a8678df9f96cdf580ba325ad2f96f838",
   "rendered": true,
-  "vector_figures": [
-    {
-      "name": "factorial",
-      "x": 54,
-      "y": 494.2922535211268,
-      "width": 504,
-      "height": 212.95774647887325
-    }
-  ]
+  "vector_figures": []
 }

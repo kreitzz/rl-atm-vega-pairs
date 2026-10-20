@@ -7,7 +7,7 @@
 \setlength{\parskip}{0.4em}
 \title{\textbf{From Equity Pairs to Options Relative Value}\\[0.4em]\large Reinforcement Learning for Trade Sizing and Capital Allocation}
 \author{Adam Kreitzman and Soo Xin Yang\\MFE 230Z: Deep Learning in Finance}
-\date{16 October 2026}
+\date{20 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -109,7 +109,46 @@ The signal retains ATM-call IV even though execution uses a straddle. It ranks a
 The two signals consequently offer different portfolios. The pair trade targets relative option richness with initial vega offset; the straddle accepts market-volatility exposure to collect a persistent premium. Their different dollar profits and risk make capital allocation a separate decision from either trade's entry size.
 
 \clearpage
-\section*{6. Building the actual-contract backtester}
+\section*{6. Explaining the straddle account's profits}
+The straddle signal forecasts persistent volatility richness. Its economic interpretation should also agree with the profits recorded by the backtester. We examine 2,599 executed straddle cohorts from January 2018 through 29 August 2025, retaining the learned sizing policy. This full-history attribution explains the straddle sleeve; it is separate from the later-period comparisons of learning policies.
+
+\begin{figure}[H]\centering\includegraphics[width=\textwidth,height=200pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/straddle_bridge.pdf}\caption{Full-history straddle account, January 2018--August 2025. The option and stock components are read together; the remaining cash flows reconcile them to profit above cash.}\end{figure}
+Options after option charges earned \$1.74 million; stock hedges before hedge costs earned \$1.75 million. Together they earned \$3.49 million, reconciled to \$3.75 million above cash after the remaining costs, dividends and financing. Positive profits in both components do not establish two independent sources of alpha. Option marks contain time decay, price moves and volatility revaluation; the stock hedge is held to offset option delta.
+
+\begin{figure}[H]\centering\includegraphics[width=\textwidth,height=200pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/straddle_paths.pdf}\caption{The same 2,599 cohorts grouped by their completed price paths. Combined profit includes option charges but precedes stock-hedge charges, dividends and financing. The grouping is descriptive.}\end{figure}
+A short straddle has negative gamma. After a rising stock price, the delta hedge generally buys shares; after a fall, it sells. Continuing moves can reward the stock position while creating a larger option loss. Reversals can hurt the hedge while the option retains premium. In these cohorts, more reversing paths earn \$4.78 million together; more persistent paths lose \$1.29 million. The combined result is the relevant economic object.
+
+Path persistence is the absolute entry-to-exit log return divided by the sum of absolute daily log returns. Values at or below 0.20 define the more reversing group. This grouping uses the completed path to explain results; it is not an available entry feature or a new trading rule.
+
+\clearpage
+\section*{7. Relating implied volatility to realized outcomes}
+If the strategy earns a premium for selling movement risk, entry IV versus subsequent RV should help organize its outcomes. The diagnostic separates the same 2,599 cohorts by realized path and whether entry straddle IV exceeds the volatility subsequently realized. Both path groups have positive aggregate combined profit when IV exceeds RV and negative profit when it does not.
+
+\begin{figure}[H]\centering\includegraphics[width=\textwidth,height=200pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/straddle_ivrv.pdf}\caption{Combined option and hedge profit by completed price path and entry IV versus subsequent RV. These are realized-outcome groups, not new entry screens; totals depend on counts and sizes.}\end{figure}
+\begin{center}\small\resizebox{\textwidth}{!}{\begin{tabular}{lllll}\toprule
+Price path & IV vs RV & Trades & Profit (\$m) & Mean profit / premium\\\midrule
+More persistent & IV < RV & 461 & -4.22 & -36.9\%\\
+More persistent & IV ≥ RV & 846 & +2.93 & +13.0\%\\
+More reversing & IV < RV & 409 & -1.31 & -15.3\%\\
+More reversing & IV ≥ RV & 883 & +6.09 & +25.4\%\\
+\bottomrule\end{tabular}}\end{center}
+Entry IV here is the common annualized European, dividend-escrow volatility that reprices the combined call-and-put entry midpoint premium. Subsequent RV is the square root of 252 times mean squared daily log returns, from entry close to actual exit close, without subtracting the sample mean. The signal itself continues to use ATM-call IV; the common straddle IV is only an attribution measure.
+
+The relation is not an exact profit identity. There are 220 losing cohorts even with entry IV above subsequent RV. Discrete delta hedging, jumps, changing gamma and execution charges matter. Calendar-time annualization changes 69 IV--RV classifications, and a dividend adjustment changes six; three cohorts exited early. The normalized profit column also does not match risk exposure across trades.
+
+These are explanations using realized outcomes, not forecasts. They support the economic motivation for a completed-outcome RV - IV memory without showing that today's IV--RV gap is known in advance. They also clarify why a positive historical straddle return alone does not establish alpha after compensation for volatility risk.
+
+\clearpage
+\section*{8. Reading actual option and hedge paths}
+Two contrasting historical cohorts make the accounting concrete. The left column was selected for a large stock-hedge gain; the right for a large hedge loss. Each panel uses the stock position already carried into that session, followed by the hedge adjustment at the close. These illustrations are deliberately selected examples, not representative performance estimates.
+
+\begin{figure}[H]\centering\includegraphics[width=\textwidth,height=200pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/straddle_examples.pdf}\caption{Two selected cohorts: a large hedge gain (left) and loss (right). Rows show spot versus strike, shares carried into each session, and cumulative option, stock and combined profit. Security IDs are stable identifiers.}\end{figure}
+The stock hedge is not an independent trend strategy. A session's stock profit is shares carried into the session multiplied by the price change; the next close's shares control subsequent exposure. The lower panels therefore show the option and stock profits together. Their offset explains why neither the sign of hedge profit nor option premium retained can establish the profitability of a delta-hedged short.
+
+The attribution also puts a limit on the gamma-versus-theta shorthand. We record actual option marks, stock hedge cash flows and costs rather than infer profit from one constant gamma or an unweighted RV - IV difference. A Greek expansion is useful intuition, but the ledger is the profit measure. Appendix F describes the recovered-quote reconciliation and the scope of reproduction.
+
+\clearpage
+\section*{9. Building the actual-contract backtester}
 Historical option quotes, stock prices, rates and dividends come through WRDS. Each source strategy starts with \$10 million. Signal-date contracts trade in the following session if quotes and account checks permit. At full size, put pairs target \$450 vega per IV point on each leg; straddles target \$450 across call and put together. Whole contracts are rounded; put pairs allow an initial vega mismatch of no more than 10\%.
 
 \subsection*{Daily marks, hedges and cash flows}
@@ -126,7 +165,7 @@ The put inputs, 18-month fitting window, tree settings and 50/75/100\% action me
 All Sharpe ratios annualize daily returns above cash. Dollar profit subtracts the increase in the continuing cash benchmark; Appendix E defines the metrics precisely.
 
 \clearpage
-\section*{7. Selecting information and training history}
+\section*{10. Selecting information and training history}
 The put learner's baseline 27 inputs describe spread rank, IV and trailing RV, beta and correlation, expiry, the CBOE Volatility Index (VIX), costs and completed profitability. Availability flags identify missing fields. Future trade profits are training outcomes, never current inputs.
 
 \subsection*{A candidate measure of relative richness}
@@ -141,7 +180,7 @@ We rank 33 archived screened configurations by 2018--2021 validation excess Shar
 Archived selection scores use a \$345 million research account; funded replays use \$10 million. This split selects the sizing procedure within the established contract design and pair roster. Appendix B records extension selection histories.
 
 \clearpage
-\section*{8. Learning entry size with contextual bandits}
+\section*{11. Learning entry size with contextual bandits}
 We use direct policy search to learn a contextual sizing policy that maximizes historical portfolio Sharpe. The rule fixes direction and contracts; the bandit chooses 50\%, 75\% or 100\% exposure. CEM optimizes the put policy.
 
 \subsection*{Put pairs: group observations, then search size assignments}
@@ -157,7 +196,7 @@ CEM [3] updates size probabilities toward the best 19 of 192 candidate maps for 
 The straddle bandit fits a 60-month ridge model to completed full-size profit, using 14 inputs and requiring 128 examples. The inputs include IV, RV-IV memory, VIX and a separate fixed-half paper portfolio's recent performance. Score terciles define three states. We enumerate all 27 size maps and retain the highest training Sharpe. Insufficient history uses half size. Both learners use completed outcomes; Appendix B provides exact fitting details.
 
 \clearpage
-\section*{9. Does learned entry sizing improve returns?}
+\section*{12. Does learned entry sizing improve returns?}
 \begin{figure}[H]\centering\includegraphics[width=\textwidth,height=235pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/entry_curves.pdf}\caption{Profit above cash since January 2022. Upper right: total straddle profits. Lower right: incremental straddle profit, bandit minus fixed full sizing. Series subtract their 2021 closing values and retain carried positions. Differences reflect both sizing and admission.}\end{figure}
 \begin{center}\small\resizebox{\textwidth}{!}{\begin{tabular}{lllll}\toprule
 Entry policy & 2018--21 S & 2022--25 S & Later entries & Later profit\\\midrule
@@ -177,7 +216,7 @@ These are comparisons of complete funded policies. All entry policies receive th
 Most of the put learner's later lead develops in 2022, while 2024 loses ground. Its annualized total account return is 4.667\%; growth relative to cash is 0.530\%. Average reserve is 2.44\% and peak reserve 15.77\%. Cash interest explains much total growth; trading value is measured above cash.
 
 \clearpage
-\section*{10. Explaining the bandits' decisions}
+\section*{13. Explaining the bandits' decisions}
 \begin{figure}[H]\centering\includegraphics[width=\textwidth,height=213pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/entry_explanations.pdf}\caption{Put bars show the share of visited tree nodes; straddle bars show size changes when one input is centered. The denominators differ. Both are descriptive policy-usage measures.}\end{figure}
 \subsection*{From an input to a requested trade size}
 For a put proposal, interpretation is exact: follow the saved tree's root-to-leaf conditions, then read the size assigned to that leaf. Completed 365-day profitability appears in 18.7\% of later visited decision nodes, mean IV in 14.9\%, commission relative to vega in 12.7\%, and stock-return correlation in 12.3\%. These frequencies describe which information the fitted policy uses; they are not causal effects or a ranking of expected profit contributions.
@@ -194,7 +233,7 @@ Admission provides a second explanation for performance. Against fixed full size
 Among quote-available completed straddle labels, full-size profit averages \$1,631 for proposals assigned full size and \$16 for those assigned half size. This subset is conditioned on available labels. Three within-date size shuffles yield later Sharpes 0.834, 0.928 and 1.044, versus 1.041 learned. One shuffle wins: favorable funded results and feature usage do not by themselves establish predictive sizing.
 
 \clearpage
-\section*{11. Q-learning allocates capital across signals}
+\section*{14. Q-learning allocates capital across signals}
 The outer learner makes a different decision: what fraction of one \$10 million budget should track each funded strategy? Its seven put/straddle targets are 100/0, 90/10, 75/25, 50/50, 25/75, 10/90 and 0/100. Weights sum to one; there is no outer leverage or cash action. A weekly decision based on prior-close information takes effect at the next close. The first session retains old holdings, then positions resize and drift until the next decision.
 
 \subsection*{State, action and action-dependent holdings}
@@ -211,7 +250,7 @@ Q uses 50/50 before enough training weeks exist; each fixed control starts at it
 This outer experiment addresses an extension proposed in the original paper: freeze each signal's proposals, then learn how to combine their exposures. Entry sizes change the inner funded portfolios; Q changes the capital assigned across them. The accounting layers are deliberately distinct, allowing us to remove either learning layer in the four-way comparison.
 
 \clearpage
-\section*{12. Risk preference changes the allocation tradeoff}
+\section*{15. Risk preference changes the allocation tradeoff}
 \begin{figure}[H]\centering\includegraphics[width=\textwidth,height=267pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/allocation_risk.pdf}\caption{Bandit-managed source portfolios; nine-input Q state and \ensuremath{\gamma} = 0.99. Gray labels are fixed straddle percentages; the remainder goes to put pairs. Lines connect discrete policies. Both axes have the same scales across periods; 2025 ends in August.}\end{figure}
 \begin{center}\small\resizebox{\textwidth}{!}{\begin{tabular}{lllll}\toprule
 Reward & 2018--21 S & 2018--21 profit & 2022--25 S & 2022--25 profit\\\midrule
@@ -227,7 +266,7 @@ At \ensuremath{\lambda} = 0, the learner aggressively pursues profit through the
 The problem also involves when capital is committed. A fixed 75\% allocation to straddles achieves later Sharpe 1.084, so average exposure alone does not explain the weaker Q result. The profit-only learner can respond to state, but its learned timing does not distinguish attractive straddle opportunities well enough in the later period. Positive penalties make large fluctuations costly and lead to more selective straddle exposure. Increasing Bellman updates from 200 to 500, 1,000 and 2,000 changes no later decision for these settings. This check points to the reward and learned allocation rule, rather than too few iterations.
 
 \clearpage
-\section*{13. When does Q choose the riskier signal?}
+\section*{16. When does Q choose the riskier signal?}
 Straddles offer more dollar profit and much greater daily risk. At \ensuremath{\lambda} = 0.20, Q chooses put pairs alone on 141 later decision dates, straddles alone on 46, and an interior mix on four. It primarily switches strategies.
 
 \begin{figure}[H]\centering\includegraphics[width=\textwidth,height=159pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/allocation_schedule.pdf}\caption{Weekly target decisions during evaluation, before next-close execution. The remaining weight goes to put pairs. These are requested strategy allocations, not drifted portfolio holdings or individual trade sizes.}\end{figure}
@@ -238,7 +277,7 @@ After Q chooses straddles, their mean daily excess return is 3.05 basis points w
 A fixed target equal to Q's realized mean allocation reaches later Sharpe 1.387, versus 1.726 for Q: average exposure alone does not reproduce the result. The matched discount-zero learner reaches 1.645; continuation changes nine of 191 decisions at the same states. Much of the gain comes from conditional allocation, with a smaller incremental sequential benefit.
 
 \clearpage
-\section*{14. Separating the two learning layers}
+\section*{17. Separating the two learning layers}
 \begin{figure}[H]\centering\includegraphics[width=\textwidth,height=216pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/factorial.pdf}\caption{Cell values are annualized excess Sharpe at \ensuremath{\lambda} = 0.20. Fixed entry size is 100\%; fixed capital allocation is 50/50. Q is independently fitted on each entry family's actual returns and costs.}\end{figure}
 \begin{center}\small\resizebox{\textwidth}{!}{\begin{tabular}{llll}\toprule
 Entry / capital policy & 2018--21 S & 2022--25 S & Later profit\\\midrule
@@ -257,7 +296,7 @@ Q, \ensuremath{\lambda} = .20 & 0.891 & 2.118 & \$1.060m & 0.43\%\\
 The fixed-75\% result shows that capital allocation can help independently of entry learning. Q nearly doubles later Sharpe with similar profit and a much smaller drawdown. Its later Sharpe exceeds bandit-plus-Q at this \ensuremath{\lambda}, while its profit and validation Sharpe are lower. Bandit sizing therefore changes the available profit--risk tradeoff without dominating every constant entry size.
 
 \clearpage
-\section*{15. Comparing dynamic allocation methods}
+\section*{18. Comparing dynamic allocation methods}
 A dynamic policy might outperform fixed weights simply by responding to recent returns. We therefore adapt the minimum-variance, maximum-Sharpe and mean--variance portfolio objectives of Caner et al. [5] to our two frozen bandit portfolios. This comparison asks whether Q improves on conventional dynamic allocation as well.
 
 \subsection*{The same budget, opportunities and execution}
@@ -276,26 +315,43 @@ Q, \ensuremath{\lambda} = 1 & 1.005 & 2.152 & \$1.141m & 0.985\\
 All S columns are annualized excess Sharpe; later \ensuremath{\sigma} is annualized daily excess-return volatility. At \ensuremath{\lambda} = 0.20, Q raises later Sharpe from 1.519 to 1.726 and profit above cash from \$452,303 to \$1,305,940. At \ensuremath{\lambda} = 1, the corresponding figures are 1.795 versus 2.152 and \$439,118 versus \$1,141,251. Q also improves both measures at \ensuremath{\lambda} = 0.10 in both periods. These are portfolio comparisons, not equal-risk experiments: Q takes more realized risk.
 
 \subsection*{Why the allocation rules differ}
-The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At \ensuremath{\lambda} = 0.20, its mean later straddle target is 24.9\%, versus 12.7\% for mean--variance allocation. The selected intervals on page 13 have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone.
+The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At \ensuremath{\lambda} = 0.20, its mean later straddle target is 24.9\%, versus 12.7\% for mean--variance allocation. The selected intervals in Section 16 have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone.
 
 Q changes targets 24 times later, versus eight for mean--variance allocation. Removing only outer resizing charges raises their Sharpes to 1.774 and 1.525; all source trading costs remain. Lower resizing fees therefore do not explain Q's advantage. The conventional rule uses centered variance, whereas Q penalizes the raw second moment and adds state and continuation value; identical \ensuremath{\lambda} values do not make these identical objectives.
 
 The result has a clear exception: at \ensuremath{\lambda} = 0, conventional profit-only allocation reaches later Sharpe 1.041 and \$2.154 million above cash, versus Q's 0.671 and \$1.353 million. The literal 1\% monthly target used in [5] is infeasible under our allocation limits; its maximum-mean fallback is recorded separately. All 14 conventional cases and the fee diagnostics are retained in the companion results.
 
 \clearpage
-\section*{16. Interpretation, limitations and conclusion}
+\section*{19. An extension: managing accumulated straddle exposure}
+Entry sizing and strategy allocation leave a third question: should an existing option position be trimmed as risk accumulates? A separate experiment uses a \$10 million joint whole-contract account, fixed 90\% put / 10\% straddle budgets and half-size entries in both sleeves. It does not replace the bandit accounts or the fractional-index Q experiment above.
+
+A nonnegative regression predicts the magnitude of next-session straddle-book market P\&L from gross straddle vega and the preceding 21-session RMS P\&L. The coefficients and a 75th-percentile risk-per-NAV cutoff use 2018--2021 data. Cuts are inactive then, so this fits the warning without validating the management rule. When the reference-book warning is high, new straddles pause and existing cohorts target half their original integer counts at the next close. Trims remain in place; put rules are unchanged. This is an interpretable risk rule, not a learned Q-management policy.
+
+\begin{figure}[H]\centering\includegraphics[width=\textwidth,height=200pt,keepaspectratio]{paper/unified_learning_2026_10_16/figures/straddle_management.pdf}\caption{Separate joint-contract management trial, January 2022--August 2025. Upper panel: compounded growth relative to cash. Lower panel: cumulative daily excess-return difference, conditional cuts minus unchanged 90/10. This is not the Q-index account.}\end{figure}
+\begin{center}\small\resizebox{\textwidth}{!}{\begin{tabular}{lllll}\toprule
+Account & Mean excess (\%) & Vol. (\%) & Sharpe & Drawdown (\%)\\\midrule
+Unchanged 90/10 & 0.718 & 0.525 & 1.365 & 0.676\\
+Conditional cuts & 0.733 & 0.465 & 1.576 & 0.734\\
+Constant 90/5 + cash & 0.499 & 0.435 & 1.147 & 0.719\\
+\bottomrule\end{tabular}}\end{center}
+During January 2022--August 2025, conditional cuts raise excess Sharpe from 1.365 to 1.576, mainly by reducing volatility while preserving the arithmetic mean excess return. Cash-relative maximum drawdown becomes slightly worse, 0.734\% versus 0.676\%. The paired 126-session bootstrap interval for the Sharpe gain is -0.22 to +0.66. Annualized mean excess return is 252 times the daily mean, not compounded growth.
+
+The constant-lower control assigns 90\% to puts, 5\% to straddles and 5\% to cash. It takes less average straddle exposure than the conditional policy, so it does not isolate timing at equal exposure. The trial motivates inventory-aware learning but does not establish that trimming reliably improves performance. The timing, exposure and reproduction details appear in Appendix F.
+
+\clearpage
+\section*{20. Interpretation, limitations and conclusion}
 \subsection*{What the comparisons establish}
 Entry bandits improve the retained portfolios through sizing and admission. Q improves allocation with constant entries and exceeds the corresponding rolling mean--variance controls at \ensuremath{\lambda} = 0.10, 0.20 and 1. Its profit-only policy transfers less reliably when straddles weaken. Reward design changes the allocation tradeoff.
 
 \subsection*{What remains uncertain}
 All fitted policies use only information available before their decisions. However, strategy development included inspection of later-period results, including choices of training windows and risk preferences. Consequently, the evaluation measures historical performance under chronologically fitted policies, rather than an independently frozen test of the complete research process. The controlled comparisons provide evidence about adaptive exposure allocation under the stated assumptions, but neither the magnitude of research-selection bias nor prospective performance has been established.
 
-Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; a common ledger could change admission, financing and netting. Initial vega matching is local, and the straddle signal adds net short-volatility risk.
+Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; the separate common-ledger trimming trial does not remove this limitation from the Q comparison. Initial vega matching is local, and the straddle signal adds net short-volatility risk.
 
 \subsection*{Conclusion}
 The two signals explain why capital allocation matters. Relative put pricing creates a low-deployment portfolio with favorable selected-period risk-adjusted returns. Persistent RV-IV selling earns more dollars with greater exposure to realized movement. Neither dominates for every investor. The allocation learner links these economic differences to a risk-preference reward and current information, extending the original question from one trade rule to competing sources of return.
 
-Future work should test shared contract-level inventory, measured execution costs and additional independent signals. Learned trimming remains worth studying, although earlier gains on weak entry signals were less compelling.
+The straddle attribution links the second signal to realized movement and explains why positive stock-hedge profits are not a separate edge. A joint-contract trimming trial supplies an interpretable inventory-management candidate, with an uncertain gain. Future work should integrate such controls with learned allocation, measured execution costs and additional independent signals.
 
 Bandits adapt trade commitments; Q allocates across strategies. The four-way and conventional-benchmark comparisons support studying both exposure decisions in an integrated implementation and prospective evaluation.
 
@@ -429,5 +485,24 @@ Centering VIX and straddle IV-versus-RV richness changes 13.6\% and 12.6\% of la
 The rotation control preserves allocation counts and most serial structure, then recomputes wealth and resizing costs. Three of 49 rotated schedules reach or exceed the actual validation Sharpe; none reaches the actual later Sharpe. Timing-control results are reported in Appendix B. These are diagnostics of the retained policy, not a substitute for prospective evaluation.
 
 A final distinction concerns portfolio admission. The source put and straddle books each simulate whole contracts and daily stock hedges under their own funded histories. The outer allocator trades fractional claims on those net strategy indices, with additional resizing charges. Its capital weights are not premium deployment or broker margin, and reallocating indices does not rerun a common integer-contract inventory ledger.
+
+\clearpage
+\section*{Appendix F. Straddle attribution and management protocol}
+\subsection*{Retained cohorts and accounting checks}
+The economics extension retains 2,599 unique straddle cohorts and reconciles their option-plus-stock profits to the full-history straddle account. The aggregate bridge includes \$160,755 in hedge trading costs, \$20,544 in short-stock borrow, \$57,201 in hedge dividends and \$498,494 in cash interest above the cash benchmark. Option charges are already included in the option component. These amounts belong to January 2018--August 2025, not only the later reporting period.
+
+Saved holdings and recovered quote paths reproduce the trade illustrations. One quote-availability convention was inferred; using observed recovered quotes changes aggregate hedge profit by \$367.52. The figures retain the reconciled saved-account attribution. This reconstruction difference is disclosed rather than counted as a new profit source. Stable security identifiers identify the two examples.
+
+\subsection*{Risk warning and executable trimming}
+The warning model uses nonnegative coefficients 1.405401 on gross straddle vega and 0.383233 on 21-session RMS market P\&L. Divide its dollar prediction by prior NAV and compare with 0.0001616954. The predictor targets absolute next-session market P\&L, not its sign. A causally maintained unchanged reference book supplies the state, so a trim cannot mechanically switch off its own warning.
+
+A high warning pauses new straddles and requests 50\% of each original cohort's call and put counts, rounded down. One-contract cohorts close both legs. The target is retried until filled or expired and never restores trimmed positions; new entries resume after the warning clears. The first signal is 31 December 2021, execution 3 January 2022, and first affected market return 4 January. All 908 warning records strictly order signal, execution and first affected return.
+
+Mean later gross straddle vega is \$562.36 per volatility point for unchanged 90/10, \$450.59 for conditional cuts and \$275.54 for constant 90/5 plus cash. Thus the constant-lower control does not match average exposure. The saved paired bootstrap uses 2,000 draws; the Sharpe-gain interval versus holding is [-0.243, +0.697] at 63 sessions and [-0.218, +0.665] at 126. These intervals condition on the retained histories without research-selection adjustment.
+
+\subsection*{Publication reproduction and experiment scope}
+The committed reports/strategy\_economics/data snapshots and manifest reproduce the attribution, figures and management table without raw option chains. The renderer verifies snapshot hashes, cohort identities, aligned account dates and saved performance arithmetic. The original management simulator and model-fitting pipeline are not included in this focused publication snapshot; publication reproduction is not an independent regeneration of those experiments.
+
+The three management accounts have identical histories before 2022, each with excess Sharpe 0.882. No cuts are applied during that period; it estimates the warning model and cutoff rather than validating the trimming benefit. Their later daily return and benchmark identities reconcile, including whole-contract exposure and funding in the saved ledgers. Other forecast, sizing and allocation variants were investigated without a replacement policy being retained. This one bounded trial uses already researched historical dates and is a separate extension, not a fresh holdout or additional evidence that the main Q learner manages individual contracts.
 
 \end{document}

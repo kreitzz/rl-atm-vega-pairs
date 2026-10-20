@@ -1,6 +1,6 @@
 {
-  "main_pages": 16,
-  "appendix_pages": 5,
+  "main_pages": 20,
+  "appendix_pages": 6,
   "source_hashes": {
     "reports/p25_validation_split/periods.csv": "c87e3a83a4a81ef6292a12d84f1a01b669aec4652d37677d90316d6ed6dac435",
     "reports/p25_validation_split/annual.csv": "016c46859565e916eb3456e5b08c7b16b765d919bb95cec259d3768b69882add",
@@ -37,6 +37,18 @@
     "reports/signal_allocation_discount/validation_selected_results.csv": "c3f233301171703cc88d07de92cfa8a09a90a9254d2a4fc1a6b6893c0c476711",
     "reports/straddle_performance_followup/cases/performance_ridge48/results.csv": "d4981942be4252ed198a73d9e48f4bfd19d813c03fbd45a40336ad451e42cf7d",
     "reports/straddle_policy_refinement/cases/performance60/results.csv": "f6d64795cf90c8c1e4e5faa33dbca19b8153fa7096ef15af3c663b4722317410",
+    "reports/strategy_economics/data/manifest.json": "e0f40ae10514721ac7027015b8d0fcb22b968ca79b31208133728c1cbac35ec4",
+    "reports/strategy_economics/data/profit_bridge.csv": "86a6d4eb7cc5f3312bdb7e630a48f4d1eef44e7ccb85b3f4f95c56c00a6b35f1",
+    "reports/strategy_economics/data/trade_examples.csv": "d7564556c8314b060e79ec61fb296639fb5fe1d12217c0f79ffb9f6e1a871942",
+    "reports/strategy_economics/data/account_performance.csv": "879c9914526e5b50487fd4b406c0027ea6157a0a9aa4f31213d9b0b48a8afc20",
+    "reports/strategy_economics/data/sharpe_intervals.csv": "ab604c550bb8f99bb1f3445594f775ab948be3a04801f2d0ee0313b38e3e9982",
+    "reports/strategy_economics/data/risk_protocol.json": "f984c74bf1567c1e95baf11994c2a6a103b0c73fc18d7445401a14f9c4492e1e",
+    "reports/strategy_economics/data/hedge_checks.json": "587eb31c2fb5bda637ea5527e7d7a0aa453cbc54555e056c285528a75d1fd305",
+    "reports/strategy_economics/data/ivrv_checks.json": "7f44161ef33eb83cfc15e81d5cde68a71e6978c877344839b94faf60e8968c2a",
+    "reports/strategy_economics/data/trade_outcomes.csv": "edaa0bc372666c43fe9a1f82903e6c3d576a2390100361b67875e1636a17d522",
+    "reports/strategy_economics/data/account_daily.csv": "f14eeebc3d84007287e52bf8cba4fecd55a0754dd08407fad71313bdb16df055",
+    "reports/strategy_economics/data/warning.csv": "6ef75a481f447b3b5e92c3499691d6e959fc12aad7915d3d9aaada260511d12e",
+    "reports/strategy_economics/tables/ivrv_groups.csv": "43c6af188d8e091d8f5da81f2725c67f658a2f95ed93c21e5d3dda7d58501db8",
     "artifacts/contracts/p25_validation_split/replays/screened_selected/daily_nav.parquet": "63f89e9ccf787b8b470d4ac3f702b453615e599daa1149a5c2e6491acee01bb7",
     "artifacts/paper_code/replays/fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
     "artifacts/contracts/straddle_policy_refinement/cases/performance60/replays/tree18/daily_nav.parquet": "dbbb283d13a14467ed67fcd658d2873a0aa07b938ff3315abd8da7be134d8000",
@@ -51,6 +63,10 @@
   "figures": {
     "learning_pipeline": "Two exposure decisions. Entry policies size proposals within each signal; a separately fitted Q policy chooses the capital split between funded strategy indices.",
     "signal_example": "AMD minus NVDA selected-put IV in 2019. Shading marks excursions outside historical percentile boundaries, not executed trades. Gaps are unavailable quotes. Daily contract selection makes this a signal series, not the mark of one held contract.",
+    "straddle_bridge": "Full-history straddle account, January 2018–August 2025. The option and stock components are read together; the remaining cash flows reconcile them to profit above cash.",
+    "straddle_paths": "The same 2,599 cohorts grouped by their completed price paths. Combined profit includes option charges but precedes stock-hedge charges, dividends and financing. The grouping is descriptive.",
+    "straddle_ivrv": "Combined option and hedge profit by completed price path and entry IV versus subsequent RV. These are realized-outcome groups, not new entry screens; totals depend on counts and sizes.",
+    "straddle_examples": "Two selected cohorts: a large hedge gain (left) and loss (right). Rows show spot versus strike, shares carried into each session, and cumulative option, stock and combined profit. Security IDs are stable identifiers.",
     "refit_timeline": "Monthly put-policy refitting. Only completed outcomes whose signal dates fall in the displayed 18-month window enter each fit. The selected model settings remain fixed; the tree and size assignments update.",
     "feature_validation": "Original feature exploration at the 18-month baseline. Scores use 2018–2021 validation and the archived $345 million research account; funded policy comparisons use $10 million. The three highest scores tie exactly.",
     "entry_policy": "The original tree/CEM construction. The three-state maps illustrate candidates; actual trees have up to eight states. Each candidate selects action-specific completed paths; the best 19 update sampling probabilities. The retained map sizes next month’s proposals.",
@@ -59,6 +75,7 @@
     "allocation_risk": "Bandit-managed source portfolios; nine-input Q state and γ = 0.99. Gray labels are fixed straddle percentages; the remainder goes to put pairs. Lines connect discrete policies. Both axes have the same scales across periods; 2025 ends in August.",
     "allocation_schedule": "Weekly target decisions during evaluation, before next-close execution. The remaining weight goes to put pairs. These are requested strategy allocations, not drifted portfolio holdings or individual trade sizes.",
     "conditional_risk": "Realized straddle returns after λ = 0.20 Q decisions. Straddle-only choices cover 220 sessions; put-only choices cover 678. The four mixed-allocation intervals are omitted. Source costs are included; outer resizing charges are excluded.",
-    "factorial": "Cell values are annualized excess Sharpe at λ = 0.20. Fixed entry size is 100%; fixed capital allocation is 50/50. Q is independently fitted on each entry family’s actual returns and costs."
+    "factorial": "Cell values are annualized excess Sharpe at λ = 0.20. Fixed entry size is 100%; fixed capital allocation is 50/50. Q is independently fitted on each entry family’s actual returns and costs.",
+    "straddle_management": "Separate joint-contract management trial, January 2022–August 2025. Upper panel: compounded growth relative to cash. Lower panel: cumulative daily excess-return difference, conditional cuts minus unchanged 90/10. This is not the Q-index account."
   }
 }

@@ -1,8 +1,16 @@
 {
   "page": 15,
-  "bottom_content_points": 85.4499999999999,
+  "bottom_content_points": 55.00211267605646,
   "overflow": false,
-  "content_sha256": "e29ce96770e18a63310fde9e10f85529227a9ce2d98df42fc4d96a0ab238322f",
+  "content_sha256": "eae73a6bbecb63618a83ab583315693db71ddcf352da98d5408a0ac98ba8969a",
   "rendered": true,
-  "vector_figures": []
+  "vector_figures": [
+    {
+      "name": "allocation_risk",
+      "x": 54,
+      "y": 444.6021126760563,
+      "width": 504,
+      "height": 262.6478873239437
+    }
+  ]
 }

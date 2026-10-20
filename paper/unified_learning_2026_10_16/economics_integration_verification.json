@@ -1,0 +1,32 @@
+{
+  "teammate_snapshot_hashes_verified": 10,
+  "cohorts_verified": 2599,
+  "profit_bridge_verified": true,
+  "account_return_identities_verified": 5775,
+  "warning_date_orderings_verified": 908,
+  "management_statistics": {
+    "hold_control": {
+      "later_observations": 918,
+      "annualized_excess_sharpe": 1.3654917227244152
+    },
+    "conditional_half": {
+      "later_observations": 918,
+      "annualized_excess_sharpe": 1.575606773106886
+    },
+    "constant_lower": {
+      "later_observations": 918,
+      "annualized_excess_sharpe": 1.1467814014669562
+    }
+  },
+  "original_numeric_tables_preserved": 15,
+  "original_vector_and_preview_figures_preserved": 11,
+  "frozen_source_metrics_not_retrained": true,
+  "management_trial_separate_from_main_q": true,
+  "scope": "Saved-output publication and arithmetic checks; no raw-data simulator refit or new bootstrap.",
+  "prior_paper_sha256": "1550548de525fd84eb9ff83f4a4f7e00674cc6f13a9cd8f6a2bd17e57743333b",
+  "integrated_pdf_sha256": "e60d8bc219505720fda0748ca9c5678cf8140cf56edce7973cafa845cea1b3ee",
+  "main_pages": 20,
+  "appendix_pages": 6,
+  "earlier_management_accounts_inactive": true,
+  "earlier_unmanaged_excess_sharpe": 0.8817931997369994
+}

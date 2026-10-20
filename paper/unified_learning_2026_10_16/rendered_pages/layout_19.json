@@ -1,8 +1,16 @@
 {
   "page": 19,
-  "bottom_content_points": 127.05000000000021,
+  "bottom_content_points": 110.18802816901396,
   "overflow": false,
-  "content_sha256": "6183a40c941ab4e1ef85d20e064293c7abfbfb625f8739decb9017a63120a5bb",
+  "content_sha256": "245a44a5648b0a919363d1cdef6b9962a7d4f0f26766bf179800f57e2e1e62ff",
   "rendered": true,
-  "vector_figures": []
+  "vector_figures": [
+    {
+      "name": "straddle_management",
+      "x": 54,
+      "y": 365.58802816901385,
+      "width": 504,
+      "height": 191.66197183098592
+    }
+  ]
 }

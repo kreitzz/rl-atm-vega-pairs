@@ -1,0 +1,67 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype,amsmath,booktabs,tabularx,array,graphicx,placeins,float}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{figures/}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlength{\emergencystretch}{2em}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{.9}
+\renewcommand{\bottomfraction}{.8}
+\renewcommand{\textfraction}{.1}
+\renewcommand{\floatpagefraction}{.8}
+\hypersetup{pdftitle={From Equity Pairs to Options Relative Value},
+ pdfauthor={Adam Kreitzman and Soo Xin Yang}}
+\begin{document}
+\begin{center}
+\makebox[\textwidth][c]{{\fontsize{20}{24}\selectfont\bfseries From Equity Pairs to Options Relative Value}}
+\vspace{0.6em}
+
+{\large Reinforcement Learning for Trade Sizing and Capital Allocation}\par
+\vspace{1em}
+Adam Kreitzman and Soo Xin Yang\par
+\small MFE 230Z: Deep Learning in Finance\par
+20 October 2026
+\end{center}
+\begin{abstract}
+We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022--August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. Combining both learners raises Sharpe from 1.088 to 1.726 in a four-way comparison. With bandit entries, Q also exceeds rolling mean--variance allocation: 1.726 versus 1.519. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results.
+\end{abstract}
+\input{sections/01_from_a_useful_signal_to_an_exposure_decision}
+\input{sections/02_what_we_take_from_the_motivating_paper}
+\input{sections/03_what_the_option_trade_actually_does}
+\input{sections/04_finding_the_relative_volatility_signal}
+\input{sections/05_a_second_signal_persistent_volatility_richness}
+\input{sections/06_explaining_the_straddle_account_s_profits}
+\input{sections/07_relating_implied_volatility_to_realized_outcomes}
+\input{sections/08_reading_actual_option_and_hedge_paths}
+\input{sections/09_building_the_actual_contract_backtester}
+\input{sections/10_selecting_information_and_training_history}
+\input{sections/11_learning_entry_size_with_contextual_bandits}
+\input{sections/12_does_learned_entry_sizing_improve_returns}
+\input{sections/13_explaining_the_bandits_decisions}
+\input{sections/14_q_learning_allocates_capital_across_signals}
+\input{sections/15_risk_preference_changes_the_allocation_tradeoff}
+\input{sections/16_when_does_q_choose_the_riskier_signal}
+\input{sections/17_separating_the_two_learning_layers}
+\input{sections/18_comparing_dynamic_allocation_methods}
+\input{sections/19_an_extension_managing_accumulated_straddle_exposure}
+\input{sections/20_interpretation_limitations_and_conclusion}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\clearpage
+\appendix
+\input{appendices/a_contracts_features_and_account_checks}
+\input{appendices/b_fitting_chronology_and_controls}
+\input{appendices/c_supporting_results_and_reproducibility}
+\input{appendices/d_original_sizing_and_annual_results}
+\input{appendices/e_performance_definitions_and_timing_diagnostics}
+\input{appendices/f_straddle_attribution_and_management_protocol}
+\end{document}

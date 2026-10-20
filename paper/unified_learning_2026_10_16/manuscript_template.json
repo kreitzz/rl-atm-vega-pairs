@@ -32,7 +32,7 @@
         "text": "The original relative-volatility strategy remains the foundation of this paper. We add a second signal—persistent realized-minus-implied volatility—and a second learning decision: allocating capital between the resulting strategies. Entry bandits choose individual trade sizes; fitted Q-learning chooses the strategy mix. Both reporting periods, 2018–2021 validation and January 2022–August 2025 evaluation, remain visible throughout."
       }
     ],
-    "subtitle": "Adam Kreitzman and Soo Xin Yang · 16 October 2026"
+    "subtitle": "Adam Kreitzman and Soo Xin Yang · 20 October 2026"
   },
   {
     "title": "2. What we take from the motivating paper",
@@ -297,7 +297,97 @@
     ]
   },
   {
-    "title": "6. Building the actual-contract backtester",
+    "title": "6. Explaining the straddle account’s profits",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "The straddle signal forecasts persistent volatility richness. Its economic interpretation should also agree with the profits recorded by the backtester. We examine 2,599 executed straddle cohorts from January 2018 through 29 August 2025, retaining the learned sizing policy. This full-history attribution explains the straddle sleeve; it is separate from the later-period comparisons of learning policies."
+      },
+      {
+        "type": "chart",
+        "name": "straddle_bridge",
+        "height": 200
+      },
+      {
+        "type": "paragraph",
+        "text": "Options after option charges earned $1.74 million; stock hedges before hedge costs earned $1.75 million. Together they earned $3.49 million, reconciled to $3.75 million above cash after the remaining costs, dividends and financing. Positive profits in both components do not establish two independent sources of alpha. Option marks contain time decay, price moves and volatility revaluation; the stock hedge is held to offset option delta."
+      },
+      {
+        "type": "chart",
+        "name": "straddle_paths",
+        "height": 200
+      },
+      {
+        "type": "paragraph",
+        "text": "A short straddle has negative gamma. After a rising stock price, the delta hedge generally buys shares; after a fall, it sells. Continuing moves can reward the stock position while creating a larger option loss. Reversals can hurt the hedge while the option retains premium. In these cohorts, more reversing paths earn $4.78 million together; more persistent paths lose $1.29 million. The combined result is the relevant economic object."
+      },
+      {
+        "type": "paragraph",
+        "text": "Path persistence is the absolute entry-to-exit log return divided by the sum of absolute daily log returns. Values at or below 0.20 define the more reversing group. This grouping uses the completed path to explain results; it is not an available entry feature or a new trading rule."
+      }
+    ]
+  },
+  {
+    "title": "7. Relating implied volatility to realized outcomes",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "If the strategy earns a premium for selling movement risk, entry IV versus subsequent RV should help organize its outcomes. The diagnostic separates the same 2,599 cohorts by realized path and whether entry straddle IV exceeds the volatility subsequently realized. Both path groups have positive aggregate combined profit when IV exceeds RV and negative profit when it does not."
+      },
+      {
+        "type": "chart",
+        "name": "straddle_ivrv",
+        "height": 200
+      },
+      {
+        "type": "data_table",
+        "name": "straddle_ivrv",
+        "widths": [
+          115,
+          80,
+          55,
+          110,
+          152
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Entry IV here is the common annualized European, dividend-escrow volatility that reprices the combined call-and-put entry midpoint premium. Subsequent RV is the square root of 252 times mean squared daily log returns, from entry close to actual exit close, without subtracting the sample mean. The signal itself continues to use ATM-call IV; the common straddle IV is only an attribution measure."
+      },
+      {
+        "type": "paragraph",
+        "text": "The relation is not an exact profit identity. There are 220 losing cohorts even with entry IV above subsequent RV. Discrete delta hedging, jumps, changing gamma and execution charges matter. Calendar-time annualization changes 69 IV–RV classifications, and a dividend adjustment changes six; three cohorts exited early. The normalized profit column also does not match risk exposure across trades."
+      },
+      {
+        "type": "paragraph",
+        "text": "These are explanations using realized outcomes, not forecasts. They support the economic motivation for a completed-outcome RV − IV memory without showing that today’s IV–RV gap is known in advance. They also clarify why a positive historical straddle return alone does not establish alpha after compensation for volatility risk."
+      }
+    ]
+  },
+  {
+    "title": "8. Reading actual option and hedge paths",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Two contrasting historical cohorts make the accounting concrete. The left column was selected for a large stock-hedge gain; the right for a large hedge loss. Each panel uses the stock position already carried into that session, followed by the hedge adjustment at the close. These illustrations are deliberately selected examples, not representative performance estimates."
+      },
+      {
+        "type": "chart",
+        "name": "straddle_examples",
+        "height": 200
+      },
+      {
+        "type": "paragraph",
+        "text": "The stock hedge is not an independent trend strategy. A session’s stock profit is shares carried into the session multiplied by the price change; the next close’s shares control subsequent exposure. The lower panels therefore show the option and stock profits together. Their offset explains why neither the sign of hedge profit nor option premium retained can establish the profitability of a delta-hedged short."
+      },
+      {
+        "type": "paragraph",
+        "text": "The attribution also puts a limit on the gamma-versus-theta shorthand. We record actual option marks, stock hedge cash flows and costs rather than infer profit from one constant gamma or an unweighted RV − IV difference. A Greek expansion is useful intuition, but the ledger is the profit measure. Appendix F describes the recovered-quote reconciliation and the scope of reproduction."
+      }
+    ]
+  },
+  {
+    "title": "9. Building the actual-contract backtester",
     "blocks": [
       {
         "type": "paragraph",
@@ -339,7 +429,7 @@
     ]
   },
   {
-    "title": "7. Selecting information and training history",
+    "title": "10. Selecting information and training history",
     "blocks": [
       {
         "type": "paragraph",
@@ -378,7 +468,7 @@
     ]
   },
   {
-    "title": "8. Learning entry size with contextual bandits",
+    "title": "11. Learning entry size with contextual bandits",
     "blocks": [
       {
         "type": "paragraph",
@@ -421,7 +511,7 @@
     ]
   },
   {
-    "title": "9. Does learned entry sizing improve returns?",
+    "title": "12. Does learned entry sizing improve returns?",
     "blocks": [
       {
         "type": "chart",
@@ -454,7 +544,7 @@
     ]
   },
   {
-    "title": "10. Explaining the bandits’ decisions",
+    "title": "13. Explaining the bandits’ decisions",
     "blocks": [
       {
         "type": "chart",
@@ -494,7 +584,7 @@
     ]
   },
   {
-    "title": "11. Q-learning allocates capital across signals",
+    "title": "14. Q-learning allocates capital across signals",
     "blocks": [
       {
         "type": "paragraph",
@@ -536,7 +626,7 @@
     ]
   },
   {
-    "title": "12. Risk preference changes the allocation tradeoff",
+    "title": "15. Risk preference changes the allocation tradeoff",
     "blocks": [
       {
         "type": "chart",
@@ -569,7 +659,7 @@
     ]
   },
   {
-    "title": "13. When does Q choose the riskier signal?",
+    "title": "16. When does Q choose the riskier signal?",
     "blocks": [
       {
         "type": "paragraph",
@@ -600,7 +690,7 @@
     ]
   },
   {
-    "title": "14. Separating the two learning layers",
+    "title": "17. Separating the two learning layers",
     "blocks": [
       {
         "type": "chart",
@@ -639,7 +729,7 @@
     ]
   },
   {
-    "title": "15. Comparing dynamic allocation methods",
+    "title": "18. Comparing dynamic allocation methods",
     "blocks": [
       {
         "type": "paragraph",
@@ -674,7 +764,7 @@
       },
       {
         "type": "paragraph",
-        "text": "The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At λ = 0.20, its mean later straddle target is 24.9%, versus 12.7% for mean–variance allocation. The selected intervals on page 13 have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone."
+        "text": "The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At λ = 0.20, its mean later straddle target is 24.9%, versus 12.7% for mean–variance allocation. The selected intervals in Section 16 have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone."
       },
       {
         "type": "paragraph",
@@ -687,7 +777,44 @@
     ]
   },
   {
-    "title": "16. Interpretation, limitations and conclusion",
+    "title": "19. An extension: managing accumulated straddle exposure",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Entry sizing and strategy allocation leave a third question: should an existing option position be trimmed as risk accumulates? A separate experiment uses a $10 million joint whole-contract account, fixed 90% put / 10% straddle budgets and half-size entries in both sleeves. It does not replace the bandit accounts or the fractional-index Q experiment above."
+      },
+      {
+        "type": "paragraph",
+        "text": "A nonnegative regression predicts the magnitude of next-session straddle-book market P&L from gross straddle vega and the preceding 21-session RMS P&L. The coefficients and a 75th-percentile risk-per-NAV cutoff use 2018–2021 data. Cuts are inactive then, so this fits the warning without validating the management rule. When the reference-book warning is high, new straddles pause and existing cohorts target half their original integer counts at the next close. Trims remain in place; put rules are unchanged. This is an interpretable risk rule, not a learned Q-management policy."
+      },
+      {
+        "type": "chart",
+        "name": "straddle_management",
+        "height": 200
+      },
+      {
+        "type": "data_table",
+        "name": "straddle_management",
+        "widths": [
+          192,
+          85,
+          80,
+          70,
+          85
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "During January 2022–August 2025, conditional cuts raise excess Sharpe from 1.365 to 1.576, mainly by reducing volatility while preserving the arithmetic mean excess return. Cash-relative maximum drawdown becomes slightly worse, 0.734% versus 0.676%. The paired 126-session bootstrap interval for the Sharpe gain is −0.22 to +0.66. Annualized mean excess return is 252 times the daily mean, not compounded growth."
+      },
+      {
+        "type": "paragraph",
+        "text": "The constant-lower control assigns 90% to puts, 5% to straddles and 5% to cash. It takes less average straddle exposure than the conditional policy, so it does not isolate timing at equal exposure. The trial motivates inventory-aware learning but does not establish that trimming reliably improves performance. The timing, exposure and reproduction details appear in Appendix F."
+      }
+    ]
+  },
+  {
+    "title": "20. Interpretation, limitations and conclusion",
     "blocks": [
       {
         "type": "heading",
@@ -707,7 +834,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; a common ledger could change admission, financing and netting. Initial vega matching is local, and the straddle signal adds net short-volatility risk."
+        "text": "Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; the separate common-ledger trimming trial does not remove this limitation from the Q comparison. Initial vega matching is local, and the straddle signal adds net short-volatility risk."
       },
       {
         "type": "heading",
@@ -719,7 +846,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Future work should test shared contract-level inventory, measured execution costs and additional independent signals. Learned trimming remains worth studying, although earlier gains on weak entry signals were less compelling."
+        "text": "The straddle attribution links the second signal to realized movement and explains why positive stock-hedge profits are not a separate edge. A joint-contract trimming trial supplies an interpretable inventory-management candidate, with an uncertain gain. Future work should integrate such controls with learned allocation, measured execution costs and additional independent signals."
       },
       {
         "type": "paragraph",
@@ -1002,6 +1129,51 @@
       {
         "type": "paragraph",
         "text": "A final distinction concerns portfolio admission. The source put and straddle books each simulate whole contracts and daily stock hedges under their own funded histories. The outer allocator trades fractional claims on those net strategy indices, with additional resizing charges. Its capital weights are not premium deployment or broker margin, and reallocating indices does not rerun a common integer-contract inventory ledger."
+      }
+    ]
+  },
+  {
+    "title": "Appendix F. Straddle attribution and management protocol",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Retained cohorts and accounting checks"
+      },
+      {
+        "type": "paragraph",
+        "text": "The economics extension retains 2,599 unique straddle cohorts and reconciles their option-plus-stock profits to the full-history straddle account. The aggregate bridge includes $160,755 in hedge trading costs, $20,544 in short-stock borrow, $57,201 in hedge dividends and $498,494 in cash interest above the cash benchmark. Option charges are already included in the option component. These amounts belong to January 2018–August 2025, not only the later reporting period."
+      },
+      {
+        "type": "paragraph",
+        "text": "Saved holdings and recovered quote paths reproduce the trade illustrations. One quote-availability convention was inferred; using observed recovered quotes changes aggregate hedge profit by $367.52. The figures retain the reconciled saved-account attribution. This reconstruction difference is disclosed rather than counted as a new profit source. Stable security identifiers identify the two examples."
+      },
+      {
+        "type": "heading",
+        "text": "Risk warning and executable trimming"
+      },
+      {
+        "type": "paragraph",
+        "text": "The warning model uses nonnegative coefficients 1.405401 on gross straddle vega and 0.383233 on 21-session RMS market P&L. Divide its dollar prediction by prior NAV and compare with 0.0001616954. The predictor targets absolute next-session market P&L, not its sign. A causally maintained unchanged reference book supplies the state, so a trim cannot mechanically switch off its own warning."
+      },
+      {
+        "type": "paragraph",
+        "text": "A high warning pauses new straddles and requests 50% of each original cohort’s call and put counts, rounded down. One-contract cohorts close both legs. The target is retried until filled or expired and never restores trimmed positions; new entries resume after the warning clears. The first signal is 31 December 2021, execution 3 January 2022, and first affected market return 4 January. All 908 warning records strictly order signal, execution and first affected return."
+      },
+      {
+        "type": "paragraph",
+        "text": "Mean later gross straddle vega is $562.36 per volatility point for unchanged 90/10, $450.59 for conditional cuts and $275.54 for constant 90/5 plus cash. Thus the constant-lower control does not match average exposure. The saved paired bootstrap uses 2,000 draws; the Sharpe-gain interval versus holding is [−0.243, +0.697] at 63 sessions and [−0.218, +0.665] at 126. These intervals condition on the retained histories without research-selection adjustment."
+      },
+      {
+        "type": "heading",
+        "text": "Publication reproduction and experiment scope"
+      },
+      {
+        "type": "paragraph",
+        "text": "The committed reports/strategy_economics/data snapshots and manifest reproduce the attribution, figures and management table without raw option chains. The renderer verifies snapshot hashes, cohort identities, aligned account dates and saved performance arithmetic. The original management simulator and model-fitting pipeline are not included in this focused publication snapshot; publication reproduction is not an independent regeneration of those experiments."
+      },
+      {
+        "type": "paragraph",
+        "text": "The three management accounts have identical histories before 2022, each with excess Sharpe 0.882. No cuts are applied during that period; it estimates the warning model and cutoff rather than validating the trimming benefit. Their later daily return and benchmark identities reconcile, including whole-contract exposure and funding in the saved ledgers. Other forecast, sizing and allocation variants were investigated without a replacement policy being retained. This one bounded trial uses already researched historical dates and is a separate extension, not a fresh holdout or additional evidence that the main Q learner manages individual contracts."
       }
     ]
   }

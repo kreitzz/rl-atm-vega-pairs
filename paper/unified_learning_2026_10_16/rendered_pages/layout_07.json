@@ -1,16 +1,16 @@
 {
   "page": 7,
-  "bottom_content_points": 101.59929577464769,
+  "bottom_content_points": 111.88943661971831,
   "overflow": false,
-  "content_sha256": "0030b095aaaaa6a71a31cf42887968edad5429a525f5815b9af1882b026a7b32",
+  "content_sha256": "c41a7150f266f6121194dd1b9b62b32fb00751a0322f16cafad3f632c2227a9e",
   "rendered": true,
   "vector_figures": [
     {
-      "name": "feature_validation",
+      "name": "straddle_ivrv",
       "x": 54,
-      "y": 244.79929577464765,
+      "y": 447.0894366197182,
       "width": 504,
-      "height": 248.45070422535213
+      "height": 198.7605633802817
     }
   ]
 }

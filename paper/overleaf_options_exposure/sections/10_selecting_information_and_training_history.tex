@@ -1,0 +1,27 @@
+\section{Selecting information and training history}\label{sec:10}
+
+The put learner's baseline 27 inputs describe spread rank, IV and trailing RV, beta and correlation, expiry, the CBOE Volatility Index (VIX), costs and completed profitability. Availability flags identify missing fields. Future trade profits are training outcomes, never current inputs.
+
+
+\subsection*{A candidate measure of relative richness}
+
+One additional block compares squared IV with forecast annualized variance. Its forecast uses exponentially weighted squared daily returns, with a 20-session half-life and at least 63 observations. Multiplication by 252 annualizes the estimate. The block adds the spread, a historical z-score and forecast-to-implied variance ratio, with availability flags.
+
+
+\begin{equation*}\text{Variance spread}=IV^2-\widehat{\sigma}_{\rm RV}^{\,2}.\end{equation*}
+
+IV of 40\% and forecast RV of 30\% give 0.40\(^{2}\) - 0.30\(^{2}\) = 0.07, a variance difference rather than seven volatility points. A downside put also reflects skew, so this feature is not a clean underlying variance-risk-premium estimate. The EWMA block is a tested addition; it is not part of the retained 27-input put baseline.
+
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{feature_validation.pdf}
+\caption{Original feature exploration at the 18-month baseline. Scores use 2018--2021 validation and the archived \$345 million research account; funded policy comparisons use \$10 million. The three highest scores tie exactly.}\label{fig:feature-validation}
+\end{figure}
+
+We rank 33 archived screened configurations by 2018--2021 validation excess Sharpe within the established 30-day, 25-delta design. Feature, window and action-menu experiments form this grid. Baseline, IV-factor and term-structure scores tie exactly at 0.575; alphabetical configuration ordering retains the baseline. The selected specification has 27 inputs, an 18-month window and 50/75/100\% sizes.
+
+
+Archived selection scores use a \$345 million research account; funded replays use \$10 million. This split selects the sizing procedure within the established contract design and pair roster. Appendix~\ref{app:b} records extension selection histories.
+
+
+\FloatBarrier

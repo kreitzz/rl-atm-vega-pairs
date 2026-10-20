@@ -1,8 +1,23 @@
 {
   "page": 16,
-  "bottom_content_points": 72.24999999999946,
+  "bottom_content_points": 79.02464788732394,
   "overflow": false,
-  "content_sha256": "541363464babb227daea9309f2343490ba8fffc15d423b5df7eb372529f10787",
+  "content_sha256": "341c74ee7a1b540da3f8d4bb15dc61174ac303902c58476ce03ce03a8cb9179b",
   "rendered": true,
-  "vector_figures": []
+  "vector_figures": [
+    {
+      "name": "allocation_schedule",
+      "x": 54,
+      "y": 495.5852112676056,
+      "width": 504,
+      "height": 177.46478873239437
+    },
+    {
+      "name": "conditional_risk",
+      "x": 54,
+      "y": 235.8246478873239,
+      "width": 504,
+      "height": 198.7605633802817
+    }
+  ]
 }

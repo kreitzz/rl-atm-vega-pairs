@@ -1,16 +1,16 @@
 {
   "page": 12,
-  "bottom_content_points": 55.00211267605646,
+  "bottom_content_points": 64.1964788732397,
   "overflow": false,
-  "content_sha256": "1dcb8485129a4f2cabb5a99d7f4fef6a732ee2feba423aef931032519ec576ac",
+  "content_sha256": "3c1c5e852ed392c13dd4c90f53b74359aef4d111120b7ea23e91fd719c7c637d",
   "rendered": true,
   "vector_figures": [
     {
-      "name": "allocation_risk",
+      "name": "entry_curves",
       "x": 54,
-      "y": 444.6021126760563,
+      "y": 472.9964788732394,
       "width": 504,
-      "height": 262.6478873239437
+      "height": 234.25352112676057
     }
   ]
 }
