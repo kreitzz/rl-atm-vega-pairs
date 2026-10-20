@@ -1,0 +1,32 @@
+\clearpage
+
+\section{Straddle Attribution and Exposure Management}\label{app:f}
+
+\subsection*{Cohort Selection and Accounting Reconciliation}
+
+The economics extension retains 2,599 unique straddle cohorts and reconciles their option-plus-stock profits to the full-history straddle account. The aggregate bridge includes \$160,755 in hedge trading costs, \$20,544 in short-stock borrow, \$57,201 in hedge dividends and \$498,494 in cash interest above the cash benchmark. Option charges are already included in the option component. These amounts belong to January 2018--August 2025, not only the later reporting period.
+
+
+Saved holdings and recovered quote paths reproduce the trade illustrations. One quote-availability convention was inferred; using observed recovered quotes changes aggregate hedge profit by \$367.52. The figures retain the reconciled saved-account attribution. This reconstruction difference is disclosed rather than counted as a new profit source. Stable security identifiers identify the two examples.
+
+
+\subsection*{Risk Prediction and Position Trimming}
+
+The warning model uses nonnegative coefficients 1.405401 on gross straddle vega and 0.383233 on 21-session RMS market P\&L. Divide its dollar prediction by prior NAV and compare with 0.0001616954. The predictor targets absolute next-session market P\&L, not its sign. A causally maintained unchanged reference book supplies the state, so a trim cannot mechanically switch off its own warning.
+
+
+A high warning pauses new straddles and requests 50\% of each original cohort's call and put counts, rounded down. One-contract cohorts close both legs. The target is retried until filled or expired and never restores trimmed positions; new entries resume after the warning clears. The first signal is 31 December 2021, execution 3 January 2022, and first affected market return 4 January. All 908 warning records strictly order signal, execution and first affected return.
+
+
+Mean later gross straddle vega is \$562.36 per volatility point for unchanged 90/10, \$450.59 for conditional cuts and \$275.54 for constant 90/5 plus cash. Thus the constant-lower control does not match average exposure. The saved paired bootstrap uses 2,000 draws; the Sharpe-gain interval versus holding is [-0.243, +0.697] at 63 sessions and [-0.218, +0.665] at 126. These intervals condition on the retained histories without research-selection adjustment.
+
+
+\subsection*{Reproducibility and Experimental Scope}
+
+The committed \path{reports/strategy_economics/data} snapshots and manifest reproduce the attribution, figures and management table without raw option chains. The renderer verifies snapshot hashes, cohort identities, aligned account dates and saved performance arithmetic. The original management simulator and model-fitting pipeline are not included in this focused publication snapshot; publication reproduction is not an independent regeneration of those experiments.
+
+
+The three management accounts have identical histories before 2022, each with excess Sharpe 0.882. No cuts are applied during that period; it estimates the warning model and cutoff rather than validating the trimming benefit. Their later daily return and benchmark identities reconcile, including whole-contract exposure and funding in the saved ledgers. Other forecast, sizing and allocation variants were investigated without a replacement policy being retained. This one bounded trial uses already researched historical dates and is a separate extension, not a fresh holdout or additional evidence that the main Q learner manages individual contracts.
+
+
+\FloatBarrier

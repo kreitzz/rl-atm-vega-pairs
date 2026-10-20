@@ -1,0 +1,36 @@
+\section{Option Contracts and Risk Exposures}\label{sec:3}
+
+A put gives its buyer the right to sell stock at a specified strike. Our retained pair strategy selects out-of-the-money puts near 25 delta and approximately 30 days to expiry. At delta -0.25, a small \$1 rise in the stock initially lowers the put's value by about \$0.25 per share. Delta measures price sensitivity; it is not an exact probability of exercise.
+
+
+Implied volatility (IV) is the volatility input that makes an option-pricing model reproduce a quoted price. Higher IV generally means a more expensive option, holding other inputs fixed. Realized volatility (RV) describes how much the stock actually moves. Selling an option can be attractive when the premium compensates for those future movements; buying can be attractive in the opposite situation. Future RV is unknown at entry.
+
+
+\subsection*{Vega Matching and Delta Hedging}
+
+Vega measures the change in option value when IV rises by one percentage point---for example, from 30\% to 31\%. The table reports total position vega; each option contract represents 100 shares. These are illustrative numbers, not an observed trade.
+
+
+\begin{table}[H]\centering\small
+\caption{Illustrative put pair with matched initial vega.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.84375\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.58594\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.21094\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.35938\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Position} & \textbf{Contracts} & \textbf{Total vega per IV point} & \textbf{Initial stock hedge}\\\midrule
+Buy A puts & +100 & +\$450 & Buy 2,500 shares\\
+Sell B puts & -150 & -\$450 & Short 3,750 shares\\
+\bottomrule\end{tabularx}\end{table}
+
+Each A contract has \$4.50 of vega and each B contract \$3.00. Buying 100 A contracts and selling 150 B contracts therefore balances +\$450 against -\$450. An equal one-point IV increase approximately cancels at entry. Both puts initially have delta -0.25 per share: the long puts require buying stock, while the short puts require selling it. Equal option counts would generally fail to balance vega.
+
+
+If A's IV instead rises by two points while B's rises by one, the initial vega approximation gives a \$900 gain on A and a \$450 loss on B: a \$450 net gain before other effects. This is a local approximation to changes in option marks, not a formula for profit earned by holding to expiry. We match vega at entry and adjust stock delta hedges daily; we do not continuously restore vega neutrality.
+
+
+\subsection*{Delta-Hedged Profit and Loss}
+
+After delta hedging, returns still depend on the stock's path. Gamma describes how delta changes as stock moves; theta describes time decay. A long put's movement gains must compensate for time decay and costs. A short option earns decay but loses from sufficiently large moves. The leading small-interval terms are
+
+
+\begin{equation*}\Delta P_{\rm hedged}\approx\frac{1}{2}\Gamma(\Delta S)^2+\Theta\Delta t+V\Delta IV.\end{equation*}
+
+Our backtester records option marks, terminal payoffs and stock cash flows. It does not replace them with ``realized volatility minus implied volatility.'' Initial vega neutrality also leaves differences in gamma, jump exposure and responses to market stress. In the approximation, V and the IV change use the same volatility-point units.

@@ -1,0 +1,38 @@
+\clearpage
+
+\section{Model Estimation and Evaluation Protocol}\label{app:b}
+
+\subsection*{Entry Policy Optimization}
+
+The put tree has up to eight leaves, with minimum count max(8, min(63, floor(n/8))); fewer than 16 examples use full size. CEM uses 50 rounds of 192 maps, 19 elites and seed 2026. Probabilities start uniform; updates mix 30\% prior probability and 70\% elite frequency, shrink by 0.97 and add 0.03 uniformly. Constant maps and the incumbent are anchors. Separate rounded-contract paths supply daily training profits; funded NAV returns supply evaluation Sharpe. Put memory and training labels retain a \$0.65 option commission; funded evaluation uses \$0.03 for every policy.
+
+
+The straddle ridge fit uses median centers, standard deviations floored at 0.001, clipped inputs within \(\pm\)5, penalty 100 with no intercept penalty, and equal total weight per date. Full-size completed profit is its target. Score terciles define contexts; all 27 size maps are evaluated on aggregate daily paths. Ties favor lower exposure. The 60-month window requires 128 examples. Only 4,116 training rewards are finite; the policy still handles all 35,774 proposals.
+
+
+\subsection*{Q-Function Specification and Convergence}
+
+\begin{equation*}Q(s,a)=b(s)+a\,c(s)+a^2d(s),\qquad a\in\{0,.10,.25,.50,.75,.90,1\}\end{equation*}
+
+Each coefficient function is linear in the intercept and nine standardized inputs. Training centers use means, scales have floor 0.1, and standardized values are clipped within \(\pm\)5. Ridge is 10, except the global intercept penalty 0.01. Bellman regression weights counterfactual rows so each week has unit total mass. The reference volatility is that family's completed-window 50/50 daily excess standard deviation. All 81 monthly fits were checked at 200, 500, 1,000 and 2,000 updates. Later actions are identical across budgets for the four reported \(\lambda\) values.
+
+
+\begin{table}[H]\centering\small
+\caption{Allocation timing controls at \(\lambda\) = 0.20.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.71875\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.75000\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.75000\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Allocation control, \(\lambda\) = .20} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later profit}\\\midrule
+Fixed at Q's mean target & 0.828 & 1.387 & \$0.841m\\
+One-period learner, \(\gamma\) = 0 & 1.053 & 1.645 & \$1.184m\\
+Sequential Q, \(\gamma\) = 0.99 & 1.215 & 1.726 & \$1.306m\\
+\bottomrule\end{tabularx}\end{table}
+
+The mean-weight control uses the realized average target retrospectively. Forty-nine nonzero circular rotations of the saved \(\lambda\) = 0.20 action schedule preserve its action counts and most serial structure; none reaches actual later Sharpe, while three reach or exceed actual validation Sharpe. Their median later Sharpe is 0.744. Wealth and resizing costs are recomputed. These are descriptive timing diagnostics, not selection-adjusted tests.
+
+
+\subsection*{Research Chronology and Statistical Inference}
+
+Every fit uses strictly completed past outcomes. Put selection ranks 33 archived screened configurations by 2018--2021 scores before the \$10 million replay. The straddle's 48- and 60-month windows tie at validation Sharpe 0.775; later Sharpes of 0.960 and 1.041 informed refinement. The four displayed Q preferences illustrate researched risk choices, not a single validation-winning policy. The original selection and full results remain in \path{reports/signal_allocation_discount.} The put-sizing gain is 0.208, with a paired 95\% interval of -0.103 to +0.424, using 1,000 circular resamples of 126-session blocks, fixed policies and no selection adjustment. These records identify research choices without measuring their bias.
+
+
+\FloatBarrier

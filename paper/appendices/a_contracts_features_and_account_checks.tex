@@ -1,0 +1,37 @@
+\clearpage
+
+\section{Contract Selection, Features, and Risk Constraints}\label{app:a}
+
+\subsection*{Data and Contract Selection}
+
+WRDS supplies option quotes, stock prices, rates and distributions. The inherited formation archive contains 345 pairs; 125 prepared pairs with 161 equity/ETF underlyings supply candidates. Forty-six pairs generate 608 screened put proposals over 2018--2025. This universe is retrospective and conditioned on usable coverage. The companion roster in \path{paper/pair_universe.csv} records prepared pairs and candidate-date ranges, which are not claims of continuous quote availability.
+
+
+Put selection takes the expiry nearest 30 days, then the put nearest absolute delta 0.25 within 0.075. Ties prefer narrower quotes, higher open interest and lower contract identifier. Entry requires standard 100-share contracts, positive noncrossed quotes, open interest of at least 100, quote width no more than 25\% of midpoint and 7--55 days remaining. Straddles match call and put on name, strike, expiry and adjustment. Corporate events can force exits; missing entry quotes reject proposals. Held marks may use last-known IV with current spot, rates and known dividends.
+
+
+\subsection*{Entry Policy Features}
+
+\begin{table}[H]\centering\small
+\caption{Input blocks available to the retained put-sizing policy.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.69531\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.30469\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Put-pair feature group} & \textbf{Numerical inputs}\\\midrule
+Volatility and opportunity & Mean IV; oriented IV gap; rank strength; oriented IV\(^{2}\)-minus-trailing-variance gap; mean RV\\
+Relatedness and maturity & 126-session beta and correlation; mean expiry and expiry difference\\
+Costs and market & Training commission in IV points; strictly prior VIX close\\
+Completed profitability & 91-day and 365-day mean profit per initial vega and completed counts\\
+\bottomrule\end{tabularx}\end{table}
+
+These are 15 numerical inputs. The first three are core fields; the remaining 12 have binary availability flags, giving 27 inputs. Missing optional values are zero with flag zero. Put trailing variance is 252 times mean squared simple stock returns over 20 sessions, with at least 10 observations. The straddle signal uses annualized squared log returns and a 21-session RV input. The measures have different retained definitions; no new common RV estimator is fitted for this comparison.
+
+
+The straddle's 14 ridge inputs are completed residual memory, IV, VIX, normalized memory, variance ratio, 21-session VIX change, 5-session IV change, and a fixed-half benchmark's 21/63/126-session Sharpe, 63-session volatility and drawdown, reserve use and availability flag. These benchmark states come from an external causal paper portfolio, not the learner's own future inventory.
+
+
+\subsection*{Admission Rules and Risk Accounting}
+
+Research stress takes each name's worst modeled option-plus-hedge loss across spot shocks -20/0/+20\% and IV shocks -10/0/+10 points, then sums without pair-correlation credit. Limits are stress loss 5\% of budget, reserve 80\%, hedge notional twice budget and gross vega \$20,000 per IV point per \$1 million. Reserve is gross option premium plus half netted hedge notional. Global checks use equity; pair checks use a \$1 million reference scaled by current/initial equity. These are research limits, not broker margin. European-style valuation and cash settlement approximate expiry; assignment is not fully simulated.
+
+
+\FloatBarrier

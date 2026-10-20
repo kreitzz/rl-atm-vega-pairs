@@ -1,0 +1,28 @@
+\section{Implied and Realized Volatility}\label{sec:7}
+
+If the strategy earns a premium for selling movement risk, entry IV versus subsequent RV should help organize its outcomes. The diagnostic separates the same 2,599 cohorts by realized path and whether entry straddle IV exceeds the volatility subsequently realized. Both path groups have positive aggregate combined profit when IV exceeds RV and negative profit when it does not.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{straddle_ivrv.pdf}
+\caption{Combined option and hedge profit by completed price path and entry IV versus subsequent RV. These are realized-outcome groups, not new entry screens; totals depend on counts and sizes.}\label{fig:straddle-ivrv}
+\end{figure}
+
+\begin{table}[H]\centering\small
+\caption{Completed straddle outcomes by price path and IV versus subsequent RV.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.12305\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.53711\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.48438\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Price path} & \textbf{IV vs RV} & \textbf{Trades} & \textbf{Profit (\$m)} & \textbf{Mean profit / premium}\\\midrule
+More persistent & IV < RV & 461 & -4.22 & -36.9\%\\
+More persistent & IV \(\geq\) RV & 846 & +2.93 & +13.0\%\\
+More reversing & IV < RV & 409 & -1.31 & -15.3\%\\
+More reversing & IV \(\geq\) RV & 883 & +6.09 & +25.4\%\\
+\bottomrule\end{tabularx}\end{table}
+
+Entry IV here is the common annualized European, dividend-escrow volatility that reprices the combined call-and-put entry midpoint premium. Subsequent RV is the square root of 252 times mean squared daily log returns, from entry close to actual exit close, without subtracting the sample mean. The signal itself continues to use ATM-call IV; the common straddle IV is only an attribution measure.
+
+
+The relation is not an exact profit identity. There are 220 losing cohorts even with entry IV above subsequent RV. Discrete delta hedging, jumps, changing gamma and execution charges matter. Calendar-time annualization changes 69 IV--RV classifications, and a dividend adjustment changes six; three cohorts exited early. The normalized profit column also does not match risk exposure across trades.
+
+
+These are explanations using realized outcomes, not forecasts. They support the economic motivation for a completed-outcome RV - IV memory without showing that today's IV--RV gap is known in advance. They also clarify why a positive historical straddle return alone does not establish alpha after compensation for volatility risk.

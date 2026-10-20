@@ -1,0 +1,36 @@
+\section{What we take from the motivating paper}\label{sec:2}
+
+\subsection*{Construct the opportunity, then learn how to trade it}
+
+Ning and Lee \cite{ning2024} study how to construct and trade mean-reverting equity spreads. If the two stock prices are S\(_1\) and S\(_2\), they form X = S\(_1\) - B S\(_2\). They choose the hedge coefficient B by grid search to minimize empirical mean-reversion time: the average duration from a significant local extreme to the next mean crossing. Spread formation is empirical; it does not first impose an Ornstein--Uhlenbeck (OU) model.
+
+
+For trading, they use tabular Q-learning. The state records recent spread moves by direction and magnitude. Actions buy, hold or sell a unit, subject to current inventory; the agent enters a long spread and later closes it. Its reward favors buying below and selling above an equilibrium mean, with a transaction-cost term. Q-values combine immediate reward with the estimated value of later decisions.
+
+
+The agent trains on 10,000 simulated one-year OU paths because the reward requires a known equilibrium mean. The market study forms ten US pairs in 2022 and trades them in 2023. The combined method exceeds the Distance Method and OU benchmarks on their reported daily Sharpe measure. Those daily figures are not directly comparable with our annualized options ratios.
+
+
+\subsection*{What the evidence establishes---and leaves open}
+
+One trading year gives limited evidence across regimes. Formation and trading policy also change together, so their comparison does not isolate Q-learning's contribution. The simulated equilibrium is known; a real relationship's equilibrium can shift. Finally, a cost term in a reward does not by itself establish net execution quality or scalability. These issues motivate our use of actual contracts, explicit cash flows, several market years and controlled exposure comparisons.
+
+
+\begin{table}[H]\centering\small
+\caption{The motivating equity-spread study and our options extension.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.64453\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.01953\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.33594\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Design choice} & \textbf{Motivating study} & \textbf{Our extension}\\\midrule
+Economic object & Equity-price spread & Relative option IV; persistent RV - IV\\
+Policy experience & Simulated mean reversion & Completed historical trade paths\\
+Learned decision & Spread entry and exit & Entry size; then strategy allocation\\
+Comparison & Different spread-trading methods & Shared proposals; separate learning layers\\
+\bottomrule\end{tabularx}\end{table}
+
+We retain the separation between finding a spread and learning how to trade it. We change the instrument, reward and decision problem. A successful sizing policy does not establish that the original paper's trading algorithm transfers unchanged to options. Our later Q experiment is closer to its sequential question: present allocations affect holdings, subsequent resizing costs and future choices.
+
+
+The early ATM-volatility proxy results gave us reason to investigate further, but weakened when simulated with actual contracts. Strike-specific payoffs, daily hedge errors and costs were absent from the simple IV-versus-future-RV proxy. We investigated maturity, position on the option smile and additional predictors. Approximately 30-day, 25-delta puts became the retained relative-volatility configuration.
+
+
+Bell et al. \cite{alphaglass2026} develop AlphaGlass, which maps characteristics into additive signals with sparse interactions and optimizes portfolio objectives directly. Their interpretable characteristic-based portfolio choice connects to our Sharpe-based sizing and policy diagnostics. We study a different decision structure: sizing actual option trades and allocating between strategy books through fitted Q-learning.

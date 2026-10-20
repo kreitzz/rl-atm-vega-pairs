@@ -1,0 +1,83 @@
+\clearpage
+
+\section{Additional Entry Sizing Results}\label{app:d}
+
+\subsection*{Alternative Put Sizing Policies}
+
+\begin{table}[H]\centering\small
+\caption{Alternative put-sizing policies on the common reporting split.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.75781\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.97656\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Put sizing policy} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later entries} & \textbf{Later profit}\\\midrule
+Constant 50\% & 0.437 & 1.007 & 151 & \$0.205m\\
+Constant 75\% & 0.449 & 0.944 & 104 & \$0.195m\\
+Constant 100\% & 0.478 & 1.055 & 75 & \$0.201m\\
+Tree + CEM & 0.573 & 1.263 & 110 & \$0.249m\\
+Spread-rank sizing & 0.464 & 0.815 & 121 & \$0.165m\\
+Ridge-score sizing & 0.421 & 0.890 & 94 & \$0.180m\\
+Direct linear policy & 0.267 & 0.873 & 96 & \$0.171m\\
+Direct additive policy & 0.302 & 1.013 & 97 & \$0.180m\\
+\bottomrule\end{tabularx}\end{table}
+
+All policies receive the same put proposals, directions, contracts and funded admission rules. The lower four rows are follow-up comparisons rather than original selection candidates. Tree/CEM has the highest funded Sharpe in both periods among these policies. These comparisons retain the original question about entry sizing alongside the newer straddle and allocation experiments.
+
+
+\begin{table}[H]\centering\small
+\caption{Put-bandit annual account returns and excess performance.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.58594\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.22070\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.17188\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.94727\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Year} & \textbf{Account return} & \textbf{Above cash (pp)} & \textbf{Excess Sharpe} & \textbf{Entries}\\\midrule
+2022 & 3.470\% & 1.673 & 2.458 & 66\\
+2023 & 5.288\% & 0.432 & 1.492 & 19\\
+2024 & 5.104\% & -0.283 & -0.907 & 11\\
+2025* & 3.207\% & 0.169 & 1.092 & 14\\
+\bottomrule\end{tabularx}\end{table}
+
+Calendar-period account returns and above-cash differences are not annualized, including partial 2025. Sharpe is annualized. In 2024 the account grows while losing relative to cash. The original put strategy's results are concentrated in a few pairs and in 2022; this limits claims of broad repeated success.
+
+
+The original put results are concentrated: SNAP/UBER, GAP/TJX and AMD/MU contribute 66.9\% of later net pair trading profit, and 2022 supplies 83.1\%. These figures exclude shared financing. They describe where gains occurred, not a rule for selecting those names retrospectively. Annual Sharpe ratios are retained in Appendix~\ref{app:c}.
+
+
+The put account's later annualized total account return is 4.667\%, versus 0.530\% growth relative to cash. Average reserve is 2.44\% and peak reserve 15.77\%. Its cash-relative drawdown is 0.495\%, compared with 0.646\% at full size. These figures retain the original distinction between a profitable trading signal, account funding and capital deployment.
+
+
+\FloatBarrier
+
+\subsection{Option Contracts and Risk Exposures}\label{sec:3}
+
+A put gives its buyer the right to sell stock at a specified strike. Our retained pair strategy selects out-of-the-money puts near 25 delta and approximately 30 days to expiry. At delta -0.25, a small \$1 rise in the stock initially lowers the put's value by about \$0.25 per share. Delta measures price sensitivity; it is not an exact probability of exercise.
+
+
+Implied volatility (IV) is the volatility input that makes an option-pricing model reproduce a quoted price. Higher IV generally means a more expensive option, holding other inputs fixed. Realized volatility (RV) describes how much the stock actually moves. Selling an option can be attractive when the premium compensates for those future movements; buying can be attractive in the opposite situation. Future RV is unknown at entry.
+
+
+\subsubsection*{Vega Matching and Delta Hedging}
+
+Vega measures the change in option value when IV rises by one percentage point---for example, from 30\% to 31\%. The table reports total position vega; each option contract represents 100 shares. These are illustrative numbers, not an observed trade.
+
+
+\begin{table}[H]\centering\small
+\caption{Illustrative put pair with matched initial vega.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.84375\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.58594\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.21094\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.35938\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Position} & \textbf{Contracts} & \textbf{Total vega per IV point} & \textbf{Initial stock hedge}\\\midrule
+Buy A puts & +100 & +\$450 & Buy 2,500 shares\\
+Sell B puts & -150 & -\$450 & Short 3,750 shares\\
+\bottomrule\end{tabularx}\end{table}
+
+Each A contract has \$4.50 of vega and each B contract \$3.00. Buying 100 A contracts and selling 150 B contracts therefore balances +\$450 against -\$450. An equal one-point IV increase approximately cancels at entry. Both puts initially have delta -0.25 per share: the long puts require buying stock, while the short puts require selling it. Equal option counts would generally fail to balance vega.
+
+
+If A's IV instead rises by two points while B's rises by one, the initial vega approximation gives a \$900 gain on A and a \$450 loss on B: a \$450 net gain before other effects. This is a local approximation to changes in option marks, not a formula for profit earned by holding to expiry. We match vega at entry and adjust stock delta hedges daily; we do not continuously restore vega neutrality.
+
+
+\subsubsection*{Delta-Hedged Profit and Loss}
+
+After delta hedging, returns still depend on the stock's path. Gamma describes how delta changes as stock moves; theta describes time decay. A long put's movement gains must compensate for time decay and costs. A short option earns decay but loses from sufficiently large moves. The leading small-interval terms are
+
+
+\begin{equation*}\Delta P_{\rm hedged}\approx\frac{1}{2}\Gamma(\Delta S)^2+\Theta\Delta t+V\Delta IV.\end{equation*}
+
+Our backtester records option marks, terminal payoffs and stock cash flows. It does not replace them with ``realized volatility minus implied volatility.'' Initial vega neutrality also leaves differences in gamma, jump exposure and responses to market stress. In the approximation, V and the IV change use the same volatility-point units.
+\FloatBarrier

@@ -1,0 +1,198 @@
+\section{Empirical Results}\label{sec:results}
+This section evaluates entry sizing within both strategies, then joint sizing and capital allocation, conventional allocation benchmarks and policy interpretation. All model components have been introduced before these comparisons.
+
+\Needspace{14\baselineskip}
+\subsection{Entry Sizing Results}\label{sec:12}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{entry_curves.pdf}
+\caption{Profit above cash since January 2022. Upper right: total straddle profits. Lower right: incremental straddle profit, bandit minus fixed full sizing. Series subtract their 2021 closing values and retain carried positions. Differences reflect both sizing and admission.}\label{fig:entry-curves}
+\end{figure}
+
+\begin{table}[H]\centering\small
+\caption{Entry-sizing policies in validation and later evaluation.}\label{tab:put-entry-results}\label{tab:straddle-entry-results}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.66992\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.81055\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.81055\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.73242\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.97656\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Entry policy} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later entries} & \textbf{Later profit}\\\midrule
+Put pair \(\cdot\) 50\% & 0.437 & 1.007 & 151 & \$0.205m\\
+Put pair \(\cdot\) 75\% & 0.449 & 0.944 & 104 & \$0.195m\\
+Put pair \(\cdot\) 100\% & 0.478 & 1.055 & 75 & \$0.201m\\
+Put pair \(\cdot\) Bandit & 0.573 & 1.263 & 110 & \$0.249m\\
+Straddle \(\cdot\) 50\% & 0.740 & 0.920 & 1782 & \$1.824m\\
+Straddle \(\cdot\) 75\% & 0.542 & 0.968 & 1222 & \$2.010m\\
+Straddle \(\cdot\) 100\% & 0.528 & 0.990 & 940 & \$2.206m\\
+Straddle \(\cdot\) Bandit & 0.775 & 1.041 & 1204 & \$2.379m\\
+\bottomrule\end{tabularx}\end{table}
+
+The put bandit improves later excess Sharpe by 0.208 and profit above cash by approximately \$47,800 relative to full size. It admits 110 entries instead of 75. The straddle bandit reaches Sharpe 1.041 and \$2.379 million above cash, compared with 0.990 and \$2.206 million at full size. Its earlier Sharpe also exceeds each fixed-size control. Straddles produce much more dollar profit and daily volatility than the put-pair portfolio, making allocation between them economically consequential.
+
+
+These are comparisons of complete funded policies. All entry policies receive the same proposal pool---608 put-pair proposals and 35,774 straddle proposals---but size changes contract rounding, outstanding risk and the capacity to admit later opportunities. The resulting entries therefore differ. The findings support useful historical exposure choices; they do not isolate predictive sizing from admission effects.
+
+
+Most of the put learner's later lead develops in 2022, while 2024 loses ground. Its annualized total account return is 4.667\%; growth relative to cash is 0.530\%. Average reserve is 2.44\% and peak reserve 15.77\%. Cash interest explains much total growth; trading value is measured above cash.
+
+
+
+The paired 95\% bootstrap interval for the Sharpe gain of 0.208 is [-0.103, +0.424], conditional on the retained policies and without research-selection adjustment.
+
+SNAP/UBER, GAP/TJX and AMD/MU supply 66.9\% of later net pair trading profit, and 2022 supplies 83.1\%, excluding shared financing. Appendix~\ref{app:d} reports annual and alternative-sizing results.
+
+\FloatBarrier
+\subsection{Joint Sizing and Allocation Results}\label{sec:17}
+
+\begin{table}[H]\centering\small
+\caption{Separating learned entry sizing and learned capital allocation. S denotes annualized excess Sharpe; Q uses \(\lambda\) = 0.20. Fixed entries use full size and fixed allocation is 50/50. Q is independently fitted for each entry-policy family.}\label{tab:joint-sizing-allocation}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.68750\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.71875\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.71875\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.87500\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Entry / capital policy} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later profit}\\\midrule
+Fixed / fixed & 0.556 & 1.088 & \$1.145m\\
+Bandit / fixed & 0.804 & 1.167 & \$1.238m\\
+Fixed / Q & 0.870 & 1.194 & \$0.955m\\
+Bandit / Q & 1.215 & 1.726 & \$1.306m\\
+\bottomrule\end{tabularx}\end{table}
+
+The primary four-way comparison fixes the baseline at full entry size and 50/50 capital allocation. Both learning layers improve Sharpe in both periods, with the largest point-estimate gain when combined. The Q policy on fixed-entry portfolios is trained on those portfolios' own completed returns; it is not transplanted from the bandit portfolios. Economic opportunity inputs stay shared, while relative performance, volatility, correlation and costs change with the actual source strategies.
+
+
+\begin{table}[H]\centering\small
+\caption{Allocation with constant 75\% entry sizing.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.66016\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.83008\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.89844\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.83008\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Fixed-75\% entries} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later profit} & \textbf{Drawdown}\\\midrule
+Fixed 50/50 & 0.566 & 1.070 & \$1.053m & 3.16\%\\
+Q, \(\lambda\) = .20 & 0.891 & 2.118 & \$1.060m & 0.43\%\\
+\bottomrule\end{tabularx}\end{table}
+
+The fixed-75\% result shows that capital allocation can help independently of entry learning. Q nearly doubles later Sharpe with similar profit and a much smaller drawdown. Its later Sharpe exceeds bandit-plus-Q at this \(\lambda\), while its profit and validation Sharpe are lower. Bandit sizing therefore changes the available profit--risk tradeoff without dominating every constant entry size.
+
+\subsection{Dynamic Allocation Benchmarks}\label{sec:18}
+
+A dynamic policy might outperform fixed weights simply by responding to recent returns. We therefore adapt the minimum-variance, maximum-Sharpe and mean--variance portfolio objectives of Caner et al. \cite{caner2026} to our two frozen bandit portfolios. This comparison asks whether Q improves on conventional dynamic allocation as well.
+
+
+\subsubsection*{Experimental Controls}
+
+All methods choose among the same seven capital splits, use one \$10 million budget and pay the same source trading and additional resizing costs. Estimates use Q's preceding 104 completed weeks, with a minimum of 52, monthly refits and the same 50/50 warmup. Within each objective, 2018--2021 Sharpe selects sample covariance or linear Ledoit--Wolf shrinkage; that choice remains fixed for the later period. This adapts their objectives rather than replicating their stock screens, nonlinear shrinkage or 15-year estimation window.
+
+
+\begin{table}[H]\centering\small
+\caption{Q-learning and conventional dynamic allocation benchmarks.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=2.12891\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.76172\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Capital allocator} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later profit} & \textbf{Later \(\sigma\) (\%)}\\\midrule
+Fixed 50/50 & 0.804 & 1.167 & \$1.238m & 1.973\\
+Minimum variance & 0.316 & 1.329 & \$0.284m & 0.438\\
+Maximum Sharpe & 0.189 & 0.659 & \$0.353m & 1.154\\
+Mean--variance, \(\lambda\) = .20 & 0.355 & 1.519 & \$0.452m & 0.619\\
+Q, \(\lambda\) = .20 & 1.215 & 1.726 & \$1.306m & 1.353\\
+Mean--variance, \(\lambda\) = 1 & 0.246 & 1.795 & \$0.439m & 0.519\\
+Q, \(\lambda\) = 1 & 1.005 & 2.152 & \$1.141m & 0.985\\
+\bottomrule\end{tabularx}\end{table}
+
+All S columns are annualized excess Sharpe; later \(\sigma\) is annualized daily excess-return volatility. At \(\lambda\) = 0.20, Q raises later Sharpe from 1.519 to 1.726 and profit above cash from \$452,303 to \$1,305,940. At \(\lambda\) = 1, the corresponding figures are 1.795 versus 2.152 and \$439,118 versus \$1,141,251. Q also improves both measures at \(\lambda\) = 0.10 in both periods. These are portfolio comparisons, not equal-risk experiments: Q takes more realized risk.
+
+
+\subsubsection*{Allocation Objectives and Policy Differences}
+
+The conventional rules summarize each trailing window with one mean and covariance estimate. Q also conditions on current volatility pricing, completed premium, VIX and relative strategy performance. At \(\lambda\) = 0.20, its mean later straddle target is 24.9\%, versus 12.7\% for mean--variance allocation. The selected intervals in Section~\ref{sec:16} have higher subsequent straddle returns and lower volatility, supporting selective participation rather than average exposure alone.
+
+
+Q changes targets 24 times later, versus eight for mean--variance allocation. Removing only outer resizing charges raises their Sharpes to 1.774 and 1.525; all source trading costs remain. Lower resizing fees therefore do not explain Q's advantage. The conventional rule uses centered variance, whereas Q penalizes the raw second moment and adds state and continuation value; identical \(\lambda\) values do not make these identical objectives.
+
+
+The result has a clear exception: at \(\lambda\) = 0, conventional profit-only allocation reaches later Sharpe 1.041 and \$2.154 million above cash, versus Q's 0.671 and \$1.353 million. The literal 1\% monthly target used in \cite{caner2026} is infeasible under our allocation limits; its maximum-mean fallback is recorded separately. All 14 conventional cases and the fee diagnostics are retained in the companion results.
+
+\subsection{Risk Preferences and Allocation Performance}\label{sec:15}
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{allocation_risk.pdf}
+\caption{Bandit-managed source portfolios; nine-input Q state and \(\gamma\) = 0.99. Gray labels are fixed straddle percentages; the remainder goes to put pairs. Lines connect discrete policies. Both axes have the same scales across periods; 2025 ends in August.}\label{fig:allocation-risk}
+\end{figure}
+
+\begin{table}[H]\centering\small
+\caption{Q-allocation outcomes under four reward preferences.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.83008\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.99609\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.02539\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Reward} & \textbf{2018--21 S} & \textbf{2018--21 profit} & \textbf{2022--25 S} & \textbf{2022--25 profit}\\\midrule
+\(\lambda\) = 0 & 1.427 & \$1.281m & 0.671 & \$1.353m\\
+\(\lambda\) = 0.1 & 1.286 & \$1.003m & 1.491 & \$1.388m\\
+\(\lambda\) = 0.2 & 1.215 & \$0.875m & 1.726 & \$1.306m\\
+\(\lambda\) = 1 & 1.005 & \$0.660m & 2.152 & \$1.141m\\
+\bottomrule\end{tabularx}\end{table}
+
+With bandit entries and \(\lambda\) = 0.20, Q reaches later Sharpe 1.726 and \$1.306 million profit above cash. Fixed 50/50 gives 1.167 and \$1.238 million; the highest-Sharpe fixed split, 90/10, gives 1.612 and \$435,181. At \(\lambda\) = 1, Q trades some profit for Sharpe 2.152. Straddle-heavy fixed allocations still generate more dollars. The curve therefore describes a profit--risk tradeoff, not dominance on every objective. At \(\lambda\) = 0.20, annualized growth relative to cash is 2.34\% and excess volatility 1.35\%; at \(\lambda\) = 1 these are 2.13\% and 0.98\%.
+
+
+At \(\lambda\) = 0, the learner aggressively pursues profit through the higher-dollar, higher-variance straddle strategy. It chooses straddles alone in 138 of 191 later decisions, with a mean straddle target of 73.2\%, versus 24.9\% at \(\lambda\) = 0.20 and 16.9\% at \(\lambda\) = 1. Validation Sharpe is 1.427, but later Sharpe falls to 0.671. When straddle performance weakens, this concentration becomes costly: the zero-penalty portfolio loses approximately \$331,000 above cash in 2025.
+
+
+The problem also involves when capital is committed. A fixed 75\% allocation to straddles achieves later Sharpe 1.084, so average exposure alone does not explain the weaker Q result. The profit-only learner can respond to state, but its learned timing does not distinguish attractive straddle opportunities well enough in the later period. Positive penalties make large fluctuations costly and lead to more selective straddle exposure. Increasing Bellman updates from 200 to 500, 1,000 and 2,000 changes no later decision for these settings. This check points to the reward and learned allocation rule, rather than too few iterations.
+
+\subsection{Allocation Policy Interpretation}\label{sec:16}
+
+Straddles offer more dollar profit and much greater daily risk. At \(\lambda\) = 0.20, Q chooses put pairs alone on 141 later decision dates, straddles alone on 46, and an interior mix on four. It primarily switches strategies.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{allocation_schedule.pdf}
+\caption{Weekly target decisions during evaluation, before next-close execution. The remaining weight goes to put pairs. These are requested strategy allocations, not drifted portfolio holdings or individual trade sizes.}\label{fig:allocation-schedule}
+\end{figure}
+
+\subsubsection*{Conditional Strategy Returns and Risk}
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{conditional_risk.pdf}
+\caption{Realized straddle returns after \(\lambda\) = 0.20 Q decisions. Straddle-only choices cover 220 sessions; put-only choices cover 678. The four mixed-allocation intervals are omitted. Source costs are included; outer resizing charges are excluded.}\label{fig:conditional-risk}
+\end{figure}
+
+After Q chooses straddles, their mean daily excess return is 3.05 basis points with volatility 16.18; after it chooses put pairs, the straddle figures are 1.30 and 27.00. Put pairs average -0.09 basis points on the first set and +0.31 on the second. These are realized conditional statistics on noncontiguous dates, not causal estimates or standalone strategy Sharpes. Source costs are included; outer resizing charges are excluded.
+
+
+A fixed target equal to Q's realized mean allocation reaches later Sharpe 1.387, versus 1.726 for Q: average exposure alone does not reproduce the result. The matched discount-zero learner reaches 1.645; continuation changes nine of 191 decisions at the same states. Much of the gain comes from conditional allocation, with a smaller incremental sequential benefit.
+
+
+\FloatBarrier
+
+\FloatBarrier
+
+\subsection{Entry Policy Interpretation}\label{sec:13}
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{entry_explanations.pdf}
+\caption{Put bars show the share of visited tree nodes; straddle bars show size changes when one input is centered. The denominators differ. Both are descriptive policy-usage measures.}\label{fig:entry-explanations}
+\end{figure}
+
+\subsubsection*{Policy Decisions and Feature Contributions}
+
+For a put proposal, interpretation is exact: follow the saved tree's root-to-leaf conditions, then read the size assigned to that leaf. Completed 365-day profitability appears in 18.7\% of later visited decision nodes, mean IV in 14.9\%, commission relative to vega in 12.7\%, and stock-return correlation in 12.3\%. These frequencies describe which information the fitted policy uses; they are not causal effects or a ranking of expected profit contributions.
+
+
+For a straddle proposal, standardized ridge contributions add to a score. Saved thresholds locate its context, and the learned map selects a size. Centering IV changes 36.6\% of later fitted proposal sizes. Recent VIX change changes 15.3\%, normalized RV-minus-IV memory 12.9\%, and VIX level 11.9\%. The size map need not rise monotonically with the regression score because it optimizes the combined daily path. Exact replay reproduces every saved size across all 608 put and 35,774 straddle proposals.
+
+
+\begin{table}[H]\centering\small
+\caption{Later entry overlap between bandit and fixed-full portfolios.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.89062\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Later entry overlap vs full} & \textbf{Both} & \textbf{Bandit only} & \textbf{Fixed only}\\\midrule
+Put pairs & 74 & 36 & 1\\
+Straddles & 897 & 307 & 43\\
+\bottomrule\end{tabularx}\end{table}
+
+Admission provides a second explanation for performance. Against fixed full size, the put bandit enters 36 later opportunities that the fixed policy rejects and misses one that it accepts. For straddles, those counts are 307 and 43. These differences can arise through the inventory left by earlier size decisions. An explanation of proposed size alone therefore does not explain the entire portfolio result.
+
+
+Among quote-available completed straddle labels, full-size profit averages \$1,631 for proposals assigned full size and \$16 for those assigned half size. This subset is conditioned on available labels. Three within-date size shuffles yield later Sharpes 0.834, 0.928 and 1.044, versus 1.041 learned. One shuffle wins: favorable funded results and feature usage do not by themselves establish predictive sizing.
+
+
+\FloatBarrier
+
+\subsection{Straddle Economic Interpretation}
+
+Completed-cohort attribution is consistent with collecting a premium for movement risk. For both more persistent and more reversing price paths, aggregate option-plus-hedge profit is positive when entry straddle IV exceeds subsequent RV and negative when it does not. These groups use realized outcomes and are not available entry screens. There are 220 losing cohorts even when entry IV exceeds subsequent RV. Option and stock-hedge profits must be read together; positive hedge profit is not an independent trading edge. Appendix~\ref{app:h} retains the full-history attribution, IV--RV definitions and selected trade paths, with accounting details in Appendix~\ref{app:f}.
+
+The straddle portfolio produces substantially more dollar profit and daily volatility than the put-pair portfolio. This difference motivates the capital-allocation comparisons reported above.
+
+
+\FloatBarrier

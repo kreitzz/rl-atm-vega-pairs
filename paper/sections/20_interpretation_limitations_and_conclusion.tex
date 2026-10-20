@@ -1,0 +1,29 @@
+\section{Discussion and Conclusion}\label{sec:20}
+
+\subsection*{Summary of Findings}
+
+Entry bandits improve the retained portfolios through sizing and admission. Q improves allocation with constant entries and exceeds the corresponding rolling mean--variance controls at \(\lambda\) = 0.10, 0.20 and 1. Its profit-only policy transfers less reliably when straddles weaken. Reward design changes the allocation tradeoff.
+
+
+\subsection*{Limitations}
+
+All fitted policies use only information available before their decisions. However, strategy development included inspection of later-period results, including choices of training windows and risk preferences. Consequently, the evaluation measures historical performance under chronologically fitted policies, rather than an independently frozen test of the complete research process. The controlled comparisons provide evidence about adaptive exposure allocation under the stated assumptions, but neither the magnitude of research-selection bias nor prospective performance has been established.
+
+
+Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; the separate common-ledger trimming trial does not remove this limitation from the Q comparison. Initial vega matching is local, and the straddle signal adds net short-volatility risk.
+
+
+\Needspace{15\baselineskip}
+
+\subsection*{Conclusion}
+
+The two signals explain why capital allocation matters. Relative put pricing creates a low-deployment portfolio with favorable selected-period risk-adjusted returns. Persistent RV-IV selling earns more dollars with greater exposure to realized movement. Neither dominates for every investor. The allocation learner links these economic differences to a risk-preference reward and current information, extending the original question from one trade rule to competing sources of return.
+
+
+The straddle attribution in Appendix~\ref{app:h} links the second signal to realized movement and explains why positive stock-hedge profits are not a separate edge. The joint-contract trimming trial in Appendix~\ref{app:i} supplies an interpretable inventory-management candidate, with an uncertain gain. Future work should integrate such controls with learned allocation, measured execution costs and additional independent signals.
+
+
+Bandits adapt trade commitments; Q allocates across strategies. The four-way and conventional-benchmark comparisons support studying both exposure decisions in an integrated implementation and prospective evaluation.
+
+
+\FloatBarrier

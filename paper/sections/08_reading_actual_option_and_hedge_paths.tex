@@ -1,0 +1,17 @@
+\section{Trade-Level Profit Attribution}\label{sec:8}
+
+Two contrasting historical cohorts make the accounting concrete. The left column was selected for a large stock-hedge gain; the right for a large hedge loss. Each panel uses the stock position already carried into that session, followed by the hedge adjustment at the close. These illustrations are deliberately selected examples, not representative performance estimates.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{straddle_examples.pdf}
+\caption{Two selected cohorts: a large hedge gain (left) and loss (right). Rows show spot versus strike, shares carried into each session, and cumulative option, stock and combined profit. Security IDs are stable identifiers.}\label{fig:straddle-examples}
+\end{figure}
+
+The stock hedge is not an independent trend strategy. A session's stock profit is shares carried into the session multiplied by the price change; the next close's shares control subsequent exposure. The lower panels therefore show the option and stock profits together. Their offset explains why neither the sign of hedge profit nor option premium retained can establish the profitability of a delta-hedged short.
+
+
+The attribution also puts a limit on the gamma-versus-theta shorthand. We record actual option marks, stock hedge cash flows and costs rather than infer profit from one constant gamma or an unweighted RV - IV difference. A Greek expansion is useful intuition, but the ledger is the profit measure. Appendix~\ref{app:f} describes the recovered-quote reconciliation and the scope of reproduction.
+
+
+\FloatBarrier

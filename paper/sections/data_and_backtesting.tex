@@ -1,0 +1,25 @@
+\section{Data and Backtesting Framework}\label{sec:data}\label{sec:9}
+
+\subsection{Data and Sample}
+Historical option quotes, stock prices, interest rates and dividends come through WRDS. The prepared universe contains 125 pairs involving 161 equity/ETF underlyings; 46 pairs supply 608 screened put proposals over 2018--2025. The straddle proposal pool contains 35,774 candidates. The universe is retrospective and conditioned on usable coverage. Appendix~\ref{app:a} records contract selection, quote filters and risk checks.
+
+\subsection{Execution and Account Construction}
+Each source strategy starts with \$10 million. Signal-date contracts trade in the following session if quotes and account checks permit. At full size, put pairs target \$450 vega per IV point on each leg; straddles target \$450 across call and put together. Whole contracts are rounded; put pairs allow an initial vega mismatch of no more than 10\%.
+
+\subsection{Valuation, Hedging, and Financing}
+Options normally remain until expiry. At each close, we mark the existing option and stock positions, record cash flows and then rebalance stock delta. The next day's hedge profit uses the stock held after that rebalance. Final option payoffs and hedge unwinds complete the trade. Trading the same name on later dates is possible subject to existing inventory and risk checks.
+
+
+Buying hedge stock debits cash; selling it credits cash. The cash balance earns the prior available benchmark rate, with negative cash paying that rate plus one percentage point annually. Short-stock borrow adds 0.30\% annually on short notional. Stock dividends are separate signed cash flows: a long holder receives the dividend and a short holder owes it. The ex-dividend stock-price drop does not replace that cash payment.
+
+
+Option fills use midpoint plus an adverse charge of 0.10 IV point times traded vega and \$0.03 per contract; stock turnover costs one basis point. Expiry settlement has no option fill charge. Inventory, reserve, stress and quote checks determine admission. A request for less size can pass a pair limit and leave capacity for a later proposal. Appendix~\ref{app:a} defines the checks; they are research assumptions rather than broker margin.
+
+\subsection{Evaluation Protocol}
+Results report 2018--2021 validation and January 2022--29 August 2025 evaluation. Each fit uses only outcomes completed before its fitting date; unfinished trade outcomes cannot enter training. The fitting windows and sizing procedures are specified with each strategy below. Accounts continue across the 2022 reporting boundary with accumulated cash and open positions.
+
+Entry policies within each strategy receive the same signal proposals. Requested sizes nevertheless change contract rounding, outstanding risk and the capacity to admit later opportunities. The funded comparisons therefore measure complete sizing and admission policies. Standalone daily-profit paths used in entry-policy training differ from funded-account returns, which also reflect shared cash, inventory and admission constraints.
+
+All reported Sharpe ratios annualize daily account returns above the continuing all-cash benchmark. Dollar profit above cash subtracts the increase in that benchmark. Account return, cash-relative growth and cash-relative drawdown retain their distinct definitions in Appendix~\ref{app:e}. Source accounts begin with \$10 million; the outer allocation experiment uses a separate single \$10 million budget tracking the funded strategy indices. Appendix~\ref{app:b} records model fitting and research-selection history.
+
+\FloatBarrier
