@@ -35,4 +35,5 @@ jobs:
         # This allowance applies only to the hosted runner; local defaults stay unchanged.
         run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 900 --duty-cycle 0.5 --rss-limit-mib 768 -- --replay --policy all
       - name: Run unit tests serially
-        run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 1800 --duty-cycle 0.5 --rss-limit-mib 384 -- --tests
+        # The guard counts both the supervisor worker and each numerical test process.
+        run: python -m scripts.run_signal_discovery_guarded --module scripts.submission --stop-file artifacts/submission/STOP --timeout 1800 --duty-cycle 0.5 --rss-limit-mib 768 -- --tests
