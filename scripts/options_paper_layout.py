@@ -8,7 +8,7 @@ import re
 TITLE='Learning to Allocate Risk in Options Markets'
 SUBTITLE='Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation'
 AUTHORS='Adam Kreitzman and Soo Xin Yang'
-COURSE='MFE 230Z: Deep Learning in Finance'
+COURSE=''
 DATE='20 October 2026'
 STYLE_VERSION='academic-serif-vector-v1'
 INK='#111111'
@@ -153,8 +153,8 @@ def format_word(parts,word):
     document=word.ET.fromstring(parts['word/document.xml']);body=document.find('w:body',ns)
     body[0].find('w:pPr/w:pStyle',ns).set(tag('val'),'PaperTitle')
     old_subtitle=body[1];body.remove(old_subtitle)
-    for index,(text,style) in enumerate([(SUBTITLE,'PaperSubtitle'),(AUTHORS,'PaperAuthor'),
-                                        (COURSE,'PaperMeta'),(DATE,'PaperMeta')],1):
+    metadata=[(SUBTITLE,'PaperSubtitle'),(AUTHORS,'PaperAuthor'),(COURSE,'PaperMeta'),(DATE,'PaperMeta')]
+    for index,(text,style) in enumerate([(text,style) for text,style in metadata if text],1):
         para=word.ET.Element(tag('p'));ppr=word.node(para,'w:pPr')
         word.node(ppr,'w:pStyle',{'w:val':style});word.node(word.node(para,'w:r'),'w:t',text=text)
         body.insert(index,para)

@@ -7,9 +7,11 @@
   "vector_figures_embedded": 16,
   "main_pages": 22,
   "appendix_pages": 6,
-  "pdf_sha256": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7",
+  "pdf_sha256": "13dc6e730988b4719a61b1f5ce8726332111b9b9c95508fe5f47254cea3ee036",
   "body_and_math_fonts": "Latin Modern",
   "alphaglass_cited": true,
   "all_17_numeric_tables_preserved": true,
+  "paragraph_first_line_indent_pt": 0,
+  "paragraph_spacing_em": 0.3,
   "management_fitting_not_validation_explicit": true
 }

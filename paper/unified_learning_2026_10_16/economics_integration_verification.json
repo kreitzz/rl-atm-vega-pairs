@@ -24,7 +24,7 @@
   "management_trial_separate_from_main_q": true,
   "scope": "Saved-output publication and arithmetic checks; no raw-data simulator refit or new bootstrap.",
   "prior_paper_sha256": "1550548de525fd84eb9ff83f4a4f7e00674cc6f13a9cd8f6a2bd17e57743333b",
-  "integrated_pdf_sha256": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7",
+  "integrated_pdf_sha256": "13dc6e730988b4719a61b1f5ce8726332111b9b9c95508fe5f47254cea3ee036",
   "main_pages": 22,
   "appendix_pages": 6,
   "earlier_management_accounts_inactive": true,

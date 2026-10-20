@@ -166,8 +166,8 @@ def export():
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{figures/}}
 \linespread{1.04}
-\setlength{\parindent}{1.25em}
-\setlength{\parskip}{0.12em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em plus 0.05em minus 0.02em}
 \setlength{\emergencystretch}{2em}
 \titleformat{\section}{\large\bfseries}{\thesection}{0.7em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.7em}{}
@@ -197,12 +197,16 @@ def export():
 {\fontsize{11}{14}\selectfont SUBTITLE}\par
 \vspace{1em}
 AUTHORS\par
-{\small MFE 230Z: Deep Learning in Finance}\par
 {\small DATE}
 \end{center}
-\begin{abstract}
+\begin{center}
+\begin{minipage}{0.88\textwidth}
+\small
+\begin{center}\bfseries Abstract\end{center}
+\setlength{\parindent}{0pt}\noindent
 ABSTRACT
-\end{abstract}
+\end{minipage}
+\end{center}
 '''
     for key,value in [('SUBTITLE',SUBTITLE),('TITLE',TITLE),('AUTHORS',AUTHORS),('DATE',DATE),('ABSTRACT',abstract[0])]:
         preamble=preamble.replace(key,value if key=='ABSTRACT' else escape(value))
@@ -355,6 +359,7 @@ def publish(compiled_pdf,auxiliary):
         vector_figures_embedded=16,main_pages=record['main_pages'],appendix_pages=record['appendix_pages'],
         pdf_sha256=sha(pdf),body_and_math_fonts='Latin Modern',
         alphaglass_cited=True,all_17_numeric_tables_preserved=True,
+        paragraph_first_line_indent_pt=0,paragraph_spacing_em=0.3,
         management_fitting_not_validation_explicit=True),indent=2)+'\n')
     (SOURCE/'overleaf_compilation_verification.json').write_text(json.dumps(dict(
         engine=record['document_engine'],compiled=True,compiled_pages=len(reader.pages),

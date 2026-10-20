@@ -175,3 +175,11 @@ The stable PDF/Word/ZIP filenames are retained so previously shared links work.
 Tables now have numbered captions. The conclusion stays together, references
 flow after it, and each appendix starts on a new page. Appendix text uses a
 consistent 10.5-point serif setting to prevent a short orphaned continuation.
+
+Paragraph-alignment cleanup: body paragraphs now start flush left throughout,
+with a small consistent gap instead of first-line indents. The abstract's first
+line uses the same alignment as its remaining text. Titles, data, numbered
+captions, figures and financial results are unchanged.
+
+Removed the MFE 230Z course label from the title page and editable Word copy.
+Authors, date, agreed title and subtitle remain unchanged.

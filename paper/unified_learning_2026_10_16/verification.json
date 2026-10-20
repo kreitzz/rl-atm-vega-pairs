@@ -43,7 +43,7 @@
   ],
   "compiled_source_manifest": {
     "source_files": {
-      "main.tex": "fc4a1548f3747337bc75ad316f5481ecd4ffd4a5457b4da717e5c8de89b1e632",
+      "main.tex": "f407d68c87ab0a778f39147cccb5d8aa04271b8fbec33c07c0103d379ee285bc",
       "references.bib": "906cd2a87719e0202ec7af7d96de6a294257defc425f37010739faea1c5d48d5",
       "README.txt": "3a5f426ec3e5f5ee1867392e2bb27541d635c9c0ad26b4014f58edf47c4031b3",
       "source_manifest.json": "ba11138282e70dcb7786637d7591575b4e77d0dc431fe79731655daa90c4f90f",
@@ -90,9 +90,9 @@
       "figures/factorial.pdf": "f38d895401e4f2ff319b6e7428b68f4c63d83268653a5fa0bc08035a4824391b",
       "figures/straddle_management.pdf": "34a3be81c8ffd23b410bee25e452a5863495ccdba49e9f2ee3d7ff4abe268666"
     },
-    "archive_sha256": "723d127546d125e2e2b5a0dabc10cf55dda5f05e0dce4cd42fd02bd0c9f02e73",
-    "pdf_sha256": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7",
-    "main_source_sha256": "fc4a1548f3747337bc75ad316f5481ecd4ffd4a5457b4da717e5c8de89b1e632"
+    "archive_sha256": "185dba47198af59a245531217fb9246077d4c6538cfe27729eb6831dc00f736c",
+    "pdf_sha256": "13dc6e730988b4719a61b1f5ce8726332111b9b9c95508fe5f47254cea3ee036",
+    "main_source_sha256": "f407d68c87ab0a778f39147cccb5d8aa04271b8fbec33c07c0103d379ee285bc"
   },
   "figure_hashes": {
     "paper/unified_learning_2026_10_16/figures/learning_pipeline.png": "befaba6ba4f04e8d398dfbaf21ed23f96e30ee44ac8ee7b735da1634378ae98d",
@@ -145,8 +145,8 @@
     "paper/unified_learning_2026_10_16/figures/straddle_management.svg": "e427052744f8401e832259dcc6fad777fb088d7a3e07b170b8b63f6e4bd7a27d"
   },
   "output_hashes": {
-    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "ae7afca61be081585c61fb9b9bfbfe3a6ee1057254c0fab0b70be8213488df90",
-    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "bc0b323a84521833dc9902a9840751abd093a6fdaea0e0cdc0b83b26d14f9ec9",
-    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "bc3b85abc3ab6615e85ceba4162112e5c0ec14b72b96e10cb1d882af4f702ad7"
+    "paper/unified_learning_2026_10_16/options_exposure_learning.pdf": "24daf4cc98eadb1f52b648135e5b0cf4cb4524a1901faeb9ec9dfde0196449b2",
+    "paper/unified_learning_2026_10_16/technical_appendix.pdf": "710db0f480c97d4a8fbd98c17f174093594ebb656aaed02a68eb8f7aaa50ee92",
+    "paper/unified_learning_2026_10_16/options_exposure_learning_with_appendix.pdf": "13dc6e730988b4719a61b1f5ce8726332111b9b9c95508fe5f47254cea3ee036"
   }
 }
