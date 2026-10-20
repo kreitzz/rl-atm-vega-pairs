@@ -1,0 +1,3 @@
+numpy>=1.26,<3
+pandas>=2.2,<4
+matplotlib>=3.8,<4

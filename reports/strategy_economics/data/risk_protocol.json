@@ -1,0 +1,25 @@
+{
+  "status": "frozen_before_any_management_results",
+  "cases": [
+    "hold_control",
+    "conditional_half",
+    "constant_lower"
+  ],
+  "risk_model": {
+    "vega": 1.4054011938337192,
+    "recent_rms": 0.38323334588936475
+  },
+  "risk_cut_per_nav": 0.00016169543602763376,
+  "indicator": "Frozen2018\u20132021 vega+21sessionRMS absolute-move model; unchanged reference-paper-book state, maintained causally alongside managed account. Not recomputed on altered live holdings.",
+  "first_signal": "2021-12-31",
+  "first_execution": "2022-01-03",
+  "conditional": "While reference warning is high, suppress all new straddle entries. Signal each existing straddle cohort to retain50% of its original integer counts at next close; floor both legs. One-contract cohorts exit both legs. Sticky half target retried until filled/expiry, even after warning clears. No restoration of trimmed cohorts; new entries resume when warning clears.",
+  "constant_lower": "Baseline until last2021 close; then90%put/5%straddle/5%idle-cash budgets and proportional limits on all2022-onward fills. Legacy straddle cohorts get a sticky half target from last2021close, execute nextclose. New cohorts already have half reference budgets and are not trimmed again.",
+  "controls": "Put entry rule/size share90%, candidate roster, contract selection, original global limits, costs, price rules, hedge/funding, settlement and corporate handling unchanged. Admissions/NAV sizing may change endogenously.",
+  "gates": [
+    "Full historical no-effect management parity before experiment results",
+    "Each case prefix parity, whole contracts, balanced straddle legs, next-session management fills, fees and cash identities, complete runoff"
+  ],
+  "evaluation": "Report2022\u2013August2025 excess Sharpe, annual results, drawdown, costs, exposure and paired63/126session intervals versus BOTH controls. All dates historically researched; no selection-adjusted/fresh-test claim.",
+  "stop": "One response, no thresholds/reduction sizes/model variants searched. No promotion based on this trial alone."
+}

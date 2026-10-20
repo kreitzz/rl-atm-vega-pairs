@@ -1,5 +1,11 @@
 # Reinforcement learning for options relative value
 
+[Strategy-economics research extension](reports/strategy_economics/report.md):
+explains the short-straddle option/hedge P&L, retrospective IV–RV and price-path
+splits, and one exploratory risk-cut trial. Includes an [illustrated version](reports/strategy_economics/index.html)
+and [offline reproduction instructions](reports/strategy_economics/README.md).
+The original paper and strategy below are unchanged.
+
 Short-term 25-delta put pairs, initially vega neutral and delta hedged daily. A frozen spread signal proposes trades; a contextual learner selects 50%, 75% or 100% vega exposure using monthly fits on completed past outcomes. The retained learner uses direct Sharpe optimization, not Q-learning.
 
 ## Research extension: two signals and capital allocation

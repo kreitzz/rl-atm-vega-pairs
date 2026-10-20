@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "trade_count": 2599,
+  "combined_profit": 3488717.0265130913,
+  "profit_above_cash": 3748711.260609095,
+  "later_sessions": 918,
+  "snapshot_hashes_verified": true,
+  "account_sharpes_recomputed": true,
+  "reproduction_scope": "Figures and tables from frozen derived research outputs; not a raw-data or account replay."
+}

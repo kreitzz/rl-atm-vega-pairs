@@ -1,0 +1,5 @@
+Price path,Entry IV vs later RV,Trades,Combined profit ($m),Mean profit / entry premium
+More persistent,IV < RV,461,-4.22,-36.9%
+More persistent,IV ≥ RV,846,+2.93,+13.0%
+More reversing,IV < RV,409,-1.31,-15.3%
+More reversing,IV ≥ RV,883,+6.09,+25.4%

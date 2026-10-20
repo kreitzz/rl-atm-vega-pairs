@@ -45,3 +45,6 @@ runs/
 wandb/
 mlruns/
 *.log
+
+# Local scratch checkouts and temporary research output
+/tmp/

@@ -1,0 +1,15 @@
+{
+  "hedge_actual": 1745310.4629744845,
+  "option_actual": 1743406.5635386053,
+  "cohorts": 2599,
+  "stocks": 171,
+  "daily_option_hedge_correlation": -0.9045837121902567,
+  "recovered_quote_hedge_difference": 367.51759336852666,
+  "selected_examples": {
+    "large_2020_gain": "2020-02-21|single_101803|ATM_STRADDLE",
+    "large_hedge_loss": "2024-04-23|single_213114|ATM_STRADDLE",
+    "typical": "2021-09-16|single_108843|ATM_STRADDLE"
+  },
+  "persistence_hedge_rank_correlation": 0.8124123571908451,
+  "persistence_combined_rank_correlation": -0.32402820236987245
+}
