@@ -1,0 +1,43 @@
+\section{Capital Allocation with Fitted Q-Learning}\label{sec:allocation}\label{sec:14}
+
+The fitted Q policy allocates one \$10 million budget across the funded put-pair and straddle indices. The entry policies in Sections~\ref{sec:11} and~\ref{sec:straddle-sizing} construct these source portfolios independently: Q changes their capital weights rather than the tree, CEM size map or straddle ridge score. The allocation model is a separate linear-in-parameters value function fitted through Bellman regression.
+
+\subsection{State, Actions, and Execution}
+
+The seven put/straddle capital targets are 100/0, 90/10, 75/25, 50/50, 25/75, 10/90 and 0/100, without outer leverage or a cash action. Weekly decisions use prior-close information and execute at the next close: the first session retains existing holdings, followed by resizing and weight drift until the next decision.
+
+Nine state inputs describe four economic opportunities---put-spread rank strength, the put implied-versus-realized variance gap, straddle IV-versus-RV richness and completed straddle premium---plus relative strategy volatility, strategy-return correlation, VIX, relative recent Sharpe and previous straddle weight. Previous holdings matter because allocation changes incur costs. Actions are fractional claims on funded strategy indices rather than a shared integer-contract order book. Source returns already include underlying trading costs; resizing adds source-based option and hedge charges.
+
+\subsection{Reward Specification}
+
+For week \(w\), the reward sums normalized daily excess returns with a quadratic fluctuation penalty:
+\begin{equation*}
+R_w(\lambda)=\sum_{d\in w}(z_d-\lambda z_d^2),\qquad
+z_d=e_d/\widehat{\sigma}_{\mathrm{ref}}.
+\end{equation*}
+Here \(e_d\) is the allocated portfolio's daily excess return. Reference volatility is estimated from the training window's fixed-50/50 excess returns. The parameter \(\lambda\) penalizes the squared normalized return; \(\lambda=0\) maximizes profit without an explicit fluctuation penalty. This reward does not maximize Sharpe. The discount \(\gamma=0.99\) weights continuation value and remains fixed across risk preferences.
+
+\subsection{Q-Function and Bellman Regression}
+
+Let \(a\) denote the target straddle weight and let \(x(s)\) contain an intercept and the nine standardized state inputs. The value function is
+\begin{equation*}
+Q_\theta(s,a)=\beta_0^\top x(s)+a\,\beta_1^\top x(s)
++a^2\beta_2^\top x(s),\qquad
+a\in\{0,.10,.25,.50,.75,.90,1\}.
+\end{equation*}
+Each coefficient block has ten parameters, giving 30 in total. The model is linear in its fitted coefficients and quadratic in the allocation action; the state-action interactions allow the preferred weight to change with market conditions. Training-window means and standard deviations standardize the state, with a scale floor of 0.1 and clipping within \(\pm5\).
+
+Fitted Q iteration repeatedly updates the regression target rather than fitting realized returns once \cite{ernst2005}. For completed transition \((s_w,a_w,R_w,s_{w+1})\), iteration \(k\) uses
+\begin{equation*}
+y_w^{(k)}=R_w(\lambda)+\gamma\max_{a'\in\mathcal A}
+Q_{\theta^{(k-1)}}(s_{w+1},a'),
+\end{equation*}
+then refits the same 30-parameter basis to these targets by ridge regression. Thus the regressor estimates immediate reward plus continuation value. The matched \(\gamma=0\) control retains the regression architecture but removes the continuation term.
+
+\subsection{Fitting Schedule and Experimental Controls}
+
+Monthly fits use the preceding 104 completed weeks, with at least 52. Seven prior allocations crossed with seven actions supply counterfactual paths for each market week; regression weights give each week unit total mass. These paths do not create independent market observations. We use ridge coefficient 10, except for a global-intercept penalty of 0.01, and 200 Bellman updates. Section~\ref{app:q-convergence} reports the convergence checks.
+
+Q uses 50/50 before enough training weeks exist; each fixed control starts at its own target. In the four-way comparison, Q is independently refitted for each entry-policy family. Source returns, strategy-dependent risk features, rewards and resizing charges are rebuilt for that family, while economic signal definitions remain shared. This downstream refitting does not jointly retrain either source sizing policy.
+
+\FloatBarrier

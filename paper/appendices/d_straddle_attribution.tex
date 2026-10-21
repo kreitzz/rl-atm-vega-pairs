@@ -1,0 +1,91 @@
+\clearpage
+\section{Straddle Attribution and Reconciliation}\label{app:h}\label{app:f}
+The full-history attribution covers January 2018--August 2025. It explains the retained straddle account and is distinct from the later-period policy comparisons.
+
+\subsection{Straddle Profit Attribution}\label{sec:6}
+
+We attribute the account's profit across 2,599 executed straddle cohorts under the learned sizing policy.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{straddle_bridge.pdf}
+\caption{Full-history straddle account, January 2018--August 2025. The option and stock components are read together; the remaining cash flows reconcile them to profit above cash.}\label{fig:straddle-bridge}
+\end{figure}
+
+Options after option charges earned \$1.74 million; stock hedges before hedge costs earned \$1.75 million. Together they earned \$3.49 million, reconciled to \$3.75 million above cash after the remaining costs, dividends and financing. Positive profits in both components do not establish two independent sources of alpha. Option marks contain time decay, price moves and volatility revaluation; the stock hedge is held to offset option delta.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{straddle_paths.pdf}
+\caption{The same 2,599 cohorts grouped by their completed price paths. Combined profit includes option charges but precedes stock-hedge charges, dividends and financing. The grouping is descriptive.}\label{fig:straddle-paths}
+\end{figure}
+
+The option and stock components offset differently across completed paths. More reversing paths earn \$4.78 million in combined profit, whereas more persistent paths lose \$1.29 million. We therefore evaluate the combined option-and-hedge result rather than interpreting either component as an independent trading return.
+
+
+Path persistence is the absolute entry-to-exit log return divided by the sum of absolute daily log returns. Values at or below 0.20 define the more reversing group. This grouping uses the completed path to explain results; it is not an available entry feature or a new trading rule.
+
+\FloatBarrier
+
+\subsection{Implied and Realized Volatility}\label{sec:7}
+
+If the strategy earns a premium for selling movement risk, entry IV versus subsequent RV should help organize its outcomes. The diagnostic separates the same 2,599 cohorts by realized path and whether entry straddle IV exceeds the volatility subsequently realized. Both path groups have positive aggregate combined profit when IV exceeds RV and negative profit when it does not.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{straddle_ivrv.pdf}
+\caption{Combined option and hedge profit by completed price path and entry IV versus subsequent RV. These are realized-outcome groups, not new entry screens; totals depend on counts and sizes.}\label{fig:straddle-ivrv}
+\end{figure}
+
+\begin{table}[H]\centering\small
+\caption{Completed straddle outcomes by price path and IV versus subsequent RV.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=1.12305\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.53711\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.48438\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
+\textbf{Price path} & \textbf{IV vs RV} & \textbf{Trades} & \textbf{Profit (\$m)} & \textbf{Mean profit / premium}\\\midrule
+More persistent & IV < RV & 461 & -4.22 & -36.9\%\\
+More persistent & IV \(\geq\) RV & 846 & +2.93 & +13.0\%\\
+More reversing & IV < RV & 409 & -1.31 & -15.3\%\\
+More reversing & IV \(\geq\) RV & 883 & +6.09 & +25.4\%\\
+\bottomrule\end{tabularx}\end{table}
+
+Entry IV here is the common annualized European, dividend-escrow volatility that reprices the combined call-and-put entry midpoint premium. Subsequent RV is the square root of 252 times mean squared daily log returns, from entry close to actual exit close, without subtracting the sample mean. The signal itself continues to use ATM-call IV; the common straddle IV is only an attribution measure.
+
+
+The relation is not an exact profit identity. There are 220 losing cohorts even with entry IV above subsequent RV. Discrete delta hedging, jumps, changing gamma and execution charges matter. Calendar-time annualization changes 69 IV--RV classifications, and a dividend adjustment changes six; three cohorts exited early. The normalized profit column also does not match risk exposure across trades.
+
+
+These are explanations using realized outcomes, not forecasts. They support the economic motivation for a completed-outcome RV - IV memory without showing that today's IV--RV gap is known in advance. They also clarify why a positive historical straddle return alone does not establish alpha after compensation for volatility risk.
+
+\FloatBarrier
+
+\subsection{Trade-Level Profit Attribution}\label{sec:8}
+
+Two contrasting historical cohorts make the accounting concrete. The left column was selected for a large stock-hedge gain; the right for a large hedge loss. Each panel uses the stock position already carried into that session, followed by the hedge adjustment at the close. These illustrations are deliberately selected examples, not representative performance estimates.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{straddle_examples.pdf}
+\caption{Two selected cohorts: a large hedge gain (left) and loss (right). Rows show spot versus strike, shares carried into each session, and cumulative option, stock and combined profit. Security IDs are stable identifiers.}\label{fig:straddle-examples}
+\end{figure}
+
+The stock hedge is not an independent trend strategy. A session's stock profit is shares carried into the session multiplied by the price change; the next close's shares control subsequent exposure. The lower panels therefore show the option and stock profits together. Their offset explains why neither the sign of hedge profit nor option premium retained can establish the profitability of a delta-hedged short.
+
+
+The attribution also puts a limit on the gamma-versus-theta shorthand. We record actual option marks, stock hedge cash flows and costs rather than infer profit from one constant gamma or an unweighted RV - IV difference. A Greek expansion is useful intuition, but the ledger is the profit measure. Section~\ref{app:attribution-reconciliation} describes the recovered-quote reconciliation; Section~\ref{app:reproduction} states the reproduction scope.
+
+
+\FloatBarrier
+\FloatBarrier
+\subsection{Cohort Accounting and Reproducibility}\label{app:attribution-reconciliation}
+
+
+The economics extension retains 2,599 unique straddle cohorts and reconciles their option-plus-stock profits to the full-history straddle account. The aggregate bridge includes \$160,755 in hedge trading costs, \$20,544 in short-stock borrow, \$57,201 in hedge dividends and \$498,494 in cash interest above the cash benchmark. Option charges are already included in the option component. These amounts belong to January 2018--August 2025, not only the later reporting period.
+
+
+Saved holdings and recovered quote paths reproduce the trade illustrations. One quote-availability convention was inferred; using observed recovered quotes changes aggregate hedge profit by \$367.52. The figures retain the reconciled saved-account attribution. This reconstruction difference is disclosed rather than counted as a new profit source. Stable security identifiers identify the two examples.
+
+
+
+
+
+\FloatBarrier

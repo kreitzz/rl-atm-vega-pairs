@@ -1,0 +1,48 @@
+\section{ATM Straddle Strategy}\label{sec:5}
+
+\subsection{Volatility Premium Signal}
+
+The straddle strategy sells approximately 30-day ATM straddles on underlyings with the lowest completed realized-minus-implied volatility (RV--IV) memories. The signal follows the volatility-premium motivation of Goyal and Saretto \cite{goyal2009}; our experiments evaluate entry sizing and capital allocation around this fixed trading rule.
+
+
+For every historical candidate, subtract entry ATM-call IV from the annualized RV measured after the next-session entry close through that contract's expiry. Only after the outcome finishes can it join the signal history. Average those completed RV - IV observations over the preceding 365 calendar days, requiring 126. Rank eligible names each day and sell the bottom 10\%.
+
+
+\begin{equation*}M_{i,t}=\operatorname{mean}_{u:\,t-365<T_u<t}\left(RV_{i,u\to T_u}-IV^{\rm ATM\ call}_{i,u}\right).\end{equation*}
+
+Selection uses the cross-sectional bottom decile of eligible completed-outcome memories, without an absolute volatility-gap threshold.
+
+
+\subsection{Position Construction and Risk Exposures}
+
+Each position sells an ATM call and put with the same underlying, strike and expiry, with daily stock-delta rebalancing. Full size targets \$450 combined call-and-put vega per IV point. The portfolio retains net short-gamma and short-vega exposure, including jump and volatility-revaluation risk.
+
+
+\begin{table}[H]\centering\small
+\caption{Economic exposures of the two retained signals.}
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.80859\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.09570\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.09570\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Economic distinction} & \textbf{Relative put pair} & \textbf{ATM straddle}\\\midrule
+Comparison & Current gap versus pair history & Completed RV - IV versus other names\\
+Exposure & Buy one put; sell another & Sell call and put on one name\\
+Initial vega & Approximately offset across names & Net short\\
+Main challenge & Different realized paths and events & Premium income versus movement risk\\
+\bottomrule\end{tabularx}\end{table}
+
+The ranking uses ATM-call IV and annualized RV in volatility units, while execution uses the complete straddle. Profit is measured from the option-and-hedge ledger after costs and financing; the RV--IV ranking is neither a variance difference nor a profit identity.
+
+
+The put-pair portfolio offsets initial vega across names, whereas the straddle portfolio retains directional volatility exposure. Capital allocation determines the portfolio-level mix of these risks; entry sizing determines commitments within each strategy.
+
+
+\subsection{Ridge-Based Entry Sizing}\label{sec:straddle-sizing}
+
+The straddle bandit fits a 60-month ridge model to completed full-size profit, using 14 inputs and requiring 128 examples. The inputs include IV, RV-IV memory, VIX and a separate fixed-half paper portfolio's recent performance. Score terciles define three contexts. Each context receives 50\%, 75\% or 100\% exposure. We enumerate all 27 context-to-size maps and retain the highest Sharpe on their aggregate completed daily straddle-profit paths, including overlapping positions. Insufficient history uses half size. Training uses only completed straddle outcomes and does not use the Q-allocation reward. Section~\ref{app:entry-optimization} provides exact fitting details.
+
+
+
+
+The context-to-size map need not increase monotonically with the ridge score because selection maximizes completed-path Sharpe. The model uses completed quote-available labels: 4,116 training rewards are finite, while the policy handles all 35,774 proposals. Section~\ref{sec:13} reports feature-usage and admission diagnostics.
+
+Joint performance and interpretation follow in Section~\ref{sec:results}.
+\FloatBarrier

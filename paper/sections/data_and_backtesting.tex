@@ -1,0 +1,47 @@
+\section{Data and Backtesting Framework}\label{sec:data}\label{sec:9}
+
+\subsection{Data and Sample}
+Historical option quotes, stock prices, interest rates and dividends come through WRDS. The prepared universe contains 125 pairs involving 161 equity/ETF underlyings; 46 pairs supply 608 screened put proposals over 2018--2025. The straddle proposal pool contains 35,774 candidates. The universe is retrospective and conditioned on usable coverage. Sections~\ref{app:contracts} and~\ref{app:risk} record contract selection, quote filters and risk checks.
+
+\subsection{Execution and Account Construction}
+Each source strategy starts with \$10 million. Signal-date contracts trade in the following session if quotes and account checks permit. At full size, put pairs target \$450 vega per IV point on each leg; straddles target \$450 across call and put together. Whole contracts are rounded; put pairs allow an initial vega mismatch of no more than 10\%.
+
+\subsection{Valuation, Hedging, and Financing}
+Options normally remain until expiry. At each close, we mark the existing option and stock positions, record cash flows and then rebalance stock delta. The next day's hedge profit uses the stock held after that rebalance. Final option payoffs and hedge unwinds complete the trade. Trading the same name on later dates is possible subject to existing inventory and risk checks.
+
+
+Stock transactions settle through cash, which earns the prior available benchmark rate; negative balances pay that rate plus one percentage point annually. Short-stock borrow costs 0.30\% annually on short notional. Dividends enter as signed stock cash flows in addition to ex-dividend price movements.
+
+
+Option fills use midpoint plus an adverse charge of 0.10 IV point times traded vega and \$0.03 per contract; stock turnover costs one basis point. Expiry settlement has no option fill charge. Inventory, reserve, stress and quote checks determine admission. A request for less size can pass a pair limit and leave capacity for a later proposal. Section~\ref{app:risk} defines the checks; they are research assumptions rather than broker margin.
+
+\subsection{Evaluation Protocol}\label{sec:evaluation-protocol}
+Results report 2018--2021 validation and January 2022--29 August 2025 evaluation. Each fit uses only outcomes completed before its fitting date; unfinished trade outcomes cannot enter training. The fitting windows and sizing procedures are specified with each strategy below. Accounts continue across the 2022 reporting boundary with accumulated cash and open positions.
+
+Entry policies within each strategy receive the same signal proposals. Requested sizes nevertheless change contract rounding, outstanding risk and the capacity to admit later opportunities. The funded comparisons therefore measure complete sizing and admission policies. Standalone daily-profit paths used in entry-policy training differ from funded-account returns, which also reflect shared cash, inventory and admission constraints.
+
+Source accounts begin with \$10 million; the outer allocation experiment uses a separate single \$10 million budget tracking the funded strategy indices. Appendix~\ref{app:b} records model fitting, with research-selection history in Section~\ref{app:research-chronology}. Appendix~\ref{app:c} collects supplementary results, including account-boundary diagnostics in Section~\ref{app:account-boundaries}.
+
+\subsection{Performance Measures}\label{sec:performance-measures}
+
+Let \(N_t\) denote account NAV and \(K_t\) the continuing all-cash benchmark, both initialized at \$10 million in January 2018. The benchmark compounds the previous available WRDS zero-curve rate nearest 30 days over calendar days using a 365-day year. For a reporting period, \(0\) is the preceding close and \(T\) the final close. Daily excess return and annualized excess Sharpe are
+\begin{equation*}
+e_t=\frac{N_t}{N_{t-1}}-\frac{K_t}{K_{t-1}},\qquad
+\widehat S=\sqrt{252}\,\frac{\overline e}{s_e},
+\end{equation*}
+where \(s_e\) is the sample standard deviation of daily excess returns. Annualized arithmetic mean excess return is \(252\overline e\), and annualized excess volatility is \(\sqrt{252}\,s_e\).
+
+Dollar profit above cash measures the change in excess dollar wealth within the reporting period:
+\begin{equation*}
+\Pi_{\rm excess}=(N_T-K_T)-(N_0-K_0).
+\end{equation*}
+With cash-relative wealth \(W_t=N_t/K_t\) and \(Y\) equal to elapsed calendar days divided by 365.25, annualized cash-relative growth and maximum drawdown are
+\begin{equation*}
+G_{\rm cash}=\left(\frac{W_T}{W_0}\right)^{1/Y}-1,\qquad
+D_{\rm cash}=\max_{0\leq t\leq T}
+\left(1-\frac{W_t}{\max_{0\leq u\leq t}W_u}\right).
+\end{equation*}
+The drawdown calculation includes the reporting period's opening close. Account return is \(N_T/N_0-1\); the annual account-return table reports its difference from the cash return in percentage points. Those calendar-period returns are not annualized, including partial 2025. Annualized arithmetic mean excess return and compounded cash-relative growth are distinct measures. Accounts and the cash benchmark continue across reporting boundaries; profit curves subtract opening excess dollar wealth without liquidating carried positions.
+
+
+\FloatBarrier

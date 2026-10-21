@@ -1,0 +1,25 @@
+\section{Discussion and Conclusion}\label{sec:20}
+
+\subsection*{Summary of Findings}
+
+Entry bandits improve the retained portfolios through sizing and admission. Q improves allocation with constant entries and exceeds the corresponding rolling mean--variance controls at \(\lambda\) = 0.10, 0.20 and 1. Its profit-only policy transfers less reliably when straddles weaken. Reward design changes the allocation tradeoff.
+
+
+\subsection*{Limitations}
+
+All fitted policies use only information available before their decisions. However, strategy development included inspection of later-period results, including choices of training windows and risk preferences. Consequently, the evaluation measures historical performance under chronologically fitted policies, rather than an independently frozen test of the complete research process. The controlled comparisons provide evidence about adaptive exposure allocation under the stated assumptions, but neither the magnitude of research-selection bias nor prospective performance has been established.
+
+
+Execution is another boundary. Midpoint-based fills with an adverse charge do not establish tradability, particularly for paired orders that may fill asynchronously. Quoted-spread execution, liquidity capacity, pin risk, early assignment and forced liquidation need further work. The outer experiment reallocates fractional strategy indices, not shared integer contracts; the separate common-ledger trimming trial does not remove this limitation from the Q comparison. Initial vega matching is local, and the straddle signal adds net short-volatility risk.
+
+
+\Needspace{15\baselineskip}
+
+\subsection*{Conclusion}
+
+The experiments support adaptive exposure allocation across portfolios with different capital deployment and volatility risks. The four-way comparison separates entry learning from allocation, while the dynamic benchmarks and one-period control place the Q result in context. The evidence is strongest for conditional allocation under the stated historical simulation assumptions; policy rankings depend on the profit--risk objective.
+
+Appendix~\ref{app:h} relates straddle profitability to realized movement, and the separate joint-contract trimming trial in Appendix~\ref{app:i} examines inventory management with an uncertain gain. An integrated implementation should combine entry sizing, allocation and inventory controls under measured execution costs, followed by prospective evaluation and tests on additional independent signals.
+
+
+\FloatBarrier

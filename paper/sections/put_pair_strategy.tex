@@ -1,0 +1,53 @@
+\section{Put Pair Strategy}\label{sec:4}
+
+The put-pair strategy trades relative implied volatility (IV) using approximately 30-day, 25-delta puts on related underlyings. Historical IV-spread ranks determine direction, subject to relatedness and completed-profitability filters. Positions match initial vega and rebalance stock delta daily; gamma, jumps and company-specific risks remain. Section~\ref{app:position-construction} provides the position-level accounting and a worked vega-matching example.
+
+\subsection{Relative Implied Volatility Signal}
+
+For each pair, we rank the IV difference \(D_t=IV_{A,t}-IV_{B,t}\) against the preceding 252 trading sessions, requiring at least 63 observations. At the upper quintile we sell A's put and buy B's; at the lower quintile we reverse direction. The rule measures relative richness against each pair's own spread history.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{signal_example.pdf}
+\caption{AMD minus NVDA selected-put IV in 2019. Shading marks excursions outside historical percentile boundaries, not executed trades. Gaps are unavailable quotes. Daily contract selection makes this a signal series, not the mark of one held contract.}\label{fig:signal-example}
+\end{figure}
+
+Monthly formation requires 126-session return beta between 0.85 and 1.15 and correlation of at least 0.5. The proposed direction must also show positive historical profit per initial vega over 91 and 365 calendar days, with 21 and 63 completed observations. Profitability histories use completed simulated standalone candidates, including candidates not admitted to the funded account; unfinished outcomes are excluded.
+
+
+\subsection{Relatedness and Profitability Filters}
+
+The beta and correlation screens restrict the candidate universe; IV-spread ranks determine trade direction. Completed profitability further restricts entry to directions with positive historical outcomes after trading and hedging costs. The strategy therefore combines an unusual relative IV spread with directional profitability, rather than imposing unconditional spread mean reversion. These selected rules and completed-count requirements are shared across all put-sizing controls.
+
+
+The chart follows each day's selected contract. After entry, the simulator holds the purchased and sold contracts rather than replacing them when daily selection changes. Profit therefore depends on their realized option and hedge cash flows. A temporary narrowing of the displayed IV gap is neither required nor sufficient for a profitable expiry trade.
+
+
+\subsection{Regression-Tree and CEM Entry Sizing}\label{sec:11}
+Portfolio policies can be learned by optimizing investment objectives directly, including the Sharpe ratio \cite{alphaglass2026}. Here, CEM selects context-to-size maps using the Sharpe ratio of aggregate completed daily-profit paths.
+
+Put-pair entry sizing uses a regression tree to define contexts and cross-entropy method (CEM) search to assign 50\%, 75\% or 100\% exposure to each context. The signal fixes direction and contracts. The tree and size map are fitted to completed put-pair outcomes, independently of the capital-allocation learner.
+
+
+
+
+Each monthly regression tree uses completed examples from the preceding 18 months. Its target is cumulative full-size profit above cash; splits reduce prediction error across 27 inputs. At most eight leaves define states. With n examples, minimum leaf count is max(8, min(63, floor(n/8))); fewer than 16 use full size.
+
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{entry_policy.pdf}
+\caption{The original tree/CEM construction. The three-state maps illustrate candidates; actual trees have up to eight states. Each candidate selects action-specific completed paths; the best 19 update sampling probabilities. The retained map sizes next month's proposals.}\label{fig:entry-policy}
+\end{figure}
+
+For completed example i, p denotes its profit above cash on day d at size a. Each size has its own rounded contracts and simulated hedge path. A map assigns one size to each tree state. We sum its daily paths, retaining overlapping positions and zero-profit sessions, and score the result:
+
+
+\begin{equation*}g_d(m)=\sum_i p_{i,d}(a_{\ell(x_i)}),\qquad\widehat S_{\rm train}(m)=\sqrt{252}\,\overline{g}/s_g.\end{equation*}
+
+CEM \cite{deboer2005} updates size probabilities toward the best 19 of 192 candidate maps for 50 rounds. Constant maps and the incumbent are anchors. This standalone-path training score differs from funded-account Sharpe: replay additionally applies shared cash, inventory and admission.
+
+
+The 27-input, 18-month specification was retained from 33 archived configurations ranked on 2018--2021 validation scores. Archived selection used a \$345 million research account; the funded comparisons below use \$10 million. Sections~\ref{app:feature-selection} and~\ref{app:refitting-timeline} report the feature experiments and refitting timeline; Section~\ref{app:entry-optimization} gives exact fitting settings.
+
+Joint performance and interpretation follow in Section~\ref{sec:results}.
+\FloatBarrier
