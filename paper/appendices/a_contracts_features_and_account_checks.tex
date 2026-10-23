@@ -1,70 +1,123 @@
 \clearpage
-
 \section{Contract Selection, Features, and Risk Constraints}\label{app:a}
+
+This appendix separates contract selection, the inputs to each strategy's sizing model, and the admission rules used in the funded contract-level replays. Allocation-state inputs are defined separately in Section~\ref{sec:allocation}.
 
 \subsection{Data and Contract Selection}\label{app:contracts}
 
-WRDS supplies option quotes, stock prices, rates and distributions. The inherited formation archive contains 345 pairs; 125 prepared pairs with 161 equity/ETF underlyings supply candidates. Forty-six pairs generate 608 screened put proposals over 2018--2025. This universe is retrospective and conditioned on usable coverage. The companion roster in \path{paper/pair_universe.csv} records prepared pairs and candidate-date ranges, which are not claims of continuous quote availability.
+The data universe and coverage limitations are described in Section~\ref{sec:data}. Table~\ref{tab:contract-selection} distinguishes the two contract screens.
 
+\begin{table}[H]\centering\small
+\caption{Strategy-specific contract selection.}\label{tab:contract-selection}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=.55\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.225\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.225\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Criterion} & \textbf{Put pair} & \textbf{Straddle}\\\midrule
+Expiry & Nearest 30 days; entry requires 7--55 days remaining & ATM-call signal screen requires 21--45 days from next-session entry to expiry\\[4pt]
+Strike or delta & Put nearest absolute delta 0.25, within 0.075 & ATM-call strike within 10\% of spot\\[4pt]
+Position legs & Selected put on each related underlying & Call and put match on underlying, strike, expiry and adjustment\\
+\bottomrule\end{tabularx}\end{table}
 
-Put selection takes the expiry nearest 30 days, then the put nearest absolute delta 0.25 within 0.075. Ties prefer narrower quotes, higher open interest and lower contract identifier. Entry requires standard 100-share contracts, positive noncrossed quotes, open interest of at least 100, quote width no more than 25\% of midpoint and 7--55 days remaining. Straddles match call and put on name, strike, expiry and adjustment. Corporate events can force exits; missing entry quotes reject proposals. Held marks may use last-known IV with current spot, rates and known dividends.
+Both screens require standard 100-share contracts, positive noncrossed quotes, open interest of at least 100 and quote width no more than 25\% of midpoint. Put-selection ties prefer narrower quotes, higher open interest and then lower contract identifier.
 
+\paragraph{Quote handling and valuation}
+Missing entry quotes reject proposals. Corporate events can force exits. Held marks may use last-known IV with current spot, rates and known dividends. European-style valuation and cash settlement approximate expiry; assignment is not fully simulated.
 
-\subsection{Entry Policy Features}\label{app:features}
+\subsection{Put-Pair Sizing Inputs}\label{app:features}
 
-\begingroup
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.35\textwidth-16pt\relax}@{}}
-\caption{All 27 inputs to the retained put-sizing policy: 15 numerical fields and 12 binary availability flags.}\label{tab:put-sizing-inputs}\\
-\toprule
-\textbf{Numerical field} & \textbf{Definition} & \textbf{Availability flag}\\\midrule
+The tree uses 15 numerical inputs and 12 binary availability flags, giving 27 inputs in total. In Table~\ref{tab:put-sizing-inputs}, starred inputs are required; every other numerical input has an availability flag.
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.32\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.68\textwidth-8pt\relax}@{}}
+\caption{Numerical inputs to put-pair sizing; starred inputs are required.}\label{tab:put-sizing-inputs}\\
+\toprule\textbf{Input} & \textbf{Definition}\\\midrule
 \endfirsthead
-\multicolumn{3}{l}{\textit{Put-sizing inputs (continued)}}\\
-\toprule
-\textbf{Numerical field} & \textbf{Definition} & \textbf{Availability flag}\\\midrule
+\multicolumn{2}{l}{\textit{Put-pair sizing inputs (continued)}}\\
+\toprule\textbf{Input} & \textbf{Definition}\\\midrule
 \endhead
-\midrule\multicolumn{3}{r}{\textit{Continued on next page}}\\
-\endfoot
-\bottomrule
-\endlastfoot
-\path{iv_mean} & Mean implied volatility & Core field; no flag\\[3pt]
-\path{oriented_iv_gap} & IV gap oriented to the proposed trade direction & Core field; no flag\\[3pt]
-\path{rank_strength} & Signal rank strength & Core field; no flag\\[3pt]
-\path{oriented_vrp_gap} & Oriented IV-squared minus trailing-variance gap & \path{oriented_vrp_gap_available}\\[3pt]
-\path{rv_mean} & Mean trailing realized volatility & \path{rv_mean_available}\\[3pt]
-\path{beta} & 126-session stock-return beta & \path{beta_available}\\[3pt]
-\path{correlation} & 126-session stock-return correlation & \path{correlation_available}\\[3pt]
-\path{dte_mean} & Mean days to expiry & \path{dte_mean_available}\\[3pt]
-\path{oriented_dte_gap} & Expiry difference oriented to trade direction & \path{oriented_dte_gap_available}\\[3pt]
-\path{commission_vol_points} & Training commission expressed in IV points & \path{commission_vol_points_available}\\[3pt]
-\path{vix} & Strictly prior VIX close & \path{vix_available}\\[3pt]
-\path{profit_91d} & 91-day mean completed profit per initial vega & \path{profit_91d_available}\\[3pt]
-\path{count_91d} & 91-day completed observation count & \path{count_91d_available}\\[3pt]
-\path{profit_365d} & 365-day mean completed profit per initial vega & \path{profit_365d_available}\\[3pt]
-\path{count_365d} & 365-day completed observation count & \path{count_365d_available}\\[3pt]
-\end{longtable}
-\endgroup
+\midrule\multicolumn{2}{r}{\textit{Continued on next page}}\\\endfoot
+\bottomrule\endlastfoot
+\multicolumn{2}{l}{\textit{Signal and volatility}}\\*[3pt]
+Mean IV\textsuperscript{*} & Mean implied volatility of the selected puts\\[3pt]
+Directional IV gap\textsuperscript{*} & IV gap oriented to the proposed trade direction\\[3pt]
+Spread-rank strength\textsuperscript{*} & Strength of the historical IV-spread rank signal\\[3pt]
+Directional variance gap & Oriented IV-squared minus trailing-variance gap\\[3pt]
+Mean realized volatility & Mean trailing stock realized volatility\\[3pt]
+\multicolumn{2}{l}{\textit{Pair relatedness}}\\*[3pt]
+Return beta & 126-session stock-return beta\\[3pt]
+Return correlation & 126-session stock-return correlation\\[3pt]
+\multicolumn{2}{l}{\textit{Contract terms and costs}}\\*[3pt]
+Mean time to expiry & Mean days remaining to expiry\\[3pt]
+Directional expiry gap & Expiry difference oriented to trade direction\\[3pt]
+Commission relative to vega & Training commission expressed in IV points\\[3pt]
+\multicolumn{2}{l}{\textit{Market conditions}}\\*[3pt]
+VIX & Strictly prior VIX close\\[3pt]
+\multicolumn{2}{l}{\textit{Completed directional outcomes}}\\*[3pt]
+91-day profitability & Mean completed profit per initial vega over 91 calendar days\\[3pt]
+91-day observation count & Number of completed observations in that window\\[3pt]
+365-day profitability & Mean completed profit per initial vega over 365 calendar days\\[3pt]
+365-day observation count & Number of completed observations in that window\\[3pt]
+\end{longtable}\endgroup
 
-The first three numerical fields are required; each remaining field has a binary availability flag. Each availability flag is one when its numerical field is available and zero otherwise. Missing optional values are zero with flag zero; an observed numerical zero retains flag one. Put trailing variance is 252 times mean squared simple stock returns over 20 sessions, with at least 10 observations. The straddle signal uses annualized squared log returns and a 21-session RV input. The measures have different retained definitions; no new common RV estimator is fitted for this comparison.
+An availability flag is one when its numerical field is observed and zero otherwise. Missing optional values are set to zero with flag zero; an observed numerical zero retains flag one. Put trailing variance is 252 times mean squared simple stock returns over 20 sessions, requiring at least ten observations.
 
+\subsection{Straddle Sizing Inputs}\label{app:straddle-features}
 
-The straddle's 14 ridge inputs are completed residual memory, IV, VIX, normalized memory, variance ratio, 21-session VIX change, 5-session IV change, and a fixed-half benchmark's 21/63/126-session Sharpe, 63-session volatility and drawdown, reserve use and availability flag. These benchmark states come from an external causal paper portfolio, not the learner's own future inventory.
+The ridge model uses the 14 inputs in Table~\ref{tab:straddle-sizing-inputs}. Benchmark features come from a separate fixed-half straddle portfolio constructed using information available at each date, not the learner's future inventory.
 
+\begingroup\small
+\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{\dimexpr0.66\textwidth-8pt\relax}@{}}
+\caption{All 14 inputs to the retained straddle ridge model.}\label{tab:straddle-sizing-inputs}\\
+\toprule\textbf{Input} & \textbf{Definition}\\\midrule
+\endfirsthead
+\multicolumn{2}{l}{\textit{Straddle sizing inputs (continued)}}\\
+\toprule\textbf{Input} & \textbf{Definition}\\\midrule
+\endhead
+\midrule\multicolumn{2}{r}{\textit{Continued on next page}}\\\endfoot
+\bottomrule\endlastfoot
+\multicolumn{2}{l}{\textit{Volatility opportunity and recent changes}}\\[3pt]
+Completed RV--IV memory & Historical completed realized-minus-implied volatility memory from Section~\ref{sec:5}\\[3pt]
+IV & Current ATM-call implied volatility\\[3pt]
+VIX & VIX level available at the proposal date\\[3pt]
+Normalized memory & Negative RV--IV memory divided by current IV, with IV floored at 0.01\\[3pt]
+Variance ratio & Forecast annualized variance divided by squared IV\\[3pt]
+21-session VIX change & Proportional change in VIX over 21 sessions\\[3pt]
+5-session IV change & Proportional change in IV over five sessions\\[3pt]
+\multicolumn{2}{l}{\textit{Fixed-half benchmark portfolio}}\\[3pt]
+21-session Sharpe & Annualized excess Sharpe over 21 sessions\\[3pt]
+63-session Sharpe & Annualized excess Sharpe over 63 sessions\\[3pt]
+126-session Sharpe & Annualized excess Sharpe over 126 sessions\\[3pt]
+63-session volatility & Annualized daily excess-return volatility over 63 sessions\\[3pt]
+63-session drawdown & Cash-relative wealth divided by its trailing 63-session maximum, minus one\\[3pt]
+Reserve use & Capital reserve divided by current portfolio NAV\\[3pt]
+Benchmark availability & Binary flag indicating that the benchmark features are available\\[3pt]
+\end{longtable}\endgroup
 
-\subsection{Admission Rules and Risk Accounting}\label{app:risk}
+\subsection{Risk Limits and Admission}\label{app:risk}
 
-Research stress takes each name's worst modeled option-plus-hedge loss across spot shocks -20/0/+20\% and IV shocks -10/0/+10 points, then sums without pair-correlation credit. Limits are stress loss 5\% of budget, reserve 80\%, hedge notional twice budget and gross vega \$20,000 per IV point per \$1 million. Reserve is gross option premium plus half netted hedge notional. Global checks use equity; pair checks use a \$1 million reference scaled by current/initial equity. These are research limits, not broker margin. European-style valuation and cash settlement approximate expiry; assignment is not fully simulated.
+The limits in Table~\ref{tab:admission-risk-limits} govern funded contract-level admission, not the outer strategy-index allocation.
 
+\begin{table}[H]\centering\small
+\caption{Risk limits used in contract-level admission checks.}\label{tab:admission-risk-limits}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=.65\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.35\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{Check} & \textbf{Limit or definition}\\\midrule
+Stress loss & At most 5\% of the applicable budget\\[3pt]
+Capital reserve & At most 80\% of the applicable budget\\[3pt]
+Hedge notional & At most twice the applicable budget\\[3pt]
+Gross vega & At most \$20,000 per IV point per \$1 million of reference capital\\[3pt]
+Reserve measurement & Gross option premium plus half the netted hedge notional\\[3pt]
+Budget scope & Global checks use equity; pair checks use a \$1 million reference scaled by current divided by initial equity\\
+\bottomrule\end{tabularx}\end{table}
+
+Stress testing takes each name's worst modeled option-plus-hedge loss across spot shocks of \(-20\%,0,+20\%\) and IV shocks of \(-10,0,+10\) points. These losses are summed without pair-correlation credit. Quote eligibility, inventory and the limits above jointly determine whether a proposed size is admitted.
 
 \FloatBarrier
 
-\subsection{Data Provenance and Reproducibility}\label{app:reproduction}
-Entry results come from \path{reports/p25_validation_split/periods.csv} and \path{reports/straddle_policy_refinement/comparison.csv}. Exact entry explanations are in \path{reports/retained_entry_explanations}. Allocation results, decisions and convergence checks are in \path{reports/signal_allocation_variance}. Independent fixed-entry Q fits and the four-way experiment are in \path{reports/signal_learning_factorial}. Its checks reproduce all eight pure strategy endpoints and 324 monthly checkpoint timings. The paper's provenance manifest records source and figure hashes. These originating research records are available in the repository on the main branch.
+\subsection{Data and Code Availability}\label{app:reproduction}
 
+Supporting materials, saved results and figures are available at \url{https://github.com/kreitzz/rl-atm-vega-pairs}. Access to the underlying WRDS data requires the relevant subscriptions and vendor permissions; redistribution restrictions apply. Model fitting requires the licensed source cache or suitable archived derived inputs.
 
-The companion scripts preserve the actual-contract ledger and the separate fractional-index allocator. Model fitting requires the licensed source cache or archived derived inputs; vendor redistribution restrictions still apply. Reproduce this document from its saved manuscript and figures without refitting any model. Public repository: https://github.com/kreitzz/rl-atm-vega-pairs
-
-The committed \path{reports/strategy_economics/data} snapshots and manifest reproduce the attribution, figures and management table without raw option chains. The renderer verifies snapshot hashes, cohort identities, aligned account dates and saved performance arithmetic. The original management simulator and model-fitting pipeline are not included in this focused publication snapshot; publication reproduction is not an independent regeneration of those experiments.
+Public snapshots support reproduction of the attribution and associated figures from saved derived data, without raw option chains. This verifies archived results rather than independently refitting the models or regenerating all trading experiments. Source locations, verification details and reproduction guidance are provided in the paper's repository README.
 \FloatBarrier

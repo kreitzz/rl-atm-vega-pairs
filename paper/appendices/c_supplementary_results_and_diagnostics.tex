@@ -7,7 +7,7 @@ The tables and diagnostics below supplement the main policy comparisons. Reporti
 \caption{Annualized excess Sharpe by calendar year; 2025 ends in August.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=0.68359\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.09375\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-\textbf{Year} & \textbf{Put bandit} & \textbf{Straddle bandit} & \textbf{Q: \(\lambda\) = .20} & \textbf{Q: \(\lambda\) = 1}\\\midrule
+\textbf{Year} & \textbf{Put sizing} & \textbf{Straddle sizing} & \textbf{Q: \(\lambda\) = .20} & \textbf{Q: \(\lambda\) = 1}\\\midrule
 2018 & 0.522 & 0.148 & 0.160 & 0.160\\
 2019 & -0.542 & 1.459 & 0.112 & -0.237\\
 2020 & 1.555 & 0.161 & 1.617 & 1.028\\
@@ -29,20 +29,17 @@ All figures are annualized excess Sharpe; 2025 ends on 29 August. The sleeves re
 Fixed 50\% & 0.541 & 0.703 & 1.116 & 1.349\\
 Fixed 75\% & 0.606 & 0.667 & 2.118 & 1.897\\
 Fixed 100\% & 0.618 & 1.354 & 1.194 & 1.633\\
-Bandit & 0.671 & 1.491 & 1.726 & 2.152\\
+Learned sizing & 0.671 & 1.491 & 1.726 & 2.152\\
 \bottomrule\end{tabularx}\end{table}
 
 This table holds Q's feature definitions, discount, training window and action menu fixed while refitting separately on each entry family. Values are 2022--2025 Sharpes. The complete seven fixed capital splits are also retained; 50/50 is the primary fixed-allocation baseline, rather than a later-period optimized control.
 \FloatBarrier
 \subsection{Additional Put-Sizing Results}\label{app:additional-put-results}
 \begin{table}[H]\centering\small
-\caption{Alternative put-sizing policies on the common reporting split.}
+\caption{Alternative put-sizing models on the common reporting split. Fixed-size controls are reported in Section~\ref{sec:put-results}.}
 \setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{@{}>{\hsize=1.75781\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.78125\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.70312\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.97656\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
 \textbf{Put sizing policy} & \textbf{2018--21 S} & \textbf{2022--25 S} & \textbf{Later entries} & \textbf{Later profit}\\\midrule
-Constant 50\% & 0.437 & 1.007 & 151 & \$0.205m\\
-Constant 75\% & 0.449 & 0.944 & 104 & \$0.195m\\
-Constant 100\% & 0.478 & 1.055 & 75 & \$0.201m\\
 Tree + CEM & 0.573 & 1.263 & 110 & \$0.249m\\
 Spread-rank sizing & 0.464 & 0.815 & 121 & \$0.165m\\
 Ridge-score sizing & 0.421 & 0.890 & 94 & \$0.180m\\
@@ -50,24 +47,7 @@ Direct linear policy & 0.267 & 0.873 & 96 & \$0.171m\\
 Direct additive policy & 0.302 & 1.013 & 97 & \$0.180m\\
 \bottomrule\end{tabularx}\end{table}
 
-All policies receive the same put proposals, directions, contracts and funded admission rules. The lower four rows are follow-up comparisons rather than original selection candidates. Tree/CEM has the highest funded Sharpe in both periods among these policies. These comparisons retain the original question about entry sizing alongside the newer straddle and allocation experiments.
-
-
-\begin{table}[H]\centering\small
-\caption{Put-bandit annual account returns and excess performance.}
-\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
-\begin{tabularx}{\textwidth}{@{}>{\hsize=0.58594\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.07422\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.22070\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.17188\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=0.94727\hsize\linewidth=\hsize\raggedleft\arraybackslash}X@{}}\toprule
-\textbf{Year} & \textbf{Account return} & \textbf{Above cash (pp)} & \textbf{Excess Sharpe} & \textbf{Entries}\\\midrule
-2022 & 3.470\% & 1.673 & 2.458 & 66\\
-2023 & 5.288\% & 0.432 & 1.492 & 19\\
-2024 & 5.104\% & -0.283 & -0.907 & 11\\
-2025* & 3.207\% & 0.169 & 1.092 & 14\\
-\bottomrule\end{tabularx}\end{table}
-
-Calendar-period account returns and above-cash differences are not annualized, including partial 2025. Sharpe is annualized. In 2024 the account grows while losing relative to cash. Profit is concentrated: SNAP/UBER, GAP/TJX and AMD/MU contribute 66.9\% of later net pair trading profit, and 2022 supplies 83.1\%. These figures exclude shared financing. They describe where gains occurred, not a rule for selecting those names retrospectively. Section~\ref{app:annual-results} reports the annual Sharpe ratios.
-
-
-The put account's later annualized total account return is 4.667\%, versus 0.530\% growth relative to cash. Average reserve is 2.44\% and peak reserve 15.77\%. Its cash-relative drawdown is 0.495\%, compared with 0.646\% at full size. These figures retain the original distinction between a profitable trading signal, account funding and capital deployment.
+All five policies receive the same put proposals, directions, contracts and funded admission rules. The four alternatives to tree/CEM are follow-up comparisons, not original selection candidates. Tree/CEM has the highest funded Sharpe in both periods among these policies; this researched comparison does not establish superiority on an untouched test.
 \FloatBarrier
 \subsection{Allocation Timing Diagnostics}\label{app:timing}
 \begin{table}[H]\centering\small
@@ -80,36 +60,11 @@ One-period learner, \(\gamma\) = 0 & 1.053 & 1.645 & \$1.184m\\
 Sequential Q, \(\gamma\) = 0.99 & 1.215 & 1.726 & \$1.306m\\
 \bottomrule\end{tabularx}\end{table}
 
-Centering VIX and straddle IV-versus-RV richness changes 13.6\% and 12.6\% of later actions. The mean-weight control uses Q's realized average target retrospectively. 49 nonzero circular rotations preserve allocation counts and most serial structure, then recompute wealth and resizing costs. None reaches actual later Sharpe; three reach or exceed actual validation Sharpe, and median later Sharpe is 0.744. These are descriptive information-use and timing diagnostics, without causal feature attribution or research-selection adjustment.
+The mean-weight control uses Q's realized average target retrospectively. 49 nonzero circular rotations preserve allocation counts and most serial structure, then recompute wealth and resizing costs. None reaches actual later Sharpe; three reach or exceed actual validation Sharpe, and median later Sharpe is 0.744. These are descriptive information-use and timing diagnostics, without causal feature attribution or research-selection adjustment.
 
 \FloatBarrier
 \subsection{Reporting Boundaries and Account Construction}\label{app:account-boundaries}
-At the 2021 close, the learned put account has \$10.568 million equity and four open trades; full sizing has \$10.581 million and three. Cash benchmark wealth is \$10.510 million. Performance curves subtract each policy's opening dollar excess wealth; they do not reset accounts or liquidate inventory at the reporting split.
+Reporting periods retain the accounts' existing capital and open positions: accounts are neither reset nor liquidated at the 2021 split. Performance curves subtract each policy's excess dollar wealth at the preceding close. Account growth includes cash interest; excess returns and profit above cash use the benchmark defined in Section~\ref{sec:performance-measures}.
 
 A final distinction concerns portfolio admission. The source put and straddle books each simulate whole contracts and daily stock hedges under their own funded histories. The outer allocator trades fractional claims on those net strategy indices, with additional resizing charges. Its capital weights are not premium deployment or broker margin, and reallocating indices does not rerun a common integer-contract inventory ledger.
-\subsection{Position Construction and Risk Accounting}\label{app:position-construction}\label{sec:3}
-The following example specifies the vega units, hedge signs and residual exposures of the approximately 30-day, 25-delta put-pair construction.
-
-
-\subsubsection*{Vega Matching and Delta Hedging}
-
-Vega measures the change in option value when IV rises by one percentage point---for example, from 30\% to 31\%. The table reports total position vega; each option contract represents 100 shares. These are illustrative numbers, not an observed trade.
-
-
-\begin{table}[H]\centering\small
-\caption{Illustrative put pair with matched initial vega.}
-\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.18}
-\begin{tabularx}{\textwidth}{@{}>{\hsize=0.84375\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=0.58594\hsize\linewidth=\hsize\raggedleft\arraybackslash}X>{\hsize=1.21094\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.35938\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
-\textbf{Position} & \textbf{Contracts} & \textbf{Total vega per IV point} & \textbf{Initial stock hedge}\\\midrule
-Buy A puts & +100 & +\$450 & Buy 2,500 shares\\
-Sell B puts & -150 & -\$450 & Short 3,750 shares\\
-\bottomrule\end{tabularx}\end{table}
-
-Each A contract has \$4.50 of vega and each B contract \$3.00. Buying 100 A contracts and selling 150 B contracts therefore balances +\$450 against -\$450. An equal one-point IV increase approximately cancels at entry. Both puts initially have delta -0.25 per share: the long puts require buying stock, while the short puts require selling it. Equal option counts would generally fail to balance vega.
-
-
-If A's IV instead rises by two points while B's rises by one, the initial vega approximation gives a \$900 gain on A and a \$450 loss on B: a \$450 net gain before other effects. This is a local approximation to changes in option marks, not a formula for profit earned by holding to expiry. We match vega at entry and adjust stock delta hedges daily; we do not continuously restore vega neutrality.
-
-
-With vega \(V\) and IV changes in matching volatility-point units, the local delta-hedged expansion is \(\Delta P_{\rm hedged}\approx\frac{1}{2}\Gamma(\Delta S)^2+\Theta\Delta t+V\Delta IV\).
 \FloatBarrier

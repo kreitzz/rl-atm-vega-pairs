@@ -1,24 +1,49 @@
 \section{Capital Allocation with Fitted Q-Learning}\label{sec:allocation}\label{sec:14}
 
-The fitted Q policy allocates one \$10 million budget across the funded put-pair and straddle indices. The entry policies in Sections~\ref{sec:11} and~\ref{sec:straddle-sizing} construct these source portfolios independently: Q changes their capital weights rather than the tree, CEM size map or straddle ridge score. The allocation model is a separate linear-in-parameters value function fitted through Bellman regression.
+\subsection{Allocation Framework and Execution}
 
-\subsection{State, Actions, and Execution}
+The put-pair portfolio offsets initial vega across names, whereas the straddle portfolio retains directional volatility exposure. Capital allocation determines the portfolio-level mix of these risks; entry sizing determines commitments within each strategy.
+
+The fitted Q policy allocates one \$10 million budget across the funded put-pair and straddle indices. The entry policies in Sections~\ref{sec:11}--\ref{sec:put-cem} and~\ref{sec:straddle-sizing}--\ref{sec:straddle-size-map} construct these source portfolios independently: Q changes their capital weights rather than the tree, CEM size map or straddle ridge score. The allocation model is a separate linear-in-parameters value function fitted through Bellman regression.
 
 The seven put/straddle capital targets are 100/0, 90/10, 75/25, 50/50, 25/75, 10/90 and 0/100, without outer leverage or a cash action. Weekly decisions use prior-close information and execute at the next close: the first session retains existing holdings, followed by resizing and weight drift until the next decision.
 
-Nine state inputs describe four economic opportunities---put-spread rank strength, the put implied-versus-realized variance gap, straddle IV-versus-RV richness and completed straddle premium---plus relative strategy volatility, strategy-return correlation, VIX, relative recent Sharpe and previous straddle weight. Previous holdings matter because allocation changes incur costs. Actions are fractional claims on funded strategy indices rather than a shared integer-contract order book. Source returns already include underlying trading costs; resizing adds source-based option and hedge charges.
+\subsection{State and Action Representation}
 
-\subsection{Reward Specification}
+The state contains nine inputs, defined in Table~\ref{tab:allocation-state}. The first four describe volatility opportunities; the next four describe source-portfolio risk and recent performance. The final input is the drifted straddle allocation before the next decision, which matters because allocation changes incur costs. Actions are fractional claims on funded strategy indices rather than a shared integer-contract order book. Source returns already include underlying trading costs; resizing adds source-based option and hedge charges.
 
-For week \(w\), the reward sums normalized daily excess returns with a quadratic fluctuation penalty:
+All inputs use information available at the close immediately preceding a weekly decision. Table~\ref{tab:allocation-state} describes their construction; the shared numerical conventions below preserve the exact calculations.
+
+\begin{table}[H]\centering\small
+\caption{The nine allocation-state inputs. All inputs are dimensionless and use information available through the prior close.}\label{tab:allocation-state}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=.60\hsize\linewidth=\hsize\raggedright\arraybackslash}X>{\hsize=1.40\hsize\linewidth=\hsize\raggedright\arraybackslash}X@{}}\toprule
+\textbf{State input} & \textbf{Calculation}\\\midrule
+Put-pair spread-rank strength & Average \(2|q-0.5|\) across pair proposals, where \(q\) is each pair's selected-put IV-spread percentile over 252 sessions, requiring 63 observations.\\[5pt]
+Put-pair relative variance gap & Average the direction-adjusted, normalized difference between the two legs' implied-minus-realized variance gaps. The equation below defines each pair's contribution.\\[5pt]
+Straddle IV--RV richness & Subtract trailing 21-session RV from ATM-call IV and divide by that IV. Average across straddle proposals, then smooth over 21 sessions.\\[5pt]
+Completed straddle volatility premium & Negate the completed RV--IV memory defined in Section~\ref{sec:5} and divide by current ATM-call IV. Average across straddle proposals, then smooth over 21 sessions. This is a volatility signal, not cash premium received or trading profit.\\[5pt]
+Relative strategy volatility & Natural log of straddle volatility divided by put-pair volatility, using the funded indices' trailing daily excess returns.\\[5pt]
+Strategy-return correlation & Trailing Pearson correlation between the two funded indices' daily excess returns.\\[5pt]
+VIX level & Latest available closing VIX level divided by 20.\\[5pt]
+Relative recent Sharpe & Straddle Sharpe minus put-pair Sharpe over the same trailing window, capped between \(-5\) and \(5\).\\[5pt]
+Previous straddle allocation & The straddle's portfolio weight after returns have caused it to drift from the previous target. Start at 50/50; subsequently multiply each previous target weight by its index's cumulative gross return since execution, then divide by their combined value.\\
+\bottomrule\end{tabularx}
+\end{table}
+
+\paragraph{Aggregation and lookbacks}
+Proposal averages are equally weighted. On dates without new proposals, carry forward the most recent cross-sectional average. For the two straddle opportunity inputs, apply the 21-session moving average after this carry-forward step, requiring at least one observation. For their denominators, floor ATM-call IV at 0.01 in decimal units. Straddle trailing RV is the square root of 252 times the mean of 21 squared adjusted-stock log returns. The completed RV--IV memory uses a 365-calendar-day window and requires 126 completed observations.
+
+For the put-pair variance-gap input, each proposal contributes
 \begin{equation*}
-R_w(\lambda)=\sum_{d\in w}(z_d-\lambda z_d^2),\qquad
-z_d=e_d/\widehat{\sigma}_{\mathrm{ref}}.
+d\,\frac{(I_A^2-v_A)-(I_B^2-v_B)}{[(I_A+I_B)/2]^2}.
 \end{equation*}
-Here \(e_d\) is the allocated portfolio's daily excess return. Reference volatility is estimated from the training window's fixed-50/50 excess returns. The parameter \(\lambda\) penalizes the squared normalized return; \(\lambda=0\) maximizes profit without an explicit fluctuation penalty. This reward does not maximize Sharpe. The discount \(\gamma=0.99\) weights continuation value and remains fixed across risk preferences.
+Here \(I_A\) and \(I_B\) are the selected-put IVs, and \(v_A\) and \(v_B\) are annualized stock variances: 252 times the trailing 20-session mean of squared simple returns, requiring ten observations. Direction \(d=+1\) means buy A and sell B; \(d=-1\) reverses the position. An unavailable proposal-level variance gap is set to zero before averaging. This normalized, relative gap is not an absolute variance-risk-premium estimate.
 
-\subsection{Q-Function and Bellman Regression}
+\paragraph{Risk inputs and numerical conventions}
+Strategy volatility, correlation and Sharpe use up to 63 daily excess-return observations, requiring at least 21. Volatility is the sample standard deviation. Annualized Sharpe is the mean daily excess return divided by its standard deviation, multiplied by the square root of 252. In the volatility ratio, floor each standard deviation at \(10^{-8}\). Set an unavailable strategy Sharpe or correlation to zero before forming the relative-Sharpe input; set other unavailable or nonfinite state values to zero. Recompute risk and Sharpe inputs for each entry-policy family, while retaining the same economic opportunity definitions. The previous-allocation input uses drift through the prior close; execution remains at the next close.
 
+\Needspace{7\baselineskip}
 Let \(a\) denote the target straddle weight and let \(x(s)\) contain an intercept and the nine standardized state inputs. The value function is
 \begin{equation*}
 Q_\theta(s,a)=\beta_0^\top x(s)+a\,\beta_1^\top x(s)
@@ -27,17 +52,25 @@ a\in\{0,.10,.25,.50,.75,.90,1\}.
 \end{equation*}
 Each coefficient block has ten parameters, giving 30 in total. The model is linear in its fitted coefficients and quadratic in the allocation action; the state-action interactions allow the preferred weight to change with market conditions. Training-window means and standard deviations standardize the state, with a scale floor of 0.1 and clipping within \(\pm5\).
 
-Fitted Q iteration repeatedly updates the regression target rather than fitting realized returns once \cite{ernst2005}. For completed transition \((s_w,a_w,R_w,s_{w+1})\), iteration \(k\) uses
+\subsection{Reward and Fitted Q-Learning}
+
+The weekly reward balances return above cash against the size of daily fluctuations. First, divide each daily excess return by a common reference volatility, estimated from the training window's fixed-50/50 portfolio. This gives all candidate allocations the same reward scale. Then subtract a penalty proportional to the squared normalized return and sum over the week:
+\begin{equation*}
+R_w(\lambda)=\sum_{d\in w}(z_d-\lambda z_d^2),\qquad
+z_d=e_d/\widehat{\sigma}_{\mathrm{ref}}.
+\end{equation*}
+Here \(e_d\) is the allocated portfolio's daily excess return, including source trading and outer resizing costs. The parameter \(\lambda\) controls the fluctuation penalty: larger values make large daily moves more costly. Because the return is squared, the penalty applies to both gains and losses, not only downside returns. At \(\lambda=0\), the objective is expected discounted cumulative normalized excess returns without an explicit fluctuation penalty. It does not directly maximize compounded dollar profit or Sharpe.
+
+The learner first fits the 30-parameter Q-function to immediate weekly rewards by ridge regression. It then repeatedly updates the regression target to include the best estimated future value from the following state, using fitted Q iteration \cite{ernst2005}. For a completed transition \((s_w,a_w,R_w,s_{w+1})\), each subsequent pass uses
 \begin{equation*}
 y_w^{(k)}=R_w(\lambda)+\gamma\max_{a'\in\mathcal A}
 Q_{\theta^{(k-1)}}(s_{w+1},a'),
 \end{equation*}
-then refits the same 30-parameter basis to these targets by ridge regression. Thus the regressor estimates immediate reward plus continuation value. The matched \(\gamma=0\) control retains the regression architecture but removes the continuation term.
+The model refits the same regression basis to these updated targets. The first term rewards the current week's allocation; the second accounts for continuation value, including the effect of inherited holdings on future resizing costs. The discount \(\gamma=0.99\) weights that future value and remains fixed across risk preferences. The matched \(\gamma=0\) control uses the same regression architecture but removes the continuation term.
 
-\subsection{Fitting Schedule and Experimental Controls}
+Each monthly fit uses the preceding 104 completed weeks, requiring at least 52. For each historical market week, we replay the same source-strategy returns under seven inherited allocations and seven new capital targets, producing 49 counterfactual paths that account for weight drift and resizing costs. Each week receives total regression weight one; these paths are not independent market observations. Ridge regularization uses coefficient 10, except for the global intercept, which receives a penalty of 0.01. There are 200 regression passes in total: one fit to immediate rewards followed by 199 continuation-value updates. Section~\ref{app:q-convergence} reports the convergence checks.
 
-Monthly fits use the preceding 104 completed weeks, with at least 52. Seven prior allocations crossed with seven actions supply counterfactual paths for each market week; regression weights give each week unit total mass. These paths do not create independent market observations. We use ridge coefficient 10, except for a global-intercept penalty of 0.01, and 200 Bellman updates. Section~\ref{app:q-convergence} reports the convergence checks.
-
-Q uses 50/50 before enough training weeks exist; each fixed control starts at its own target. In the four-way comparison, Q is independently refitted for each entry-policy family. Source returns, strategy-dependent risk features, rewards and resizing charges are rebuilt for that family, while economic signal definitions remain shared. This downstream refitting does not jointly retrain either source sizing policy.
+Between monthly fits, the policy scores all seven capital splits at each weekly decision and selects the highest estimated Q-value. It uses 50/50 before enough training weeks exist; each fixed control starts at its own target. In the four-way comparison, Q is independently refitted for each entry-policy family. Source returns, strategy-dependent risk features, rewards and resizing charges are rebuilt for that family, while economic signal definitions remain shared. This downstream refitting does not jointly retrain either source sizing policy.
 
 \FloatBarrier
+\input{sections/empirical_results}

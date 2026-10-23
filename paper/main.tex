@@ -11,6 +11,7 @@
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{figures/}}
 \linespread{1.04}
+\setcounter{secnumdepth}{3}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.3em plus 0.05em minus 0.02em}
 \setlength{\emergencystretch}{2em}
@@ -39,7 +40,7 @@
 \makebox[\textwidth][c]{{\fontsize{19}{23}\selectfont\bfseries Learning to Allocate Risk in Options Markets}}
 \vspace{0.6em}
 
-{\fontsize{11}{14}\selectfont Contextual Bandits for Trade Sizing and Q-Learning for Capital Allocation}\par
+{\fontsize{11}{14}\selectfont Contextual Position Sizing and Q-Learning for Capital Allocation}\par
 \vspace{1em}
 Adam Kreitzman and Soo Xin Yang\par
 {\small 20 October 2026}
@@ -48,8 +49,9 @@ Adam Kreitzman and Soo Xin Yang\par
 \begin{minipage}{0.88\textwidth}
 \small
 \begin{center}\bfseries Abstract\end{center}
+\setcounter{secnumdepth}{3}
 \setlength{\parindent}{0pt}\noindent
-We study reinforcement learning for two exposure decisions in equity options: sizing individual trades with contextual bandits and allocating capital between strategies with fitted Q-learning. Actual-contract simulations combine approximately 30-day, 25-delta put pairs with short ATM straddles selected by persistent realized-minus-implied volatility. During January 2022--August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. Combining both learners raises Sharpe from 1.088 to 1.726 in a four-way comparison. With bandit entries, Q also exceeds rolling mean--variance allocation: 1.726 versus 1.519. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results.
+We study two exposure decisions in equity options: contextual position sizing within strategies and capital allocation between strategies with fitted Q-learning. Contract-level simulations separately construct portfolios of approximately 30-day, 25-delta put pairs and short ATM straddles selected by persistent realized-minus-implied volatility. A separate allocator reallocates capital between fractional claims on the funded strategy return indices, rather than a shared contract inventory. During January 2022--August 2025, learned entry sizing raises annualized excess Sharpe from 1.055 to 1.263 for put pairs and from 0.990 to 1.041 for straddles, relative to full sizing. At the illustrative risk preference \(\lambda=0.20\), combining both learners raises Sharpe from 1.088 to 1.726 in a four-way comparison. The original validation-selected Q policy instead achieves later Sharpe 0.282, so the illustrative gain does not establish successful validation-based policy selection. With learned-size entries, Q also exceeds rolling mean--variance allocation: 1.726 versus 1.519. Interpretation connects entry decisions to completed profitability and volatility, and strategy allocation to the changing reward for straddle risk. Statistical uncertainty and assumed execution quality qualify these historical results.
 \end{minipage}
 \end{center}
 % Introduction and related work are inline; the remaining source is organized by strategy.
@@ -58,16 +60,16 @@ Finding a useful trading signal leaves an investor with a second problem: how mu
 
 We make the question concrete with two equity-options strategies. The first buys relatively cheap puts and sells relatively expensive puts on related names, using approximately 30-day, 25-delta contracts. It matches vega at entry and adjusts stock delta hedges daily, while retaining differences in realized paths, jumps and company-specific events. The second sells approximately 30-day ATM straddles on names whose completed historical outcomes show persistently low realized volatility relative to entry implied volatility. It also hedges delta daily, but retains net short-gamma and short-vega exposure. These are different sources of option risk: relative pricing across names and premium income against future movement.
 
-Our central learning question is how to allocate capital between the resulting portfolios. A fitted Q-learning policy chooses weekly capital targets using current opportunity measures, completed strategy performance, risk conditions and previous holdings. Entry sizing supplies a supporting decision within each strategy: contextual bandits choose 50\%, 75\% or 100\% of a proposed trade's full size. The economic rules determine proposals, directions and contracts; the entry policies alter commitments and subsequent admission capacity, while the allocation policy changes the capital assigned to each funded strategy index.
+Our central learning question is how to allocate capital between the resulting portfolios. A fitted Q-learning policy chooses weekly capital targets using current opportunity measures, completed strategy performance, risk conditions and previous holdings. Entry sizing supplies a supporting decision within each strategy: contextual sizing policies choose 50\%, 75\% or 100\% of a proposed trade's full size. These sizing policies are fitted in batches to completed outcomes and optimize aggregate profit paths; they do not implement an online exploration-and-reward update. The economic rules determine proposals, directions and contracts; the entry policies alter commitments and subsequent admission capacity, while the allocation policy changes the capital assigned to each funded strategy index.
 
 \begin{figure}[!htbp]\centering
 \includegraphics[width=\linewidth]{learning_pipeline.pdf}
 \caption{Two exposure decisions. Entry policies size proposals within each signal; a separately fitted Q policy chooses the capital split between funded strategy indices.}\label{fig:learning-pipeline}
 \end{figure}
 
-We evaluate these decisions through actual-contract simulations with option marks, daily stock hedges, financing and explicit trading charges. A four-way comparison evaluates full-size entries with fixed 50/50 allocation, bandit-sized entries with fixed 50/50 allocation, full-size entries with Q allocation, and bandit-sized entries with Q allocation. All four receive the same signal proposals, and Q is independently refitted for each entry-policy family. During January 2022--August 2025, annualized excess Sharpe rises from 1.088 with full-size entries and fixed 50/50 allocation to 1.726 with both learners. With bandit entries, Q also exceeds rolling mean--variance allocation, 1.726 versus 1.519. Timing and one-period controls investigate whether the allocation result reflects average exposure, conditional information or continuation value; they indicate a larger role for conditional allocation and a smaller incremental sequential benefit. These comparisons describe a profit--risk tradeoff, with no single policy dominating every entry size, risk preference or performance measure.
+We evaluate these decisions through actual-contract simulations with option marks, daily stock hedges, financing and explicit trading charges. A four-way comparison evaluates full-size entries with fixed 50/50 allocation, learned-size entries with fixed 50/50 allocation, full-size entries with Q allocation, and learned-size entries with Q allocation. All four receive the same signal proposals, and Q is independently refitted for each entry-policy family. During January 2022--August 2025, annualized excess Sharpe rises from 1.088 with full-size entries and fixed 50/50 allocation to 1.726 with both learners at the illustrative risk preference \(\lambda=0.20\). The original validation-selected policy has later Sharpe 0.282; the headline comparison illustrates allocation behavior rather than successful transfer of the validation selection. With learned-size entries, Q also exceeds rolling mean--variance allocation, 1.726 versus 1.519. Timing and one-period controls investigate whether the allocation result reflects average exposure, conditional information or continuation value; they indicate a larger role for conditional allocation and a smaller incremental sequential benefit. These comparisons describe a profit--risk tradeoff, with no single policy dominating every entry size, risk preference or performance measure.
 
-Both 2018--2021 validation and January 2022--August 2025 evaluation remain visible throughout. Individual fits use strictly completed past outcomes, but strategy development also involved inspection of later-period results. The evaluation therefore describes researched historical policies rather than an independently frozen test of the complete research process. Statistical uncertainty and assumed execution quality qualify the performance gains. The outer allocator also trades fractional claims on separately funded strategy indices; it does not rebuild a shared whole-contract inventory. Our contribution is a controlled examination of adaptive exposure allocation under these assumptions, motivating integrated implementation and prospective evaluation.
+Both 2018--2021 validation and January 2022--August 2025 evaluation remain visible throughout. Individual fits use strictly completed past outcomes; whether and how later-period results informed development remains under verification in Section~\ref{app:research-chronology}. The evaluation is treated as researched historical evidence rather than a confirmed independently frozen test of the complete research process. Statistical uncertainty and assumed execution quality qualify the performance gains. The outer allocator also trades fractional claims on separately funded strategy indices; it does not rebuild a shared whole-contract inventory. Our contribution is a controlled examination of adaptive exposure allocation under these assumptions, motivating integrated implementation and prospective evaluation.
 \section{Related Work}\label{sec:2}
 Ning and Lee \cite{ning2024} combine equity-spread construction with tabular Q-learning for entry and exit. They select hedge coefficients by minimizing empirical mean-reversion time and train the trading policy on simulated Ornstein--Uhlenbeck spreads. Evaluation on ten US equity pairs, formed in 2022 and traded in 2023, yields higher reported daily Sharpe ratios than their distance-method and Ornstein--Uhlenbeck benchmarks.
 
@@ -81,7 +83,6 @@ Halperin \cite{halperin2017qlbs} introduces QLBS, a discrete-time framework for 
 \input{sections/put_pair_strategy}
 \input{sections/atm_straddle_strategy}
 \input{sections/capital_allocation}
-\input{sections/empirical_results}
 \input{sections/20_interpretation_limitations_and_conclusion}
 
 \bibliographystyle{unsrtnat}
@@ -95,6 +96,5 @@ Halperin \cite{halperin2017qlbs} introduces QLBS, a discrete-time framework for 
 \input{appendices/b_model_estimation_and_selection}
 \input{appendices/c_supplementary_results_and_diagnostics}
 \input{appendices/d_straddle_attribution}
-\input{appendices/e_exploratory_inventory_management}
 \endgroup
 \end{document}
