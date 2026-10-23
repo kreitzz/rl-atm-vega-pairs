@@ -2,9 +2,9 @@
   "sections": 7,
   "appendices": 4,
   "scope": "Editorial restructuring; no new simulations or model fitting",
-  "main_tex_sha256": "072270b27f5da7dfbbf6be2ec2bdfe232de069a267243269a4d963f619857ffb",
+  "main_tex_sha256": "fff1dff11d7e7045f84c0a31717d35fc016ba93cde23520c5571cde20c6d0e99",
   "source_sha256": {
-    "main.tex": "072270b27f5da7dfbbf6be2ec2bdfe232de069a267243269a4d963f619857ffb",
+    "main.tex": "fff1dff11d7e7045f84c0a31717d35fc016ba93cde23520c5571cde20c6d0e99",
     "sections/data_and_backtesting.tex": "032d6c7da028d2ac08d551f0e3d0e0558ca943801901f934c7b2ee47b3a4fb8c",
     "sections/put_pair_strategy.tex": "4dd8ea9eecba22ec9276ddedeef17af19e0692d2c3cae024ea46c932e6de17c0",
     "sections/atm_straddle_strategy.tex": "03872bd9cf5a30cf5c209bab3b6fe94298918c7a3168eeb185a2e806be51b9bb",
