@@ -2,7 +2,7 @@
 
 \subsection{Allocation Framework and Execution}
 
-The put-pair portfolio offsets initial vega across names, whereas the straddle portfolio retains directional volatility exposure. Capital allocation determines the portfolio-level mix of these risks; entry sizing determines commitments within each strategy.
+The put-pair portfolio offsets initial vega across names, whereas the straddle portfolio retains directional volatility exposure. Capital allocation determines the portfolio-level mix of these risks; entry sizing determines commitments within each strategy. Learning methods have been applied to portfolio allocation with transaction costs \cite{jiang2017deep} and to dynamic allocation under risk aversion \cite{chen2025dynamic,duarte2024machine}.
 
 The fitted Q policy allocates one \$10 million budget across the funded put-pair and straddle indices. The entry policies in Sections~\ref{sec:11}--\ref{sec:put-cem} and~\ref{sec:straddle-sizing}--\ref{sec:straddle-size-map} construct these source portfolios independently: Q changes their capital weights rather than the tree, CEM size map or straddle ridge score. The allocation model is a separate linear-in-parameters value function fitted through Bellman regression.
 
@@ -38,7 +38,7 @@ For the put-pair variance-gap input, each proposal contributes
 \begin{equation*}
 d\,\frac{(I_A^2-v_A)-(I_B^2-v_B)}{[(I_A+I_B)/2]^2}.
 \end{equation*}
-Here \(I_A\) and \(I_B\) are the selected-put IVs, and \(v_A\) and \(v_B\) are annualized stock variances: 252 times the trailing 20-session mean of squared simple returns, requiring ten observations. Direction \(d=+1\) means buy A and sell B; \(d=-1\) reverses the position. An unavailable proposal-level variance gap is set to zero before averaging. This normalized, relative gap is not an absolute variance-risk-premium estimate.
+Here \(I_A\) and \(I_B\) are the selected-put IVs, and \(v_A\) and \(v_B\) are annualized stock variances: 252 times the trailing 20-session mean of squared simple returns, requiring ten observations. Direction \(d=+1\) means buy A and sell B; \(d=-1\) reverses the position. An unavailable proposal-level variance gap is set to zero before averaging. This normalized, relative gap is not an absolute variance-risk-premium estimate \cite{carr2009variance}.
 
 \paragraph{Risk inputs and numerical conventions}
 Strategy volatility, correlation and Sharpe use up to 63 daily excess-return observations, requiring at least 21. Volatility is the sample standard deviation. Annualized Sharpe is the mean daily excess return divided by its standard deviation, multiplied by the square root of 252. In the volatility ratio, floor each standard deviation at \(10^{-8}\). Set an unavailable strategy Sharpe or correlation to zero before forming the relative-Sharpe input; set other unavailable or nonfinite state values to zero. Recompute risk and Sharpe inputs for each entry-policy family, while retaining the same economic opportunity definitions. The previous-allocation input uses drift through the prior close; execution remains at the next close.

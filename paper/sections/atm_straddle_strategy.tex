@@ -1,6 +1,6 @@
 \section{ATM Straddle Strategy}\label{sec:5}
 
-The straddle strategy sells approximately 30-day ATM straddles on underlyings with the lowest completed realized-minus-implied volatility (RV--IV) memories. The signal follows the volatility-premium motivation of Goyal and Saretto \cite{goyal2009}; our experiments evaluate entry sizing and capital allocation around this fixed trading rule.
+The straddle strategy sells approximately 30-day ATM straddles on underlyings with the lowest completed realized-minus-implied volatility (RV--IV) memories. The signal follows the volatility-premium motivation of Goyal and Saretto \cite{goyal2009}; our experiments evaluate entry sizing and capital allocation around this fixed trading rule. Changes in option-implied volatility also carry information about underlying-firm risk \cite{cao2023impliedvol}.
 
 
 \subsection{Trading Rules and Position Construction}
@@ -14,7 +14,7 @@ Selection uses the cross-sectional bottom decile of eligible completed-outcome m
 
 
 
-Each position sells an ATM call and put with the same underlying, strike and expiry, with daily stock-delta rebalancing. Full size targets \$450 combined call-and-put vega per IV point. The portfolio retains net short-gamma and short-vega exposure, including jump and volatility-revaluation risk.
+Each position sells an ATM call and put with the same underlying, strike and expiry, with daily stock-delta rebalancing. Full size targets \$450 combined call-and-put vega per IV point. The portfolio retains net short-gamma and short-vega exposure, including jump and volatility-revaluation risk. Scenario-based alternatives instead derive straddle hedge ratios from simulated joint surface-and-underlying paths \cite{vuletic2025volgan}.
 
 
 
@@ -72,7 +72,7 @@ Later entry overlap with the fixed-full portfolio comprises 897 entries taken by
 
 Among quote-available completed straddle labels, full-size profit averages \$1,631 for proposals assigned full size and \$16 for those assigned half size. This deliberately sampled subset also reflects admission by the fixed-half benchmark and finite-label availability; it is not a representative sample of all proposals. Three within-date size shuffles yield later Sharpes 0.834, 0.928 and 1.044, versus 1.041 learned. One shuffle exceeds the learned policy, so the funded results and feature-usage diagnostics alone do not establish predictive sizing.
 
-Completed-cohort attribution is consistent with collecting a premium for movement risk. For both more persistent and more reversing price paths, aggregate option-plus-hedge profit is positive when entry straddle IV exceeds subsequent RV and negative when it does not. These groups use realized outcomes and are not available entry screens. There are 220 losing cohorts even when entry IV exceeds subsequent RV. Option and stock-hedge profits must be read together; positive hedge profit is not an independent trading edge. Appendix~\ref{app:h} retains the full-history attribution, IV--RV definitions and accounting reconciliation.
+Completed-cohort attribution is consistent with collecting a premium for movement risk. Negative average delta-hedged option returns \cite{bakshi2003delta} and the gap between implied and realized variance \cite{carr2009variance,bollerslev2009expected} document this premium directly. For both more persistent and more reversing price paths, aggregate option-plus-hedge profit is positive when entry straddle IV exceeds subsequent RV and negative when it does not. These groups use realized outcomes and are not available entry screens. There are 220 losing cohorts even when entry IV exceeds subsequent RV. Option and stock-hedge profits must be read together; positive hedge profit is not an independent trading edge. Appendix~\ref{app:h} retains the full-history attribution, IV--RV definitions and accounting reconciliation.
 
 Joint sizing-and-allocation results follow in Section~\ref{sec:results}.
 \FloatBarrier
