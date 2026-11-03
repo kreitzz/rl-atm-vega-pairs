@@ -2,7 +2,7 @@
 
 \subsection{Allocation Framework and Execution}
 
-The put-pair portfolio offsets initial vega across names, whereas the straddle portfolio retains directional volatility exposure. Capital allocation determines the portfolio-level mix of these risks; entry sizing determines commitments within each strategy. Learning methods have been applied to portfolio allocation with transaction costs \cite{jiang2017deep} and to dynamic allocation under risk aversion \cite{chen2025dynamic,duarte2024machine}.
+The put-pair portfolio offsets initial vega across names, whereas the straddle portfolio retains directional volatility exposure. Capital allocation determines the portfolio-level mix of these risks; entry sizing determines commitments within each strategy. Learning methods have been applied to portfolio allocation with transaction costs \cite{jiang2017deep}.
 
 The fitted Q policy allocates one \$10 million budget across the funded put-pair and straddle indices. The entry policies in Sections~\ref{sec:11}--\ref{sec:put-cem} and~\ref{sec:straddle-sizing}--\ref{sec:straddle-size-map} construct these source portfolios independently: Q changes their capital weights rather than the tree, CEM size map or straddle ridge score. The allocation model is a separate linear-in-parameters value function fitted through Bellman regression.
 
