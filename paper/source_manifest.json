@@ -1,54 +1,255 @@
 {
-  "sections": 7,
-  "appendices": 4,
-  "scope": "Editorial restructuring; no new simulations or model fitting",
-  "main_tex_sha256": "fff1dff11d7e7045f84c0a31717d35fc016ba93cde23520c5571cde20c6d0e99",
-  "source_sha256": {
-    "main.tex": "fff1dff11d7e7045f84c0a31717d35fc016ba93cde23520c5571cde20c6d0e99",
-    "sections/data_and_backtesting.tex": "032d6c7da028d2ac08d551f0e3d0e0558ca943801901f934c7b2ee47b3a4fb8c",
-    "sections/put_pair_strategy.tex": "4dd8ea9eecba22ec9276ddedeef17af19e0692d2c3cae024ea46c932e6de17c0",
-    "sections/atm_straddle_strategy.tex": "03872bd9cf5a30cf5c209bab3b6fe94298918c7a3168eeb185a2e806be51b9bb",
-    "sections/capital_allocation.tex": "7696d26aacfa09beb095de1a470258923f8da568621ed5dcd0b32c0b85856388",
-    "sections/empirical_results.tex": "18ddaa0c4f76c0f661d0510326422e65d369559d0ce2b4e9540f8584cb985855",
-    "sections/20_interpretation_limitations_and_conclusion.tex": "4cf3226ecc384a5ad317e5fe9e492dccb01533ba00c12cc997f89813d8700a5c",
-    "appendices/a_contracts_features_and_account_checks.tex": "ba9799d3302896632fdf7753f6b34f71b9f416d9da415db10d6cf80a431db1aa",
-    "appendices/b_model_estimation_and_selection.tex": "4b6edefb0ef4a8d851f81c16b91ecde920ded2e7466922919d44bbe78b6f8c0f",
-    "appendices/c_supplementary_results_and_diagnostics.tex": "425662433039a148ece8fbaac9d5031b216c44c8804ffe31f69f62132c1c118d",
-    "appendices/d_straddle_attribution.tex": "2070cf8ecf20a4b7377a6711cf19778de74de3eba2f2c9b3c4c203c1f1f219af",
-    "figures/learning_pipeline.pdf": "b53bd6a44f12fcd90601a4e20c7587c573f549c1c8ed03e76c86b7a712fa752d",
-    "figures/signal_example.pdf": "e4605b68e2a1485f47822c822058c7a898236fca219c19d3904a12b813f4c3b8",
-    "figures/entry_policy.pdf": "0fe849e926ac3a6bfc3b7cdd6fcdd3cf3422bd4f6c811c8a727c160f32c4d1b0",
-    "figures/allocation_risk.pdf": "2c1e365104d6a7c4349a92a0ac93243b087081f145b7917a0a43f03a08c7001e",
-    "figures/allocation_schedule.pdf": "257496b7a8e899ae8093337853ab17d0ada1b7d3ea0dd25a64ddcd131bbb727c",
-    "figures/conditional_risk.pdf": "0e1152dcb5e507cf0be31dc3e2a36497c4ccf6e5d9eb1d2fd0331de4261204f6",
-    "figures/straddle_bridge.pdf": "677eab97e89c1a65bbd83b7086699ff9fa2c8e8a5eedfbb677fba3f4ea33e6c9",
-    "references.bib": "4da6f4348cb5ea668f7f36e4a4ce840683fb338caeb4672ebe61694ceacc0d3b",
-    "xurl.sty": "5cf09de8dd52b5e77a12145d4987ab4df75a304174d224aa9562eed3dd141ef3",
-    "figures/put_entry_curves.pdf": "a0a7183dda4e38b4f28a8531700afc865eadcc0d9885c251033c153b9a03f635",
-    "figures/straddle_entry_curves.pdf": "0c7e1b5969284ffc3a43653c1ed678d76e3acc8af3dd320e65c19772eb3f0bc4",
-    "figures/put_entry_explanations.pdf": "3da0521d17f2e983868e9973f90c2d98edeaaf8bc8091d8cae7071a5b0374df7",
-    "figures/straddle_entry_explanations.pdf": "884862dc84f36d663dca24d61a72434a7d6b851232f610f76de364d82b9fdba1",
-    "figure_data/entry_curves.csv": "8c40252de9d5429de35c0a6cf2315e0e7ff7fb4ecfecad89e27f3d8b9effa9fe",
-    "figure_data/entry_curves_verification.json": "7cb73c5b38aea9ed874221a3b481ef0d4d029d3dc1a64f945ab3631b9589c3ad",
-    "figure_data/put_tree_usage.csv": "601386488b0b506bbfe6a4380c6793fbe82d1698ea4cc7c61bf2c9d2a1234648",
-    "figure_data/straddle_feature_importance.csv": "b97e5b2220dd9d8353d21bb7aa441fe2fdcc7161156d316e4a097cf65eaa73e6",
-    "figure_data/split_entry_figures.py": "f6c8726bca53911f2409062e491fbab1d4d0d6378ee1744590d9c13721e42f8f",
-    "figure_data/render_learning_pipeline.py": "d24bc0cefce12d2dcd52fdcb83459bb131fb749f49946039ac6765cb8be1515f"
+  "title": "From Equity Pairs to Options Relative Value",
+  "draft_date": "2026-10-06",
+  "data_end": "2025-08-29",
+  "paper_pages": 10,
+  "sources": {
+    "reports/p25_capital_sensitivity/comparison.csv": "3aabf0133886aff15f0bfeadb54da455d73168c840f614b9572003f57d914332",
+    "artifacts/contracts/p25_feature_search/models/variance_premium/2018-01-01.json": "eb6b90aeea3fe5fab38092d8100979f669345fabaa0a2c79347dafbe18cde722",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed50/daily_nav.parquet": "bcf47d1c5689fa1d3318047e4a3826e6f299f422c7844c50f6476bd21bf0fb04",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_fixed100/daily_nav.parquet": "27a7f831138277d869b2db479fcc84090b213bbc6493439ceefe183505b7e20c",
+    "artifacts/contracts/p25_capital_sensitivity/replays/10m_learned/daily_nav.parquet": "00bc8a21193f7582373ab6b6dae52de8751ede39800ae2f02fc02d0ac40febb1",
+    "reports/p25_capital_sensitivity/10m_learned_annual.csv": "8a3591a6006dc1680439fa410a95b1bb8d794482b52e60125c250f398111d15a",
+    "reports/p25_feature_search/comparison.csv": "ac4c8b236a8e8dcc8c53a3471a0d530b96d677a59019a513eefaf30917682ca0",
+    "reports/p25_variance_years/annual_pairs.csv": "c5cd7fb8797abf395f565f35e7504339ffc78ec8a6a55df8662ba2fddbc8a85c",
+    "reports/p25_capital_policy_matched/comparison.csv": "84b789f50ba693d5c88826c41dd00145b1c2691d488d3418aa377ba31af013f6",
+    "Advanced Statistical Arbitrage with Reinforcement Learning.pdf": "3ebdb4359532724ff9ed63442e2fc66e29b5896baebca3d0a14a007bf3e9e02d",
+    "slides/230ZB_volatility_spreads (1).pptx": "257317fa6a034a64f206df64ed93801ffd5f894ba6a7ee5af199b0ea73d994bf",
+    "reports/p25_maturity_matched/comparison.csv": "6efccb4cc88ea5620d0e68c015191c94b6dd0f496f0dc80e1bb3b7db83e7a136",
+    "slides/chart_data/example_amd_nvda_iv_spread_daily.csv": "4811e286d43ce8fc22ac997a291deb90184fe608e6e06d8e2930fa3708dfe88c",
+    "slides/chart_data/example_amd_nvda_proposals_and_entries.csv": "3c34366e58aca22ed829393ddd9a456a90491f23bc01de1ff22e13d3b1283b8e",
+    "reports/p25_recency/comparison.csv": "2fe179d66d0ba2a2e764e1a9908e3343d779ec9d8cf5161e8284975d14e01314",
+    "config/p25_variance_premium_candidate.json": "5ae66336de59b5e8f18cf51a0ec051d2ee53d510cfa66cd80302d2360f268b6d",
+    "reports/p25_short_management/comparison.csv": "e39a521301f5d3593c2750b3e5787fd171c3a82de2e8a521cd4283cef1f60c62",
+    "reports/long_tenor_fitted_q/comparison.csv": "5b90814206860597ebe08b112f4204654a60b185adac5f84d18c2b66d8bc00a6",
+    "reports/p25_reversion_q/comparison.csv": "d6e52f88c726a455f617e080d7d3294e5b1e6dfdbc144b249f153b50ca8676a2",
+    "reports/native_year_entry/replacement_blend/walk_forward_24M/comparison.csv": "773164835e71390d6bc34ccb641c509d0127315dcd88eb475f432517897e27a5",
+    "reports/native_year_entry/replacement_blend/walk_forward_24M_30D_180D/comparison.csv": "73312d0b6b7223cc7ec10b6619cd1d9a19fa33c4640610dc2f61c40756701bd3",
+    "slides/chart_data/sources/initial_train_walk_forward.csv": "e56002f4820cc957448ad5c084a78ab8c16a39e522321eee5a34e931135ba1aa",
+    "slides/chart_data/cumulative_performance_10m.csv": "1cf1e24a27263d63c39225a7d1d6be67ad03cdc78da8f23727aeef2e58fa0e94",
+    "reports/atm65_employee_sentiment.md": "16377e0268a9c23dfa82d834ab08c9386eeb47572454a5794740dbaec07b1b8e",
+    "reports/p25_variance_validation/research_summary.txt": "7d0ec2148db0c48c0d72b7dd5ae60b17a27770f22d2ba0b130af5975e9a04686",
+    "reports/long_tenor_search_summary/core_comparison.csv": "f0e58b96b9cc02a60a5a6f8748e4c9434668e28ff8a3c088bd82d8287251f906",
+    "reports/long_expiry_parity/findings.txt": "c9d150898cfa54f4143a3e7d637462d7ee3845c31bd4a0cdcd8372cb74a18847",
+    "reports/p25_reversion_q/findings.txt": "0def9acf9be4180dd8ef1e89fa278ca43b381669a3a7ed47103a9ca72581bb58",
+    "reports/p25_reversion_q/audit.json": "8c1b5f9c59030d1bd319caf4f46b2000a771b0abaeb66724e985b07fe133b9ae",
+    "data/p25_variance_premium_inputs.csv": "8e99c2bb448e65e38a87d1e2410c5769d829c7797b5d698e2e8b496e28167ae9",
+    "scripts/rewrite_research_report.py": "1ba094ecccd6f838dc047eb649e9483047f5ade53cb2018b6190707afebde756",
+    "scripts/build_research_publication.py": "4db0360e0ed81e2eb7893d0aa79fd924cebe3d24e7e93a592de077eeb84ddbd2",
+    "scripts/report_long_tenor_search.py": "81a058e18199ea473d5b710170b9f0ca2f3dc0e36d941d384e5a42f56248097f",
+    "reports/native_year_entry/comparison.csv": "ed1c1aa720996e6b5b86303adc5165a92becc2a2b800485305a9e21287d7b5b0",
+    "reports/p25_reversion_q/annual.csv": "534b2cda97efb858c2551fddd791f9fe348b50c076661656abfb56ba19f45b30",
+    "config/p25_submission.json": "f1f1a20ba9fab6adfc78da053292ccd4073943adfab15391ef67f6b398a32659",
+    "scripts/research_report_text.py": "296abcf12ae273538be41aeb3a89457fd4424fe4f556337ebfa99130f1a638a3",
+    "reports/year_cheap_vega/comparison.csv": "494c0bfca3de5908282204ea446768dd51415968b2ab7157ab08d822908a52f2",
+    "reports/p25_ungated_search/comparison.csv": "fde1b377bcc0808236913c1dcc084cad4b3de9ac9ea626cdb1fe5a45d9052eae",
+    "reports/p25_memory_ablation/comparison.csv": "4033bfb399eeeb0b5cd6dbeba7d49f4862f81c768ab3d704bd16d9d5cdc7c9b6",
+    "reports/p25_ungated_search/annual.csv": "166e7a0fa0cdfada2105f1cf11357c87fbfc36002ef13cb47f95ea4116bf367a",
+    "reports/p25_ungated_search/sharpe_change_intervals.csv": "589b06025d44320862a794f5736cb6791071e6a9e5b76de10b589678168675fb",
+    "reports/p25_ungated_search/findings.md": "bc5687350c7f78edcd00e055cede7809b6bdeb96c1956b1d69a724a8a273bf95",
+    "reports/p25_validation_split/annual.csv": "016c46859565e916eb3456e5b08c7b16b765d919bb95cec259d3768b69882add",
+    "reports/p25_validation_split/periods.csv": "c87e3a83a4a81ef6292a12d84f1a01b669aec4652d37677d90316d6ed6dac435",
+    "reports/p25_validation_split/validation_candidates.csv": "960cc352202f455e3cc042fc3ec07d0e22136ec091af7b376942673f43c3b747",
+    "reports/p25_validation_split/holdout_paths.csv": "bd43500aa83d04f67c00c9ba0183d5dfd876c15a03f543c8f351ca1fdf584173",
+    "config/p25_validation_2018_2021.json": "370f913f9b944e79b7b707bfea0358fc4ef8a1257d3b59dedc7d491aa656ebaf",
+    "scripts/run_p25_validation_split.py": "7b5933d40de3b1d99c7d1a5b68c32896e0521c9eebc2ae0419abe7b0cf9c683d",
+    "reports/p25_validation_split/selection.json": "1d40c0838c64fc9ab6ba1609e23352589487557d334f2181d8609bd463da0058",
+    "reports/p25_validation_split/protocol.json": "e8d607e8f7cfe78562e6aa9c7ba3fd7a7b957551386162052cae625d5a7299bd",
+    "reports/p25_validation_split/reproduction.txt": "e34934b5c35338331ee03ce25397829a90301fd1d5421032a24ef2c113d5c4d0",
+    "reports/p25_validation_split/findings.md": "088722c3d568f78662b285f9536762d1a2d295663a72935d292146db6fbdf591",
+    "reports/p25_validation_split/candidate_periods.csv": "6fa9e32ae29d5d7d3537f1c7266b93a7fc8085b3c1fc5d95d4ef1667f21e5b1f",
+    "reports/p25_validation_split/admission.csv": "d967f601a611e114e2e3f96eac4e868cf19c9ca71c8d3f0a479fd00496962390",
+    "reports/p25_validation_split/evaluation.json": "58324efa50cb9b2b1d8159898228968d4a273c870615012650ab74a1f309bd39",
+    "reports/p25_validation_split/bundle_manifest.json": "619db3752f1d507f71ad495256ddc63a0f0f2f1eab9999d0f03042059b9c00e7",
+    "reports/p25_validation_split/holdout_intervals.csv": "35eecd9bea00bf42b7be6e7723c26c21994fa367d22687ff9fa3fc191dda6b31",
+    "reports/p25_validation_split/extensions_periods.csv": "5f5a43d5651e40c2aa23913d076233ccd654e261e0710ec0f767929954b7a75e",
+    "reports/p25_validation_split/extensions_selection.json": "0754f313b72a24fe2f0dc95533d4de8aeb0466ec91eac37b16c64e44b69bcf3b",
+    "reports/p25_validation_split/extensions_protocol.json": "b8526c31913c6c25f918fca16a3420fef7eab095e95d654bf6f929410eba8795",
+    "reports/p25_validation_split/extensions_validation_candidates.csv": "813526a8d69745ee3b4edbc88fae0eae4ec9b5bedff0e989c2a65051e5b25d52",
+    "reports/p25_validation_split/extensions_findings.md": "d5f397fabba3ca9cc4ffe260c9a03c6cb1c8d98a60fb5db77cdd8bbe0119a3ff",
+    "reports/p25_validation_split/extensions_bundle_manifest.json": "cd1c5055872b6ece658b135e434b28da67a4135a21c9257cd60109e9192ec355",
+    "reports/p25_validation_split/extensions_sharpes.csv": "0bb9206bf86c31405a0723c6800fe4dde30d6e55a54d52644833242a47b2d640",
+    "scripts/export_research_docx.py": "1de67eec89c9eabecc948f3d0efb717c1c62fa6f01556c2ea57689fe4f3716ff"
   },
-  "main_order": [
-    "Introduction",
-    "Related Work",
-    "Data and Backtesting Framework",
-    "Put Pair Strategy",
-    "ATM Straddle Strategy",
-    "Capital Allocation with Fitted Q-Learning",
-    "Discussion and Conclusion"
+  "charts": {
+    "research_map": {
+      "caption": "The two main decisions: identify a relative-price opportunity, then choose exposure. Management and portfolio allocation are tested separately.",
+      "sources": [
+        "config/p25_submission.json"
+      ]
+    },
+    "original_paper": {
+      "caption": "Mean daily Sharpe across the motivating paper’s ten equity pairs. Their daily metric and equity setup differ from our annualized options results; the values should not be compared directly.",
+      "sources": [
+        "Advanced Statistical Arbitrage with Reinforcement Learning.pdf"
+      ]
+    },
+    "workflow": {
+      "caption": "A proposal uses the signal-date information and contract identities. Subsequent fills, stock hedges and settlement determine the actual profit.",
+      "sources": [
+        "config/p25_submission.json"
+      ]
+    },
+    "signal_example": {
+      "caption": "AMD minus NVDA put IV, 2019, with boundaries calculated from prior observations. Green markers show entries from an earlier policy configuration in the following session, as an illustration of the signal. Gaps indicate unavailable quotes.",
+      "sources": [
+        "slides/chart_data/example_amd_nvda_iv_spread_daily.csv",
+        "slides/chart_data/example_amd_nvda_proposals_and_entries.csv"
+      ],
+      "plotted_data": "figure_data/signal_example.csv"
+    },
+    "feature_ablations": {
+      "caption": "2018–2021 validation Sharpe for feature additions at the 18-month baseline. These archived scores use the $345 million research account; final funded evaluation uses $10 million.",
+      "sources": [
+        "reports/p25_validation_split/validation_candidates.csv"
+      ],
+      "plotted_data": "figure_data/feature_ablations.csv"
+    },
+    "allocation_model": {
+      "caption": "The monthly fit groups current conditions and searches for a size assignment with a better combined historical Sharpe. Only completed outcomes enter training.",
+      "sources": [
+        "config/p25_submission.json"
+      ]
+    },
+    "participation_capital": {
+      "caption": "Identical screened proposals and $10 million funded accounts. Learned sizing has the highest excess Sharpe in both periods; evaluation profit includes carried inventory and differs with admission.",
+      "sources": [
+        "reports/p25_validation_split/periods.csv"
+      ],
+      "plotted_data": "figure_data/participation_capital.csv"
+    },
+    "cash_relative_wealth": {
+      "caption": "2022–2025 screened policies at $10 million, rebased at the preceding close. Growth is NAV relative to the continuing cash benchmark; carried inventory contributes to profits.",
+      "sources": [
+        "reports/p25_validation_split/holdout_paths.csv"
+      ],
+      "plotted_data": "figure_data/cash_relative_wealth.csv"
+    },
+    "annual_results": {
+      "caption": "Validation-selected screened policy, 2022–2025: total account returns, return above cash in percentage points, and annualized excess Sharpe. 2025 is partial through 29 August.",
+      "sources": [
+        "reports/p25_validation_split/annual.csv"
+      ],
+      "plotted_data": "figure_data/annual_results.csv"
+    },
+    "portfolio_extension": {
+      "caption": "Proposed next study: freeze independently validated signal proposals, then learn allocation using their interaction with the existing portfolio.",
+      "sources": [
+        "config/p25_validation_2018_2021.json"
+      ]
+    }
+  },
+  "layout_checks": [
+    {
+      "page": 1,
+      "bottom_content_points": 117.30000000000001,
+      "overflow": false
+    },
+    {
+      "page": 2,
+      "bottom_content_points": 97.59999999999997,
+      "overflow": false
+    },
+    {
+      "page": 3,
+      "bottom_content_points": 152.29999999999995,
+      "overflow": false
+    },
+    {
+      "page": 4,
+      "bottom_content_points": 69.54999999999995,
+      "overflow": false
+    },
+    {
+      "page": 5,
+      "bottom_content_points": 104.19999999999993,
+      "overflow": false
+    },
+    {
+      "page": 6,
+      "bottom_content_points": 56.049999999999955,
+      "overflow": false
+    },
+    {
+      "page": 7,
+      "bottom_content_points": 59.549999999999955,
+      "overflow": false
+    },
+    {
+      "page": 8,
+      "bottom_content_points": 113.50000000000006,
+      "overflow": false
+    },
+    {
+      "page": 9,
+      "bottom_content_points": 57.59999999999991,
+      "overflow": false
+    },
+    {
+      "page": 10,
+      "bottom_content_points": 65.29999999999995,
+      "overflow": false
+    }
   ],
-  "appendix_order": [
-    "Contract Selection, Features, and Risk Constraints",
-    "Model Estimation and Selection",
-    "Supplementary Results and Diagnostics",
-    "Straddle Attribution and Reconciliation"
-  ],
-  "results_location": "Results are subsections 4.4, 5.4 and 6.4; joint allocation results are nested under Section 6."
+  "models_or_backtests_rerun": false,
+  "slides_modified": false,
+  "figure_numbers": {
+    "research_map": 1,
+    "original_paper": 2,
+    "workflow": 3,
+    "signal_example": 4,
+    "feature_ablations": 5,
+    "allocation_model": 6,
+    "participation_capital": 7,
+    "cash_relative_wealth": 8,
+    "annual_results": 9,
+    "portfolio_extension": 10
+  },
+  "protected_files": {
+    "slides/230ZB_volatility_spreads.pptx": "f85d2462a7904eeddad40c71990409d284902e78953d9ea1d1d26d9a2810c478",
+    "slides/230ZB_volatility_spreads (1).pptx": "257317fa6a034a64f206df64ed93801ffd5f894ba6a7ee5af199b0ea73d994bf",
+    "reports/p25_capital_sensitivity/comparison.csv": "3aabf0133886aff15f0bfeadb54da455d73168c840f614b9572003f57d914332",
+    "reports/p25_reversion_q/comparison.csv": "d6e52f88c726a455f617e080d7d3294e5b1e6dfdbc144b249f153b50ca8676a2"
+  },
+  "supplemental_results": [
+    "reports/p25_feature_search/comparison.csv",
+    "reports/p25_recency/comparison.csv",
+    "reports/p25_capital_sensitivity/comparison.csv",
+    "reports/p25_maturity_matched/comparison.csv",
+    "reports/p25_short_management/comparison.csv",
+    "reports/long_tenor_fitted_q/comparison.csv",
+    "reports/native_year_entry/comparison.csv",
+    "reports/p25_reversion_q/comparison.csv",
+    "reports/p25_reversion_q/annual.csv",
+    "reports/p25_reversion_q/findings.txt",
+    "reports/native_year_entry/replacement_blend/walk_forward_24M/comparison.csv",
+    "reports/native_year_entry/replacement_blend/walk_forward_24M_30D_180D/comparison.csv",
+    "reports/long_tenor_search_summary/core_comparison.csv",
+    "reports/year_cheap_vega/comparison.csv",
+    "reports/p25_memory_ablation/comparison.csv",
+    "reports/p25_ungated_search/comparison.csv",
+    "reports/p25_ungated_search/annual.csv",
+    "reports/p25_ungated_search/sharpe_change_intervals.csv",
+    "reports/p25_ungated_search/findings.md",
+    "reports/p25_validation_split/reproduction.txt",
+    "reports/p25_validation_split/extensions_validation_candidates.csv",
+    "reports/p25_validation_split/extensions_periods.csv",
+    "reports/p25_validation_split/holdout_paths.csv",
+    "reports/p25_validation_split/extensions_findings.md",
+    "reports/p25_validation_split/extensions_bundle_manifest.json",
+    "reports/p25_validation_split/extensions_sharpes.csv",
+    "reports/p25_validation_split/annual.csv",
+    "reports/p25_validation_split/selection.json",
+    "reports/p25_validation_split/extensions_selection.json",
+    "reports/p25_validation_split/protocol.json",
+    "reports/p25_validation_split/findings.md",
+    "reports/p25_validation_split/candidate_periods.csv",
+    "reports/p25_validation_split/admission.csv",
+    "reports/p25_validation_split/extensions_protocol.json",
+    "reports/p25_validation_split/periods.csv",
+    "reports/p25_validation_split/evaluation.json",
+    "reports/p25_validation_split/bundle_manifest.json",
+    "reports/p25_validation_split/holdout_intervals.csv",
+    "reports/p25_validation_split/validation_candidates.csv"
+  ]
 }
